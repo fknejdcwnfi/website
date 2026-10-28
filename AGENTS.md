@@ -97,7 +97,13 @@ rendering until the layer plan and the PixiJS decision (ADR-009) are accepted.
 - One PR, one concern.
 - Include commands run, screenshots (or why they were impossible), and known limitations.
 - Update `CHANGELOG.md` and affected docs.
-- Never merge your own PR; wait for the owner.
+- The owner authorized automatic merging on 2026-10-28 for this and future tasks.
+  Once required CI and change-relevant validation pass and no merge blockers
+  remain, merge the task PR and verify the resulting Pages deployment without
+  requesting routine confirmation. Honor newer task-specific instructions.
+  This supersedes older merge-only restrictions in task examples; it does not
+  authorize skipping checks, bypassing branch protection, expanding task scope,
+  or accepting unresolved asset and architecture decisions.
 - Merging to `main` triggers the Pages deployment; verify the Actions run.
 
 If blocked, stop and report:

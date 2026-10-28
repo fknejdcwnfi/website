@@ -200,7 +200,7 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 - 更新 `README.md`、`CHANGELOG.md`、`docs/03`、`docs/04`、`docs/07`。
 - 產出 before／after 截圖與短錄影（可放 `docs/assets/`，單檔 < 2 MB）。
 - 若變更架構，補 ADR。
-- 開 PR，等待人類复核。
+- 開 PR；必要 CI 與本次變更相關驗證通過、無阻擋審查／衝突／未解回歸後自動合併，並確認 Pages 部署結果。
 - 合併到 `main` 後確認 GitHub Actions 部署成功；代理不要自行執行 `npm run deploy` 備援。
 
 **完成條件**：文件與程式碼一致；PR 描述包含驗收證據。
@@ -253,6 +253,8 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 
 ## 7. PR 與提交
 
+擁有者於 2026-10-28 授權目前與後續任務採用「驗證通過後自動合併」，不再逐次詢問。此授權取代舊任務中的單純禁止自行合併限制；不代表可跳過必要檢查、繞過分支保護、自動進入下一階段，或自行接受素材／架構待決事項。較新的明確任務指示優先。
+
 - 一個 PR 一個關注點。
 - 標題用 Conventional Commits：`feat: add eyelid layer`, `fix: keep hair roots fixed`。
 - 描述包含：
@@ -303,7 +305,8 @@ Hard rules:
 Before coding: restate the acceptance criteria for the chosen stage.
 After coding: run the commands in §6, attach screenshots or explain why visual
 verification was not possible, and list remaining limitations.
-Open a PR; do not merge.
+Open a PR. Once required CI and change-relevant validation pass and no merge
+blockers remain, merge it automatically and verify the Pages deployment.
 ```
 
 ---
