@@ -189,6 +189,9 @@ VITE_BASE=/ npm run build
 
 ## 給 Codex Cloud 的入口
 
+倉庫根目錄的 [`AGENTS.md`](AGENTS.md) 會在 Codex 連接時作為代理規則自動載入；
+它整理了必讀順序、硬性規則、指令與目前狀態。
+
 在 Codex Cloud 連接此倉庫後，請先讓它讀：
 
 1. [`docs/06-codex-handoff.md`](docs/06-codex-handoff.md)

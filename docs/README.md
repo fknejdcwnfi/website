@@ -23,6 +23,7 @@
 
 ### 我是 Codex Cloud／自動化代理
 
+0. 根目錄 [`AGENTS.md`](../AGENTS.md) — 代理會自動載入的速查規則
 1. [06 Codex 交接](06-codex-handoff.md) — **先讀這份**
 2. [01 專案章程](01-project-charter.md)
 3. [03 動畫規格](03-animation-spec.md)

@@ -11,6 +11,7 @@
 
 ## 0. 先讀這些（按順序）
 
+0. 根目錄 [`AGENTS.md`](../AGENTS.md) — Codex 連接時自動載入的速查規則
 1. 本文件
 2. [01 專案章程](01-project-charter.md) — 範圍與非目標
 3. [02 素材清冊](02-asset-inventory.md) — 哪些素材不可動
@@ -265,6 +266,7 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 You are continuing the "Vermouth Character Stage" project.
 
 Read these files first, in order:
+0. AGENTS.md
 1. docs/06-codex-handoff.md
 2. docs/01-project-charter.md
 3. docs/02-asset-inventory.md
