@@ -50,6 +50,7 @@
 
 - `npm ci`、`npm run typecheck`、`npm run build`、`npm run assets:check` 通過。
 - `npm run deploy` 成功將 production build 發佈到 `gh-pages`。
+- GitHub Pages 回傳 200；production 的 `?pose=5` 與 `?pose=10` 幀比對通過。
 - production build 的資源路徑為 `/website/`。
 - 以 headless Chromium 截圖驗證桌面 1200×1000 與手機 390×844（DPR 2）。
 - `?pose=5` 凍結與 `?debug=1` 狀態顯示正常。

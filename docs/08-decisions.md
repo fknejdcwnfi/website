@@ -129,6 +129,8 @@ Stage 1 可以使用**短暫**交叉淡入作為預覽，但必須：
 - **日期**：2026-10-28
 - **決策者**：專案擁有者
 
+> 本 ADR 保留當時的決策紀錄。實際部署已改為 `gh-pages` 分支，見 [ADR-011](#adr-011--github-pages-改用-gh-pages-分支部署)。
+
 **背景**
 擁有者要求先部署到 GitHub，後續用 Codex Cloud 連接編輯。
 倉庫名稱是 `website`，GitHub Pages 專案頁會位於 `/website/`。
