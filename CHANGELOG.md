@@ -42,6 +42,7 @@
 - 將原本扁平的 `vermouth_10frame_animation_refined/` 重構為 `assets/source/`、`public/assets/`、`src/`、`docs/`、`scripts/`。
 - 原始 PNG 不再直接提供給瀏覽器；改由 WebP 衍生檔服務（約 16.9 MB → 1.4 MB）。
 - 原始 prompt 文件移入 `docs/reference/`，凍結保存。
+- GitHub Pages 由 `gh-pages` 分支切換為 GitHub Actions（`build_type: workflow`）；`gh-pages` 保留為手動備援。
 
 ### Removed
 
@@ -51,7 +52,9 @@
 ### Verified
 
 - `npm ci`、`npm run typecheck`、`npm run build`、`npm run assets:check` 通過。
-- `npm run deploy` 成功將 production build 發佈到 `gh-pages`。
+- 推送 `main` 後 `Deploy to GitHub Pages` Actions 成功（run `40651840016`）。
+- Pages build type 為 `workflow`；網站與 `frame_01.webp` 回傳 200。
+- `npm run deploy` 曾成功將 production build 發佈到 `gh-pages`（目前為備援）。
 - GitHub Pages 回傳 200；production 的 `?pose=5` 與 `?pose=10` 幀比對通過。
 - production build 的資源路徑為 `/website/`。
 - 以 headless Chromium 截圖驗證桌面 1200×1000 與手機 390×844（DPR 2）。

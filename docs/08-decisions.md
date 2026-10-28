@@ -365,8 +365,10 @@ ADR-011 因本地憑證缺少 `workflow` scope，改用 `gh-pages` 分支部署�
 **決策**
 
 1. 將 `deploy/github-actions/deploy.yml` 與 `ci.yml` 移回 `.github/workflows/`。
-2. `deploy.yml` 在 `actions/configure-pages@v5` 設定 `enablement: true`，
-   首次執行時自動把 Pages build type 設為 GitHub Actions。
+2. `deploy.yml` 在 `actions/configure-pages@v5` 設定 `enablement: true`。
+   注意：若 Pages 已經以 legacy branch 啟用，`enablement` 不會自動切換；
+   需另外將 Pages Source 設為 GitHub Actions（本次以
+   `PUT /repos/{owner}/{repo}/pages` 帶 `{"build_type":"workflow"}` 完成）。
 3. GitHub Pages Source 設為 **GitHub Actions**。
 4. 保留 `scripts/deploy_gh_pages.sh`（`npm run deploy`）作為手動備援。
 5. README、docs/01、docs/04、docs/05、docs/06、docs/07、AGENTS.md、CHANGELOG 同步更新。

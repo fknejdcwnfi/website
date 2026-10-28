@@ -147,8 +147,11 @@ PY
 
 1. 進入 GitHub 倉庫 → **Settings** → **Pages**。
 2. **Build and deployment → Source** 選擇 **GitHub Actions**。
-3. workflow 內的 `actions/configure-pages@v5` 設定了 `enablement: true`，
-   首次執行時會啟用 Pages 並把 build type 設為 GitHub Actions。
+3. workflow 內的 `actions/configure-pages@v5` 設定了 `enablement: true`。
+   若 Pages 尚未啟用，它會啟用並使用 GitHub Actions；但若 Pages 已經是
+   **legacy branch**，`enablement` 不會自動切換。此時需在
+   **Settings → Pages → Source** 選擇 **GitHub Actions**，或呼叫
+   `PUT /repos/{owner}/{repo}/pages` 並帶 `{"build_type":"workflow"}`。
 
 之後每次推送 `main`：
 
