@@ -199,3 +199,63 @@ body {
     animation: none;
   }
 }
+
+/* The logical 192² pixel grid is independent of viewport size and DPR. */
+.page--voxel {
+  --bg-glow: #162d3a;
+  --halo-blue: #305d7030;
+  --halo-gold: #c3b28a12;
+}
+
+.page--voxel[data-theme='emerald'] {
+  --bg-glow: #16372a;
+  --bg-mid: #091c16;
+  --halo-blue: #51845b30;
+}
+
+.page--voxel[data-theme='amethyst'] {
+  --bg-glow: #30223e;
+  --bg-mid: #160f21;
+  --halo-blue: #9368ba30;
+}
+
+.page--voxel::before {
+  inset: 0;
+  opacity: 0.16;
+  mix-blend-mode: normal;
+  background-image:
+    linear-gradient(#a6d8e208 1px, transparent 1px),
+    linear-gradient(90deg, #a6d8e208 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.stage-shell--voxel {
+  animation: none;
+}
+
+.stage--voxel {
+  width: min(88vmin, 768px);
+  border-radius: 0;
+  background: #080e1c;
+  box-shadow: 0 0 0 1px #52778940, 0 0 0 5px #09111c, 0 0 0 6px #42617120, 0 30px 100px #0009;
+}
+
+.stage--voxel::after {
+  display: none;
+}
+
+.stage--voxel .stage__canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.stage-shell--voxel .hud {
+  border-radius: 0;
+  backdrop-filter: none;
+}
+
+@media (max-width: 520px) {
+  .stage--voxel {
+    width: min(92vmin, 768px);
+  }
+}

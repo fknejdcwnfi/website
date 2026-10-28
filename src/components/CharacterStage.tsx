@@ -2,11 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { KEY_POSES } from '../animation/keyPoses'
 import { KeyPosePlayer } from '../animation/player'
 import type { PlayerSnapshot } from '../animation/player'
-
-type StageOptions = {
-  debug: boolean
-  frozenPose: number | null
-}
+import { VoxelPlayer } from '../animation/voxelPlayer'
+import { readStageOptions } from '../animation/stageOptions'
 
 /**
  * Debug switches intentionally live in the URL rather than as on-screen UI,
@@ -15,26 +12,21 @@ type StageOptions = {
  *   ?debug=1   show a small state readout
  *   ?pose=1-10 freeze one key pose (useful for visual QA)
  */
-const readOptions = (): StageOptions => {
-  const params = new URLSearchParams(window.location.search)
-  const requested = Number(params.get('pose'))
-  const frozenPose =
-    Number.isInteger(requested) && requested >= 1 && requested <= KEY_POSES.length
-      ? requested
-      : null
-  return { debug: params.get('debug') === '1', frozenPose }
-}
-
 const poseLabel = (index: number): string => String(index).padStart(2, '0')
 
 export default function CharacterStage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [snapshot, setSnapshot] = useState<PlayerSnapshot | null>(null)
-  const options = useMemo(readOptions, [])
+  const options = useMemo(() => readStageOptions(window.location.search), [])
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+
+    if (options.style === 'voxel') {
+      const player = new VoxelPlayer(canvas, options, options.debug ? setSnapshot : undefined)
+      return () => player.destroy()
+    }
 
     const player = new KeyPosePlayer(canvas, {
       onSnapshot: options.debug ? setSnapshot : undefined,
@@ -52,20 +44,21 @@ export default function CharacterStage() {
       motion.removeEventListener('change', onMotionChange)
       player.destroy()
     }
-  }, [options.debug, options.frozenPose])
+  }, [options])
 
   return (
-    <div className="stage-shell">
+    <div className={`stage-shell stage-shell--${options.style}`}>
       <div
-        className="stage"
-        style={{ backgroundImage: `url("${KEY_POSES[0]!.src}")` }}
+        className={`stage stage--${options.style}`}
+        style={options.style === 'legacy' ? { backgroundImage: `url("${KEY_POSES[0]!.src}")` } : undefined}
       >
         <canvas
           ref={canvasRef}
           className="stage__canvas"
           data-frozen={options.frozenPose ?? 'none'}
+          data-style={options.style}
           role="img"
-          aria-label="貝爾摩德：長髮隨風流動、眨眼後回到原位的角色動畫。"
+          aria-label={options.style === 'voxel' ? 'Minecraft 風格像素貝爾摩德：白金長髮、藍眼睛與藍寶石飾物，髮絲隨風、自然眨眼的方塊肖像。' : '貝爾摩德原始關鍵姿態交叉淡入預覽。'}
         />
       </div>
 

@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "public" / "assets" / "manifest.json"
 FRAME_DIR = ROOT / "assets" / "source" / "frames"
 REQUIRED_PUBLIC = (
+    "og-pixel.png",
     "og-image.webp",
     "favicon.svg",
     "robots.txt",
