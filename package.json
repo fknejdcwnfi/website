@@ -1,0 +1,31 @@
+{
+  "name": "vermouth-character-stage",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A single-character animation stage — the scaffold of fknejdcwnfi's personal website.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "deploy": "bash scripts/deploy_gh_pages.sh",
+    "assets": "python3 scripts/optimize_assets.py",
+    "assets:check": "python3 scripts/optimize_assets.py --check"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

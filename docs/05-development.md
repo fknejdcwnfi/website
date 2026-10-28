@@ -1,0 +1,278 @@
+# 05 · 開發指南
+
+- **狀態**：Stage 1 可執行、可部署
+- **最後更新**：2026-10-28
+- **適用對象**：本機開發者、Codex Cloud、維護者
+
+---
+
+## 1. 環境需求
+
+| 工具 | 版本 | 用途 | 備註 |
+| --- | --- | --- | --- |
+| Node.js | **22.12+**（建議 24） | Vite 8 / React 19 | 見 `.nvmrc` |
+| npm | 10+ | 依賴與腳本 | 本專案以 npm 12 驗證 |
+| Python | 3.10+ | 素材管線 | 只在重建圖片時需要 |
+| Pillow | 10+ | WebP 輸出 | `python3 -m pip install Pillow` |
+| Git | 2.40+ | 版本控制 | |
+
+本機驗證環境：Ubuntu on WSL2、Node 24.20.0、npm 12.1.0、Python 3.14.4。
+
+---
+
+## 2. 第一次啟動
+
+```bash
+git clone https://github.com/fknejdcwnfi/website.git
+cd website
+nvm use            # 若使用 nvm；否則確認 node -v >= 22.12
+npm ci             # 有 lockfile 時優先使用
+npm run dev
+```
+
+開啟終端機顯示的網址，預設是 <http://localhost:5173/>。
+
+> 開發模式的 `base` 是 `/`；production build 預設是 `/website/`。
+> 因此 `npm run dev` 與 `npm run preview` 的網址不同，這是刻意設計，不是 bug。
+
+---
+
+## 3. 指令
+
+| 指令 | 實際執行 | 使用時機 |
+| --- | --- | --- |
+| `npm run dev` | `vite` | 日常開發，熱更新 |
+| `npm run build` | `tsc --noEmit && vite build` | 送出前、CI |
+| `npm run preview` | `vite preview` | 檢查 production 產物 |
+| `npm run typecheck` | `tsc --noEmit` | 只檢查型別 |
+| `npm run deploy` | `bash scripts/deploy_gh_pages.sh` | 建置並發佈到 `gh-pages` |
+| `npm run assets` | `python3 scripts/optimize_assets.py` | 原始素材變更後 |
+| `npm run assets:check` | 同上加 `--check` | 檢查衍生檔是否齊全 |
+
+### 送出前的標準流程
+
+```bash
+npm ci
+npm run typecheck
+npm run build
+npm run assets:check
+```
+
+四項都通過，才進入視覺檢查（[QA 檢查表](07-qa-checklist.md)）。
+
+---
+
+## 4. 專案佈局
+
+```text
+src/
+├─ animation/
+│  ├─ keyPoses.ts        # 時間軸資料；改動前先讀 03 規格
+│  └─ player.ts          # Canvas 2D 播放器；Stage 3 會替換
+├─ components/
+│  └─ CharacterStage.tsx # 舞台、HUD、URL 參數
+├─ App.tsx               # 頁面骨架
+├─ main.tsx              # React 進入點
+└─ styles.css            # 全域樣式與舞台視覺
+```
+
+| 你想改… | 先看 | 再改 |
+| --- | --- | --- |
+| 動畫時間或風力 | [03 規格](03-animation-spec.md) | `src/animation/keyPoses.ts` |
+| 播放邏輯、淡入長度 | [04 架構](04-architecture.md) | `src/animation/player.ts` |
+| 舞台大小、光暈、暗角 | 本文件 §7 | `src/styles.css` |
+| 除錯參數 | [03 規格 §9](03-animation-spec.md#9-除錯與量測) | `CharacterStage.tsx` |
+| 素材管線 | [02 清冊](02-asset-inventory.md) | `scripts/optimize_assets.py` |
+| 部署 | 本文件 §6 | `scripts/deploy_gh_pages.sh` |
+
+---
+
+## 5. 除錯
+
+### 5.1 URL 參數
+
+| 參數 | 範例 | 效果 |
+| --- | --- | --- |
+| `debug` | `?debug=1` | 顯示時間、姿態、混合、風力、眼睛狀態 |
+| `pose` | `?pose=5` | 凍結在第 5 幀 |
+| 兩者 | `?debug=1&pose=5` | 凍結並顯示數值 |
+
+`pose` 超出 1–10 會被忽略，回到正常播放。
+
+### 5.2 減少動態
+
+- Chrome DevTools → **Rendering** → **Emulate CSS media feature prefers-reduced-motion: reduce**。
+- 或使用 Chrome 啟動參數 `--force-prefers-reduced-motion`。
+- 預期：畫面停在與第 1 幀相同的靜止狀態；`?debug=1` 仍可運作。
+
+### 5.3 常見檢查
+
+```bash
+# 檢查 build 產物的 base path
+grep -o '/website/[^"]*' dist/index.html
+
+# 檢查衍生檔是否齊全
+npm run assets:check
+
+# 檢查原始與衍生檔的對應
+python3 - <<'PY'
+import json
+from pathlib import Path
+m = json.loads(Path('public/assets/manifest.json').read_text())
+for f in m['frames']:
+    print(f['source'], '->', f['file'], f['width'], f['height'])
+PY
+```
+
+### 5.4 效能錄製
+
+1. 開啟 production preview（`npm run preview`）。
+2. DevTools → Performance → 錄製 5 秒完整循環。
+3. 檢查：
+   - 無 > 50 ms 的長任務。
+   - 幀率 ≥ 55 fps。
+   - 沒有反覆的圖片解碼。
+4. 切換 4× CPU throttling 再測一次。
+
+---
+
+## 6. 部署
+
+### 6.1 GitHub Pages（目前方案：gh-pages 分支）
+
+目前不使用 GitHub Actions，而是把建置產物發佈到 `gh-pages` 分支。
+這樣只需要 token 的 `repo` scope，不需要 `workflow` scope。
+
+```bash
+npm run deploy
+```
+
+指令行為（`scripts/deploy_gh_pages.sh`）：
+
+1. 執行 `npm run build`。
+2. 將 `dist/` 複製到暫存目錄，加入 `.nojekyll`。
+3. 在暫存目錄建立 `gh-pages` 分支並提交。
+4. 強制推送到 `origin` 的 `gh-pages` 分支。
+
+一次性設定：
+
+1. 進入 GitHub 倉庫 → **Settings** → **Pages**。
+2. **Build and deployment → Source** 選擇 **Deploy from a branch**。
+3. Branch 選 **`gh-pages`**，資料夾選 **`/ (root)`**。
+
+之後每次更新：
+
+```text
+修改 → npm run build（或直接 npm run deploy）→ npm run deploy → Pages 重建
+```
+
+網址：<https://fknejdcwnfi.github.io/website/>
+
+相關檔案：
+
+- `scripts/deploy_gh_pages.sh`：建置與發佈。
+- `vite.config.ts`：production base path。
+- `deploy/github-actions/`：可選的 Actions workflow（需 `workflow` scope，尚未啟用）。
+
+> `npm run deploy` 會 `git push --force` 到 `gh-pages`。這是部署分支，不要在上面直接編輯。
+
+### 6.1.1 選用：GitHub Actions
+
+若之後為 token 加上 `workflow` scope，可改用自動部署：
+
+1. 依 [`deploy/github-actions/README.md`](../deploy/github-actions/README.md) 把 workflow 移回 `.github/workflows/`。
+2. 將 Pages Source 改為 **GitHub Actions**。
+3. 推送 `main` 即自動建置與部署。
+
+不要同時保留兩種部署方式，否則 `gh-pages` 與 Actions 會互相覆蓋。
+
+### 6.2 base path
+
+| 情境 | `base` | 設定方式 |
+| --- | --- | --- |
+| GitHub Pages 專案頁 | `/website/` | 預設（production） |
+| 使用者／組織根頁 | `/` | `VITE_BASE=/ npm run build` |
+| 自訂網域 | `/` | 同上 |
+| 子目錄部署 | `/子目錄/` | `VITE_BASE=/子目錄/ npm run build` |
+
+`og:image` 已設為絕對 URL（`https://fknejdcwnfi.github.io/website/og-image.webp`），
+確保社交平台能正確預覽。若改用自訂網域或搬到其他平台，請同步更新 `index.html` 的 `og:url` 與 `og:image`。
+
+### 6.3 快取
+
+Vite 會為 JS／CSS 產生帶 hash 的檔名，可長期快取。
+`public/assets/frames/*.webp` 沒有 hash，更新圖片後若 CDN／瀏覽器快取未失效，請重新命名檔案或調整快取標頭。
+GitHub Pages 的快取時間較短，通常不需要手動處理。
+
+### 6.4 替代平台
+
+| 平台 | 設定 |
+| --- | --- |
+| Cloudflare Pages | Build command `npm run build`；Output `dist`；`VITE_BASE=/` |
+| Vercel | Framework preset Vite；Output `dist`；`VITE_BASE=/` |
+| Netlify | Build `npm run build`；Publish `dist`；`VITE_BASE=/` |
+
+---
+
+## 7. 樣式與設計約定
+
+- 設計是**深色單一舞台**：背景近黑藍，角色是唯一亮點。
+- 舞台寬度：`min(92vmin, 860px)`；手機為 `min(94vmin, 860px)`。
+- 圓角、陰影、光暈都集中在 `.stage` 與 `.aura`，不要分散到元件。
+- 不要加入可見文字、按鈕、導航或 footer。
+- 顏色以 CSS 變數定義在 `:root`；新增顏色先加變數。
+- 動畫尊重 `prefers-reduced-motion`；新增 CSS 動畫時要一併處理。
+- 不使用外部字型或 CDN，避免額外請求與授權問題。
+
+---
+
+## 8. 程式碼約定
+
+- TypeScript `strict`，不使用 `any`；必要時用 `unknown` + 型別收窄。
+- 註解與識別字用英文；使用者可見文件用繁體中文。
+- 每個動畫模組只負責一件事；不要讓元件直接操作 canvas。
+- 新增 URL 參數時，同步更新 [03 規格 §9](03-animation-spec.md#9-除錯與量測) 與本文件。
+- 時間相關計算一律用毫秒與 `performance.now()`；不要用 `Date.now()`。
+- 迴圈中的 delta 要 clamp，避免分頁恢復時大跳。
+- 清理資源：`cancelAnimationFrame`、`disconnect`、`removeEventListener` 必須成對。
+- 不要引入新依賴而沒有在 PR 說明理由與體積影響。
+
+---
+
+## 9. Git 與提交
+
+- 分支：`main` 是原始碼與可部署內容的來源；`gh-pages` 是自動產生的部署分支，不要直接編輯。
+- 提交訊息建議 Conventional Commits：
+  - `feat: add layered hair rig`
+  - `fix: keep loop seamless after tab restore`
+  - `docs: document wind parameters`
+- 每個 PR 只做一件事；視覺變更附 before／after 截圖或錄影。
+- 不要提交 `node_modules/`、`dist/`、`*.tsbuildinfo`、暫存截圖。
+- 不要修改 `assets/source/**`；需要新素材時依 [02 清冊 §8](02-asset-inventory.md#8-若要新增素材) 登記。
+
+---
+
+## 10. 疑難排解
+
+| 症狀 | 原因 | 解法 |
+| --- | --- | --- |
+| `npm run dev` 開啟是空白 | 看 console；可能是 JS 錯誤或 #root 缺失 | 確認 `index.html` 有 `<div id="root">` |
+| 圖片 404 | base path 不一致 | dev 用 `/`；preview 用 `/website/` |
+| 部署後樣式或圖片 404 | Pages base 未設為 `/website/` | 檢查 `vite.config.ts` 與 `VITE_BASE` |
+| `npm ci` 失敗 | Node 版本過舊或 lockfile 不一致 | 使用 Node 22.12+；必要時重新 `npm install` |
+| `tsc` 抱怨 `import.meta.env` | 缺少 `vite/client` 型別 | 確認 `tsconfig.json` 的 `types` |
+| 素材腳本失敗 | 缺少 Pillow 或張數不是 10 | 安裝 Pillow；確認 `assets/source/frames/` |
+| 動畫在背景分頁停止 | 這是設計 | `visibilitychange` 會暫停，回來續播 |
+| 手機上舞台超出畫面 | 瀏覽器網址列／安全區 | 已使用 `dvh` 與 safe-area；確認沒有自訂 CSS 覆蓋 |
+| HUD 數值不更新 | 截圖或 headless 環境時間未前進 | 在真實瀏覽器開啟；或使用 `?pose=` 凍結 |
+| Pages 部署失敗 | Pages 未啟用、分支設定錯誤或 token 權限不足 | Settings → Pages → Source: Deploy from a branch → `gh-pages` / root |
+
+---
+
+## 11. 延伸閱讀
+
+- [03 動畫規格](03-animation-spec.md)：時間軸與驗收
+- [04 架構](04-architecture.md)：Stage 2–4 的設計
+- [06 Codex 交接](06-codex-handoff.md)：代理工作流程
+- [07 QA 檢查表](07-qa-checklist.md)：送出前檢查
+- [08 決策紀錄](08-decisions.md)：技術選擇的理由
