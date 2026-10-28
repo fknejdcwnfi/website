@@ -50,8 +50,8 @@ KeyPosePlayer
 | `src/styles.css` | 舞台尺寸、光暈、暗角、HUD、響應式 | 保留 |
 | `scripts/optimize_assets.py` | 原始素材 → WebP + manifest + OG 圖 | 保留 |
 | `public/assets/frames/*.webp` | 衍生幀 | 可重建 |
-| `scripts/deploy_gh_pages.sh` | 建置並發佈到 `gh-pages` | 保留 |
-| `deploy/github-actions/*.yml` | 可選的 Actions workflow（目前未啟用） | 保留 |
+| `scripts/deploy_gh_pages.sh` | 手動備援：建置並發佈到 `gh-pages` | 保留 |
+| `.github/workflows/*.yml` | CI 與 GitHub Pages 自動部署（主要） | 保留 |
 
 ## 1.3 執行流程
 

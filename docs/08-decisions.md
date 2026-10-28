@@ -125,11 +125,11 @@ Stage 1 可以使用**短暫**交叉淡入作為預覽，但必須：
 
 ## ADR-005 · 部署到 GitHub Pages，production base 為 `/website/`
 
-- **狀態**：已接受（部署機制由 ADR-011 取代）
+- **狀態**：已接受（部署機制經 ADR-011、ADR-012 演進）
 - **日期**：2026-10-28
 - **決策者**：專案擁有者
 
-> 本 ADR 保留當時的決策紀錄。實際部署已改為 `gh-pages` 分支，見 [ADR-011](#adr-011--github-pages-改用-gh-pages-分支部署)。
+> 本 ADR 保留當時的決策紀錄。目前由 GitHub Actions 自動部署，`gh-pages` 僅為手動備援；見 [ADR-012](#adr-012-在取得-workflow-權限後切回-github-actions-自動部署)。
 
 **背景**
 擁有者要求先部署到 GitHub，後續用 Codex Cloud 連接編輯。
@@ -299,10 +299,13 @@ Stage 3 需要分層、網格變形、風力 shader 與高效能合成。
 
 ## ADR-011 · GitHub Pages 改用 `gh-pages` 分支部署
 
-- **狀態**：已接受
+- **狀態**：已取代（由 ADR-012）
 - **日期**：2026-10-28
 - **決策者**：專案擁有者
 - **取代**：ADR-005 的「GitHub Actions」部署機制
+
+> 這是暫時性決策。擁有者後來提供具備 `workflow` scope 的憑證，已切回 GitHub Actions；
+> 見 [ADR-012](#adr-012-在取得-workflow-權限後切回-github-actions-自動部署)。以下保留當時紀錄。
 
 **背景**
 ADR-005 原本規劃使用 GitHub Actions 自動部署。實際推送時，GitHub 拒絕了
@@ -347,6 +350,44 @@ GitHub Pages 設定為 **Deploy from a branch → `gh-pages` / root**。
 
 ---
 
+## ADR-012 · 在取得 `workflow` 權限後切回 GitHub Actions 自動部署
+
+- **狀態**：已接受
+- **日期**：2026-10-28
+- **決策者**：專案擁有者
+- **取代**：ADR-011
+
+**背景**
+ADR-011 因本地憑證缺少 `workflow` scope，改用 `gh-pages` 分支部署。
+擁有者隨後更新了 GitHub 憑證，使其可以建立／更新 `.github/workflows/**`，
+並要求恢復「推送 `main` 即自動建置」的流程。
+
+**決策**
+
+1. 將 `deploy/github-actions/deploy.yml` 與 `ci.yml` 移回 `.github/workflows/`。
+2. `deploy.yml` 在 `actions/configure-pages@v5` 設定 `enablement: true`，
+   首次執行時自動把 Pages build type 設為 GitHub Actions。
+3. GitHub Pages Source 設為 **GitHub Actions**。
+4. 保留 `scripts/deploy_gh_pages.sh`（`npm run deploy`）作為手動備援。
+5. README、docs/01、docs/04、docs/05、docs/06、docs/07、AGENTS.md、CHANGELOG 同步更新。
+
+**理由**
+
+- 推送 `main` 即部署，符合「先部署再編輯」的長期流程。
+- PR 由 `ci.yml` 檢查，main 由 `deploy.yml` 發佈，責任清楚。
+- `gh-pages` 備援在 Actions 故障時仍可用，不增加日常成本。
+- 具備 `workflow` 權限後，GitHub 不再拒絕 workflow 檔案。
+
+**後果**
+
+- 推送 `main` 會自動觸發部署；不需要手動 `npm run deploy`。
+- 修改 `.github/workflows/**` 仍需要具備 `workflow` scope 的憑證；若換回受限 token，推送會被拒。
+- 不要同時使用 Actions 與 `gh-pages` 分支部署；若切到備援，必須同步改 Pages Source。
+- PR 的 `CI` workflow 成為合併前的必要檢查。
+- `gh-pages` 分支保留，但不再自動更新。
+
+---
+
 ## 索引
 
 | ADR | 主題 | 狀態 |
@@ -361,4 +402,5 @@ GitHub Pages 設定為 **Deploy from a branch → `gh-pages` / root**。
 | 008 | 暫不引入測試框架 | 已接受（暫定） |
 | 009 | PixiJS 為 Stage 3 提議 | 提議 |
 | 010 | 文件繁體中文、程式碼英文 | 已接受 |
-| 011 | GitHub Pages 改用 gh-pages 分支 | 已接受（取代 ADR-005 部署機制） |
+| 011 | GitHub Pages 改用 gh-pages 分支 | 已取代（由 ADR-012） |
+| 012 | 取得 workflow 權限後切回 Actions 自動部署 | 已接受 |

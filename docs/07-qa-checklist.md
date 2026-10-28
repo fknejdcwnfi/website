@@ -146,23 +146,26 @@ Stage 1 已知限制：交叉淡入可能造成短暫殘影；這是預期，不
 
 ## 8. 部署
 
-- [ ] `npm run deploy` 成功（未經擁有者同意則標 `N/A`）。
-- [ ] `gh-pages` 分支存在，內容包含 `index.html`、`.nojekyll` 與 `assets/`。
-- [ ] Pages Source 為 **Deploy from a branch → `gh-pages` / root**。
+- [ ] `.github/workflows/deploy.yml` 與 `ci.yml` 存在且未被停用。
+- [ ] PR 的 `CI` workflow 成功。
+- [ ] 合併／推送 `main` 後的 `Deploy to GitHub Pages` workflow 成功。
+- [ ] Pages Source 為 **GitHub Actions**。
 - [ ] `https://fknejdcwnfi.github.io/website/` 回傳 200。
 - [ ] 頁面資源（JS、CSS、WebP、favicon、OG）皆 200。
 - [ ] 直接開啟深層 URL（`?debug=1`）正常。
 - [ ] 手機網路下載正常。
 - [ ] 沒有 mixed content 或 CORS 錯誤。
 - [ ] `og:title`、`og:description`、`og:image` 正確。
-- [ ] 若改用 GitHub Actions，`.github/workflows/**` 不存在，或 Pages Source 已同步切換。
+- [ ] 若使用 `gh-pages` 備援，Pages Source 已同步切換，且未同時啟用兩套部署。
 
 指令：
 
 ```bash
 curl -sS -o /dev/null -w '%{http_code}\n' https://fknejdcwnfi.github.io/website/
 curl -sS -o /dev/null -w '%{http_code}\n' https://fknejdcwnfi.github.io/website/assets/frames/frame_01.webp
-git ls-remote --heads origin gh-pages
+curl -sS https://api.github.com/repos/fknejdcwnfi/website/actions/runs?per_page=3 \
+  | python3 -c "import sys,json;[print(r['name'],r['status'],r['conclusion']) for r in json.load(sys.stdin)['workflow_runs']]"
+git ls-remote --heads origin gh-pages   # 只有使用備援時才需要
 ```
 
 ---

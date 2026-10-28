@@ -32,7 +32,7 @@
 - Canvas 2D 的交叉淡入播放器。
 - 深色單舞台的視覺設計、響應式、減少動態支援。
 - WebP 素材管線與 manifest。
-- GitHub Pages 部署（`gh-pages` 分支，`npm run deploy`）。
+- GitHub Pages 部署（`main` 由 GitHub Actions 自動建置；`gh-pages` 為手動備援）。
 - 完整文件與 QA 清單。
 
 **未完成（你的工作）**：
@@ -70,6 +70,7 @@
 
 - **MUST** 保持 `npm run build` 與 `npm run typecheck` 通過。
 - **MUST** 保持 GitHub Pages 的 base path 可運作（預設 `/website/`）。
+- **MUST** 保持 `.github/workflows/deploy.yml` 可執行；不要停用或破壞自動部署。
 - **MUST** 尊重 `prefers-reduced-motion`。
 - **MUST** 在變更行為時同步更新 `docs/` 與 `CHANGELOG.md`。
 - **MUST NOT** 引入新依賴而沒有在 PR 說明理由、體積與替代方案。
@@ -92,6 +93,9 @@ npm run build        # 型別 +  bundle
 npm run typecheck
 npm run assets:check
 ```
+
+部署：推送或合併到 `main` 會由 GitHub Actions 自動建置與發佈，不需要執行部署指令。
+`npm run deploy` 是 `gh-pages` 手動備援，需經擁有者同意。
 
 視覺檢查：
 
@@ -129,6 +133,7 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 - `npm ci && npm run build`。
 - 啟動 preview，確認首頁、`?debug=1`、`?pose=5` 正常。
 - 確認 `frame_01` 與 `frame_10` 的 SHA-256 相同。
+- 確認最近一次 GitHub Actions `Deploy to GitHub Pages` 為綠色。
 - 產出基線截圖，存入 `artifacts/baseline/`（不提交，或依 PR 需要提交小圖）。
 
 **完成條件**：能在 PR 描述中貼出基線截圖與指令輸出。
@@ -195,7 +200,7 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 - 產出 before／after 截圖與短錄影（可放 `docs/assets/`，單檔 < 2 MB）。
 - 若變更架構，補 ADR。
 - 開 PR，等待人類复核。
-- 部署（`npm run deploy`）需經擁有者同意；代理不要自行發佈到公開網址。
+- 合併到 `main` 後確認 GitHub Actions 部署成功；代理不要自行執行 `npm run deploy` 備援。
 
 **完成條件**：文件與程式碼一致；PR 描述包含驗收證據。
 
@@ -214,8 +219,8 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 | `src/components/CharacterStage.tsx` | 修改 | 不得加入可見 UI |
 | `src/styles.css` | 修改 | 維持深色單舞台 |
 | `docs/**` | 修改 | `docs/reference/**` 凍結 |
-| `deploy/github-actions/**` | 修改（僅在啟用 Actions 時） | 保持可選 workflow 與文件一致 |
-| `scripts/deploy_gh_pages.sh` | 修改 | 部署需經擁有者同意 |
+| `.github/workflows/**` | 修改 | 保持 `deploy.yml` 綠色；需要 `workflow` 權限 |
+| `scripts/deploy_gh_pages.sh` | 修改 | 手動備援；部署需經擁有者同意 |
 | `package.json` | 修改 | 新依賴需說明 |
 
 ---
@@ -228,7 +233,8 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 2. **靜態截圖**：`?pose=1`、`?pose=5`、`?pose=7`（1200×1000，DPR 1）。
 3. **動態證據**：10 秒錄影或 GIF，涵蓋完整循環與眨眼。
 4. **效能數據**：DevTools Performance 或 Lighthouse 摘要。
-5. **已知限制**：明確列出未完成、未驗證、需要人類判斷的項目。
+5. **CI 狀態**：PR 的 `CI` workflow 與合併後 `Deploy to GitHub Pages` 是否成功。
+6. **已知限制**：明確列出未完成、未驗證、需要人類判斷的項目。
 
 若環境沒有瀏覽器，第 2–4 項可標為「未執行」，但**不得省略說明**。
 
@@ -275,7 +281,8 @@ Read these files first, in order:
 6. docs/05-development.md
 
 Current state: Stage 1 (key-pose cross-fade preview) is deployed. It is provisional,
-not the final seamless animation.
+not the final seamless animation. Pushes/merges to main deploy automatically via
+.github/workflows/deploy.yml; gh-pages + `npm run deploy` is a manual fallback only.
 
 Your task for this session: <choose ONE stage from §4 of the handoff doc>,
 for example "P1: produce docs/09-layer-plan.md".
@@ -286,6 +293,8 @@ Hard rules:
 - Do not add visible UI, text, navigation, or interaction.
 - Do not use pixel art, 3D, or a whole-image translate/scale to fake motion.
 - Do not present the cross-fade as a finished seamless animation.
+- Keep `.github/workflows/deploy.yml` and `ci.yml` working; do not disable auto-deploy.
+- Do not run `npm run deploy` unless the owner explicitly asks for the fallback.
 - Keep `npm run build` and `npm run typecheck` green.
 - Update docs and CHANGELOG for any behavior change.
 

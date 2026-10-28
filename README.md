@@ -5,7 +5,7 @@
 
 ![十張關鍵姿態總覽](assets/source/preview/10_frame_contact_sheet.jpg)
 
-- **線上網址**：<https://fknejdcwnfi.github.io/website/>（`gh-pages` 分支）
+- **線上網址**：<https://fknejdcwnfi.github.io/website/>（GitHub Actions 自動部署）
 - **技術底座**：Vite 8 + React 19 + TypeScript 7 + Canvas 2D
 - **目前版本**：`0.1.0`（Stage 1：關鍵姿態預覽，尚未完成分層綁定）
 
@@ -19,7 +19,7 @@
 - 畫面中只有角色，沒有導航、按鈕、文字或社群連結。
 - 角色的頭髮、眨眼與飾物以時間軸驅動，循環播放。
 - 尊重 `prefers-reduced-motion`：使用者要求減少動態時，只顯示靜止的第 1 幀。
-- 部署在 GitHub Pages；執行 `npm run deploy` 會建置並發佈到 `gh-pages` 分支。
+- 部署在 GitHub Pages；推送 `main` 後由 GitHub Actions 自動建置與發佈。
 
 > [!IMPORTANT]
 > 目前版本是 **Stage 1：Key-Pose Preview**。
@@ -57,7 +57,7 @@ npm run dev        # http://localhost:5173/
 | `npm run build` | 型別檢查 + 產出 `dist/`（production base `/website/`） |
 | `npm run preview` | 預覽 production build（<http://localhost:4173/website/>） |
 | `npm run typecheck` | 只跑 `tsc --noEmit` |
-| `npm run deploy` | 建置並把 `dist/` 發佈到 `gh-pages` 分支 |
+| `npm run deploy` | 手動 fallback：建置並把 `dist/` 發佈到 `gh-pages` 分支 |
 | `npm run assets` | 從原始素材重新產生 WebP 衍生檔（需 Python 3 + Pillow） |
 | `npm run assets:check` | 檢查衍生檔是否齊全 |
 
@@ -95,8 +95,8 @@ npm run dev        # http://localhost:5173/
 │   └── styles.css
 ├── scripts/
 │   ├── optimize_assets.py      # 可重現的素材管線
-│   └── deploy_gh_pages.sh      # 建置並發佈到 gh-pages 分支
-├── deploy/github-actions/      # 可選的 Actions workflow（需 workflow scope）
+│   └── deploy_gh_pages.sh      # 手動 fallback：發佈到 gh-pages 分支
+├── .github/workflows/          # CI 與 GitHub Pages 自動部署
 ├── docs/                       # 規格、架構、開發與 Codex 交接文件
 ├── index.html
 ├── vite.config.ts
@@ -148,33 +148,34 @@ npm run assets:check            # CI/本機檢查衍生檔是否存在
 
 ## 部署到 GitHub Pages
 
-目前使用 **`gh-pages` 分支**部署，不需要 GitHub Actions 的 `workflow` scope：
+目前使用 **GitHub Actions 自動部署**：推送 `main` 後，[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) 會建置並發佈 `dist/`。
+
+一次性 Pages 設定（已由建置者完成）：
+
+1. GitHub → **Settings → Pages**。
+2. **Build and deployment → Source** 選擇 **GitHub Actions**。
+3. 不需要手動建立 `gh-pages` 分支。
+4. 網址：<https://fknejdcwnfi.github.io/website/>
+
+工作流程：
+
+```text
+push main → CI build → configure-pages → upload artifact → deploy-pages
+```
+
+PR 會由 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) 執行建置檢查。
+
+### 手動 fallback：`gh-pages` 分支
+
+若 Actions 暫時不可用，或你想在不觸發 workflow 的情況下發佈：
 
 ```bash
 npm run deploy
 ```
 
-這個指令會：
-
-1. 執行 `npm run build`（production base 為 `/website/`）。
-2. 把 `dist/` 內容放進暫存目錄，加上 `.nojekyll`。
-3. 建立／更新 `gh-pages` 分支並強制推送。
-4. GitHub Pages 從 `gh-pages` 分支的根目錄提供網站。
-
-一次性 Pages 設定（已由建置者完成）：
-
-1. GitHub → **Settings → Pages**。
-2. **Build and deployment → Source** 選擇 **Deploy from a branch**。
-3. Branch 選 **`gh-pages`**，資料夾選 **`/ (root)`**。
-4. 網址：<https://fknejdcwnfi.github.io/website/>
-
-### 選用：GitHub Actions
-
-若你之後為 token 加上 `workflow` scope，可改用自動部署：
-
-- 預備的 workflow 在 [`deploy/github-actions/`](deploy/github-actions/)。
-- 啟用步驟見該目錄的 README。
-- 啟用後把 Pages Source 改為 **GitHub Actions**，避免兩種機制互相覆蓋。
+這個指令會建置、加上 `.nojekyll`，再 force push `dist/` 到 `gh-pages` 分支。
+使用 fallback 時，Pages Source 需暫時切回 **Deploy from a branch → `gh-pages` / root**；
+切回 Actions 後再改回 **GitHub Actions**，不要同時讓兩套機制互相覆蓋。
 
 production build 的 `base` 預設為 `/website/`，與倉庫名稱一致。
 若改用自訂網域或根路徑部署：

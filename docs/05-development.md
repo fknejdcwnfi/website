@@ -45,7 +45,7 @@ npm run dev
 | `npm run build` | `tsc --noEmit && vite build` | 送出前、CI |
 | `npm run preview` | `vite preview` | 檢查 production 產物 |
 | `npm run typecheck` | `tsc --noEmit` | 只檢查型別 |
-| `npm run deploy` | `bash scripts/deploy_gh_pages.sh` | 建置並發佈到 `gh-pages` |
+| `npm run deploy` | `bash scripts/deploy_gh_pages.sh` | 手動備援：建置並發佈到 `gh-pages` |
 | `npm run assets` | `python3 scripts/optimize_assets.py` | 原始素材變更後 |
 | `npm run assets:check` | 同上加 `--check` | 檢查衍生檔是否齊全 |
 
@@ -138,10 +138,49 @@ PY
 
 ## 6. 部署
 
-### 6.1 GitHub Pages（目前方案：gh-pages 分支）
+### 6.1 GitHub Pages（主要：GitHub Actions）
 
-目前不使用 GitHub Actions，而是把建置產物發佈到 `gh-pages` 分支。
-這樣只需要 token 的 `repo` scope，不需要 `workflow` scope。
+推送 `main` 後，[`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)
+會自動建置並發佈 `dist/`。不需要手動執行部署指令。
+
+一次性設定：
+
+1. 進入 GitHub 倉庫 → **Settings** → **Pages**。
+2. **Build and deployment → Source** 選擇 **GitHub Actions**。
+3. workflow 內的 `actions/configure-pages@v5` 設定了 `enablement: true`，
+   首次執行時會啟用 Pages 並把 build type 設為 GitHub Actions。
+
+之後每次推送 `main`：
+
+```text
+push main → npm ci → npm run build → configure-pages
+         → upload-pages-artifact → deploy-pages
+```
+
+PR 會由 [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) 執行建置檢查。
+
+相關檔案：
+
+- `.github/workflows/deploy.yml`：`main` 自動部署。
+- `.github/workflows/ci.yml`：PR 與手動觸發的建置檢查。
+- `vite.config.ts`：production base path。
+
+驗證：
+
+```bash
+# 看 Actions 是否成功（公開 repo 可匿名查詢）
+curl -sS https://api.github.com/repos/fknejdcwnfi/website/actions/runs?per_page=3 \
+  | python3 -c "import sys,json;[print(r['name'],r['status'],r['conclusion']) for r in json.load(sys.stdin)['workflow_runs']]"
+```
+
+網址：<https://fknejdcwnfi.github.io/website/>
+
+> 修改 `.github/workflows/**` 需要具備 `workflow` scope 的憑證，或使用有
+> Workflows 權限的 GitHub App。若推送被拒，見 §10 疑難排解。
+
+### 6.1.1 手動備援：gh-pages 分支
+
+若 Actions 暫時不可用，或你想在不觸發 workflow 的情況下發佈：
 
 ```bash
 npm run deploy
@@ -154,37 +193,16 @@ npm run deploy
 3. 在暫存目錄建立 `gh-pages` 分支並提交。
 4. 強制推送到 `origin` 的 `gh-pages` 分支。
 
-一次性設定：
+使用備援時，Pages Source 需暫時切回：
 
-1. 進入 GitHub 倉庫 → **Settings** → **Pages**。
-2. **Build and deployment → Source** 選擇 **Deploy from a branch**。
+1. **Settings → Pages → Build and deployment → Source**。
+2. 選擇 **Deploy from a branch**。
 3. Branch 選 **`gh-pages`**，資料夾選 **`/ (root)`**。
 
-之後每次更新：
+修好 Actions 後，記得把 Source 切回 **GitHub Actions**。
+不要同時讓兩套機制部署同一個網站，以免互相覆蓋。
 
-```text
-修改 → npm run build（或直接 npm run deploy）→ npm run deploy → Pages 重建
-```
-
-網址：<https://fknejdcwnfi.github.io/website/>
-
-相關檔案：
-
-- `scripts/deploy_gh_pages.sh`：建置與發佈。
-- `vite.config.ts`：production base path。
-- `deploy/github-actions/`：可選的 Actions workflow（需 `workflow` scope，尚未啟用）。
-
-> `npm run deploy` 會 `git push --force` 到 `gh-pages`。這是部署分支，不要在上面直接編輯。
-
-### 6.1.1 選用：GitHub Actions
-
-若之後為 token 加上 `workflow` scope，可改用自動部署：
-
-1. 依 [`deploy/github-actions/README.md`](../deploy/github-actions/README.md) 把 workflow 移回 `.github/workflows/`。
-2. 將 Pages Source 改為 **GitHub Actions**。
-3. 推送 `main` 即自動建置與部署。
-
-不要同時保留兩種部署方式，否則 `gh-pages` 與 Actions 會互相覆蓋。
+> `npm run deploy` 會 `git push --force` 到 `gh-pages`。這是生成分支，不要在上面直接編輯。
 
 ### 6.2 base path
 
@@ -241,7 +259,7 @@ GitHub Pages 的快取時間較短，通常不需要手動處理。
 
 ## 9. Git 與提交
 
-- 分支：`main` 是原始碼與可部署內容的來源；`gh-pages` 是自動產生的部署分支，不要直接編輯。
+- 分支：`main` 是原始碼與可部署內容的來源；推送 `main` 會觸發 GitHub Actions 部署。`gh-pages` 是備援用的生成分支，不要直接編輯。
 - 提交訊息建議 Conventional Commits：
   - `feat: add layered hair rig`
   - `fix: keep loop seamless after tab restore`
@@ -265,7 +283,8 @@ GitHub Pages 的快取時間較短，通常不需要手動處理。
 | 動畫在背景分頁停止 | 這是設計 | `visibilitychange` 會暫停，回來續播 |
 | 手機上舞台超出畫面 | 瀏覽器網址列／安全區 | 已使用 `dvh` 與 safe-area；確認沒有自訂 CSS 覆蓋 |
 | HUD 數值不更新 | 截圖或 headless 環境時間未前進 | 在真實瀏覽器開啟；或使用 `?pose=` 凍結 |
-| Pages 部署失敗 | Pages 未啟用、分支設定錯誤或 token 權限不足 | Settings → Pages → Source: Deploy from a branch → `gh-pages` / root |
+| Pages 部署失敗 | Actions 失敗、Pages 未設為 GitHub Actions，或權限不足 | 看 Actions log；Settings → Pages → Source: GitHub Actions；必要時用 `npm run deploy` 備援 |
+| 推送 workflow 被拒 | 憑證缺少 `workflow` scope | 換成有 `repo` + `workflow` 的 PAT，或使用有 Workflows 權限的 GitHub App |
 
 ---
 

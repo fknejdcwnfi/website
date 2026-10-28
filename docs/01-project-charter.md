@@ -48,8 +48,8 @@
 
 ### G1 · 可公開存取的舞臺
 
-- 執行 `npm run deploy` 後，`dist/` 會發佈到 `gh-pages` 分支，GitHub Pages 從該分支提供網站。
-- 選用：若 token 具備 `workflow` scope，可啟用 `deploy/github-actions/` 的自動部署。
+- 推送到 `main` 後，GitHub Actions 自動建置並發佈到 GitHub Pages。
+- 備援：若 Actions 暫時不可用，可執行 `npm run deploy` 發佈到 `gh-pages` 分支。
 - 訪客在 390 px 寬的手機與 1440 px 桌機都能看到完整正方形舞臺。
 - **驗收**：`https://fknejdcwnfi.github.io/website/` 回傳 200，且無 console error。
 
@@ -129,7 +129,7 @@ Stage 2 的成敗取決於素材生產能力（分割、inpainting、乾淨底�
 一次「可發佈」的版本必須同時滿足：
 
 - [ ] `npm ci && npm run build` 成功，無 TypeScript 錯誤。
-- [ ] `npm run deploy` 成功（或已明確標示本次不部署）。
+- [ ] 推送 `main` 後的 GitHub Actions workflow 成功（或已明確標示本次不部署）。
 - [ ] 部署網址可存取，資源無 404，console 無 error。
 - [ ] 1080² 與 390 px 寬的視覺檢查通過（見 [QA 檢查表](07-qa-checklist.md)）。
 - [ ] 身份鎖定與頭髮局部變形達到 G3／G4。

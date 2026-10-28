@@ -35,6 +35,10 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Enable Pages and switch the build type to GitHub Actions on the
+          # first run. Requires the pages:write permission above.
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -16,11 +16,8 @@ npm run build
 npm run assets:check
 ```
 
-部署（需擁有者同意；會 force push `gh-pages`）：
-
-```bash
-npm run deploy
-```
+部署：推送或合併到 `main` 後由 GitHub Actions 自動建置與發佈。
+`npm run deploy` 是手動備援，會 force push `gh-pages`，需擁有者同意。
 
 視覺變更請附上：
 
@@ -34,8 +31,8 @@ npm run deploy
 
 - `src/**`：前端程式與樣式。
 - `docs/**`：文件（`docs/reference/**` 除外）。
-- `scripts/**`：素材管線與部署腳本。
-- `deploy/github-actions/**`：可選的 Actions workflow（目前未啟用）。
+- `scripts/**`：素材管線與部署備援腳本。
+- `.github/workflows/**`：CI 與 Pages 自動部署（需 `workflow` 權限）。
 - `package.json`：依賴（需說明理由）。
 - `assets/generated/**`、`public/assets/rig/**`：新的生成物（需登記）。
 

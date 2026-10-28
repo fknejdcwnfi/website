@@ -32,8 +32,9 @@
 - 素材管線 `scripts/optimize_assets.py`：1080² WebP、manifest、1200×630 OG 圖。
 - 原始素材清冊、時間軸規格、目標架構、開發指南、Codex 交接、QA 清單與 ADR。
 - 根目錄 `AGENTS.md`：Codex Cloud 自動載入的代理規則與閱讀順序。
-- GitHub Pages 部署：`npm run deploy` 將 `dist/` 發佈到 `gh-pages` 分支。
-- 可選的 GitHub Actions workflow 保存在 `deploy/github-actions/`（需 `workflow` scope，尚未啟用）。
+- GitHub Pages 自動部署：推送 `main` 由 `.github/workflows/deploy.yml` 建置與發佈。
+- PR 建置檢查：`.github/workflows/ci.yml`。
+- `npm run deploy` 保留為 `gh-pages` 手動備援。
 - `favicon.svg`（藍寶石墜飾）與 OG metadata。
 
 ### Changed
