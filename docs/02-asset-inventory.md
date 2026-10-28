@@ -136,7 +136,12 @@ frame_10.png  SHA-256 346921fcfe6afe8224f5479a61ed2c809f2a1f46ba497255a08ef69740
 python3 -m pip install Pillow
 npm run assets
 npm run assets:check
+npm run assets:verify
 ```
+
+`assets:check` 只確認衍生檔存在；`assets:verify` 會比對 manifest 的尺寸／SHA-256、
+`frame_01` 與 `frame_10` 是否位元組相同，以及必要的 `robots.txt`／`sitemap.xml`。
+CI 與部署 workflow 都會執行 `assets:verify`。
 
 若輸入不是正方形、或少於／多於十張，腳本會失敗並指出原因。
 

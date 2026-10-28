@@ -32,10 +32,11 @@
 KeyPosePlayer
   ├─ 預載 10 張 WebP（Image + decode）
   ├─ requestAnimationFrame 迴圈
-  ├─ 由 keyPoses.ts 取樣目前段落
+  ├─ 由 timeline.ts 取樣目前段落（keyPoses.ts 提供資料）
   ├─ 交叉淡入目前幀與下一幀
   ├─ ResizeObserver + DPR 調整 canvas 尺寸
   ├─ visibilitychange 時暫停
+  ├─ 靜止模式停止 rAF
   └─ prefers-reduced-motion 時只畫第 1 幀
 ```
 
@@ -44,11 +45,13 @@ KeyPosePlayer
 | 檔案 | 責任 | 穩定性 |
 | --- | --- | --- |
 | `src/animation/keyPoses.ts` | 十個關鍵姿態的時間、風力、眼睛開合、圖片 URL | **保留**，未來成為 rig 的時間軸資料 |
-| `src/animation/player.ts` | Canvas 2D 播放器：預載、取樣、交叉淡入、尺寸、生命週期 | **會被替換**（Stage 3） |
+| `src/animation/timeline.ts` | 純時間軸取樣與交叉淡入計算（無 DOM／Vite 依賴） | 保留，可單元測試 |
+| `src/animation/player.ts` | Canvas 2D 播放器：預載、繪製、尺寸、生命週期 | **會被替換**（Stage 3） |
 | `src/components/CharacterStage.tsx` | 舞台 DOM、除錯 HUD、URL 參數、減少動態偏好 | **保留**，內部渲染器可替換 |
 | `src/App.tsx` | 頁面骨架與氛圍層 | 保留 |
 | `src/styles.css` | 舞台尺寸、光暈、暗角、HUD、響應式 | 保留 |
 | `scripts/optimize_assets.py` | 原始素材 → WebP + manifest + OG 圖 | 保留 |
+| `scripts/verify_assets.py` | 驗證 manifest 雜湊、循環幀與必要靜態檔 | 保留 |
 | `public/assets/frames/*.webp` | 衍生幀 | 可重建 |
 | `scripts/deploy_gh_pages.sh` | 手動備援：建置並發佈到 `gh-pages` | 保留 |
 | `.github/workflows/*.yml` | CI 與 GitHub Pages 自動部署（主要） | 保留 |
@@ -60,12 +63,12 @@ KeyPosePlayer
 3. `ResizeObserver` 量測 canvas 的 CSS 尺寸，將 backing store 設為 `尺寸 × min(DPR, 2)`。
 4. `requestAnimationFrame` 每幀：
    - 計算 loop-local 時間 `t = (elapsed) % 2300`。
-   - 找到 `t` 所屬的關鍵姿態段落。
+   - 由 `timeline.ts` 找到 `t` 所屬的關鍵姿態段落。
    - 在段落尾端 `fade = min(140ms, 段長 × 0.55)` 的窗口內，以 smoothstep 計算 `blend`。
    - 先畫目前幀，再以 `globalAlpha = blend` 畫下一幀。
    - 每 120 ms 透過 `onSnapshot` 回報狀態給 HUD。
 5. 分頁隱藏時 `stop()`；回來時 `start()`，並保留大致相位。
-6. `prefers-reduced-motion` 或 `?pose=N` 時，只畫單一靜止幀。
+6. `prefers-reduced-motion` 或 `?pose=N` 時，只畫單一靜止幀並停止 rAF，避免靜止畫面持續佔用 CPU。
 
 ## 1.4 為何用 Canvas 而不是 `<img>` 疊層
 
@@ -137,7 +140,7 @@ Canvas 2D 讓 Stage 1 的程式碼與 Stage 3 的 renderer 有相似的責任邊
 src/
 ├─ animation/
 │  ├─ keyPoses.ts          # 時間軸（沿用）
-│  ├─ timeline.ts          # 取樣、緩動、事件（新增）
+│  ├─ timeline.ts          # 取樣、緩動、事件（已存在，可擴充）
 │  ├─ wind.ts              # 彈簧阻尼、包絡、噪聲（新增）
 │  └─ blink.ts             # 眼皮狀態機（新增）
 ├─ rig/

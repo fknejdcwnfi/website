@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "deploy": "bash scripts/deploy_gh_pages.sh",
     "assets": "python3 scripts/optimize_assets.py",
-    "assets:check": "python3 scripts/optimize_assets.py --check"
+    "assets:check": "python3 scripts/optimize_assets.py --check",
+    "assets:verify": "python3 scripts/verify_assets.py"
   },
   "dependencies": {
     "react": "^19.3.1",

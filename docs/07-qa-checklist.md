@@ -14,6 +14,7 @@
 - [ ] `npm run typecheck` 成功
 - [ ] `npm run build` 成功
 - [ ] `npm run assets:check` 成功
+- [ ] `npm run assets:verify` 成功
 - [ ] 部署網址可存取，無 404
 - [ ] 瀏覽器 console 無 error
 - [ ] 1080² 與 390 px 寬的視覺檢查通過
@@ -27,6 +28,7 @@
 - [ ] `npm ci` 無錯誤。
 - [ ] `npm run typecheck` 無輸出（成功）。
 - [ ] `npm run build` 產出 `dist/index.html`、JS、CSS、十張 WebP。
+- [ ] `npm run assets:verify` 通過（manifest 雜湊、第 1/10 幀一致、必要靜態檔）。
 - [ ] 建置產物中的資源路徑以 `/website/` 開頭（GitHub Pages）。
 - [ ] 沒有 TypeScript `any` 或 `@ts-ignore` 新增。
 - [ ] 沒有未使用的匯入或變數（`tsc` 會捕捉）。
@@ -39,6 +41,7 @@ npm ci
 npm run typecheck
 npm run build
 npm run assets:check
+npm run assets:verify
 grep -o '/website/[^"]*' dist/index.html | head
 ```
 

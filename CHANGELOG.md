@@ -36,6 +36,8 @@
 - PR 建置檢查：`.github/workflows/ci.yml`。
 - `npm run deploy` 保留為 `gh-pages` 手動備援。
 - `favicon.svg`（藍寶石墜飾）與 OG metadata。
+- `scripts/verify_assets.py` 與 `npm run assets:verify`：驗證 manifest 雜湊、第 1/10 幀一致與必要靜態檔；CI 與部署 workflow 都會執行。
+- SEO 收尾：canonical、`og:site_name`、`og:image:alt`、Twitter metadata、`robots.txt`、`sitemap.xml`。
 
 ### Changed
 
@@ -43,6 +45,8 @@
 - 原始 PNG 不再直接提供給瀏覽器；改由 WebP 衍生檔服務（約 16.9 MB → 1.4 MB）。
 - 原始 prompt 文件移入 `docs/reference/`，凍結保存。
 - GitHub Pages 由 `gh-pages` 分支切換為 GitHub Actions（`build_type: workflow`）；`gh-pages` 保留為手動備援。
+- 抽出 `src/animation/timeline.ts`：純時間軸取樣，不依賴 DOM／Vite，方便日後單元測試。
+- 播放器在 `prefers-reduced-motion` 或 `?pose=N` 靜止時停止 rAF，不再以 60 fps 重畫同一幀。
 
 ### Removed
 

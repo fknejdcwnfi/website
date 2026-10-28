@@ -22,3 +22,6 @@ jobs:
 
       - name: Build (typecheck + bundle)
         run: npm run build
+
+      - name: Verify generated assets
+        run: npm run assets:verify

@@ -54,6 +54,7 @@ npm run dev
 npm run typecheck
 npm run build
 npm run assets:check
+npm run assets:verify
 ```
 
 Visual QA:

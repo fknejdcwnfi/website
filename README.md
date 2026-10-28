@@ -60,6 +60,7 @@ npm run dev        # http://localhost:5173/
 | `npm run deploy` | 手動 fallback：建置並把 `dist/` 發佈到 `gh-pages` 分支 |
 | `npm run assets` | 從原始素材重新產生 WebP 衍生檔（需 Python 3 + Pillow） |
 | `npm run assets:check` | 檢查衍生檔是否齊全 |
+| `npm run assets:verify` | 驗證 manifest 雜湊、第 1／10 幀一致性與必要靜態檔 |
 
 除錯參數（不影響一般訪客）：
 
@@ -83,10 +84,13 @@ npm run dev        # http://localhost:5173/
 │   ├── assets/frames/*.webp    # 由 scripts/optimize_assets.py 產生
 │   ├── assets/manifest.json    # 衍生檔尺寸、位元組數、SHA-256
 │   ├── og-image.webp           # 社交分享圖
-│   └── favicon.svg             # 藍寶石墜飾圖示
+│   ├── favicon.svg             # 藍寶石墜飾圖示
+│   ├── robots.txt              # 搜尋引擎規則
+│   └── sitemap.xml             # 單頁 sitemap
 ├── src/
 │   ├── animation/
 │   │   ├── keyPoses.ts         # 十幀時間軸（時間、風力、眼睛開合）
+│   │   ├── timeline.ts         # 純取樣邏輯（無 DOM／Vite 依賴）
 │   │   └── player.ts           # rAF + delta 驅動的 Canvas 播放器
 │   ├── components/
 │   │   └── CharacterStage.tsx  # 舞台元件、除錯 HUD、減少動態偏好
@@ -95,6 +99,7 @@ npm run dev        # http://localhost:5173/
 │   └── styles.css
 ├── scripts/
 │   ├── optimize_assets.py      # 可重現的素材管線
+│   ├── verify_assets.py        # 素材完整性驗證（stdlib only）
 │   └── deploy_gh_pages.sh      # 手動 fallback：發佈到 gh-pages 分支
 ├── .github/workflows/          # CI 與 GitHub Pages 自動部署
 ├── docs/                       # 規格、架構、開發與 Codex 交接文件
@@ -131,7 +136,8 @@ npm run dev        # http://localhost:5173/
 ```bash
 python3 -m pip install Pillow   # 只需一次
 npm run assets                  # 重新產生 public/assets/frames/*.webp
-npm run assets:check            # CI/本機檢查衍生檔是否存在
+npm run assets:check            # 檢查衍生檔是否存在
+npm run assets:verify           # 驗證雜湊、第 1/10 幀一致與必要靜態檔
 ```
 
 管線行為：

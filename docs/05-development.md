@@ -48,6 +48,7 @@ npm run dev
 | `npm run deploy` | `bash scripts/deploy_gh_pages.sh` | 手動備援：建置並發佈到 `gh-pages` |
 | `npm run assets` | `python3 scripts/optimize_assets.py` | 原始素材變更後 |
 | `npm run assets:check` | 同上加 `--check` | 檢查衍生檔是否齊全 |
+| `npm run assets:verify` | `python3 scripts/verify_assets.py` | 驗證 manifest 雜湊、第 1/10 幀一致與必要靜態檔 |
 
 ### 送出前的標準流程
 
@@ -56,9 +57,10 @@ npm ci
 npm run typecheck
 npm run build
 npm run assets:check
+npm run assets:verify
 ```
 
-四項都通過，才進入視覺檢查（[QA 檢查表](07-qa-checklist.md)）。
+五項都通過，才進入視覺檢查（[QA 檢查表](07-qa-checklist.md)）。
 
 ---
 
@@ -160,7 +162,8 @@ push main → npm ci → npm run build → configure-pages
          → upload-pages-artifact → deploy-pages
 ```
 
-PR 會由 [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) 執行建置檢查。
+PR 會由 [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) 執行建置與
+`npm run assets:verify` 檢查。
 
 相關檔案：
 

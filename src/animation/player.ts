@@ -1,31 +1,16 @@
 import { KEY_POSES, LOOP_MS } from './keyPoses'
+import { sampleTimeline } from './timeline'
+import type { TimelineSample } from './timeline'
 
-export type PlayerSnapshot = {
-  /** Loop-local time in milliseconds. */
-  timeMs: number
-  /** 1-based index of the pose being held. */
-  poseIndex: number
-  /** 1-based index of the pose being blended into. */
-  nextIndex: number
-  /** Cross-fade weight of the next pose, 0..1. */
-  blend: number
-  wind: number
-  eyeOpen: number
-}
+export type PlayerSnapshot = TimelineSample
 
 export type PlayerOptions = {
   /** Called at most every ~120 ms while the player runs. */
   onSnapshot?: (snapshot: PlayerSnapshot) => void
 }
 
-type Sample = PlayerSnapshot
-
 const MAX_DPR = 2
-const MAX_FADE_MS = 140
 const SNAPSHOT_INTERVAL_MS = 120
-
-const smoothstep = (value: number): number =>
-  value <= 0 ? 0 : value >= 1 ? 1 : value * value * (3 - 2 * value)
 
 /**
  * Stage-1 renderer: holds a key pose and cross-fades into the next one near
@@ -54,6 +39,7 @@ export class KeyPosePlayer {
   private readonly handleWindowResize = (): void => this.resize()
   private readonly handleVisibility = (): void => {
     if (document.hidden) this.stop()
+    else if (this.isStatic()) this.drawAt(performance.now())
     else this.start()
   }
 
@@ -98,6 +84,8 @@ export class KeyPosePlayer {
     this.frozenPose = pose
     this.lastSnapshotAt = Number.NEGATIVE_INFINITY
     this.drawAt(performance.now())
+    if (this.isStatic()) this.stop()
+    else this.start()
   }
 
   /** Render a single still instead of animating. */
@@ -105,10 +93,12 @@ export class KeyPosePlayer {
     this.reducedMotion = enabled
     this.lastSnapshotAt = Number.NEGATIVE_INFINITY
     this.drawAt(performance.now())
+    if (this.isStatic()) this.stop()
+    else this.start()
   }
 
   start(): void {
-    if (this.running || this.destroyed) return
+    if (this.running || this.destroyed || this.isStatic()) return
     this.running = true
     this.clockStart = performance.now()
     this.rafId = requestAnimationFrame(this.loop)
@@ -161,47 +151,25 @@ export class KeyPosePlayer {
     }
   }
 
-  private sample(timeMs: number): Sample {
-    let position = 0
-    for (let index = 0; index < KEY_POSES.length; index += 1) {
-      const pose = KEY_POSES[index]
-      if (pose && pose.timeMs <= timeMs) position = index
-    }
-
-    const current = KEY_POSES[position] ?? KEY_POSES[0]!
-    const isLast = position === KEY_POSES.length - 1
-    const next = isLast ? KEY_POSES[0]! : KEY_POSES[position + 1]!
-    const nextTime = isLast ? LOOP_MS : next.timeMs
-    const segment = Math.max(1, nextTime - current.timeMs)
-    const fade = Math.min(MAX_FADE_MS, segment * 0.55)
-    const fadeStart = nextTime - fade
-    const blend = timeMs >= fadeStart ? smoothstep((timeMs - fadeStart) / fade) : 0
-
-    return {
-      timeMs,
-      poseIndex: current.index,
-      nextIndex: next.index,
-      blend,
-      wind: current.wind + (next.wind - current.wind) * blend,
-      eyeOpen: current.eyeOpen + (next.eyeOpen - current.eyeOpen) * blend,
-    }
+  private isStatic(): boolean {
+    return this.reducedMotion || this.frozenPose !== null
   }
 
   private drawAt(now: number): void {
     if (this.destroyed) return
 
     const frozen = this.frozenPose
-    const still = this.reducedMotion || frozen !== null
+    const still = this.isStatic()
     const timeMs = still ? 0 : this.elapsedAt(now)
     const sample = still
       ? this.stillSample(frozen ?? 1)
-      : this.sample(timeMs)
+      : sampleTimeline(KEY_POSES, timeMs, LOOP_MS)
 
     this.paint(sample)
     this.publish(sample, now)
   }
 
-  private stillSample(poseIndex: number): Sample {
+  private stillSample(poseIndex: number): TimelineSample {
     const pose =
       KEY_POSES.find((candidate) => candidate.index === poseIndex) ?? KEY_POSES[0]!
     return {
@@ -214,7 +182,7 @@ export class KeyPosePlayer {
     }
   }
 
-  private paint(sample: Sample): void {
+  private paint(sample: TimelineSample): void {
     const { width, height } = this.canvas
     const side = Math.min(width, height)
     this.ctx.clearRect(0, 0, width, height)
@@ -242,7 +210,7 @@ export class KeyPosePlayer {
     this.ctx.globalAlpha = 1
   }
 
-  private publish(sample: Sample, now: number): void {
+  private publish(sample: TimelineSample, now: number): void {
     if (!this.onSnapshot || now - this.lastSnapshotAt < SNAPSHOT_INTERVAL_MS) return
     this.lastSnapshotAt = now
     this.onSnapshot(sample)

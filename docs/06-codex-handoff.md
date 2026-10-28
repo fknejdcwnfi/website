@@ -92,6 +92,7 @@ npm run dev          # 開發
 npm run build        # 型別 +  bundle
 npm run typecheck
 npm run assets:check
+npm run assets:verify
 ```
 
 部署：推送或合併到 `main` 會由 GitHub Actions 自動建置與發佈，不需要執行部署指令。
@@ -214,6 +215,7 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 | `assets/generated/**` | 建立、修改 | 需登記來源與工具 |
 | `public/assets/rig/**` | 建立、修改 | 需同步 manifest／清冊 |
 | `public/assets/frames/**` | 只由腳本產生 | 不手動編輯 |
+| `scripts/verify_assets.py` | 修改 | 保持 CI 可執行（stdlib only） |
 | `src/animation/keyPoses.ts` | 修改 | 先更新 03 規格 |
 | `src/animation/player.ts` | 替換或保留 | 需保留 reduced motion 行為 |
 | `src/components/CharacterStage.tsx` | 修改 | 不得加入可見 UI |
@@ -229,7 +231,7 @@ chrome --headless=new --disable-gpu --hide-scrollbars \
 
 每次 PR 至少提供：
 
-1. **指令輸出**：`npm ci`、`npm run build`、`npm run typecheck`、`npm run assets:check`。
+1. **指令輸出**：`npm ci`、`npm run build`、`npm run typecheck`、`npm run assets:check`、`npm run assets:verify`。
 2. **靜態截圖**：`?pose=1`、`?pose=5`、`?pose=7`（1200×1000，DPR 1）。
 3. **動態證據**：10 秒錄影或 GIF，涵蓋完整循環與眨眼。
 4. **效能數據**：DevTools Performance 或 Lighthouse 摘要。

@@ -390,6 +390,40 @@ ADR-011 因本地憑證缺少 `workflow` scope，改用 `gh-pages` 分支部署�
 
 ---
 
+## ADR-013 · 抽出純時間軸模組，靜止時停止 rAF
+
+- **狀態**：已接受
+- **日期**：2026-10-28
+- **決策者**：專案維護者
+
+**背景**
+原本時間軸取樣邏輯嵌在 `KeyPosePlayer` 內，與 Canvas、DOM 和 Vite 的
+`import.meta.env` 混在一起；`prefers-reduced-motion` 或 `?pose=N` 靜止時，
+rAF 仍以 60 fps 重畫同一幀，浪費 CPU 與電量。
+
+**決策**
+
+1. 將取樣與交叉淡入計算移到 `src/animation/timeline.ts` 的純函式
+   `sampleTimeline(poses, timeMs, loopMs)`，不依賴 DOM／Vite。
+2. `KeyPosePlayer` 只負責載入、繪製、尺寸與生命週期。
+3. 新增 `isStatic()`：reduced motion 或 frozen pose 時只畫一次並 `stop()`；
+   解除靜止後再 `start()`，保留 `elapsedOffset` 相位。
+4. 新增 `scripts/verify_assets.py`（stdlib only）作為 CI 的素材完整性閘門。
+
+**理由**
+
+- 純函式可在未來用 Node／Vitest 測試，不需要瀏覽器或 Canvas。
+- 靜止畫面不再消耗 rAF，符合 reduced-motion 的節能意圖。
+- 素材雜湊與循環幀一致性由 CI 自動檢查，降低雲端協作的回歸風險。
+
+**後果**
+
+- `player.ts` 變得更薄；Stage 3 替換渲染器時，時間軸可沿用。
+- `assets:verify` 成為 CI 與部署 workflow 的固定步驟；若 manifest 過期會直接失敗。
+- 沒有新增 runtime 依賴。
+
+---
+
 ## 索引
 
 | ADR | 主題 | 狀態 |
@@ -406,3 +440,4 @@ ADR-011 因本地憑證缺少 `workflow` scope，改用 `gh-pages` 分支部署�
 | 010 | 文件繁體中文、程式碼英文 | 已接受 |
 | 011 | GitHub Pages 改用 gh-pages 分支 | 已取代（由 ADR-012） |
 | 012 | 取得 workflow 權限後切回 Actions 自動部署 | 已接受 |
+| 013 | 抽出純時間軸模組、靜止時停止 rAF | 已接受 |
