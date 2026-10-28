@@ -7,6 +7,31 @@
 
 ### Added
 
+- 以original_reference為最高身份／構圖權威的AI輔助2D像素canonical portrait及局部眼瞼材料；不再以Steve方頭方身作預設。
+- 統一像素網格與受控調色盤，依原圖近景、尖下巴、斜眼、捲髮及不對稱首飾配置設計；保留192／256／320實際輸出比較入口。
+- 恢復2300 ms參考錨點風場，局部髮束延遲／阻尼、固定根點、630–850 ms眨眼及耳環微動；未知遮擋區維持安全位移限制。
+- 僅debug模式可見的風力、方向、陣風、剛度、阻尼、眨眼、速度、暫停控制。
+- ADR-015與Living Portrait現行契約，規範原圖／靜止／風動／閉眼及十個真實網站截幀／動畫證據。
+- 42色調色盤、六個192／256／320網格PNG與來源SHA清冊；共享Canvas匯出、實際網站截幀與瀏覽器回歸腳本。
+- 新768² `og-portrait.png`及實際網站十幀、原圖對照、2300 ms GIF；metadata同步為2D Living Pixel Portrait。
+
+### Changed
+
+- 預設改為`style=portrait`；前次`?style=voxel`與原動漫`?style=legacy`作歷史比較保留。
+- 最新提示詞排除3D voxel、Steve造型、無關場景及簡單濾鏡；原始素材與凍結文件完全保留。
+- 前次voxel的29項功能／24fps效能資料保留為歷史，不移作新版驗證結論。
+
+### Verified
+
+- 24項單元測試、型別、build、素材與來源雜湊驗證通過；33項瀏覽器功能檢查通過，含真實播放器60／120 Hz相位與像素一致性。
+- 35,998個受保護像素於風動時不變，八組髮區及耳環均有像素變化；閉眼僅改兩個眼區，0／1890／2300 ms一致。
+- 實際網站GIF由67個時間點取樣，編碼總長2300 ms；它是時間軸預覽，不冒充即時FPS證據。
+- fresh單頁production容器5秒樣本：300次繪製／60.0 fps、callback CPU中位數0.7 ms／p95 1.0 ms、無長任務；兩張runtime材料共107,636 bytes。保留量測條件與實體裝置限制，不宣稱所有裝置效能。
+
+## 前次 voxel 迭代（歷史，已由2D立繪取代）
+
+### Added
+
 - 預設Minecraft風格程序化像素／voxel Vermouth：192²邏輯畫布、nearest-neighbor放大、固定臉部、獨立髮束、局部眼皮、耳環與背景像素動態。
 - 4800ms循環、220ms眨眼窗口、24fps節流；減少動態、固定姿態及隱藏分頁停止無意義更新。
 - 主題midnight／emerald／amethyst與URL個人化wind、speed、seed，所有輸入先驗證。

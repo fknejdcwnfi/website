@@ -4,6 +4,8 @@ import { KeyPosePlayer } from '../animation/player'
 import type { PlayerSnapshot } from '../animation/player'
 import { VoxelPlayer } from '../animation/voxelPlayer'
 import { readStageOptions } from '../animation/stageOptions'
+import { PortraitPlayer } from '../animation/portraitPlayer'
+import PortraitControls from './PortraitControls'
 
 /**
  * Debug switches intentionally live in the URL rather than as on-screen UI,
@@ -17,11 +19,20 @@ const poseLabel = (index: number): string => String(index).padStart(2, '0')
 export default function CharacterStage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [snapshot, setSnapshot] = useState<PlayerSnapshot | null>(null)
-  const options = useMemo(() => readStageOptions(window.location.search), [])
+  const initialOptions = useMemo(() => readStageOptions(window.location.search), [])
+  const [options, setOptions] = useState(initialOptions)
+  const portraitRef = useRef<PortraitPlayer | null>(null)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+
+    if (options.style === 'portrait') {
+      const player = new PortraitPlayer(canvas, options, options.debug ? setSnapshot : undefined, () => setFailed(true))
+      portraitRef.current = player
+      return () => { player.destroy(); portraitRef.current = null }
+    }
 
     if (options.style === 'voxel') {
       const player = new VoxelPlayer(canvas, options, options.debug ? setSnapshot : undefined)
@@ -44,13 +55,16 @@ export default function CharacterStage() {
       motion.removeEventListener('change', onMotionChange)
       player.destroy()
     }
-  }, [options])
+  }, [options.style, options.pixel])
+
+  useEffect(() => { portraitRef.current?.update(options) }, [options])
 
   return (
     <div className={`stage-shell stage-shell--${options.style}`}>
       <div
         className={`stage stage--${options.style}`}
-        style={options.style === 'legacy' ? { backgroundImage: `url("${KEY_POSES[0]!.src}")` } : undefined}
+        style={options.style === 'legacy' ? { backgroundImage: `url("${KEY_POSES[0]!.src}")` }
+          : options.style === 'portrait' ? { backgroundImage: `url("${import.meta.env.BASE_URL}assets/portrait/base${options.pixel === 256 ? '' : `-${options.pixel}`}.png")` } : undefined}
       >
         <canvas
           ref={canvasRef}
@@ -58,7 +72,8 @@ export default function CharacterStage() {
           data-frozen={options.frozenPose ?? 'none'}
           data-style={options.style}
           role="img"
-          aria-label={options.style === 'voxel' ? 'Minecraft 風格像素貝爾摩德：白金長髮、藍眼睛與藍寶石飾物，髮絲隨風、自然眨眼的方塊肖像。' : '貝爾摩德原始關鍵姿態交叉淡入預覽。'}
+          aria-label={options.style === 'portrait' ? '貝爾摩德的二維像素動態肖像：冰藍眼睛、尖下巴、神秘微笑、白金捲髮與藍寶石飾物，微風吹動髮絲並自然眨眼。'
+            : options.style === 'voxel' ? '封存的 Minecraft 方塊貝爾摩德示範。' : '貝爾摩德原始關鍵姿態交叉淡入預覽。'}
         />
       </div>
 
@@ -80,6 +95,11 @@ export default function CharacterStage() {
           <dd>{options.frozenPose ?? 'none'}</dd>
         </dl>
       ) : null}
+      {options.debug && options.style === 'portrait' ? (
+        <PortraitControls options={options} change={(patch) => setOptions((current) => ({ ...current, ...patch }))}
+          blink={() => portraitRef.current?.blink()} />
+      ) : null}
+      {failed ? <p role="alert" className="portrait-error">動態素材載入失敗，請重新整理或檢查連線。</p> : null}
     </div>
   )
 }

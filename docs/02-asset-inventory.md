@@ -1,14 +1,33 @@
 # 02 · 素材清冊
 
-> **目前資源策略（2026-10-28）**：預設網站改為程序化 Minecraft 風格像素角色，不載入下列十張圖作預設動畫。原圖仍為辨識特徵參考，所有來源唯讀；WebP／manifest／OG圖與舊播放器保留供 legacy／metadata使用。新效果未產生或宣稱完成本清冊舊路線的 clean plate／rig素材。見 [目前契約](10-pixel-stage.md)。
+> **目前資源策略（2026-10-28）**：以 `original_reference.jpg` 為最高身份／構圖權威，AI輔助製作單一2D像素canonical portrait，再以局部眼瞼、髮場與耳環動畫呈現。最新提示詞排除Steve／3D voxel與單純原圖縮放；所有原始來源維持唯讀。現行契約見 [11 Living Portrait](11-living-portrait.md)。
 
-## 目前程序化角色登記
+## 目前2D像素立繪登記
+
+| 項目 | 來源／製作方法 | 用途與限制 |
+| --- | --- | --- |
+| `assets/generated/portrait-v2/open.png` | 以原始reference作AI輔助2D像素風格轉譯，保留近景構圖、臉型、眼神、捲髮與首飾 | canonical全開眼睛母版；不是逐張動作圖重新生成 |
+| `assets/generated/portrait-v2/closed.png` | 對canonical母版作閉眼局部材料編輯 | 僅取精確眼區；不能將donor的臉／眉／鼻／嘴／飾物替換到網站 |
+| `public/assets/portrait/base.png` | canonical像素畫經實際資產／渲染流程規範至統一像素網格及受控色階 | 網站單一身份來源；不等於原始動漫圖直接resize |
+| `public/assets/portrait/eyelids.png` | 同網格閉眼材料；由renderer限於局部眼罩使用 | 開／半閉／閉／重開不改其餘面部像素 |
+| `public/assets/portrait/base-192.png`／`base-320.png`與對應`eyelids-*` | 同母版及42色調色盤的替代網格；預設256²另存無suffix檔名 | 六張runtimePNG的尺寸、bytes與SHA-256見`public/assets/portrait/manifest.json` |
+| `assets/generated/portrait-v2/PROMPTS.md`／`README.md` | 生成條件、用途、原圖與母版的追溯紀錄 | 保留未修改母版，不能承諾重新呼叫模型可得逐位元相同結果 |
+| [og-portrait.png](../public/og-portrait.png) | 實際256²renderer以nearest-neighbor顯示並擷取為768²PNG | **目前分享OG圖**；`assets:verify`要求此檔存在 |
+| `artifacts/pixel_reference.png`、十個`pixel_frame_*.png`、`comparison.png`、`animation_preview.gif` | 實際網站及原始參考對照 | 保存實際時間、尺寸與取樣條件；未使用的AI候選圖不能冒充網站證據 |
+
+生成母版、原始reference與六張衍生檔的SHA-256已登記於manifest，驗證腳本會檢查雜湊、PNG尺寸與bytes。`scripts/export_portrait.py`透過共享Canvas流程重建runtime檔；不改母版與原始素材。此處不宣稱完成未知臉側／肩頸clean plate；沒有可信底圖時，對應髮場維持遮擋或限制位移。AI與像素媒介仍可能留有形狀／色階差異，不宣稱原圖幾何逐像素一致。
+
+## 前次程序化voxel角色（歷史）
+
+下表僅適用 `?style=voxel` 的前次方塊胸像，其截圖、效能與OG來源紀錄不作新版證據。
+
+### 歷史voxel登記
 
 | 項目 | 來源與方法 | 產出／限制 |
 | --- | --- | --- |
 | 像素角色與場景 | 參考01的白金髮、藍眼、深色衣服及藍飾物，以 `src/animation/voxelScene.ts` 的幾何／調色盤程序化繪製 | Canvas即時輸出；不是PNG去背、AI補繪或原圖逐像素重建，不修改來源檔 |
 | 主題與背景細節 | `voxelScene.ts` 的 `THEMES` 午夜／翡翠／紫水晶調色盤；seed 控制背景星點及髮絲紋理 | 移動光點沿固定週期，不將其運動誤稱為 seed 控制；不下載材質或收集身份資料 |
-| [og-pixel.png](../public/og-pixel.png) | 本次程序化192²角色以nearest-neighbor呈現並擷取為768×768 PNG | 現行分享OG圖；來源為網站renderer而非原始PNG再編碼；`assets:verify`要求此檔存在且非空 |
+| [og-pixel.png](../public/og-pixel.png) | 前次程序化192²角色以nearest-neighbor呈現並擷取為768×768 PNG | 歷史分享OG圖；來源為voxel renderer而非原始PNG再編碼；保留供歷史查閱 |
 | [桌機截圖](assets/pixel-stage-desktop.png)／[手機截圖](assets/pixel-stage-mobile.png) | 實際網站renderer的瀏覽器截圖，手機390×844、DPR1 | 文件展示用；不代表所有裝置或動畫品質已完成驗收 |
 | legacy原圖資源 | 下列既有來源、WebP、manifest與OG圖 | 沿用原權利及不可覆寫限制；`assets:verify`仍驗證它們，不驗收新像素外觀 |
 

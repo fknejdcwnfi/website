@@ -1,6 +1,6 @@
 # 04 · 架構
 
-> **目前架構（2026-10-28）**：預設使用無新增依賴的 Canvas 2D 程序化像素 renderer，場景繪製、播放生命週期與 URL 驗證分開。下列 Stage 1／PixiJS／clean plate 架構為歷史與 legacy 參考；ADR-009 不阻擋新像素路線。 目前有效規格見 [10 像素舞台](10-pixel-stage.md) 與 [ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)。
+> **目前方向（2026-10-28）**：預設為忠於 `original_reference.jpg` 的2D像素Living Portrait，排除Steve方頭方身、3D voxel與額外場景；本文件下方保留舊路線歷史。現行產品、動畫、架構、調試與驗收以 [11 Living Portrait](11-living-portrait.md) 及 [ADR-015](08-decisions.md#adr-015--以忠實-2d-像素立繪取代方頭-voxel-預設) 為準。來源唯讀、誠實驗證與檢查通過後自動合併仍適用。
 
 - **狀態**：Stage 1 已實作；Stage 2–4 為設計藍圖
 - **最後更新**：2026-10-28

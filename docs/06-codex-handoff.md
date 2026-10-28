@@ -1,6 +1,6 @@
 # 06 · Codex Cloud 交接
 
-> **目前交接入口（2026-10-28）**：先讀本次像素舞台契約，再開發、驗證、自動合併並確認 Pages 部署。使用既有雲端 checkout，不建立 worktree。下列 P0–P7 與提示詞為舊 anime rig 路線歷史；其中禁止像素／Minecraft、需要重新取得像素風授權及先做 P2 的限制不適用新要求。來源唯讀、檢查、誠實驗收與自動合併規則仍適用。 目前有效規格見 [10 像素舞台](10-pixel-stage.md) 與 [ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)。
+> **目前方向（2026-10-28）**：預設為忠於 `original_reference.jpg` 的2D像素Living Portrait，排除Steve方頭方身、3D voxel與額外場景；本文件下方保留舊路線歷史。現行產品、動畫、架構、調試與驗收以 [11 Living Portrait](11-living-portrait.md) 及 [ADR-015](08-decisions.md#adr-015--以忠實-2d-像素立繪取代方頭-voxel-預設) 為準。來源唯讀、誠實驗證與檢查通過後自動合併仍適用。
 
 - **狀態**：Stage 1 已就緒，等待 Stage 2 以上的工作
 - **最後更新**：2026-10-28

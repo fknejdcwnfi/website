@@ -3,28 +3,37 @@ import test from 'node:test'
 import { readStageOptions } from '../src/animation/stageOptions.ts'
 import { LOOP_MS, sampleVoxel } from '../src/animation/voxelTimeline.ts'
 
-test('the default stage is the personalized voxel scene', () => {
+test('the default stage is the faithful2D pixel portrait with safe motion controls', () => {
   assert.deepEqual(readStageOptions(''), {
-    style: 'voxel',
+    style: 'portrait',
     debug: false,
     frozenPose: null,
-    wind: 0.65,
+    wind: 1,
     speed: 1,
     seed: 7,
     theme: 'midnight',
+    direction: 1,
+    gust: 0.35,
+    stiffness: 18,
+    damping: 5,
+    pixel: 256,
+    paused: false,
+    timeMs: null,
   })
 })
 
-test('legacy, debug and supported themes remain explicit URL options', () => {
+test('portrait, voxel, legacy, debug and supported themes remain explicit URL options', () => {
   const legacy = readStageOptions('?style=legacy&debug=1&pose=5')
   assert.equal(legacy.style, 'legacy')
   assert.equal(legacy.debug, true)
   assert.equal(legacy.frozenPose, 5)
+  assert.equal(readStageOptions('?style=portrait').style, 'portrait')
+  assert.equal(readStageOptions('?style=voxel').style, 'voxel')
   for (const theme of ['midnight', 'emerald', 'amethyst']) {
     assert.equal(readStageOptions(`?theme=${theme}`).theme, theme)
   }
   const unknown = readStageOptions('?style=unknown&debug=true&theme=unknown')
-  assert.equal(unknown.style, 'voxel')
+  assert.equal(unknown.style, 'portrait')
   assert.equal(unknown.debug, false)
   assert.equal(unknown.theme, 'midnight')
 })
@@ -41,7 +50,7 @@ test('frozen poses accept only integers from one through ten', () => {
 test('URL controls reject non-finite values and clamp finite extremes', () => {
   for (const value of ['NaN', 'Infinity', '-Infinity', 'wrong']) {
     const options = readStageOptions(`?wind=${value}&speed=${value}&seed=${value}`)
-    assert.equal(options.wind, 0.65)
+    assert.equal(options.wind, 1)
     assert.equal(options.speed, 1)
     assert.equal(options.seed, 7)
   }
@@ -57,6 +66,65 @@ test('URL controls reject non-finite values and clamp finite extremes', () => {
     const seed = readStageOptions(`?seed=${value}`).seed
     assert.ok(Number.isInteger(seed) && seed >= 0 && seed <= 0xffffffff)
   }
+})
+
+test('physics controls retain finite signed direction and bounded solver values', () => {
+  const low = readStageOptions('?direction=-20&gust=-20&stiffness=-20&damping=-20')
+  assert.equal(low.direction, -1)
+  assert.equal(low.gust, 0.1)
+  assert.equal(low.stiffness, 5)
+  assert.equal(low.damping, 1)
+  const high = readStageOptions('?direction=20&gust=20&stiffness=200&damping=200')
+  assert.equal(high.direction, 1)
+  assert.equal(high.gust, 2)
+  assert.equal(high.stiffness, 40)
+  assert.equal(high.damping, 12)
+  const custom = readStageOptions('?direction=-0.5&gust=0.8&stiffness=22&damping=7')
+  assert.equal(custom.direction, -0.5)
+  assert.equal(custom.gust, 0.8)
+  assert.equal(custom.stiffness, 22)
+  assert.equal(custom.damping, 7)
+  for (const value of ['NaN', 'Infinity', '-Infinity', 'wrong', '']) {
+    const options = readStageOptions(`?direction=${value}&gust=${value}&stiffness=${value}&damping=${value}`)
+    assert.equal(options.direction, 1)
+    assert.equal(options.gust, 0.35)
+    assert.equal(options.stiffness, 18)
+    assert.equal(options.damping, 5)
+  }
+})
+
+test('logical pixel resolutions are restricted to the three reviewed grids', () => {
+  for (const pixel of [192, 256, 320]) {
+    assert.equal(readStageOptions(`?pixel=${pixel}`).pixel, pixel)
+  }
+  for (const pixel of ['', '0', '-256', '193', '1024', 'NaN', 'Infinity', '192px']) {
+    assert.equal(readStageOptions(`?pixel=${pixel}`).pixel, 256)
+  }
+})
+
+test('pause is an explicit static flag and does not implicitly enable debug UI', () => {
+  const paused = readStageOptions('?pause=1')
+  assert.equal(paused.paused, true)
+  assert.equal(paused.debug, false)
+  assert.equal(paused.frozenPose, null)
+  for (const value of ['0', '', 'true', '2']) {
+    assert.equal(readStageOptions(`?pause=${value}`).paused, false)
+  }
+})
+
+test('deterministic timeline seeking accepts only finite input within the full loop', () => {
+  assert.equal(readStageOptions('?t=740').timeMs, 740)
+  assert.equal(readStageOptions('?t=800.5').timeMs, 800.5)
+  assert.equal(readStageOptions('?t=-20').timeMs, 0)
+  assert.equal(readStageOptions('?t=5000').timeMs, 2300)
+  assert.equal(readStageOptions('?t=2300').timeMs, 2300)
+  for (const value of ['', 'NaN', 'Infinity', '-Infinity', 'wrong']) {
+    assert.equal(readStageOptions(`?t=${value}`).timeMs, null)
+  }
+  assert.equal(readStageOptions('').timeMs, null)
+  const frozen = readStageOptions('?pose=5&t=740')
+  assert.equal(frozen.frozenPose, 5)
+  assert.equal(frozen.timeMs, 740, 'parser retains both controls; the player gives pose priority')
 })
 
 test('the 4800 ms timeline repeats without a seam, including negative time', () => {

@@ -1,6 +1,6 @@
 # 03 · 動畫規格
 
-> **目前動畫規格（2026-10-28）**：預設像素舞台採 4800 ms 程序化循環、220 ms 局部眨眼、獨立髮束與耳環、24 fps 更新及靜止模式停止排程。下列 2300 ms／原圖幾何／禁止像素條款只記錄 legacy 與舊 anime rig 路線，不是新預設風格的驗收依據。 目前有效規格見 [10 像素舞台](10-pixel-stage.md) 與 [ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)。
+> **目前方向（2026-10-28）**：預設為忠於 `original_reference.jpg` 的2D像素Living Portrait，排除Steve方頭方身、3D voxel與額外場景；本文件下方保留舊路線歷史。現行產品、動畫、架構、調試與驗收以 [11 Living Portrait](11-living-portrait.md) 及 [ADR-015](08-decisions.md#adr-015--以忠實-2d-像素立繪取代方頭-voxel-預設) 為準。來源唯讀、誠實驗證與檢查通過後自動合併仍適用。
 
 - **狀態**：Stage 1 已實作時間軸；Stage 2–4 尚未實作
 - **最後更新**：2026-10-28
