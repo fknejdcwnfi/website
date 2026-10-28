@@ -1,16 +1,26 @@
 # 05 · 開發指南
 
-> **目前預設**：Minecraft風格像素舞台；完整選項、架構與驗收見 [10 像素舞台](10-pixel-stage.md)。舊原圖預覽改用 `?style=legacy`，其素材重建與部署指令仍保留。
+> **目前預設**：忠於原始角色的2D像素Living Portrait，排除方頭voxel；完整契約見 [11 Living Portrait](11-living-portrait.md)。`?style=voxel`與`?style=legacy`保留兩條歷史路線，舊素材／部署指令仍可查閱。
 
-## 像素舞台開發入口
+## Living Portrait開發入口
 
-建置與測試需要Node24（`.nvmrc`），使用現有checkout；Node內建測試執行器不另安裝框架。先執行 `npm ci`，再跑 `npm test`、`npm run typecheck`、`npm run build`、`npm run assets:check`、`npm run assets:verify`。`npm run build`的prebuild會先執行八個內建單元檢查，現有CI亦沿用此流程。
+建置與測試使用Node24（`.nvmrc`），沿用既有checkout。執行 `npm ci`、`npm test`、`npm run typecheck`、`npm run build`、`npm run assets:check`、`npm run assets:verify`；`prebuild`會跑目前測試，不依賴新增測試框架。
 
-開發伺服器：`npm run dev`，base `/`。production：`npm run build`後執行`npm run preview`，base `/website/`。新預設URL範例為 `?theme=emerald&wind=0.35&speed=0.75&seed=42`；`?pose=5&debug=1`凍結像素角色，`?style=legacy&pose=5&debug=1`檢查舊閉眼圖。
+開發伺服器使用 `npm run dev`，base `/`；production先build再 `npm run preview`，base `/website/`。可用 `?debug=1`開啟隱藏調試控制，`?pose=5`固定閉眼，`?pixel=192`／`?pixel=256`／`?pixel=320`比較邏輯解析度，`?pause=1`暫停。方向、陣風、剛度、阻尼、速度、風力與手動眨眼均僅供調試，不加入正式頁面控制。
 
-`theme`支援midnight／emerald／amethyst；`wind`為0–1；`speed`為0.25–2；`seed`為uint32。預設值為midnight／0.65／1／7。所有URL輸入須先驗證；詳細範圍與靜止語義以現行契約為準。
+目前預設載入同一份像素角色與局部眼瞼材料，資產來源／方法見 [清冊](02-asset-inventory.md)。`npm run assets`仍只負責legacy十幀WebP，不會產生新像素美術；不要為改立繪而覆寫原始PNG、參考圖、GIF或舊WebP。
 
-預設renderer不需Pillow或影像資源；Pillow仍是既有 `assets:check`／素材重建所需。`npm run assets`不產生程序化角色，不為調整像素外觀而覆寫舊WebP或原始PNG。
+新像素管線另用下列腳本；先啟動Vite dev，Python環境需Playwright、Chromium及Pillow：
+
+```bash
+python3 scripts/export_portrait.py --url http://127.0.0.1:5173/
+python3 scripts/verify_portrait_browser.py --url http://127.0.0.1:5173/
+python3 scripts/capture_portrait.py --url http://127.0.0.1:5173/
+```
+
+匯出會刷新六個網格PNG及來源SHA清冊；功能探針需dev source模組；截幀也接受production preview `/website/`，產出十幀、對照、GIF及capture.json。`?t=740`可精確凍結時間軸，`?pose=4`則為明確半閉QA姿態。參數更新與暫停／恢復保留當下相位。
+
+獨立production效能檢查先執行 `npm run build`、另開 `npm run preview`，再執行 `python3 scripts/measure_portrait.py --url http://127.0.0.1:4173/website/`。量測在單一頁面穩定後進行，期間不擷取畫面；結果存於`artifacts/performance.json`，不與dev／多頁背景負載或GIF取樣率混用。
 
 - **狀態**：Stage 1 可執行、可部署
 - **最後更新**：2026-10-28
@@ -231,7 +241,7 @@ npm run deploy
 | 自訂網域 | `/` | 同上 |
 | 子目錄部署 | `/子目錄/` | `VITE_BASE=/子目錄/ npm run build` |
 
-目前 `og:image` 為像素renderer截圖的絕對URL（`https://fknejdcwnfi.github.io/website/og-pixel.png`），舊`og-image.webp`保留，
+目前 `og:image` 為2D立繪renderer截圖的絕對URL（`https://fknejdcwnfi.github.io/website/og-portrait.png`），舊`og-pixel.png`及`og-image.webp`保留，
 確保社交平台能正確預覽。若改用自訂網域或搬到其他平台，請同步更新 `index.html` 的 `og:url` 與 `og:image`。
 
 ### 6.3 快取

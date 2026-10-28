@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "authority": "assets/source/original_reference.jpg",
+  "authority_sha256": "60efba91bcc54f3376f56c5a3626c8276354bbbd1f4204345f68f2240bb5675e",
+  "method": "AI-assisted pixel-art redraw from original reference; closed-eye edit used only in eye polygons. Shared Canvas palette/grid normalization; no independent animation-face frames.",
+  "palette": "src/character/portraitAsset.ts#PALETTE",
+  "palette_colors": 42,
+  "logical_sizes": [
+    192,
+    256,
+    320
+  ],
+  "default_size": 256,
+  "masters": [
+    {
+      "file": "assets/generated/portrait-v2/closed.png",
+      "sha256": "b777826e7578285704caddfe913514e36687da650c1fa0bef41d04e357e8d3f8"
+    },
+    {
+      "file": "assets/generated/portrait-v2/open.png",
+      "sha256": "075a9c5ab5e5e55e9e507d8fb3247c90d676dede05dd4d2a46d31c9f4217e51f"
+    }
+  ],
+  "files": [
+    {
+      "file": "base-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 35657,
+      "sha256": "6c8eb1316fdad1db2ca11fab83e8f46147e9feef943f5fa6431b46cce24f34fd"
+    },
+    {
+      "file": "base-320.png",
+      "width": 320,
+      "height": 320,
+      "bytes": 75064,
+      "sha256": "7200d1f5a49d484f6ce48131ac153d35f516a44b5065cd2bcd8f6166b24b578f"
+    },
+    {
+      "file": "base.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 53812,
+      "sha256": "4e628a72e94312318631fc523e6413871f1cacb3c66a4fd86e7ea15451717e04"
+    },
+    {
+      "file": "eyelids-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 35215,
+      "sha256": "bc4e984e9eb6a3096accfbd78cefb785e3524bb7834a0bc7af724708138f7d52"
+    },
+    {
+      "file": "eyelids-320.png",
+      "width": 320,
+      "height": 320,
+      "bytes": 74371,
+      "sha256": "14160b82d77f0837007a6174ff77edcbb8af205fa5232a9842617f14cc30a322"
+    },
+    {
+      "file": "eyelids.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 53824,
+      "sha256": "5b56b80b09fd80182fa2b4848d69dcf7f8fe6b2f41d49ccd6d2c550f3d796ddf"
+    }
+  ]
+}

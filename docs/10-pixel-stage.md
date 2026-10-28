@@ -1,10 +1,12 @@
-# 10 · Minecraft 風格像素動態 Vermouth
+# 10 · Minecraft 風格像素動態 Vermouth（歷史 voxel 迭代）
+
+> **已由最新提示詞取代**：下文記錄前次192²方頭voxel胸像與其實測結果，現在只適用 `?style=voxel`。目前預設是忠於原圖、非Steve／非3D的2D像素立繪，請先讀 [11 Living Portrait](11-living-portrait.md) 與ADR-015。舊版效能結果不得移作新版證據。
 
 - **日期**：2026-10-28
 - **方向**：擁有者明確要求 Minecraft 風格、像素動態 Vermouth；取代舊版「禁止像素／Minecraft」限制
 - **決策**：[ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)
 
-本文件是目前預設網站的產品、動畫、架構與驗收契約。舊版的原圖分層計畫保留為歷史與 `?style=legacy` 的參考，不代表已完成 clean plate、PixiJS rig 或原圖逐像素重建。
+本文件保留前次voxel版本的產品、動畫、架構與驗收紀錄。舊版的原圖分層計畫保留為歷史與 `?style=legacy` 的參考，不代表已完成 clean plate、PixiJS rig 或原圖逐像素重建。
 
 ## 1. 目前效果與邊界
 

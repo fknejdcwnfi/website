@@ -1,6 +1,6 @@
 # 文件閱讀指南
 
-> **目前方向（2026-10-28）**：先讀 [10 像素舞台](10-pixel-stage.md) 與 ADR-014。預設為Minecraft風格程序化像素角色；文件01／03／04／06／07中的原圖rig分期及禁止像素條款是歷史內容，已在各檔頂部標示適用範圍。`?style=legacy`保留舊預覽，文件09保留原P1規劃研究。
+> **目前方向（2026-10-28）**：先讀 [11 Living Portrait](11-living-portrait.md) 與ADR-015。最高身份權威為original_reference；預設為忠實2D像素立繪，排除Steve方頭／3D voxel。文件10及ADR-014保留前次voxel歷史，文件01／03／04／06／07與09保留更早anime rig歷史。
 
 這份指南說明每份文件解決什麼問題、誰該讀、以及衝突時以誰為準。
 如果你是第一次打開這個倉庫，從這裡開始。
@@ -17,7 +17,8 @@
 
 ### 我要接續開發（人類）
 
-1. [01 專案章程](01-project-charter.md) — 確認範圍與非目標
+1. [11 Living Portrait](11-living-portrait.md) — 目前產品、動態與驗收；再查下列歷史細節
+2. [01 專案章程](01-project-charter.md) — 舊章程與非目標
 2. [03 動畫規格](03-animation-spec.md) — 確認「做到什麼程度算完成」
 3. [04 目標架構](04-architecture.md) — 確認技術路線
 4. [05 開發指南](05-development.md) — 環境、指令、部署
@@ -26,7 +27,8 @@
 ### 我是 Codex Cloud／自動化代理
 
 0. 根目錄 [`AGENTS.md`](../AGENTS.md) — 代理會自動載入的速查規則
-1. [06 Codex 交接](06-codex-handoff.md) — **先讀這份**
+1. [11 Living Portrait](11-living-portrait.md) — **目前契約，先讀**
+2. [06 Codex 交接](06-codex-handoff.md) — 沿用的工程／交付操作
 2. [01 專案章程](01-project-charter.md)
 3. [03 動畫規格](03-animation-spec.md)
 4. [04 目標架構](04-architecture.md)
@@ -56,14 +58,15 @@
 | 07 | [QA 檢查表](07-qa-checklist.md) | 發佈前要檢查什麼 | QA、代理 | 高 |
 | 08 | [決策紀錄](08-decisions.md) | 為什麼選這些技術與做法 | 所有人 | 高 |
 | 09 | [歷史P1圖層計畫](09-layer-plan.md) | 舊anime分層／補繪研究 | 所有人 | 歷史 |
-| 10 | [目前像素舞台](10-pixel-stage.md) | 新Minecraft風格產品、架構、動畫與驗收 | 所有人 | 現行 |
+| 10 | [歷史voxel舞台](10-pixel-stage.md) | 前次方塊胸像及其實測 | 所有人 | 歷史 |
+| 11 | [Living Portrait](11-living-portrait.md) | 忠實2D像素立繪、局部rig、原圖對照與驗收 | 所有人 | 現行 |
 | — | [reference/](reference/) | 最初的任務書與分鏡 prompt | 所有人 | **凍結** |
 
 ---
 
 ## 文件優先級（衝突時怎麼辦）
 
-擁有者較新的明確要求優先；目前預設像素路線以文件10及ADR-014為準。下列順序保留作舊anime／legacy細節查詢。
+擁有者較新的明確要求優先；目前預設2D像素立繪以文件11及ADR-015為準。下列順序保留作舊anime／legacy細節查詢。
 
 1. **[01 專案章程](01-project-charter.md)** 決定「做不做、做到哪」。
 2. **[03 動畫規格](03-animation-spec.md)** 決定「動畫行為與驗收」。

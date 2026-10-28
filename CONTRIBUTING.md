@@ -1,7 +1,7 @@
 # 貢獻指南
 
 本專案是一個人網站作品，變更以「不破壞角色身份與視覺品質」為最高原則。
-在動手前，請先讀 [目前像素舞台契約](docs/10-pixel-stage.md)、[文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。目前預設為擁有者明確要求的Minecraft風格像素動態；舊版禁止像素／Minecraft的限制已由ADR-014取代。
+在動手前，請先讀 [目前Living Portrait契約](docs/11-living-portrait.md)、[文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。目前預設為忠於original_reference的Minecraft-inspired 2D像素立繪；ADR-015取代前次方頭voxel解讀，不能恢復Steve／3D造型。
 
 ---
 
@@ -41,8 +41,8 @@ npm run assets:check
 
 - `assets/source/**`：唯讀。不得覆寫、裁切、重新編碼。
 - `docs/reference/**`：凍結。不得改寫原始委託文件。
-- 第 1 幀的身份與構圖。
-- 舞臺的「只有角色」原則（未有新內容需求前不加入常駐UI）；像素造型與背景像素氛圍依目前契約開發。
+- original_reference的身份、神態與近景構圖基準。
+- 舞臺的「只有角色」原則（未有新內容需求前不加入常駐UI）；2D像素造型與乾淨深色背景依目前契約開發，不加入無關場景。
 - 不得把交叉淡入描述成完成品。
 
 ---

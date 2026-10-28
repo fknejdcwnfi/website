@@ -6,6 +6,7 @@ Checks:
   2. Every derived file exists with the recorded size and SHA-256.
   3. frame_01.png and frame_10.png are byte-identical (seamless loop).
   4. Required public files exist (OG image, favicon, robots, sitemap).
+  5. Portrait grid dimensions, checksums and retained source provenance match.
 
 This is intentionally stdlib-only so CI can run it on a plain Python 3 image.
 """
@@ -14,6 +15,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import struct
 import sys
 from pathlib import Path
 
@@ -21,6 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "public" / "assets" / "manifest.json"
 FRAME_DIR = ROOT / "assets" / "source" / "frames"
 REQUIRED_PUBLIC = (
+    "og-portrait.png",
     "og-pixel.png",
     "og-image.webp",
     "favicon.svg",
@@ -78,12 +81,41 @@ def main() -> int:
         if not path.exists() or path.stat().st_size == 0:
             fail(errors, f"missing or empty public file: public/{name}")
 
+    portrait_root = ROOT / 'public' / 'assets' / 'portrait'
+    portrait_manifest = portrait_root / 'manifest.json'
+    if not portrait_manifest.exists():
+        fail(errors, 'missing portrait asset manifest')
+    else:
+        portrait = json.loads(portrait_manifest.read_text(encoding='utf-8'))
+        entries = portrait.get('files', [])
+        if len(entries) != 6:
+            fail(errors, 'portrait manifest must contain six reviewed grid assets')
+        for entry in entries:
+            path = portrait_root / entry['file']
+            if not path.is_file():
+                fail(errors, f'missing portrait asset: {entry["file"]}')
+                continue
+            data = path.read_bytes()
+            if hashlib.sha256(data).hexdigest() != entry['sha256'] or len(data) != entry['bytes']:
+                fail(errors, f'portrait integrity mismatch: {entry["file"]}')
+            if len(data) < 24 or data[:8] != b'\x89PNG\r\n\x1a\n':
+                fail(errors, f'invalid portrait PNG: {entry["file"]}')
+            elif struct.unpack('>II', data[16:24]) != (entry['width'], entry['height']):
+                fail(errors, f'portrait dimensions mismatch: {entry["file"]}')
+        authority = ROOT / portrait['authority']
+        if not authority.is_file() or sha256(authority) != portrait['authority_sha256']:
+            fail(errors, 'portrait original-reference provenance mismatch')
+        for entry in portrait.get('masters', []):
+            path = ROOT / entry['file']
+            if not path.is_file() or sha256(path) != entry['sha256']:
+                fail(errors, f'portrait master provenance mismatch: {entry["file"]}')
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
 
-    print("asset verification OK: 10 frames, manifest hashes, loop pair, public files")
+    print("asset verification OK: legacy frames, portrait grids, provenance, public files")
     return 0
 
 
