@@ -1,0 +1,87 @@
+{
+  "generatedBy": "scripts/optimize_assets.py",
+  "maxSide": 1080,
+  "webpQuality": 86,
+  "frames": [
+    {
+      "file": "assets/frames/frame_01.webp",
+      "source": "assets/source/frames/frame_01.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 113594,
+      "sha256": "034d902b017c53e16395fd357de81d43b57dde71e4209c2ec226d9dd5fddac73"
+    },
+    {
+      "file": "assets/frames/frame_02.webp",
+      "source": "assets/source/frames/frame_02.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 141930,
+      "sha256": "e3e24d9ab48c16dea6d30ac161821c6b40b5e60d8058426d4945bca7e7e312c7"
+    },
+    {
+      "file": "assets/frames/frame_03.webp",
+      "source": "assets/source/frames/frame_03.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 150520,
+      "sha256": "94476f164386ada7307110c4e5370a41c622297732c985fda50e97a4a8dadd35"
+    },
+    {
+      "file": "assets/frames/frame_04.webp",
+      "source": "assets/source/frames/frame_04.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 150382,
+      "sha256": "cd28062855d5c26350eb09472303b1106981785573abca4c4d5cdd88b90cad7f"
+    },
+    {
+      "file": "assets/frames/frame_05.webp",
+      "source": "assets/source/frames/frame_05.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 147380,
+      "sha256": "f4acf6edb18ffb69a0c17cd78202f2456f8296bc1aef62999af4d2efbebba4ab"
+    },
+    {
+      "file": "assets/frames/frame_06.webp",
+      "source": "assets/source/frames/frame_06.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 152216,
+      "sha256": "315968735e871d088778982e2919b0881e089f20dff1216a8d45f3b401a4a5f4"
+    },
+    {
+      "file": "assets/frames/frame_07.webp",
+      "source": "assets/source/frames/frame_07.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 169044,
+      "sha256": "875e91bf593cfafb7a8f591352d1734e2888b61a988f077dbc75b77f844e3be6"
+    },
+    {
+      "file": "assets/frames/frame_08.webp",
+      "source": "assets/source/frames/frame_08.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 147308,
+      "sha256": "abf9b3064ecce2dcc68b11896fd7d0ade4261d3a1a69c89130137d5b5568f4e7"
+    },
+    {
+      "file": "assets/frames/frame_09.webp",
+      "source": "assets/source/frames/frame_09.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 139252,
+      "sha256": "b0f40b5e8006cd7c2e8d302229e9c0b69fde8d3a66bc54b78b6a6ee56393d28c"
+    },
+    {
+      "file": "assets/frames/frame_10.webp",
+      "source": "assets/source/frames/frame_10.png",
+      "width": 1080,
+      "height": 1080,
+      "bytes": 113594,
+      "sha256": "034d902b017c53e16395fd357de81d43b57dde71e4209c2ec226d9dd5fddac73"
+    }
+  ]
+}
