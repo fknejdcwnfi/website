@@ -1,7 +1,7 @@
 # 貢獻指南
 
 本專案是一個人網站作品，變更以「不破壞角色身份與視覺品質」為最高原則。
-在動手前，請先讀 [文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。
+在動手前，請先讀 [目前像素舞台契約](docs/10-pixel-stage.md)、[文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。目前預設為擁有者明確要求的Minecraft風格像素動態；舊版禁止像素／Minecraft的限制已由ADR-014取代。
 
 ---
 
@@ -11,6 +11,7 @@
 npm ci
 npm run dev
 # 修改
+npm test
 npm run typecheck
 npm run build
 npm run assets:check
@@ -41,7 +42,7 @@ npm run assets:check
 - `assets/source/**`：唯讀。不得覆寫、裁切、重新編碼。
 - `docs/reference/**`：凍結。不得改寫原始委託文件。
 - 第 1 幀的身份與構圖。
-- 舞臺的「只有角色」原則（不得加入可見 UI）。
+- 舞臺的「只有角色」原則（未有新內容需求前不加入常駐UI）；像素造型與背景像素氛圍依目前契約開發。
 - 不得把交叉淡入描述成完成品。
 
 ---
@@ -59,6 +60,7 @@ chore: update vite
 ```
 
 - 一個提交一件事。
+- 必要CI與本次相關驗證通過、無阻擋後自動合併PR，並確認Pages部署；擁有者已授權，不逐次詢問。
 - 不要提交 `node_modules/`、`dist/`、`*.tsbuildinfo`、暫存截圖。
 - 不要 force push 到 `main`。
 - CI 失敗時先修 CI。

@@ -1,5 +1,7 @@
 # 01 · 專案章程
 
+> **目前章程（2026-10-28）**：網站預設改為 Minecraft 風格像素動態 Vermouth；允許像素／方塊造型及背景像素氛圍，保留單角色、無常駐 UI、來源唯讀與使用者個人化空間。下列 Stage 1–5 章程為舊 anime 路線歷史，像素風禁止條款已被擁有者的新要求取代。 目前有效規格見 [10 像素舞台](10-pixel-stage.md) 與 [ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)。
+
 - **專案代號**：Vermouth Character Stage
 - **版本**：`0.1.0`
 - **狀態**：Stage 1 已部署（關鍵姿態預覽）

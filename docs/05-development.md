@@ -1,5 +1,17 @@
 # 05 · 開發指南
 
+> **目前預設**：Minecraft風格像素舞台；完整選項、架構與驗收見 [10 像素舞台](10-pixel-stage.md)。舊原圖預覽改用 `?style=legacy`，其素材重建與部署指令仍保留。
+
+## 像素舞台開發入口
+
+建置與測試需要Node24（`.nvmrc`），使用現有checkout；Node內建測試執行器不另安裝框架。先執行 `npm ci`，再跑 `npm test`、`npm run typecheck`、`npm run build`、`npm run assets:check`、`npm run assets:verify`。`npm run build`的prebuild會先執行八個內建單元檢查，現有CI亦沿用此流程。
+
+開發伺服器：`npm run dev`，base `/`。production：`npm run build`後執行`npm run preview`，base `/website/`。新預設URL範例為 `?theme=emerald&wind=0.35&speed=0.75&seed=42`；`?pose=5&debug=1`凍結像素角色，`?style=legacy&pose=5&debug=1`檢查舊閉眼圖。
+
+`theme`支援midnight／emerald／amethyst；`wind`為0–1；`speed`為0.25–2；`seed`為uint32。預設值為midnight／0.65／1／7。所有URL輸入須先驗證；詳細範圍與靜止語義以現行契約為準。
+
+預設renderer不需Pillow或影像資源；Pillow仍是既有 `assets:check`／素材重建所需。`npm run assets`不產生程序化角色，不為調整像素外觀而覆寫舊WebP或原始PNG。
+
 - **狀態**：Stage 1 可執行、可部署
 - **最後更新**：2026-10-28
 - **適用對象**：本機開發者、Codex Cloud、維護者
@@ -10,7 +22,7 @@
 
 | 工具 | 版本 | 用途 | 備註 |
 | --- | --- | --- | --- |
-| Node.js | **22.12+**（建議 24） | Vite 8 / React 19 | 見 `.nvmrc` |
+| Node.js | **24+** | Vite／React與內建TypeScript測試／prebuild | 見 `.nvmrc` 與 engines |
 | npm | 10+ | 依賴與腳本 | 本專案以 npm 12 驗證 |
 | Python | 3.10+ | 素材管線 | 只在重建圖片時需要 |
 | Pillow | 10+ | WebP 輸出 | `python3 -m pip install Pillow` |
@@ -25,7 +37,7 @@
 ```bash
 git clone https://github.com/fknejdcwnfi/website.git
 cd website
-nvm use            # 若使用 nvm；否則確認 node -v >= 22.12
+nvm use            # 若使用 nvm；否則確認 node -v >= 24
 npm ci             # 有 lockfile 時優先使用
 npm run dev
 ```
@@ -219,7 +231,7 @@ npm run deploy
 | 自訂網域 | `/` | 同上 |
 | 子目錄部署 | `/子目錄/` | `VITE_BASE=/子目錄/ npm run build` |
 
-`og:image` 已設為絕對 URL（`https://fknejdcwnfi.github.io/website/og-image.webp`），
+目前 `og:image` 為像素renderer截圖的絕對URL（`https://fknejdcwnfi.github.io/website/og-pixel.png`），舊`og-image.webp`保留，
 確保社交平台能正確預覽。若改用自訂網域或搬到其他平台，請同步更新 `index.html` 的 `og:url` 與 `og:image`。
 
 ### 6.3 快取
@@ -283,7 +295,7 @@ GitHub Pages 的快取時間較短，通常不需要手動處理。
 | `npm run dev` 開啟是空白 | 看 console；可能是 JS 錯誤或 #root 缺失 | 確認 `index.html` 有 `<div id="root">` |
 | 圖片 404 | base path 不一致 | dev 用 `/`；preview 用 `/website/` |
 | 部署後樣式或圖片 404 | Pages base 未設為 `/website/` | 檢查 `vite.config.ts` 與 `VITE_BASE` |
-| `npm ci` 失敗 | Node 版本過舊或 lockfile 不一致 | 使用 Node 22.12+；必要時重新 `npm install` |
+| `npm ci` 失敗 | Node 版本過舊或 lockfile 不一致 | 使用 Node 24；先確認lockfile一致，再以 `npm ci` 安裝 |
 | `tsc` 抱怨 `import.meta.env` | 缺少 `vite/client` 型別 | 確認 `tsconfig.json` 的 `types` |
 | 素材腳本失敗 | 缺少 Pillow 或張數不是 10 | 安裝 Pillow；確認 `assets/source/frames/` |
 | 動畫在背景分頁停止 | 這是設計 | `visibilitychange` 會暫停，回來續播 |

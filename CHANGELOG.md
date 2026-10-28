@@ -5,9 +5,29 @@
 
 ## [Unreleased]
 
+### Added
+
+- 預設Minecraft風格程序化像素／voxel Vermouth：192²邏輯畫布、nearest-neighbor放大、固定臉部、獨立髮束、局部眼皮、耳環與背景像素動態。
+- 4800ms循環、220ms眨眼窗口、24fps節流；減少動態、固定姿態及隱藏分頁停止無意義更新。
+- 主題midnight／emerald／amethyst與URL個人化wind、speed、seed，所有輸入先驗證。
+- Node24內建八個單元檢查與 `npm test`；prebuild自動執行測試，沿用既有CI而不修改workflow。新像素舞台產品、架構、個人化與QA契約。
+- 從實際程序化renderer產生768² `og-pixel.png`分享圖與桌機／手機文件截圖；素材驗證要求新OG圖存在。
+
+### Changed
+
+- 擁有者明確將視覺方向由anime原圖rig轉向Minecraft風格像素動態；新增ADR-014，舊規格與P1圖層計畫標為歷史，未宣稱完成clean plate或PixiJS rig。
+- 原Stage1預覽保留於 `?style=legacy`，仍標為provisional。原始PNG、GIF、參考文件與既有WebP不變。
+- 同步README、代理規則、開發與素材文件；保留網站外殼、主題、動態參數及個人內容的獨立演進空間。
+
+### Verified
+
+- 新像素舞台production的29項瀏覽器功能檢查通過，預設模式不請求舊來源姿態圖。
+- 容器Chromium的fresh production五秒樣本：120次繪製、23.99fps；CPU繪製時間median0.5ms、p951.2ms，未觀察到長任務。這不是實體手機效能或所有裝置保證。
+
 ### Planned
 
-- Stage 2：圖層規劃、遮罩、clean plate 與補繪。
+- 持續以實際截圖、動態與裝置量測改善像素角色辨識度、局部動態及效能。
+- 以下原anime路線為保留研究，並非新像素renderer的必經步驟：Stage 2圖層、遮罩、clean plate與補繪。
 - Stage 3：PixiJS／WebGL 網格 rig、七組髮絲風力。
 - Stage 4：眼皮圖層、220 ms 眨眼、耳環鐘擺。
 - 視覺回歸測試（Playwright）與時間軸單元測試（Vitest）。

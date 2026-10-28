@@ -5,10 +5,12 @@
   "type": "module",
   "description": "A single-character animation stage — the scaffold of fknejdcwnfi's personal website.",
   "scripts": {
+    "prebuild": "npm test",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "test": "node --test --test-isolation=none scripts/test_voxel.mjs",
     "deploy": "bash scripts/deploy_gh_pages.sh",
     "assets": "python3 scripts/optimize_assets.py",
     "assets:check": "python3 scripts/optimize_assets.py --check",
@@ -27,6 +29,6 @@
     "vite": "^8.3.5"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=24"
   }
 }

@@ -1,5 +1,7 @@
 # 04 · 架構
 
+> **目前架構（2026-10-28）**：預設使用無新增依賴的 Canvas 2D 程序化像素 renderer，場景繪製、播放生命週期與 URL 驗證分開。下列 Stage 1／PixiJS／clean plate 架構為歷史與 legacy 參考；ADR-009 不阻擋新像素路線。 目前有效規格見 [10 像素舞台](10-pixel-stage.md) 與 [ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)。
+
 - **狀態**：Stage 1 已實作；Stage 2–4 為設計藍圖
 - **最後更新**：2026-10-28
 - **適用對象**：前端、Codex Cloud、任何要改動渲染管線的人

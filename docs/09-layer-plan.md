@@ -1,5 +1,7 @@
 # 09 · P1 圖層、遮罩與補繪計畫
 
+> **歷史 P1 計畫（2026-10-28）**：此文件保留原 anime 圖層／補繪研究成果，未宣稱實作完成。擁有者後續明確轉向 Minecraft 風格像素動態 Vermouth；目前預設 renderer 不依賴這份計畫，也不代表已完成其中 clean plate、眼皮圖層或 PixiJS rig。 目前有效規格見 [10 像素舞台](10-pixel-stage.md) 與 [ADR-014](08-decisions.md#adr-014--預設切換為-minecraft-風格像素動態-vermouth)。
+
 - **狀態**：P1 規劃提案；尚未製作圖層、遮罩、clean plate 或 rig
 - **日期**：2026-10-28
 - **基線**：`96ca0ecbe5fe87dc5514f7c2c1aa71cced7701b9`，Stage 1 關鍵姿態交叉淡入預覽

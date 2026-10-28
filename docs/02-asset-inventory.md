@@ -1,5 +1,19 @@
 # 02 · 素材清冊
 
+> **目前資源策略（2026-10-28）**：預設網站改為程序化 Minecraft 風格像素角色，不載入下列十張圖作預設動畫。原圖仍為辨識特徵參考，所有來源唯讀；WebP／manifest／OG圖與舊播放器保留供 legacy／metadata使用。新效果未產生或宣稱完成本清冊舊路線的 clean plate／rig素材。見 [目前契約](10-pixel-stage.md)。
+
+## 目前程序化角色登記
+
+| 項目 | 來源與方法 | 產出／限制 |
+| --- | --- | --- |
+| 像素角色與場景 | 參考01的白金髮、藍眼、深色衣服及藍飾物，以 `src/animation/voxelScene.ts` 的幾何／調色盤程序化繪製 | Canvas即時輸出；不是PNG去背、AI補繪或原圖逐像素重建，不修改來源檔 |
+| 主題與背景細節 | `voxelScene.ts` 的 `THEMES` 午夜／翡翠／紫水晶調色盤；seed 控制背景星點及髮絲紋理 | 移動光點沿固定週期，不將其運動誤稱為 seed 控制；不下載材質或收集身份資料 |
+| [og-pixel.png](../public/og-pixel.png) | 本次程序化192²角色以nearest-neighbor呈現並擷取為768×768 PNG | 現行分享OG圖；來源為網站renderer而非原始PNG再編碼；`assets:verify`要求此檔存在且非空 |
+| [桌機截圖](assets/pixel-stage-desktop.png)／[手機截圖](assets/pixel-stage-mobile.png) | 實際網站renderer的瀏覽器截圖，手機390×844、DPR1 | 文件展示用；不代表所有裝置或動畫品質已完成驗收 |
+| legacy原圖資源 | 下列既有來源、WebP、manifest與OG圖 | 沿用原權利及不可覆寫限制；`assets:verify`仍驗證它們，不驗收新像素外觀 |
+
+以下為既有 anime素材的清冊與管線紀錄；「網站只載入衍生檔」專指 legacy影像路徑。
+
 - **狀態**：十張關鍵姿態已就位；衍生檔可重建
 - **最後更新**：2026-10-28
 - **適用對象**：美術、前端、任何要修改或新增素材的人
