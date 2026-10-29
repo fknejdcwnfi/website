@@ -1,8 +1,8 @@
 import type { TimelineSample } from './timeline'
 import type { StageOptions } from './stageOptions'
-import { loadImage } from '../character/portraitAsset'
+import { loadImage, portraitHeight } from '../character/portraitAsset'
 import { PortraitRig } from '../character/portraitRig'
-import { createMotionTable, samplePortrait } from './portraitTimeline'
+import { createMotionTable, LOOP_MS, samplePortrait } from './portraitTimeline'
 
 // Retain one MediaQueryList for the module lifetime across React strict-mode mounts.
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -10,6 +10,7 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 export class PortraitPlayer {
   private raf = 0
   private destroyed = false
+  private viewportVisible = true
   private elapsed = 0
   private last: number | null = null
   private manualBlink: number | null = null
@@ -22,14 +23,18 @@ export class PortraitPlayer {
   private readonly preference = (): void => this.sync()
 
   constructor(
-    canvas: HTMLCanvasElement,
+    private readonly canvas: HTMLCanvasElement,
     private options: StageOptions,
     private readonly snapshot?: (value: TimelineSample) => void,
-    onError?: () => void,
+    private readonly onError?: () => void,
   ) {
-    canvas.width = canvas.height = options.pixel
+    canvas.width = options.pixel
+    canvas.height = portraitHeight(options.pixel)
     canvas.dataset.ready = 'false'
-    const context = canvas.getContext('2d', { alpha: false })
+    canvas.dataset.painted = 'false'
+    canvas.dataset.playback = 'loading'
+    canvas.dataset.loopDuration = String(LOOP_MS)
+    const context = canvas.getContext('2d', { alpha: true })
     if (!context) throw new Error('A Canvas 2D context is required.')
     this.ctx = context
     this.ctx.imageSmoothingEnabled = false
@@ -37,14 +42,32 @@ export class PortraitPlayer {
     this.motion.addEventListener('change', this.preference)
     document.addEventListener('visibilitychange', this.visibility)
     const suffix = options.pixel === 256 ? '' : `-${options.pixel}`
-    const base = `${import.meta.env.BASE_URL}assets/portrait/`
-    void Promise.all([loadImage(`${base}base${suffix}.png`), loadImage(`${base}eyelids${suffix}.png`)])
-      .then(([open, closed]) => {
+    const base = `${import.meta.env.BASE_URL}assets/portrait-natural/`
+    void Promise.all([loadImage(`${base}base${suffix}.png`), loadImage(`${base}eyelids${suffix}.png`), loadImage(`${base}underpaint${suffix}.png`)])
+      .then(([open, closed, underpaint]) => {
         if (this.destroyed) return
-        this.rig = new PortraitRig(open, closed, options.pixel)
+        this.rig = new PortraitRig(open, closed, options.pixel, underpaint)
         canvas.dataset.ready = 'true'
         this.sync()
-      }).catch(() => { if (!this.destroyed) onError?.() })
+      }).catch(() => this.fail())
+  }
+
+  private fail(): void {
+    if (this.destroyed) return
+    this.canvas.dataset.ready = 'false'
+    this.destroy()
+    this.canvas.dataset.playback = 'failed'
+    this.onError?.()
+  }
+
+  private renderSafely(): boolean {
+    try {
+      this.paint()
+      return true
+    } catch {
+      this.fail()
+      return false
+    }
   }
 
   blink(): void {
@@ -57,6 +80,12 @@ export class PortraitPlayer {
     if ((['direction', 'gust', 'stiffness', 'damping'] as const).some((key) =>
       this.options[key] !== options[key])) this.table = createMotionTable(options)
     this.options = options
+    this.sync()
+  }
+
+  setViewportVisible(visible: boolean): void {
+    if (this.viewportVisible === visible) return
+    this.viewportVisible = visible
     this.sync()
   }
 
@@ -75,6 +104,7 @@ export class PortraitPlayer {
       sample.eyeOpen = t < 110 ? 1 - t / 110 : (t - 110) / 110
     }
     this.rig?.paint(this.ctx, this.table, sample.timeMs, this.options.wind, sample.eyeOpen)
+    this.canvas.dataset.painted = 'true'
     if (this.elapsed - this.lastSnapshot >= 80 || this.staticMode()) {
       this.snapshot?.(sample)
       this.lastSnapshot = this.elapsed
@@ -85,18 +115,24 @@ export class PortraitPlayer {
     cancelAnimationFrame(this.raf)
     this.raf = 0
     this.last = null
-    if (this.destroyed || !this.rig || document.hidden) return
+    if (this.destroyed || !this.rig) return
+    if (document.hidden || !this.viewportVisible) {
+      this.canvas.dataset.playback = 'suspended'
+      return
+    }
     if (this.motion.matches) this.manualBlink = null
-    this.paint()
+    this.canvas.dataset.playback = this.staticMode() ? 'static' : 'looping'
+    if (!this.renderSafely()) return
     if (this.active()) this.raf = requestAnimationFrame(this.tick)
   }
 
   private readonly tick = (now: number): void => {
-    if (this.destroyed || document.hidden) return
+    if (this.destroyed || document.hidden || !this.viewportVisible) return
     if (!this.active()) {
       // A media preference may update between the queued frame and its event.
       if (this.motion.matches) this.manualBlink = null
-      this.paint()
+      this.canvas.dataset.playback = 'static'
+      if (!this.renderSafely()) return
       this.raf = 0
       return
     }
@@ -107,12 +143,13 @@ export class PortraitPlayer {
       this.manualBlink += delta
       if (this.manualBlink >= 220) this.manualBlink = null
     }
-    this.paint()
+    if (!this.renderSafely()) return
     if (this.active()) this.raf = requestAnimationFrame(this.tick)
   }
 
   destroy(): void {
     this.destroyed = true
+    this.canvas.dataset.playback = 'stopped'
     cancelAnimationFrame(this.raf)
     this.motion.removeEventListener('change', this.preference)
     document.removeEventListener('visibilitychange', this.visibility)

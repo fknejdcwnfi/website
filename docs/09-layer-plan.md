@@ -1,6 +1,6 @@
 # 09 · P1 圖層、遮罩與補繪計畫
 
-> **目前方向（2026-10-28）**：預設為忠於 `original_reference.jpg` 的2D像素Living Portrait，排除Steve方頭方身、3D voxel與額外場景；本文件下方保留舊路線歷史。現行產品、動畫、架構、調試與驗收以 [11 Living Portrait](11-living-portrait.md) 及 [ADR-015](08-decisions.md#adr-015--以忠實-2d-像素立繪取代方頭-voxel-預設) 為準。來源唯讀、誠實驗證與檢查通過後自動合併仍適用。
+> **目前網站範圍（2026-10-28）**：使用者已改為完整、簡潔的個人網站，包含導覽、介紹、真實作品與聯絡，見 [12 個人網站](12-personal-site.md) 及ADR-016。[11 Living Portrait](11-living-portrait.md) 繼續規範肖像子系統；下方舊版「只放角色／禁止UI」不再限制整站。2026-10-29已恢復自動合併與網站更新；現行分層動態以[13 參考風動](13-reference-wind.md)為準，下方為歷史提案。
 
 - **狀態**：P1 規劃提案；尚未製作圖層、遮罩、clean plate 或 rig
 - **日期**：2026-10-28

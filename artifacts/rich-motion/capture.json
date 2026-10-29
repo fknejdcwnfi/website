@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:4178/website/",
+  "logical_size": [
+    256,
+    256
+  ],
+  "key_times_ms": [
+    0,
+    230,
+    460,
+    630,
+    740,
+    850,
+    1020,
+    1300,
+    1570,
+    1890
+  ],
+  "pixel_reference_sha256": "fc23d3a277957ec7413bfea79ad8b04083aee04e1529747058869d8f15ee7b07",
+  "original_reference_sha256": "60efba91bcc54f3376f56c5a3626c8276354bbbd1f4204345f68f2240bb5675e",
+  "source": "Actual website canvas exports, not standalone AI candidate images",
+  "frame_01_equals_10": true,
+  "browser_errors": [],
+  "gif": {
+    "sampled_frames": 67,
+    "encoded_frames": 51,
+    "duration_ms": 2300,
+    "bytes": 990606,
+    "sampling": "Deterministic actual website canvas time seeks; not realtime FPS evidence",
+    "homepage_preview": {
+      "file": "website_motion.gif",
+      "bytes": 9003079,
+      "source": "Actual complete homepage hero screenshots at the same deterministic phases"
+    }
+  }
+}

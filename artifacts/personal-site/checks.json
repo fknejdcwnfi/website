@@ -1,0 +1,67 @@
+{
+  "url": "http://127.0.0.1:4178/website/",
+  "checks": [
+    "production_http200",
+    "owner_identity_and_greeting",
+    "full_personal_site_sections",
+    "real_projects_and_contact",
+    "self_hosted_pixel_font",
+    "normal_site_has_no_developer_panel",
+    "portrait_autoplays_without_public_pause_control",
+    "portrait_is_true_transparent_pixel_cutout",
+    "portrait_has_no_rectangular_frame",
+    "small_secondary_text_contrast",
+    "keyboard_skip_link",
+    "skip_link_focuses_main_content",
+    "navigation_reaches_work",
+    "offscreen_portrait_pauses",
+    "visible_portrait_resumes",
+    "default_animation_continues_beyond_two_reference_loops",
+    "reduced_motion_stays_static",
+    "responsive_no_overflow_320",
+    "original_closeup_ratio_320",
+    "responsive_no_overflow_390",
+    "original_closeup_ratio_390",
+    "responsive_no_overflow_768",
+    "original_closeup_ratio_768",
+    "responsive_no_overflow_1440",
+    "original_closeup_ratio_1440",
+    "normal_browser_has_no_errors",
+    "explicit_time_seek_stays_static_without_public_play_control",
+    "no_js_has_complete_content",
+    "no_js_natural_portrait_loaded",
+    "blocked_bundle_keeps_complete_site",
+    "portrait_asset_503_keeps_site_and_static_portrait",
+    "hanging_asset_times_out_to_static_portrait",
+    "canvas_failure_isolated_from_personal_content",
+    "asset200_fonts/PressStart2P-Regular.ttf",
+    "asset200_fonts/OFL.txt",
+    "asset200_portrait-rest.png",
+    "asset200_og-portrait.png"
+  ],
+  "normal_errors": [],
+  "expected_failure_cases": [
+    "main JavaScript bundle blocked",
+    "runtime portrait assets503",
+    "eyelid image request hangs until12s timeout",
+    "Canvas2D context unavailable"
+  ],
+  "portrait_alpha": {
+    "clear": 6518,
+    "solid": 59018,
+    "partial": 0,
+    "total": 65536,
+    "corners": [
+      0,
+      0,
+      255,
+      0
+    ]
+  },
+  "continuous_loop_paints": [
+    28,
+    173,
+    317,
+    461
+  ]
+}

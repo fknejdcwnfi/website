@@ -42,7 +42,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .page {
@@ -236,11 +236,13 @@ body {
 .stage-shell--portrait { animation: none; }
 .stage--portrait {
   width: min(88vmin, 860px);
+  aspect-ratio: 1;
   border-radius: 0;
   image-rendering: pixelated;
-  background-color: #071222;
-  box-shadow: 0 0 0 1px #a8b2ca28, 0 0 0 5px #07101b, 0 28px 95px #0009;
+  background-color: transparent;
+  box-shadow: none;
 }
+.stage--portrait:has(canvas[data-ready='true'][data-painted='true']) { background-image: none !important; }
 .stage--portrait::after { display: none; }
 .stage--portrait canvas { image-rendering: pixelated; }
 .stage--portrait canvas:not([data-ready='true']) { opacity: 0; }
