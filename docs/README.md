@@ -1,118 +1,38 @@
-# 文件閱讀指南
+# 文件入口
 
-> **目前方向（2026-10-28）**：先讀 [12 個人網站](12-personal-site.md) 與ADR-016。預設是完整Minecraft像素風個人網站；[11 Living Portrait](11-living-portrait.md)繼續規範首頁肖像。早期「只能放角色／禁止UI」限制不再適用整站，歷史文件與量測保留各自範圍。
+目前是完整Minecraft像素風個人網站：個人內容與可擴充帳號配置、透明無框Vermouth近景、分層髮束和局部眨眼。使用者已恢復自動合併與網站更新；PR檢查通過後，依GitHub Actions／Pages流程發佈。
 
-這份指南說明每份文件解決什麼問題、誰該讀、以及衝突時以誰為準。
-如果你是第一次打開這個倉庫，從這裡開始。
+## 現行指南
 
----
-
-## 建議閱讀順序
-
-### 我只想快速看成果
-
-1. 根目錄 [README](../README.md)
-2. 啟動 `npm run dev`
-3. 先查看完整首頁、作品及聯絡；肖像除錯另開 `/?view=portrait&debug=1&pose=5`
-
-### 我要接續開發（人類）
-
-1. [12 個人網站](12-personal-site.md) — 目前網站、個人化與可用性
-2. [11 Living Portrait](11-living-portrait.md) — 肖像子系統、動態與驗收
-2. [01 專案章程](01-project-charter.md) — 舊章程與非目標
-2. [03 動畫規格](03-animation-spec.md) — 確認「做到什麼程度算完成」
-3. [04 目標架構](04-architecture.md) — 確認技術路線
-4. [05 開發指南](05-development.md) — 環境、指令、部署
-5. [07 QA 檢查表](07-qa-checklist.md) — 送出前逐項打勾
-
-### 我是 Codex Cloud／自動化代理
-
-0. 根目錄 [`AGENTS.md`](../AGENTS.md) — 代理會自動載入的速查規則
-1. [12 個人網站](12-personal-site.md) — **目前網站契約，先讀**
-2. [11 Living Portrait](11-living-portrait.md) — 肖像子系統契約
-2. [06 Codex 交接](06-codex-handoff.md) — 沿用的工程／交付操作
-2. [01 專案章程](01-project-charter.md)
-3. [03 動畫規格](03-animation-spec.md)
-4. [04 目標架構](04-architecture.md)
-5. [02 素材清冊](02-asset-inventory.md) — 動到素材前必讀
-
-### 我只關心素材或美術
-
-1. [02 素材清冊](02-asset-inventory.md)
-2. [03 動畫規格](03-animation-spec.md) 的「動作語法」與「品質門檻」
-3. [reference/10_frame_prompts.md](reference/10_frame_prompts.md) — 原始分鏡
-
----
-
-## 文件地圖
-
-| 編號 | 文件 | 回答的問題 | 主要讀者 | 穩定性 |
-| --- | --- | --- | --- | --- |
-| — | [README](../README.md) | 這是什麼？怎麼跑起來？ | 所有人 | 高 |
-| — | [CHANGELOG](../CHANGELOG.md) | 每個版本改了什麼？ | 所有人 | 高 |
-| — | [CONTRIBUTING](../CONTRIBUTING.md) | 改動流程與提交規範 | 開發者 | 高 |
-| 01 | [專案章程](01-project-charter.md) | 為什麼做、做什麼、不做什麼 | 擁有者、代理 | 高 |
-| 02 | [素材清冊](02-asset-inventory.md) | 素材從哪來、有哪些瑕疵 | 美術、前端 | 中 |
-| 03 | [動畫規格](03-animation-spec.md) | 動作怎麼動、何時算合格 | 動畫、前端、QA | 中 |
-| 04 | [目標架構](04-architecture.md) | 現在怎麼跑、之後怎麼重構 | 前端、代理 | 中 |
-| 05 | [開發指南](05-development.md) | 怎麼開發、除錯、部署 | 開發者 | 高 |
-| 06 | [Codex 交接](06-codex-handoff.md) | 代理該按什麼順序做、禁止什麼 | 代理、擁有者 | 中 |
-| 07 | [QA 檢查表](07-qa-checklist.md) | 發佈前要檢查什麼 | QA、代理 | 高 |
-| 08 | [決策紀錄](08-decisions.md) | 為什麼選這些技術與做法 | 所有人 | 高 |
-| 09 | [歷史P1圖層計畫](09-layer-plan.md) | 舊anime分層／補繪研究 | 所有人 | 歷史 |
-| 10 | [歷史voxel舞台](10-pixel-stage.md) | 前次方塊胸像及其實測 | 所有人 | 歷史 |
-| 11 | [Living Portrait](11-living-portrait.md) | 忠實2D像素立繪、局部rig、原圖對照與驗收 | 所有人 | 現行 |
-| 12 | [個人網站](12-personal-site.md) | 完整首頁、個人化、擴充與可用性 | 擁有者、前端、QA | 目前 |
-| — | [reference/](reference/) | 最初的任務書與分鏡 prompt | 所有人 | **凍結** |
-
----
-
-## 文件優先級（衝突時怎麼辦）
-
-擁有者較新的明確要求優先；完整個人網站以文件12及ADR-016為準，肖像以文件11為準。下列順序保留作舊anime／legacy細節查詢。
-
-1. **[01 專案章程](01-project-charter.md)** 決定「做不做、做到哪」。
-2. **[03 動畫規格](03-animation-spec.md)** 決定「動畫行為與驗收」。
-3. **[04 目標架構](04-architecture.md)** 決定「技術路線」。
-4. **[05 開發指南](05-development.md)** 決定「操作方式」。
-5. **[reference/](reference/)** 是原始委託文件，保留原樣；它表達意圖，但細節若與 03 衝突，以 03 為準。
-6. **[06 Codex 交接](06-codex-handoff.md)** 決定「代理的工作流程」，不改變產品規格。
-
-若你認為規格本身有問題：先提出 ADR（見 [08 決策紀錄](08-decisions.md)），不要默默偏離。
-
----
-
-## 用語約定
-
-本文件庫使用簡化的 RFC 2119 語氣：
-
-| 詞 | 含義 |
+| 文件 | 解決的問題 |
 | --- | --- |
-| **必須 / MUST** | 不可妥協；違反即視為缺陷 |
-| **應該 / SHOULD** | 預設做法；偏離需在 PR 說明理由 |
-| **可以 / MAY** | 選項，依情境決定 |
-| **禁止 / MUST NOT** | 明確的反模式 |
+| [個人網站](guides/personal-site.md) | 首頁、真實內容、B站／抖音與遊戲帳號的設定、未來擴充 |
+| [Living Portrait](guides/living-portrait.md) | 角色身份、原近景構圖、像素格、透明邊緣及動畫邊界 |
+| [參考風動與高更新率](guides/reference-wind.md) | 髮束、眨眼、遮擋修復、真實截幀與效能證據 |
+| [開發指南](guides/development.md) | 目錄、指令、除錯、QA及PR／發佈流程 |
+| [素材清冊](guides/asset-inventory.md) | 原始來源、canonical／底圖、runtime、字體與使用限制 |
+| [決策紀錄](decisions.md) | 各階段採用、取代與授權的原因 |
 
-動畫與素材相關名詞：
+第一次開發先讀根目錄[README](../README.md)、[AGENTS](../AGENTS.md)，再依工作閱讀上述指南；改視覺前必讀角色及素材契約。提交規範見[CONTRIBUTING](../CONTRIBUTING.md)。
 
-| 名詞 | 定義 |
+## 歷史與凍結資料
+
+[archive/](archive/)保留原anime／voxel階段文件，每份頂部都標示歸檔日期與目前入口。其中的舊來源路徑、no-UI限制、渲染路線與量測只適用當時階段，不能覆蓋現行指南或當作本輪證據。
+
+| 歷史文件 | 原用途 |
 | --- | --- |
-| **Key pose（關鍵姿態）** | 十張參考圖之一，描述某一時刻的頭髮與眼睛狀態，不是逐像素動畫幀。 |
-| **Stage 1** | 歷史關鍵姿態交叉淡入播放器，用於驗證舞臺與時間軸。 |
-| **Rig（綁定）** | 把角色拆成可獨立變形的圖層與網格，再由參數驅動。 |
-| **Wind model** | 驅動髮絲位移的風力模型，包含陣風包絡、相位與阻尼。 |
-| **Blink** | 眼皮由開到閉再張開的短暫動作，目標 150–250 ms。 |
-| **Identity lock** | 臉型、五官、飾物位置在動畫中保持不變的約束。 |
-| **Clean plate** | 移除前景遮擋物（髮絲、眼皮）後補繪的背景圖層。 |
+| [專案章程](archive/01-project-charter.md) | 最初範圍與非目標 |
+| [動畫規格](archive/03-animation-spec.md) | 原十關鍵姿態與動作要求 |
+| [架構](archive/04-architecture.md) | 原播放器及Stage路線 |
+| [Codex交接](archive/06-codex-handoff.md) | 早期代理操作範例 |
+| [QA清單](archive/07-qa-checklist.md) | 早期驗收流程 |
+| [圖層計畫](archive/09-layer-plan.md) | 原anime圖層／clean plate研究 |
+| [像素舞台](archive/10-pixel-stage.md) | 已封存voxel方案及當時實測 |
 
----
+[reference/](reference/)的原始委託、分鏡與README保持原路徑及逐位元內容不變。它們記錄原始意圖，包含舊目錄連結與過時指令；閱讀時以本入口的新路徑及現行指南為準，不改寫原文。
 
-## 文件維護規則
+## 維護規則
 
-- 任何行為變更，必須同步更新受影響的文件；文件與程式碼不同步視為未完成。
-- `docs/reference/**` **凍結**：不得改寫，只能在旁邊新增註解文件。
-- 新增決策時，在 [08 決策紀錄](08-decisions.md) 追加 ADR，而不是改寫舊 ADR。
-- 文件內的相對連結必須能在 GitHub 上直接點開。
-- 圖片若超過 1 MB，優先放進 `assets/source/` 並在文件中連結，不要重複複製。
+使用者較新的明確要求優先。現行網站以個人網站指南為準，身份與素材以Living Portrait／素材清冊為準，動作與新量測以參考風動指南為準。決策歷史不因新要求而刪除；追加ADR說明變更，歷史文件不重新冒充目前規格。
 
-最新動態與自動發佈：[13 參考風動](13-reference-wind.md)。
+程式行為、目錄或發佈流程變動時同步文件與CHANGELOG。相對連結需能從所在文件開啟，截圖與數值必須來自實際網站並附量測條件。密集截幀、GIF編碼率、模擬更新率及實際螢幕繪製率需分別記錄。

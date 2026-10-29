@@ -27,6 +27,8 @@
     "responsive_no_overflow_1440",
     "original_closeup_ratio_1440",
     "normal_browser_has_no_errors",
+    "homepage_defers_archived_renderer_modules",
+    "homepage_does_not_download_archived_portrait_frames",
     "explicit_time_seek_stays_static_without_public_play_control",
     "no_js_has_complete_content",
     "no_js_natural_portrait_loaded",
@@ -34,6 +36,8 @@
     "portrait_asset_503_keeps_site_and_static_portrait",
     "hanging_asset_times_out_to_static_portrait",
     "canvas_failure_isolated_from_personal_content",
+    "unavailable_voxel_chunk_keeps_personal_site",
+    "unavailable_legacy_chunk_keeps_personal_site",
     "asset200_fonts/PressStart2P-Regular.ttf",
     "asset200_fonts/OFL.txt",
     "asset200_portrait-rest.png",
@@ -44,7 +48,23 @@
     "main JavaScript bundle blocked",
     "runtime portrait assets503",
     "eyelid image request hangs until12s timeout",
-    "Canvas2D context unavailable"
+    "Canvas2D context unavailable",
+    "voxel optional JavaScript chunk blocked",
+    "legacy optional JavaScript chunk blocked"
+  ],
+  "normal_script_resources": [
+    "http://127.0.0.1:4178/website/assets/index-uQsws82D.js",
+    "http://127.0.0.1:4178/website/assets/index-uQsws82D.js"
+  ],
+  "normal_image_resources": [
+    "http://127.0.0.1:4178/website/portrait-rest.png",
+    "http://127.0.0.1:4178/website/assets/portrait-natural/base.png",
+    "http://127.0.0.1:4178/website/assets/portrait-natural/eyelids.png",
+    "http://127.0.0.1:4178/website/assets/portrait-natural/underpaint.png",
+    "http://127.0.0.1:4178/website/portrait-rest.png",
+    "http://127.0.0.1:4178/website/assets/portrait-natural/base.png",
+    "http://127.0.0.1:4178/website/assets/portrait-natural/eyelids.png",
+    "http://127.0.0.1:4178/website/assets/portrait-natural/underpaint.png"
   ],
   "portrait_alpha": {
     "clear": 6518,
@@ -60,7 +80,7 @@
   },
   "continuous_loop_paints": [
     28,
-    173,
+    172,
     317,
     461
   ]

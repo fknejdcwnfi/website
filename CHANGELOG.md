@@ -3,13 +3,24 @@
 本專案遵循 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) 的精神，
 版本號使用 `MAJOR.MINOR.PATCH`。
 
+## 2026-10-29 · 像素世界、十七段連續風動與目錄重整
+
+- 八組髮束由九段細化至十七段，以C1 Hermite曲線銜接；長捲髮增加有界延遲回捲及回彈，與眨眼、分別延遲的左右耳環配合。保留原近景、透明無框、42色／二值alpha與固定臉部，不更換canonical母版。
+- 預計算變形跨度、曲線係數與局部像素清單，減少每幀重複工作；歷史legacy／voxel播放器改為明確模式才載入，不增加正常首頁的JS或參考幀請求。
+- 整站細化Minecraft草地方塊、物品欄作品卡、像素圖示、按壓／鍵盤焦點與手機排版。個人資料新增型別化 `socials`／`gameProfiles`，支援後續B站／抖音／王者荣耀／火影忍者公開資料；空設定不產生假帳號、空遊戲區或無效連結，React與初始HTML使用相同內容。
+- 程式按 `app`、`features/profile`、`features/portrait`、`shared`與歷史模式分離；工具分為assets／qa／tests／deploy。現行文件集中 `docs/guides`，舊階段文件、舊runtime及歷史證據明確封存，避免全部混入網站或當前驗證。原source／reference路徑及位元組、既有workflows保持不變。
+- 37項單元、51項肖像及41項網站檢查通過；保護區27,519像素與160髮根保持不變，風動8,253像素／908輪廓像素變化，眼瞼差分只在眼區，100輪×13相位一致，60／120／144／240 Hz模擬相位及像素一致。
+- production單頁、1200×1000／DPR1、無CPU節流：原生排程60次實際繪製／秒，callback中位數3.7 ms／p95 5.5 ms；活動風段3.9／5.9 ms。解除Chromium限幀後活動風段約269次callback／秒，屬吞吐測試估計，不是實體高刷新率螢幕保證；完整條件見 `artifacts/pixel-world/performance.json`。
+- 新增276個120 Hz時間樣本、10個參考姿態及10個錨點，去重保存205張實際Canvas PNG，附完整HTML圖集、144張縮圖表、角色與首頁GIF。GIF與指定時間取樣不作即時FPS證據，所有證據位於網站打包範圍之外。
+- 依擁有者要求清理已合併／內容相同的舊分支，先驗證完整本機bundle並為必要歷史建立archive tags；main保留為唯一長期分支，當前任務分支待PR合併後移除。清理與恢復依據記錄於 `docs/maintenance/branch-cleanup.json`。
+
 ## 2026-10-29 · 分層風動、卷髮拖尾與自動更新
 
 - 依工程十張參考的動作語義重做八組髮束，加入每束九段延遲、上揚、風向回彈、兩條不同響應耳環，與原眨眼並行；保留原近景、透明無框與固定42色像素格。
 - 新增隱藏髮後底圖，先清除舊位置再繪製動髮，避免靜止副本／破洞；canonical臉部與靜止畫布SHA不變，source／reference凍結檔保持不變。九張runtime PNG及來源雜湊納入清冊。
 - Minecraft草方塊品牌色帶與按鈕按壓回饋，保留完整個人網站、真實內容與後續功能空間；同步ADR-018與文件13。
 - 32項單元、48項肖像與37項網站瀏覽器檢查通過。睜眼風動8,243像素變化／903個輪廓變化；前景卷髮控制點峰值22–23邏輯像素，風動在眨眼前後持續。保護區／160根點零位移、眼瞼變化限眼區、補繪區零破洞，100輪各13相位一致。
-- fresh production5秒300次繪製／60fps，callback中位數4.55 ms／p95 6.5 ms，無長任務；條件與證據見 `artifacts/rich-motion/`。不將GIF取樣率或舊版效能當作新即時結果。
+- fresh production5秒300次繪製／60fps，callback中位數4.55 ms／p95 6.5 ms，無長任務；條件與證據見 `archive/evidence/portrait-v5/`。不將GIF取樣率或舊版效能當作新即時結果。
 - 使用者最新明確恢復自動合併與網站更新，解除前版草稿發佈限制；通過本地／CI審查後依既有main→GitHub Pages工作流更新。
 
 ## [Unreleased]
@@ -29,7 +40,7 @@
 - 31項單元測試、型別、production build與素材／來源驗證通過。
 - 完整首頁37項瀏覽器檢查全通過，正常頁面無錯誤；核對四種寬度、原近景比例、無框透明人物、鍵盤導覽、跨多輪續播、離屏／減少動態及四種預期故障備援。256²畫布6,518個透明／59,018個不透明像素，零半透明像素。
 - 獨立肖像42項檢查通過，無錯誤；37,698個固定人物像素及髮根零改變，1,085個眨眼變化像素全部在眼區，2,179個風動像素來自局部髮區／耳環，100輪各13個相位逐像素一致。
-- 實際網站十個參考時刻、原圖／靜止／風動／閉眼對照及動畫保存於 `artifacts/natural-portrait/`；GIF取樣67個時間點，編碼40幀、2300 ms、768,526 bytes，擷取過程無瀏覽器錯誤；不當作即時FPS量測。
+- 實際網站十個參考時刻、原圖／靜止／風動／閉眼對照及動畫保存於 `archive/evidence/portrait-v4/`；GIF取樣67個時間點，編碼40幀、2300 ms、768,526 bytes，擷取過程無瀏覽器錯誤；不當作即時FPS量測。
 - fresh單頁production容器1200×1000／DPR1、無節流，穩定1.5秒後取樣5秒：300次繪製／60.0fps、callback CPU中位數0.7 ms／p95 1.8 ms，無長任務、瀏覽器／HTTP錯誤；兩張runtime PNG共103,320 bytes，保留指定條件與實體裝置限制。
 - 完整首頁、桌機、手機及無JS截圖已更新；下方舊數值為歷史基線。本輪仍遵守暫不發佈指示，沒有推送／合併／部署。
 
@@ -38,7 +49,7 @@
 ### Added
 
 - 依使用者最新澄清，建立完整簡潔Minecraft像素風個人網站：導覽、介紹、真實作品、Email／GitHub與頁尾；Vermouth保留為hero主視覺。
-- 使用者指定的fknejdcwnfi稱呼、HELLOWORLD與Email；`src/content/site.ts`集中個人資料、導覽與作品，`SiteShell`保留後續功能插槽。
+- 使用者指定的fknejdcwnfi稱呼、HELLOWORLD與Email；`src/features/profile/content/site.ts`集中個人資料、導覽與作品，`SiteShell`保留後續功能插槽。
 - 自託管Press Start 2P及SIL OFL授權、像素邊框與綠色點綴，中文保持可讀；手機版可捲動瀏覽全部內容。
 - 初始HTML完整內容、整站／肖像錯誤邊界、12秒素材逾時與獨立靜態肖像降級，降低module／動畫失敗造成空白的風險。
 - 文件12與ADR-016；保留肖像子系統及原始來源保護，不新增假履歷、假作品或未接後端的送信表單。
@@ -126,14 +137,14 @@
 - `prefers-reduced-motion` 支援：靜止於第 1 幀。
 - 分頁隱藏時暫停、回到前景續播並保留相位。
 - 響應式舞台（92vmin，手機 94vmin）與安全區支援。
-- 素材管線 `scripts/optimize_assets.py`：1080² WebP、manifest、1200×630 OG 圖。
+- 素材管線 `scripts/assets/optimize_assets.py`：1080² WebP、manifest、1200×630 OG 圖。
 - 原始素材清冊、時間軸規格、目標架構、開發指南、Codex 交接、QA 清單與 ADR。
 - 根目錄 `AGENTS.md`：Codex Cloud 自動載入的代理規則與閱讀順序。
 - GitHub Pages 自動部署：推送 `main` 由 `.github/workflows/deploy.yml` 建置與發佈。
 - PR 建置檢查：`.github/workflows/ci.yml`。
 - `npm run deploy` 保留為 `gh-pages` 手動備援。
 - `favicon.svg`（藍寶石墜飾）與 OG metadata。
-- `scripts/verify_assets.py` 與 `npm run assets:verify`：驗證 manifest 雜湊、第 1/10 幀一致與必要靜態檔；CI 與部署 workflow 都會執行。
+- `scripts/assets/verify_assets.py` 與 `npm run assets:verify`：驗證 manifest 雜湊、第 1/10 幀一致與必要靜態檔；CI 與部署 workflow 都會執行。
 - SEO 收尾：canonical、`og:site_name`、`og:image:alt`、Twitter metadata、`robots.txt`、`sitemap.xml`。
 
 ### Changed
@@ -142,7 +153,7 @@
 - 原始 PNG 不再直接提供給瀏覽器；改由 WebP 衍生檔服務（約 16.9 MB → 1.4 MB）。
 - 原始 prompt 文件移入 `docs/reference/`，凍結保存。
 - GitHub Pages 由 `gh-pages` 分支切換為 GitHub Actions（`build_type: workflow`）；`gh-pages` 保留為手動備援。
-- 抽出 `src/animation/timeline.ts`：純時間軸取樣，不依賴 DOM／Vite，方便日後單元測試。
+- 抽出 `src/archive/legacy/timeline.ts`：純時間軸取樣，不依賴 DOM／Vite，方便日後單元測試。
 - 播放器在 `prefers-reduced-motion` 或 `?pose=N` 靜止時停止 rAF，不再以 60 fps 重畫同一幀。
 
 ### Removed

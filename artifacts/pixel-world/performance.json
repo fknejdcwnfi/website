@@ -1,0 +1,260 @@
+{
+  "conditions": "fresh single-page headless Chromium per run;1200x1000;DPR1;no CPU throttle;no screenshots during sample",
+  "interpretation": "Native mode measures this container's rAF schedule. Unconstrained mode removes Chromium frame pacing to measure actual callback/paint throughput; neither establishes physical display refresh or device-wide performance.",
+  "phase_measurement": "Phase inferred from per-canvas native rAF paint timestamps using the player's elapsed-ms deltas (clamped at100ms), initial phase0 and speed1; uninterrupted visible playback throughout each sample. Active-wind costs exclude the settled rest interval. Per-phase callback rates assign each rAF interval to its ending phase and are estimates.",
+  "frame_budget_note": "Callback cost is JavaScript work including rendering; budgets exclude compositor, GPU, browser and OS overhead.",
+  "physical_high_refresh_display_verified": false,
+  "runs": [
+    {
+      "mode": "native",
+      "url": "http://127.0.0.1:4178/website/",
+      "chromium_flags": [
+        "--no-sandbox"
+      ],
+      "chromium_version": "154.0.8037.57",
+      "sample_seconds": 5.0,
+      "settle_ms": 2500,
+      "raf_callbacks": 300,
+      "raf_callbacks_per_second": 60.0,
+      "portrait_canvas_paints": 300,
+      "portrait_paints_per_second": 60.0,
+      "callback_cpu_ms": {
+        "count": 300,
+        "min": 0.1,
+        "median": 3.7,
+        "p95": 5.5,
+        "p99": 12,
+        "max": 19.7,
+        "mean": 3.571
+      },
+      "callback_cpu_by_phase_ms": {
+        "onset_0_230": {
+          "count": 26,
+          "min": 3,
+          "median": 3.55,
+          "p95": 5.1,
+          "p99": 5.3,
+          "max": 5.3,
+          "mean": 3.758
+        },
+        "active_wind_230_1890": {
+          "count": 224,
+          "min": 2.9,
+          "median": 3.9,
+          "p95": 5.9,
+          "p99": 14.8,
+          "max": 19.7,
+          "mean": 4.286
+        },
+        "strong_wind_630_1570": {
+          "count": 114,
+          "min": 2.9,
+          "median": 4.0,
+          "p95": 6.5,
+          "p99": 14.8,
+          "max": 17.5,
+          "mean": 4.375
+        },
+        "settled_rest_1890_2300": {
+          "count": 50,
+          "min": 0.1,
+          "median": 0.2,
+          "p95": 0.5,
+          "p99": 1.8,
+          "max": 1.8,
+          "mean": 0.272
+        }
+      },
+      "phase_callback_rate_estimates": {
+        "onset_0_230": {
+          "raf_callbacks": 26,
+          "raf_timestamp_duration_ms": 433.4,
+          "callbacks_per_second": 59.99
+        },
+        "active_wind_230_1890": {
+          "raf_callbacks": 223,
+          "raf_timestamp_duration_ms": 3716.7,
+          "callbacks_per_second": 60.0
+        },
+        "strong_wind_630_1570": {
+          "raf_callbacks": 114,
+          "raf_timestamp_duration_ms": 1899.9,
+          "callbacks_per_second": 60.0
+        },
+        "settled_rest_1890_2300": {
+          "raf_callbacks": 50,
+          "raf_timestamp_duration_ms": 833.1,
+          "callbacks_per_second": 60.02
+        }
+      },
+      "raf_interval_ms": {
+        "count": 299,
+        "min": 16.5,
+        "median": 16.7,
+        "p95": 16.8,
+        "p99": 16.8,
+        "max": 16.8,
+        "mean": 16.666
+      },
+      "paint_interval_ms": {
+        "count": 299,
+        "min": 3.9,
+        "median": 16.7,
+        "p95": 19.0,
+        "p99": 26.9,
+        "max": 33.1,
+        "mean": 16.671
+      },
+      "long_tasks": [],
+      "cdp_cpu_seconds": {
+        "TaskDuration": 1.242364,
+        "ScriptDuration": 1.094984,
+        "LayoutDuration": 0,
+        "RecalcStyleDuration": 0
+      },
+      "main_thread_busy_percent": 24.85,
+      "js_heap_used_bytes": 4664296,
+      "runtime_images": [
+        "http://127.0.0.1:4178/website/assets/portrait-natural/base.png",
+        "http://127.0.0.1:4178/website/assets/portrait-natural/eyelids.png",
+        "http://127.0.0.1:4178/website/assets/portrait-natural/underpaint.png"
+      ],
+      "browser_errors": [],
+      "http_errors": [],
+      "callback_cost_within_frame_budget_percent": {
+        "60": 99.33,
+        "120": 98.0,
+        "144": 97.33,
+        "240": 73.0
+      },
+      "metadata_and_asset_http200": true
+    },
+    {
+      "mode": "unconstrained",
+      "url": "http://127.0.0.1:4178/website/",
+      "chromium_flags": [
+        "--no-sandbox",
+        "--disable-frame-rate-limit",
+        "--disable-gpu-vsync"
+      ],
+      "chromium_version": "154.0.8037.57",
+      "sample_seconds": 5.006,
+      "settle_ms": 2500,
+      "raf_callbacks": 2915,
+      "raf_callbacks_per_second": 582.25,
+      "portrait_canvas_paints": 2915,
+      "portrait_paints_per_second": 582.25,
+      "callback_cpu_ms": {
+        "count": 2915,
+        "min": 0,
+        "median": 0.1,
+        "p95": 3.9,
+        "p99": 6,
+        "max": 13.7,
+        "mean": 1.383
+      },
+      "callback_cpu_by_phase_ms": {
+        "onset_0_230": {
+          "count": 155,
+          "min": 0,
+          "median": 2.9,
+          "p95": 3.8,
+          "p99": 6.3,
+          "max": 10.3,
+          "mean": 2.759
+        },
+        "active_wind_230_1890": {
+          "count": 1005,
+          "min": 0.1,
+          "median": 3.2,
+          "p95": 5.3,
+          "p99": 8.1,
+          "max": 13.7,
+          "mean": 3.456
+        },
+        "strong_wind_630_1570": {
+          "count": 528,
+          "min": 2.6,
+          "median": 3.2,
+          "p95": 4.7,
+          "p99": 7.1,
+          "max": 13.7,
+          "mean": 3.454
+        },
+        "settled_rest_1890_2300": {
+          "count": 1755,
+          "min": 0,
+          "median": 0.1,
+          "p95": 0.2,
+          "p99": 0.3,
+          "max": 2,
+          "mean": 0.075
+        }
+      },
+      "phase_callback_rate_estimates": {
+        "onset_0_230": {
+          "raf_callbacks": 155,
+          "raf_timestamp_duration_ms": 456.5,
+          "callbacks_per_second": 339.54
+        },
+        "active_wind_230_1890": {
+          "raf_callbacks": 1004,
+          "raf_timestamp_duration_ms": 3729.1,
+          "callbacks_per_second": 269.23
+        },
+        "strong_wind_630_1570": {
+          "raf_callbacks": 528,
+          "raf_timestamp_duration_ms": 1947.3,
+          "callbacks_per_second": 271.14
+        },
+        "settled_rest_1890_2300": {
+          "raf_callbacks": 1755,
+          "raf_timestamp_duration_ms": 823.0,
+          "callbacks_per_second": 2132.44
+        }
+      },
+      "raf_interval_ms": {
+        "count": 2914,
+        "min": 0.0,
+        "median": 0.7,
+        "p95": 4.3,
+        "p99": 7.1,
+        "max": 13.5,
+        "mean": 1.719
+      },
+      "paint_interval_ms": {
+        "count": 2914,
+        "min": 0.0,
+        "median": 0.7,
+        "p95": 4.2,
+        "p99": 6.9,
+        "max": 12.4,
+        "mean": 1.716
+      },
+      "long_tasks": [],
+      "cdp_cpu_seconds": {
+        "TaskDuration": 5.082244,
+        "ScriptDuration": 4.193882,
+        "LayoutDuration": 0,
+        "RecalcStyleDuration": 0
+      },
+      "main_thread_busy_percent": 101.51,
+      "js_heap_used_bytes": 7120032,
+      "runtime_images": [
+        "http://127.0.0.1:4178/website/assets/portrait-natural/base.png",
+        "http://127.0.0.1:4178/website/assets/portrait-natural/eyelids.png",
+        "http://127.0.0.1:4178/website/assets/portrait-natural/underpaint.png"
+      ],
+      "browser_errors": [],
+      "http_errors": [],
+      "callback_cost_within_frame_budget_percent": {
+        "60": 100.0,
+        "120": 99.69,
+        "144": 99.38,
+        "240": 96.23
+      },
+      "metadata_and_asset_http200": true
+    }
+  ],
+  "cpu_window_note": "This capture recorded CDP TaskDuration across protocol calls around the page timer, then divided by the narrower page sample duration. main_thread_busy_percent is therefore an approximate window ratio and can exceed100% under unconstrained load; use raw cdp_cpu_seconds for this capture. The script now records the matching CDP Timestamp window for future measurements."
+}

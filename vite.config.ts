@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { site } from './src/content/site.ts'
-import { escapeHtml, renderStaticSite } from './src/content/staticMarkup.ts'
+import { site } from './src/features/profile/content/site.ts'
+import { escapeHtml, renderStaticSite } from './src/features/profile/content/staticMarkup.ts'
 
 /**
  * GitHub Pages serves this repository from https://fknejdcwnfi.github.io/website/,

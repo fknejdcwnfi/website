@@ -16,8 +16,8 @@ Reproduce from the repository root:
 ```bash
 npm run build
 npm run preview
-python3 scripts/verify_personal_site.py --url http://127.0.0.1:4173/website/
-python3 scripts/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/personal-site/performance.json
+python3 scripts/qa/verify_personal_site.py --url http://127.0.0.1:4173/website/
+python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/personal-site/performance.json
 ```
 
 The current draft has not been pushed, merged or published. The public website remains the previous version until the owner's publishing hold is explicitly lifted.
