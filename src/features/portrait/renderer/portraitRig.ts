@@ -1,6 +1,7 @@
 import { PALETTE } from './portraitAsset'
 import { LOOP_MS, MOTION_CHANNELS, sampleMotion } from '../animation/portraitTimeline'
 import { CHAIN_STATIONS as STATIONS, sampleStrandCurve, strandFlexibility, writeStrandCurve } from './strandCurve'
+import { StrandDynamics } from './strandDynamics'
 
 export { CHAIN_STATIONS } from './strandCurve'
 
@@ -17,10 +18,10 @@ type HairLayer = {
   rowMix: Float64Array
   rowX: Float64Array
   rowY: Float64Array
+  stationScale: number
+  stationOffset: number
 }
 type EyePixel = { index: number; y: number; top: number; height: number }
-const TIP_LAG = [220, 300, 190, 145, 240, 290, 540, 650] as const
-const LIFT = [0.22, 0.30, 0.36, 0.12, 0.18, 0.28, 0.23, 0.34] as const
 export const ROOT_ANCHORS: readonly Point[] = [[18, 34], [31, 76], [215, 5], [60, 8], [52, 76], [194, 52], [45, 119], [180, 177], [78, 114], [180, 97]]
 const smooth = (value: number): number => {
   const x = Math.max(0, Math.min(1, value))
@@ -113,14 +114,15 @@ export class PortraitRig {
   private readonly layers: HairLayer[] = []
   private readonly output: ImageData
   private readonly target: Uint32Array
-  private readonly eyeMap: Int8Array
-  private readonly stations: Float32Array
   private readonly offsetsX = new Float32Array(MOTION_CHANNELS * STATIONS)
   private readonly offsetsY = new Float32Array(MOTION_CHANNELS * STATIONS)
   private readonly curveX = new Float64Array(MOTION_CHANNELS * STATIONS * 4)
   private readonly curveY = new Float64Array(MOTION_CHANNELS * STATIONS * 4)
   private readonly eyePixels: EyePixel[] = []
   private readonly jewelryPixels: number[] = []
+  private dynamics: StrandDynamics | null = null
+  private motionTable: readonly Float32Array[] | null = null
+  private rasterGain = -1
 
   constructor(open: CanvasImageSource, closed: CanvasImageSource, size: number, underpaint: CanvasImageSource) {
     this.size = size
@@ -134,17 +136,14 @@ export class PortraitRig {
     this.weights = new Float32Array(size * size)
     this.protectedPixels = new Uint8Array(size * size)
     this.rootPixels = new Uint8Array(size * size)
-    this.eyeMap = new Int8Array(size * size).fill(-1)
-    this.stations = new Float32Array(size * size)
     const skin = new Set(PALETTE.slice(17, 27).map((color) => {
       const value = parseInt(color.slice(1), 16)
       return (0xff000000 | (value & 255) << 16 | value & 0xff00 | value >>> 16) >>> 0
     }))
     for (let i = 0; i < size * size; i += 1) {
       const x = (i % size + 0.5) * 256 / size, y = (Math.floor(i / size) + 0.5) * 256 / size
-      EYES.forEach((eye, e) => {
+      EYES.forEach((eye) => {
         if (!inside(x, y, eye.polygon)) return
-        this.eyeMap[i] = e
         const u = (x - eye.x0) / (eye.x1 - eye.x0)
         const top = eye.top0 + (eye.top1 - eye.top0) * u
         const bottom = eye.bottom - Math.abs(u - 0.5) * 7
@@ -169,7 +168,6 @@ export class PortraitRig {
         if (weight > this.weights[i]!) {
           this.weights[i] = weight
           this.groups[i] = g
-          this.stations[i] = Math.max(0, Math.min(1, (y - group.root) / (group.end - group.root))) * (STATIONS - 1)
         }
       })
       // A separate, bounded mapping for the earring chain and lower drop.
@@ -180,7 +178,6 @@ export class PortraitRig {
         const widthWeight = Math.min(1, (left ? Math.min(x - 72, 83 - x) : Math.min(x - 175, 184 - x)) / 2)
         this.groups[i] = left ? 8 : 9
         this.weights[i] = Math.max(0, widthWeight) * ((y - root) / length) ** 1.5 * 7
-        this.stations[i] = 0
         this.jewelryPixels.push(i)
       }
     }
@@ -237,41 +234,77 @@ export class PortraitRig {
       }
       this.layers.push({ group, pixels, field, x0, y0, x1, y1,
         spans: new Uint16Array(spans), rowFirst, rowMix,
-        rowX: new Float64Array(size), rowY: new Float64Array(size) })
+        rowX: new Float64Array(size), rowY: new Float64Array(size),
+        stationScale: (STATIONS - 1) * 256 / (size * (region.end - region.root)),
+        stationOffset: -(STATIONS - 1) * region.root / (region.end - region.root) })
     }
+  }
+
+  /** Restrict inverse sampling to pixels a lock can actually reach this cycle. */
+  private prepareRaster(gain: number): void {
+    const { size, dynamics } = this
+    if (!dynamics) return
+    for (const layer of this.layers) {
+      const first = new Int16Array(size).fill(size)
+      const last = new Int16Array(size).fill(-1)
+      const maxX = dynamics.boundsX[layer.group]! * gain * size / 256
+      const maxY = dynamics.boundsY[layer.group]! * gain * size / 256
+      for (const i of layer.pixels) {
+        const x = i % size, y = Math.floor(i / size)
+        // The inverse mapper samples the field at the rounded source pixel.
+        // Two extra pixels cover rounding and the first fixed-point estimate.
+        const dx = Math.ceil(maxX * layer.field[i]!) + 2
+        const dy = Math.ceil(maxY * layer.field[i]!) + 2
+        const left = Math.max(layer.x0, x - dx), right = Math.min(layer.x1, x + dx)
+        for (let row = Math.max(layer.y0, y - dy); row <= Math.min(layer.y1, y + dy); row += 1) {
+          first[row] = Math.min(first[row]!, left)
+          last[row] = Math.max(last[row]!, right)
+        }
+      }
+      const spans: number[] = []
+      for (let y = layer.y0; y <= layer.y1; y += 1) {
+        let start = -1
+        for (let x = first[y]!; x <= last[y]! + 1; x += 1) {
+          const i = y * size + x
+          const eligible = x <= last[y]! && !this.protectedPixels[i] && layer.field[i]! > 0
+          if (eligible && start < 0) start = x
+          if (!eligible && start >= 0) { spans.push(y, start, x - 1); start = -1 }
+        }
+      }
+      layer.spans = new Uint16Array(spans)
+    }
+    this.rasterGain = gain
   }
 
   paint(ctx: CanvasRenderingContext2D, table: Float32Array[], timeMs: number, gain: number, eyeOpen: number): void {
     const { size } = this
     const localTime = ((timeMs % LOOP_MS) + LOOP_MS) % LOOP_MS
     const scale = gain * size / 256
-    for (let g = 0; g < MOTION_CHANNELS; g += 1) {
+    if (table !== this.motionTable) {
+      this.motionTable = table
+      this.dynamics = new StrandDynamics(table)
+      this.rasterGain = -1
+    }
+    this.dynamics!.write(localTime, scale, this.offsetsX, this.offsetsY)
+    for (let g = 8; g < MOTION_CHANNELS; g += 1) {
+      const offset = sampleMotion(table, localTime, g) * scale
       for (let station = 0; station < STATIONS; station += 1) {
-        const u = station / (STATIONS - 1)
-        const lag = g < 8 ? TIP_LAG[g]! * u : 0
-        const lead = sampleMotion(table, localTime - lag, g)
-        const trail = sampleMotion(table, localTime - lag - 360, g)
-        const bend = (lead - trail) * Math.sin(u * Math.PI)
-        const wake = g < 8 ? sampleMotion(table, localTime - lag - 720, g) : 0
-        // A delayed spring-velocity response lets the free curl recoil after
-        // the main lock turns. It is bounded, root-free and deterministic.
-        const curl = g < 8 ? Math.tanh((trail - wake) * 4) * 0.25 * u * u * u : 0
         const index = g * STATIONS + station
-        this.offsetsX[index] = (lead + bend * (g >= 6 ? 0.9 : 0.55) + curl * 0.12) * scale
-        this.offsetsY[index] = g < 8 ? (-lead * LIFT[g]! + bend * (g >= 6 ? 1.1 : 0.75) + curl * (g >= 6 ? 0.4 : 0.16)) * scale : 0
+        this.offsetsX[index] = offset
+        this.offsetsY[index] = 0
       }
     }
     this.target.set(this.source)
     const moving = gain !== 0 && this.offsetsX.some(value => Math.abs(value) > 0.00001)
     if (moving) {
+      if (gain !== this.rasterGain) this.prepareRaster(gain)
       writeStrandCurve(this.offsetsX, this.curveX)
       writeStrandCurve(this.offsetsY, this.curveY)
       // Remove the old foreground once, then inverse-rasterize each moving
       // lock onto the revealed clean plate. There is no stationary copy below.
       for (const layer of this.layers) for (const i of layer.pixels) this.target[i] = this.underpaint[i]!
       for (const layer of this.layers) {
-        const { group, field, rowX, rowY, rowFirst, rowMix, spans } = layer
-        const region = HAIR_REGIONS[group]!
+        const { group, field, rowX, rowY, rowFirst, rowMix, spans, stationScale, stationOffset } = layer
         const channel = group * STATIONS
         for (let y = layer.y0; y <= layer.y1; y += 1) {
           const index = (channel + rowFirst[y]!) * 4
@@ -291,7 +324,7 @@ export class PortraitRig {
               const ix = Math.round(sx), iy = Math.round(sy)
               if (ix < 0 || ix >= size || iy < 0 || iy >= size) break
               const weight = field[iy * size + ix]!
-              const phase = Math.max(0, Math.min(STATIONS - 1, (sy * 256 / size - region.root) / (region.end - region.root) * (STATIONS - 1)))
+              const phase = Math.max(0, Math.min(STATIONS - 1, sy * stationScale + stationOffset))
               const first = Math.floor(phase), mix = phase - first
               const index = (channel + first) * 4
               sx = x - sampleStrandCurve(this.curveX, index, mix) * weight

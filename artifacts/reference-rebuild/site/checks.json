@@ -1,0 +1,453 @@
+{
+  "url": "http://127.0.0.1:4173/website/",
+  "status": "passed",
+  "contract": "reference document layout; local search and working contents; centered borderless circle; crisp pixels; continuous wind and independent blinks",
+  "checks": [
+    "production_http200",
+    "owner_identity_and_greeting",
+    "full_personal_site_sections",
+    "real_projects_and_contact",
+    "project_table_keeps_real_repositories_and_honest_status",
+    "desktop_contents_reach_real_unique_sections",
+    "desktop_three_columns_follow_reference",
+    "self_hosted_pixel_font",
+    "normal_site_has_no_developer_panel",
+    "portrait_autoplays_without_public_pause_control",
+    "portrait_is_true_transparent_pixel_cutout",
+    "normal_desktop_centered_borderless_circle",
+    "normal_desktop_integer_physical_pixel_scale",
+    "small_secondary_text_contrast",
+    "keyboard_skip_link",
+    "skip_link_focuses_main_content",
+    "search_shortcut_focuses_labeled_input",
+    "local_search_finds_real_project",
+    "search_result_is_existing_local_section",
+    "search_results_support_keyboard_focus",
+    "keyboard_search_result_moves_to_and_focuses_content",
+    "search_submit_jumps_to_content",
+    "search_explains_no_results",
+    "search_treats_markup_as_text",
+    "escape_closes_search",
+    "escape_from_result_restores_search_focus",
+    "local_search_sends_no_query_or_data_requests",
+    "navigation_reaches_work",
+    "offscreen_portrait_pauses",
+    "visible_portrait_resumes",
+    "default_animation_continues_beyond_slow_wind_period",
+    "reduced_motion_stays_static",
+    "responsive_no_overflow_320",
+    "original_closeup_ratio_320",
+    "width_320_dpr1_centered_borderless_circle",
+    "width_320_dpr1_integer_physical_pixel_scale",
+    "responsive_no_overflow_390",
+    "original_closeup_ratio_390",
+    "width_390_dpr1_centered_borderless_circle",
+    "width_390_dpr1_integer_physical_pixel_scale",
+    "responsive_no_overflow_768",
+    "original_closeup_ratio_768",
+    "width_768_dpr1_centered_borderless_circle",
+    "width_768_dpr1_integer_physical_pixel_scale",
+    "responsive_no_overflow_1440",
+    "original_closeup_ratio_1440",
+    "width_1440_dpr1_centered_borderless_circle",
+    "width_1440_dpr1_integer_physical_pixel_scale",
+    "mobile_contents_opens_with_keyboard",
+    "mobile_contents_reaches_work_without_overflow",
+    "width_390_dpr2_centered_borderless_circle",
+    "width_390_dpr2_integer_physical_pixel_scale",
+    "width_1440_dpr2_centered_borderless_circle",
+    "width_1440_dpr2_integer_physical_pixel_scale",
+    "normal_browser_has_no_errors",
+    "homepage_defers_archived_renderer_modules",
+    "homepage_does_not_download_archived_portrait_frames",
+    "explicit_time_seek_stays_static_without_public_play_control",
+    "no_js_has_complete_content",
+    "no_js_has_no_inactive_search",
+    "no_js_contents_reach_real_unique_sections",
+    "no_js_mobile_contents_reaches_work",
+    "no_js_natural_portrait_loaded",
+    "no_js_responsive_no_overflow_320",
+    "no_js_static_poster_320_centered_borderless_circle",
+    "no_js_responsive_no_overflow_390",
+    "no_js_static_poster_390_centered_borderless_circle",
+    "no_js_responsive_no_overflow_768",
+    "no_js_static_poster_768_centered_borderless_circle",
+    "no_js_responsive_no_overflow_1440",
+    "no_js_static_poster_1440_centered_borderless_circle",
+    "blocked_bundle_keeps_complete_site",
+    "blocked_bundle_static_poster_centered_borderless_circle",
+    "portrait_asset_503_keeps_site_and_static_portrait",
+    "asset_503_static_fallback_centered_borderless_circle",
+    "hanging_asset_times_out_to_static_portrait",
+    "canvas_failure_isolated_from_personal_content",
+    "canvas_failure_static_fallback_centered_borderless_circle",
+    "unavailable_voxel_chunk_keeps_personal_site",
+    "unavailable_legacy_chunk_keeps_personal_site",
+    "asset200_fonts/PressStart2P-Regular.ttf",
+    "asset200_fonts/OFL.txt",
+    "asset200_portrait-rest.png",
+    "asset200_og-portrait.png"
+  ],
+  "normal_errors": [],
+  "expected_failure_cases": [
+    "main JavaScript bundle blocked",
+    "runtime portrait assets503",
+    "eyelid image request hangs until12s timeout",
+    "Canvas2D context unavailable",
+    "voxel optional JavaScript chunk blocked",
+    "legacy optional JavaScript chunk blocked"
+  ],
+  "normal_script_resources": [
+    "http://127.0.0.1:4173/website/assets/index-Bjmw6jQd.js",
+    "http://127.0.0.1:4173/website/assets/index-Bjmw6jQd.js"
+  ],
+  "normal_image_resources": [
+    "http://127.0.0.1:4173/website/portrait-rest.png",
+    "http://127.0.0.1:4173/website/assets/portrait-natural/base.png",
+    "http://127.0.0.1:4173/website/assets/portrait-natural/eyelids.png",
+    "http://127.0.0.1:4173/website/assets/portrait-natural/underpaint.png",
+    "http://127.0.0.1:4173/website/portrait-rest.png",
+    "http://127.0.0.1:4173/website/assets/portrait-natural/base.png",
+    "http://127.0.0.1:4173/website/assets/portrait-natural/eyelids.png",
+    "http://127.0.0.1:4173/website/assets/portrait-natural/underpaint.png"
+  ],
+  "portrait_presentations": {
+    "normal_desktop": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        464,
+        347
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "width_320_dpr1": {
+      "circle": true,
+      "width": 256,
+      "height": 256,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 1,
+      "physical_width": 256,
+      "physical_height": 256,
+      "physical_origin": [
+        32,
+        465
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "width_390_dpr1": {
+      "circle": true,
+      "width": 256,
+      "height": 256,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 1,
+      "physical_width": 256,
+      "physical_height": 256,
+      "physical_origin": [
+        67,
+        419
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "width_768_dpr1": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        128,
+        362
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "width_1440_dpr1": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        464,
+        347
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "width_390_dpr2": {
+      "circle": true,
+      "width": 256,
+      "height": 256,
+      "center_error_css_px": 0,
+      "dpr": 2,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        134,
+        838
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "width_1440_dpr2": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 2,
+      "logical_size": 256,
+      "physical_pixel_scale": 4,
+      "physical_width": 1024,
+      "physical_height": 1024,
+      "physical_origin": [
+        928,
+        694
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "no_js_static_poster_320": {
+      "circle": true,
+      "width": 256,
+      "height": 256,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 1,
+      "physical_width": 256,
+      "physical_height": 256,
+      "physical_origin": [
+        32,
+        -687.265625
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "no_js_static_poster_390": {
+      "circle": true,
+      "width": 256,
+      "height": 256,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 1,
+      "physical_width": 256,
+      "physical_height": 256,
+      "physical_origin": [
+        67,
+        -733.15625
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "no_js_static_poster_768": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        128,
+        -772.640625
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "no_js_static_poster_1440": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        464,
+        -865.828125
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "blocked_bundle_static_poster": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        384,
+        342.125
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "asset_503_static_fallback": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        384,
+        342
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    },
+    "canvas_failure_static_fallback": {
+      "circle": true,
+      "width": 512,
+      "height": 512,
+      "center_error_css_px": 0,
+      "dpr": 1,
+      "logical_size": 256,
+      "physical_pixel_scale": 2,
+      "physical_width": 512,
+      "physical_height": 512,
+      "physical_origin": [
+        384,
+        342
+      ],
+      "image_rendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "no_frame": true,
+      "transparent_background": true,
+      "in_viewport": true
+    }
+  },
+  "portrait_alpha": {
+    "clear": 6497,
+    "solid": 59039,
+    "partial": 0,
+    "total": 65536,
+    "corners": [
+      0,
+      0,
+      255,
+      0
+    ]
+  },
+  "search_requests": [
+    {
+      "url": "http://127.0.0.1:4173/website/favicon.svg",
+      "type": "other"
+    },
+    {
+      "url": "http://127.0.0.1:4173/website/favicon.svg",
+      "type": "other"
+    },
+    {
+      "url": "http://127.0.0.1:4173/website/favicon.svg",
+      "type": "other"
+    }
+  ],
+  "continuous_loop_paints": [
+    50,
+    308,
+    567,
+    825
+  ],
+  "presentation_screenshots": {
+    "state": "fresh page; empty query; reduced motion canonical portrait",
+    "viewport_desktop": [
+      1440,
+      1000
+    ],
+    "viewport_mobile": [
+      390,
+      844
+    ]
+  }
+}

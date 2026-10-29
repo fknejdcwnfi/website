@@ -1,0 +1,236 @@
+{
+  "conditions": "fresh single-page headless Chromium per run;1200x1000;DPR1;no CPU throttle;no screenshots during sample",
+  "interpretation": "Native mode measures this container's rAF schedule. Unconstrained mode removes Chromium frame pacing to measure actual callback/paint throughput; neither establishes physical display refresh or device-wide performance.",
+  "phase_measurement": "Phase inferred from per-canvas native rAF paint timestamps using the player's elapsed-ms deltas (clamped at100ms), initial phase0 and speed1; uninterrupted visible playback throughout each sample. The whole12s breeze period remains active; no settled-rest interval is included. Three equal wind-phase bins expose phase differences. Per-phase rates assign each rAF interval to its ending phase and are estimates.",
+  "cpu_window_note": "CDP TaskDuration is divided by the CDP Timestamp window, which includes tool-call overhead around the page timer.",
+  "frame_budget_note": "Callback cost is JavaScript work including rendering; budgets exclude compositor, GPU, browser and OS overhead.",
+  "physical_high_refresh_display_verified": false,
+  "runs": [
+    {
+      "mode": "native",
+      "url": "http://127.0.0.1:4173/website/",
+      "chromium_flags": [
+        "--no-sandbox"
+      ],
+      "chromium_version": "154.0.8037.57",
+      "sample_seconds": 12.0,
+      "settle_ms": 2500,
+      "wind_loop_ms": 12000,
+      "raf_callbacks": 720,
+      "raf_callbacks_per_second": 60.0,
+      "portrait_canvas_paints": 720,
+      "portrait_paints_per_second": 60.0,
+      "callback_cpu_ms": {
+        "count": 720,
+        "min": 4,
+        "median": 4.4,
+        "p95": 5.1,
+        "p99": 5.8,
+        "max": 7.7,
+        "mean": 4.502
+      },
+      "callback_cpu_by_phase_ms": {
+        "first_wind_third": {
+          "count": 240,
+          "min": 4.2,
+          "median": 4.5,
+          "p95": 5,
+          "p99": 5.3,
+          "max": 5.9,
+          "mean": 4.517
+        },
+        "middle_wind_third": {
+          "count": 240,
+          "min": 4.1,
+          "median": 4.4,
+          "p95": 5.2,
+          "p99": 6.5,
+          "max": 7.7,
+          "mean": 4.542
+        },
+        "final_wind_third": {
+          "count": 240,
+          "min": 4,
+          "median": 4.4,
+          "p95": 5,
+          "p99": 5.7,
+          "max": 6.1,
+          "mean": 4.446
+        }
+      },
+      "phase_callback_rate_estimates": {
+        "first_wind_third": {
+          "raf_callbacks": 239,
+          "raf_timestamp_duration_ms": 3983.2,
+          "callbacks_per_second": 60.0
+        },
+        "middle_wind_third": {
+          "raf_callbacks": 240,
+          "raf_timestamp_duration_ms": 3999.9,
+          "callbacks_per_second": 60.0
+        },
+        "final_wind_third": {
+          "raf_callbacks": 240,
+          "raf_timestamp_duration_ms": 3999.8,
+          "callbacks_per_second": 60.0
+        }
+      },
+      "raf_interval_ms": {
+        "count": 719,
+        "min": 16.5,
+        "median": 16.7,
+        "p95": 16.7,
+        "p99": 16.8,
+        "max": 16.8,
+        "mean": 16.666
+      },
+      "paint_interval_ms": {
+        "count": 719,
+        "min": 11.9,
+        "median": 16.7,
+        "p95": 17.3,
+        "p99": 18.2,
+        "max": 22.4,
+        "mean": 16.666
+      },
+      "long_tasks": [],
+      "cdp_cpu_seconds": {
+        "TaskDuration": 3.454491,
+        "ScriptDuration": 3.280072,
+        "LayoutDuration": 0,
+        "RecalcStyleDuration": 0
+      },
+      "cdp_metric_window_seconds": 12.071264,
+      "main_thread_busy_percent": 28.62,
+      "js_heap_used_bytes": 4643268,
+      "runtime_images": [
+        "http://127.0.0.1:4173/website/assets/portrait-natural/base.png",
+        "http://127.0.0.1:4173/website/assets/portrait-natural/eyelids.png",
+        "http://127.0.0.1:4173/website/assets/portrait-natural/underpaint.png"
+      ],
+      "browser_errors": [],
+      "http_errors": [],
+      "callback_cost_within_frame_budget_percent": {
+        "60": 100.0,
+        "120": 100.0,
+        "144": 99.86,
+        "240": 5.56
+      },
+      "metadata_and_asset_http200": true
+    },
+    {
+      "mode": "unconstrained",
+      "url": "http://127.0.0.1:4173/website/",
+      "chromium_flags": [
+        "--no-sandbox",
+        "--disable-frame-rate-limit",
+        "--disable-gpu-vsync"
+      ],
+      "chromium_version": "154.0.8037.57",
+      "sample_seconds": 12.011,
+      "settle_ms": 2500,
+      "wind_loop_ms": 12000,
+      "raf_callbacks": 2508,
+      "raf_callbacks_per_second": 208.82,
+      "portrait_canvas_paints": 2508,
+      "portrait_paints_per_second": 208.82,
+      "callback_cpu_ms": {
+        "count": 2508,
+        "min": 3.8,
+        "median": 4.4,
+        "p95": 5.3,
+        "p99": 6.8,
+        "max": 12,
+        "mean": 4.527
+      },
+      "callback_cpu_by_phase_ms": {
+        "first_wind_third": {
+          "count": 821,
+          "min": 3.9,
+          "median": 4.5,
+          "p95": 5.4,
+          "p99": 6.5,
+          "max": 11.8,
+          "mean": 4.64
+        },
+        "middle_wind_third": {
+          "count": 863,
+          "min": 3.8,
+          "median": 4.2,
+          "p95": 5.2,
+          "p99": 7.2,
+          "max": 12,
+          "mean": 4.386
+        },
+        "final_wind_third": {
+          "count": 824,
+          "min": 3.8,
+          "median": 4.5,
+          "p95": 5.3,
+          "p99": 6.6,
+          "max": 9.2,
+          "mean": 4.563
+        }
+      },
+      "phase_callback_rate_estimates": {
+        "first_wind_third": {
+          "raf_callbacks": 820,
+          "raf_timestamp_duration_ms": 4007.5,
+          "callbacks_per_second": 204.62
+        },
+        "middle_wind_third": {
+          "raf_callbacks": 863,
+          "raf_timestamp_duration_ms": 3997.7,
+          "callbacks_per_second": 215.87
+        },
+        "final_wind_third": {
+          "raf_callbacks": 824,
+          "raf_timestamp_duration_ms": 4003.1,
+          "callbacks_per_second": 205.84
+        }
+      },
+      "raf_interval_ms": {
+        "count": 2507,
+        "min": 3.0,
+        "median": 4.7,
+        "p95": 5.7,
+        "p99": 7.5,
+        "max": 12.4,
+        "mean": 4.79
+      },
+      "paint_interval_ms": {
+        "count": 2507,
+        "min": 3.9,
+        "median": 4.7,
+        "p95": 5.7,
+        "p99": 7.6,
+        "max": 13.9,
+        "mean": 4.789
+      },
+      "long_tasks": [],
+      "cdp_cpu_seconds": {
+        "TaskDuration": 12.093416,
+        "ScriptDuration": 11.487599,
+        "LayoutDuration": 0,
+        "RecalcStyleDuration": 0
+      },
+      "cdp_metric_window_seconds": 12.16556,
+      "main_thread_busy_percent": 99.41,
+      "js_heap_used_bytes": 5831732,
+      "runtime_images": [
+        "http://127.0.0.1:4173/website/assets/portrait-natural/base.png",
+        "http://127.0.0.1:4173/website/assets/portrait-natural/eyelids.png",
+        "http://127.0.0.1:4173/website/assets/portrait-natural/underpaint.png"
+      ],
+      "browser_errors": [],
+      "http_errors": [],
+      "callback_cost_within_frame_budget_percent": {
+        "60": 100.0,
+        "120": 99.6,
+        "144": 99.08,
+        "240": 19.26
+      },
+      "metadata_and_asset_http200": true
+    }
+  ]
+}

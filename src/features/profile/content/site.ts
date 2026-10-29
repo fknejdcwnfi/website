@@ -95,6 +95,7 @@ export const site: SiteContent = {
   socials: [],
   gameProfiles: [],
   navigation: [
+    { label: '首頁', href: '#home' },
     { label: '關於', href: '#about' },
     { label: '作品', href: '#work' },
     { label: '聯絡', href: '#contact' },
@@ -119,4 +120,30 @@ export const site: SiteContent = {
       status: 'archived',
     },
   ],
+}
+
+
+export type ContentsEntry = { label: string; href: string; symbol: string }
+export const getTableOfContents = (content: SiteContent): ContentsEntry[] => [
+  { label: '歡迎來到我的網站', href: '#home', symbol: '👋' },
+  { label: '關於我', href: '#about', symbol: '📖' },
+  { label: '作品與實驗', href: '#work', symbol: '🧩' },
+  ...(getGameProfiles(content).length ? [{ label: '遊戲足跡', href: '#games', symbol: '🎮' }] : []),
+  { label: '社群與聯絡', href: '#contact', symbol: '✉' },
+]
+
+export type SiteSearchEntry = { id: string; title: string; href: string; excerpt: string; text: string }
+/** One local search index from confirmed content; no requests, HTML injection or user tracking. */
+export const getSiteSearchEntries = (content: SiteContent): SiteSearchEntry[] => [
+  { id: 'home', title: content.intro, href: '#home', excerpt: content.tagline, text: `${content.name} ${content.intro} ${content.tagline} Vermouth 像素肖像` },
+  { id: 'about', title: '關於我', href: '#about', excerpt: content.about[0] ?? '', text: content.about.join(' ') },
+  ...content.projects.map((project) => ({ id: project.id, title: project.title, href: `#project-${project.id}`, excerpt: project.subtitle, text: `${project.title} ${project.subtitle} ${project.description} ${project.tags.join(' ')} ${project.status === 'active' ? '持續製作中' : '已封存'}` })),
+  ...getGameProfiles(content).map((profile) => ({ id: `game-${profile.id}`, title: profile.label, href: '#games', excerpt: profile.playerName ?? profile.playerId ?? '', text: `${profile.label} ${profile.playerName ?? ''} ${profile.playerId ?? ''} ${profile.region ?? ''} ${profile.description ?? ''}` })),
+  { id: 'contact', title: '社群與聯絡', href: '#contact', excerpt: content.email ?? content.github, text: getSocialLinks(content).map((profile) => `${profile.label} ${profile.handle ?? ''}`).join(' ') },
+]
+
+/** Literal, case-insensitive tokens only. A query can never become executable code. */
+export const searchSite = (entries: SiteSearchEntry[], query: string): SiteSearchEntry[] => {
+  const tokens = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean)
+  return entries.filter((entry) => tokens.every((token) => `${entry.title} ${entry.text}`.toLocaleLowerCase().includes(token))).slice(0, 8)
 }

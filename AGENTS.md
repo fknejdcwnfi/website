@@ -13,12 +13,13 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Read in this order
 
-0. [`docs/guides/personal-site.md`](docs/guides/personal-site.md) — current website and personalization contract
-1. [`docs/guides/living-portrait.md`](docs/guides/living-portrait.md) — portrait subsystem contract
-2. [`docs/guides/reference-wind.md`](docs/guides/reference-wind.md) — reference-driven wind and measured evidence
-3. [`docs/guides/development.md`](docs/guides/development.md) — architecture, commands and deployment
-4. [`docs/guides/asset-inventory.md`](docs/guides/asset-inventory.md) — provenance and limitations
-5. [`docs/decisions.md`](docs/decisions.md) — decision history
+0. [`docs/guides/reference-rebuild.md`](docs/guides/reference-rebuild.md) — latest blue document layout and physical-strand refactor
+1. [`docs/guides/personal-site.md`](docs/guides/personal-site.md) — current website and personalization contract
+2. [`docs/guides/living-portrait.md`](docs/guides/living-portrait.md) — portrait subsystem contract
+3. [`docs/guides/reference-wind.md`](docs/guides/reference-wind.md) — prior visible-wind baseline and measured evidence
+4. [`docs/guides/development.md`](docs/guides/development.md) — architecture, commands and deployment
+5. [`docs/guides/asset-inventory.md`](docs/guides/asset-inventory.md) — provenance and limitations
+6. [`docs/decisions.md`](docs/decisions.md) — decision history
 
 `docs/archive/` contains dated earlier stages, not the current implementation contract.
 
@@ -106,10 +107,11 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 ## Current state
 
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default: complete responsive personal homepage with pixel typography, hero,
-  about, real work and contact sections; editable content and shared site shell.
+- Default: responsive personal homepage with an indigo double header, white document
+  layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
 - Hero / isolated view=portrait: canonical 2D pixel portrait with bounded local
-  hair layers with 17 chain stations per lock with C1 Hermite curves and delayed tip recoil, hidden underpaint repair, eyelids
+  hair layers with 17 coupled damped-spring stations per lock, C1 Hermite curves,
+  reachable raster-span caches, hidden underpaint repair, eyelids
   and separately delayed left/right jewelry. Transparent256² grid, with
   192² and 320² alternatives; continuous 12000 ms gentle wind while
   visible, with independent 280 ms blinks at 4400/11300/20300 ms in a 24000 ms schedule. Hidden/offscreen suspension preserves phase; reduced motion and
@@ -134,7 +136,8 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
   and reduced motion preserve the canonical static rest view. wind=0 suppresses
   hair/jewelry motion while the independent eye schedule continues. Keep all delayed
   strand/recoil samples periodic; never reintroduce settling windows at the seam.
-- Current hair-flow evidence lives in `artifacts/flowing-hair/`;
+- Current refactor evidence lives in `artifacts/reference-rebuild/`;
+  `artifacts/flowing-hair/` records the previous visible-hair baseline;
   `artifacts/gentle-portrait/` records PR7 before the stronger circle-visible flow,
   and `artifacts/pixel-world/` records the earlier fast gust. Never cite historical
   measurements as current verification.

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { site, getGameProfiles, getSiteNavigation, getSocialLinks } from '../../src/features/profile/content/site.ts'
+import { site, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
 import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
@@ -66,6 +66,35 @@ test('optional profiles reject unusable links and escape user-provided player te
   const html = renderStaticSite(configured)
   assert.ok(!html.includes('javascript:') && !html.includes('<script>unsafe</script>') && !html.includes('<img src=x'))
   assert.ok(html.includes('&lt;script&gt;unsafe&lt;/script&gt;'))
+})
+
+test('local search finds confirmed content with mixed case and multiple words', () => {
+  const entries = getSiteSearchEntries(site)
+  assert.ok(searchSite(entries, '  jAvA   象棋  ').some(entry => entry.id === 'xiangqi-review'))
+  assert.ok(searchSite(entries, 'Vermouth').some(entry => entry.id === 'living-portrait'))
+  assert.deepEqual(searchSite(entries, 'fknejdcwnfi@gmail.com').map(entry => entry.id), ['contact'])
+  for (const query of ['jAvA non-matching-project-271828', '.*', '[Java]', '<img src=x onerror=alert(1)>']) {
+    assert.deepEqual(searchSite(entries, query), [], `literal unmatched query: ${query}`)
+  }
+})
+
+test('search results and table of contents point to real static sections', () => {
+  const html = renderStaticSite(site)
+  for (const entry of [...getSiteSearchEntries(site), ...getTableOfContents(site)]) {
+    assert.ok(entry.href.startsWith('#'))
+    assert.ok(html.includes(`id="${escapeHtml(entry.href.slice(1))}"`), `missing target: ${entry.href}`)
+  }
+  assert.ok(!getSiteSearchEntries(site).some(entry => entry.href === '#games'))
+  assert.ok(!getTableOfContents(site).some(entry => entry.href === '#games'))
+})
+
+test('configured games become searchable without exposing invalid account links', () => {
+  const configured = { ...site, gameProfiles: [{ id: 'public-player', game: 'other', label: '遊戲', playerName: '公開玩家', href: 'javascript:alert(1)' }] }
+  const matches = searchSite(getSiteSearchEntries(configured), '公開玩家')
+  assert.equal(matches.length, 1)
+  assert.equal(matches[0].href, '#games')
+  assert.ok(getTableOfContents(configured).some(entry => entry.href === '#games'))
+  assert.ok(!renderStaticSite(configured).includes('javascript:'))
 })
 
 

@@ -21,6 +21,7 @@
 | [portrait-rest.png](../../public/portrait-rest.png) | 同一實際renderer靜止輸出的768²透明PNG | 初始HTML、素材／Canvas失敗與無JS的獨立靜態備援 |
 | [og-portrait.png](../../public/og-portrait.png) | 同一renderer另行合成網站紙色背景的768²PNG | **目前分享OG圖**；`assets:verify`要求此檔存在，不承擔透明備援 |
 | `assets/generated/portrait-wind/underpaint.png`及runtime的`underpaint*.png` | 髮束移開後的局部AI修復底圖，三種同網格輸出 | 只在原髮位置移開後露出，不替換canonical臉部或整個身體 |
+| `artifacts/reference-rebuild/` | 本輪藍色三欄網站、耦合髮束物理與採樣優化證據 | 本輪網站與肖像QA、實際截圖及production性能；原始素材與canonical不變 |
 | `artifacts/flowing-hair/` | 圓形內可見髮段持續飄柔的現行網站證據 | 實際Canvas、圓形預覽與可見區／像素／生命週期及效能結果；指定時間取樣、GIF與即時FPS分開 |
 | `artifacts/gentle-portrait/` | PR #7首次持續慢風與圓形展示的歷史證據 | 保留當時327時間點＋20姿態／錨點記錄、216張PNG及600張實際圓形截圖的24秒GIF，不作新風動結果 |
 | `artifacts/pixel-world/` | PR #6的2300 ms陣風歷史 | 276均勻時刻＋十姿態＋十錨點去重為205張PNG；保留舊SHA清冊，不作新版通過證明 |
