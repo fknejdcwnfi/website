@@ -1,7 +1,7 @@
 import { getGameProfiles, getSocialLinks, site } from '../content/site'
 import PixelIcon from './PixelIcon'
 
-const Arrow = () => <span aria-hidden="true">↗</span>
+const Arrow = () => <PixelIcon name="arrow-up-right" />
 
 export default function PersonalSections() {
   const games = getGameProfiles(site)

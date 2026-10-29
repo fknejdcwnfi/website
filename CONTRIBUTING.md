@@ -1,6 +1,6 @@
 # 貢獻指南
 
-先讀[文件入口](docs/README.md)、[個人網站](docs/guides/personal-site.md)、[Living Portrait](docs/guides/living-portrait.md)及[參考風動](docs/guides/reference-wind.md)。這是fknejdcwnfi的完整Minecraft像素風個人網站，角色沿用透明無框原近景；個人內容與動畫各自維護。
+先讀[文件入口](docs/README.md)、[個人網站](docs/guides/personal-site.md)、[Living Portrait](docs/guides/living-portrait.md)及[參考風動](docs/guides/reference-wind.md)。這是fknejdcwnfi的完整Minecraft像素風個人網站，角色沿用同一近景身份，以居中無框圓形展示、持續微風及獨立眨眼；個人內容與動畫各自維護。
 
 ## 開發與交付
 
@@ -17,7 +17,7 @@ npm run assets:verify
 
 在任務分支完成修改與審查，建立PR；相關驗證與CI通過後依擁有者授權自動合併至 `main`，核對GitHub Actions／Pages。保留分支保護，不向main強制推送。清理分支前先確認已合併或內容相同，另保留必要備份，不能刪除有未合併工作的分支。`npm run deploy`僅是擁有者明確要求時的手動備援。
 
-視覺變更需附實際首頁、手機、原圖／靜止／風動／閉眼對照及完整循環。新效能數字需附production環境、取樣時長與裝置／瀏覽器條件；密集截幀、模擬更新率或GIF編碼率不是實際螢幕FPS。詳見[開發及QA](docs/guides/development.md)。
+視覺變更需附實際首頁、手機、原圖／靜止／風動／閉眼對照、完整慢風與獨立眼事件週期、圓形居中及DPR像素對齊。新效能數字需附production環境、取樣時長與裝置／瀏覽器條件；密集截幀、模擬更新率或GIF編碼率不是實際螢幕FPS。詳見[開發及QA](docs/guides/development.md)。
 
 ## 修改範圍
 

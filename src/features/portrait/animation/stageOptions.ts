@@ -1,3 +1,6 @@
+/** Inspect up to two minutes without tying seeks to either animation period. */
+export const MAX_SEEK_MS = 120_000
+
 export type Theme = 'midnight' | 'emerald' | 'amethyst'
 
 const bounded = (raw: string | null, fallback: number, low: number, high: number): number => {
@@ -28,7 +31,7 @@ export const readStageOptions = (search: string) => {
     pixel: [192, 256, 320].includes(Number(params.get('pixel'))) ? Number(params.get('pixel')) : 256,
     paused: params.get('pause') === '1',
     timeMs: requestedTime !== null && requestedTime.trim() !== '' && Number.isFinite(Number(requestedTime))
-      ? bounded(requestedTime, 0, 0, 2300) : null,
+      ? bounded(requestedTime, 0, 0, MAX_SEEK_MS) : null,
   }
 }
 

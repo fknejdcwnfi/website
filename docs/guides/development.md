@@ -23,7 +23,8 @@ npm run preview
 | --- | --- |
 | `src/app/App.tsx`、`SiteBoundary.tsx`、`styles/base.css` | 首頁組合、整站錯誤備援及基礎樣式 |
 | `src/features/profile/content/` | `site.ts`個人設定、`site.example.ts`非runtime範例、`staticMarkup.ts`靜態HTML |
-| `src/features/profile/components/`、`styles/` | 頁首／頁尾、內容與Minecraft像素UI |
+| `src/features/profile/components/`、`styles/` | 頁首／頁尾、內容、圓形肖像容器與Minecraft像素UI |
+| `src/features/profile/presentation/pixelViewport.ts` | 按可用寬度及DPR計算整數實體像素倍率與原點對齊 |
 | `src/features/portrait/animation/` | 時間軸、選項、播放器生命週期 |
 | `src/features/portrait/renderer/` | 調色盤、素材載入、分層髮束、眼瞼與局部像素繪製 |
 | `src/features/portrait/components/` | Canvas展示、錯誤備援、debug控制 |
@@ -43,18 +44,18 @@ npm run preview
 
 名稱、HELLOWORLD、介紹、作品、社群與遊戲資料從 `src/features/profile/content/site.ts`修改。`SiteShell`提供共用版面與內容插槽，新增真實功能需同時更新導覽及 `staticMarkup.ts`；不把個人文案寫進renderer。
 
-正常首頁沒有公開播放／暫停控制；可見時2300 ms循環持續，減少動態／分頁隱藏／離屏停止重畫並保留相位。除錯例子：
+正常首頁沒有公開播放／暫停控制；可見時12秒微風持續、24秒獨立眨眼事件循環，減少動態／分頁隱藏／離屏停止重畫並保留相位。除錯例子：
 
 ```text
 /?view=portrait&debug=1
-/?view=portrait&t=740
+/?view=portrait&t=4510
 /?view=portrait&pose=5
 /?view=portrait&pixel=192
 /?view=portrait&pause=1
 /?view=portrait&style=legacy
 ```
 
-`pose`、`t`及明確`pause`會固定狀態；其他wind、direction、gust、stiffness、damping、speed與手動眨眼在debug調整，範圍由 `stageOptions.ts`驗證。方形邏輯畫布外保持透明，正常首頁不加人物相框。
+`pose`、`t`及明確`pause`會固定狀態；其他wind、direction、gust、stiffness、damping、speed與手動眨眼在debug調整，範圍由 `stageOptions.ts`驗證。方形邏輯畫布保留二值透明；首頁及獨立檢視以居中圓形容器呈現，沒有相框。DPR尺寸只在resize／DPR變動時更新。
 
 ## 素材與瀏覽器QA
 
@@ -62,20 +63,20 @@ npm run preview
 
 ```bash
 python3 scripts/assets/export_portrait.py --url http://127.0.0.1:5173/
-python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/ --output artifacts/pixel-world/qa.json
+python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/ --output artifacts/gentle-portrait/qa.json
 ```
 
 production build後啟動preview，檢查完整網站、擷取真實Canvas及量測：
 
 ```bash
 python3 scripts/qa/verify_personal_site.py --url http://127.0.0.1:4173/website/
-python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/pixel-world --site-gif
-python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/pixel-world/performance.json
+python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/gentle-portrait
+python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/gentle-portrait/performance.json
 ```
 
 素材匯出與角色探針會讀取Vite source模組，使用dev網址；網站QA、截幀及效能可使用production。先完成build再量測，單頁穩定後取樣，期間不截圖。高更新率探針與更多樣本的參數、實際結果見[參考風動](reference-wind.md)。
 
-需驗證原近景、透明／固定42色、髮根與臉部固定、風動與眨眼各自成立、完整循環、連續多輪、明確靜止覆寫及資源清理。完整網站另檢查320／390／768／1440寬度、鍵盤跳至內容、真實連結、可選帳號配置、無JS及六種故障備援。主module被攔截、素材503／12秒逾時、Canvas失敗及兩個歷史模式chunk失敗時仍保留完整內容與獨立靜態肖像。
+需驗證圓形居中、DPR整數像素對齊、持續微風與獨立眼時鐘、原近景、透明／固定42色、髮根與臉部固定、風動與眨眼各自成立、完整循環、連續多輪、明確靜止覆寫及資源清理。完整網站另檢查320／390／768／1440寬度、鍵盤跳至內容、真實連結、可選帳號配置、無JS及六種故障備援。主module被攔截、素材503／12秒逾時、Canvas失敗及兩個歷史模式chunk失敗時仍保留完整內容與獨立靜態肖像。
 
 ## PR、分支與發佈
 

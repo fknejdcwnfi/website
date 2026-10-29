@@ -1,18 +1,18 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。一個 Minecraft 像素風個人網站，包含個人介紹、真實作品、聯絡方式，以及透明無框、會隨風動與眨眼的 Vermouth 近景肖像。
+**HELLOWORLD**。一個 Minecraft 像素風個人網站，包含個人介紹、真實作品、聯絡方式，以及居中無框圓形、持續隨微風飄動並偶爾眨眼的 Vermouth 近景肖像。
 
 - 網站：<https://fknejdcwnfi.github.io/website/>
 - GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 - 文件入口：[開發與個人化指南](docs/README.md)
 
-保留同一張原近景角色、256²像素格與透明輪廓；八組髮束分段延遲，配合局部眼瞼、左右耳環及髮後修復。整站以草地方塊色帶、像素邊界、物品欄式作品區與清楚的中文排版構成，後續帳號與遊戲資料有獨立設定入口。
+保留同一張原近景角色、256²像素格與透明輪廓；八組髮束在緩慢的風裡持續流動，眨眼以獨立時鐘偶爾發生，左右耳環各自延遲響應。人物以無邊框圓形置於中軸，按DPR對齊整數實體像素，避免分數倍率造成像素寬度不均。整站以草地方塊色帶、像素邊界、物品欄式作品區與清楚的中文排版構成，後續帳號與遊戲資料有獨立設定入口。
 
 ![Minecraft像素風個人網站](artifacts/personal-site/hero.png)
 
 [完整桌機](artifacts/personal-site/desktop.png) · [手機](artifacts/personal-site/mobile.png) · [無JavaScript](artifacts/personal-site/no-javascript.png)
 
-[角色動態](artifacts/pixel-world/animation_preview.gif) · [首頁動態](artifacts/pixel-world/website_motion.gif) · [144張實際截幀](artifacts/pixel-world/contact_sheet_144.png) · [完整276時刻圖集](artifacts/pixel-world/gallery.html) · [原圖／風動／眨眼對照](artifacts/pixel-world/comparison.png)
+[24秒圓形動態](artifacts/gentle-portrait/animation_preview.gif) · [完整327時刻圖集](artifacts/gentle-portrait/gallery.html) · [144格縮圖](artifacts/gentle-portrait/contact_sheet_144.png) · [原圖／微風／眨眼對照](artifacts/gentle-portrait/comparison.png)
 
 ## 開始開發
 
@@ -79,13 +79,13 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-正常首頁在可見時持續重播2300 ms，沒有公開播放／暫停按鈕；尊重減少動態，隱藏／離屏停止繪製並保留相位。`?view=portrait&debug=1`開啟完整調試，`?t=740`／`?pose=5`可固定眨眼畫面。初始HTML、透明靜態poster、12秒素材逾時與錯誤邊界保留無JS／故障時的完整網站。
+正常首頁在可見時持續緩慢微風，風週期12秒；眨眼使用獨立24秒時鐘，三次事件相隔6.9–9秒，每次280 ms。沒有舊輪末靜止段或公開播放／暫停按鈕；減少動態、隱藏／離屏仍停止繪製並保留相位。`?view=portrait&debug=1`開啟調試，`?t=4510`／`?pose=5`可固定閉眼，`?pose=1`／`?pose=10`保留同一canonical靜止畫面。初始HTML、透明poster、12秒素材逾時與錯誤邊界保留無JS／故障時的完整網站，展示同樣圓形居中。
 
-本輪37項單元、型別與production build通過；[角色51項QA](artifacts/pixel-world/qa.json)及[完整網站41項QA](artifacts/personal-site/checks.json)通過。27,519個保護像素與160個髮根零改變，眨眼只改眼區，風動與修復可見；60／120／144／240 Hz模擬跨輪相位及像素一致。更密的實際網站截幀與原生效能結果集中於 `artifacts/pixel-world/`，量測方法及前版歷史資料見[參考風動](docs/guides/reference-wind.md)。實際更新率受顯示器、瀏覽器排程與裝置能力限制；確定性取樣及模擬240 Hz不當作實際顯示器FPS。
+本輪41項單元、型別、production build及素材／來源驗證通過；[肖像55項QA](artifacts/gentle-portrait/qa.json)與[網站65項QA](artifacts/personal-site/checks.json)通過，24個500 ms視窗都有風動，固定臉與髮根不變，60／120／144／240 Hz模擬得到相同像素。[production量測](artifacts/gentle-portrait/performance.json)原生約60次繪製／秒，解除Chromium限幀後約272次／秒；完整12秒都是活動微風，callback中位數／p95分別3.9／5.2 ms及3.5／4.0 ms。圓形中軸、DPR像素對齊、四寬度、鍵盤、無JS及六種故障備援均已檢查，正常頁面無錯誤。舊37項單元／51項肖像／41項網站、276時刻及205張PNG屬PR #6版本，保存於[歷史指南](docs/archive/14-reference-wind-pixel-world.md)與 `artifacts/pixel-world/`，不當作新的通過結果。
 
-已擷取276個均勻時間點、十個明確姿態及十個連續錨點，按內容去重為205張真實Canvas PNG；[manifest](artifacts/pixel-world/frames/manifest.json)保留每個時刻。角色GIF為115個來源樣本／84個編碼幀，完整2300 ms；這些證據不隨網站runtime下載。
+[本輪截幀](artifacts/gentle-portrait/capture.json)覆蓋327個時間點、10個姿態及10個風錨點，去重為216張真實Canvas PNG。24秒圓形GIF包含600張實際瀏覽器截圖，完整呈現兩輪微風與三次獨立眨眼；PNG／GIF只作驗證，不隨網站runtime下載。詳細結果見[持續微風指南](docs/guides/reference-wind.md)。
 
-本輪[production容器量測](artifacts/pixel-world/performance.json)原生為60.0次繪製／秒；解除排程上限後，動態風段約269 callbacks／秒。這是指定環境的運算吞吐量，尚未驗證實體240 Hz顯示器；詳細CPU分相位成本與條件見指南。
+實際更新率受顯示器、瀏覽器排程與裝置能力限制；密集Canvas取樣、GIF編碼率、解除排程上限的運算吞吐量及模擬240 Hz都不等於實體螢幕FPS。詳見[驗證方法](docs/guides/reference-wind.md#驗證與證據)。
 
 ## 素材
 

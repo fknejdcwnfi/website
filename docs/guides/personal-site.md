@@ -22,9 +22,9 @@
 
 ## 2. 視覺與角色
 
-整站採Minecraft像素語言：草地／泥土色帶、方塊品牌、物品欄式作品區與狀態、小型像素區段標記、清楚的方角按鈕與鍵盤焦點。暖白底、森林綠及自託管像素英文字體配合可讀中文，裝飾不遮蔽導覽或作品資訊。角色本身不使用方形相框、底板、描邊卡片或方塊盒子；透明輪廓與柔和光暈自然融入版面。Press Start 2P位於 `public/fonts/`，授權為隨檔保存的[SIL OFL](../../public/fonts/OFL.txt)，不向外部字體服務請求。
+整站採Minecraft像素語言：草地／泥土色帶、方塊品牌、物品欄式作品區與狀態、小型像素區段標記、清楚的方角按鈕與鍵盤焦點。暖白底、森林綠及自託管像素英文字體配合可讀中文，裝飾不遮蔽導覽或作品資訊。角色本身不使用方形相框、底板、描邊卡片或方塊盒子；人物位於頁面中軸，以無框圓形容器裁切；同一透明近景融入暖白底。Press Start 2P位於 `public/fonts/`，授權為隨檔保存的[SIL OFL](../../public/fonts/OFL.txt)，不向外部字體服務請求。
 
-肖像保留前版近景大小、裁切與原始參考的2D臉型、眼神、捲髮及飾物；使用者已明確拒絕向外補畫完整胸像。不重新變成 Steve／3D voxel，也不為新網站版面改動 `assets/source/**` 或 `docs/reference/**`。預設256²邏輯畫布，替代192²與320²；方形只是內部座標，人物外部透明，頁面沒有方形相框。去背編輯母版在 `assets/generated/portrait-v4/`，runtime在 `public/assets/portrait-natural/`。alpha保留為透明／不透明像素，不把透明區填成方形背景。2300 ms循環、局部髮動／眼瞼／耳環及減少動態處理沿用。`?view=portrait` 為獨立肖像檢視；舊 voxel／legacy 仍是歷史比較，不是首頁預設。
+肖像保留同一近景內部構圖與原始參考的2D臉型、眼神、捲髮及飾物；使用者已明確拒絕向外補畫完整胸像。不重新變成 Steve／3D voxel，也不為新網站版面改動 `assets/source/**` 或 `docs/reference/**`。預設256²邏輯畫布，替代192²與320²；方形只是內部座標，人物外部透明，頁面沒有方形相框。去背編輯母版在 `assets/generated/portrait-v4/`，runtime在 `public/assets/portrait-natural/`。alpha保留為透明／不透明像素，不把透明區填成方形背景。目前12秒持續微風與24秒獨立眨眼時鐘取代舊2300 ms陣風；局部眼瞼／耳環與減少動態處理保留。圓形只裁切顯示，不改原始畫布；可互動頁面按DPR選擇整數實體像素倍率。`?view=portrait` 為獨立肖像檢視；舊 voxel／legacy 仍是歷史比較，不是首頁預設。
 
 ## 3. 可個人化的結構
 
@@ -34,6 +34,7 @@
 | `src/features/profile/content/site.example.ts` | B站、抖音、王者荣耀與火影忍者的型別工廠；只作設定參考，不由runtime載入 |
 | `src/features/profile/components/SiteShell.tsx` | 共享頁首、主內容插槽、頁尾與跳至內容；後續頁面／區塊可沿用 |
 | `src/app/App.tsx` | 組合首頁 hero、肖像與個人內容，並分流獨立肖像檢視 |
+| `src/features/profile/components/PortraitViewport.tsx`、`presentation/pixelViewport.ts` | 圓形展示、可用寬度／DPR的整數實體像素倍率及原點對齊；不修改角色時間軸 |
 | `src/features/profile/components/PersonalSections.tsx` | 關於、作品與聯絡；只渲染設定中存在的資料 |
 | `src/features/profile/styles/site.css`、`src/features/profile/styles/sections.css` | 網站配色、像素字體、響應式與內容版面，與角色像素幾何分離 |
 | `src/features/profile/content/staticMarkup.ts`、`vite.config.ts` | 從同一份個人設定產生初始HTML與metadata，JavaScript不可用時仍有完整內容 |
@@ -62,7 +63,7 @@
 
 角色素材載入有12秒逾時；失敗後停止動畫排程／監聽，改用獨立根目錄 `portrait-rest.png` 768²透明靜態肖像，避免同一資產路徑失敗後持續空白。首次實際畫布繪製前保留poster，避免人物離屏時完成載入卻尚未繪製而空白；繪製成功後不疊加重複人物。React錯誤邊界保護其餘個人內容；正常載入不顯示故障訊息。減少動態偏好仍應尊重，靜止模式不持續排程動畫。
 
-正常首頁的肖像在可見時持續重播2300 ms，不因一輪結束而停止；1890–2300 ms是循環內的自然靜止段。完整頁面可捲動，離屏或隱藏分頁時暫停繪製，回到畫面後從原相位續播；減少動態偏好與明確debug／QA暫停仍優先。
+正常首頁的頭髮在可見時持續輕柔飄動，沒有舊輪末靜止段；眨眼以獨立事件時鐘偶爾發生。完整頁面可捲動，離屏或隱藏分頁時暫停繪製，回到畫面後從原相位續播；減少動態偏好與明確debug／QA暫停仍優先。
 
 這些處理提高程式與資產失敗時的可用性，不能保證修復使用者所在地的DNS、連線或GitHub Pages限制。使用者已回覆先前網址現在可開啟；本輪沒有證據可把先前連線問題定性為程式404。環境代理若只允許 `api.github.com`，其403也不能當作正式網站對一般訪客的HTTP回應。
 
@@ -87,7 +88,7 @@ dev路徑為 `/`，production預覽為 `/website/`。完整網站需檢查：桌
 
 ## 6. 目前分層動態
 
-本輪在保留原近景與個人化結構的前提下，新增可見風勢、卷髮拖尾／上揚、風向回彈、獨立左右耳環及局部補繪。最新驗證與實際動畫見[參考風動](reference-wind.md)；以下為v4小幅風場歷史。
+本輪保留同一近景身份與個人化結構，將短促陣風改為緩慢持續微風、獨立偶發眨眼，並改為居中無框圓形與DPR像素對齊。最新驗證與實際動畫見[參考風動](reference-wind.md)；以下為v4小幅風場歷史。
 
 ## 7. 歷史基線
 

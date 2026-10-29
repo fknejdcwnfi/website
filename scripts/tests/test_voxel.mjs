@@ -112,11 +112,13 @@ test('pause is an explicit static flag and does not implicitly enable debug UI',
   }
 })
 
-test('deterministic timeline seeking accepts only finite input within the full loop', () => {
+test('deterministic timeline seeking accepts finite input across independent animation periods', () => {
   assert.equal(readStageOptions('?t=740').timeMs, 740)
   assert.equal(readStageOptions('?t=800.5').timeMs, 800.5)
   assert.equal(readStageOptions('?t=-20').timeMs, 0)
-  assert.equal(readStageOptions('?t=5000').timeMs, 2300)
+  assert.equal(readStageOptions('?t=5000').timeMs, 5000)
+  assert.equal(readStageOptions('?t=25000').timeMs, 25000)
+  assert.equal(readStageOptions('?t=999999').timeMs, 120000)
   assert.equal(readStageOptions('?t=2300').timeMs, 2300)
   for (const value of ['', 'NaN', 'Infinity', '-Infinity', 'wrong']) {
     assert.equal(readStageOptions(`?t=${value}`).timeMs, null)

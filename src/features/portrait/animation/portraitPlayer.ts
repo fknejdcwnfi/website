@@ -2,7 +2,7 @@ import type { TimelineSample } from '../../../shared/animation/types'
 import type { StageOptions } from './stageOptions'
 import { loadImage, portraitHeight } from '../renderer/portraitAsset'
 import { PortraitRig } from '../renderer/portraitRig'
-import { createMotionTable, LOOP_MS, samplePortrait } from './portraitTimeline'
+import { BLINK_CYCLE_MS, BLINK_DURATION_MS, createMotionTable, LOOP_MS, sampleBlinkProgress, samplePortrait } from './portraitTimeline'
 
 // Retain one MediaQueryList for the module lifetime across React strict-mode mounts.
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -34,6 +34,7 @@ export class PortraitPlayer {
     canvas.dataset.painted = 'false'
     canvas.dataset.playback = 'loading'
     canvas.dataset.loopDuration = String(LOOP_MS)
+    canvas.dataset.blinkCycleDuration = String(BLINK_CYCLE_MS)
     const context = canvas.getContext('2d', { alpha: true })
     if (!context) throw new Error('A Canvas 2D context is required.')
     this.ctx = context
@@ -100,10 +101,10 @@ export class PortraitPlayer {
   private paint(): void {
     const sample = samplePortrait(this.options.timeMs ?? (this.motion.matches ? 0 : this.elapsed), this.options.wind, this.options.frozenPose)
     if (this.manualBlink !== null) {
-      const t = this.manualBlink
-      sample.eyeOpen = t < 110 ? 1 - t / 110 : (t - 110) / 110
+      sample.eyeOpen = sampleBlinkProgress(this.manualBlink)
     }
-    this.rig?.paint(this.ctx, this.table, sample.timeMs, this.options.wind, sample.eyeOpen)
+    const canonicalRest = this.motion.matches || this.options.frozenPose === 1 || this.options.frozenPose === 10
+    this.rig?.paint(this.ctx, this.table, sample.timeMs, canonicalRest ? 0 : this.options.wind, sample.eyeOpen)
     this.canvas.dataset.painted = 'true'
     if (this.elapsed - this.lastSnapshot >= 80 || this.staticMode()) {
       this.snapshot?.(sample)
@@ -141,7 +142,7 @@ export class PortraitPlayer {
     if (!this.staticMode()) this.elapsed += delta * this.options.speed
     if (this.manualBlink !== null) {
       this.manualBlink += delta
-      if (this.manualBlink >= 220) this.manualBlink = null
+      if (this.manualBlink >= BLINK_DURATION_MS) this.manualBlink = null
     }
     if (!this.renderSafely()) return
     if (this.active()) this.raf = requestAnimationFrame(this.tick)

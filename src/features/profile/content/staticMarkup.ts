@@ -5,8 +5,9 @@ export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!)
 const escape = escapeHtml
 
-const arrow = '<span aria-hidden="true">↗</span>'
 const pixelIcon = (name: PixelIconName): string => `<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill-rule="evenodd" d="${pixelIconPaths[name]}"></path></svg>`
+
+const arrow = pixelIcon('arrow-up-right')
 
 const sectionLabel = (index: string, english: string, title: string, id: string): string => `
   <div class="personal-section__label">
@@ -42,21 +43,25 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => `
   </header>
   <main id="main-content" tabindex="-1">
     <section class="hero site-container static-hero" aria-labelledby="hero-title">
+      <figure class="hero__visual">
+        <div class="hero-portrait hero-portrait--portrait">
+          <div class="portrait-viewport" data-pixel-grid="256">
+            <div class="portrait-viewport__art">
+              <div class="portrait-fallback"><img src="${escape(`${base}portrait-rest.png`)}" width="768" height="768" fetchpriority="high" alt="Vermouth 的像素肖像：白金捲髮、冰藍眼睛與藍寶石飾物"></div>
+            </div>
+          </div>
+        </div>
+        <figcaption><span>VERMOUTH</span><span>像素肖像 · 微風常在</span></figcaption>
+      </figure>
       <div class="hero__copy">
         <p class="eyebrow"><span class="small-spark" aria-hidden="true"></span> ${escape(site.intro)}</p>
         <h1 id="hero-title"><span class="hero__greeting">你好，我是</span><span class="hero__name" lang="en">${escape(site.name)}<span class="hero__dot">.</span></span></h1>
         <p class="hero__intro">${escape(site.tagline)}</p>
         <div class="hero__actions">
-          <a class="button-primary" href="#work">看看我的作品 <span aria-hidden="true">↘</span></a>
+          <a class="button-primary" href="#work">看看我的作品 ${pixelIcon('arrow-down')}</a>
           <a class="text-link" href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">在 GitHub 找我 ${arrow}</a>
         </div>
-        <p class="hero__footnote"><span class="pixel-trail" aria-hidden="true"><i></i><i></i><i></i></span>程式、像素，和一點自己的樣子。</p>
       </div>
-      <figure class="hero__visual">
-        <div class="hero__ambient" aria-hidden="true"></div>
-        <div class="hero-portrait hero-portrait--portrait"><div class="portrait-fallback"><img src="${escape(`${base}portrait-rest.png`)}" width="768" height="768" fetchpriority="high" alt="Vermouth 的像素肖像：白金捲髮、冰藍眼睛與藍寶石飾物"></div></div>
-        <figcaption><span>VERMOUTH</span><span>像素肖像 · 隨風而動</span></figcaption>
-      </figure>
     </section>
     <section class="personal-section site-container" id="about" aria-labelledby="about-title">
       ${sectionLabel('01', 'ABOUT', '關於我', 'about-title')}

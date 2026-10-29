@@ -39,7 +39,7 @@ CanvasRenderingContext2D.prototype.putImageData = function(...args) {
       let clock = clocks.get(this.canvas);
       if (!clock) { clock = {last: rafContext.timestamp, elapsed: 0}; clocks.set(this.canvas, clock); }
       else { clock.elapsed += Math.min(rafContext.timestamp - clock.last, 100); clock.last = rafContext.timestamp; }
-      rafContext.portraitPhase = clock.elapsed % 2300;
+      rafContext.portraitPhase = clock.elapsed % Number(this.canvas.dataset.loopDuration);
     }
     if (window.__sample) window.__sample.paints.push(performance.now());
   }
@@ -79,6 +79,8 @@ def measure(playwright, args, mode: str) -> dict:
     response = page.goto(clean_url(args.url))
     assert response and response.status == 200, "Production route did not return HTTP 200"
     page.wait_for_selector("canvas[data-style=portrait][data-ready=true][data-painted=true][data-playback=looping]")
+    loop_ms = int(page.locator("canvas").get_attribute("data-loop-duration"))
+    phase_ranges = (("first_wind_third", 0, loop_ms / 3), ("middle_wind_third", loop_ms / 3, loop_ms * 2 / 3), ("final_wind_third", loop_ms * 2 / 3, loop_ms))
     page.wait_for_timeout(args.settle_ms)
     cdp = page.context.new_cdp_session(page)
     cdp.send("Performance.enable")
@@ -104,8 +106,7 @@ def measure(playwright, args, mode: str) -> dict:
     frame_intervals = [b["time"] - a["time"] for a, b in zip(data["callbacks"], data["callbacks"][1:])]
     paint_intervals = [b - a for a, b in zip(data["paints"], data["paints"][1:])]
     phase_rates = {}
-    for name, low, high in (("onset_0_230", 0, 230), ("active_wind_230_1890", 230, 1890),
-                            ("strong_wind_630_1570", 630, 1570), ("settled_rest_1890_2300", 1890, 2300)):
+    for name, low, high in phase_ranges:
         intervals = [current["time"] - previous["time"]
                      for previous, current in zip(data["callbacks"], data["callbacks"][1:])
                      if current["phase"] is not None and low <= current["phase"] < high]
@@ -118,14 +119,13 @@ def measure(playwright, args, mode: str) -> dict:
     cpu = {name: round(after.get(name, 0) - before.get(name, 0), 6)
            for name in ("TaskDuration", "ScriptDuration", "LayoutDuration", "RecalcStyleDuration")}
     result = {"mode": mode, "url": clean_url(args.url), "chromium_flags": flags, "chromium_version": browser.version,
-              "sample_seconds": round(elapsed, 3), "settle_ms": args.settle_ms,
+              "sample_seconds": round(elapsed, 3), "settle_ms": args.settle_ms, "wind_loop_ms": loop_ms,
               "raf_callbacks": len(costs), "raf_callbacks_per_second": round(len(costs) / elapsed, 2),
               "portrait_canvas_paints": len(data["paints"]), "portrait_paints_per_second": round(len(data["paints"]) / elapsed, 2),
               "callback_cpu_ms": stats(costs),
               "callback_cpu_by_phase_ms": {
                   name: stats([item["cost"] for item in data["callbacks"] if item["phase"] is not None and low <= item["phase"] < high])
-                  for name, low, high in (("onset_0_230", 0, 230), ("active_wind_230_1890", 230, 1890),
-                                          ("strong_wind_630_1570", 630, 1570), ("settled_rest_1890_2300", 1890, 2300))},
+                  for name, low, high in phase_ranges},
               "phase_callback_rate_estimates": phase_rates,
               "raf_interval_ms": stats(frame_intervals),
               "paint_interval_ms": stats(paint_intervals), "long_tasks": data["longtasks"],
@@ -150,9 +150,9 @@ def measure(playwright, args, mode: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--url", default="http://127.0.0.1:4173/website/")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts/pixel-world/performance.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts/gentle-portrait/performance.json")
     parser.add_argument("--chromium", default="/usr/bin/chromium")
-    parser.add_argument("--sample-ms", type=int, default=5000)
+    parser.add_argument("--sample-ms", type=int, default=12000)
     parser.add_argument("--settle-ms", type=int, default=2500)
     parser.add_argument("--mode", choices=("both", "native", "unconstrained"), default="both")
     args = parser.parse_args()
@@ -161,7 +161,7 @@ def main() -> None:
         runs = [measure(playwright, args, mode) for mode in modes]
     result = {"conditions": "fresh single-page headless Chromium per run;1200x1000;DPR1;no CPU throttle;no screenshots during sample",
               "interpretation": "Native mode measures this container's rAF schedule. Unconstrained mode removes Chromium frame pacing to measure actual callback/paint throughput; neither establishes physical display refresh or device-wide performance.",
-              "phase_measurement": "Phase inferred from per-canvas native rAF paint timestamps using the player's elapsed-ms deltas (clamped at100ms), initial phase0 and speed1; uninterrupted visible playback throughout each sample. Active-wind costs exclude the settled rest interval. Per-phase callback rates assign each rAF interval to its ending phase and are estimates.",
+              "phase_measurement": "Phase inferred from per-canvas native rAF paint timestamps using the player's elapsed-ms deltas (clamped at100ms), initial phase0 and speed1; uninterrupted visible playback throughout each sample. The whole12s breeze period remains active; no settled-rest interval is included. Three equal wind-phase bins expose phase differences. Per-phase rates assign each rAF interval to its ending phase and are estimates.",
               "cpu_window_note": "CDP TaskDuration is divided by the CDP Timestamp window, which includes tool-call overhead around the page timer.",
               "frame_budget_note": "Callback cost is JavaScript work including rendering; budgets exclude compositor, GPU, browser and OS overhead.",
               "physical_high_refresh_display_verified": False, "runs": runs}
