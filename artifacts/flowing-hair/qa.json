@@ -1,0 +1,1286 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "contract": "visible circle-interior flowing hair on continuous12s wind; unchanged independent24s blinks; fixed face and sharp binary pixels",
+  "status": "passed",
+  "checks": [
+    "defaultportrait",
+    "no_public_ui",
+    "pixelated_grid",
+    "grid_192",
+    "grid_256",
+    "grid_320",
+    "rest_1_equals_10",
+    "wind_moves_real_pixels",
+    "fixed_face_skin_necklace",
+    "roots_fixed",
+    "blink_only_local_eyes",
+    "gentle_twelve_second_wind_and_independent_blink_clock",
+    "normal_start_does_not_force_a_static_pose",
+    "zero_wind_returns_exact_canonical_rest",
+    "every_half_second_window_has_wind_pixel_changes",
+    "rig_delay_and_recoil_continuous_at_wind_seam",
+    "actual_pixel_seam_has_no_reset_jump",
+    "independent_occasional_blinks_and_continuing_hair",
+    "earring_pixels_move",
+    "independent_hair_groups_move",
+    "visible_but_restrained_foreground_curls",
+    "circle_interior_hair_moves_in_every_half_second",
+    "circle_hair_midsections_move_not_just_cropped_tips",
+    "circle_visible_hair_layers_participate",
+    "visible_hair_silhouette_changes",
+    "vacated_hair_uses_repair_plate",
+    "no_holes_in_opaque_underpaint",
+    "all_motion_keeps_the_fixed_pixel_palette",
+    "square_original_logical_closeup",
+    "binary_alpha_source_and_animation",
+    "former_navy_background_transparent",
+    "opaque_character_original_crop",
+    "one_hundred_wind_loops_exact_same_pixels",
+    "live_timeline_progresses",
+    "live_playback_semantic_state",
+    "hidden_debug_panel_opens",
+    "debug_sliders_labelled",
+    "pause_preserves_current_pose",
+    "pause_stable",
+    "paused_playback_semantic_state",
+    "manual_blink_local_and_restores",
+    "resume_advances",
+    "initial_reduced_motion_static",
+    "reduced_playback_semantic_state",
+    "reduced_motion_has_no_continuous_raf_after_layout",
+    "live_reduced_motion_resume",
+    "live_reduced_motion_stop",
+    "seek_static",
+    "seek_playback_semantic_state",
+    "hidden_resume_destroy_lifecycle",
+    "refresh_60_same_speed_and_pixels",
+    "refresh_120_same_speed_and_pixels",
+    "refresh_144_same_speed_and_pixels",
+    "refresh_240_same_speed_and_pixels",
+    "archive_voxel",
+    "archive_legacy",
+    "mobile_complete_no_overflow",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "rig": {
+    "sourceSize": [
+      256,
+      256
+    ],
+    "canvasSize": [
+      256,
+      256
+    ],
+    "windLoopMs": 12000,
+    "blinkCycleMs": 24000,
+    "chainStations": 17,
+    "hairIds": [
+      "hair_back",
+      "hair_outer_L",
+      "hair_outer_R",
+      "bangs",
+      "hair_side_L",
+      "hair_side_R",
+      "hair_shoulder_L",
+      "hair_tips_R"
+    ],
+    "windChanged": 2283,
+    "counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      26,
+      1093,
+      620,
+      0,
+      0
+    ],
+    "activeGroupPixels": [
+      391,
+      824,
+      1407,
+      1161,
+      594,
+      382,
+      1967,
+      908,
+      55,
+      26
+    ],
+    "protectedChanged": 0,
+    "protectedCount": 27519,
+    "rootChanged": 0,
+    "rootCount": 160,
+    "blinkChanged": 1085,
+    "outsideEyes": 0,
+    "silhouetteChanged": 20,
+    "silhouettePeak": 553,
+    "unexpectedColor": 0,
+    "interiorHoles": 0,
+    "revealedUnderpaint": 690,
+    "peakOffsets": [
+      1.7585627266855568,
+      2.8210488221473753,
+      3.123146674597094,
+      1.6988514239602361,
+      2.0174942439306855,
+      2.479553736178831,
+      8.805826840287125,
+      9.964647420084031,
+      0.7856519550217911,
+      0.6796743231394835
+    ],
+    "continuousWindows": [
+      {
+        "start": 0,
+        "end": 500,
+        "changed": 2813
+      },
+      {
+        "start": 500,
+        "end": 1000,
+        "changed": 3719
+      },
+      {
+        "start": 1000,
+        "end": 1500,
+        "changed": 2290
+      },
+      {
+        "start": 1500,
+        "end": 2000,
+        "changed": 1089
+      },
+      {
+        "start": 2000,
+        "end": 2500,
+        "changed": 1086
+      },
+      {
+        "start": 2500,
+        "end": 3000,
+        "changed": 770
+      },
+      {
+        "start": 3000,
+        "end": 3500,
+        "changed": 780
+      },
+      {
+        "start": 3500,
+        "end": 4000,
+        "changed": 942
+      },
+      {
+        "start": 4000,
+        "end": 4500,
+        "changed": 810
+      },
+      {
+        "start": 4500,
+        "end": 5000,
+        "changed": 1108
+      },
+      {
+        "start": 5000,
+        "end": 5500,
+        "changed": 1229
+      },
+      {
+        "start": 5500,
+        "end": 6000,
+        "changed": 1500
+      },
+      {
+        "start": 6000,
+        "end": 6500,
+        "changed": 766
+      },
+      {
+        "start": 6500,
+        "end": 7000,
+        "changed": 913
+      },
+      {
+        "start": 7000,
+        "end": 7500,
+        "changed": 1615
+      },
+      {
+        "start": 7500,
+        "end": 8000,
+        "changed": 2164
+      },
+      {
+        "start": 8000,
+        "end": 8500,
+        "changed": 3064
+      },
+      {
+        "start": 8500,
+        "end": 9000,
+        "changed": 3208
+      },
+      {
+        "start": 9000,
+        "end": 9500,
+        "changed": 2876
+      },
+      {
+        "start": 9500,
+        "end": 10000,
+        "changed": 2377
+      },
+      {
+        "start": 10000,
+        "end": 10500,
+        "changed": 1864
+      },
+      {
+        "start": 10500,
+        "end": 11000,
+        "changed": 2836
+      },
+      {
+        "start": 11000,
+        "end": 11500,
+        "changed": 4096
+      },
+      {
+        "start": 11500,
+        "end": 12000,
+        "changed": 4031
+      }
+    ],
+    "circleWindows": [
+      {
+        "start": 0,
+        "changed500ms": 2382,
+        "changed2000ms": 5426
+      },
+      {
+        "start": 500,
+        "changed500ms": 3237,
+        "changed2000ms": 4712
+      },
+      {
+        "start": 1000,
+        "changed500ms": 1930,
+        "changed2000ms": 2425
+      },
+      {
+        "start": 1500,
+        "changed500ms": 835,
+        "changed2000ms": 2030
+      },
+      {
+        "start": 2000,
+        "changed500ms": 844,
+        "changed2000ms": 2327
+      },
+      {
+        "start": 2500,
+        "changed500ms": 674,
+        "changed2000ms": 2202
+      },
+      {
+        "start": 3000,
+        "changed500ms": 693,
+        "changed2000ms": 2299
+      },
+      {
+        "start": 3500,
+        "changed500ms": 783,
+        "changed2000ms": 3022
+      },
+      {
+        "start": 4000,
+        "changed500ms": 732,
+        "changed2000ms": 3576
+      },
+      {
+        "start": 4500,
+        "changed500ms": 973,
+        "changed2000ms": 3539
+      },
+      {
+        "start": 5000,
+        "changed500ms": 1128,
+        "changed2000ms": 3384
+      },
+      {
+        "start": 5500,
+        "changed500ms": 1359,
+        "changed2000ms": 3019
+      },
+      {
+        "start": 6000,
+        "changed500ms": 669,
+        "changed2000ms": 3174
+      },
+      {
+        "start": 6500,
+        "changed500ms": 762,
+        "changed2000ms": 4547
+      },
+      {
+        "start": 7000,
+        "changed500ms": 1339,
+        "changed2000ms": 5643
+      },
+      {
+        "start": 7500,
+        "changed500ms": 1858,
+        "changed2000ms": 6174
+      },
+      {
+        "start": 8000,
+        "changed500ms": 2629,
+        "changed2000ms": 6240
+      },
+      {
+        "start": 8500,
+        "changed500ms": 2702,
+        "changed2000ms": 4756
+      },
+      {
+        "start": 9000,
+        "changed500ms": 2329,
+        "changed2000ms": 2834
+      },
+      {
+        "start": 9500,
+        "changed500ms": 1884,
+        "changed2000ms": 4641
+      },
+      {
+        "start": 10000,
+        "changed500ms": 1532,
+        "changed2000ms": 6527
+      },
+      {
+        "start": 10500,
+        "changed500ms": 2372,
+        "changed2000ms": 6849
+      },
+      {
+        "start": 11000,
+        "changed500ms": 3426,
+        "changed2000ms": 6822
+      },
+      {
+        "start": 11500,
+        "changed500ms": 3500,
+        "changed2000ms": 6123
+      }
+    ],
+    "circlePeakOffsets": [
+      1.7585627266855568,
+      2.8210488221473753,
+      3.123146674597094,
+      1.6988514239602361,
+      2.0174942439306855,
+      2.479553736178831,
+      8.764322663949317,
+      7.333756961797931,
+      0,
+      0
+    ],
+    "circleMidsectionPeakOffsets": [
+      1.7585627266855568,
+      2.8210488221473753,
+      3.123146674597094,
+      1.6988514239602361,
+      2.0174942439306855,
+      2.479553736178831,
+      6.989950665473319,
+      5.5281831613850665,
+      0,
+      0
+    ],
+    "circleActiveGroupPixels": [
+      390,
+      777,
+      1351,
+      858,
+      594,
+      382,
+      1844,
+      751,
+      55,
+      26
+    ],
+    "seam": {
+      "max_offset_delta": 0.00047853775322437286,
+      "max_velocity_difference": 1.0244548320770264e-07,
+      "raster_differences": [
+        104,
+        81,
+        98,
+        77
+      ]
+    },
+    "blinkSchedule": [
+      {
+        "start_ms": 4400,
+        "closed_ms": 4500,
+        "end_ms": 4680,
+        "next_start_gap_ms": 6900,
+        "same_wind_phase_later": 1,
+        "closed": 0,
+        "wind_during_blink": 489
+      },
+      {
+        "start_ms": 11300,
+        "closed_ms": 11400,
+        "end_ms": 11580,
+        "next_start_gap_ms": 9000,
+        "same_wind_phase_later": 1,
+        "closed": 0,
+        "wind_during_blink": 2915
+      },
+      {
+        "start_ms": 20300,
+        "closed_ms": 20400,
+        "end_ms": 20580,
+        "next_start_gap_ms": 8100,
+        "same_wind_phase_later": 1,
+        "closed": 0,
+        "wind_during_blink": 2059
+      }
+    ],
+    "blinkRepeat": true,
+    "alpha": {
+      "opaque": 59018,
+      "transparent": 6518,
+      "partialAlpha": 0,
+      "sourcePartialAlpha": 0,
+      "backgroundPoints": [
+        [
+          248,
+          8
+        ],
+        [
+          248,
+          32
+        ],
+        [
+          248,
+          64
+        ],
+        [
+          8,
+          96
+        ],
+        [
+          8,
+          128
+        ]
+      ],
+      "backgroundAlpha": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "topOpaque": 180,
+      "bottomOpaque": 254
+    },
+    "repeatedLoops": 100,
+    "phasesPerRepeatedLoop": 13,
+    "normalStartIsMoving": true,
+    "wrapEqualsStart": true,
+    "zeroWindEqualsRest": true,
+    "canonicalRestEqualsSource": true
+  },
+  "wind_moves_real_pixels": 2283,
+  "fixed_face_skin_necklace": 27519,
+  "blink_only_local_eyes": 1085,
+  "every_half_second_window_has_wind_pixel_changes": [
+    {
+      "start": 0,
+      "end": 500,
+      "changed": 2813
+    },
+    {
+      "start": 500,
+      "end": 1000,
+      "changed": 3719
+    },
+    {
+      "start": 1000,
+      "end": 1500,
+      "changed": 2290
+    },
+    {
+      "start": 1500,
+      "end": 2000,
+      "changed": 1089
+    },
+    {
+      "start": 2000,
+      "end": 2500,
+      "changed": 1086
+    },
+    {
+      "start": 2500,
+      "end": 3000,
+      "changed": 770
+    },
+    {
+      "start": 3000,
+      "end": 3500,
+      "changed": 780
+    },
+    {
+      "start": 3500,
+      "end": 4000,
+      "changed": 942
+    },
+    {
+      "start": 4000,
+      "end": 4500,
+      "changed": 810
+    },
+    {
+      "start": 4500,
+      "end": 5000,
+      "changed": 1108
+    },
+    {
+      "start": 5000,
+      "end": 5500,
+      "changed": 1229
+    },
+    {
+      "start": 5500,
+      "end": 6000,
+      "changed": 1500
+    },
+    {
+      "start": 6000,
+      "end": 6500,
+      "changed": 766
+    },
+    {
+      "start": 6500,
+      "end": 7000,
+      "changed": 913
+    },
+    {
+      "start": 7000,
+      "end": 7500,
+      "changed": 1615
+    },
+    {
+      "start": 7500,
+      "end": 8000,
+      "changed": 2164
+    },
+    {
+      "start": 8000,
+      "end": 8500,
+      "changed": 3064
+    },
+    {
+      "start": 8500,
+      "end": 9000,
+      "changed": 3208
+    },
+    {
+      "start": 9000,
+      "end": 9500,
+      "changed": 2876
+    },
+    {
+      "start": 9500,
+      "end": 10000,
+      "changed": 2377
+    },
+    {
+      "start": 10000,
+      "end": 10500,
+      "changed": 1864
+    },
+    {
+      "start": 10500,
+      "end": 11000,
+      "changed": 2836
+    },
+    {
+      "start": 11000,
+      "end": 11500,
+      "changed": 4096
+    },
+    {
+      "start": 11500,
+      "end": 12000,
+      "changed": 4031
+    }
+  ],
+  "rig_delay_and_recoil_continuous_at_wind_seam": {
+    "max_offset_delta": 0.00047853775322437286,
+    "max_velocity_difference": 1.0244548320770264e-07,
+    "raster_differences": [
+      104,
+      81,
+      98,
+      77
+    ]
+  },
+  "actual_pixel_seam_has_no_reset_jump": [
+    104,
+    81,
+    98,
+    77
+  ],
+  "independent_occasional_blinks_and_continuing_hair": [
+    {
+      "start_ms": 4400,
+      "closed_ms": 4500,
+      "end_ms": 4680,
+      "next_start_gap_ms": 6900,
+      "same_wind_phase_later": 1,
+      "closed": 0,
+      "wind_during_blink": 489
+    },
+    {
+      "start_ms": 11300,
+      "closed_ms": 11400,
+      "end_ms": 11580,
+      "next_start_gap_ms": 9000,
+      "same_wind_phase_later": 1,
+      "closed": 0,
+      "wind_during_blink": 2915
+    },
+    {
+      "start_ms": 20300,
+      "closed_ms": 20400,
+      "end_ms": 20580,
+      "next_start_gap_ms": 8100,
+      "same_wind_phase_later": 1,
+      "closed": 0,
+      "wind_during_blink": 2059
+    }
+  ],
+  "earring_pixels_move": [
+    55,
+    26
+  ],
+  "independent_hair_groups_move": [
+    391,
+    824,
+    1407,
+    1161,
+    594,
+    382,
+    1967,
+    908,
+    55,
+    26
+  ],
+  "visible_but_restrained_foreground_curls": [
+    1.7585627266855568,
+    2.8210488221473753,
+    3.123146674597094,
+    1.6988514239602361,
+    2.0174942439306855,
+    2.479553736178831,
+    8.805826840287125,
+    9.964647420084031,
+    0.7856519550217911,
+    0.6796743231394835
+  ],
+  "circle_interior_hair_moves_in_every_half_second": [
+    {
+      "start": 0,
+      "changed500ms": 2382,
+      "changed2000ms": 5426
+    },
+    {
+      "start": 500,
+      "changed500ms": 3237,
+      "changed2000ms": 4712
+    },
+    {
+      "start": 1000,
+      "changed500ms": 1930,
+      "changed2000ms": 2425
+    },
+    {
+      "start": 1500,
+      "changed500ms": 835,
+      "changed2000ms": 2030
+    },
+    {
+      "start": 2000,
+      "changed500ms": 844,
+      "changed2000ms": 2327
+    },
+    {
+      "start": 2500,
+      "changed500ms": 674,
+      "changed2000ms": 2202
+    },
+    {
+      "start": 3000,
+      "changed500ms": 693,
+      "changed2000ms": 2299
+    },
+    {
+      "start": 3500,
+      "changed500ms": 783,
+      "changed2000ms": 3022
+    },
+    {
+      "start": 4000,
+      "changed500ms": 732,
+      "changed2000ms": 3576
+    },
+    {
+      "start": 4500,
+      "changed500ms": 973,
+      "changed2000ms": 3539
+    },
+    {
+      "start": 5000,
+      "changed500ms": 1128,
+      "changed2000ms": 3384
+    },
+    {
+      "start": 5500,
+      "changed500ms": 1359,
+      "changed2000ms": 3019
+    },
+    {
+      "start": 6000,
+      "changed500ms": 669,
+      "changed2000ms": 3174
+    },
+    {
+      "start": 6500,
+      "changed500ms": 762,
+      "changed2000ms": 4547
+    },
+    {
+      "start": 7000,
+      "changed500ms": 1339,
+      "changed2000ms": 5643
+    },
+    {
+      "start": 7500,
+      "changed500ms": 1858,
+      "changed2000ms": 6174
+    },
+    {
+      "start": 8000,
+      "changed500ms": 2629,
+      "changed2000ms": 6240
+    },
+    {
+      "start": 8500,
+      "changed500ms": 2702,
+      "changed2000ms": 4756
+    },
+    {
+      "start": 9000,
+      "changed500ms": 2329,
+      "changed2000ms": 2834
+    },
+    {
+      "start": 9500,
+      "changed500ms": 1884,
+      "changed2000ms": 4641
+    },
+    {
+      "start": 10000,
+      "changed500ms": 1532,
+      "changed2000ms": 6527
+    },
+    {
+      "start": 10500,
+      "changed500ms": 2372,
+      "changed2000ms": 6849
+    },
+    {
+      "start": 11000,
+      "changed500ms": 3426,
+      "changed2000ms": 6822
+    },
+    {
+      "start": 11500,
+      "changed500ms": 3500,
+      "changed2000ms": 6123
+    }
+  ],
+  "circle_hair_midsections_move_not_just_cropped_tips": [
+    1.7585627266855568,
+    2.8210488221473753,
+    3.123146674597094,
+    1.6988514239602361,
+    2.0174942439306855,
+    2.479553736178831,
+    6.989950665473319,
+    5.5281831613850665,
+    0,
+    0
+  ],
+  "circle_visible_hair_layers_participate": [
+    390,
+    777,
+    1351,
+    858,
+    594,
+    382,
+    1844,
+    751,
+    55,
+    26
+  ],
+  "visible_hair_silhouette_changes": {
+    "phase6000": 20,
+    "whole_cycle_peak": 553
+  },
+  "vacated_hair_uses_repair_plate": 690,
+  "no_holes_in_opaque_underpaint": 0,
+  "all_motion_keeps_the_fixed_pixel_palette": 0,
+  "binary_alpha_source_and_animation": {
+    "opaque": 59018,
+    "transparent": 6518,
+    "partialAlpha": 0,
+    "sourcePartialAlpha": 0,
+    "backgroundPoints": [
+      [
+        248,
+        8
+      ],
+      [
+        248,
+        32
+      ],
+      [
+        248,
+        64
+      ],
+      [
+        8,
+        96
+      ],
+      [
+        8,
+        128
+      ]
+    ],
+    "backgroundAlpha": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "topOpaque": 180,
+    "bottomOpaque": 254
+  },
+  "former_navy_background_transparent": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "one_hundred_wind_loops_exact_same_pixels": {
+    "loops": 100,
+    "phasesPerLoop": 13
+  },
+  "reduced_motion_has_no_continuous_raf_after_layout": {
+    "initial_layout_raf": 2,
+    "after_static_wait": 2
+  },
+  "hidden_resume_destroy_lifecycle": {
+    "running": 6,
+    "hidden": 6,
+    "resumed": 10,
+    "stopped": 10,
+    "destroyed": 10
+  },
+  "refresh_60_same_speed_and_pixels": {
+    "hz": 60,
+    "callbacksRun": 284,
+    "maxQueued": 1,
+    "phase_time_error_ms": [
+      7.275957614183426e-12,
+      1.4551915228366852e-11,
+      1.8189894035458565e-11,
+      2.1827872842550278e-11,
+      2.1827872842550278e-11,
+      2.546585164964199e-11,
+      2.9103830456733704e-11,
+      5.093170329928398e-11,
+      6.912159733474255e-11,
+      1.4551915228366852e-10,
+      1.4551915228366852e-10,
+      1.4915713109076023e-10,
+      1.4915713109076023e-10
+    ],
+    "pixel_changes_per_checkpoint": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "identical_pixels_at_all_checkpoints": true
+  },
+  "refresh_120_same_speed_and_pixels": {
+    "hz": 120,
+    "callbacksRun": 565,
+    "maxQueued": 1,
+    "phase_time_error_ms": [
+      1.4551915228366852e-11,
+      2.9103830456733704e-11,
+      3.637978807091713e-11,
+      4.3655745685100555e-11,
+      4.729372449219227e-11,
+      5.820766091346741e-11,
+      6.912159733474255e-11,
+      1.1641532182693481e-10,
+      1.5643308870494366e-10,
+      3.128661774098873e-10,
+      3.128661774098873e-10,
+      3.1650415621697903e-10,
+      3.1650415621697903e-10
+    ],
+    "pixel_changes_per_checkpoint": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "identical_pixels_at_all_checkpoints": true
+  },
+  "refresh_144_same_speed_and_pixels": {
+    "hz": 144,
+    "callbacksRun": 685,
+    "maxQueued": 1,
+    "phase_time_error_ms": [
+      1.0913936421275139e-11,
+      2.1827872842550278e-11,
+      2.9103830456733704e-11,
+      3.637978807091713e-11,
+      3.637978807091713e-11,
+      4.729372449219227e-11,
+      5.4569682106375694e-11,
+      9.094947017729282e-11,
+      1.3460521586239338e-10,
+      4.43833414465189e-10,
+      4.511093720793724e-10,
+      4.984030965715647e-10,
+      5.311449058353901e-10
+    ],
+    "pixel_changes_per_checkpoint": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "identical_pixels_at_all_checkpoints": true
+  },
+  "refresh_240_same_speed_and_pixels": {
+    "hz": 240,
+    "callbacksRun": 1127,
+    "maxQueued": 1,
+    "phase_time_error_ms": [
+      2.9103830456733704e-11,
+      5.820766091346741e-11,
+      7.275957614183426e-11,
+      8.731149137020111e-11,
+      9.094947017729282e-11,
+      1.127773430198431e-10,
+      1.3460521586239338e-10,
+      2.255546860396862e-10,
+      3.019522409886122e-10,
+      6.111804395914078e-10,
+      6.111804395914078e-10,
+      6.148184183984995e-10,
+      6.148184183984995e-10
+    ],
+    "pixel_changes_per_checkpoint": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "identical_pixels_at_all_checkpoints": true
+  },
+  "refresh_simulation": {
+    "kind": "Simulated rAF timestamps, real PortraitPlayer and Canvas2D pixels; no physical high-refresh display claim",
+    "initial_elapsed_ms": 20100,
+    "checkpoint_ms": [
+      100,
+      200,
+      250,
+      300,
+      320,
+      400,
+      480,
+      800,
+      1200,
+      3900,
+      4000,
+      4400,
+      4680
+    ],
+    "runs": [
+      {
+        "hz": 60,
+        "callbacksRun": 284,
+        "maxQueued": 1,
+        "elapsed_ms": [
+          20200.000000000007,
+          20300.000000000015,
+          20350.00000000002,
+          20400.000000000022,
+          20420.000000000022,
+          20500.000000000025,
+          20580.00000000003,
+          20900.00000000005,
+          21300.00000000007,
+          24000.000000000146,
+          24100.000000000146,
+          24500.00000000015,
+          24780.00000000015
+        ],
+        "phase_time_error_ms": [
+          7.275957614183426e-12,
+          1.4551915228366852e-11,
+          1.8189894035458565e-11,
+          2.1827872842550278e-11,
+          2.1827872842550278e-11,
+          2.546585164964199e-11,
+          2.9103830456733704e-11,
+          5.093170329928398e-11,
+          6.912159733474255e-11,
+          1.4551915228366852e-10,
+          1.4551915228366852e-10,
+          1.4915713109076023e-10,
+          1.4915713109076023e-10
+        ],
+        "pixel_changes_per_checkpoint": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identical_pixels_at_all_checkpoints": true
+      },
+      {
+        "hz": 120,
+        "callbacksRun": 565,
+        "maxQueued": 1,
+        "elapsed_ms": [
+          20199.999999999985,
+          20299.99999999997,
+          20349.999999999964,
+          20399.999999999956,
+          20419.999999999953,
+          20499.99999999994,
+          20579.99999999993,
+          20899.999999999884,
+          21299.999999999844,
+          23999.999999999687,
+          24099.999999999687,
+          24499.999999999683,
+          24779.999999999683
+        ],
+        "phase_time_error_ms": [
+          1.4551915228366852e-11,
+          2.9103830456733704e-11,
+          3.637978807091713e-11,
+          4.3655745685100555e-11,
+          4.729372449219227e-11,
+          5.820766091346741e-11,
+          6.912159733474255e-11,
+          1.1641532182693481e-10,
+          1.5643308870494366e-10,
+          3.128661774098873e-10,
+          3.128661774098873e-10,
+          3.1650415621697903e-10,
+          3.1650415621697903e-10
+        ],
+        "pixel_changes_per_checkpoint": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identical_pixels_at_all_checkpoints": true
+      },
+      {
+        "hz": 144,
+        "callbacksRun": 685,
+        "maxQueued": 1,
+        "elapsed_ms": [
+          20200.00000000001,
+          20300.000000000022,
+          20350.00000000003,
+          20400.000000000036,
+          20420.000000000036,
+          20500.000000000047,
+          20580.000000000055,
+          20900.00000000009,
+          21300.000000000135,
+          24000.000000000444,
+          24100.00000000045,
+          24500.0000000005,
+          24780.00000000053
+        ],
+        "phase_time_error_ms": [
+          1.0913936421275139e-11,
+          2.1827872842550278e-11,
+          2.9103830456733704e-11,
+          3.637978807091713e-11,
+          3.637978807091713e-11,
+          4.729372449219227e-11,
+          5.4569682106375694e-11,
+          9.094947017729282e-11,
+          1.3460521586239338e-10,
+          4.43833414465189e-10,
+          4.511093720793724e-10,
+          4.984030965715647e-10,
+          5.311449058353901e-10
+        ],
+        "pixel_changes_per_checkpoint": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identical_pixels_at_all_checkpoints": true
+      },
+      {
+        "hz": 240,
+        "callbacksRun": 1127,
+        "maxQueued": 1,
+        "elapsed_ms": [
+          20200.00000000003,
+          20300.00000000006,
+          20350.000000000073,
+          20400.000000000087,
+          20420.00000000009,
+          20500.000000000113,
+          20580.000000000135,
+          20900.000000000226,
+          21300.000000000302,
+          24000.00000000061,
+          24100.00000000061,
+          24500.000000000615,
+          24780.000000000615
+        ],
+        "phase_time_error_ms": [
+          2.9103830456733704e-11,
+          5.820766091346741e-11,
+          7.275957614183426e-11,
+          8.731149137020111e-11,
+          9.094947017729282e-11,
+          1.127773430198431e-10,
+          1.3460521586239338e-10,
+          2.255546860396862e-10,
+          3.019522409886122e-10,
+          6.111804395914078e-10,
+          6.111804395914078e-10,
+          6.148184183984995e-10,
+          6.148184183984995e-10
+        ],
+        "pixel_changes_per_checkpoint": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "identical_pixels_at_all_checkpoints": true
+      }
+    ]
+  },
+  "mobile_complete_no_overflow": {
+    "x": 67,
+    "y": 294,
+    "width": 256,
+    "height": 256
+  },
+  "no_browser_errors": []
+}

@@ -150,7 +150,7 @@ def measure(playwright, args, mode: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--url", default="http://127.0.0.1:4173/website/")
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts/gentle-portrait/performance.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts/flowing-hair/performance.json")
     parser.add_argument("--chromium", default="/usr/bin/chromium")
     parser.add_argument("--sample-ms", type=int, default=12000)
     parser.add_argument("--settle-ms", type=int, default=2500)

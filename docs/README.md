@@ -30,6 +30,7 @@
 | [像素舞台](archive/10-pixel-stage.md) | 已封存voxel方案及當時實測 |
 | [PR #6風動與量測](archive/14-reference-wind-pixel-world.md) | 舊2300 ms風動、十七段髮束及當時的密集截幀／效能 |
 | [PR #6肖像契約](archive/15-living-portrait-reference-timeline.md) | 新持續微風與圓形展示之前的肖像契約 |
+| [PR #7持續微風](archive/16-gentle-portrait.md) | 首次12秒微風／24秒眨眼與當時量測，未以圓形內可見髮段校準 |
 
 [reference/](reference/)的原始委託、分鏡與README保持原路徑及逐位元內容不變。它們記錄原始意圖，包含舊目錄連結與過時指令；閱讀時以本入口的新路徑及現行指南為準，不改寫原文。
 

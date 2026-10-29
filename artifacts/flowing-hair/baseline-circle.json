@@ -1,0 +1,207 @@
+{
+  "wind_loop_ms": 12000,
+  "mask": "256\u00b2 circle center(128,128),radius128;eye polygons excluded",
+  "whole_peak_offsets": [
+    1.0303593169036322,
+    1.7443500840629533,
+    1.974070814135748,
+    0.9964775455968746,
+    0.8058439016731401,
+    0.9971225826373954,
+    6.836930718818919,
+    7.469044781143418,
+    null,
+    null
+  ],
+  "circle_peak_offsets": [
+    1.0303593169036322,
+    1.7443500840629533,
+    1.974070814135748,
+    0.9964775455968746,
+    0.8058439016731401,
+    0.9971225826373954,
+    6.789494828586842,
+    4.864190664874355,
+    null,
+    null
+  ],
+  "circle_above_y220_peak_offsets": [
+    1.0303593169036322,
+    1.7443500840629533,
+    1.974070814135748,
+    0.9964775455968746,
+    0.8058439016731401,
+    0.9971225826373954,
+    4.8203892750613,
+    3.46230502909071,
+    null,
+    null
+  ],
+  "sample_differences_from_t0": [
+    {
+      "time": 0,
+      "changed": 0
+    },
+    {
+      "time": 1000,
+      "changed": 1957
+    },
+    {
+      "time": 2000,
+      "changed": 3204
+    },
+    {
+      "time": 3000,
+      "changed": 3498
+    },
+    {
+      "time": 4000,
+      "changed": 3420
+    },
+    {
+      "time": 6000,
+      "changed": 2038
+    },
+    {
+      "time": 8000,
+      "changed": 1435
+    }
+  ],
+  "circle_windows": [
+    {
+      "time": 0,
+      "next500ms": 1336,
+      "next2000ms": 3204
+    },
+    {
+      "time": 500,
+      "next500ms": 1185,
+      "next2000ms": 3080
+    },
+    {
+      "time": 1000,
+      "next500ms": 1458,
+      "next2000ms": 2523
+    },
+    {
+      "time": 1500,
+      "next500ms": 687,
+      "next2000ms": 1517
+    },
+    {
+      "time": 2000,
+      "next500ms": 605,
+      "next2000ms": 1366
+    },
+    {
+      "time": 2500,
+      "next500ms": 506,
+      "next2000ms": 1287
+    },
+    {
+      "time": 3000,
+      "next500ms": 519,
+      "next2000ms": 1052
+    },
+    {
+      "time": 3500,
+      "next500ms": 270,
+      "next2000ms": 1484
+    },
+    {
+      "time": 4000,
+      "next500ms": 258,
+      "next2000ms": 2145
+    },
+    {
+      "time": 4500,
+      "next500ms": 498,
+      "next2000ms": 2393
+    },
+    {
+      "time": 5000,
+      "next500ms": 789,
+      "next2000ms": 2409
+    },
+    {
+      "time": 5500,
+      "next500ms": 794,
+      "next2000ms": 2056
+    },
+    {
+      "time": 6000,
+      "next500ms": 690,
+      "next2000ms": 2196
+    },
+    {
+      "time": 6500,
+      "next500ms": 741,
+      "next2000ms": 2814
+    },
+    {
+      "time": 7000,
+      "next500ms": 710,
+      "next2000ms": 3434
+    },
+    {
+      "time": 7500,
+      "next500ms": 1046,
+      "next2000ms": 4059
+    },
+    {
+      "time": 8000,
+      "next500ms": 1626,
+      "next2000ms": 3936
+    },
+    {
+      "time": 8500,
+      "next500ms": 1484,
+      "next2000ms": 3179
+    },
+    {
+      "time": 9000,
+      "next500ms": 1534,
+      "next2000ms": 1590
+    },
+    {
+      "time": 9500,
+      "next500ms": 1041,
+      "next2000ms": 2153
+    },
+    {
+      "time": 10000,
+      "next500ms": 429,
+      "next2000ms": 3977
+    },
+    {
+      "time": 10500,
+      "next500ms": 1131,
+      "next2000ms": 4418
+    },
+    {
+      "time": 11000,
+      "next500ms": 1963,
+      "next2000ms": 4102
+    },
+    {
+      "time": 11500,
+      "next500ms": 2019,
+      "next2000ms": 3559
+    }
+  ],
+  "circle_active_group_pixels": [
+    162,
+    539,
+    846,
+    323,
+    134,
+    114,
+    1577,
+    689,
+    55,
+    26
+  ],
+  "source_commit": "4e9725b527b0b0fbe454eb6fe828a80486a0d45a",
+  "conditions": "Dev source probe before current hair-flow edits; wind-only eyeOpen=1; fixed256\u00b2 grid; actual rig raster and deformation offsets",
+  "offset_measurement_scope": "Eight hair groups only; earring offsets not sampled (null), though their changed pixels are counted."
+}

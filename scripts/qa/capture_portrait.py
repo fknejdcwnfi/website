@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Capture a calm 24-second portrait cycle and its real circular presentation.
+"""Capture flowing hair across its real circular 24-second presentation.
 
 A controlled rAF clock drives the production PortraitPlayer at exact timestamps.
 Raw Canvas PNGs preserve the 256-square pixel grid; the GIF is a real browser
-screenshot of the circular viewport every40ms, never interpolated still images.
+screenshot of the circular viewport every50ms, never interpolated still images.
 Neither timestamp sampling nor GIF playback is a physical-display FPS benchmark.
 """
 from __future__ import annotations
@@ -17,7 +17,7 @@ import json
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-from PIL import Image
+from PIL import Image, ImageChops, ImageStat
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -26,10 +26,12 @@ BLINK_CYCLE_MS = 24000
 KEY_TIMES = list(range(0, LOOP_MS, 1200))
 BLINK_STARTS = [4400, 11300, 20300]
 BLINK_DURATION_MS = 280
-UNIFORM_TIMES = list(range(0, BLINK_CYCLE_MS, 100))
-# Ten-ms eye samples supplement the broad motion cycle, with real timestamp mapping.
-SAMPLE_TIMES = sorted(set(UNIFORM_TIMES).union(*(range(start - 20, start + 301, 10) for start in BLINK_STARTS)))
-GIF_TIMES = list(range(0, BLINK_CYCLE_MS, 40))
+UNIFORM_TIMES = list(range(0, BLINK_CYCLE_MS, 400))
+BLINK_OFFSETS = [-20, 0, 50, 100, 120, 200, 280, 300]
+SAMPLE_TIMES = sorted(set(UNIFORM_TIMES).union(
+    *(set(start + offset for offset in BLINK_OFFSETS) for start in BLINK_STARTS),
+    {1000, 2000, 3000}))
+GIF_TIMES = list(range(0, BLINK_CYCLE_MS, 50))
 CONTROLLED_RAF = r"""
 window.__captureRAF = new Map();
 window.__captureRAFId = 0;
@@ -64,25 +66,57 @@ def raw_canvas(page) -> bytes:
 
 
 def save_gif(path: Path, frames: list[bytes], duration_ms: int) -> dict:
-    images = [Image.open(io.BytesIO(frame)).copy() for frame in frames]
+    # GIF encoding only: raw Canvas PNGs remain the exact browser exports. A
+    # shared palette makes unchanged regions stable across frames; disposal=1
+    # allows lossless delta rectangles instead of repainting the whole viewport.
+    source_images = [Image.open(io.BytesIO(frame)).convert('RGB') for frame in frames]
+    width, height = source_images[0].size
+    training = Image.new('RGB', (width * 4, height * 4))
+    for cell in range(16):
+        training.paste(source_images[round(cell * (len(source_images) - 1) / 15)],
+                       ((cell % 4) * width, (cell // 4) * height))
+    palette = training.quantize(colors=256, method=Image.Quantize.MEDIANCUT,
+                                dither=Image.Dither.NONE)
+    images = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in source_images]
+    channel_errors = []
+    maximum_channel_error = 0
+    for source, encoded in zip(source_images, images):
+        difference = ImageChops.difference(source, encoded.convert('RGB'))
+        channel_errors.extend(ImageStat.Stat(difference).mean)
+        maximum_channel_error = max(maximum_channel_error, *(high for low, high in difference.getextrema()))
     images[0].save(path, save_all=True, append_images=images[1:], duration=duration_ms,
-                   loop=0, optimize=True, disposal=2)
+                   loop=0, optimize=True, disposal=1, palette=palette.getpalette())
     with Image.open(path) as gif:
         total = 0
+        source_index = 0
+        verified_samples = 0
         for index in range(gif.n_frames):
             gif.seek(index)
-            total += gif.info['duration']
+            duration = gif.info['duration']
+            decoded = gif.convert('RGB').tobytes()
+            # The encoder can merge identical samples; every covered source
+            # sample must still decode to the same palette-encoded raster.
+            while source_index * duration_ms < total + duration:
+                assert decoded == images[source_index].convert('RGB').tobytes(), (index, source_index)
+                source_index += 1
+                verified_samples += 1
+            total += duration
         assert total == BLINK_CYCLE_MS, (path, total)
+        assert verified_samples == len(frames)
         return {'file': path.name, 'sampled_frames': len(frames), 'encoded_frames': gif.n_frames,
                 'duration_ms': total, 'bytes': path.stat().st_size, 'sample_interval_ms': duration_ms, 'covered_clock': 'Complete24s joint wind/blink cycle; two12s breeze cycles and all three independent blinks',
-                'source': 'Actual circular CSS viewport screenshots from the production player at every40ms timestamp',
-                'interpretation': '25Hz GIF time slots are a preview, not realtime display FPS evidence'}
+                'source': 'Actual circular CSS viewport screenshots from the production player at every50ms timestamp',
+                'encoding': 'Shared256-color GIF palette, no dithering, disposal1 delta frames; rawPNG unchanged',
+                'decoded_samples_match_palette_encoded_sources': verified_samples,
+                'rgb_encoding_mean_absolute_error': round(sum(channel_errors) / len(channel_errors), 4),
+                'rgb_encoding_max_channel_error': maximum_channel_error,
+                'interpretation': '20Hz GIF time slots are a preview, not realtime display FPS evidence'}
 
 
 def gallery_markup(samples: list[dict], poses: list[dict], title: str, compact: bool = False) -> str:
     style = """*{box-sizing:border-box}body{margin:0;background:#edf0df;color:#243b29;font:13px system-ui;padding:20px}h1{font-size:20px;margin:0 0 8px}p{max-width:1050px;line-height:1.6;margin:8px 0 18px}main{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}figure{margin:0;padding:4px;background:#fffdf1;border:1px solid #bfcbb1}img{display:block;width:100%;aspect-ratio:1;object-fit:contain;image-rendering:pixelated;background:repeating-conic-gradient(#e7eddd 0% 25%,#f7f5eb 0% 50%) 50%/12px 12px}figcaption{font:10px ui-monospace,monospace;padding-top:4px;white-space:nowrap}a{color:#285b2e}section{margin:20px 0}section main{grid-template-columns:repeat(10,minmax(0,1fr))}@media(max-width:700px){main{grid-template-columns:repeat(4,minmax(0,1fr))}section main{grid-template-columns:repeat(5,minmax(0,1fr))}}"""
     result = f"<!doctype html><html lang='zh-Hant'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>{html.escape(title)}</title><style>{style}</style><h1>{html.escape(title)}</h1>"
-    result += f'<p>實際 production PortraitPlayer Canvas 輸出。微風週期12秒、獨立眨眼週期24秒，完整24秒每100ms取樣240點，眨眼窗口再每10ms細化，共{len(samples)}個時刻。這是確定性時間取樣，並非實測螢幕FPS。此處展示原始256²像素網格；網站圓形裁切見動畫預覽。</p>'
+    result += f'<p>實際 production PortraitPlayer Canvas 輸出。微風週期12秒、獨立眨眼週期24秒，完整24秒每400ms取樣60點，再補充眨眼與兩秒風動比較，共{len(samples)}個時刻。這是確定性時間取樣，並非實測螢幕FPS。此處展示原始256²像素網格；網站圓形裁切見動畫預覽。</p>'
     if poses and not compact:
         result += '<section><h2>10個明確參考姿態</h2><p>姿態1／10明確顯示canonical靜止角色；正常微風起點並不停止。姿態4／5為半閉／全閉眼檢閱。</p><main>'
         for pose in poses:
@@ -97,7 +131,7 @@ def gallery_markup(samples: list[dict], poses: list[dict], title: str, compact: 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url', default='http://127.0.0.1:4178/website/')
-    parser.add_argument('--output', type=Path, default=ROOT / 'artifacts/gentle-portrait')
+    parser.add_argument('--output', type=Path, default=ROOT / 'artifacts/flowing-hair')
     parser.add_argument('--chromium', default='/usr/bin/chromium')
     parser.add_argument('--skip-gif', action='store_true')
     args = parser.parse_args()
@@ -135,9 +169,13 @@ def main() -> None:
         page.evaluate('window.__captureStep(0)')
         sampled = set(SAMPLE_TIMES)
         gif_times = set(GIF_TIMES if not args.skip_gif else [])
+        elapsed = 0
         for time_ms in sorted(sampled | gif_times | set(KEY_TIMES)):
-            if time_ms:
-                page.evaluate('time=>window.__captureStep(time)', time_ms)
+            # PortraitPlayer intentionally clamps long RAF gaps to100ms. Step
+            # through unsampled times too, including when --skip-gif is used.
+            while elapsed < time_ms:
+                elapsed = min(time_ms, elapsed + 100)
+                page.evaluate('time=>window.__captureStep(time)', elapsed)
             if time_ms in sampled or time_ms in KEY_TIMES:
                 data = raw_canvas(page)
                 timeline_frames[time_ms] = data
@@ -159,7 +197,7 @@ def main() -> None:
         # Both exact comparison phases are already among the actual samples.
         cards = [('原始參考 · 身份／構圖', original.read_bytes(), 'jpeg', False),
                  ('實際Canvas · 持續微風0ms', timeline_frames[0], 'png', True),
-                 ('實際Canvas · 緩風吹髮6000ms', timeline_frames[6000], 'png', True),
+                 ('實際Canvas · 飄柔長髮2000ms', timeline_frames[2000], 'png', True),
                  ('實際Canvas · 獨立眨眼4500ms', timeline_frames[blink_time], 'png', True)]
         comparison = browser.new_page(viewport={'width': 1120, 'height': 350}, device_scale_factor=1)
         markup = "<!doctype html><meta charset='utf-8'><style>*{box-sizing:border-box}body{margin:0;padding:18px;background:#edf0df;color:#243b29;font:13px system-ui}main{display:grid;grid-template-columns:repeat(4,256px);gap:20px}figure{margin:0}img{display:block;width:256px;height:256px;object-fit:contain}.pixel{image-rendering:pixelated}figcaption{padding:12px 0 0}footer{padding-top:10px;font-size:11px}</style><main>"
@@ -169,14 +207,14 @@ def main() -> None:
         comparison.screenshot(path=str(output / 'comparison.png'))
         comparison.close()
         (output / 'gallery.html').write_text(gallery_markup(samples, poses, f'{len(samples)}個持續微風／眨眼實際樣本'))
-        selected = [samples[round(index * (len(samples) - 1) / 143)] for index in range(144)]
+        selected = [samples[round(index * (len(samples) - 1) / 79)] for index in range(80)]
         sheet = browser.new_page(viewport={'width': 1400, 'height': 1800}, device_scale_factor=1)
         sheet.route('**/frames/*.png', lambda request: request.fulfill(path=output / urlsplit(request.request.url).path.lstrip('/')))
-        sheet.set_content(gallery_markup(selected, [], '144格縮圖 · 完整樣本見gallery.html', compact=True).replace('<meta charset', "<base href='http://capture.local/'><meta charset", 1))
+        sheet.set_content(gallery_markup(selected, [], '80格縮圖 · 完整樣本見gallery.html', compact=True).replace('<meta charset', "<base href='http://capture.local/'><meta charset", 1))
         sheet.wait_for_function('[...document.images].every(image=>image.complete&&image.naturalWidth>0)')
-        sheet.screenshot(path=str(output / 'contact_sheet_144.png'), full_page=True)
+        sheet.screenshot(path=str(output / 'contact_sheet_80.png'), full_page=True)
         sheet.close()
-        gif_result = save_gif(output / 'animation_preview.gif', gif_frames, 40) if gif_frames else None
+        gif_result = save_gif(output / 'animation_preview.gif', gif_frames, 50) if gif_frames else None
         page.goto(route(args.url, pose=1, pixel=256));page.wait_for_selector('canvas[data-ready=true][data-painted=true]')
         page.evaluate('window.__captureStep(0)')
         page.screenshot(path=str(output / 'mobile.png'))
@@ -187,10 +225,10 @@ def main() -> None:
     assert not errors, errors
     manifest = {'url': args.url, 'source': 'Real production PortraitPlayer driven by controlled rAF timestamps; actual Canvas exports',
                 'wind_loop_ms': LOOP_MS, 'blink_cycle_ms': BLINK_CYCLE_MS, 'blink_starts_ms': BLINK_STARTS,
-                'sample_count': len(samples), 'uniform_interval_ms': 100, 'uniform_samples': len(UNIFORM_TIMES),
-                'blink_detail_interval_ms': 10, 'unique_png_files': len(all_frames),
+                'sample_count': len(samples), 'uniform_interval_ms': 400, 'uniform_samples': len(UNIFORM_TIMES),
+                'blink_detail_offsets_ms': BLINK_OFFSETS, 'unique_png_files': len(all_frames),
                 'unique_png_bytes': sum(map(len, all_frames.values())),
-                'sample_time_definition': '24s every100ms plus10ms samples from20ms before to300ms after each independent blink start',
+                'sample_time_definition': '24s every400ms plus explicit eye-event boundaries and1000/2000/3000ms comparison points',
                 'deduplication': 'SHA-256 of actual PNG bytes; every sampled timestamp retains its own mapping',
                 'file_paths_relative_to': 'capture output directory, parent of frames/',
                 'samples': samples, 'reference_poses': poses, 'continuous_anchors': anchors}
@@ -208,7 +246,7 @@ def main() -> None:
               'original_reference_sha256': hashlib.sha256(original.read_bytes()).hexdigest(),
               'source': 'Real production PortraitPlayer Canvas exports plus circular browser screenshots',
               'browser_errors': errors, 'gif': gif_result, 'manifest': 'frames/manifest.json',
-              'gallery': 'gallery.html', 'contact_sheet': 'contact_sheet_144.png',
+              'gallery': 'gallery.html', 'contact_sheet': 'contact_sheet_80.png',
               'interpretation': 'Timestamp sampling demonstrates deterministic continuous motion; realtime performance is reported separately'}
     (output / 'capture.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(result, ensure_ascii=False))

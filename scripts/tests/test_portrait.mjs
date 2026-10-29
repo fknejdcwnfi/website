@@ -7,7 +7,7 @@ import {
   MOTION_CHANNELS,
 } from '../../src/features/portrait/animation/portraitTimeline.ts'
 import {
-  CHAIN_STATIONS, sampleStrandCurve, writeStrandCurve,
+  CHAIN_STATIONS, sampleStrandCurve, strandFlexibility, writeStrandCurve,
 } from '../../src/features/portrait/renderer/strandCurve.ts'
 
 const configuration = { direction: 1, gust: 0.35, stiffness: 18, damping: 5 }
@@ -209,5 +209,21 @@ test('strand bends have continuous tangents across stations and independent chan
   }
   for (let station = CHAIN_STATIONS; station < CHAIN_STATIONS * 2; station += 1) {
     for (const mix of [0, 0.5, 1]) assert.equal(sampleStrandCurve(curve, station * 4, mix), 3)
+  }
+})
+
+
+test('root-anchored flex moves visible strand middles while remaining bounded and monotone', () => {
+  for (const longLock of [false, true]) {
+    assert.equal(strandFlexibility(0, longLock), 0)
+    assert.equal(strandFlexibility(1, longLock), 1)
+    let previous = 0
+    for (let station = 1; station <= 1000; station += 1) {
+      const value = strandFlexibility(station / 1000, longLock)
+      assert.ok(value >= previous && value <= 1)
+      previous = value
+    }
+    assert.ok(strandFlexibility(0.5, longLock) > 0.5 ** 1.6 * 1.2)
+    assert.ok(strandFlexibility(0.00001, longLock) / 0.00001 < 0.01, 'root slope remains restrained')
   }
 })

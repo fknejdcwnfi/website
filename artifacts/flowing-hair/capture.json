@@ -1,0 +1,43 @@
+{
+  "url": "http://127.0.0.1:4178/website/",
+  "logical_size": [
+    256,
+    256
+  ],
+  "wind_loop_ms": 12000,
+  "blink_cycle_ms": 24000,
+  "blink_starts_ms": [
+    4400,
+    11300,
+    20300
+  ],
+  "sampled_timeline_frames": 83,
+  "reference_poses": 10,
+  "continuous_anchor_frames": 10,
+  "unique_png_files": 57,
+  "unique_png_bytes": 2982972,
+  "reference_poses_1_equals_10": true,
+  "canonical_rest_sha256": "fc23d3a277957ec7413bfea79ad8b04083aee04e1529747058869d8f15ee7b07",
+  "original_reference_sha256": "60efba91bcc54f3376f56c5a3626c8276354bbbd1f4204345f68f2240bb5675e",
+  "source": "Real production PortraitPlayer Canvas exports plus circular browser screenshots",
+  "browser_errors": [],
+  "gif": {
+    "file": "animation_preview.gif",
+    "sampled_frames": 480,
+    "encoded_frames": 480,
+    "duration_ms": 24000,
+    "bytes": 339619,
+    "sample_interval_ms": 50,
+    "covered_clock": "Complete24s joint wind/blink cycle; two12s breeze cycles and all three independent blinks",
+    "source": "Actual circular CSS viewport screenshots from the production player at every50ms timestamp",
+    "encoding": "Shared256-color GIF palette, no dithering, disposal1 delta frames; rawPNG unchanged",
+    "decoded_samples_match_palette_encoded_sources": 480,
+    "rgb_encoding_mean_absolute_error": 1.1722,
+    "rgb_encoding_max_channel_error": 41,
+    "interpretation": "20Hz GIF time slots are a preview, not realtime display FPS evidence"
+  },
+  "manifest": "frames/manifest.json",
+  "gallery": "gallery.html",
+  "contact_sheet": "contact_sheet_80.png",
+  "interpretation": "Timestamp sampling demonstrates deterministic continuous motion; realtime performance is reported separately"
+}

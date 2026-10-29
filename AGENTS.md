@@ -134,8 +134,14 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
   and reduced motion preserve the canonical static rest view. wind=0 suppresses
   hair/jewelry motion while the independent eye schedule continues. Keep all delayed
   strand/recoil samples periodic; never reintroduce settling windows at the seam.
-- Current evidence lives in `artifacts/gentle-portrait/`; `artifacts/pixel-world/`
-  records the prior fast-gust version and must not be cited as current verification.
+- Current hair-flow evidence lives in `artifacts/flowing-hair/`;
+  `artifacts/gentle-portrait/` records PR7 before the stronger circle-visible flow,
+  and `artifacts/pixel-world/` records the earlier fast gust. Never cite historical
+  measurements as current verification.
+- Verify hair motion within the visible circular crop, including face-side locks
+  and long-curl midsections. Whole-Canvas texture differences or off-crop peaks
+  alone do not establish that the owner can see flowing hair. Preserve the approved
+  independent blink behavior when refining wind.
 - The new underpaint only repairs local hair occlusion; full source-identical
   face/shoulder layer reconstruction remains constrained. Do not claim complete
   layered art, source-identical geometry, perfect likeness or unmeasured QA.

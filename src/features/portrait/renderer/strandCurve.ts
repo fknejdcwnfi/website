@@ -1,6 +1,14 @@
 /** Finer spatial samples keep long curls continuous without smoothing pixels. */
 export const CHAIN_STATIONS = 17
 
+/** Root-anchored flex reaches the visible middle before the cropped free tips. */
+export const strandFlexibility = (position: number, longLock: boolean): number => {
+  const u = Math.max(0, Math.min(1, position))
+  // Both profiles keep zero slope at the root and a fixed unit tip weight.
+  // Long curls retain a gradual pull; short locks bend through their middle.
+  return longLock ? u ** 1.45 * (1 + 0.12 * Math.sin(Math.PI * u)) : u * u * (3 - 2 * u)
+}
+
 /** Reuse one cubic Hermite coefficient buffer for all strand channels. */
 export const writeStrandCurve = (offsets: Float32Array, curve: Float64Array): void => {
   for (let base = 0; base < offsets.length; base += CHAIN_STATIONS) {
