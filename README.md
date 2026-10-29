@@ -1,21 +1,24 @@
-# Vermouth · Pixel Art Living Portrait
+# fknejdcwnfi · 個人網站
 
-以原始貝爾摩德近景為基準的 **Minecraft-inspired 高精緻2D像素動態立繪**：保留尖下巴、冰藍斜眼、自信微笑、偏分金色捲髮、修長藍耳墜與低位吊墜。這次方向以角色還原為首要目標，不採Steve方頭方身或3D voxel造型。
+**HELLOWORLD**。這是一個簡潔的 Minecraft 像素風個人網站：個人介紹、真實作品、Email／GitHub 聯絡方式，以及作為首頁主視覺的自然透明 Vermouth 動態像素近景肖像。
 
-- **網站**：<https://fknejdcwnfi.github.io/website/>
-- **現行契約**：[11 Living Portrait](docs/11-living-portrait.md)，決策見 [ADR-015](docs/08-decisions.md#adr-015--以忠實-2d-像素立繪取代方頭-voxel-預設)
-- **技術**：Vite、React、TypeScript與Native Canvas2D；美術資產、局部rig與時間軸分離
-- **歷史比較**：`?style=voxel`保留前次方塊胸像，`?style=legacy`保留原動漫十幀預覽；都不是目前目標
+- 稱呼：**fknejdcwnfi**
+- Email：**fknejdcwnfi@gmail.com**
+- GitHub：<https://github.com/fknejdcwnfi>
+- 網站正式網址：<https://fknejdcwnfi.github.io/website/>
+- 目前網站契約：[12 個人網站](docs/12-personal-site.md)；肖像子系統：[11 Living Portrait](docs/11-living-portrait.md)
 
-正式頁面只展示單一1:1角色與深色背景，不新增導航、自介、卡片、登入或其他功能。原始參考最高優先；十張動作圖不逐張像素化輪播。canonical像素畫為AI輔助風格轉譯，閉眼材料只用於局部眼區，不在動畫中換臉。
+擁有者已於2026-10-29明確恢復自動合併與網站更新。完整個人網站與分層風動通過檢查後，以PR合併至main，經GitHub Actions發佈；不使用強制推送的手動部署備援。
 
-![原圖、實際網站靜止、風動及閉眼對照](artifacts/comparison.png)
+目前保留原有近景大小、固定像素格與透明無框展示。八組髮束各有九段延遲彎曲，前景卷髮可離開靜止輪廓，配合眨眼、風向回彈與左右耳環。詳見 [豐富動態契約](docs/13-reference-wind.md)及[實際網站動畫](artifacts/rich-motion/animation_preview.gif)。
 
-[實際網站動畫預覽](artifacts/animation_preview.gif) · [桌機](artifacts/desktop.png) · [手機](artifacts/mobile.png)
+![個人網站首頁](artifacts/personal-site/hero.png)
 
-## 開發與驗證
+[完整桌機畫面](artifacts/personal-site/desktop.png) · [手機畫面](artifacts/personal-site/mobile.png) · [無JavaScript畫面](artifacts/personal-site/no-javascript.png) · [風動對照](artifacts/rich-motion/comparison.png)
 
-使用 `.nvmrc` 指定的 Node24，沿用既有雲端checkout：
+## 開發與檢查
+
+使用 `.nvmrc` 指定的 Node24與既有雲端checkout：
 
 ```bash
 npm ci
@@ -27,43 +30,45 @@ npm run assets:check
 npm run assets:verify
 ```
 
-`prebuild`先跑測試，既有CI與Pages build沿用。production預覽用 `npm run preview`，base為`/website/`；dev base為`/`。日常更新經PR，必要驗證與CI通過後自動合併，再確認該提交的Pages部署；不使用會force-push `gh-pages` 的手動fallback。
+`npm run build`會先跑單元測試，再型別檢查與打包。production預覽用 `npm run preview`，base為`/website/`；dev base為`/`。Python瀏覽器／素材工具是可選QA依賴，核心建置不需它們。
 
-## 動態與調試
+## 修改我的網站
 
-預設256²統一像素網格、nearest-neighbor放大；192／256／320可比較精細度。2300 ms循環依參考錨點設計風起、風峰、回彈與回落，1890 ms回靜止。髮區以根部固定的有界局部取樣變形；眼瞼獨立完成630–850 ms眨眼，耳環下段輕擺、項鏈固定。固定臉、身體與未知遮擋區不跟隨全圖晃動。
+主要內容集中在 [src/content/site.ts](src/content/site.ts)：名稱、HELLOWORLD、介紹、Email、GitHub、導覽與作品陣列。現有作品只列真實公開repo；`xiangqi-review`如實標為已封存，不填虛構履歷或假作品。
 
-系統減少動態、固定姿態與暫停均停止角色更新；隱藏分頁暫停、恢復後續播。正式畫面沒有控制項，`?debug=1`才顯示風力、方向、陣風、剛度、阻尼、速度、手動眨眼與暫停控制。
+- 版面、頁首／頁尾：`src/components/SiteShell.tsx`
+- 關於、作品、聯絡：`src/components/PersonalSections.tsx`
+- Minecraft像素風配色與排版：`src/styles/site.css`及`src/styles/sections.css`
+- 新功能：在`SiteShell`主內容插槽組合新區塊，再更新導覽與靜態備援；不需改角色rig
+- 初始HTML／metadata：從同一份內容設定產生，避免停用JS或module失敗時只剩空白
+
+Press Start 2P字體自託管，授權見 [public/fonts/OFL.txt](public/fonts/OFL.txt)；沒有外部字體服務請求。聯絡入口使用真實Email／GitHub，不以沒有後端的表單假裝送信成功。
+
+## 動態肖像與備援
+
+首頁保留原有近景尺寸與構圖的2D像素Vermouth、局部髮動、眨眼與耳環；不採Steve方頭方身，也不向外補畫全身。人物以透明自然輪廓融入柔和光暈，不加方形相框、底板或卡片。正常頁面持續重播2300ms動態，沒有公開播放／暫停按鈕；完整風場控制與明確暫停仍只在debug／QA參數中使用。
 
 ```text
-?debug=1
-?pose=5
-?t=740
-?pixel=320&wind=0.6&speed=0.75
-?style=voxel
-?style=legacy&pose=5
+?view=portrait
+?view=portrait&debug=1
+?view=portrait&t=740
+?view=portrait&pixel=320
+?view=portrait&style=voxel
+?view=portrait&style=legacy
 ```
 
-完整選項、防呆、時間語義、素材與證據要求見 [現行契約](docs/11-living-portrait.md)。品質驗證應同時看原圖對照、十個真實網站截幀與連續動畫，不以編譯成功或單張AI候選圖代替。
+預設邏輯網格為256²，替代192²／320²；方形畫布僅是內部座標，人物外透明，不顯示方形底板。2300ms循環在畫面內持續重播；系統減少動態、隱藏分頁與離屏會暫停，恢復後續播原相位。`pause`／`t`／`pose`保留為明確QA覆寫。人物外部alpha保持透明且像素邊緣清楚；原有 `artifacts/comparison.png`與GIF只作v2不透明立繪歷史證據。
 
-## 可重跑的素材與瀏覽器檢查
+初始HTML會保留介紹、作品、聯絡及透明靜態肖像；素材有載入逾時，React／Canvas或動畫載入失敗時改為靜態呈現。首次實際繪製前保留poster，離屏載入也不留下空白人物區。這可避免程式故障造成空白，不能保證排除外部DNS或所在地網路問題。
 
-在另一個終端啟動Vite後，可執行下列指令；Python環境需具備Playwright、Chromium與Pillow。素材匯出及功能探針使用dev server；截幀亦可將網址改為production preview的`/website/`。
+## 驗證
 
-```bash
-python3 scripts/export_portrait.py --url http://127.0.0.1:5173/
-python3 scripts/verify_portrait_browser.py --url http://127.0.0.1:5173/
-python3 scripts/capture_portrait.py --url http://127.0.0.1:5173/
-```
+目前分層風動的單元／瀏覽器、循環取樣、像素不變量及效能證據集中於 [13 參考風動](docs/13-reference-wind.md)、[肖像QA](artifacts/rich-motion/qa.json)、[首頁QA](artifacts/personal-site/checks.json)與[production效能](artifacts/rich-motion/performance.json)。新版門檻單獨驗證風動在眨眼前、眨眼中與睜眼後可見、前景卷髮位移、輪廓變化、遮擋補繪、固定42色及二值alpha，不能只用「有幾個像素改變」代表效果完成。
 
-目前24項單元測試與33項瀏覽器功能檢查通過，包括真實播放器以60／120 Hz模擬步進時得到相同相位與像素。像素比對確認35,998個受保護像素在風動時不變，八組髮區與耳墜均有變化；閉眼變化僅在眼區，0／1890／2300 ms畫面一致。結果見 [QA紀錄](artifacts/qa.json) 與 [截幀紀錄](artifacts/capture.json)。GIF以67個時間點取樣，編碼總長2300 ms；它是實際網站的時間軸截幀，不能當作即時FPS測量。
-
-獨立production單頁的5秒headless容器抽樣為300次繪製、60.0 fps，rAF callback CPU中位數0.7 ms／p95 1.0 ms，無長任務；只載入兩張runtime材料、共107,636 bytes。條件與結果見 [效能紀錄](artifacts/performance.json)，不代表所有實體手機表現。可在build及啟動preview後重跑 `python3 scripts/measure_portrait.py --url http://127.0.0.1:4173/website/`。
+`artifacts/natural-portrait/`保留上一版小幅風場資料；`artifacts/`根目錄的立繪／voxel量測為更早歷史，不作新版成效證據。
 
 ## 素材與限制
 
-`assets/source/**`及`docs/reference/**`保持唯讀；目前最高身份基準是 `assets/source/original_reference.jpg`。生成母版位於`assets/generated/portrait-v2/`，網站角色／眼瞼材料位於`public/assets/portrait/`；來源、方法與限制見 [素材清冊](docs/02-asset-inventory.md)。未知肩頸／臉側後方沒有可信clean plate時，縮小或凍結該區動作，不宣稱已完成所有原圖分層。
+`assets/source/**`及`docs/reference/**`保持唯讀。`original_reference.jpg`仍是角色身份／構圖的最高權威；網站內容不與人物像素幾何耦合。角色母版仍為 `assets/generated/portrait-v4/`；新增僅供髮束移開後使用的 `assets/generated/portrait-wind/underpaint.png`。runtime為 `public/assets/portrait-natural/`，靜態備援為768²的 `public/portrait-rest.png`。OG分享圖另行合成；來源限制另見 [素材清冊](docs/02-asset-inventory.md)。新增底圖僅修復局部髮束遮擋，完整分層仍受限，不宣稱角色還原度、所有裝置效能或主觀品質已「完美」。
 
-這是受參考約束的像素美術轉譯，不宣稱原圖幾何已逐像素1:1量測一致、所有裝置達60fps，或主觀品質已「完美」。真實驗證結果與剩餘限制應依實測更新；前次voxel的效能紀錄不移作新版證據。
-
-貝爾摩德出自《名偵探柯南》，角色權利屬原權利方；本專案為個人非商業粉絲作品。Minecraft為相關權利方商標，本站不是官方合作產品。詳見 [文件導覽](docs/README.md) 與 [變更紀錄](CHANGELOG.md)。
+貝爾摩德出自《名偵探柯南》，角色權利屬原權利方；本專案為個人非商業粉絲作品。Minecraft為相關權利方商標，本站不是官方合作產品。見 [文件導覽](docs/README.md) 與 [變更紀錄](CHANGELOG.md)。

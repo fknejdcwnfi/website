@@ -1,10 +1,10 @@
 # AGENTS.md
 
-This repository is **Vermouth Character Stage** — a single-character, square
-animation stage that serves as the user's personal website. The owner explicitly
-clarified the direction on 2026-10-28 to **high-fidelity Minecraft-inspired 2D
-pixel art living portrait**, preserving the original face, hair and close crop.
-A Steve-like square head, block body or 3D voxel portrait is not the target.
+This repository is **fknejdcwnfi's personal website** with a Minecraft-inspired
+pixel visual language. The owner explicitly clarified on 2026-10-28 that it must
+be a complete, clean personal site with navigation, introduction, real projects,
+contact details and a footer. Vermouth is the hero artwork, not the whole site.
+The character remains a faithful 2D pixel portrait, not a Steve / 3D voxel redesign.
 
 If you are Codex Cloud or another coding agent, read this file first, then the
 documents listed below. Do not start coding before you understand the hard rules.
@@ -13,7 +13,8 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Read in this order
 
-1. [`docs/11-living-portrait.md`](docs/11-living-portrait.md) — current product contract
+0. [`docs/12-personal-site.md`](docs/12-personal-site.md) — current website contract
+1. [`docs/11-living-portrait.md`](docs/11-living-portrait.md) — portrait subsystem contract
 2. [`docs/06-codex-handoff.md`](docs/06-codex-handoff.md) — operating manual
 3. [`docs/01-project-charter.md`](docs/01-project-charter.md) — scope and non-goals
 4. [`docs/02-asset-inventory.md`](docs/02-asset-inventory.md) — asset sources and defects
@@ -40,9 +41,20 @@ documents listed below. Do not start coding before you understand the hard rules
   ADR-015 and docs/11 supersede the previous voxel default and its framing.
   AI-assisted artwork is authorized, but use one canonical pixel face and only
   local eyelid materials; never switch independently generated faces per frame.
-- **No visible UI** (navigation, buttons, labels, footers, social icons). The
-  page contains only the character and a compatible quiet dark background.
-  Show the development controls only when explicitly requested with debug=1.
+- **A complete personal website is required.** Navigation, personal introduction,
+  real projects, contact links and footer are required.
+  The former character-only / no-UI restriction is superseded by ADR-016.
+  The normal homepage has no public play/pause controls: the portrait repeats
+  its 2300 ms loop while visible. Keep manual controls opt-in via debug=1 or
+  explicit QA parameters; honor reduced motion and visibility suspension.
+- **Keep the original close-up size and framing, with a transparent silhouette.**
+  The owner's 2026-10-29 correction rejects outpainting into a full bust. ADR-017
+  removes the visible square frame, not the original square logical canvas.
+  Preserve binary alpha; use an organic glow rather than a character card,
+  rectangular base or outline. Keep cropped top hair and shoulder composition.
+- Keep personal content in `src/content/site.ts` and shared layout in `SiteShell`.
+  Use owner-provided name fknejdcwnfi, greeting HELLOWORLD and the supplied email;
+  never invent credentials, employment, project claims or social accounts.
 - **No whole-image translate/rotate/scale** to fake hair motion or blinking.
 - Keep the pixel character's facial geometry stable during animation. Eyelids,
   hair and jewelry move locally; do not substitute other generated faces.
@@ -72,10 +84,10 @@ npm run assets:verify
 Visual QA:
 
 ```text
-http://localhost:5173/                  # dev
+http://localhost:5173/                  # complete personal homepage
 http://localhost:4173/website/          # preview after build
-http://localhost:4173/website/?theme=emerald&debug=1
-http://localhost:4173/website/?pose=5   # freeze pose 1..10
+http://localhost:4173/website/?view=portrait&theme=emerald&debug=1
+http://localhost:4173/website/?view=portrait&pose=5  # isolated portrait QA
 ```
 
 Deployment is automatic: pushing/merging to `main` runs
@@ -90,25 +102,35 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 ## Current state
 
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default: canonical 2D pixel portrait with bounded local hair fields, independent
-  eyelids and ear-anchored jewelry. 256² logical grid; 2300 ms reference loop.
+- Default: complete responsive personal homepage with pixel typography, hero,
+  about, real work and contact sections; editable content and shared site shell.
+- Hero / isolated view=portrait: canonical 2D pixel portrait with bounded local
+  hair layers with nine chain stations per lock, hidden underpaint repair, eyelids
+  and separately delayed left/right jewelry. Transparent256² grid, with
+  192² and 320² alternatives; continuous 2300 ms reference loop while
+  visible. Hidden/offscreen suspension preserves phase; reduced motion and
+  explicit pause/t/pose retain static behavior.
+- New natural portrait masters are in `assets/generated/portrait-v4/`; runtime
+  materials are in `public/assets/portrait-natural/`. The transparent static
+  fallback is `public/portrait-rest.png` at 768²; OG composition remains separate.
 - Archived modes: ?style=voxel retains the prior block bust; ?style=legacy
   retains the ten-pose provisional anime cross-fade.
 - Immutable source assets; WebP derivatives generated by `scripts/optimize_assets.py`.
-- Responsive dark stage, reduced-motion support, URL debug switches.
+- Static initial HTML and error fallbacks preserve content when the app fails;
+  reduced-motion support and URL debug switches remain.
 - Live at <https://fknejdcwnfi.github.io/website/> via GitHub Actions;
   `gh-pages` is retained only as a manual fallback.
-- Unknown face/shoulder clean plates remain constrained. Do not claim complete
+- The new underpaint only repairs local hair occlusion; full source-identical
+  face/shoulder layer reconstruction remains constrained. Do not claim complete
   layered art, source-identical geometry, perfect likeness or unmeasured QA.
 
 ## Suggested next task
 
-Continue `docs/11-living-portrait.md`, prioritizing reference likeness, pixel art,
-local motion and evidence. Compare original / rest / wind / blink and capture all
-ten reference times from the actual site. Preserve source assets and archived
-modes. Do not expand into unrelated website features or present raw AI candidate
-images as renderer screenshots. Use the existing isolated checkout, without a
-worktree unless the user explicitly requests one.
+Continue `docs/12-personal-site.md` for website content, accessibility, responsive
+layout and availability. Use docs/11 for portrait fidelity and animation. Preserve
+the owner's personalization choices and keep future sections independent of the
+rig. Do not add fake content or inactive feature controls. Use the existing
+isolated checkout, without a worktree unless the user explicitly requests one.
 
 ## Delivery checklist
 
@@ -122,6 +144,13 @@ worktree unless the user explicitly requests one.
   This supersedes older merge-only restrictions in task examples; it does not
   authorize skipping checks, bypassing branch protection, expanding task scope,
   or accepting unresolved asset and architecture decisions.
+- A newer explicit hold on publishing overrides the standing auto-merge policy.
+  Complete reviewable changes and validation locally while such a hold is active;
+  do not push, merge, deploy or publish an environment until authorization resumes.
+- **Authorization resumed on 2026-10-29:** the owner explicitly requested
+  automatic merging and website updates together with richer reference-driven
+  hair/wind/blink motion. After review and passing checks, open and merge the PR,
+  then verify GitHub Actions / Pages; no routine confirmation is needed.
 - Merging to `main` triggers the Pages deployment; verify the Actions run.
 
 If blocked, stop and report:

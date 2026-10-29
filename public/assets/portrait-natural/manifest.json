@@ -1,0 +1,95 @@
+{
+  "version": 5,
+  "authority": "assets/source/original_reference.jpg",
+  "authority_sha256": "60efba91bcc54f3376f56c5a3626c8276354bbbd1f4204345f68f2240bb5675e",
+  "method": "Unchanged v4 canonical transparent close-up and local eyelids. Added AI-assisted underpaint donor sampled only beneath independently moving hair locks. Shared 42-color Canvas normalization and binary alpha; fixed face/body, no independent animation-face frames.",
+  "palette": "src/character/portraitAsset.ts#PALETTE",
+  "palette_colors": 42,
+  "logical_sizes": [
+    192,
+    256,
+    320
+  ],
+  "aspect_ratio": "1:1",
+  "alpha": "binary",
+  "default_size": 256,
+  "masters": [
+    {
+      "file": "assets/generated/portrait-v4/closed.png",
+      "sha256": "cdce833bd3417821aeb13542bb014e5e90bddc1f2ee396b79c3d54e1ca4498d3"
+    },
+    {
+      "file": "assets/generated/portrait-v4/open.png",
+      "sha256": "1a6b691e6c0af0a46d2f8016451b193e1e761c9263b21373a1fdea2bd69e4e26"
+    },
+    {
+      "file": "assets/generated/portrait-wind/underpaint.png",
+      "sha256": "87d4b8f0804ab1fd4a9bc0fc85c679b0f5d95b417e9ad608e415f58757e00c09"
+    }
+  ],
+  "files": [
+    {
+      "file": "base-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 34502,
+      "sha256": "cc26b3565eb96d6f65d38f73a10bfe67e54954e27461b03142eade2231850a9d"
+    },
+    {
+      "file": "base-320.png",
+      "width": 320,
+      "height": 320,
+      "bytes": 71539,
+      "sha256": "d603b7073c6b6cd05c5a5574911a1ea7e9c6db6c570e2fc1c04bed7ca8d56f6d"
+    },
+    {
+      "file": "base.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 51646,
+      "sha256": "fc23d3a277957ec7413bfea79ad8b04083aee04e1529747058869d8f15ee7b07"
+    },
+    {
+      "file": "eyelids-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 33999,
+      "sha256": "04b54c596a73f7e85276699c80c44c0e80da41d2bb06dd3e40088c248b50cbba"
+    },
+    {
+      "file": "eyelids-320.png",
+      "width": 320,
+      "height": 320,
+      "bytes": 71612,
+      "sha256": "9a589411df177e0e3f5ccf341889dece263046482419bf68fcfd19025c843f92"
+    },
+    {
+      "file": "eyelids.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 51674,
+      "sha256": "1fb65892ef16471c20b085f809b1afbf8219e86edd108c393cf1e0dca9d0b6b4"
+    },
+    {
+      "file": "underpaint-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 27476,
+      "sha256": "284409631874c42569c50d35d1aa467a192efff6ea0de6ceefdca2fbae652f70"
+    },
+    {
+      "file": "underpaint-320.png",
+      "width": 320,
+      "height": 320,
+      "bytes": 58799,
+      "sha256": "93e9b6c793ffe85b2c99edfbf3981d9f1d409dac2d323cef004523586304ac0b"
+    },
+    {
+      "file": "underpaint.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 41746,
+      "sha256": "06468f9beefc11847e4a6fb11143853b67e865230ea2553ad82f846a32be54a1"
+    }
+  ]
+}

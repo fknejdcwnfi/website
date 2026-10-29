@@ -27,6 +27,7 @@ KEY_TIMES = [0, 230, 460, 630, 740, 850, 1020, 1300, 1570, 1890]
 def route(url: str, **parameters: object) -> str:
     parts = urlsplit(url)
     query = dict(parse_qsl(parts.query))
+    query.setdefault("view", "portrait")
     query.update({name: str(value) for name, value in parameters.items()})
     return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
 
@@ -46,6 +47,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts")
     parser.add_argument("--chromium", default="/usr/bin/chromium")
     parser.add_argument("--skip-gif", action="store_true")
+    parser.add_argument("--site-gif", action="store_true", help="Also encode the real homepage hero at the same deterministic phases")
     args = parser.parse_args()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -69,7 +71,7 @@ def main() -> None:
         comparison = browser.new_page(viewport={"width": 1120, "height": 336}, device_scale_factor=1)
         markup = """<!doctype html><meta charset='utf-8'><style>
         *{box-sizing:border-box}body{margin:0;padding:18px;background:#071222;color:#ead8bc;font:13px system-ui}
-        main{display:grid;grid-template-columns:repeat(4,256px);gap:20px}figure{margin:0}img{display:block;width:256px;height:256px}
+        main{display:grid;grid-template-columns:repeat(4,256px);gap:20px}figure{margin:0}img{display:block;width:256px;height:256px;object-fit:contain}
         .pixel{image-rendering:pixelated}figcaption{padding:12px 0 0}footer{padding-top:10px;color:#8fa5b9;font-size:11px}
         </style><main>"""
         for caption, data, extension, pixel in cards:
@@ -99,6 +101,20 @@ def main() -> None:
                 gif_result = {"sampled_frames": len(times), "encoded_frames": gif.n_frames,
                               "duration_ms": encoded_duration, "bytes": gif_path.stat().st_size,
                               "sampling": "Deterministic actual website canvas time seeks; not realtime FPS evidence"}
+            if args.site_gif:
+                home = browser.new_page(viewport={"width": 1440, "height": 1000}, device_scale_factor=1)
+                site_frames = []
+                for time_ms in times:
+                    home.goto(route(args.url, view="site", t=time_ms, pixel=256))
+                    home.wait_for_selector("canvas[data-ready='true'][data-painted='true']")
+                    home.evaluate("document.fonts.ready")
+                    site_frames.append(Image.open(io.BytesIO(home.locator('.hero').screenshot())).copy())
+                site_path = output / "website_motion.gif"
+                site_frames[0].save(site_path, save_all=True, append_images=site_frames[1:], duration=durations,
+                                    loop=0, optimize=True, disposal=2)
+                gif_result['homepage_preview'] = {"file": site_path.name, "bytes": site_path.stat().st_size,
+                    "source": "Actual complete homepage hero screenshots at the same deterministic phases"}
+                home.close()
         page.goto(route(args.url, t=0, pixel=256))
         page.wait_for_selector("canvas[data-ready='true']")
         page.screenshot(path=str(output / "desktop.png"))

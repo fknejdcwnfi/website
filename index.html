@@ -3,41 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#05080e" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta name="color-scheme" content="light dark" />
 
-    <title>Vermouth · Living Pixel Portrait</title>
+    <title>__SITE_TITLE__</title>
     <meta
       name="description"
-      content="An expressive 2D pixel-art portrait of Vermouth: icy blue eyes, platinum curls, a quiet breeze and a natural blink."
+      content="__SITE_DESCRIPTION__"
     />
-    <meta name="author" content="fknejdcwnfi" />
+    <meta name="author" content="__SITE_HANDLE__" />
     <link rel="canonical" href="https://fknejdcwnfi.github.io/website/" />
     <link rel="sitemap" type="application/xml" href="%BASE_URL%sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fknejdcwnfi.github.io/website/" />
-    <meta property="og:site_name" content="Vermouth · Living Pixel Portrait" />
-    <meta property="og:title" content="Vermouth · Living Pixel Portrait" />
+    <meta property="og:site_name" content="__SITE_TITLE__" />
+    <meta property="og:title" content="__SITE_TITLE__" />
     <meta
       property="og:description"
-      content="Vermouth reimagined as an expressive 2D pixel-art living portrait, with platinum curls, sapphire eyes and a natural blink."
+      content="__SITE_DESCRIPTION__"
     />
     <meta property="og:image" content="https://fknejdcwnfi.github.io/website/og-portrait.png" />
     <meta property="og:image:width" content="768" />
     <meta property="og:image:height" content="768" />
     <meta property="og:image:alt" content="Faithful 2D pixel-art Vermouth portrait with icy blue eyes, platinum curls and sapphire jewelry" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vermouth · Living Pixel Portrait" />
+    <meta name="twitter:title" content="__SITE_TITLE__" />
     <meta
       name="twitter:description"
-      content="An expressive 2D pixel-art portrait. Platinum curls, sapphire eyes, a quiet breeze and a natural blink."
+      content="__SITE_DESCRIPTION__"
     />
     <meta name="twitter:image" content="https://fknejdcwnfi.github.io/website/og-portrait.png" />
+    <style>
+      .static-site{min-height:100svh;background:#f6f5f0;color:#1d2929;font:15px/1.9 system-ui,sans-serif}.static-wrap{width:min(1100px,calc(100% - 48px));margin:auto}.static-site a{color:inherit}.static-header{display:flex;justify-content:space-between;align-items:center;padding:28px 0}.static-header>a{font-size:22px;text-decoration:none}.static-header nav{display:flex;gap:25px;font-size:13px}.static-hero{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:55px 0 80px}.static-hero h1{font:42px/1.3 monospace;overflow-wrap:anywhere}.static-hero img{display:block;width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated}.static-eyebrow{font-size:11px;letter-spacing:.1em;color:#386a45}.static-section{padding:55px 0;border-top:1px solid #dcded5}.static-section h2{font-size:24px;font-weight:500}.static-projects{display:grid;grid-template-columns:1fr 1fr;gap:40px}.static-footer{padding:25px 0;font-size:12px}@media(max-width:680px){.static-hero{grid-template-columns:1fr;gap:35px;padding:25px 0 55px}.static-hero h1{font-size:32px}.static-projects{grid-template-columns:1fr}.static-header nav{gap:16px}.static-header>a{font-size:16px}}
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--site-fallback--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

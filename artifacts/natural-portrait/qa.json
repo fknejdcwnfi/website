@@ -1,0 +1,223 @@
+{
+  "url": "http://127.0.0.1:5177/",
+  "contract": "original square close-up with binary transparency",
+  "status": "passed",
+  "checks": [
+    "defaultportrait",
+    "no_public_ui",
+    "pixelated_grid",
+    "grid_192",
+    "grid_256",
+    "grid_320",
+    "rest_1_equals_10",
+    "wind_moves_real_pixels",
+    "fixed_face_skin_necklace",
+    "roots_fixed",
+    "blink_only_local_eyes",
+    "seam_and_settled_rest",
+    "zero_wind_static_hair_ears",
+    "earring_pixels_move",
+    "independent_hair_groups_move",
+    "square_original_closeup",
+    "binary_alpha_source_and_animation",
+    "former_navy_background_transparent",
+    "opaque_character_original_crop",
+    "one_hundred_loops_exact_same_pixels",
+    "live_timeline_progresses",
+    "live_playback_semantic_state",
+    "hidden_debug_panel_opens",
+    "debug_sliders_labelled",
+    "pause_preserves_current_pose",
+    "pause_stable",
+    "paused_playback_semantic_state",
+    "manual_blink_local_and_restores",
+    "resume_advances",
+    "initial_reduced_motion_static",
+    "reduced_playback_semantic_state",
+    "initial_reduced_motion_zero_raf",
+    "live_reduced_motion_resume",
+    "live_reduced_motion_stop",
+    "seek_static",
+    "seek_playback_semantic_state",
+    "hidden_resume_destroy_lifecycle",
+    "refresh_60_120_same_speed_and_pixels",
+    "archive_voxel",
+    "archive_legacy",
+    "mobile_complete_no_overflow",
+    "no_browser_errors"
+  ],
+  "errors": [],
+  "rig": {
+    "sourceSize": [
+      256,
+      256
+    ],
+    "canvasSize": [
+      256,
+      256
+    ],
+    "hairIds": [
+      "hair_back",
+      "hair_outer_L",
+      "hair_outer_R",
+      "bangs",
+      "hair_side_L",
+      "hair_side_R",
+      "hair_shoulder_L",
+      "hair_tips_R"
+    ],
+    "windChanged": 2179,
+    "counts": [
+      127,
+      398,
+      803,
+      278,
+      115,
+      76,
+      241,
+      118,
+      23
+    ],
+    "activeGroupPixels": [
+      127,
+      398,
+      807,
+      278,
+      115,
+      97,
+      241,
+      183,
+      91
+    ],
+    "protectedChanged": 0,
+    "protectedCount": 37698,
+    "rootChanged": 0,
+    "blinkChanged": 1085,
+    "outsideEyes": 0,
+    "alpha": {
+      "opaque": 59018,
+      "transparent": 6518,
+      "partialAlpha": 0,
+      "sourcePartialAlpha": 0,
+      "backgroundPoints": [
+        [
+          248,
+          8
+        ],
+        [
+          248,
+          32
+        ],
+        [
+          248,
+          64
+        ],
+        [
+          8,
+          96
+        ],
+        [
+          8,
+          128
+        ]
+      ],
+      "backgroundAlpha": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "topOpaque": 180,
+      "bottomOpaque": 254
+    },
+    "repeatedLoops": 100,
+    "phasesPerRepeatedLoop": 13,
+    "finalEqualsRest": true,
+    "wrapEqualsRest": true,
+    "zeroWindEqualsRest": true
+  },
+  "wind_moves_real_pixels": 2179,
+  "fixed_face_skin_necklace": 37698,
+  "blink_only_local_eyes": 1085,
+  "earring_pixels_move": 91,
+  "independent_hair_groups_move": [
+    127,
+    398,
+    807,
+    278,
+    115,
+    97,
+    241,
+    183,
+    91
+  ],
+  "binary_alpha_source_and_animation": {
+    "opaque": 59018,
+    "transparent": 6518,
+    "partialAlpha": 0,
+    "sourcePartialAlpha": 0,
+    "backgroundPoints": [
+      [
+        248,
+        8
+      ],
+      [
+        248,
+        32
+      ],
+      [
+        248,
+        64
+      ],
+      [
+        8,
+        96
+      ],
+      [
+        8,
+        128
+      ]
+    ],
+    "backgroundAlpha": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "topOpaque": 180,
+    "bottomOpaque": 254
+  },
+  "former_navy_background_transparent": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "one_hundred_loops_exact_same_pixels": {
+    "loops": 100,
+    "phasesPerLoop": 13
+  },
+  "initial_reduced_motion_zero_raf": 0,
+  "hidden_resume_destroy_lifecycle": {
+    "running": 6,
+    "hidden": 6,
+    "resumed": 9,
+    "stopped": 9,
+    "destroyed": 9
+  },
+  "refresh_60_120_same_speed_and_pixels": {
+    "elapsed60": 1000,
+    "elapsed120": 1000,
+    "identical": true
+  },
+  "mobile_complete_no_overflow": {
+    "x": 15.59375,
+    "y": 242.59375,
+    "width": 358.796875,
+    "height": 358.796875
+  },
+  "no_browser_errors": []
+}

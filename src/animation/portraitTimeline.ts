@@ -78,13 +78,15 @@ export type MotionConfig = {
   damping: number
 }
 
-const DELAYS = [0, 22, 43, 70, 96, 122, 49, 145, 168] as const
-const AMPLITUDES = [0.32, 0.46, 0.54, 0.87, 1, 0.76, 0.66, 0.82, 0.20] as const
-const STIFFNESS = [1.18, 1.05, 0.96, 0.83, 0.78, 0.72, 0.91, 0.69, 0.56] as const
-const DAMPING = [1.12, 1.07, 1.01, 0.96, 1.02, 1.16, 1.08, 1.23, 1.36] as const
+export const HAIR_CHANNELS = 8
+export const MOTION_CHANNELS = 10
+const DELAYS = [0, 24, 12, 12, 51, 67, 82, 105, 128, 153] as const
+const AMPLITUDES = [0.72, 0.90, 1, 0.56, 0.66, 0.75, 0.96, 1, 0.48, 0.43] as const
+const STIFFNESS = [1.18, 1.05, 0.96, 1.12, 0.92, 0.82, 0.74, 0.69, 0.56, 0.51] as const
+const DAMPING = [1.12, 1.07, 1.01, 1.06, 1.02, 1.10, 0.91, 0.96, 1.15, 1.22] as const
 
 /**
- * Nine deterministic spring channels: eight hair groups and delayed earrings.
+ * Eight wind-driven locks and two independently delayed earring pendulums.
  * The 1ms offline solve is independent of display refresh rate and random seek.
  * Rendering applies each group's root weights and the user's wind gain later.
  */
@@ -105,12 +107,21 @@ export const createMotionTable = (config: MotionConfig): Float32Array[] => {
       const phase = group * 0.41
       const gust = 1 + 0.13 * Math.sin(Math.PI * 2 * frequency * t + phase)
         + 0.05 * Math.sin(Math.PI * 2 * frequency * 2.3 * t - phase)
-      const target = referenceWind(delayed) * gust * direction
+      const breeze = referenceWind(delayed)
+      // The reference's frame08 is a change of wind direction: a restrained
+      // backdraft produces an actual return swing, rather than a static fade.
+      const backdraft = smoothstep((delayed - 1080) / 200)
+        * (1 - smoothstep((delayed - 1500) / 220))
+      const ripple = 0.065 * Math.sin(t * Math.PI * 2 * (1.25 + frequency) - phase)
+      const target = (breeze * (gust + ripple) - backdraft * 0.62) * direction
       velocity += (k * (target - position) - c * velocity) * 0.001
       position += velocity * 0.001
       // A zero-slope settling envelope prevents a reset at the loop boundary.
       const settle = 1 - smoothstep((timeMs - KEY_TIMES[8]) / (KEY_TIMES[9] - KEY_TIMES[8]))
-      channel[timeMs] = settle === 0 ? 0 : position * AMPLITUDES[group]! * settle
+      // A small immediate drag lets frame02 catch the first breeze; inertia
+      // remains dominant, and pendulums are driven only by the spring solve.
+      const response = group < HAIR_CHANNELS ? position * 0.84 + target * 0.16 : position
+      channel[timeMs] = settle === 0 ? 0 : response * AMPLITUDES[group]! * settle
     }
     return channel
   })

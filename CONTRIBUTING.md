@@ -1,7 +1,7 @@
 # 貢獻指南
 
 本專案是一個人網站作品，變更以「不破壞角色身份與視覺品質」為最高原則。
-在動手前，請先讀 [目前Living Portrait契約](docs/11-living-portrait.md)、[文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。目前預設為忠於original_reference的Minecraft-inspired 2D像素立繪；ADR-015取代前次方頭voxel解讀，不能恢復Steve／3D造型。
+在動手前，請先讀 [個人網站契約](docs/12-personal-site.md)、[Living Portrait子系統](docs/11-living-portrait.md)、[文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。目前預設是完整Minecraft像素風個人網站，角色仍保持忠於原圖的2D立繪；ADR-016允許導航、介紹、真實作品及聯絡，不能以舊no-UI條款阻擋整站內容。
 
 ---
 
@@ -17,7 +17,7 @@ npm run build
 npm run assets:check
 ```
 
-部署：推送或合併到 `main` 後由 GitHub Actions 自動建置與發佈。
+部署：推送或合併到 `main` 後由 GitHub Actions 自動建置與發佈。較新的暫不發佈指示有效時，先完成本地修改與驗證，不推送／合併／部署。
 `npm run deploy` 是手動備援，會 force push `gh-pages`，需擁有者同意。
 
 視覺變更請附上：
@@ -42,7 +42,7 @@ npm run assets:check
 - `assets/source/**`：唯讀。不得覆寫、裁切、重新編碼。
 - `docs/reference/**`：凍結。不得改寫原始委託文件。
 - original_reference的身份、神態與近景構圖基準。
-- 舞臺的「只有角色」原則（未有新內容需求前不加入常駐UI）；2D像素造型與乾淨深色背景依目前契約開發，不加入無關場景。
+- 角色區不以無關場景遮擋；整站導航、介紹、真實作品、聯絡與播放控制已由ADR-016允許，2D像素身份與來源保護仍適用。
 - 不得把交叉淡入描述成完成品。
 
 ---

@@ -23,6 +23,9 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "public" / "assets" / "manifest.json"
 FRAME_DIR = ROOT / "assets" / "source" / "frames"
 REQUIRED_PUBLIC = (
+    "portrait-rest.png",
+    "fonts/PressStart2P-Regular.ttf",
+    "fonts/OFL.txt",
     "og-portrait.png",
     "og-pixel.png",
     "og-image.webp",
@@ -81,15 +84,15 @@ def main() -> int:
         if not path.exists() or path.stat().st_size == 0:
             fail(errors, f"missing or empty public file: public/{name}")
 
-    portrait_root = ROOT / 'public' / 'assets' / 'portrait'
+    portrait_root = ROOT / 'public' / 'assets' / 'portrait-natural'
     portrait_manifest = portrait_root / 'manifest.json'
     if not portrait_manifest.exists():
         fail(errors, 'missing portrait asset manifest')
     else:
         portrait = json.loads(portrait_manifest.read_text(encoding='utf-8'))
         entries = portrait.get('files', [])
-        if len(entries) != 6:
-            fail(errors, 'portrait manifest must contain six reviewed grid assets')
+        if len(entries) != 9:
+            fail(errors, 'portrait manifest must contain nine reviewed grid assets (portrait, eyelids, underpaint)')
         for entry in entries:
             path = portrait_root / entry['file']
             if not path.is_file():
@@ -102,6 +105,8 @@ def main() -> int:
                 fail(errors, f'invalid portrait PNG: {entry["file"]}')
             elif struct.unpack('>II', data[16:24]) != (entry['width'], entry['height']):
                 fail(errors, f'portrait dimensions mismatch: {entry["file"]}')
+            elif entry['height'] != entry['width']:
+                fail(errors, f'portrait must retain original square close-up proportions: {entry["file"]}')
         authority = ROOT / portrait['authority']
         if not authority.is_file() or sha256(authority) != portrait['authority_sha256']:
             fail(errors, 'portrait original-reference provenance mismatch')

@@ -1,0 +1,17 @@
+{
+  "url": "http://127.0.0.1:4178/website/",
+  "conditions": "fresh single-page headless Chromium,1200x1000,DPR1,no throttle,1.5s settle,no screenshot during sample",
+  "sample_seconds": 5.0,
+  "paints": 300,
+  "fps": 60.0,
+  "callback_cpu_median_ms": 0.6,
+  "callback_cpu_p95_ms": 1.1,
+  "long_tasks": [],
+  "runtime_images": [
+    "http://127.0.0.1:4178/website/assets/portrait/base.png",
+    "http://127.0.0.1:4178/website/assets/portrait/eyelids.png"
+  ],
+  "browser_errors": [],
+  "http_errors": [],
+  "metadata_and_asset_http200": true
+}

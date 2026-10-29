@@ -1,5 +1,7 @@
 # 10 · Minecraft 風格像素動態 Vermouth（歷史 voxel 迭代）
 
+> **網站範圍另見 [12 個人網站](12-personal-site.md)**；本文件只作歷史角色風格紀錄。
+
 > **已由最新提示詞取代**：下文記錄前次192²方頭voxel胸像與其實測結果，現在只適用 `?style=voxel`。目前預設是忠於原圖、非Steve／非3D的2D像素立繪，請先讀 [11 Living Portrait](11-living-portrait.md) 與ADR-015。舊版效能結果不得移作新版證據。
 
 - **日期**：2026-10-28

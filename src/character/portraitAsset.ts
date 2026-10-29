@@ -11,23 +11,52 @@ export const PALETTE = [
 
 export const RGB = PALETTE.map((hex) => [1, 3, 5].map((start) => parseInt(hex.slice(start, start + 2), 16)))
 
-export const loadImage = (url: string): Promise<HTMLImageElement> => new Promise((resolve, reject) => {
+export const loadImage = (url: string, timeoutMs = 12_000): Promise<HTMLImageElement> => new Promise((resolve, reject) => {
   const image = new Image()
-  image.onload = () => resolve(image)
-  image.onerror = () => reject(new Error(`Unable to load portrait artwork: ${url}`))
+  const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 12_000
+  let settled = false
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const finish = (error?: Error): void => {
+    if (settled) return
+    settled = true
+    if (timer !== undefined) clearTimeout(timer)
+    image.onload = null
+    image.onerror = null
+    if (error) reject(error)
+    else resolve(image)
+  }
+  image.decoding = 'async'
+  image.onload = () => finish(image.naturalWidth > 0 && image.naturalHeight > 0
+    ? undefined : new Error(`Invalid portrait artwork: ${url}`))
+  image.onerror = () => finish(new Error(`Unable to load portrait artwork: ${url}`))
+  timer = setTimeout(() => {
+    finish(new Error(`Timed out loading portrait artwork: ${url}`))
+    image.removeAttribute('src')
+  }, duration)
   image.src = url
 })
+
+/** Keep the owner's original square close-up scale; only the silhouette is visible. */
+export const portraitHeight = (width: number): number => width
 
 /** Used by the asset export page, never to pixelate the original anime photograph. */
 export const normalizeArtwork = (image: CanvasImageSource, size: number): HTMLCanvasElement => {
   const canvas = document.createElement('canvas')
-  canvas.width = canvas.height = size
+  const height = portraitHeight(size)
+  canvas.width = size
+  canvas.height = height
   const ctx = canvas.getContext('2d', { willReadFrequently: true })!
   ctx.imageSmoothingEnabled = false
-  ctx.drawImage(image, 0, 0, size, size)
-  const output = ctx.getImageData(0, 0, size, size)
+  // Preserve the original close-up composition and character scale exactly.
+  ctx.drawImage(image, 0, 0, size, height)
+  const output = ctx.getImageData(0, 0, size, height)
   const lookup = new Map<number, number>()
   for (let i = 0; i < output.data.length; i += 4) {
+    // Binary alpha preserves stepped pixel edges and removes transparent RGB fringes.
+    if (output.data[i + 3]! < 192) {
+      output.data.fill(0, i, i + 4)
+      continue
+    }
     const r = output.data[i]!, g = output.data[i + 1]!, b = output.data[i + 2]!
     const key = r << 16 | g << 8 | b
     let best = lookup.get(key)

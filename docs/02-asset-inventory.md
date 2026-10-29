@@ -1,21 +1,28 @@
 # 02 · 素材清冊
 
-> **目前資源策略（2026-10-28）**：以 `original_reference.jpg` 為最高身份／構圖權威，AI輔助製作單一2D像素canonical portrait，再以局部眼瞼、髮場與耳環動畫呈現。最新提示詞排除Steve／3D voxel與單純原圖縮放；所有原始來源維持唯讀。現行契約見 [11 Living Portrait](11-living-portrait.md)。
+> **目前資源策略（2026-10-29）**：以 `original_reference.jpg` 為最高身份／構圖權威。保留前版2D像素近景的大小與裁切，從v2母版作背景移除編輯，再以局部眼瞼、髮場與耳環動畫呈現；使用者已拒絕向外補畫完整胸像。人物外透明，方形邏輯畫布不形成可見底板。所有原始來源維持唯讀。肖像契約見 [11 Living Portrait](11-living-portrait.md)，完整網站見 [12 個人網站](12-personal-site.md)。
+
+## 個人網站字體與內容來源
+
+- `public/fonts/PressStart2P-Regular.ttf`：Press Start 2P，由Google Fonts公開來源自託管；[public/fonts/OFL.txt](../public/fonts/OFL.txt)保存SIL Open Font License。網站不向外部字體CDN請求資源，中文使用系統字體。
+- 稱呼fknejdcwnfi、HELLOWORLD與Email由使用者提供；網站作品連結取自真實公開GitHub repository，封存狀態如實標示。它們是可編輯內容，不是圖像母版的一部分。
+- `portrait-rest.png`為768²透明靜態備援；`og-portrait.png`另行合成網站紙色背景供分享，不作透明人物的替代素材。
 
 ## 目前2D像素立繪登記
 
 | 項目 | 來源／製作方法 | 用途與限制 |
 | --- | --- | --- |
-| `assets/generated/portrait-v2/open.png` | 以原始reference作AI輔助2D像素風格轉譯，保留近景構圖、臉型、眼神、捲髮與首飾 | canonical全開眼睛母版；不是逐張動作圖重新生成 |
-| `assets/generated/portrait-v2/closed.png` | 對canonical母版作閉眼局部材料編輯 | 僅取精確眼區；不能將donor的臉／眉／鼻／嘴／飾物替換到網站 |
-| `public/assets/portrait/base.png` | canonical像素畫經實際資產／渲染流程規範至統一像素網格及受控色階 | 網站單一身份來源；不等於原始動漫圖直接resize |
-| `public/assets/portrait/eyelids.png` | 同網格閉眼材料；由renderer限於局部眼罩使用 | 開／半閉／閉／重開不改其餘面部像素 |
-| `public/assets/portrait/base-192.png`／`base-320.png`與對應`eyelids-*` | 同母版及42色調色盤的替代網格；預設256²另存無suffix檔名 | 六張runtimePNG的尺寸、bytes與SHA-256見`public/assets/portrait/manifest.json` |
-| `assets/generated/portrait-v2/PROMPTS.md`／`README.md` | 生成條件、用途、原圖與母版的追溯紀錄 | 保留未修改母版，不能承諾重新呼叫模型可得逐位元相同結果 |
-| [og-portrait.png](../public/og-portrait.png) | 實際256²renderer以nearest-neighbor顯示並擷取為768²PNG | **目前分享OG圖**；`assets:verify`要求此檔存在 |
-| `artifacts/pixel_reference.png`、十個`pixel_frame_*.png`、`comparison.png`、`animation_preview.gif` | 實際網站及原始參考對照 | 保存實際時間、尺寸與取樣條件；未使用的AI候選圖不能冒充網站證據 |
+| `assets/generated/portrait-v4/open.png` | 對v2 canonical近景母版作AI輔助背景移除編輯；保留原尺度、上緣髮絲裁切、肩線與首飾 | 網站單一身份來源；移除深藍外部及捲髮空隙背景，不向外補畫完整胸像 |
+| `assets/generated/portrait-v4/closed.png` | 對去背canonical母版作閉眼局部材料編輯 | 僅取精確眼區；不能將donor的臉／眉／鼻／嘴／飾物替換到網站 |
+| `public/assets/portrait-natural/base.png` | canonical像素畫經共享Canvas流程規範至256²與42色調色盤，保留二值alpha | 網站實際透明像素人物，不等於原始動漫圖直接resize |
+| `public/assets/portrait-natural/eyelids.png` | 同網格閉眼材料；由renderer限於局部眼罩使用 | 開／半閉／閉／重開不改其餘面部像素 |
+| `public/assets/portrait-natural/base-192.png`／`base-320.png`與對應`eyelids-*` | 同母版及調色盤的192²／320²替代網格；預設256²檔名無suffix | 九張runtime PNG（另含髮後底圖及其替代網格）的尺寸、bytes、alpha與SHA-256見[manifest](../public/assets/portrait-natural/manifest.json) |
+| `assets/generated/portrait-v4/PROMPTS.md`／`README.md` | 編輯條件、用途、原圖／v2母版與工具輸出的追溯紀錄 | 保留未修改編輯輸出；不能承諾再次呼叫模型可得逐位元相同結果 |
+| [portrait-rest.png](../public/portrait-rest.png) | 同一實際renderer靜止輸出的768²透明PNG | 初始HTML、素材／Canvas失敗與無JS的獨立靜態備援 |
+| [og-portrait.png](../public/og-portrait.png) | 同一renderer另行合成網站紙色背景的768²PNG | **目前分享OG圖**；`assets:verify`要求此檔存在，不承擔透明備援 |
+| `artifacts/natural-portrait/pixel_reference.png`、十個`pixel_frame_*.png`、`comparison.png`、`animation_preview.gif` | 實際網站及原始參考對照 | `capture.json`記錄256²畫布、67個GIF取樣時間點／40個編碼幀／2300 ms；不是即時FPS證據 |
 
-生成母版、原始reference與六張衍生檔的SHA-256已登記於manifest，驗證腳本會檢查雜湊、PNG尺寸與bytes。`scripts/export_portrait.py`透過共享Canvas流程重建runtime檔；不改母版與原始素材。此處不宣稱完成未知臉側／肩頸clean plate；沒有可信底圖時，對應髮場維持遮擋或限制位移。AI與像素媒介仍可能留有形狀／色階差異，不宣稱原圖幾何逐像素一致。
+編輯母版、原始reference與九張衍生檔的SHA-256已登記於manifest，驗證腳本會檢查雜湊、PNG尺寸與bytes。`scripts/export_portrait.py`透過共享Canvas流程重建runtime檔；不改母版與原始素材。v2不透明母版、`public/assets/portrait/`及其舊證據保留為歷史，不是目前runtime。被拒絕的擴圖實驗不在repo或網站使用。新增 `assets/generated/portrait-wind/underpaint.png`與三種`underpaint*.png`作局部遮擋底圖，來源與限制見同目錄README／PROMPTS及[13 參考風動](13-reference-wind.md)；它不替換完整角色或臉部，不代表完成所有來源一致的分層。AI與像素媒介仍可能留有形狀／色階差異，不宣稱原圖幾何逐像素一致。
 
 ## 前次程序化voxel角色（歷史）
 
@@ -34,7 +41,7 @@
 以下為既有 anime素材的清冊與管線紀錄；「網站只載入衍生檔」專指 legacy影像路徑。
 
 - **狀態**：十張關鍵姿態已就位；衍生檔可重建
-- **最後更新**：2026-10-28
+- **最後更新**：2026-10-29
 - **適用對象**：美術、前端、任何要修改或新增素材的人
 
 ---

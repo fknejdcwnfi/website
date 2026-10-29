@@ -9,6 +9,7 @@ import {
   samplePortrait,
   createMotionTable,
   sampleMotion,
+  MOTION_CHANNELS,
 } from '../src/animation/portraitTimeline.ts'
 
 const configuration = { direction: 1, gust: 0.35, stiffness: 18, damping: 5 }
@@ -80,8 +81,9 @@ test('malformed pure-function inputs still produce a finite bounded sample', () 
   assert.equal(samplePortrait(1020, 0).wind, 0)
 })
 
-test('the deterministic motion solve has eight hair channels plus a delayed earring channel', () => {
-  assert.equal(motion.length, 9)
+test('the deterministic motion solve has eight hair channels plus two independently delayed earring channels', () => {
+  assert.equal(motion.length, MOTION_CHANNELS)
+  assert.equal(MOTION_CHANNELS, 10)
   const again = createMotionTable(configuration)
   motion.forEach((channel, index) => {
     assert.ok(channel instanceof Float32Array)
@@ -130,11 +132,21 @@ test('motion lookup interpolates fractional milliseconds and wraps independently
   assert.equal(sampleMotion(motion, 800.5 + LOOP_MS, 4), expected)
   assert.equal(sampleMotion(motion, 800.5 - LOOP_MS, 4), expected)
   assert.equal(sampleMotion(motion, 0, 4), sampleMotion(motion, LOOP_MS, 4))
-  for (const group of [-1, 9, 1.5, NaN]) assert.equal(sampleMotion(motion, 800, group), 0)
+  for (const group of [-1, MOTION_CHANNELS, 1.5, NaN]) assert.equal(sampleMotion(motion, 800, group), 0)
 })
 
 test('invalid solver configuration is sanitized to finite stable channels', () => {
   const table = createMotionTable({ direction: NaN, gust: Infinity, stiffness: -Infinity, damping: NaN })
   assert.deepEqual(table, motion)
   assert.equal(sampleMotion(table, Infinity, 0), 0)
+})
+
+// The storyboard calls for a visible change of direction after the gust peak.
+test('reference backdraft makes long locks return and the two earrings lag separately', () => {
+  for (const group of [0, 1, 2, 4, 5, 6, 7]) {
+    assert.ok(Math.max(...motion[group].slice(460, 1300)) > 0.1)
+    assert.ok(Math.min(...motion[group].slice(1300, 1890)) < -0.005)
+  }
+  assert.notDeepEqual(motion[8], motion[9])
+  assert.ok(motion[9].findIndex(x => Math.abs(x) > 1e-7) > motion[8].findIndex(x => Math.abs(x) > 1e-7))
 })

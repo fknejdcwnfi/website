@@ -9,7 +9,7 @@ import PortraitControls from './PortraitControls'
 
 /**
  * Debug switches intentionally live in the URL rather than as on-screen UI,
- * because the brief asks for a stage with the character and nothing else.
+ * so the natural character remains a quiet, continuously looping illustration.
  *
  *   ?debug=1   show a small state readout
  *   ?pose=1-10 freeze one key pose (useful for visual QA)
@@ -31,7 +31,10 @@ export default function CharacterStage() {
     if (options.style === 'portrait') {
       const player = new PortraitPlayer(canvas, options, options.debug ? setSnapshot : undefined, () => setFailed(true))
       portraitRef.current = player
-      return () => { player.destroy(); portraitRef.current = null }
+      const observer = 'IntersectionObserver' in window
+        ? new IntersectionObserver(([entry]) => player.setViewportVisible(entry?.isIntersecting ?? true)) : null
+      observer?.observe(canvas)
+      return () => { observer?.disconnect(); player.destroy(); portraitRef.current = null }
     }
 
     if (options.style === 'voxel') {
@@ -64,17 +67,21 @@ export default function CharacterStage() {
       <div
         className={`stage stage--${options.style}`}
         style={options.style === 'legacy' ? { backgroundImage: `url("${KEY_POSES[0]!.src}")` }
-          : options.style === 'portrait' ? { backgroundImage: `url("${import.meta.env.BASE_URL}assets/portrait/base${options.pixel === 256 ? '' : `-${options.pixel}`}.png")` } : undefined}
+          : options.style === 'portrait' ? { backgroundImage: `url("${import.meta.env.BASE_URL}assets/portrait-natural/base${options.pixel === 256 ? '' : `-${options.pixel}`}.png")` } : undefined}
       >
         <canvas
           ref={canvasRef}
           className="stage__canvas"
           data-frozen={options.frozenPose ?? 'none'}
           data-style={options.style}
+          data-autoplay={options.style === 'portrait' ? 'continuous' : undefined}
           role="img"
+          aria-hidden={failed || undefined}
           aria-label={options.style === 'portrait' ? '貝爾摩德的二維像素動態肖像：冰藍眼睛、尖下巴、神秘微笑、白金捲髮與藍寶石飾物，微風吹動髮絲並自然眨眼。'
             : options.style === 'voxel' ? '封存的 Minecraft 方塊貝爾摩德示範。' : '貝爾摩德原始關鍵姿態交叉淡入預覽。'}
         />
+        {failed ? <img className="stage__fallback" src={`${import.meta.env.BASE_URL}portrait-rest.png`}
+          alt="Vermouth 的靜態像素肖像，動畫暫時無法載入" width="768" height="768" /> : null}
       </div>
 
       {options.debug ? (
@@ -99,7 +106,7 @@ export default function CharacterStage() {
         <PortraitControls options={options} change={(patch) => setOptions((current) => ({ ...current, ...patch }))}
           blink={() => portraitRef.current?.blink()} />
       ) : null}
-      {failed ? <p role="alert" className="portrait-error">動態素材載入失敗，請重新整理或檢查連線。</p> : null}
+      {failed ? <p role="status" className="portrait-error">先為你顯示靜態肖像。</p> : null}
     </div>
   )
 }

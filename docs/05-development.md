@@ -1,14 +1,22 @@
 # 05 · 開發指南
 
-> **目前預設**：忠於原始角色的2D像素Living Portrait，排除方頭voxel；完整契約見 [11 Living Portrait](11-living-portrait.md)。`?style=voxel`與`?style=legacy`保留兩條歷史路線，舊素材／部署指令仍可查閱。
+> **目前預設**：完整Minecraft像素風個人網站，契約見 [12 個人網站](12-personal-site.md)。肖像是首頁主視覺，其美術／動畫另依 [11 Living Portrait](11-living-portrait.md)。使用者已恢復自動合併與網站更新授權；最新分層風動見[13 參考風動](13-reference-wind.md)。
 
-## Living Portrait開發入口
+## 個人化與網站開發入口
+
+在 `src/content/site.ts`修改名稱、招呼、介紹、Email、GitHub、導覽與作品。`SiteShell`管理共享版面，`PersonalSections`管理內容區；新增真實功能時組合新元件，不需改角色rig。初始HTML與metadata讀同一設定；網站使用者資料不要在多份HTML中手工複製。
+
+正常dev `/`與production `/website/`顯示完整首頁；`?view=portrait`為獨立肖像，搭配`debug=1`／`pose`／`t`作美術QA。首頁需驗證可捲動、導覽錨點、作品／mailto／GitHub、窄螢幕與鍵盤；也需檢查停用JS、攔截module、影像失敗／逾時與Canvas失敗時靜態內容仍存在。人物保留前版近景尺寸／裁切並去背，不向外補畫整個胸像，不加方形相框／卡片；正常首頁沒有公開播放／暫停UI。
+
+Press Start 2P與OFL授權位於 `public/fonts/`，無外部字體依賴。建置保留 `/website/` base；若要自訂網域，另核對canonical／OG／sitemap和Pages，不在本輪擅自改公開URL。本輪按使用者授權，在檢查及PR的CI通過後自動合併、驗證Pages部署。
+
+## Living Portrait子系統開發入口
 
 建置與測試使用Node24（`.nvmrc`），沿用既有checkout。執行 `npm ci`、`npm test`、`npm run typecheck`、`npm run build`、`npm run assets:check`、`npm run assets:verify`；`prebuild`會跑目前測試，不依賴新增測試框架。
 
-開發伺服器使用 `npm run dev`，base `/`；production先build再 `npm run preview`，base `/website/`。可用 `?debug=1`開啟隱藏調試控制，`?pose=5`固定閉眼，`?pixel=192`／`?pixel=256`／`?pixel=320`比較邏輯解析度，`?pause=1`暫停。方向、陣風、剛度、阻尼、速度、風力與手動眨眼均僅供調試，不加入正式頁面控制。
+開發伺服器使用 `npm run dev`，base `/`；production先build再 `npm run preview`，base `/website/`。可用 `?debug=1`開啟隱藏調試控制，`?pose=5`固定閉眼，`?pixel=192`／`?pixel=256`／`?pixel=320`比較192²／256²／320²網格，`?pause=1`明確暫停。方向、陣風、剛度、阻尼、速度、風力與手動眨眼均僅供debug調試；正常首頁在可見時持續重播2300 ms，沒有公開播放按鈕。減少動態、分頁隱藏及離屏仍會停止繪製，回到畫面保留原相位。
 
-目前預設載入同一份像素角色與局部眼瞼材料，資產來源／方法見 [清冊](02-asset-inventory.md)。`npm run assets`仍只負責legacy十幀WebP，不會產生新像素美術；不要為改立繪而覆寫原始PNG、參考圖、GIF或舊WebP。
+目前肖像子系統載入 `public/assets/portrait-natural/`的同一份透明像素角色與局部眼瞼材料，角色母版位於 `assets/generated/portrait-v4/`，僅供移動髮束下方修復的底圖位於 `assets/generated/portrait-wind/`。Canvas與匯出需保留二值alpha及原有1:1近景；靜態備援為768²的 `public/portrait-rest.png`，`og-portrait.png`另行合成分享背景。資產來源／方法見 [肖像契約](11-living-portrait.md)及[清冊](02-asset-inventory.md)。`npm run assets`仍只負責legacy十幀WebP，不會產生新像素美術；不要為改立繪而覆寫原始PNG、參考圖、GIF或舊WebP。
 
 新像素管線另用下列腳本；先啟動Vite dev，Python環境需Playwright、Chromium及Pillow：
 
@@ -18,12 +26,12 @@ python3 scripts/verify_portrait_browser.py --url http://127.0.0.1:5173/
 python3 scripts/capture_portrait.py --url http://127.0.0.1:5173/
 ```
 
-匯出會刷新六個網格PNG及來源SHA清冊；功能探針需dev source模組；截幀也接受production preview `/website/`，產出十幀、對照、GIF及capture.json。`?t=740`可精確凍結時間軸，`?pose=4`則為明確半閉QA姿態。參數更新與暫停／恢復保留當下相位。
+匯出會刷新九個網格PNG（角色、眼瞼、髮後底圖，各三種網格）及來源SHA清冊；新腳本與證據須指向去背近景路徑、原有構圖與透明輸出。功能探針需dev source模組；截幀也接受production preview `/website/`，產出十幀、對照、GIF及capture.json。最新分層肖像／網站證據分別存於 `artifacts/rich-motion/`與 `artifacts/personal-site/`；舊不透明圖與指標僅作歷史。`?t=740`可精確凍結時間軸，`?pose=4`則為明確半閉QA姿態。參數更新與暫停／恢復保留當下相位。
 
 獨立production效能檢查先執行 `npm run build`、另開 `npm run preview`，再執行 `python3 scripts/measure_portrait.py --url http://127.0.0.1:4173/website/`。量測在單一頁面穩定後進行，期間不擷取畫面；結果存於`artifacts/performance.json`，不與dev／多頁背景負載或GIF取樣率混用。
 
-- **狀態**：Stage 1 可執行、可部署
-- **最後更新**：2026-10-28
+- **狀態**：下列保留既有工程指令；目前網站範圍以文件12為準
+- **最後更新**：2026-10-29
 - **適用對象**：本機開發者、Codex Cloud、維護者
 
 ---

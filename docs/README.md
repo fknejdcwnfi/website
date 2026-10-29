@@ -1,6 +1,6 @@
 # 文件閱讀指南
 
-> **目前方向（2026-10-28）**：先讀 [11 Living Portrait](11-living-portrait.md) 與ADR-015。最高身份權威為original_reference；預設為忠實2D像素立繪，排除Steve方頭／3D voxel。文件10及ADR-014保留前次voxel歷史，文件01／03／04／06／07與09保留更早anime rig歷史。
+> **目前方向（2026-10-28）**：先讀 [12 個人網站](12-personal-site.md) 與ADR-016。預設是完整Minecraft像素風個人網站；[11 Living Portrait](11-living-portrait.md)繼續規範首頁肖像。早期「只能放角色／禁止UI」限制不再適用整站，歷史文件與量測保留各自範圍。
 
 這份指南說明每份文件解決什麼問題、誰該讀、以及衝突時以誰為準。
 如果你是第一次打開這個倉庫，從這裡開始。
@@ -13,11 +13,12 @@
 
 1. 根目錄 [README](../README.md)
 2. 啟動 `npm run dev`
-3. 打開 `/?debug=1&pose=5`，看看凍結的第 5 幀與狀態數值
+3. 先查看完整首頁、作品及聯絡；肖像除錯另開 `/?view=portrait&debug=1&pose=5`
 
 ### 我要接續開發（人類）
 
-1. [11 Living Portrait](11-living-portrait.md) — 目前產品、動態與驗收；再查下列歷史細節
+1. [12 個人網站](12-personal-site.md) — 目前網站、個人化與可用性
+2. [11 Living Portrait](11-living-portrait.md) — 肖像子系統、動態與驗收
 2. [01 專案章程](01-project-charter.md) — 舊章程與非目標
 2. [03 動畫規格](03-animation-spec.md) — 確認「做到什麼程度算完成」
 3. [04 目標架構](04-architecture.md) — 確認技術路線
@@ -27,7 +28,8 @@
 ### 我是 Codex Cloud／自動化代理
 
 0. 根目錄 [`AGENTS.md`](../AGENTS.md) — 代理會自動載入的速查規則
-1. [11 Living Portrait](11-living-portrait.md) — **目前契約，先讀**
+1. [12 個人網站](12-personal-site.md) — **目前網站契約，先讀**
+2. [11 Living Portrait](11-living-portrait.md) — 肖像子系統契約
 2. [06 Codex 交接](06-codex-handoff.md) — 沿用的工程／交付操作
 2. [01 專案章程](01-project-charter.md)
 3. [03 動畫規格](03-animation-spec.md)
@@ -60,13 +62,14 @@
 | 09 | [歷史P1圖層計畫](09-layer-plan.md) | 舊anime分層／補繪研究 | 所有人 | 歷史 |
 | 10 | [歷史voxel舞台](10-pixel-stage.md) | 前次方塊胸像及其實測 | 所有人 | 歷史 |
 | 11 | [Living Portrait](11-living-portrait.md) | 忠實2D像素立繪、局部rig、原圖對照與驗收 | 所有人 | 現行 |
+| 12 | [個人網站](12-personal-site.md) | 完整首頁、個人化、擴充與可用性 | 擁有者、前端、QA | 目前 |
 | — | [reference/](reference/) | 最初的任務書與分鏡 prompt | 所有人 | **凍結** |
 
 ---
 
 ## 文件優先級（衝突時怎麼辦）
 
-擁有者較新的明確要求優先；目前預設2D像素立繪以文件11及ADR-015為準。下列順序保留作舊anime／legacy細節查詢。
+擁有者較新的明確要求優先；完整個人網站以文件12及ADR-016為準，肖像以文件11為準。下列順序保留作舊anime／legacy細節查詢。
 
 1. **[01 專案章程](01-project-charter.md)** 決定「做不做、做到哪」。
 2. **[03 動畫規格](03-animation-spec.md)** 決定「動畫行為與驗收」。
@@ -95,7 +98,7 @@
 | 名詞 | 定義 |
 | --- | --- |
 | **Key pose（關鍵姿態）** | 十張參考圖之一，描述某一時刻的頭髮與眼睛狀態，不是逐像素動畫幀。 |
-| **Stage 1** | 目前的關鍵姿態交叉淡入播放器，用於驗證舞臺與時間軸。 |
+| **Stage 1** | 歷史關鍵姿態交叉淡入播放器，用於驗證舞臺與時間軸。 |
 | **Rig（綁定）** | 把角色拆成可獨立變形的圖層與網格，再由參數驅動。 |
 | **Wind model** | 驅動髮絲位移的風力模型，包含陣風包絡、相位與阻尼。 |
 | **Blink** | 眼皮由開到閉再張開的短暫動作，目標 150–250 ms。 |
@@ -111,3 +114,5 @@
 - 新增決策時，在 [08 決策紀錄](08-decisions.md) 追加 ADR，而不是改寫舊 ADR。
 - 文件內的相對連結必須能在 GitHub 上直接點開。
 - 圖片若超過 1 MB，優先放進 `assets/source/` 並在文件中連結，不要重複複製。
+
+最新動態與自動發佈：[13 參考風動](13-reference-wind.md)。
