@@ -1,5 +1,5 @@
 {
-  "generatedBy": "scripts/optimize_assets.py",
+  "generatedBy": "scripts/assets/optimize_assets.py",
   "maxSide": 1080,
   "webpQuality": 86,
   "frames": [

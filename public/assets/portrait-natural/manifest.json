@@ -3,7 +3,7 @@
   "authority": "assets/source/original_reference.jpg",
   "authority_sha256": "60efba91bcc54f3376f56c5a3626c8276354bbbd1f4204345f68f2240bb5675e",
   "method": "Unchanged v4 canonical transparent close-up and local eyelids. Added AI-assisted underpaint donor sampled only beneath independently moving hair locks. Shared 42-color Canvas normalization and binary alpha; fixed face/body, no independent animation-face frames.",
-  "palette": "src/character/portraitAsset.ts#PALETTE",
+  "palette": "src/features/portrait/renderer/portraitAsset.ts#PALETTE",
   "palette_colors": 42,
   "logical_sizes": [
     192,

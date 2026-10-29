@@ -1,0 +1,4 @@
+/* A document dependency, so the complete site keeps its style without JS. */
+@import './base.css';
+@import '../../features/profile/styles/site.css';
+@import '../../features/profile/styles/sections.css';

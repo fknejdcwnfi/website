@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:4178/website/",
+  "logical_size": [
+    256,
+    256
+  ],
+  "loop_ms": 2300,
+  "sample_rate_hz": 120,
+  "sampled_timeline_frames": 276,
+  "reference_poses": 10,
+  "continuous_anchor_frames": 10,
+  "unique_png_files": 205,
+  "unique_png_bytes": 10787883,
+  "pixel_reference_sha256": "fc23d3a277957ec7413bfea79ad8b04083aee04e1529747058869d8f15ee7b07",
+  "original_reference_sha256": "60efba91bcc54f3376f56c5a3626c8276354bbbd1f4204345f68f2240bb5675e",
+  "source": "Actual website canvas exports, not standalone AI candidate images",
+  "frame_01_equals_10": true,
+  "browser_errors": [],
+  "gif": {
+    "file": "animation_preview.gif",
+    "sampled_frames": 115,
+    "encoded_frames": 84,
+    "duration_ms": 2300,
+    "bytes": 1631187,
+    "encoded_target_hz": 50,
+    "max_sample_time_error_ms": 3.333333,
+    "sampling": "Nearest actual 120 Hz browser canvas export for each 20 ms GIF slot; GIF playback is not live display FPS evidence",
+    "homepage_preview": {
+      "file": "website_motion.gif",
+      "sampled_frames": 58,
+      "encoded_frames": 43,
+      "duration_ms": 2300,
+      "bytes": 7598461,
+      "source": "Actual complete homepage hero screenshots at 40 ms phases; final slot 20 ms"
+    }
+  },
+  "manifest": "frames/manifest.json",
+  "gallery": "gallery.html",
+  "contact_sheet": "contact_sheet_144.png",
+  "interpretation": "120 timestamp samples per second demonstrate deterministic phases; realtime performance is reported separately in performance.json"
+}

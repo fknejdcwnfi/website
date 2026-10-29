@@ -1,87 +1,40 @@
 # 貢獻指南
 
-本專案是一個人網站作品，變更以「不破壞角色身份與視覺品質」為最高原則。
-在動手前，請先讀 [個人網站契約](docs/12-personal-site.md)、[Living Portrait子系統](docs/11-living-portrait.md)、[文件閱讀指南](docs/README.md) 與 [Codex 交接](docs/06-codex-handoff.md)。目前預設是完整Minecraft像素風個人網站，角色仍保持忠於原圖的2D立繪；ADR-016允許導航、介紹、真實作品及聯絡，不能以舊no-UI條款阻擋整站內容。
+先讀[文件入口](docs/README.md)、[個人網站](docs/guides/personal-site.md)、[Living Portrait](docs/guides/living-portrait.md)及[參考風動](docs/guides/reference-wind.md)。這是fknejdcwnfi的完整Minecraft像素風個人網站，角色沿用透明無框原近景；個人內容與動畫各自維護。
 
----
-
-## 快速流程
+## 開發與交付
 
 ```bash
 npm ci
 npm run dev
-# 修改
+# 修改後執行
 npm test
 npm run typecheck
 npm run build
 npm run assets:check
+npm run assets:verify
 ```
 
-部署：推送或合併到 `main` 後由 GitHub Actions 自動建置與發佈。較新的暫不發佈指示有效時，先完成本地修改與驗證，不推送／合併／部署。
-`npm run deploy` 是手動備援，會 force push `gh-pages`，需擁有者同意。
+在任務分支完成修改與審查，建立PR；相關驗證與CI通過後依擁有者授權自動合併至 `main`，核對GitHub Actions／Pages。保留分支保護，不向main強制推送。清理分支前先確認已合併或內容相同，另保留必要備份，不能刪除有未合併工作的分支。`npm run deploy`僅是擁有者明確要求時的手動備援。
 
-視覺變更請附上：
+視覺變更需附實際首頁、手機、原圖／靜止／風動／閉眼對照及完整循環。新效能數字需附production環境、取樣時長與裝置／瀏覽器條件；密集截幀、模擬更新率或GIF編碼率不是實際螢幕FPS。詳見[開發及QA](docs/guides/development.md)。
 
-- `?pose=1`、`?pose=5`、`?pose=7` 的截圖。
-- 完整循環的短錄影或 GIF。
-- 受影響的裝置尺寸（至少 1200×1000 與 390×844）。
+## 修改範圍
 
----
+- `src/app/`組合頁面；`src/features/profile/`管理個人化、靜態內容與網站UI。
+- `src/features/portrait/`管理角色動畫及renderer；`src/archive/`只保留明確歷史模式。
+- `scripts/assets/`、`scripts/qa/`、`scripts/tests/`及`scripts/deploy/`分別負責素材、驗證、單元與部署備援。
+- `docs/guides/`記錄現行行為，`docs/archive/`保留歷史；新理由追加至[決策紀錄](docs/decisions.md)。
+- 新生成母版與runtime需在[素材清冊](docs/guides/asset-inventory.md)登記來源、用途、尺寸、雜湊及限制。
 
-## 可以改什麼
+`assets/source/**`及`docs/reference/**`唯讀，不覆寫、裁切、重新編碼或改名。維持同一canonical身份與原近景構圖；不以新生成臉輪播、整張圖平移／旋轉／縮放或無關場景冒充局部風動。legacy交叉淡入仍是暫定歷史預覽，不能描述成完成品。
 
-- `src/**`：前端程式與樣式。
-- `docs/**`：文件（`docs/reference/**` 除外）。
-- `scripts/**`：素材管線與部署備援腳本。
-- `.github/workflows/**`：CI 與 Pages 自動部署（需 `workflow` 權限）。
-- `package.json`：依賴（需說明理由）。
-- `assets/generated/**`、`public/assets/rig/**`：新的生成物（需登記）。
+帳號與遊戲資料只填使用者確認的公開資訊。未設定資料不顯示空卡片、無效導覽或假按鈕；不新增假履歷、假專案或沒有後端的送信表單。修改workflow需具備相應權限，不能停用CI／Pages以規避失敗。
 
-## 不可以改什麼
+## 提交與PR
 
-- `assets/source/**`：唯讀。不得覆寫、裁切、重新編碼。
-- `docs/reference/**`：凍結。不得改寫原始委託文件。
-- original_reference的身份、神態與近景構圖基準。
-- 角色區不以無關場景遮擋；整站導航、介紹、真實作品、聯絡與播放控制已由ADR-016允許，2D像素身份與來源保護仍適用。
-- 不得把交叉淡入描述成完成品。
+使用Conventional Commits，例如 `feat: refine layered hair motion`、`fix: retain poster before first paint`、`docs: reorganize current guides`。一次提交集中一個目的，PR描述問題與實際結果、驗證及必要限制。
 
----
+提交前確認建置與相關檢查通過、原始來源及凍結文件未變、視覺證據已更新、相對文件連結可用。不要提交 `node_modules/`、`dist/`、`*.tsbuildinfo`或未整理的暫存檔。
 
-## 提交規範
-
-使用 Conventional Commits：
-
-```text
-feat: add layered hair rig
-fix: keep loop seamless after tab restore
-docs: document wind parameters
-refactor: extract timeline sampler
-chore: update vite
-```
-
-- 一個提交一件事。
-- 必要CI與本次相關驗證通過、無阻擋後自動合併PR，並確認Pages部署；擁有者已授權，不逐次詢問。
-- 不要提交 `node_modules/`、`dist/`、`*.tsbuildinfo`、暫存截圖。
-- 不要 force push 到 `main`。
-- CI 失敗時先修 CI。
-
----
-
-## PR 檢查清單
-
-- [ ] 動機與範圍清楚。
-- [ ] `npm run build`、`npm run typecheck` 通過。
-- [ ] 沒有修改 `assets/source/**`。
-- [ ] 沒有加入未說明的依賴。
-- [ ] 視覺變更附 before／after。
-- [ ] 文件與 `CHANGELOG.md` 已更新。
-- [ ] 已知限制誠實列出。
-
-完整驗收請見 [QA 檢查表](docs/07-qa-checklist.md)。
-
----
-
-## 權利提醒
-
-角色與素材權利不屬於本專案。請勿將任何角色圖像用於商業用途、再散布或模型訓練。
-詳見 [素材清冊](docs/02-asset-inventory.md#權利與使用範圍)。
+角色權利仍屬原權利方，使用範圍見[素材清冊](docs/guides/asset-inventory.md#9-權利與使用範圍)。

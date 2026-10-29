@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-29",
+  "baseline_main_sha": "be7b77652d1deef783999d4fd1f459d41506249e",
+  "authorization": "Owner explicitly requested keeping main and merging or removing useless branches. No unmerged source changes were discarded.",
+  "local_bundle": "/workspace/website-backups/before-branch-cleanup-2026-10-29.bundle",
+  "bundle_verified": true,
+  "actions": [
+    {
+      "action": "archive_tag_verified",
+      "scope": "remote",
+      "name": "archive/2026-10-29/pr-5",
+      "sha": "7e3bd0927c452ba39e84666d71ab9c61e5f6cf17"
+    },
+    {
+      "action": "archive_tag_verified",
+      "scope": "remote",
+      "name": "archive/2026-10-29/gh-pages",
+      "sha": "eb3ae5574cc6db55e95dd6e4d447f5f43062beb5"
+    },
+    {
+      "action": "deleted",
+      "scope": "remote",
+      "name": "docs/p1-layer-plan",
+      "sha": "8fe19bc356df4aa214df13d50c084c43fd218407",
+      "reason": "merged ancestor or squash-published identical tree"
+    },
+    {
+      "action": "deleted",
+      "scope": "remote",
+      "name": "docs/verified-auto-merge",
+      "sha": "ca7b9bf1e8cc807d97df30673bea2a9d3ec5f331",
+      "reason": "merged ancestor or squash-published identical tree"
+    },
+    {
+      "action": "deleted",
+      "scope": "remote",
+      "name": "feat/faithful-pixel-portrait",
+      "sha": "e6c118bca2e3029502e2b95f63aaa2322136abce",
+      "reason": "merged ancestor or squash-published identical tree"
+    },
+    {
+      "action": "deleted",
+      "scope": "remote",
+      "name": "feat/pixel-vermouth",
+      "sha": "32d564879476705c7d6fa4a1eb64a6c9e93584c1",
+      "reason": "merged ancestor or squash-published identical tree"
+    },
+    {
+      "action": "deleted",
+      "scope": "remote",
+      "name": "feat/layered-pixel-wind-20261029",
+      "sha": "7e3bd0927c452ba39e84666d71ab9c61e5f6cf17",
+      "reason": "merged ancestor or squash-published identical tree"
+    },
+    {
+      "action": "deleted",
+      "scope": "remote",
+      "name": "gh-pages",
+      "sha": "eb3ae5574cc6db55e95dd6e4d447f5f43062beb5",
+      "reason": "generated deployment archived; Pages uses workflow"
+    },
+    {
+      "action": "deleted",
+      "scope": "local",
+      "name": "docs/p1-layer-plan",
+      "sha": "8fe19bc356df4aa214df13d50c084c43fd218407",
+      "reason": "ancestor of main"
+    },
+    {
+      "action": "deleted",
+      "scope": "local",
+      "name": "docs/verified-auto-merge",
+      "sha": "ca7b9bf1e8cc807d97df30673bea2a9d3ec5f331",
+      "reason": "ancestor of main"
+    },
+    {
+      "action": "deleted",
+      "scope": "local",
+      "name": "feat/faithful-pixel-portrait",
+      "sha": "e6c118bca2e3029502e2b95f63aaa2322136abce",
+      "reason": "ancestor of main"
+    },
+    {
+      "action": "deleted",
+      "scope": "local",
+      "name": "feat/pixel-vermouth",
+      "sha": "32d564879476705c7d6fa4a1eb64a6c9e93584c1",
+      "reason": "ancestor of main"
+    },
+    {
+      "action": "deleted",
+      "scope": "local",
+      "name": "work",
+      "sha": "96ca0ecbe5fe87dc5514f7c2c1aa71cced7701b9",
+      "reason": "ancestor of main"
+    },
+    {
+      "action": "deleted",
+      "scope": "local",
+      "name": "feat/personal-homepage",
+      "sha": "9aebe034617ead076d7df93ba32de5745542319a",
+      "reason": "squash-published identical tree; original commits preserved in local tag and verified bundle"
+    }
+  ],
+  "remaining_remote_branches_at_cleanup": [
+    "main"
+  ],
+  "active_task_branch": "feat/pixel-world-refactor",
+  "task_branch_policy": "Delete after its PR is merged and the reviewed tree is verified on main.",
+  "pages_build_type": "workflow",
+  "manual_fallback": "npm run deploy can recreate gh-pages only when explicitly requested; normal deployment remains main → GitHub Actions → Pages.",
+  "recovery": "Restore remote archived branches from archive/2026-10-29/pr-5 or archive/2026-10-29/gh-pages. Recover local historical commits from the personal-homepage tag or the verified external bundle."
+}

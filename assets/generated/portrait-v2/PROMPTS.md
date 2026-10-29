@@ -33,7 +33,7 @@ all non-eye pixels always come from the open master in the website renderer.
 
 ## Reproduction and limitations
 
-Run the Vite dev server, then `python3 scripts/export_portrait.py --url <dev-url>`.
+Run the Vite dev server, then `python3 scripts/assets/export_portrait.py --url <dev-url>`.
 The script invokes the same browser Canvas normalization module used for the
 reviewed exports and refreshes the SHA-256 manifest. It cannot reproduce the AI
 master bit-for-bit from a fresh model generation; retained masters and hashes are
