@@ -1,18 +1,18 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。一個 Minecraft 像素風個人網站，包含個人介紹、真實作品、聯絡方式，以及居中無框圓形、持續隨微風飄動並偶爾眨眼的 Vermouth 近景肖像。
+**HELLOWORLD**。一個白底、靛藍雙層導航與文件式三欄的個人網站，包含站內搜尋、個人介紹、真實作品、聯絡方式，以及居中無框圓形、持續隨微風飄動並偶爾眨眼的 Minecraft-inspired 二維 Vermouth 像素近景。
 
 - 網站：<https://fknejdcwnfi.github.io/website/>
 - GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 - 文件入口：[開發與個人化指南](docs/README.md)
 
-保留同一張原近景角色、256²像素格與透明輪廓；八組髮束從圓形內可見的中段形成柔和弧形，長髮與發梢延遲跟隨；眨眼以獨立時鐘偶爾發生，左右耳環各自響應。人物以無邊框圓形置於中軸，按DPR對齊整數實體像素，避免分數倍率造成像素寬度不均。整站以草地方塊色帶、像素邊界、物品欄式作品區與清楚的中文排版構成，後續帳號與遊戲資料有獨立設定入口。
+保留同一張原近景角色、256²像素格與透明輪廓。八組髮束由根部錨定／末端自由的十七站耦合阻尼鏈響應風場，眨眼使用獨立時鐘，左右耳環各自響應；反向採樣的候選行依保守位移上界快取，減少每幀重複掃描。人物以無邊框圓形置於中軸，按DPR對齊整數實體像素。頁面與角色分離，後續真實帳號與遊戲資料可從獨立設定擴充。
 
-![Minecraft像素風個人網站](artifacts/personal-site/hero.png)
+最新實作、驗收及效能對照見[參考版面與物理重構](docs/guides/reference-rebuild.md)。本輪證據位於 `artifacts/reference-rebuild/`，先前 `flowing-hair` 與其他目錄保留作歷史。
 
-[完整桌機](artifacts/personal-site/desktop.png) · [手機](artifacts/personal-site/mobile.png) · [無JavaScript](artifacts/personal-site/no-javascript.png)
+![參考版面重構](artifacts/reference-rebuild/site/hero.png)
 
-[24秒圓形動態](artifacts/flowing-hair/animation_preview.gif) · [手機0→2秒](artifacts/flowing-hair/circle_mobile_two_seconds.png) · [桌機0→2秒](artifacts/flowing-hair/circle_desktop_two_seconds.png) · [關鍵時刻圖集](artifacts/flowing-hair/gallery.html)
+[完整桌機](artifacts/reference-rebuild/site/desktop.png) · [手機](artifacts/reference-rebuild/site/mobile.png) · [無JavaScript](artifacts/reference-rebuild/site/no-javascript.png)
 
 ## 開始開發
 
@@ -81,17 +81,9 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 正常首頁在可見時持續緩慢微風，風週期12秒；眨眼使用獨立24秒時鐘，三次事件相隔6.9–9秒，每次280 ms。沒有舊輪末靜止段或公開播放／暫停按鈕；減少動態、隱藏／離屏仍停止繪製並保留相位。`?view=portrait&debug=1`開啟調試，`?t=4510`／`?pose=5`可固定閉眼，`?pose=1`／`?pose=10`保留同一canonical靜止畫面。初始HTML、透明poster、12秒素材逾時與錯誤邊界保留無JS／故障時的完整網站，展示同樣圓形居中。
 
-本輪42項單元、型別、production build及素材／來源驗證通過；[肖像58項QA](artifacts/flowing-hair/qa.json)及[網站65項QA](artifacts/personal-site/checks.json)通過，正常頁面無錯誤、六種故障備援正常。
+本輪驗證與production同環境效能對照集中於[重構指南](docs/guides/reference-rebuild.md)及 `artifacts/reference-rebuild/`；先前數字保留在[PR #8可見風動基線](docs/guides/reference-wind.md)。測試包含完整頁面、搜尋／目錄／鍵盤、無JavaScript與故障備援，以及原始Canvas的固定區、髮根、色盤、alpha、接縫、多Hz同時刻與可見中段風動。
 
-髮動與眼區分開驗收：圓形內0→2秒像素差分由3204增至5426，24個500 ms視窗的最少變化由258增至669；左右捲髮可見中段約6.99／5.53邏輯像素，臉與髮根保持固定。
-
-[production量測](artifacts/flowing-hair/performance.json)在原生排程約60次繪製／秒，callback中位數／p95為3.8／5.6 ms；不限幀約238次／秒，這是容器吞吐量。詳細條件與限制見[髮束流動指南](docs/guides/reference-wind.md)。
-
-現行證據使用 `artifacts/flowing-hair/`：83個時間點與20個姿態／錨點映射至57張原始PNG；24秒圓形GIF由480張實際截圖構成，約340 KB。證據不隨網站runtime下載。
-
-先前41項單元／55項肖像／65項網站檢查與約60次原生繪製／秒屬[PR #7微風版本](docs/archive/16-gentle-portrait.md)，原327時刻／216張PNG／24秒GIF仍保留於 `artifacts/gentle-portrait/`，不作本輪新風動的通過證據。
-
-實際更新率受顯示器、瀏覽器排程與裝置能力限制；Canvas取樣、GIF編碼率、解除排程上限的運算吞吐量及模擬240 Hz都不等於實體螢幕FPS。圖片只作驗證，不隨網站runtime下載。
+實際更新率受顯示器、瀏覽器排程與裝置能力限制；Canvas取樣、GIF編碼率、解除排程上限的吞吐及模擬240 Hz都不等於實體螢幕FPS。這是有界二維彈簧變形，並非完整三維毛髮或流體模擬。證據不隨網站runtime下載。
 
 ## 素材
 

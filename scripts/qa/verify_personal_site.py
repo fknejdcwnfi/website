@@ -9,7 +9,7 @@ parser.add_argument('--url',default='http://127.0.0.1:4173/website/')
 parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parents[2]/'artifacts'/'personal-site')
 args=parser.parse_args(); URL=args.url.rstrip('/')+'/'
 OUT=args.output.resolve();OUT.mkdir(parents=True,exist_ok=True)
-result={'url':URL,'status':'failed','contract':'centered borderless circle; crisp fixed-grid pixels; continuous gentle wind and independent blinks','checks':[],'normal_errors':[],'expected_failure_cases':[],'normal_script_resources':[],'normal_image_resources':[],'portrait_presentations':{}}
+result={'url':URL,'status':'failed','contract':'reference document layout; local search and working contents; centered borderless circle; crisp pixels; continuous wind and independent blinks','checks':[],'normal_errors':[],'expected_failure_cases':[],'normal_script_resources':[],'normal_image_resources':[],'portrait_presentations':{}}
 def save_results():
  (OUT/'checks.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 atexit.register(save_results)
@@ -17,6 +17,22 @@ def ok(name,condition=True):
  if not condition:result['failure']=name
  assert condition,name
  result['checks'].append(name)
+
+def real_projects_present(page):
+ """The same two real repositories remain usable in both runtime and static HTML."""
+ work=page.locator('#work')
+ return (work.get_by_role('table',name='公開專案').count()==1
+  and 'Living Portrait' in work.locator('a[href="https://github.com/fknejdcwnfi/website"]').inner_text()
+  and 'Xiangqi Review' in work.locator('a[href="https://github.com/fknejdcwnfi/xiangqi-review"]').inner_text()
+  and '已封存' in work.inner_text() and '持續製作中' in work.inner_text())
+
+def reachable_anchor(page,href):
+ return href.startswith('#') and page.locator('[id="'+href[1:]+'"]').count()==1
+
+def check_contents(page,label):
+ links=page.get_by_role('navigation',name='本頁目錄',exact=True,include_hidden=True).get_by_role('link',include_hidden=True)
+ hrefs=links.evaluate_all('(links)=>links.map(link=>link.getAttribute("href"))')
+ ok(label+'_contents_reach_real_unique_sections',len(hrefs)>=4 and len(hrefs)==len(set(hrefs)) and all(reachable_anchor(page,href) for href in hrefs))
 
 def portrait_presentation(page, label, *, pixel_grid=False):
  """Check the effective clipping ancestor, not a decorative sibling circle."""
@@ -58,10 +74,19 @@ with sync_playwright() as p:
  page.on('response',lambda r:result['normal_errors'].append(f'{r.status}: {r.url}') if r.status>=400 else None)
  page.add_init_script('window.__paintCount=0;const put=CanvasRenderingContext2D.prototype.putImageData;CanvasRenderingContext2D.prototype.putImageData=function(...args){window.__paintCount++;return put.apply(this,args)}')
  response=page.goto(URL);page.wait_for_selector('canvas[data-ready=true][data-painted=true]');page.evaluate('document.fonts.ready')
+ page.screenshot(path=str(OUT/'hero.png'))
  ok('production_http200',response.status==200)
- ok('owner_identity_and_greeting', 'fknejdcwnfi' in page.locator('h1').inner_text() and page.get_by_text('HELLOWORLD',exact=True).count()==1)
+ ok('owner_identity_and_greeting',page.locator('h1').count()==1 and 'fknejdcwnfi' in page.locator('.hero__intro').inner_text() and page.get_by_text('HELLOWORLD',exact=True).count()>=1)
  ok('full_personal_site_sections',all(page.locator('#'+i).count()==1 for i in ['about','work','contact']))
  ok('real_projects_and_contact',page.locator('a[href="https://github.com/fknejdcwnfi/xiangqi-review"]').count()==1 and page.locator('a[href="mailto:fknejdcwnfi@gmail.com"]').count()==1)
+ ok('project_table_keeps_real_repositories_and_honest_status',real_projects_present(page))
+ check_contents(page,'desktop')
+ layout=page.locator('.document-layout').evaluate('''layout=>{
+  const bounds=s=>layout.querySelector(s).getBoundingClientRect();
+  const left=bounds('.site-sidebar'),main=bounds('main'),right=bounds('.site-toc');
+  return {left:left.right<=main.left, right:main.right<=right.left, mainWidth:main.width};
+ }''')
+ ok('desktop_three_columns_follow_reference',layout['left'] and layout['right'] and layout['mainWidth']>=512)
  ok('self_hosted_pixel_font',page.evaluate('document.fonts.check(\'10px "Press Start 2P"\')'))
  ok('normal_site_has_no_developer_panel',page.locator('.portrait-controls,.hud').count()==0)
  ok('portrait_autoplays_without_public_pause_control',page.locator('canvas').get_attribute('data-autoplay')=='continuous' and page.locator('.portrait-playback').count()==0)
@@ -88,6 +113,40 @@ with sync_playwright() as p:
  ok('small_secondary_text_contrast',min(ratios)>=4.5)
  page.keyboard.press('Tab');ok('keyboard_skip_link',page.evaluate('document.activeElement.classList.contains("skip-link")'))
  page.keyboard.press('Enter');ok('skip_link_focuses_main_content',page.evaluate('document.activeElement.id==="main-content"'))
+ search_requests=[]
+ record_search_request=lambda request:search_requests.append({'url':request.url,'type':request.resource_type})
+ page.on('request',record_search_request)
+ page.keyboard.press('/')
+ search=page.get_by_role('searchbox',name='搜尋此網站',exact=True)
+ ok('search_shortcut_focuses_labeled_input',search.evaluate('(input)=>document.activeElement===input'))
+ search.fill('Java')
+ results=page.locator('#site-search-results')
+ first=results.get_by_role('link').first
+ ok('local_search_finds_real_project',first.count()==1 and 'Xiangqi Review' in results.inner_text())
+ href=first.get_attribute('href')
+ ok('search_result_is_existing_local_section',reachable_anchor(page,href))
+ page.keyboard.press('Tab')
+ ok('search_results_support_keyboard_focus',page.evaluate('document.activeElement.closest("#site-search-results")!==null'))
+ page.keyboard.press('Enter')
+ page.wait_for_function('(id)=>location.hash==="#"+id&&document.activeElement.id===id',arg=href[1:])
+ ok('keyboard_search_result_moves_to_and_focuses_content',page.locator('[id="'+href[1:]+'"]').bounding_box()['y']<100)
+ page.keyboard.press('/');search.fill('Vermouth');search.press('Enter')
+ page.wait_for_function('document.getElementById(location.hash.slice(1))===document.activeElement')
+ ok('search_submit_jumps_to_content',search.get_attribute('aria-expanded')=='false')
+ page.keyboard.press('/');search.fill('no-matching-project-271828')
+ ok('search_explains_no_results',results.get_by_role('link').count()==0 and '沒有相符內容' in results.inner_text())
+ search.fill('<img src=x onerror="window.__searchInjected=true">')
+ ok('search_treats_markup_as_text',page.locator('#site-search-results img').count()==0 and page.evaluate('window.__searchInjected!==true') and results.get_by_role('link').count()==0)
+ search.press('Escape')
+ ok('escape_closes_search',search.get_attribute('aria-expanded')=='false' and results.count()==0)
+ search.fill('Java');search.press('Tab');page.keyboard.press('Escape')
+ ok('escape_from_result_restores_search_focus',search.evaluate('(input)=>document.activeElement===input') and search.get_attribute('aria-expanded')=='false')
+ page.remove_listener('request',record_search_request)
+ result['search_requests']=search_requests
+ # Chromium revalidates the site's icon on fragment navigation. It carries no
+ # query; any document, data, external or other asset request remains a failure.
+ ok('local_search_sends_no_query_or_data_requests',all(request=={'url':URL+'favicon.svg','type':'other'} for request in search_requests))
+ search.fill('');search.press('Escape')
  page.get_by_role('navigation',name='主要導覽').get_by_role('link',name='作品',exact=True).click()
  page.wait_for_function('document.querySelector("#work").getBoundingClientRect().y<100')
  ok('navigation_reaches_work',page.locator('#work').bounding_box()['y']<100)
@@ -118,6 +177,13 @@ with sync_playwright() as p:
  page.set_viewport_size({'width':1440,'height':1000});page.wait_for_timeout(70)
  page.screenshot(path=str(OUT/'desktop.png'),full_page=True)
  page.screenshot(path=str(OUT/'hero.png'))
+ page.set_viewport_size({'width':390,'height':844});page.evaluate('scrollTo(0,0)')
+ summary=page.locator('.mobile-contents > summary');summary.focus();page.keyboard.press('Space')
+ mobile_nav=page.get_by_role('navigation',name='行動版目錄',exact=True)
+ ok('mobile_contents_opens_with_keyboard',mobile_nav.is_visible())
+ mobile_nav.locator('a[href="#work"]').click()
+ page.wait_for_function('document.querySelector("#work").getBoundingClientRect().y<100')
+ ok('mobile_contents_reaches_work_without_overflow',page.locator('#work').bounding_box()['y']<100 and page.evaluate('document.documentElement.scrollWidth<=innerWidth'))
  for width,height in [(390,844),(1440,1000)]:
   context=browser.new_context(viewport={'width':width,'height':height},device_scale_factor=2,reduced_motion='reduce')
   crisp=context.new_page();crisp.goto(URL);crisp.wait_for_selector('canvas[data-ready=true][data-painted=true]')
@@ -133,7 +199,12 @@ with sync_playwright() as p:
  # Build-injected HTML is independently functional when JavaScript is unavailable.
  context=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':844})
  fallback=context.new_page();fallback.goto(URL)
- ok('no_js_has_complete_content',fallback.locator('.static-site').is_visible() and 'fknejdcwnfi' in fallback.locator('h1').inner_text() and fallback.locator('#work article').count()==2 and fallback.locator('a[href="mailto:fknejdcwnfi@gmail.com"]').count()==1)
+ ok('no_js_has_complete_content',fallback.locator('.static-site').is_visible() and fallback.locator('h1').count()==1 and 'fknejdcwnfi' in fallback.locator('.hero__intro').inner_text() and real_projects_present(fallback) and fallback.locator('a[href="mailto:fknejdcwnfi@gmail.com"]').count()==1)
+ ok('no_js_has_no_inactive_search',fallback.get_by_role('searchbox').count()==0)
+ check_contents(fallback,'no_js')
+ fallback.locator('.mobile-contents > summary').click()
+ fallback.get_by_role('navigation',name='行動版目錄',exact=True).locator('a[href="#work"]').click()
+ ok('no_js_mobile_contents_reaches_work',fallback.locator('#work').bounding_box()['y']<100)
  ok('no_js_natural_portrait_loaded',fallback.locator('.static-hero img').evaluate('(im)=>im.complete&&im.naturalWidth===768&&im.naturalHeight===768&&im.src.endsWith("portrait-rest.png")'))
  for width,height in [(320,800),(390,844),(768,1024),(1440,1000)]:
   fallback.set_viewport_size({'width':width,'height':height})
@@ -142,7 +213,7 @@ with sync_playwright() as p:
  fallback.set_viewport_size({'width':390,'height':844})
  fallback.screenshot(path=str(OUT/'no-javascript.png'),full_page=True);context.close()
  context=browser.new_context();blocked=context.new_page();blocked.route('**/assets/index-*.js',lambda route:route.abort())
- blocked.goto(URL);ok('blocked_bundle_keeps_complete_site',blocked.locator('.static-site').is_visible() and blocked.locator('#work article').count()==2)
+ blocked.goto(URL);ok('blocked_bundle_keeps_complete_site',blocked.locator('.static-site').is_visible() and real_projects_present(blocked))
  portrait_presentation(blocked,'blocked_bundle_static_poster')
  context.close();result['expected_failure_cases'].append('main JavaScript bundle blocked')
  context=browser.new_context();broken=context.new_page();broken.route('**/assets/portrait-natural/*.png',lambda route:route.fulfill(status=503,body='Unavailable'))

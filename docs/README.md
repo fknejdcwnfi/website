@@ -6,6 +6,7 @@
 
 | 文件 | 解決的問題 |
 | --- | --- |
+| [本輪參考版面與物理重構](guides/reference-rebuild.md) | 藍色雙層導航、三欄正文、搜尋、髮束物理與本輪驗證 |
 | [個人網站](guides/personal-site.md) | 首頁、真實內容、B站／抖音與遊戲帳號的設定、未來擴充 |
 | [Living Portrait](guides/living-portrait.md) | 角色身份、原近景構圖、像素格、透明邊緣及動畫邊界 |
 | [參考風動與高更新率](guides/reference-wind.md) | 髮束、眨眼、遮擋修復、真實截幀與效能證據 |

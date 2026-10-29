@@ -4,7 +4,6 @@ import { site } from '../features/profile/content/site'
 import PersonalSections from '../features/profile/components/PersonalSections'
 import PortraitBoundary from '../features/portrait/components/PortraitBoundary'
 import SiteShell from '../features/profile/components/SiteShell'
-import PixelIcon from '../features/profile/components/PixelIcon'
 import PortraitViewport from '../features/profile/components/PortraitViewport'
 
 export default function App() {
@@ -23,22 +22,22 @@ export default function App() {
   )
   return (
     <SiteShell>
-      <section className="hero site-container" aria-labelledby="hero-title">
+      <section className="hero" id="home" aria-labelledby="hero-title" tabIndex={-1}>
+        <div className="hero__copy">
+          <p className="eyebrow">{site.intro}</p>
+          <h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1>
+          <p className="hero__intro">你好，我是 <strong>{site.name}</strong>。{site.tagline}</p>
+        </div>
         <figure className="hero__visual">
           <div className={`hero-portrait hero-portrait--${options.style}`} data-theme={options.theme}>
             <PortraitViewport logicalSize={options.pixel}>{portrait}</PortraitViewport>
           </div>
           <figcaption><span>VERMOUTH</span><span>像素肖像 · 微風常在</span></figcaption>
         </figure>
-        <div className="hero__copy">
-          <p className="eyebrow"><span className="small-spark" aria-hidden="true" /> {site.intro}</p>
-          <h1 id="hero-title"><span className="hero__greeting">你好，我是</span><span className="hero__name" lang="en">{site.name}<span className="hero__dot">.</span></span></h1>
-          <p className="hero__intro">{site.tagline}</p>
-          <div className="hero__actions">
-            <a className="button-primary" href="#work">看看我的作品 <PixelIcon name="arrow-down" /></a>
-            <a className="text-link" href={site.github} target="_blank" rel="noreferrer">在 GitHub 找我 <PixelIcon name="arrow-up-right" /></a>
-          </div>
-        </div>
+        <aside className="welcome-note" aria-labelledby="welcome-note-title">
+          <div className="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 歡迎，隨意逛逛</div>
+          <p>這裡記錄我的作品與探索。你可以從下方了解我，瀏覽公開專案，或透過 GitHub 與 Email 聯絡我。</p>
+        </aside>
       </section>
       <PersonalSections />
     </SiteShell>

@@ -2,6 +2,8 @@
 
 使用Node24及既有checkout。首頁是完整Minecraft像素風個人網站，內容設定與動畫rig互相獨立。產品與帳號欄位見[個人網站](personal-site.md)，角色及最新動態見[Living Portrait](living-portrait.md)與[參考風動](reference-wind.md)。
 
+最新藍色三欄版面與髮束物理的實作／驗證見[參考版面與物理重構](reference-rebuild.md)，新證據輸出至 `artifacts/reference-rebuild/`，保留既有歷史證據。
+
 ## 啟動與核心檢查
 
 ```bash
@@ -63,15 +65,15 @@ npm run preview
 
 ```bash
 python3 scripts/assets/export_portrait.py --url http://127.0.0.1:5173/
-python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/ --output artifacts/flowing-hair/qa.json
+python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/ --output artifacts/reference-rebuild/portrait-qa.json
 ```
 
 production build後啟動preview，檢查完整網站、擷取真實Canvas及量測：
 
 ```bash
 python3 scripts/qa/verify_personal_site.py --url http://127.0.0.1:4173/website/
-python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/flowing-hair
-python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/flowing-hair/performance.json
+python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/reference-rebuild/portrait
+python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/reference-rebuild/performance.json
 ```
 
 素材匯出與角色探針會讀取Vite source模組，使用dev網址；網站QA、截幀及效能可使用production。先完成build再量測，單頁穩定後取樣，期間不截圖。高更新率探針與更多樣本的參數、實際結果見[參考風動](reference-wind.md)。

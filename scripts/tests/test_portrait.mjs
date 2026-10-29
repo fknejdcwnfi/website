@@ -9,6 +9,7 @@ import {
 import {
   CHAIN_STATIONS, sampleStrandCurve, strandFlexibility, writeStrandCurve,
 } from '../../src/features/portrait/renderer/strandCurve.ts'
+import { StrandDynamics, solveStrandResponse } from '../../src/features/portrait/renderer/strandDynamics.ts'
 
 const configuration = { direction: 1, gust: 0.35, stiffness: 18, damping: 5 }
 const motion = createMotionTable(configuration)
@@ -226,4 +227,50 @@ test('root-anchored flex moves visible strand middles while remaining bounded an
     assert.ok(strandFlexibility(0.5, longLock) > 0.5 ** 1.6 * 1.2)
     assert.ok(strandFlexibility(0.00001, longLock) / 0.00001 < 0.01, 'root slope remains restrained')
   }
+})
+
+test('the anchored/free spring chain preserves its static loading profile and adds increasing inertial lag', () => {
+  const rest = solveStrandResponse(0, 3, 0.84)
+  for (let station = 0; station < CHAIN_STATIONS; station += 1) {
+    assert.ok(Math.abs(rest.real[station] - 1) < 1e-12)
+    assert.equal(Math.abs(rest.imaginary[station]), 0)
+  }
+  const active = solveStrandResponse(Math.PI * 2 / 12, 3, 0.84)
+  const phase = (station) => Math.atan2(active.imaginary[station], active.real[station])
+  assert.ok(phase(0) < 0, 'air drag delays the response to wind')
+  assert.ok(phase(CHAIN_STATIONS - 1) < phase(1), 'the free tip follows the proximal lock')
+  const damped = solveStrandResponse(Math.PI * 2 / 12, 3, 1.2)
+  assert.ok(Math.hypot(damped.real.at(-1), damped.imaginary.at(-1)) < Math.hypot(active.real.at(-1), active.imaginary.at(-1)))
+})
+
+test('coupled strand dynamics are periodic, bounded and independent of refresh cadence', () => {
+  const dynamics = new StrandDynamics(motion)
+  const x = new Float32Array(MOTION_CHANNELS * CHAIN_STATIONS)
+  const y = new Float32Array(x.length)
+  const at = (time) => { dynamics.write(time, 1, x, y); return [...x, ...y] }
+  for (const time of [0, 800.5, 4400, 11300, 11999.5]) {
+    assert.deepEqual(at(time), at(time + LOOP_MS))
+    assert.deepEqual(at(time), at(time - LOOP_MS))
+  }
+  for (let time = 0; time < LOOP_MS; time += 29) {
+    dynamics.write(time, 1, x, y)
+    for (let group = 0; group < 8; group += 1) {
+      for (let station = 0; station < CHAIN_STATIONS; station += 1) {
+        const index = group * CHAIN_STATIONS + station
+        assert.ok(Number.isFinite(x[index]) && Number.isFinite(y[index]))
+        assert.ok(Math.abs(x[index]) <= dynamics.boundsX[group])
+        assert.ok(Math.abs(y[index]) <= dynamics.boundsY[group])
+      }
+    }
+  }
+  for (const hz of [60, 120, 144, 240]) {
+    let time = 0
+    for (let frame = 0; frame < hz * 2; frame += 1) {
+      time = (frame + 1) * 1000 / hz
+      dynamics.write(time, 1, x, y)
+    }
+    assert.deepEqual([...x, ...y], at(2000), `${hz}Hz advances the same millisecond clock`)
+  }
+  dynamics.write(5000, 0, x, y)
+  assert.ok([...x, ...y].every(value => value === 0))
 })
