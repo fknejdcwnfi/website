@@ -21,7 +21,8 @@
 | [portrait-rest.png](../../public/portrait-rest.png) | 同一實際renderer靜止輸出的768²透明PNG | 初始HTML、素材／Canvas失敗與無JS的獨立靜態備援 |
 | [og-portrait.png](../../public/og-portrait.png) | 同一renderer另行合成網站紙色背景的768²PNG | **目前分享OG圖**；`assets:verify`要求此檔存在，不承擔透明備援 |
 | `assets/generated/portrait-wind/underpaint.png`及runtime的`underpaint*.png` | 髮束移開後的局部AI修復底圖，三種同網格輸出 | 只在原髮位置移開後露出，不替換canonical臉部或整個身體 |
-| `artifacts/gentle-portrait/` | 持續慢風、獨立眨眼與圓形展示的當前真實網站證據 | 327時間點＋20姿態／錨點記錄去重216張PNG；600張實際圓形截圖的24秒GIF，像素／生命週期及效能結果；取樣率／GIF編碼率與即時FPS分開 |
+| `artifacts/flowing-hair/` | 圓形內可見髮段持續飄柔的現行網站證據 | 實際Canvas、圓形預覽與可見區／像素／生命週期及效能結果；指定時間取樣、GIF與即時FPS分開 |
+| `artifacts/gentle-portrait/` | PR #7首次持續慢風與圓形展示的歷史證據 | 保留當時327時間點＋20姿態／錨點記錄、216張PNG及600張實際圓形截圖的24秒GIF，不作新風動結果 |
 | `artifacts/pixel-world/` | PR #6的2300 ms陣風歷史 | 276均勻時刻＋十姿態＋十錨點去重為205張PNG；保留舊SHA清冊，不作新版通過證明 |
 
 編輯母版、原始reference與九張衍生檔的SHA-256已登記於manifest，驗證腳本會檢查雜湊、PNG尺寸與bytes。`scripts/assets/export_portrait.py`透過共享Canvas流程重建runtime檔；不改母版與原始素材。v2不透明母版仍保留，舊runtime移至 `archive/runtime/portrait-v2/`，不隨網站打包；其證據只作歷史。被拒絕的擴圖實驗不在repo或網站使用。髮後底圖的來源與限制見同目錄README／PROMPTS及[參考風動](reference-wind.md)；它不替換完整角色或臉部，不代表完成所有來源一致的分層。AI與像素媒介仍可能留有形狀／色階差異，不宣稱原圖幾何逐像素一致。

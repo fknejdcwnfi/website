@@ -1,6 +1,6 @@
 import { PALETTE } from './portraitAsset'
 import { LOOP_MS, MOTION_CHANNELS, sampleMotion } from '../animation/portraitTimeline'
-import { CHAIN_STATIONS as STATIONS, sampleStrandCurve, writeStrandCurve } from './strandCurve'
+import { CHAIN_STATIONS as STATIONS, sampleStrandCurve, strandFlexibility, writeStrandCurve } from './strandCurve'
 
 export { CHAIN_STATIONS } from './strandCurve'
 
@@ -161,10 +161,10 @@ export class PortraitRig {
       if (this.protectedPixels[i] || skinPixel || this.source[i]! >>> 24 === 0) continue
       HAIR_REGIONS.forEach((group, g) => {
         if (!inside(x, y, group.polygon)) return
-        const rootWeight = Math.max(0, Math.min(1, (y - group.root) / (group.end - group.root))) ** 1.6
+        const rootWeight = strandFlexibility((y - group.root) / (group.end - group.root), g >= 6)
         // Foreground curls are complete locks: their free outline must move,
         // not be pinned by a falloff around the old silhouette.
-        const edge = g >= 6 ? 1 : smooth(edgeDistance(x, y, group.polygon) / 16)
+        const edge = g >= 6 ? 1 : smooth(edgeDistance(x, y, group.polygon) / (g >= 3 ? 12 : 14))
         const weight = edge * rootWeight * group.amplitude
         if (weight > this.weights[i]!) {
           this.weights[i] = weight
@@ -250,15 +250,15 @@ export class PortraitRig {
         const u = station / (STATIONS - 1)
         const lag = g < 8 ? TIP_LAG[g]! * u : 0
         const lead = sampleMotion(table, localTime - lag, g)
-        const trail = sampleMotion(table, localTime - lag - 240, g)
+        const trail = sampleMotion(table, localTime - lag - 360, g)
         const bend = (lead - trail) * Math.sin(u * Math.PI)
-        const wake = g < 8 ? sampleMotion(table, localTime - lag - 480, g) : 0
+        const wake = g < 8 ? sampleMotion(table, localTime - lag - 720, g) : 0
         // A delayed spring-velocity response lets the free curl recoil after
         // the main lock turns. It is bounded, root-free and deterministic.
         const curl = g < 8 ? Math.tanh((trail - wake) * 4) * 0.25 * u * u * u : 0
         const index = g * STATIONS + station
-        this.offsetsX[index] = (lead + bend * 0.20 + curl * 0.08) * scale
-        this.offsetsY[index] = g < 8 ? (-lead * LIFT[g]! + bend * 0.75 + curl * (g >= 6 ? 0.36 : 0.16)) * scale : 0
+        this.offsetsX[index] = (lead + bend * (g >= 6 ? 0.9 : 0.55) + curl * 0.12) * scale
+        this.offsetsY[index] = g < 8 ? (-lead * LIFT[g]! + bend * (g >= 6 ? 1.1 : 0.75) + curl * (g >= 6 ? 0.4 : 0.16)) * scale : 0
       }
     }
     this.target.set(this.source)

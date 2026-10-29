@@ -63,15 +63,15 @@ npm run preview
 
 ```bash
 python3 scripts/assets/export_portrait.py --url http://127.0.0.1:5173/
-python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/ --output artifacts/gentle-portrait/qa.json
+python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/ --output artifacts/flowing-hair/qa.json
 ```
 
 production build後啟動preview，檢查完整網站、擷取真實Canvas及量測：
 
 ```bash
 python3 scripts/qa/verify_personal_site.py --url http://127.0.0.1:4173/website/
-python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/gentle-portrait
-python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/gentle-portrait/performance.json
+python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/flowing-hair
+python3 scripts/qa/measure_portrait.py --url http://127.0.0.1:4173/website/ --output artifacts/flowing-hair/performance.json
 ```
 
 素材匯出與角色探針會讀取Vite source模組，使用dev網址；網站QA、截幀及效能可使用production。先完成build再量測，單頁穩定後取樣，期間不截圖。高更新率探針與更多樣本的參數、實際結果見[參考風動](reference-wind.md)。

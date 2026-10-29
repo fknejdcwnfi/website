@@ -79,8 +79,8 @@
     "legacy optional JavaScript chunk blocked"
   ],
   "normal_script_resources": [
-    "http://127.0.0.1:4178/website/assets/index-CqDsUHL0.js",
-    "http://127.0.0.1:4178/website/assets/index-CqDsUHL0.js"
+    "http://127.0.0.1:4178/website/assets/index-uVMb2L7T.js",
+    "http://127.0.0.1:4178/website/assets/index-uVMb2L7T.js"
   ],
   "normal_image_resources": [
     "http://127.0.0.1:4178/website/portrait-rest.png",
@@ -389,8 +389,8 @@
     }
   },
   "portrait_alpha": {
-    "clear": 6527,
-    "solid": 59009,
+    "clear": 6536,
+    "solid": 59000,
     "partial": 0,
     "total": 65536,
     "corners": [
@@ -403,7 +403,7 @@
   "continuous_loop_paints": [
     28,
     287,
-    544,
+    545,
     803
   ]
 }

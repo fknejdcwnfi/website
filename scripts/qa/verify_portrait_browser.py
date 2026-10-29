@@ -11,13 +11,13 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--url', default='http://127.0.0.1:5173/')
-parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[2] / 'artifacts/gentle-portrait/qa.json')
+parser.add_argument('--output', type=Path, default=Path(__file__).resolve().parents[2] / 'artifacts/flowing-hair/qa.json')
 args = parser.parse_args()
 ROOT = args.url.rstrip('/') + '/'
-OUT = Path('/tmp/gentle-motion-qa')
+OUT = Path('/tmp/flowing-hair-qa')
 OUT.mkdir(exist_ok=True)
 EVIDENCE = args.output
-results = {'url': args.url, 'contract': 'continuous12s gentle wind, independent24s occasional blinks, fixed face and sharp binary pixels', 'status': 'failed', 'checks': [], 'errors': []}
+results = {'url': args.url, 'contract': 'visible circle-interior flowing hair on continuous12s wind; unchanged independent24s blinks; fixed face and sharp binary pixels', 'status': 'failed', 'checks': [], 'errors': []}
 
 def save_results():
     EVIDENCE.parent.mkdir(parents=True, exist_ok=True)
@@ -105,10 +105,27 @@ with sync_playwright() as p:
         if((rest[index]>>>24)===255&&(repairPixels[index]>>>24)===255&&phases.some(frame=>(frame[index]>>>24)===0))interiorHoles++;
         for(const frame of phases){const alpha=frame[index]>>>24;if(alpha!==0&&alpha!==255)partialAlpha++;if(alpha!==0&&!colors.has(frame[index]))unexpectedColor++;}
       }
-      const peakOffsets=Array(10).fill(0);
+      const circleMask=Array.from({length:size*size},(_,index)=>{
+        const x=index%size+.5,y=Math.floor(index/size)+.5;
+        return (x-128)**2+(y-128)**2<128**2&&!EYES.some(eye=>inside(x,y,eye.polygon));
+      });
+      const circleDifference=(a,b)=>a.reduce((count,value,index)=>count+(circleMask[index]&&value!==b[index]),0);
+      const circleWindows=phases.map((frame,index)=>({start:index*500,changed500ms:circleDifference(frame,phases[(index+1)%phases.length]),changed2000ms:circleDifference(frame,phases[(index+4)%phases.length])}));
+      const peakOffsets=Array(10).fill(0),circlePeakOffsets=Array(10).fill(0),circleMidsectionPeakOffsets=Array(10).fill(0);
+      const circleActive=Array.from({length:10},()=>new Set());
+      for(let phase=0;phase<phases.length;phase++)for(let index=0;index<size*size;index++){
+        if(circleMask[index]&&phases[phase][index]!==phases[(phase+4)%phases.length][index]&&rig.groups[index]>=0)circleActive[rig.groups[index]].add(index);
+      }
       for(let time=0;time<LOOP_MS;time+=250){
         render(time);
-        for(const layer of rig.layers)for(const index of layer.pixels){const y=Math.floor(index/size);peakOffsets[layer.group]=Math.max(peakOffsets[layer.group],Math.hypot(layer.rowX[y]*layer.field[index],layer.rowY[y]*layer.field[index]));}
+        for(const layer of rig.layers)for(const index of layer.pixels){
+          const y=Math.floor(index/size),distance=Math.hypot(layer.rowX[y]*layer.field[index],layer.rowY[y]*layer.field[index]);
+          peakOffsets[layer.group]=Math.max(peakOffsets[layer.group],distance);
+          if(circleMask[index]){
+            circlePeakOffsets[layer.group]=Math.max(circlePeakOffsets[layer.group],distance);
+            if(y<220)circleMidsectionPeakOffsets[layer.group]=Math.max(circleMidsectionPeakOffsets[layer.group],distance);
+          }
+        }
         for(const index of rig.jewelryPixels){const group=rig.groups[index];peakOffsets[group]=Math.max(peakOffsets[group],Math.abs(rig.offsetsX[group*CHAIN_STATIONS]*rig.weights[index]));}
       }
       const offsets=time=>{render(time);return [...rig.offsetsX,...rig.offsetsY]};
@@ -132,7 +149,7 @@ with sync_playwright() as p:
       return {sourceSize:[open.naturalWidth,open.naturalHeight],canvasSize:[canvas.width,canvas.height],windLoopMs:LOOP_MS,blinkCycleMs:BLINK_CYCLE_MS,
         chainStations:CHAIN_STATIONS,hairIds:HAIR_REGIONS.map(region=>region.id),windChanged,counts,activeGroupPixels:active.map(set=>set.size),
         protectedChanged,protectedCount,rootChanged,rootCount,blinkChanged,outsideEyes,silhouetteChanged,silhouettePeak,unexpectedColor,interiorHoles,revealedUnderpaint,peakOffsets,
-        continuousWindows:windows,seam,blinkSchedule,blinkRepeat,
+        continuousWindows:windows,circleWindows,circlePeakOffsets,circleMidsectionPeakOffsets,circleActiveGroupPixels:circleActive.map(set=>set.size),seam,blinkSchedule,blinkRepeat,
         alpha:{opaque,transparent,partialAlpha,sourcePartialAlpha,backgroundPoints,backgroundAlpha:backgroundPoints.map(([x,y])=>rest[y*size+x]>>>24),topOpaque,bottomOpaque},
         repeatedLoops,phasesPerRepeatedLoop:loopTimes.length,normalStartIsMoving:!equal(rest,normalStart),
         wrapEqualsStart:equal(normalStart,render(LOOP_MS)),zeroWindEqualsRest:equal(rest,render(6000,0)),canonicalRestEqualsSource:equal(rest,source)};
@@ -152,7 +169,10 @@ with sync_playwright() as p:
     ok('independent_occasional_blinks_and_continuing_hair',metrics['blinkRepeat'] and all(event['closed']==0 and event['same_wind_phase_later']==1 and event['wind_during_blink']>0 for event in metrics['blinkSchedule']),metrics['blinkSchedule'])
     ok('earring_pixels_move', all(count>0 for count in metrics['activeGroupPixels'][8:]),metrics['activeGroupPixels'][8:])
     ok('independent_hair_groups_move',len(set(metrics['hairIds']))==8 and all(count>0 for count in metrics['activeGroupPixels'][:8]),metrics['activeGroupPixels'])
-    ok('visible_but_restrained_foreground_curls',all(1<=metrics['peakOffsets'][group]<=12 for group in [6,7]),metrics['peakOffsets'])
+    ok('visible_but_restrained_foreground_curls',all(1<=metrics['peakOffsets'][group]<=18 for group in [6,7]),metrics['peakOffsets'])
+    ok('circle_interior_hair_moves_in_every_half_second',all(window['changed500ms']>0 and window['changed2000ms']>0 for window in metrics['circleWindows']),metrics['circleWindows'])
+    ok('circle_hair_midsections_move_not_just_cropped_tips',all(metrics['circleMidsectionPeakOffsets'][group]>=2 for group in [4,5,6,7]),metrics['circleMidsectionPeakOffsets'])
+    ok('circle_visible_hair_layers_participate',all(count>0 for count in metrics['circleActiveGroupPixels'][:8]),metrics['circleActiveGroupPixels'])
     ok('visible_hair_silhouette_changes',metrics['silhouettePeak']>20,{'phase6000':metrics['silhouetteChanged'],'whole_cycle_peak':metrics['silhouettePeak']})
     ok('vacated_hair_uses_repair_plate',metrics['revealedUnderpaint']>20,metrics['revealedUnderpaint'])
     ok('no_holes_in_opaque_underpaint',metrics['interiorHoles']==0,metrics['interiorHoles'])

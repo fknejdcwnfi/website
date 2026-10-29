@@ -98,8 +98,12 @@ export const createMotionTable = (config: MotionConfig): Float32Array[] => {
   const detail = bounded(config.gust, 0.35, 0.1, 2)
   const stiffness = bounded(config.stiffness, 18, 5, 40)
   const damping = bounded(config.damping, 5, 1, 12)
-  const strengths = [0.19, 0.035 + detail * 0.022, 0.012 + detail * 0.008]
   return DELAYS.map((delay, group) => {
+    // A broad breeze carries the hair while smaller waves travel through it.
+    // Jewelry keeps its existing restrained pendulum response.
+    const strengths = group < HAIR_CHANNELS
+      ? [0.22, 0.064 + detail * 0.025, 0.021 + detail * 0.01]
+      : [0.19, 0.035 + detail * 0.022, 0.012 + detail * 0.008]
     const channel = new Float32Array(LOOP_MS + 1)
     const k = stiffness * STIFFNESS[group]!
     const c = damping * DAMPING[group]!
