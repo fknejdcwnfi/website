@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import PixelIcon from './PixelIcon'
 import { getSiteNavigation, site } from '../content/site'
 
 /** Shared personal-site layout. New sections/pages can reuse it without touching the portrait rig. */
@@ -19,7 +20,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       <footer className="site-footer site-container">
         <a href="#top">{site.name}<span aria-hidden="true">.</span></a>
         <p>© {new Date().getFullYear()} {site.fullName}<span className="site-footer__note">一格一格，慢慢建造。</span></p>
-        <a href={site.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href={site.github} target="_blank" rel="noreferrer">GitHub <PixelIcon name="arrow-up-right" /></a>
       </footer>
     </div>
   )

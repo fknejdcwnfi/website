@@ -12,11 +12,11 @@
 ```bash
 python3 scripts/qa/verify_personal_site.py --url http://127.0.0.1:4178/website/
 python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/
-python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4178/website/ --site-gif
+python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4178/website/
 python3 scripts/qa/measure_portrait.py --help
 python3 scripts/assets/export_portrait.py --help
 ```
 
 瀏覽器工具需要Python的Playwright、Pillow及Chromium；預設執行檔 `/usr/bin/chromium`；capture／measure／export工具可用 `--chromium`改寫。網站檢查、截幀與效能使用 `npm run build`後的 `npm run preview -- --port 4178`。肖像驗證還會直接probe TypeScript源碼，另以 `npm run dev -- --port 5173`提供dev網址。效能量測獨立執行，避免其他瀏覽器工作干擾。
 
-正常發佈為PR檢查成功後合併main，再由既有GitHub Actions部署；不以手動備援繞過審查。截幀的120 Hz時間取樣與模擬排程不等於實體顯示器FPS。詳見 [開發指南](../docs/guides/development.md)。
+正常發佈為PR檢查成功後合併main，再由既有GitHub Actions部署；不以手動備援繞過審查。完整24秒的指定時間截幀、眨眼密集樣本及25 Hz GIF只用於動作檢視，不等於實體顯示器FPS。詳見 [開發指南](../docs/guides/development.md)。

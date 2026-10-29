@@ -6,7 +6,7 @@ type Props = { options: StageOptions; change: (patch: Partial<StageOptions>) => 
 export default function PortraitControls({ options, change, blink }: Props) {
   const sliders = [
     ['wind', '風力', 0, 1, 0.05], ['direction', '風向', -1, 1, 0.1],
-    ['gust', '陣風頻率', 0.1, 2, 0.05], ['stiffness', '髮束剛度', 5, 40, 1],
+    ['gust', '風的層次', 0.1, 2, 0.05], ['stiffness', '髮束剛度', 5, 40, 1],
     ['damping', '阻尼', 1, 12, 0.5], ['speed', '播放速度', 0.25, 2, 0.05],
   ] as const
   return (

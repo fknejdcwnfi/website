@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { site, getGameProfiles, getSiteNavigation, getSocialLinks } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
+import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
 test('editable profile and projects provide usable content without requiring a code change', () => {
   assert.ok(site.name.trim() && site.intro.trim() && site.tagline.trim())
@@ -65,4 +66,35 @@ test('optional profiles reject unusable links and escape user-provided player te
   const html = renderStaticSite(configured)
   assert.ok(!html.includes('javascript:') && !html.includes('<script>unsafe</script>') && !html.includes('<img src=x'))
   assert.ok(html.includes('&lt;script&gt;unsafe&lt;/script&gt;'))
+})
+
+
+test('pixel portrait sizing keeps art pixels and origins aligned across screen scales', () => {
+  const nearly = (value, expected) => assert.ok(Math.abs(value - expected) < 1e-7, `${value} ≈ ${expected}`)
+  for (const ratio of [1, 1.25, 1.5, 2, 3]) for (const grid of [192, 256, 320]) {
+    for (const width of [342, 720, 1180]) {
+      const left = 13.3, top = 47.125
+      const fit = fitPixelViewport(width, left, top, grid, ratio)
+      assert.ok(fit.diameter <= Math.min(width, 512) + 1e-7)
+      if (Math.min(width, 512) * ratio >= grid) assert.ok(Number.isInteger(fit.scale) && fit.scale >= 1)
+      nearly(fit.diameter * ratio, fit.scale * grid)
+      const x = (left + (width - fit.diameter) / 2 + fit.offsetX) * ratio
+      const y = (top + fit.offsetY) * ratio
+      nearly(x, Math.round(x))
+      nearly(y, Math.round(y))
+      assert.ok(Math.abs(fit.offsetX * ratio) <= 0.5 + 1e-7, 'centering changes by at most half a device pixel')
+      assert.ok(Math.abs(fit.offsetY * ratio) <= 0.5 + 1e-7)
+    }
+  }
+})
+
+test('a narrow portrait viewport fits without demanding a full logical-grid width', () => {
+  for (const width of [80, 128, 220]) for (const ratio of [1, 1.25, 2]) {
+    const fit = fitPixelViewport(width, 0, 0, 256, ratio)
+    assert.ok(fit.diameter > 0 && fit.diameter <= width)
+    assert.ok(Object.values(fit).every(Number.isFinite))
+  }
+  assert.equal(fitPixelViewport(720, 0, 0, 256, 1).diameter, 512)
+  assert.equal(fitPixelViewport(342, 0, 0, 256, 1).diameter, 256)
+  assert.equal(fitPixelViewport(342, 0, 0, 256, 2).diameter, 256)
 })

@@ -1,6 +1,6 @@
 # 文件入口
 
-目前是完整Minecraft像素風個人網站：個人內容與可擴充帳號配置、透明無框Vermouth近景、分層髮束和局部眨眼。使用者已恢復自動合併與網站更新；PR檢查通過後，依GitHub Actions／Pages流程發佈。
+目前是完整Minecraft像素風個人網站：個人內容與可擴充帳號配置、居中無框圓形Vermouth近景、持續緩慢微風和獨立偶發眨眼。角色保持同一像素母版，顯示尺寸按裝置像素比對齊。使用者已恢復自動合併與網站更新；PR檢查通過後，依GitHub Actions／Pages流程發佈。
 
 ## 現行指南
 
@@ -28,6 +28,8 @@
 | [QA清單](archive/07-qa-checklist.md) | 早期驗收流程 |
 | [圖層計畫](archive/09-layer-plan.md) | 原anime圖層／clean plate研究 |
 | [像素舞台](archive/10-pixel-stage.md) | 已封存voxel方案及當時實測 |
+| [PR #6風動與量測](archive/14-reference-wind-pixel-world.md) | 舊2300 ms風動、十七段髮束及當時的密集截幀／效能 |
+| [PR #6肖像契約](archive/15-living-portrait-reference-timeline.md) | 新持續微風與圓形展示之前的肖像契約 |
 
 [reference/](reference/)的原始委託、分鏡與README保持原路徑及逐位元內容不變。它們記錄原始意圖，包含舊目錄連結與過時指令；閱讀時以本入口的新路徑及現行指南為準，不改寫原文。
 

@@ -1,5 +1,5 @@
 import { PALETTE } from './portraitAsset'
-import { KEY_TIMES, LOOP_MS, MOTION_CHANNELS, sampleMotion } from '../animation/portraitTimeline'
+import { LOOP_MS, MOTION_CHANNELS, sampleMotion } from '../animation/portraitTimeline'
 import { CHAIN_STATIONS as STATIONS, sampleStrandCurve, writeStrandCurve } from './strandCurve'
 
 export { CHAIN_STATIONS } from './strandCurve'
@@ -19,7 +19,7 @@ type HairLayer = {
   rowY: Float64Array
 }
 type EyePixel = { index: number; y: number; top: number; height: number }
-const TIP_LAG = [92, 105, 36, 48, 72, 88, 145, 165] as const
+const TIP_LAG = [220, 300, 190, 145, 240, 290, 540, 650] as const
 const LIFT = [0.22, 0.30, 0.36, 0.12, 0.18, 0.28, 0.23, 0.34] as const
 export const ROOT_ANCHORS: readonly Point[] = [[18, 34], [31, 76], [215, 5], [60, 8], [52, 76], [194, 52], [45, 119], [180, 177], [78, 114], [180, 97]]
 const smooth = (value: number): number => {
@@ -58,9 +58,9 @@ export const HAIR_REGIONS: readonly Region[] = [
   { id: 'hair_back', polygon: [[0, 32], [20, 30], [43, 67], [46, 105], [36, 145], [13, 165], [0, 169]], root: 25, end: 165, amplitude: 10 },
   { id: 'hair_outer_L', polygon: [[0, 82], [31, 93], [44, 120], [46, 162], [37, 180], [0, 178]], root: 70, end: 180, amplitude: 12 },
   { id: 'hair_outer_R', polygon: [[191, 0], [255, 0], [255, 128], [230, 126], [215, 112], [207, 84], [197, 59]], root: 0, end: 124, amplitude: 11 },
-  { id: 'bangs', polygon: [[15, 0], [110, 0], [113, 38], [108, 61], [99, 65], [85, 55], [75, 33], [62, 48], [52, 77], [29, 79], [4, 64]], root: 0, end: 75, amplitude: 4 },
-  { id: 'hair_side_L', polygon: [[32, 72], [51, 73], [66, 91], [81, 107], [81, 117], [62, 111], [51, 102], [46, 128], [31, 136]], root: 75, end: 128, amplitude: 6 },
-  { id: 'hair_side_R', polygon: [[184, 50], [204, 49], [210, 95], [200, 114], [189, 106], [184, 89]], root: 40, end: 115, amplitude: 8 },
+  { id: 'bangs', polygon: [[15, 0], [110, 0], [113, 38], [108, 61], [99, 65], [85, 55], [75, 33], [62, 48], [52, 77], [29, 79], [4, 64]], root: 0, end: 75, amplitude: 11 },
+  { id: 'hair_side_L', polygon: [[32, 72], [51, 73], [66, 91], [81, 107], [81, 117], [62, 111], [51, 102], [46, 128], [31, 136]], root: 75, end: 128, amplitude: 24 },
+  { id: 'hair_side_R', polygon: [[184, 50], [204, 49], [210, 95], [200, 114], [189, 106], [184, 89]], root: 40, end: 115, amplitude: 17 },
   { id: 'hair_shoulder_L', polygon: [[23, 126], [51, 114], [68, 146], [73, 178], [64, 193], [60, 222], [85, 241], [93, 255], [63, 255], [49, 231], [46, 202], [39, 190], [19, 181]], root: 115, end: 245, amplitude: 28 },
   { id: 'hair_tips_R', polygon: [[171, 174], [191, 180], [204, 204], [218, 229], [221, 248], [197, 253], [193, 234], [178, 220], [168, 202]], root: 170, end: 256, amplitude: 32 },
 ]
@@ -244,16 +244,15 @@ export class PortraitRig {
   paint(ctx: CanvasRenderingContext2D, table: Float32Array[], timeMs: number, gain: number, eyeOpen: number): void {
     const { size } = this
     const localTime = ((timeMs % LOOP_MS) + LOOP_MS) % LOOP_MS
-    const settle = 1 - smooth((localTime - KEY_TIMES[8]) / (KEY_TIMES[9] - KEY_TIMES[8]))
-    const scale = gain * size / 256 * settle
+    const scale = gain * size / 256
     for (let g = 0; g < MOTION_CHANNELS; g += 1) {
       for (let station = 0; station < STATIONS; station += 1) {
         const u = station / (STATIONS - 1)
         const lag = g < 8 ? TIP_LAG[g]! * u : 0
-        const lead = localTime >= lag ? sampleMotion(table, localTime - lag, g) : 0
-        const trail = localTime >= lag + 72 ? sampleMotion(table, localTime - lag - 72, g) : 0
+        const lead = sampleMotion(table, localTime - lag, g)
+        const trail = sampleMotion(table, localTime - lag - 240, g)
         const bend = (lead - trail) * Math.sin(u * Math.PI)
-        const wake = g < 8 && localTime >= lag + 144 ? sampleMotion(table, localTime - lag - 144, g) : 0
+        const wake = g < 8 ? sampleMotion(table, localTime - lag - 480, g) : 0
         // A delayed spring-velocity response lets the free curl recoil after
         // the main lock turns. It is bounded, root-free and deterministic.
         const curl = g < 8 ? Math.tanh((trail - wake) * 4) * 0.25 * u * u * u : 0
@@ -263,7 +262,7 @@ export class PortraitRig {
       }
     }
     this.target.set(this.source)
-    const moving = gain !== 0 && settle !== 0 && this.offsetsX.some(value => Math.abs(value) > 0.00001)
+    const moving = gain !== 0 && this.offsetsX.some(value => Math.abs(value) > 0.00001)
     if (moving) {
       writeStrandCurve(this.offsetsX, this.curveX)
       writeStrandCurve(this.offsetsY, this.curveY)

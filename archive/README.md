@@ -3,7 +3,7 @@
 本目錄保留舊版本素材與原始驗證證據，不由Vite複製至網站。
 
 - `runtime/portrait-v2/`：原 `public/assets/portrait/` 的舊像素runtime，位元組不變。
-- `evidence/portrait-v2/`：原 `artifacts/` 根目錄的歷史截圖與量測。
+- `evidence/portrait-v2/`：原 `artifacts/` 根目錄的歷史截圖與量測；`personal-site-performance.json`另保留早期不透明首頁的舊效能原檔。
 - `evidence/portrait-v4/`：原 `artifacts/natural-portrait/` 的透明近景版本證據。
 - `evidence/portrait-v5/`：原 `artifacts/rich-motion/` 的九段髮束版本證據。
 

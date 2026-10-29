@@ -44,14 +44,18 @@ documents listed below. Do not start coding before you understand the hard rules
 - **A complete personal website is required.** Navigation, personal introduction,
   real projects, contact links and footer are required.
   The former character-only / no-UI restriction is superseded by ADR-016.
-  The normal homepage has no public play/pause controls: the portrait repeats
-  its 2300 ms loop while visible. Keep manual controls opt-in via debug=1 or
+  The normal homepage has no public play/pause controls: hair moves continuously
+  on a gentle 12000 ms cycle while visible, with a separate 24000 ms blink schedule. Keep manual controls opt-in via debug=1 or
   explicit QA parameters; honor reduced motion and visibility suspension.
-- **Keep the original close-up size and framing, with a transparent silhouette.**
-  The owner's 2026-10-29 correction rejects outpainting into a full bust. ADR-017
-  removes the visible square frame, not the original square logical canvas.
-  Preserve binary alpha; use an organic glow rather than a character card,
-  rectangular base or outline. Keep cropped top hair and shoulder composition.
+- **Use a centered, circular, borderless portrait presentation.** The owner's latest
+  2026-10-29 request supersedes the earlier unclipped silhouette presentation.
+  Clip only the display viewport; keep the original close-up composition, canonical
+  artwork and transparent materials intact. Do not add a circular stroke, frame,
+  thick background, rectangular card or full-bust outpainting. Raw Canvas pixels
+  retain binary alpha; the browser's circular clipping edge may be antialiased.
+- **Keep pixel art crisp.** Disable image smoothing and use nearest-neighbor display.
+  Align the displayed grid to integer physical-device-pixel multiples when space
+  permits; respond to viewport / DPR changes without per-frame layout work.
 - Keep personal content in `src/features/profile/content/site.ts` and shared layout in `SiteShell`.
   Use owner-provided name fknejdcwnfi, greeting HELLOWORLD and the supplied email;
   never invent credentials, employment, project claims or social accounts.
@@ -107,8 +111,8 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 - Hero / isolated view=portrait: canonical 2D pixel portrait with bounded local
   hair layers with 17 chain stations per lock with C1 Hermite curves and delayed tip recoil, hidden underpaint repair, eyelids
   and separately delayed left/right jewelry. Transparent256² grid, with
-  192² and 320² alternatives; continuous 2300 ms reference loop while
-  visible. Hidden/offscreen suspension preserves phase; reduced motion and
+  192² and 320² alternatives; continuous 12000 ms gentle wind while
+  visible, with independent 280 ms blinks at 4400/11300/20300 ms in a 24000 ms schedule. Hidden/offscreen suspension preserves phase; reduced motion and
   explicit pause/t/pose retain static behavior.
 - New natural portrait masters are in `assets/generated/portrait-v4/`; runtime
   materials are in `public/assets/portrait-natural/`. The transparent static
@@ -126,6 +130,12 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 - Live at <https://fknejdcwnfi.github.io/website/> via GitHub Actions;
   the historical `gh-pages` commit is preserved under the archive/2026-10-29/gh-pages tag.
   The explicitly requested manual fallback can recreate that branch; normal publishing uses main.
+- Normal t=0 is a flowing breeze pose, not a forced rest frame. Explicit pose1/10
+  and reduced motion preserve the canonical static rest view. wind=0 suppresses
+  hair/jewelry motion while the independent eye schedule continues. Keep all delayed
+  strand/recoil samples periodic; never reintroduce settling windows at the seam.
+- Current evidence lives in `artifacts/gentle-portrait/`; `artifacts/pixel-world/`
+  records the prior fast-gust version and must not be cited as current verification.
 - The new underpaint only repairs local hair occlusion; full source-identical
   face/shoulder layer reconstruction remains constrained. Do not claim complete
   layered art, source-identical geometry, perfect likeness or unmeasured QA.

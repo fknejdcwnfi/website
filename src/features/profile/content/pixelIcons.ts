@@ -1,9 +1,11 @@
 import type { ContactLink } from './site.ts'
 
-export type PixelIconName = ContactLink['platform'] | 'code' | 'chess' | 'gamepad'
+export type PixelIconName = ContactLink['platform'] | 'code' | 'chess' | 'gamepad' | 'arrow-up-right' | 'arrow-down'
 
 /** Shared pixel glyphs keep React and initial HTML visually consistent. */
 export const pixelIconPaths: Record<PixelIconName, string> = {
+  'arrow-up-right': 'M5 2h9v9h-2V6h-2v2H8v2H6v2H4v2H2v-2h2v-2h2V8h2V6h2V4H5V2z',
+  'arrow-down': 'M7 1h2v9h2V8h2v3h-2v2H9v2H7v-2H5v-2H3V8h2v2h2V1z',
   github: 'M4 2h3v1h2V2h3v2h2v7h-2v3h-2v-3H6v3H4v-3H2V4h2V2zm1 4v2h2V6H5zm4 0v2h2V6H9z',
   email: 'M1 3h14v10H1V3zm2 2v6h10V5h-2v2H9v2H7V7H5V5H3zm4 0v2h2V5H7z',
   bilibili: 'M4 1h2v2h4V1h2v2h2v11H2V3h2V1zM4 5v7h8V5H4zm1 2h2v3H5V7zm4 0h2v3H9V7z',
