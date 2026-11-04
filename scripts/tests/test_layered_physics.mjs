@@ -25,15 +25,19 @@ const sample = (engine, locks, time, gain = 1) => {
 }
 const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1])
 
-test('the new wind retains two full-size gust phrases while the independent blink clock stays separate', () => {
+test('the breeze has broad unequal swells with no isolated launch or silent loading interval', () => {
   for (const time of [0, 83.3, 2150, 4150, 8150, 10150, 11999.5]) {
     assert.equal(sampleReferenceWind(time), sampleReferenceWind(time + 12000))
     assert.equal(sampleReferenceWind(time), sampleReferenceWind(time - 12000))
   }
-  for (const peak of [2150, 4150, 8150, 10150]) assert.ok(sampleReferenceWind(peak) > 0.75)
-  assert.ok(sampleReferenceWind(6000) > 0, 'the quiet interval still has ambient wind')
-  assert.ok(sampleReferenceWind(2150) > sampleReferenceWind(1500), 'the first reference gust rises on its original scale')
-  assert.ok(sampleReferenceWind(4150) > sampleReferenceWind(3400), 'the second reference gust is a separate event')
+  const forces = Array.from({ length: 721 }, (_, frame) => sampleReferenceWind(frame * 1000 / 60))
+  assert.ok(Math.min(...forces) > 0.1 && Math.max(...forces) < 1.1, 'the breeze never switches off or kicks beyond the reviewed load range')
+  const change = forces.slice(1).map((value, i) => value - forces[i])
+  assert.ok(Math.max(...change.map(Math.abs)) < 0.008, 'the load changes gradually across adjacent display frames')
+  assert.ok(forces.filter(value => value > 0.6).length > 180, 'stronger wind is sustained rather than a narrow impulse')
+  assert.ok(sampleReferenceWind(2000) > sampleReferenceWind(8000), 'the two broad swells are not identical repeats')
+  const before = sampleReferenceWind(-0.5), at = sampleReferenceWind(0), after = sampleReferenceWind(0.5)
+  assert.ok(Math.abs((at - before) - (after - at)) < 1e-6, 'the wind derivative joins at the loop seam')
 })
 
 test('constrained curl rods keep two anchored nodes and material length while changing curvature', () => {
@@ -84,7 +88,7 @@ test('the free end moves continuously through the cycle without a 60 Hz velocity
   }
 })
 
-test('the gust produces inertial rise and a delayed return instead of prescribed position keyframes', () => {
+test('the broad swell produces inertial lag and a gradual return instead of prescribed position keyframes', () => {
   const rest = materials[1].spine
   let peak = { time: 0, displacement: 0 }
   for (let time = 1000; time < 3400; time += 10) {
@@ -92,8 +96,8 @@ test('the gust produces inertial rise and a delayed return instead of prescribed
     if (displacement > peak.displacement) peak = { time, displacement }
   }
   assert.ok(peak.time > 2300 && peak.time < 2900, 'the free end peaks after the force crest at 2150ms')
-  const retained = sample(physics, materials, 3400)[1][30] - rest[30]
-  assert.ok(retained > 6 && retained < peak.displacement * 0.6, 'the curl is still returning after the gust ended')
+  const retained = sample(physics, materials, 5000)[1][30] - rest[30]
+  assert.ok(retained > 6 && retained < peak.displacement * 0.6, 'the curl returns gradually as the broad swell recedes')
 })
 
 test('partial wind gain keeps strongly bent material long instead of compressing its rotational arc', () => {

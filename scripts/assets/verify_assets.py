@@ -157,6 +157,19 @@ def main() -> int:
                     if metadata['size'] != entry['size'] or not atlas.is_file() or sha256(atlas) != metadata['atlas_sha256']:
                         fail(errors, f'baked metadata/atlas mismatch: {entry["file"]}')
 
+    physics_manifest = ROOT / 'public' / 'assets' / 'portrait-rig' / 'physics-manifest.json'
+    if not physics_manifest.is_file():
+        fail(errors, 'missing baked physics manifest')
+    else:
+        physics = json.loads(physics_manifest.read_text(encoding='utf-8'))
+        if physics.get('version') != 1 or len(physics.get('inputs', [])) != 3:
+            fail(errors, 'invalid baked physics manifest')
+        for category in ('sources', 'inputs', 'files'):
+            for entry in physics.get(category, []):
+                path = ROOT / entry['file']
+                if not path.is_file() or path.stat().st_size != entry['bytes'] or sha256(path) != entry['sha256']:
+                    fail(errors, f'stale baked physics dependency: {entry["file"]}; run node scripts/assets/export_baked_physics.mjs')
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

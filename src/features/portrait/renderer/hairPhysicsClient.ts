@@ -1,4 +1,5 @@
 import { HairPhysics, type HairPhysicsCache } from './hairPhysics'
+import { hasBakedPhysics, loadBakedPhysics } from './bakedPhysics'
 import type { HairMaterial, HairPhysicsConfig } from './hairTypes'
 
 /** Shared finite preparation survives React's development remount without duplicate workers. */
@@ -33,13 +34,17 @@ export const prepareHairPhysics = async (
   const parameters: HairPhysicsConfig = {
     direction: config.direction, gust: config.gust, stiffness: config.stiffness, damping: config.damping,
   }
-  const key = JSON.stringify([parameters, locks.map(({ spine, side, motion }) => [
+  const key = JSON.stringify([size, parameters, locks.map(({ spine, side, motion }) => [
     side, motion, Array.from(spine, (value) => Math.round(value / scale * 1000) / 1000),
   ])])
   let pending = prepared.get(key)
   if (!pending) {
     if (prepared.size >= 2) prepared.delete(prepared.keys().next().value!)
-    pending = prepare(locks, parameters, size)
+    // The homepage's default wind does not depend on Worker support. A damaged
+    // or unavailable baked asset still has the numerical preparation route.
+    pending = hasBakedPhysics(parameters, size)
+      ? loadBakedPhysics(locks, size).catch(() => prepare(locks, parameters, size))
+      : prepare(locks, parameters, size)
     prepared.set(key, pending)
     void pending.catch(() => { if (prepared.get(key) === pending) prepared.delete(key) })
   }

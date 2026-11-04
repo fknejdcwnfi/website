@@ -12,3 +12,6 @@ createRoot(root).render(
     <SiteBoundary fallbackHtml={fallbackHtml}><App /></SiteBoundary>
   </StrictMode>,
 )
+
+document.documentElement.setAttribute('data-site-module', 'ready')
+window.dispatchEvent(new Event('site-module-ready'))
