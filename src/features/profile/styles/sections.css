@@ -48,6 +48,14 @@
 .personal-game__details dt { color: #6c7380; }
 .personal-game__details dd { margin: 0; overflow-wrap: anywhere; }
 .personal-game > p { color: #6b7481; font-size: 12px; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: no-preference) {
+  .social-link { transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+  .social-link:hover, .social-link:focus-visible { box-shadow: 0 3px 12px #4353b317; }
+  .social-link > svg, .personal-text-link svg, .personal-project__heading svg { transition: transform 180ms ease; }
+  .social-link:hover > svg, .social-link:focus-visible > svg, .personal-text-link:hover svg, .personal-text-link:focus-visible svg, .personal-project__link:hover svg, .personal-project__link:focus-visible svg { transform: translate(2px, -2px); }
+  .project-table tbody tr { transition: background-color 180ms ease; }
+  .project-table tbody tr:hover, .project-table tbody tr:focus-within { background-color: #f7f8ff; }
+}
 @media (max-width: 540px) {
   .personal-section { padding-top: 35px; }
   .personal-section__label h2 { font-size: 25px; margin-bottom: 21px; }

@@ -57,10 +57,30 @@ test('constrained curl rods keep two anchored nodes and material length while ch
   }
   const crest = sample(physics, materials, 2670)
   for (let lock = 0; lock < materials.length; lock += 1) {
-    const side = materials[lock].side, rest = materials[lock].spine, pose = crest[lock]
-    assert.ok((pose[16] - rest[16]) * side > 10, 'the visible middle opens outward')
-    assert.ok((pose[30] - rest[30]) * side > 25, 'the complete free curl follows')
-    assert.ok(Math.abs((pose[30] - rest[30]) - (pose[16] - rest[16])) > 10, 'the lock bends instead of translating rigidly')
+    const rest = materials[lock].spine, pose = crest[lock]
+    assert.ok(pose[16] - rest[16] > 3, 'both middles follow the same world-space breeze')
+    assert.ok(pose[30] - rest[30] > 10, 'the complete free curl follows')
+    assert.ok((pose[30] - rest[30]) - (pose[16] - rest[16]) > 6, 'the lock bends instead of translating rigidly')
+  }
+  assert.ok(crest[0][30] - materials[0].spine[30] < crest[1][30] - materials[1].spine[30],
+    'inward hair travel is smaller where the artwork has limited hidden surface')
+  const reverse = new HairPhysics(materials, { ...config, direction: -1 }, 256)
+  for (const [lock, pose] of sample(reverse, materials, 2670).entries()) {
+    assert.ok(pose[16] - materials[lock].spine[16] < -3, 'reversing the wind reverses both sides')
+    assert.ok(pose[30] - materials[lock].spine[30] < -10)
+  }
+})
+
+test('the free end moves continuously through the cycle without a 60 Hz velocity jump', () => {
+  const frames = []
+  for (let frame = -1; frame <= 721; frame += 1) frames.push(sample(physics, materials, frame * 1000 / 60)[1][30])
+  const movement = frames.slice(1).map((value, i) => value - frames[i])
+  for (let frame = 1; frame < movement.length; frame += 1) {
+    assert.ok(Math.abs(movement[frame] - movement[frame - 1]) < 0.1, 'neighboring frame velocities have no visible snap, including the loop seam')
+  }
+  for (let start = 0; start < 720; start += 30) {
+    const travel = movement.slice(start, start + 30).reduce((sum, distance) => sum + Math.abs(distance), 0)
+    assert.ok(travel > 0.1, 'the free end does not freeze during quiet half-second windows')
   }
 })
 

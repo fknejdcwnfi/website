@@ -28,6 +28,7 @@ const gust = (time: number, center: number, width: number): number => {
 export const sampleReferenceWind = (timeMs: number): number => {
   const time = wrap(timeMs) / 1000
   return 0.22 + 0.07 * Math.sin(TAU * time / PERIOD_SECONDS - 0.4)
+    + 0.055 * Math.sin(TAU * time / 4 + 0.7) + 0.035 * Math.sin(TAU * time / 3 - 0.8)
     + 0.90 * gust(time, 2.15, 1.25) + 0.78 * gust(time, 4.15, 0.95)
     + 0.82 * gust(time, 8.15, 1.2) + 0.68 * gust(time, 10.15, 0.95)
 }
@@ -153,8 +154,13 @@ const stepRod = (rod: Rod, timeMs: number, config: HairPhysicsConfig, index: num
     // later instead of every node being forced by one simultaneous scalar.
     const wind = sampleReferenceWind(timeMs - index * 27 - u * u * 180) * (0.82 + detail * 0.5)
     const load = wind * rod.wind * (0.32 + 0.68 * u) * rod.inverseMass[node]!
-    const fx = rod.side * direction * load * 420 * normalExposure + (rest[i]! - x) * restoration
-    const fy = -load * 300 + (rest[i + 1]! - y) * restoration
+    // One world-space breeze acts on both sides of the portrait. Applying
+    // opposite forces per side makes every gust open the hair symmetrically.
+    // The face-side cutout has only the visible original artwork behind it;
+    // attenuate inward movement so it cannot sweep across the portrait.
+    const horizontal = rod.side * direction < 0 ? 120 : 350
+    const fx = direction * load * horizontal * normalExposure + (rest[i]! - x) * restoration
+    const fy = -load * 80 + (rest[i + 1]! - y) * restoration
     p[i] = x + vx + fx * DT * DT
     p[i + 1] = y + vy + fy * DT * DT
   }
