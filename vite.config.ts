@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => ({
     },
   }],
   build: {
-    target: 'es2022',
+    target: 'es2020',
     // Keep image URLs as files: they are preloaded and decoded individually.
     assetsInlineLimit: 0,
   },

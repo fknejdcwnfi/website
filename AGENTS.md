@@ -13,6 +13,8 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Read in this order
 
+0. Read [`docs/guides/reliable-motion.md`](docs/guides/reliable-motion.md) first for the current precomputed default, motion consent and startup behavior.
+
 0. [`docs/guides/video-layered-rebuild.md`](docs/guides/video-layered-rebuild.md) — latest uploaded-video-driven cutout/mesh reconstruction
 1. [`docs/guides/reference-rebuild.md`](docs/guides/reference-rebuild.md) — prior document layout and rejected field-animation baseline
 2. [`docs/guides/personal-site.md`](docs/guides/personal-site.md) — website and personalization contract
@@ -48,7 +50,7 @@ documents listed below. Do not start coding before you understand the hard rules
   The former character-only / no-UI restriction is superseded by ADR-016.
   The normal homepage has no public play/pause controls: hair moves continuously
   on a reference-driven 12000 ms physical cycle while visible, with a separate 24000 ms blink schedule. Keep manual controls opt-in via debug=1 or
-  explicit QA parameters; honor reduced motion and visibility suspension.
+  explicit QA parameters; honor reduced motion and visibility suspension. Only when system reduced motion is active, explain the static state and allow explicit visitor opt-in with a reversible local choice; normal playback has no controls.
 - **Use a centered, circular, borderless portrait presentation.** The owner's latest
   2026-10-29 request supersedes the earlier unclipped silhouette presentation.
   Clip only the display viewport; keep the original close-up composition, canonical
@@ -113,7 +115,7 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 - Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their
   own arc-length spines and forward skeletal triangle meshes. Sixteen-node XPBD
   rods use 240 Hz constrained steps, three warmup cycles and a 120 Hz world-pose
-  cache prepared in a Worker; runtime interpolates nodes at rAF cadence. The
+  cache. The default physical parameters load an integrity-checked precomputed cycle without a Worker; non-default parameters and cache-load failure use a Worker. Runtime interpolates nodes at rAF cadence. The
   field/inverse-map renderer is archived in `src/archive/fieldPortrait/`.
 - Eight current complete hair materials, canonical face/body clean plate, original local
   eyelids and independently pivoting complete earrings. The 12-second wind contains

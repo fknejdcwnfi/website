@@ -299,3 +299,14 @@ body {
   }
   .stage--portrait { width: min(92vmin, 860px); }
 }
+
+.portrait-motion-notice { position: absolute; z-index: 4; bottom: 12px; width: min(90%, 340px); padding: 10px 12px; border-radius: 6px; background: #fffef5f5; color: #41485c; box-shadow: 0 2px 14px #202b4d17; text-align: center; font: 12px/1.6 system-ui, sans-serif; }
+.portrait-motion-notice p { margin: 0 0 6px; }
+.portrait-motion-notice button { padding: 5px 14px; border: 1px solid #4353b3; border-radius: 4px; background: #4353b3; color: #fff; font: inherit; cursor: pointer; }
+.portrait-motion-notice button:focus-visible { outline: 3px solid #c59225; outline-offset: 3px; }
+
+.site-startup-status { max-width: 700px; margin: 24px auto; padding: 14px 20px; background: #eef1ff; color: #36415c; font: 14px/1.8 system-ui, sans-serif; }
+.site-startup-status[hidden] { display: none; }
+.site-startup-status button { margin-left: 8px; padding: 3px 10px; color: #fff; background: #4353b3; border: 0; border-radius: 3px; font: inherit; cursor: pointer; }
+
+.portrait-error button { padding: 3px 8px; border: 1px solid currentColor; border-radius: 3px; color: inherit; background: transparent; font: inherit; cursor: pointer; }

@@ -39,6 +39,24 @@
   </head>
   <body>
     <div id="root"><!--site-fallback--></div>
+    <p id="site-startup-status" class="site-startup-status" role="status" hidden>
+      互動功能尚未載入，目前顯示靜態網站與肖像。
+      <button type="button" onclick="window.location.reload()">重新載入</button>
+    </p>
+    <noscript><p class="site-startup-status">瀏覽器未啟用 JavaScript，目前顯示靜態網站與肖像。</p></noscript>
+    <script>
+      (function () {
+        var timer = window.setTimeout(function () {
+          if (document.documentElement.getAttribute('data-site-module') !== 'ready') {
+            document.getElementById('site-startup-status').hidden = false;
+          }
+        }, 12000);
+        window.addEventListener('site-module-ready', function () {
+          window.clearTimeout(timer);
+          document.getElementById('site-startup-status').hidden = true;
+        });
+      }());
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

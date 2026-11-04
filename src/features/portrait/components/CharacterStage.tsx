@@ -11,6 +11,11 @@ import PortraitControls from './PortraitControls'
  *   ?debug=1   show a small state readout
  *   ?pose=1-10 freeze one key pose (useful for visual QA)
  */
+const MOTION_CHOICE_KEY = 'vermouth-motion-enabled'
+const readMotionChoice = (): boolean => {
+  try { return localStorage.getItem(MOTION_CHOICE_KEY) === 'true' } catch { return false }
+}
+
 const poseLabel = (index: number): string => String(index).padStart(2, '0')
 
 export default function CharacterStage() {
@@ -21,7 +26,24 @@ export default function CharacterStage() {
   const portraitRef = useRef<PortraitPlayer | null>(null)
   const [failed, setFailed] = useState(false)
   const [retry, setRetry] = useState(0)
+  const [loading, setLoading] = useState(false)
   const retryAttempts = useRef(0)
+  const [systemReduced, setSystemReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [motionEnabled, setMotionEnabled] = useState(readMotionChoice)
+  const motionChoiceRef = useRef(motionEnabled)
+  motionChoiceRef.current = motionEnabled
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const change = (): void => setSystemReduced(media.matches)
+    media.addEventListener('change', change)
+    return () => media.removeEventListener('change', change)
+  }, [])
+
+  const chooseMotion = (enabled: boolean): void => {
+    try { localStorage.setItem(MOTION_CHOICE_KEY, String(enabled)) } catch { /* Storage is optional. */ }
+    setMotionEnabled(enabled)
+  }
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -31,6 +53,7 @@ export default function CharacterStage() {
       let cancelled = false
       let waitingForRecovery = false
       let retryTimer: number | undefined
+      const loadingTimer = window.setTimeout(() => setLoading(true), 1500)
       const restart = (): void => {
         if (cancelled || !waitingForRecovery) return
         waitingForRecovery = false
@@ -44,6 +67,8 @@ export default function CharacterStage() {
       }
       const player = new PortraitPlayer(canvas, options, options.debug ? setSnapshot : undefined, () => {
         if (cancelled) return
+        window.clearTimeout(loadingTimer)
+        setLoading(false)
         setFailed(true)
         waitingForRecovery = true
         if (retryAttempts.current < 2) {
@@ -52,9 +77,11 @@ export default function CharacterStage() {
         }
       }, () => {
         if (cancelled) return
+        window.clearTimeout(loadingTimer)
         retryAttempts.current = 0
+        setLoading(false)
         setFailed(false)
-      })
+      }, motionChoiceRef.current)
       portraitRef.current = player
       window.addEventListener('online', onOnline)
       const observer = 'IntersectionObserver' in window
@@ -62,6 +89,7 @@ export default function CharacterStage() {
       observer?.observe(canvas)
       return () => {
         cancelled = true
+        window.clearTimeout(loadingTimer)
         if (retryTimer !== undefined) window.clearTimeout(retryTimer)
         window.removeEventListener('online', onOnline)
         observer?.disconnect(); player.destroy(); portraitRef.current = null
@@ -113,6 +141,7 @@ export default function CharacterStage() {
   }, [options.style, options.pixel, retry])
 
   useEffect(() => { portraitRef.current?.update(options) }, [options])
+  useEffect(() => { portraitRef.current?.setMotionEnabled(motionEnabled) }, [motionEnabled])
 
   return (
     <div className={`stage-shell stage-shell--${options.style}`}>
@@ -158,7 +187,16 @@ export default function CharacterStage() {
         <PortraitControls options={options} change={(patch) => setOptions((current) => ({ ...current, ...patch }))}
           blink={() => portraitRef.current?.blink()} />
       ) : null}
-      {failed ? <p role="status" className="portrait-error">動態肖像暫時無法載入，已顯示靜態肖像。</p> : null}
+      {systemReduced && options.style === 'portrait' && !failed ? (
+        <div className="portrait-motion-notice">
+          <p role="status">{motionEnabled ? '已為這個肖像開啟動態。' : '系統已啟用「減少動態」，肖像目前靜止。'}</p>
+          <button type="button" onClick={() => chooseMotion(!motionEnabled)}>{motionEnabled ? '跟隨系統' : '開啟動態'}</button>
+        </div>
+      ) : null}
+      {loading && !failed ? <p role="status" className="portrait-error">正在載入動態肖像…</p> : null}
+      {failed ? <p role="status" className="portrait-error">動態肖像暫時無法載入，已顯示靜態肖像。{' '}
+        <button type="button" onClick={() => { retryAttempts.current = 0; setRetry((value) => value + 1) }}>重試載入</button>
+      </p> : null}
     </div>
   )
 }

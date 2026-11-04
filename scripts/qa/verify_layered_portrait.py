@@ -21,6 +21,12 @@ def portrait_url(url: str, **parameters: object) -> str:
     return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
 
 
+def homepage_url(url: str, **parameters: object) -> str:
+    parts = urlsplit(url)
+    return urlunsplit((parts.scheme, parts.netloc, parts.path,
+                       urlencode({key: str(value) for key, value in parameters.items()}), ""))
+
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--url", default="http://127.0.0.1:5173/")
 parser.add_argument("--output", type=Path, default=Path("artifacts/video-layered/qa.json"))
@@ -502,7 +508,7 @@ with sync_playwright() as playwright:
     page.goto(portrait_url(args.url, pose=1))
     page.wait_for_selector("canvas[data-ready=true][data-painted=true]")
     check("default_is_pixel_portrait", page.locator("canvas").get_attribute("data-style") == "portrait")
-    check("normal_portrait_has_no_developer_controls", page.locator("button,summary,input,.hud").count() == 0)
+    check("normal_portrait_has_no_developer_controls", page.locator("button:visible,summary:visible,input:visible,.hud").count() == 0)
     check("nearest_neighbor_logical_grid", page.locator("canvas").evaluate('(c)=>c.width===256&&c.height===256&&getComputedStyle(c).imageRendering==="pixelated"'))
     canonical = page.locator("canvas").evaluate("c=>c.toDataURL()")
     for grid in [192, 256, 320]:
@@ -512,6 +518,35 @@ with sync_playwright() as playwright:
     page.goto(portrait_url(args.url, pose=10))
     page.wait_for_selector("canvas[data-ready=true][data-painted=true]")
     check("canonical_pose1_pose10_are_identical", canonical == page.locator("canvas").evaluate("c=>c.toDataURL()"))
+    baked_cycles = page.evaluate(r"""async()=>{
+      const {loadBakedMaterials}=await import('/src/features/portrait/renderer/bakedMaterials.ts');
+      const {loadBakedPhysics}=await import('/src/features/portrait/renderer/bakedPhysics.ts');
+      const config={direction:1,gust:.35,stiffness:18,damping:5},report=[];
+      for(const size of [192,256,320]){
+        const {HairPhysics}=await import(`/src/features/portrait/renderer/hairPhysics.ts?baked-qa-grid=${size}`);
+        const materials=await loadBakedMaterials('/assets/portrait-rig/',size);
+        const expected=new HairPhysics(materials.locks,config,size).exportCache();
+        const actual=await loadBakedPhysics(materials.locks,size);
+        let compared=0,mismatches=0,roundoffValues=0,maxRoundoff=0;
+        for(const key of ['rest','poses'])for(let lock=0;lock<expected[key].length;lock++){
+          if(expected[key][lock].length!==actual[key][lock].length)mismatches++;
+          for(let i=0;i<expected[key][lock].length;i++){
+            compared++;const a=expected[key][lock][i],b=actual[key][lock][i],delta=Math.abs(a-b);
+            if(delta){roundoffValues++;maxRoundoff=Math.max(maxRoundoff,delta);}
+            // Node and Chromium may round a solver result to adjacent Float32 values.
+            if(delta>Math.max(1,Math.abs(a))*2**-23)mismatches++;
+          }
+        }
+        const diagnostics=[];for(const key of ['maxLengthError','maxSeamDistance','maxDisplacement']){
+          const delta=Math.abs(expected[key]-actual[key]);diagnostics.push({key,expected:expected[key],actual:actual[key],delta});
+          if(delta>1e-12)mismatches++;
+        }
+        report.push({size,compared,mismatches,roundoffValues,maxRoundoff,diagnostics});
+      }
+      return report;
+    }""")
+    for cycle in baked_cycles:
+        check(f"baked_physics_{cycle['size']}_matches_solver_at_float32_precision", cycle["compared"] > 300000 and cycle["mismatches"] == 0, cycle)
     baked_equivalence = page.evaluate(BAKED_EQUIVALENCE, {
         "loaderModule": "/src/features/portrait/renderer/bakedMaterials.ts",
         "base": "/assets/portrait-rig/",
@@ -587,7 +622,7 @@ with sync_playwright() as playwright:
     resumed_pixels = reduced_page.locator("canvas").evaluate("c=>c.toDataURL()")
     reduced_page.wait_for_timeout(500)
     worker_starts = reduced_page.evaluate("window.__workerStarts")
-    check("removing_reduced_motion_prepares_and_animates", worker_starts == 1 and resumed_pixels != reduced_page.locator("canvas").evaluate("c=>c.toDataURL()"), {"workers": worker_starts})
+    check("removing_reduced_motion_prepares_and_animates", worker_starts == 0 and resumed_pixels != reduced_page.locator("canvas").evaluate("c=>c.toDataURL()"), {"workers": worker_starts})
     reduced_page.emulate_media(reduced_motion="reduce")
     reduced_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="static"]')
     check("return_to_reduced_motion_restores_exact_canonical", canonical == reduced_page.locator("canvas").evaluate("c=>c.toDataURL()"))
@@ -595,6 +630,35 @@ with sync_playwright() as playwright:
     reduced_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="looping"]')
     check("preference_round_trip_reuses_prepared_cache", reduced_page.evaluate("window.__workerStarts") == worker_starts)
     reduced.close()
+    for storage_available in [True, False]:
+        choice_context = browser.new_context(viewport={"width": 1200, "height": 1000}, reduced_motion="reduce")
+        if not storage_available:
+            choice_context.add_init_script("Storage.prototype.getItem=Storage.prototype.setItem=()=>{throw Error('Storage unavailable')}")
+        choice_page = choice_context.new_page()
+        choice_errors = []
+        choice_page.on("pageerror", lambda error: choice_errors.append(str(error)))
+        choice_page.goto(homepage_url(args.url))
+        choice_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="static"]')
+        check(f"reduced_motion_explains_static_portrait_storage_{storage_available}",
+              choice_page.locator(".portrait-motion-notice").is_visible() and
+              "減少動態" in choice_page.locator(".portrait-motion-notice").inner_text())
+        choice_page.get_by_role("button", name="開啟動態", exact=True).click()
+        choice_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="looping"]')
+        chosen_pixels = choice_page.locator("canvas").evaluate("c=>c.toDataURL()")
+        choice_page.wait_for_timeout(700)
+        check(f"explicit_motion_choice_animates_while_os_is_reduced_storage_{storage_available}",
+              choice_page.evaluate("matchMedia('(prefers-reduced-motion:reduce)').matches") and
+              chosen_pixels != choice_page.locator("canvas").evaluate("c=>c.toDataURL()") and not choice_errors,
+              {"errors": choice_errors})
+        if storage_available:
+            choice_page.reload()
+            choice_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="looping"]')
+            check("explicit_motion_choice_survives_refresh", choice_page.get_by_role("button", name="跟隨系統", exact=True).is_visible())
+        choice_page.get_by_role("button", name="跟隨系統", exact=True).click()
+        choice_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="static"]')
+        check(f"following_system_restores_canonical_storage_{storage_available}",
+              choice_page.locator("canvas").evaluate("c=>c.toDataURL()") == canonical)
+        choice_context.close()
     windless = browser.new_context(viewport={"width": 1200, "height": 1000})
     windless.add_init_script("window.__workerStarts=0;const NativeWorker=window.Worker;window.Worker=class extends NativeWorker{constructor(...args){super(...args);window.__workerStarts++}}")
     windless_page = windless.new_page()
@@ -620,8 +684,50 @@ with sync_playwright() as playwright:
         return{initialWorkers,blinkWithoutWind:closed!==open,preparedWorkers,flowing:flowing!==open,returnedCanonical:returned===open,reusedWorkers:window.__workerStarts};
       }finally{player.destroy();}
     }""")
-    check("wind_zero_keeps_blink_and_lazily_prepares_on_resume", windless_transition["initialWorkers"] == 0 and windless_transition["blinkWithoutWind"] and windless_transition["preparedWorkers"] == 1 and windless_transition["flowing"] and windless_transition["returnedCanonical"] and windless_transition["reusedWorkers"] == 1, windless_transition)
+    check("wind_zero_keeps_blink_and_lazily_prepares_on_resume", windless_transition["initialWorkers"] == 0 and windless_transition["blinkWithoutWind"] and windless_transition["preparedWorkers"] == 0 and windless_transition["flowing"] and windless_transition["returnedCanonical"] and windless_transition["reusedWorkers"] == 0, windless_transition)
     windless.close()
+    # The normal portrait must not depend on Worker support at all. This is a
+    # persistent browser restriction, not a transient error that retries fix.
+    workerless = browser.new_context(viewport={"width": 1200, "height": 1000})
+    workerless.add_init_script("window.__workerAttempts=0;window.Worker=class{constructor(){window.__workerAttempts++;throw Error('Workers unavailable')}}")
+    workerless_page = workerless.new_page()
+    workerless_errors = []
+    workerless_page.on("pageerror", lambda error: workerless_errors.append(str(error)))
+    workerless_page.goto(homepage_url(args.url))
+    workerless_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="looping"]')
+    flowing = workerless_page.locator("canvas").evaluate("c=>c.toDataURL()")
+    workerless_page.wait_for_timeout(700)
+    check("default_portrait_animates_when_workers_are_permanently_unavailable",
+          workerless_page.evaluate("window.__workerAttempts") == 0 and
+          flowing != workerless_page.locator("canvas").evaluate("c=>c.toDataURL()") and
+          workerless_page.locator(".stage__fallback").count() == 0 and not workerless_errors,
+          {"worker_attempts": workerless_page.evaluate("window.__workerAttempts"), "errors": workerless_errors})
+    workerless.close()
+    for cache_failure in ["http", "corrupt"]:
+        cache_context = browser.new_context(viewport={"width": 1200, "height": 1000})
+        cache_context.add_init_script("window.__workerStarts=0;const NativeWorker=window.Worker;window.Worker=class extends NativeWorker{constructor(...args){super(...args);window.__workerStarts++}}")
+        cache_page = cache_context.new_page()
+        cache_requests, cache_errors = [], []
+        cache_page.on("pageerror", lambda error: cache_errors.append(str(error)))
+        def reject_cache(route):
+            cache_requests.append(route.request.url)
+            if cache_failure == "http":
+                route.fulfill(status=503, body="Temporarily unavailable")
+            else:
+                response = route.fetch()
+                data = bytearray(response.body())
+                data[-1] ^= 1
+                route.fulfill(response=response, body=bytes(data))
+        cache_page.route("**/assets/portrait-rig/wind-default-*.bin", reject_cache)
+        cache_page.goto(homepage_url(args.url))
+        cache_page.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="looping"]')
+        cache_pixels = cache_page.locator("canvas").evaluate("c=>c.toDataURL()")
+        cache_page.wait_for_timeout(700)
+        check(f"baked_physics_{cache_failure}_failure_falls_back_to_worker",
+              bool(cache_requests) and cache_page.evaluate("window.__workerStarts") == 1 and
+              cache_pixels != cache_page.locator("canvas").evaluate("c=>c.toDataURL()") and not cache_errors,
+              {"cache_requests": cache_requests, "workers": cache_page.evaluate("window.__workerStarts"), "errors": cache_errors})
+        cache_context.close()
     for failure_mode in ["constructor", "error-event"]:
         failed_context = browser.new_context(viewport={"width": 1200, "height": 1000})
         if failure_mode == "constructor":
@@ -637,8 +743,7 @@ with sync_playwright() as playwright:
             failed_page.route("**/hairPhysics.worker.ts*", lambda route: route.abort())
         failed_errors = []
         failed_page.on("pageerror", lambda error: failed_errors.append(str(error)))
-        parts = urlsplit(args.url)
-        failed_page.goto(urlunsplit((parts.scheme, parts.netloc, parts.path, "", "")))
+        failed_page.goto(homepage_url(args.url, gust=.36))
         failed_page.wait_for_selector(".stage__fallback", state="visible")
         failure_state = failed_page.evaluate("""()=>({attempts:window.__workerAttempts,terminations:window.__workerTerminations,
           fallback:[...document.querySelectorAll('.stage__fallback')].some(image=>image.complete&&image.naturalWidth>0),
@@ -667,7 +772,7 @@ with sync_playwright() as playwright:
                 if unavailable[0]: route.fulfill(status=503, body="Temporarily unavailable")
                 else: route.continue_()
             recovery.route("**/assets/portrait-rig/rig-256.png*", fail_once)
-        recovery.goto(args.url)
+        recovery.goto(homepage_url(args.url, **({"gust": .36} if failure_mode == "worker" else {})))
         recovery.wait_for_selector(".stage__fallback", state="visible")
         unavailable[0] = False
         if failure_mode == "worker": recovery.evaluate("window.__failWorker=false")
@@ -684,7 +789,7 @@ with sync_playwright() as playwright:
       window.Worker=class extends NativeWorker{constructor(...args){window.__workerAttempts++;
         if(window.__failWorker)throw new Error('temporary worker failure');super(...args)}}""")
     bounded = bounded_context.new_page()
-    bounded.goto(args.url)
+    bounded.goto(homepage_url(args.url, gust=.36))
     bounded.wait_for_function("window.__workerAttempts === 3 && document.querySelector('canvas')?.dataset.playback === 'failed'", timeout=30000)
     bounded.wait_for_timeout(500)
     attempts = bounded.evaluate("window.__workerAttempts")
@@ -724,6 +829,22 @@ with sync_playwright() as playwright:
         failure_state.update(requests=rejected_requests, errors=failed_errors)
         check(f"baked_{failure_mode}_failure_preserves_site_and_static_portrait", bool(rejected_requests) and failure_state["fallback"] and failure_state["content"] and failure_state["failed"] and not failed_errors, failure_state)
         failed_context.close()
+    entry_context = browser.new_context(viewport={"width": 1200, "height": 1000})
+    entry_context.add_init_script("const timeout=window.setTimeout;let first=true;window.setTimeout=(fn,delay,...args)=>{const fast=first&&delay===12000;if(fast)first=false;return timeout(fn,fast?100:delay,...args)}")
+    entry = entry_context.new_page()
+    entry.route("**/src/main.tsx*", lambda route: route.abort())
+    entry.goto(homepage_url(args.url))
+    entry.wait_for_selector("#site-startup-status", state="visible")
+    check("missing_entry_module_explains_static_site",
+          "靜態網站" in entry.locator("#site-startup-status").inner_text() and
+          all(entry.locator(selector).count() > 0 for selector in ["main", "#about", "#work", "#contact", "footer"]))
+    entry.unroute("**/src/main.tsx*")
+    entry.locator("#site-startup-status").get_by_role("button", name="重新載入").click()
+    entry.wait_for_load_state("domcontentloaded")
+    entry.evaluate("scrollTo(0,0)")
+    entry.wait_for_selector('canvas[data-ready=true][data-painted=true][data-playback="looping"]')
+    check("entry_reload_recovers_and_clears_static_explanation", entry.locator("#site-startup-status").is_hidden())
+    entry_context.close()
     lifecycle = page.evaluate(r"""async()=>{
       const {PortraitPlayer}=await import('/src/features/portrait/animation/portraitPlayer.ts');
       const {readStageOptions}=await import('/src/features/portrait/animation/stageOptions.ts');

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "config": {
+    "direction": 1,
+    "gust": 0.35,
+    "stiffness": 18,
+    "damping": 5
+  },
+  "sources": [
+    {
+      "file": "src/features/portrait/renderer/hairPhysics.ts",
+      "bytes": 15387,
+      "sha256": "9f0fee359ed52256d0ba26498beb130624511bcc684581dfd982bb2ffcf63ed4"
+    },
+    {
+      "file": "src/features/portrait/renderer/hairTypes.ts",
+      "bytes": 1782,
+      "sha256": "c40e1f964996d0a24d7a3939b2b0ffa2f2fefef4355af2e50a47694f6cda9bfc"
+    },
+    {
+      "file": "src/features/portrait/animation/portraitTimeline.ts",
+      "bytes": 6539,
+      "sha256": "81d43a4246750208b17706fdce97778eb99566ea318b99e7c5bf8392cd25608f"
+    },
+    {
+      "file": "src/features/portrait/animation/stageOptions.ts",
+      "bytes": 1886,
+      "sha256": "bc55c0a63457a06550afc59e56000d75d24e7bd4e26ffc711327c48c7b748e6d"
+    },
+    {
+      "file": "scripts/assets/export_baked_physics.mjs",
+      "bytes": 4120,
+      "sha256": "ea0d72bdcc042a91ec54c11a302cd70809b2ca0352a527364dbe88d23419020f"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "public/assets/portrait-rig/rig-192.json",
+      "bytes": 12175,
+      "sha256": "62e72de78d127fc350f0a109e205ebaf8def1144c8d6331a341d0e64ef0607e6"
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-256.json",
+      "bytes": 12111,
+      "sha256": "43276f0e231cc847b9abdac9fa4a6be68fd1c375eb3d4172d2ea79cb95c2b72f"
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-320.json",
+      "bytes": 12184,
+      "sha256": "44af8929aa8d8f48d970c266e39c494dd6b3bb484a36598d08046daa513685e4"
+    }
+  ],
+  "files": [
+    {
+      "file": "public/assets/portrait-rig/wind-default-ac7f3b1498e36955.bin",
+      "bytes": 1476672,
+      "sha256": "ac7f3b1498e369552853228aee10537b5ee293e1ce606e436c417983d360ee9a"
+    },
+    {
+      "file": "public/assets/portrait-rig/wind-default-31da6069d17f1dbb.bin",
+      "bytes": 1476672,
+      "sha256": "31da6069d17f1dbbf9f6347d9628193cec2c0a94cca9af89d2ecd93637f45608"
+    },
+    {
+      "file": "public/assets/portrait-rig/wind-default-2a0fa79ede344201.bin",
+      "bytes": 1476672,
+      "sha256": "2a0fa79ede34420164f8b3d6791f87463df3f0a01dd37d4b1f049c9fd621ff8b"
+    },
+    {
+      "file": "src/features/portrait/renderer/bakedPhysicsManifest.ts",
+      "bytes": 1146,
+      "sha256": "1646ccb82b9e9948d6d42b6af4307eb4330aa15899062bffa68e72700fe7b67d"
+    }
+  ]
+}

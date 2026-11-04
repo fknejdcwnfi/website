@@ -16,21 +16,16 @@ const finite = (value: number, fallback: number, low: number, high: number): num
   Number.isFinite(value) ? Math.max(low, Math.min(high, value)) : fallback
 const wrap = (time: number): number => Number.isFinite(time) ? ((time % LOOP_MS) + LOOP_MS) % LOOP_MS : 0
 
-/** Compact, smooth gusts at the reference's original time scale, never frame driven. */
-const gust = (time: number, center: number, width: number): number => {
-  let distance = Math.abs(time - center)
-  distance = Math.min(distance, PERIOD_SECONDS - distance)
-  if (distance >= width) return 0
-  const crest = (1 + Math.cos(Math.PI * distance / width)) * 0.5
-  return crest * crest
-}
-
+/** Overlapping broad weather waves keep the load moving through the whole cycle.
+ * Narrow isolated gusts make the portrait repeatedly open and fall shut. These
+ * periodic components represent one uninterrupted breeze with unequal swells;
+ * their value and derivatives also join across the twelve-second seam.
+ */
 export const sampleReferenceWind = (timeMs: number): number => {
   const time = wrap(timeMs) / 1000
-  return 0.22 + 0.07 * Math.sin(TAU * time / PERIOD_SECONDS - 0.4)
-    + 0.055 * Math.sin(TAU * time / 4 + 0.7) + 0.035 * Math.sin(TAU * time / 3 - 0.8)
-    + 0.90 * gust(time, 2.15, 1.25) + 0.78 * gust(time, 4.15, 0.95)
-    + 0.82 * gust(time, 8.15, 1.2) + 0.68 * gust(time, 10.15, 0.95)
+  return 0.47 + 0.31 * Math.sin(TAU * time / 6 - 0.75)
+    + 0.13 * Math.sin(TAU * time / PERIOD_SECONDS + 0.4)
+    + 0.045 * Math.sin(TAU * time / 4 - 1)
 }
 
 type Rod = {
@@ -45,6 +40,7 @@ type Rod = {
   bendCompliance: number
   wind: number
   side: number
+  travelMs: number
 }
 
 export type HairPhysicsCache = {
@@ -82,6 +78,7 @@ const makeRod = (material: HairMaterial, scale: number, config: HairPhysicsConfi
     drag: finite(material.motion.drag, 1, 0.2, 4) * finite(config.damping, 5, 1, 12),
     bendCompliance: 0.0000003 / (finite(material.motion.bend, 1, 0.15, 5) * finite(config.stiffness, 18, 5, 40) / 18),
     wind: finite(material.motion.wind, 1, 0, 3), side: material.side === -1 ? -1 : 1,
+    travelMs: 180 + Math.min(240, lengths.reduce((sum, value) => sum + value, 0) * 0.9),
   }
 }
 
@@ -152,15 +149,17 @@ const stepRod = (rod: Rod, timeMs: number, config: HairPhysicsConfig, index: num
     const normalExposure = 0.35 + 0.65 * Math.abs(ty) / Math.max(0.001, tangentLength)
     // The gust front travels through the lock; free ends receive its load
     // later instead of every node being forced by one simultaneous scalar.
-    const wind = sampleReferenceWind(timeMs - index * 27 - u * u * 180) * (0.82 + detail * 0.5)
+    const wind = sampleReferenceWind(timeMs - index * 27 - u * u * rod.travelMs) * (0.82 + detail * 0.5)
     const load = wind * rod.wind * (0.32 + 0.68 * u) * rod.inverseMass[node]!
     // One world-space breeze acts on both sides of the portrait. Applying
     // opposite forces per side makes every gust open the hair symmetrically.
     // The face-side cutout has only the visible original artwork behind it;
     // attenuate inward movement so it cannot sweep across the portrait.
     const horizontal = rod.side * direction < 0 ? 120 : 350
-    const fx = direction * load * horizontal * normalExposure + (rest[i]! - x) * restoration
-    const fy = -load * 80 + (rest[i + 1]! - y) * restoration
+    const elasticity = restoration * (1 - 0.18 * u * u)
+    const fx = direction * load * horizontal * normalExposure + (rest[i]! - x) * elasticity
+    const flutter = 1 + 0.22 * u * u * Math.sin(TAU * timeMs / 6000 - u * 1.8 - index * 0.3)
+    const fy = -load * 80 * flutter + (rest[i + 1]! - y) * elasticity
     p[i] = x + vx + fx * DT * DT
     p[i + 1] = y + vy + fy * DT * DT
   }

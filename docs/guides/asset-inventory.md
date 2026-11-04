@@ -10,6 +10,8 @@
 
 正式Player讀 `rig-{size}.png/json`預烘焙圖層；三尺寸PNG為顯式58種RGBA索引與透明表，逐byte解碼一致，預設80,208bytes。binding／圖集SHA及來源程式／輸入圖依賴列在 `baked-manifest.json`；修改分層程式後重跑 `scripts/assets/export_baked_portrait.py`。原圖三素材仍用於authoring驗收與靜態poster，不再由Player現場拆層。
 
+預設物理另有 `wind-default-<sha>.bin` 與 `physics-manifest.json`，由相同求解器按各網格產生。不是新美術素材或預錄影片；匯出命令與完整性策略見[持續風動](reliable-motion.md)。
+
 ## 個人網站字體與內容來源
 
 - `public/fonts/PressStart2P-Regular.ttf`：Press Start 2P，由Google Fonts公開來源自託管；[public/fonts/OFL.txt](../../public/fonts/OFL.txt)保存SIL Open Font License。網站不向外部字體CDN請求資源，中文使用系統字體。

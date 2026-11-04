@@ -34,6 +34,7 @@ export class PortraitPlayer {
     private readonly snapshot?: (value: TimelineSample) => void,
     private readonly onError?: () => void,
     private readonly onFirstPaint?: () => void,
+    private motionEnabled = false,
   ) {
     canvas.width = options.pixel
     canvas.height = portraitHeight(options.pixel)
@@ -104,8 +105,17 @@ export class PortraitPlayer {
     }
   }
 
+  private reducesMotion(): boolean { return this.motion.matches && !this.motionEnabled }
+
+  /** An explicit visitor choice can enable this portrait while the OS stays reduced. */
+  setMotionEnabled(enabled: boolean): void {
+    if (this.motionEnabled === enabled || this.destroyed) return
+    this.motionEnabled = enabled
+    this.preference()
+  }
+
   blink(): void {
-    if (this.motion.matches || this.options.frozenPose !== null || this.options.timeMs !== null) return
+    if (this.reducesMotion() || this.options.frozenPose !== null || this.options.timeMs !== null) return
     this.manualBlink = 0
     this.sync()
   }
@@ -129,11 +139,11 @@ export class PortraitPlayer {
   }
 
   private staticMode(): boolean {
-    return this.motion.matches || this.options.frozenPose !== null || this.options.paused || this.options.timeMs !== null
+    return this.reducesMotion() || this.options.frozenPose !== null || this.options.paused || this.options.timeMs !== null
   }
 
   private canonicalMode(): boolean {
-    return this.motion.matches || this.options.frozenPose === 1 || this.options.frozenPose === 10
+    return this.reducesMotion() || this.options.frozenPose === 1 || this.options.frozenPose === 10
       || this.options.wind === 0 || this.options.direction === 0
   }
 
@@ -143,11 +153,11 @@ export class PortraitPlayer {
   }
 
   private active(): boolean {
-    return !this.staticMode() || (this.manualBlink !== null && !this.motion.matches)
+    return !this.staticMode() || (this.manualBlink !== null && !this.reducesMotion())
   }
 
   private paint(): void {
-    const sample = samplePortrait(this.options.timeMs ?? (this.motion.matches ? 0 : this.elapsed), this.options.wind, this.options.frozenPose)
+    const sample = samplePortrait(this.options.timeMs ?? (this.reducesMotion() ? 0 : this.elapsed), this.options.wind, this.options.frozenPose)
     if (this.manualBlink !== null) {
       sample.eyeOpen = sampleBlinkProgress(this.manualBlink)
     }
@@ -175,7 +185,7 @@ export class PortraitPlayer {
       this.canvas.dataset.playback = 'suspended'
       return
     }
-    if (this.motion.matches) this.manualBlink = null
+    if (this.reducesMotion()) this.manualBlink = null
     this.canvas.dataset.playback = this.staticMode() ? 'static' : 'looping'
     if (!this.renderSafely()) return
     if (this.active()) this.raf = requestAnimationFrame(this.tick)
@@ -185,7 +195,7 @@ export class PortraitPlayer {
     if (this.destroyed || document.hidden || !this.viewportVisible) return
     if (!this.active()) {
       // A media preference may update between the queued frame and its event.
-      if (this.motion.matches) this.manualBlink = null
+      if (this.reducesMotion()) this.manualBlink = null
       this.canvas.dataset.playback = 'static'
       if (!this.renderSafely()) return
       this.raf = 0
