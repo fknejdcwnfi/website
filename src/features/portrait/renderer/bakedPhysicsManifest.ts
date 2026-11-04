@@ -2,27 +2,27 @@
 export const bakedPhysicsConfig = {"direction":1,"gust":0.35,"stiffness":18,"damping":5} as const
 export const bakedPhysicsManifest = {
   "192": {
-    "file": "wind-default-ac7f3b1498e36955.bin",
+    "file": "wind-default-603c3aa881386fd1.bin",
     "bytes": 1476672,
-    "sha256": "ac7f3b1498e369552853228aee10537b5ee293e1ce606e436c417983d360ee9a",
+    "sha256": "603c3aa881386fd1219dc89aa660667cfcffd6446a49b085f4f5e447ed51217a",
     "bindingSha256": "88affd787c903d339ee1393c4915d0a21cd7a27539ed1234045b8d3e069a4eee",
     "locks": 8,
     "nodes": 16,
     "frames": 1441
   },
   "256": {
-    "file": "wind-default-31da6069d17f1dbb.bin",
+    "file": "wind-default-ef4aaf78bc5aeca9.bin",
     "bytes": 1476672,
-    "sha256": "31da6069d17f1dbbf9f6347d9628193cec2c0a94cca9af89d2ecd93637f45608",
+    "sha256": "ef4aaf78bc5aeca9166e41b1e819706ea721fffb35ae5926d52818da776c1bf2",
     "bindingSha256": "88affd787c903d339ee1393c4915d0a21cd7a27539ed1234045b8d3e069a4eee",
     "locks": 8,
     "nodes": 16,
     "frames": 1441
   },
   "320": {
-    "file": "wind-default-2a0fa79ede344201.bin",
+    "file": "wind-default-00b40de9dee99ba5.bin",
     "bytes": 1476672,
-    "sha256": "2a0fa79ede34420164f8b3d6791f87463df3f0a01dd37d4b1f049c9fd621ff8b",
+    "sha256": "00b40de9dee99ba5d67212430db2c33e707bfb908d2e2342d4c4255e49f794e6",
     "bindingSha256": "c92edaa95485e2003a6aa657ff6bb04a26de347a3832695ca921aa992e99a194",
     "locks": 8,
     "nodes": 16,

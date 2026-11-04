@@ -13,6 +13,8 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Read in this order
 
+0. Read [`docs/guides/air-breeze.md`](docs/guides/air-breeze.md) for the current horizontal drag and anti-updraft contract.
+
 0. Read [`docs/guides/reliable-motion.md`](docs/guides/reliable-motion.md) first for the current precomputed default, motion consent and startup behavior.
 
 0. [`docs/guides/video-layered-rebuild.md`](docs/guides/video-layered-rebuild.md) — latest uploaded-video-driven cutout/mesh reconstruction
@@ -119,7 +121,7 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
   field/inverse-map renderer is archived in `src/archive/fieldPortrait/`.
 - Eight current complete hair materials, canonical face/body clean plate, original local
   eyelids and independently pivoting complete earrings. The 12-second wind contains
-  two six-second reference-scale gust phrases. The accepted 24-second blink clock
+  a persistent lateral breeze and per-lock local eddies. Do not restore the unconditional upward wind load rejected as a rising tide. The accepted 24-second blink clock
   remains at 4400/11300/20300 ms with 280 ms events.
 - Reduced motion, poses1/10, wind0 and direction0 paint canonical pixels immediately
   without starting a physics Worker. Wind0 still retains independent blinking.

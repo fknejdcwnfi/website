@@ -9,8 +9,8 @@
   "sources": [
     {
       "file": "src/features/portrait/renderer/hairPhysics.ts",
-      "bytes": 15387,
-      "sha256": "9f0fee359ed52256d0ba26498beb130624511bcc684581dfd982bb2ffcf63ed4"
+      "bytes": 16008,
+      "sha256": "d1aa48d462fb8a2ec1962bb42a7d581fb12d4427a26d7788185819ccb199698c"
     },
     {
       "file": "src/features/portrait/renderer/hairTypes.ts",
@@ -52,24 +52,24 @@
   ],
   "files": [
     {
-      "file": "public/assets/portrait-rig/wind-default-ac7f3b1498e36955.bin",
+      "file": "public/assets/portrait-rig/wind-default-603c3aa881386fd1.bin",
       "bytes": 1476672,
-      "sha256": "ac7f3b1498e369552853228aee10537b5ee293e1ce606e436c417983d360ee9a"
+      "sha256": "603c3aa881386fd1219dc89aa660667cfcffd6446a49b085f4f5e447ed51217a"
     },
     {
-      "file": "public/assets/portrait-rig/wind-default-31da6069d17f1dbb.bin",
+      "file": "public/assets/portrait-rig/wind-default-ef4aaf78bc5aeca9.bin",
       "bytes": 1476672,
-      "sha256": "31da6069d17f1dbbf9f6347d9628193cec2c0a94cca9af89d2ecd93637f45608"
+      "sha256": "ef4aaf78bc5aeca9166e41b1e819706ea721fffb35ae5926d52818da776c1bf2"
     },
     {
-      "file": "public/assets/portrait-rig/wind-default-2a0fa79ede344201.bin",
+      "file": "public/assets/portrait-rig/wind-default-00b40de9dee99ba5.bin",
       "bytes": 1476672,
-      "sha256": "2a0fa79ede34420164f8b3d6791f87463df3f0a01dd37d4b1f049c9fd621ff8b"
+      "sha256": "00b40de9dee99ba5d67212430db2c33e707bfb908d2e2342d4c4255e49f794e6"
     },
     {
       "file": "src/features/portrait/renderer/bakedPhysicsManifest.ts",
       "bytes": 1146,
-      "sha256": "1646ccb82b9e9948d6d42b6af4307eb4330aa15899062bffa68e72700fe7b67d"
+      "sha256": "0747f6eb6a291a063e27f34abc95191722f6913c40d900d4b5acdf201d6da895"
     }
   ]
 }

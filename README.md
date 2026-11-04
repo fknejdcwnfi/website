@@ -8,11 +8,11 @@
 
 保留同一張原近景角色、256²像素格與透明輪廓，依上傳影片從頭重建八條完整髮束。每束沿自身S形弧長綁定十六節點，以240Hz長度／曲率XPBD求解，預設讀取預烘焙120Hz姿態緩存，自訂物理才由Worker預熱；預烘焙圖集省去訪客端分層／補底計算，獨立三角網格呈現整束彎曲、分離、回彈及隨髮移動的原圖投影。原眨眼與完整耳環獨立運動，五官不重新生成。
 
-最新播放恢復、連貫風波、驗收及效能見[持續風動與播放狀態](docs/guides/reliable-motion.md)。本輪證據位於 `artifacts/reliable-motion/`；PR #9的field效果已被擁有者拒絕，保留其證據作歷史，預設不再使用。
+最新髮動以[橫向風阻與下垂髮束](docs/guides/air-breeze.md)為準；啟動可靠性見[播放狀態](docs/guides/reliable-motion.md)。本輪證據位於 `artifacts/air-breeze/`；PR #9的field效果已被擁有者拒絕，保留其證據作歷史，預設不再使用。
 
-![目前完整網站](artifacts/reliable-motion/site/hero.png)
+![目前完整網站](artifacts/air-breeze/site/hero.png)
 
-[完整桌機](artifacts/reliable-motion/site/desktop.png) · [手機](artifacts/reliable-motion/site/mobile.png) · [無JavaScript](artifacts/reliable-motion/site/no-javascript.png) · [60fps審查影片](artifacts/reliable-motion/portrait/animation-60fps.mp4)
+[完整桌機](artifacts/air-breeze/site/desktop.png) · [手機](artifacts/air-breeze/site/mobile.png) · [無JavaScript](artifacts/air-breeze/site/no-javascript.png) · [60fps審查影片](artifacts/air-breeze/portrait/animation-60fps.mp4)
 
 ## 開始開發
 
