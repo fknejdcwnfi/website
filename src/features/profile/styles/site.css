@@ -122,6 +122,22 @@
 .site-footer svg { width: 13px; height: 13px; }
 .personal-site section[id], .personal-site tr[id] { scroll-margin-top: 28px; }
 
+/* Keep the page itself alive without moving or resampling the pixel portrait. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__copy { animation: page-intro 600ms cubic-bezier(.22, .7, .2, 1) both; }
+  .hero h1 > span { display: inline-block; transform-origin: 70% 70%; animation: welcome-wave 9s ease-in-out 900ms infinite; }
+  .welcome-note__title > span { animation: welcome-sparkle 4.8s ease-in-out infinite; }
+  .site-header__nav a, .site-sidebar a, .site-toc a, .site-footer a { transition: color 180ms ease; }
+  .site-header__nav a { position: relative; }
+  .site-header__nav a::after { content: ''; position: absolute; right: 0; bottom: 5px; left: 0; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
+  .site-header__nav a:hover::after, .site-header__nav a:focus-visible::after { transform: scaleX(1); }
+  .site-search form { transition: background-color 180ms ease; }
+  .site-search form:focus-within { background-color: #293779; }
+}
+@keyframes page-intro { from { opacity: .65; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes welcome-wave { 0%, 8%, 100% { transform: rotate(0); } 2%, 6% { transform: rotate(13deg); } 4% { transform: rotate(-8deg); } }
+@keyframes welcome-sparkle { 0%, 100% { opacity: .72; transform: scale(.94); } 50% { opacity: 1; transform: scale(1.08); } }
+
 @media (min-width: 1750px) { .document-layout { grid-template-columns: 205px minmax(0, 1fr) 205px; gap: 82px; } }
 @media (max-width: 1200px) {
   .site-container { width: calc(100% - 64px); }

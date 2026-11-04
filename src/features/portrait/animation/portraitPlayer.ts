@@ -33,6 +33,7 @@ export class PortraitPlayer {
     private options: StageOptions,
     private readonly snapshot?: (value: TimelineSample) => void,
     private readonly onError?: () => void,
+    private readonly onFirstPaint?: () => void,
   ) {
     canvas.width = options.pixel
     canvas.height = portraitHeight(options.pixel)
@@ -152,7 +153,9 @@ export class PortraitPlayer {
     }
     const canonicalRest = this.canonicalMode()
     this.rig?.paint(this.ctx, this.table, sample.timeMs, canonicalRest ? 0 : this.options.wind, sample.eyeOpen)
+    const firstPaint = this.canvas.dataset.painted !== 'true'
     this.canvas.dataset.painted = 'true'
+    if (firstPaint) this.onFirstPaint?.()
     if (this.elapsed - this.lastSnapshot >= 80 || this.staticMode()) {
       this.snapshot?.(sample)
       this.lastSnapshot = this.elapsed

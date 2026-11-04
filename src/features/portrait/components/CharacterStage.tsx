@@ -20,18 +20,52 @@ export default function CharacterStage() {
   const [options, setOptions] = useState(initialOptions)
   const portraitRef = useRef<PortraitPlayer | null>(null)
   const [failed, setFailed] = useState(false)
+  const [retry, setRetry] = useState(0)
+  const retryAttempts = useRef(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
     if (options.style === 'portrait') {
-      const player = new PortraitPlayer(canvas, options, options.debug ? setSnapshot : undefined, () => setFailed(true))
+      let cancelled = false
+      let waitingForRecovery = false
+      let retryTimer: number | undefined
+      const restart = (): void => {
+        if (cancelled || !waitingForRecovery) return
+        waitingForRecovery = false
+        setRetry((value) => value + 1)
+      }
+      const onOnline = (): void => {
+        if (!waitingForRecovery) return
+        retryAttempts.current = 0
+        if (retryTimer !== undefined) window.clearTimeout(retryTimer)
+        restart()
+      }
+      const player = new PortraitPlayer(canvas, options, options.debug ? setSnapshot : undefined, () => {
+        if (cancelled) return
+        setFailed(true)
+        waitingForRecovery = true
+        if (retryAttempts.current < 2) {
+          const delay = [2_000, 5_000][retryAttempts.current++]!
+          retryTimer = window.setTimeout(restart, delay)
+        }
+      }, () => {
+        if (cancelled) return
+        retryAttempts.current = 0
+        setFailed(false)
+      })
       portraitRef.current = player
+      window.addEventListener('online', onOnline)
       const observer = 'IntersectionObserver' in window
         ? new IntersectionObserver(([entry]) => player.setViewportVisible(entry?.isIntersecting ?? true)) : null
       observer?.observe(canvas)
-      return () => { observer?.disconnect(); player.destroy(); portraitRef.current = null }
+      return () => {
+        cancelled = true
+        if (retryTimer !== undefined) window.clearTimeout(retryTimer)
+        window.removeEventListener('online', onOnline)
+        observer?.disconnect(); player.destroy(); portraitRef.current = null
+      }
     }
 
     // Archived renderers stay outside the homepage's loaded module graph.
@@ -76,7 +110,7 @@ export default function CharacterStage() {
       cancelled = true
       dispose?.()
     }
-  }, [options.style, options.pixel])
+  }, [options.style, options.pixel, retry])
 
   useEffect(() => { portraitRef.current?.update(options) }, [options])
 
@@ -124,7 +158,7 @@ export default function CharacterStage() {
         <PortraitControls options={options} change={(patch) => setOptions((current) => ({ ...current, ...patch }))}
           blink={() => portraitRef.current?.blink()} />
       ) : null}
-      {failed ? <p role="status" className="portrait-error">先為你顯示靜態肖像。</p> : null}
+      {failed ? <p role="status" className="portrait-error">動態肖像暫時無法載入，已顯示靜態肖像。</p> : null}
     </div>
   )
 }
