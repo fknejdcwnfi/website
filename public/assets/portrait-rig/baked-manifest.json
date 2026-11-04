@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "method": "Unchanged createHairMaterials Canvas output, packed losslessly at build time. Canvas PNG round trip and explicit RGBA-to-indexed-PNG round trip verified byte-for-byte; no color quantization or dithering.",
+  "logical_sizes": [
+    192,
+    256,
+    320
+  ],
+  "sources": [
+    {
+      "file": "src/features/portrait/renderer/hairMaterials.ts",
+      "bytes": 18266,
+      "sha256": "85a51a2dc87dd068cd634eb2cd8ad60eddc516564c131eb79ef81128fd9f0350"
+    },
+    {
+      "file": "src/features/portrait/renderer/hairTypes.ts",
+      "bytes": 1782,
+      "sha256": "c40e1f964996d0a24d7a3939b2b0ffa2f2fefef4355af2e50a47694f6cda9bfc"
+    },
+    {
+      "file": "src/features/portrait/renderer/portraitJewelry.ts",
+      "bytes": 3814,
+      "sha256": "ea8d706652a94a65314e6719fd2ba5a53414106f1fe1932b1c5e6f2d14507220"
+    },
+    {
+      "file": "src/features/portrait/renderer/portraitAsset.ts",
+      "bytes": 3391,
+      "sha256": "2489fd76b2167fdd51415e6d2d55a192ef08e9d8d5d533d43530ce0373f33a42"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "public/assets/portrait-natural/base-192.png",
+      "bytes": 34502,
+      "sha256": "cc26b3565eb96d6f65d38f73a10bfe67e54954e27461b03142eade2231850a9d",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "public/assets/portrait-natural/eyelids-192.png",
+      "bytes": 33999,
+      "sha256": "04b54c596a73f7e85276699c80c44c0e80da41d2bb06dd3e40088c248b50cbba",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "public/assets/portrait-natural/underpaint-192.png",
+      "bytes": 27476,
+      "sha256": "284409631874c42569c50d35d1aa467a192efff6ea0de6ceefdca2fbae652f70",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "public/assets/portrait-rig/hair-matte-192.png",
+      "bytes": 7565,
+      "sha256": "76b5bbc65078d479763f24d9f2bc3e379afced09d1f69a110a5ed917bb44c820",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "public/assets/portrait-natural/base.png",
+      "bytes": 51646,
+      "sha256": "fc23d3a277957ec7413bfea79ad8b04083aee04e1529747058869d8f15ee7b07",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/assets/portrait-natural/eyelids.png",
+      "bytes": 51674,
+      "sha256": "1fb65892ef16471c20b085f809b1afbf8219e86edd108c393cf1e0dca9d0b6b4",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/assets/portrait-natural/underpaint.png",
+      "bytes": 41746,
+      "sha256": "06468f9beefc11847e4a6fb11143853b67e865230ea2553ad82f846a32be54a1",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/assets/portrait-rig/hair-matte.png",
+      "bytes": 10938,
+      "sha256": "4763e5bac4e47b1ef6cff2dc8ddc3be2c356a870516d98d32c13d3d37d5d0eb8",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/assets/portrait-natural/base-320.png",
+      "bytes": 71539,
+      "sha256": "d603b7073c6b6cd05c5a5574911a1ea7e9c6db6c570e2fc1c04bed7ca8d56f6d",
+      "width": 320,
+      "height": 320
+    },
+    {
+      "file": "public/assets/portrait-natural/eyelids-320.png",
+      "bytes": 71612,
+      "sha256": "9a589411df177e0e3f5ccf341889dece263046482419bf68fcfd19025c843f92",
+      "width": 320,
+      "height": 320
+    },
+    {
+      "file": "public/assets/portrait-natural/underpaint-320.png",
+      "bytes": 58799,
+      "sha256": "93e9b6c793ffe85b2c99edfbf3981d9f1d409dac2d323cef004523586304ac0b",
+      "width": 320,
+      "height": 320
+    },
+    {
+      "file": "public/assets/portrait-rig/hair-matte-320.png",
+      "bytes": 14960,
+      "sha256": "13e4627961691f1319dbb6d4a61f1c1e0f61da6f2e03aed54091e667f4b7b901",
+      "width": 320,
+      "height": 320
+    }
+  ],
+  "files": [
+    {
+      "file": "public/assets/portrait-rig/rig-192.png",
+      "bytes": 52398,
+      "sha256": "738bbf297f787bf81e85bb7fbbd49a97a8521b8cf4a019edcc8323b760e62363",
+      "width": 768,
+      "height": 768
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-192.json",
+      "bytes": 12175,
+      "sha256": "62e72de78d127fc350f0a109e205ebaf8def1144c8d6331a341d0e64ef0607e6",
+      "size": 192
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-256.png",
+      "bytes": 80208,
+      "sha256": "b65a05288592e8fa0f5c6c4abb99810ab2e958398e0920db660bc50f3eb13f20",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-256.json",
+      "bytes": 12111,
+      "sha256": "43276f0e231cc847b9abdac9fa4a6be68fd1c375eb3d4172d2ea79cb95c2b72f",
+      "size": 256
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-320.png",
+      "bytes": 112989,
+      "sha256": "354afcc2e3bc81b9ad5d8795ce685d4c4ac61e8fd36a2bf430758b114f1ccbb9",
+      "width": 1280,
+      "height": 1280
+    },
+    {
+      "file": "public/assets/portrait-rig/rig-320.json",
+      "bytes": 12184,
+      "sha256": "44af8929aa8d8f48d970c266e39c494dd6b3bb484a36598d08046daa513685e4",
+      "size": 320
+    }
+  ]
+}

@@ -115,6 +115,48 @@ def main() -> int:
             if not path.is_file() or sha256(path) != entry['sha256']:
                 fail(errors, f'portrait master provenance mismatch: {entry["file"]}')
 
+    layered_manifest = ROOT / 'public' / 'assets' / 'portrait-rig' / 'manifest.json'
+    if not layered_manifest.is_file():
+        fail(errors, 'missing layered portrait selection manifest')
+    else:
+        layered = json.loads(layered_manifest.read_text(encoding='utf-8'))
+        canonical = ROOT / layered['canonical']
+        if not canonical.is_file() or sha256(canonical) != layered['canonical_sha256']:
+            fail(errors, 'layered portrait canonical provenance mismatch')
+        for entry in layered['files']:
+            path = ROOT / entry['file']
+            if not path.is_file():
+                fail(errors, f'missing layered material: {entry["file"]}')
+                continue
+            data = path.read_bytes()
+            if sha256(path) != entry['sha256'] or len(data) != entry['bytes']:
+                fail(errors, f'layered material integrity mismatch: {entry["file"]}')
+            if len(data) < 24 or data[:8] != b'\x89PNG\r\n\x1a\n' or struct.unpack('>II', data[16:24]) != (entry['width'], entry['height']):
+                fail(errors, f'invalid layered material PNG: {entry["file"]}')
+
+    baked_manifest = ROOT / 'public' / 'assets' / 'portrait-rig' / 'baked-manifest.json'
+    if not baked_manifest.is_file():
+        fail(errors, 'missing baked portrait manifest')
+    else:
+        baked = json.loads(baked_manifest.read_text(encoding='utf-8'))
+        for category in ('sources', 'inputs', 'files'):
+            for entry in baked[category]:
+                path = ROOT / entry['file']
+                if not path.is_file():
+                    fail(errors, f'missing baked dependency: {entry["file"]}')
+                    continue
+                data = path.read_bytes()
+                if len(data) != entry['bytes'] or sha256(path) != entry['sha256']:
+                    fail(errors, f'stale baked dependency: {entry["file"]}; re-export portrait layers')
+                if entry['file'].endswith('.png') and (len(data) < 24 or data[:8] != b'\x89PNG\r\n\x1a\n' or
+                    struct.unpack('>II', data[16:24]) != (entry['width'], entry['height'])):
+                    fail(errors, f'invalid baked PNG: {entry["file"]}')
+                if category == 'files' and entry['file'].endswith('.json'):
+                    metadata = json.loads(data)
+                    atlas = path.parent / metadata['atlas']
+                    if metadata['size'] != entry['size'] or not atlas.is_file() or sha256(atlas) != metadata['atlas_sha256']:
+                        fail(errors, f'baked metadata/atlas mismatch: {entry["file"]}')
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

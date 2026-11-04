@@ -13,13 +13,14 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Read in this order
 
-0. [`docs/guides/reference-rebuild.md`](docs/guides/reference-rebuild.md) — latest blue document layout and physical-strand refactor
-1. [`docs/guides/personal-site.md`](docs/guides/personal-site.md) — current website and personalization contract
-2. [`docs/guides/living-portrait.md`](docs/guides/living-portrait.md) — portrait subsystem contract
-3. [`docs/guides/reference-wind.md`](docs/guides/reference-wind.md) — prior visible-wind baseline and measured evidence
-4. [`docs/guides/development.md`](docs/guides/development.md) — architecture, commands and deployment
-5. [`docs/guides/asset-inventory.md`](docs/guides/asset-inventory.md) — provenance and limitations
-6. [`docs/decisions.md`](docs/decisions.md) — decision history
+0. [`docs/guides/video-layered-rebuild.md`](docs/guides/video-layered-rebuild.md) — latest uploaded-video-driven cutout/mesh reconstruction
+1. [`docs/guides/reference-rebuild.md`](docs/guides/reference-rebuild.md) — prior document layout and rejected field-animation baseline
+2. [`docs/guides/personal-site.md`](docs/guides/personal-site.md) — website and personalization contract
+3. [`docs/guides/living-portrait.md`](docs/guides/living-portrait.md) — identity and pixel presentation
+4. [`docs/guides/reference-wind.md`](docs/guides/reference-wind.md) — historical visible-wind baseline
+5. [`docs/guides/development.md`](docs/guides/development.md) — commands and deployment
+6. [`docs/guides/asset-inventory.md`](docs/guides/asset-inventory.md) — provenance and limitations
+7. [`docs/decisions.md`](docs/decisions.md) — decision history
 
 `docs/archive/` contains dated earlier stages, not the current implementation contract.
 
@@ -46,7 +47,7 @@ documents listed below. Do not start coding before you understand the hard rules
   real projects, contact links and footer are required.
   The former character-only / no-UI restriction is superseded by ADR-016.
   The normal homepage has no public play/pause controls: hair moves continuously
-  on a gentle 12000 ms cycle while visible, with a separate 24000 ms blink schedule. Keep manual controls opt-in via debug=1 or
+  on a reference-driven 12000 ms physical cycle while visible, with a separate 24000 ms blink schedule. Keep manual controls opt-in via debug=1 or
   explicit QA parameters; honor reduced motion and visibility suspension.
 - **Use a centered, circular, borderless portrait presentation.** The owner's latest
   2026-10-29 request supersedes the earlier unclipped silhouette presentation.
@@ -109,15 +110,22 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
 - Default: responsive personal homepage with an indigo double header, white document
   layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
-- Hero / isolated view=portrait: canonical 2D pixel portrait with bounded local
-  hair layers with 17 coupled damped-spring stations per lock, C1 Hermite curves,
-  reachable raster-span caches, hidden underpaint repair, eyelids
-  and separately delayed left/right jewelry. Transparent256² grid, with
-  192² and 320² alternatives; continuous 12000 ms gentle wind while
-  visible, with independent 280 ms blinks at 4400/11300/20300 ms in a 24000 ms schedule. Hidden/offscreen suspension preserves phase; reduced motion and
-  explicit pause/t/pose retain static behavior.
-- New natural portrait masters are in `assets/generated/portrait-v4/`; runtime
-  materials are in `public/assets/portrait-natural/`. The transparent static
+- Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their
+  own arc-length spines and forward skeletal triangle meshes. Sixteen-node XPBD
+  rods use 240 Hz constrained steps, three warmup cycles and a 120 Hz world-pose
+  cache prepared in a Worker; runtime interpolates nodes at rAF cadence. The
+  field/inverse-map renderer is archived in `src/archive/fieldPortrait/`.
+- Eight current complete hair materials, canonical face/body clean plate, original local
+  eyelids and independently pivoting complete earrings. The 12-second wind contains
+  two six-second reference-scale gust phrases. The accepted 24-second blink clock
+  remains at 4400/11300/20300 ms with 280 ms events.
+- Reduced motion, poses1/10, wind0 and direction0 paint canonical pixels immediately
+  without starting a physics Worker. Wind0 still retains independent blinking.
+  Hidden/offscreen suspension preserves phase; asynchronous preparation generations
+  prevent outdated configuration results/errors from replacing a newer rig.
+- New natural portrait masters are in `assets/generated/portrait-v4/`; authoring
+  grids are in `public/assets/portrait-natural/`; normal Player reads byte-exact
+  baked `public/assets/portrait-rig/rig-{size}.json/png` without runtime segmentation. The transparent static
   fallback is `public/portrait-rest.png` at 768²; OG composition remains separate.
 - Archived modes: ?style=voxel retains the prior block bust; ?style=legacy
   retains the ten-pose provisional anime cross-fade.
@@ -136,7 +144,8 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
   and reduced motion preserve the canonical static rest view. wind=0 suppresses
   hair/jewelry motion while the independent eye schedule continues. Keep all delayed
   strand/recoil samples periodic; never reintroduce settling windows at the seam.
-- Current refactor evidence lives in `artifacts/reference-rebuild/`;
+- Current reconstruction evidence lives in `artifacts/video-layered/`;
+  `artifacts/reference-rebuild/` records PR9, whose hair effect the owner rejected;
   `artifacts/flowing-hair/` records the previous visible-hair baseline;
   `artifacts/gentle-portrait/` records PR7 before the stronger circle-visible flow,
   and `artifacts/pixel-world/` records the earlier fast gust. Never cite historical
@@ -145,7 +154,7 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
   and long-curl midsections. Whole-Canvas texture differences or off-crop peaks
   alone do not establish that the owner can see flowing hair. Preserve the approved
   independent blink behavior when refining wind.
-- The new underpaint only repairs local hair occlusion; full source-identical
+- The layered clean plate uses retained underpaint and local hidden-surface repair; full source-identical
   face/shoulder layer reconstruction remains constrained. Do not claim complete
   layered art, source-identical geometry, perfect likeness or unmeasured QA.
 

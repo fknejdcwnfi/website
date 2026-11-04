@@ -216,21 +216,26 @@ with sync_playwright() as p:
  blocked.goto(URL);ok('blocked_bundle_keeps_complete_site',blocked.locator('.static-site').is_visible() and real_projects_present(blocked))
  portrait_presentation(blocked,'blocked_bundle_static_poster')
  context.close();result['expected_failure_cases'].append('main JavaScript bundle blocked')
- context=browser.new_context();broken=context.new_page();broken.route('**/assets/portrait-natural/*.png',lambda route:route.fulfill(status=503,body='Unavailable'))
+ context=browser.new_context();broken=context.new_page();failed_atlas_requests=[]
+ def fail_atlas(route):
+  failed_atlas_requests.append(route.request.url);route.fulfill(status=503,body='Unavailable')
+ broken.route('**/assets/portrait-rig/rig-256.png*',fail_atlas)
  broken.goto(URL);broken.wait_for_selector('.stage__fallback',state='visible')
- ok('portrait_asset_503_keeps_site_and_static_portrait',broken.locator('#about').count()==1 and broken.locator('.stage__fallback').evaluate('(im)=>im.complete&&im.naturalWidth===768&&im.naturalHeight===768'))
+ ok('portrait_asset_503_keeps_site_and_static_portrait',bool(failed_atlas_requests) and broken.locator('#about').count()==1 and broken.locator('.stage__fallback').evaluate('(im)=>im.complete&&im.naturalWidth===768&&im.naturalHeight===768'))
+ result['failed_baked_atlas_requests']=failed_atlas_requests
  portrait_presentation(broken,'asset_503_static_fallback')
- context.close();result['expected_failure_cases'].append('runtime portrait assets503')
+ context.close();result['expected_failure_cases'].append('runtime baked rig-256.png atlas503')
  context=browser.new_context();hung=context.new_page();pending=[]
- hung.route('**/assets/portrait-natural/eyelids.png',lambda route:pending.append(route))
+ hung.route('**/assets/portrait-rig/rig-256.png*',lambda route:pending.append(route))
  hung.goto(URL,wait_until='domcontentloaded');hung.wait_for_selector('.stage__fallback',state='visible',timeout=16000)
- ok('hanging_asset_times_out_to_static_portrait',hung.locator('.stage__fallback').evaluate('(im)=>im.complete&&im.naturalWidth===768&&im.naturalHeight===768'))
+ ok('hanging_asset_times_out_to_static_portrait',bool(pending) and hung.locator('#about').count()==1 and hung.locator('.stage__fallback').evaluate('(im)=>im.complete&&im.naturalWidth===768&&im.naturalHeight===768'))
+ result['hanging_baked_atlas_requests']=[route.request.url for route in pending]
  for route in pending:
   try:route.abort()
   except Exception:pass
  hung.wait_for_timeout(50)
  hung.unroute_all(behavior='ignoreErrors')
- context.close();result['expected_failure_cases'].append('eyelid image request hangs until12s timeout')
+ context.close();result['expected_failure_cases'].append('baked rig-256.png atlas request hangs until12s timeout')
  context=browser.new_context();unsupported=context.new_page()
  unsupported.add_init_script('const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return type==="2d"?null:get.call(this,type,...args)}')
  unsupported.goto(URL);unsupported.wait_for_selector('[data-portrait-fallback=true]',state='visible')

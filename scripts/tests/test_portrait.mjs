@@ -1,3 +1,4 @@
+// Blink/timing contract plus archived field-renderer regression checks.
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {
@@ -8,8 +9,8 @@ import {
 } from '../../src/features/portrait/animation/portraitTimeline.ts'
 import {
   CHAIN_STATIONS, sampleStrandCurve, strandFlexibility, writeStrandCurve,
-} from '../../src/features/portrait/renderer/strandCurve.ts'
-import { StrandDynamics, solveStrandResponse } from '../../src/features/portrait/renderer/strandDynamics.ts'
+} from '../../src/archive/fieldPortrait/strandCurve.ts'
+import { StrandDynamics, solveStrandResponse } from '../../src/archive/fieldPortrait/strandDynamics.ts'
 
 const configuration = { direction: 1, gust: 0.35, stiffness: 18, damping: 5 }
 const motion = createMotionTable(configuration)

@@ -1,0 +1,35 @@
+{
+  "purpose": "Selection only; nearest binary grid exports from the retained generated matte. No visible colors are supplied by this material.",
+  "canonical": "assets/generated/portrait-v4/open.png",
+  "canonical_sha256": "1a6b691e6c0af0a46d2f8016451b193e1e761c9263b21373a1fdea2bd69e4e26",
+  "files": [
+    {
+      "file": "assets/generated/portrait-rig/hair-matte.png",
+      "bytes": 1116953,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ebe9747a4ad9e541e8b2551b5800fe64a30a107c3f84fc6f742458a2d48141a8"
+    },
+    {
+      "file": "public/assets/portrait-rig/hair-matte-192.png",
+      "bytes": 7565,
+      "width": 192,
+      "height": 192,
+      "sha256": "76b5bbc65078d479763f24d9f2bc3e379afced09d1f69a110a5ed917bb44c820"
+    },
+    {
+      "file": "public/assets/portrait-rig/hair-matte.png",
+      "bytes": 10938,
+      "width": 256,
+      "height": 256,
+      "sha256": "4763e5bac4e47b1ef6cff2dc8ddc3be2c356a870516d98d32c13d3d37d5d0eb8"
+    },
+    {
+      "file": "public/assets/portrait-rig/hair-matte-320.png",
+      "bytes": 14960,
+      "width": 320,
+      "height": 320,
+      "sha256": "13e4627961691f1319dbb6d4a61f1c1e0f61da6f2e03aed54091e667f4b7b901"
+    }
+  ]
+}

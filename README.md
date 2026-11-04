@@ -6,13 +6,13 @@
 - GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 - 文件入口：[開發與個人化指南](docs/README.md)
 
-保留同一張原近景角色、256²像素格與透明輪廓。八組髮束由根部錨定／末端自由的十七站耦合阻尼鏈響應風場，眨眼使用獨立時鐘，左右耳環各自響應；反向採樣的候選行依保守位移上界快取，減少每幀重複掃描。人物以無邊框圓形置於中軸，按DPR對齊整數實體像素。頁面與角色分離，後續真實帳號與遊戲資料可從獨立設定擴充。
+保留同一張原近景角色、256²像素格與透明輪廓，依上傳影片從頭重建八條完整髮束。每束沿自身S形弧長綁定十六節點，以240Hz長度／曲率XPBD求解，Worker預熱後提供120Hz姿態緩存；預烘焙圖集省去訪客端分層／補底計算，獨立三角網格呈現整束彎曲、分離、回彈及隨髮移動的原圖投影。原眨眼與完整耳環獨立運動，五官不重新生成。
 
-最新實作、驗收及效能對照見[參考版面與物理重構](docs/guides/reference-rebuild.md)。本輪證據位於 `artifacts/reference-rebuild/`，先前 `flowing-hair` 與其他目錄保留作歷史。
+最新計畫、驗收及效能見[影片驅動的獨立髮束重建](docs/guides/video-layered-rebuild.md)。本輪證據位於 `artifacts/video-layered/`；PR #9的field效果已被擁有者拒絕，保留其證據作歷史，預設不再使用。
 
-![參考版面重構](artifacts/reference-rebuild/site/hero.png)
+![目前完整網站](artifacts/video-layered/site/hero.png)
 
-[完整桌機](artifacts/reference-rebuild/site/desktop.png) · [手機](artifacts/reference-rebuild/site/mobile.png) · [無JavaScript](artifacts/reference-rebuild/site/no-javascript.png)
+[完整桌機](artifacts/video-layered/site/desktop.png) · [手機](artifacts/video-layered/site/mobile.png) · [無JavaScript](artifacts/video-layered/site/no-javascript.png) · [24秒實際動態](artifacts/video-layered/portrait/animation_preview.gif) · [60fps審查影片](artifacts/video-layered/portrait/animation-60fps.mp4)
 
 ## 開始開發
 
@@ -60,7 +60,7 @@ src/
     profile/           個人內容、網站版面、靜態HTML與像素UI
     portrait/          動畫、renderer與角色元件
   shared/              共用動畫型別
-  archive/             僅明確歷史模式才載入的legacy／voxel
+  archive/             legacy／voxel歷史模式及舊field renderer對照
 scripts/
   assets/              素材匯出與來源驗證
   qa/                  真實網站截幀、瀏覽器與效能檢查
@@ -79,11 +79,13 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-正常首頁在可見時持續緩慢微風，風週期12秒；眨眼使用獨立24秒時鐘，三次事件相隔6.9–9秒，每次280 ms。沒有舊輪末靜止段或公開播放／暫停按鈕；減少動態、隱藏／離屏仍停止繪製並保留相位。`?view=portrait&debug=1`開啟調試，`?t=4510`／`?pose=5`可固定閉眼，`?pose=1`／`?pose=10`保留同一canonical靜止畫面。初始HTML、透明poster、12秒素材逾時與錯誤邊界保留無JS／故障時的完整網站，展示同樣圓形居中。
+正常首頁在可見時持續風動，12秒中包含兩段影片尺度的六秒風勢／回落短語。眨眼仍是已認可的24秒獨立時鐘，三次事件相隔6.9–9秒，每次280ms。沒有公開播放／暫停按鈕；隱藏／離屏停止繪製並保留相位。減少動態、pose1／10、wind0／direction0直接畫原canonical且不啟動Worker；wind0仍可眨眼，恢復風動才準備物理緩存。`?view=portrait&debug=1`保留開發控制。
 
-本輪驗證與production同環境效能對照集中於[重構指南](docs/guides/reference-rebuild.md)及 `artifacts/reference-rebuild/`；先前數字保留在[PR #8可見風動基線](docs/guides/reference-wind.md)。測試包含完整頁面、搜尋／目錄／鍵盤、無JavaScript與故障備援，以及原始Canvas的固定區、髮根、色盤、alpha、接縫、多Hz同時刻與可見中段風動。
+初始HTML、透明poster、素材逾時與錯誤邊界保留無JS或故障時的完整網站。Worker準備不阻塞操作，失敗使用獨立靜態肖像；設定切換與destroy使用世代檢查，防止過期結果或錯誤破壞新狀態。網站的藍色雙層導航、搜索、真實個人內容及帳號擴充設定保持。
 
-實際更新率受顯示器、瀏覽器排程與裝置能力限制；Canvas取樣、GIF編碼率、解除排程上限的吞吐及模擬240 Hz都不等於實體螢幕FPS。這是有界二維彈簧變形，並非完整三維毛髮或流體模擬。證據不隨網站runtime下載。
+[目前重建指南](docs/guides/video-layered-rebuild.md)與 `artifacts/video-layered/` 記錄實際材料、物理、網格、固定五官、投影裁剪、生命週期、全站備援與production效能。像素變化量或測試項數不能單獨證明像影片；實際關鍵幀與完整動畫一同保留。
+
+實際顯示更新率受瀏覽器、OS、裝置與螢幕限制；240Hz求解、120Hz姿態緩存、GIF編碼率及不限幀容器吞吐都不等於實機顯示FPS。這是二維髮帶約束模型，並非三維逐根毛髮或完整流體模擬。證據不隨網站runtime下載。
 
 ## 素材
 

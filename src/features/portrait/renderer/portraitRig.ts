@@ -1,72 +1,14 @@
-import { PALETTE } from './portraitAsset'
-import { LOOP_MS, MOTION_CHANNELS, sampleMotion } from '../animation/portraitTimeline'
-import { CHAIN_STATIONS as STATIONS, sampleStrandCurve, strandFlexibility, writeStrandCurve } from './strandCurve'
-import { StrandDynamics } from './strandDynamics'
+import { sampleMotion, type MotionConfig } from '../animation/portraitTimeline'
+import { createHairMaterials } from './hairMaterials'
+import { HairMesh } from './hairMesh'
+import { prepareHairPhysics } from './hairPhysicsClient'
+import { createJewelryMasks } from './portraitJewelry'
+import type { HairPhysics } from './hairPhysics'
+import { HAIR_NODES, type HairMaterial, type HairPoses, type PortraitMaterials } from './hairTypes'
 
-export { CHAIN_STATIONS } from './strandCurve'
+export type Point = readonly [number, number]
 
-type Point = readonly [number, number]
-type Region = { id: string; polygon: readonly Point[]; root: number; end: number; amplitude: number }
-type HairLayer = {
-  group: number
-  pixels: number[]
-  field: Float32Array
-  x0: number; y0: number; x1: number; y1: number
-  /** Unprotected destination spans, packed as y/start-x/end-x triples. */
-  spans: Uint16Array
-  rowFirst: Uint8Array
-  rowMix: Float64Array
-  rowX: Float64Array
-  rowY: Float64Array
-  stationScale: number
-  stationOffset: number
-}
-type EyePixel = { index: number; y: number; top: number; height: number }
-export const ROOT_ANCHORS: readonly Point[] = [[18, 34], [31, 76], [215, 5], [60, 8], [52, 76], [194, 52], [45, 119], [180, 177], [78, 114], [180, 97]]
-const smooth = (value: number): number => {
-  const x = Math.max(0, Math.min(1, value))
-  return x * x * (3 - 2 * x)
-}
-
-/** Smooth the deformation grid, never the artwork or its pixel colors. */
-const softenField = (field: Float32Array, size: number): void => {
-  const temp = new Float32Array(field.length)
-  const radius = Math.max(2, Math.round(size / 64))
-  for (let pass = 0; pass < 2; pass += 1) {
-    for (let y = 0; y < size; y += 1) {
-      let sum = 0
-      for (let x = 0; x <= radius; x += 1) sum += field[y * size + x]!
-      for (let x = 0; x < size; x += 1) {
-        temp[y * size + x] = sum / (Math.min(size - 1, x + radius) - Math.max(0, x - radius) + 1)
-        if (x - radius >= 0) sum -= field[y * size + x - radius]!
-        if (x + radius + 1 < size) sum += field[y * size + x + radius + 1]!
-      }
-    }
-    for (let x = 0; x < size; x += 1) {
-      let sum = 0
-      for (let y = 0; y <= radius; y += 1) sum += temp[y * size + x]!
-      for (let y = 0; y < size; y += 1) {
-        field[y * size + x] = sum / (Math.min(size - 1, y + radius) - Math.max(0, y - radius) + 1)
-        if (y - radius >= 0) sum -= temp[(y - radius) * size + x]!
-        if (y + radius + 1 < size) sum += temp[(y + radius + 1) * size + x]!
-      }
-    }
-  }
-}
-
-/** Nonrectangular influence regions in reference coordinates (256²). */
-export const HAIR_REGIONS: readonly Region[] = [
-  { id: 'hair_back', polygon: [[0, 32], [20, 30], [43, 67], [46, 105], [36, 145], [13, 165], [0, 169]], root: 25, end: 165, amplitude: 10 },
-  { id: 'hair_outer_L', polygon: [[0, 82], [31, 93], [44, 120], [46, 162], [37, 180], [0, 178]], root: 70, end: 180, amplitude: 12 },
-  { id: 'hair_outer_R', polygon: [[191, 0], [255, 0], [255, 128], [230, 126], [215, 112], [207, 84], [197, 59]], root: 0, end: 124, amplitude: 11 },
-  { id: 'bangs', polygon: [[15, 0], [110, 0], [113, 38], [108, 61], [99, 65], [85, 55], [75, 33], [62, 48], [52, 77], [29, 79], [4, 64]], root: 0, end: 75, amplitude: 11 },
-  { id: 'hair_side_L', polygon: [[32, 72], [51, 73], [66, 91], [81, 107], [81, 117], [62, 111], [51, 102], [46, 128], [31, 136]], root: 75, end: 128, amplitude: 24 },
-  { id: 'hair_side_R', polygon: [[184, 50], [204, 49], [210, 95], [200, 114], [189, 106], [184, 89]], root: 40, end: 115, amplitude: 17 },
-  { id: 'hair_shoulder_L', polygon: [[23, 126], [51, 114], [68, 146], [73, 178], [64, 193], [60, 222], [85, 241], [93, 255], [63, 255], [49, 231], [46, 202], [39, 190], [19, 181]], root: 115, end: 245, amplitude: 28 },
-  { id: 'hair_tips_R', polygon: [[171, 174], [191, 180], [204, 204], [218, 229], [221, 248], [197, 253], [193, 234], [178, 220], [168, 202]], root: 170, end: 256, amplitude: 32 },
-]
-
-const FACE: readonly Point[] = [[109, 18], [161, 18], [171, 41], [188, 62], [188, 89], [172, 124], [143, 155], [129, 157], [111, 143], [94, 122], [73, 96], [62, 77], [83, 66], [103, 61]]
+/** Original local eyelid geometry: independent from the replacement hair rig. */
 export const EYES: readonly { polygon: readonly Point[]; x0: number; x1: number; top0: number; top1: number; bottom: number }[] = [
   { polygon: [[64, 70], [70, 67], [88, 69], [104, 74], [104, 81], [93, 87], [77, 86], [65, 81]], x0: 64, x1: 104, top0: 67, top1: 74, bottom: 87 },
   { polygon: [[138, 74], [146, 68], [160, 64], [178, 61], [183, 64], [178, 75], [168, 81], [151, 83], [140, 80]], x0: 138, x1: 183, top0: 73, top1: 61, bottom: 83 },
@@ -81,279 +23,180 @@ export const inside = (x: number, y: number, points: readonly Point[]): boolean 
   return result
 }
 
-const edgeDistance = (x: number, y: number, points: readonly Point[]): number => {
-  let best = Infinity
-  for (let i = 0; i < points.length; i += 1) {
-    const [ax, ay] = points[i]!, [bx, by] = points[(i + 1) % points.length]!
-    const dx = bx - ax, dy = by - ay
-    const t = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy)))
-    best = Math.min(best, Math.hypot(x - ax - t * dx, y - ay - t * dy))
-  }
-  return best
-}
+type EyePixel = { index: number; y: number; top: number; height: number }
+type Jewelry = { mesh: HairMesh; pose: Float32Array; root: Point; channel: number }
 
-const canvasPixels = (image: CanvasImageSource, size: number): ImageData => {
-  const canvas = document.createElement('canvas')
-  canvas.width = canvas.height = size
-  const ctx = canvas.getContext('2d', { willReadFrequently: true })!
-  ctx.imageSmoothingEnabled = false
-  ctx.drawImage(image, 0, 0, size, size)
-  return ctx.getImageData(0, 0, size, size)
-}
-
-/** All arrays are prepared once, rather than allocating images/masks during animation. */
+/**
+ * New cutout / skeletal-mesh compositor. Hair never samples the full portrait,
+ * and moving material never reads face, body or neighboring locks as texture.
+ */
 export class PortraitRig {
+  readonly materials: PortraitMaterials
   readonly size: number
-  readonly groups: Int8Array
-  readonly weights: Float32Array
-  readonly protectedPixels: Uint8Array
-  readonly rootPixels: Uint8Array
-  private readonly source: Uint32Array
-  private readonly closed: Uint32Array
-  private readonly underpaint: Uint32Array
-  private readonly layers: HairLayer[] = []
+  readonly poses: HairPoses
+  readonly meshes: HairMesh[]
+  readonly shadowMeshes: HairMesh[]
+  readonly shadowPixels: Uint32Array
+  readonly shadowDiagnostics = { candidatePixels: 0, clippedPixels: 0, compositedPixels: 0 }
+  readonly jewelry: Jewelry[] = []
+  physics: HairPhysics | null = null
   private readonly output: ImageData
   private readonly target: Uint32Array
-  private readonly offsetsX = new Float32Array(MOTION_CHANNELS * STATIONS)
-  private readonly offsetsY = new Float32Array(MOTION_CHANNELS * STATIONS)
-  private readonly curveX = new Float64Array(MOTION_CHANNELS * STATIONS * 4)
-  private readonly curveY = new Float64Array(MOTION_CHANNELS * STATIONS * 4)
   private readonly eyePixels: EyePixel[] = []
-  private readonly jewelryPixels: number[] = []
-  private dynamics: StrandDynamics | null = null
-  private motionTable: readonly Float32Array[] | null = null
-  private rasterGain = -1
+  private readonly drawOrder: number[]
+  private preparation = 0
+  private config: MotionConfig = { direction: 1, gust: 0.35, stiffness: 18, damping: 5 }
 
-  constructor(open: CanvasImageSource, closed: CanvasImageSource, size: number, underpaint: CanvasImageSource) {
-    this.size = size
-    const base = canvasPixels(open, size)
-    this.source = new Uint32Array(base.data.buffer)
-    this.closed = new Uint32Array(canvasPixels(closed, size).data.buffer)
-    this.underpaint = new Uint32Array(canvasPixels(underpaint, size).data.buffer)
+  constructor(materials: PortraitMaterials)
+  constructor(open: CanvasImageSource, closed: CanvasImageSource, size: number, underpaint: CanvasImageSource, matteImage?: CanvasImageSource)
+  constructor(input: PortraitMaterials | CanvasImageSource, closed?: CanvasImageSource, pixelSize?: number, underpaint?: CanvasImageSource, matteImage?: CanvasImageSource) {
+    if ('canonical' in input && 'locks' in input) {
+      // The decoded bundle may be shared between players. Only the plate is
+      // edited locally when the independently moving jewelry is lifted out.
+      this.materials = { ...input, clean: input.clean.slice() }
+      this.size = input.size
+    } else {
+      if (!closed || pixelSize === undefined || !underpaint) throw new Error('Source portrait authoring requires open, closed and underpaint images plus a pixel size.')
+      this.materials = createHairMaterials(input, closed, underpaint, pixelSize, matteImage)
+      this.size = pixelSize
+    }
+    const size = this.size
     this.output = new ImageData(size, size)
     this.target = new Uint32Array(this.output.data.buffer)
-    this.groups = new Int8Array(size * size).fill(-1)
-    this.weights = new Float32Array(size * size)
-    this.protectedPixels = new Uint8Array(size * size)
-    this.rootPixels = new Uint8Array(size * size)
-    const skin = new Set(PALETTE.slice(17, 27).map((color) => {
-      const value = parseInt(color.slice(1), 16)
-      return (0xff000000 | (value & 255) << 16 | value & 0xff00 | value >>> 16) >>> 0
-    }))
+    this.poses = this.materials.locks.map((lock) => new Float32Array(lock.spine))
+    this.meshes = this.materials.locks.map((lock) => new HairMesh(lock, size))
+    this.shadowMeshes = this.materials.shadows.map(({ lock, material }) => {
+      if (!this.poses[lock]) throw new Error('A cast shadow must refer to an existing hair lock.')
+      return new HairMesh(material, size)
+    })
+    this.shadowPixels = new Uint32Array(size * size)
+    this.drawOrder = this.materials.locks.map((_, index) => index)
+      .sort((a, b) => this.materials.locks[a]!.z - this.materials.locks[b]!.z)
     for (let i = 0; i < size * size; i += 1) {
       const x = (i % size + 0.5) * 256 / size, y = (Math.floor(i / size) + 0.5) * 256 / size
-      EYES.forEach((eye) => {
-        if (!inside(x, y, eye.polygon)) return
+      for (const eye of EYES) {
+        if (!inside(x, y, eye.polygon)) continue
         const u = (x - eye.x0) / (eye.x1 - eye.x0)
         const top = eye.top0 + (eye.top1 - eye.top0) * u
         const bottom = eye.bottom - Math.abs(u - 0.5) * 7
         this.eyePixels.push({ index: i, y, top, height: bottom - top })
-      })
-      const root = ROOT_ANCHORS.some(([rx, ry]) => Math.abs(x - rx) <= 1.5 && Math.abs(y - ry) <= 1.5)
-      if (root) this.rootPixels[i] = 1
-      const faceOrPendant = inside(x, y, FACE) || (x > 96 && x < 177 && y > 154)
-      const skinPixel = skin.has(this.source[i]!)
-      // Hair may sweep over these two shoulder corridors. The body underneath
-      // never moves: the underpaint is only revealed when a real lock leaves it.
-      const hairCorridor = y > 114 && ((x > 12 && x < 106) || (x > 177 && x < 239))
-      if (faceOrPendant || root || (skinPixel && !hairCorridor)) this.protectedPixels[i] = 1
-      if (this.protectedPixels[i] || skinPixel || this.source[i]! >>> 24 === 0) continue
-      HAIR_REGIONS.forEach((group, g) => {
-        if (!inside(x, y, group.polygon)) return
-        const rootWeight = strandFlexibility((y - group.root) / (group.end - group.root), g >= 6)
-        // Foreground curls are complete locks: their free outline must move,
-        // not be pinned by a falloff around the old silhouette.
-        const edge = g >= 6 ? 1 : smooth(edgeDistance(x, y, group.polygon) / (g >= 3 ? 12 : 14))
-        const weight = edge * rootWeight * group.amplitude
-        if (weight > this.weights[i]!) {
-          this.weights[i] = weight
-          this.groups[i] = g
-        }
-      })
-      // A separate, bounded mapping for the earring chain and lower drop.
-      const left = x >= 72 && x <= 83 && y >= 114 && y <= 158
-      const right = x >= 175 && x <= 184 && y >= 97 && y <= 135
-      if (left || right) {
-        const root = left ? 114 : 97, length = left ? 44 : 38
-        const widthWeight = Math.min(1, (left ? Math.min(x - 72, 83 - x) : Math.min(x - 175, 184 - x)) / 2)
-        this.groups[i] = left ? 8 : 9
-        this.weights[i] = Math.max(0, widthWeight) * ((y - root) / length) ** 1.5 * 7
-        this.jewelryPixels.push(i)
       }
     }
-    for (let group = 0; group < HAIR_REGIONS.length; group += 1) {
-      const pixels: number[] = []
-      const field = new Float32Array(size * size)
-      const distance = new Int16Array(size * size).fill(-1)
-      const queue = new Int32Array(size * size)
-      let head = 0, tail = 0, x0 = size, y0 = size, x1 = 0, y1 = 0
-      for (let i = 0; i < this.groups.length; i += 1) {
-        if (this.groups[i] !== group) continue
-        pixels.push(i)
-        field[i] = this.weights[i]!
-        distance[i] = 0
-        queue[tail++] = i
-        const x = i % size, y = Math.floor(i / size)
-        x0 = Math.min(x0, x); y0 = Math.min(y0, y)
-        x1 = Math.max(x1, x); y1 = Math.max(y1, y)
-      }
-      const pad = Math.ceil((HAIR_REGIONS[group]!.amplitude * 1.5 + 3) * size / 256)
-      // Extend the deformation field outside the rest silhouette, so a lock can
-      // actually enter empty space. This is prepared once, not during a frame.
-      while (head < tail) {
-        const i = queue[head++]!, d = distance[i]!
-        if (d >= pad) continue
-        const x = i % size, y = Math.floor(i / size)
-        for (const next of [x > 0 ? i - 1 : -1, x < size - 1 ? i + 1 : -1, y > 0 ? i - size : -1, y < size - 1 ? i + size : -1]) {
-          if (next < 0 || distance[next] !== -1) continue
-          distance[next] = d + 1
-          field[next] = field[i]!
-          queue[tail++] = next
+    this.prepareJewelry()
+  }
+
+  /** Physics warmup is performed outside the main animation thread. */
+  async prepare(config: MotionConfig): Promise<void> {
+    const revision = ++this.preparation
+    const snapshot = { ...config }
+    const physics = await prepareHairPhysics(this.materials.locks, snapshot, this.size)
+    if (revision !== this.preparation) return
+    this.config = snapshot
+    this.physics = physics
+  }
+
+  private prepareJewelry(): void {
+    const { size, materials } = this
+    const repair = materials.repair
+    // Underpaint neighboring colors fill only the local jewelry footprint. The
+    // original canonical array itself remains byte-identical for static modes.
+    const source = materials.canonical
+    for (const { id, side, root, channel, mask } of createJewelryMasks(source, size)) {
+      const pixels = new Uint32Array(size * size)
+      let x0 = size, y0 = size, x1 = 0, y1 = 0
+      for (let index = 0; index < mask.length; index += 1) {
+        if (!mask[index]) continue
+        const x = index % size, y = Math.floor(index / size)
+        pixels[index] = source[index]!
+        x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y)
+        let replacement = 0, distance = Infinity
+        const reach = Math.ceil(9 * size / 256)
+        for (let dy = -reach; dy <= reach; dy += 1) for (let dx = -reach; dx <= reach; dx += 1) {
+          const nx = x + dx, ny = y + dy
+          if (nx < 0 || nx >= size || ny < 0 || ny >= size || dx * dx + dy * dy >= distance) continue
+          const candidate = ny * size + nx, color = repair[candidate]!
+          if (mask[candidate] || color >>> 24 !== 255) continue
+          replacement = color
+          distance = dx * dx + dy * dy
         }
+        materials.clean[index] = replacement
       }
-      softenField(field, size)
-      if (!pixels.length) continue
-      x0 = Math.max(0, x0 - pad); y0 = Math.max(0, y0 - pad)
-      x1 = Math.min(size - 1, x1 + pad); y1 = Math.min(size - 1, y1 + pad)
-      const spans: number[] = []
-      const rowFirst = new Uint8Array(size)
-      const rowMix = new Float64Array(size)
-      const region = HAIR_REGIONS[group]!
-      for (let y = y0; y <= y1; y += 1) {
-        // Cache the first inverse step's fixed row-to-station mapping.
-        const phase = Math.max(0, Math.min(STATIONS - 1, (y * 256 / size - region.root) / (region.end - region.root) * (STATIONS - 1)))
-        rowFirst[y] = Math.floor(phase)
-        rowMix[y] = phase - rowFirst[y]!
-        let start = -1
-        for (let x = x0; x <= x1 + 1; x += 1) {
-          const i = y * size + x
-          const eligible = x <= x1 && !this.protectedPixels[i] && (field[i]! > 0 || this.groups[i] === group)
-          if (eligible && start < 0) start = x
-          if (!eligible && start >= 0) { spans.push(y, start, x - 1); start = -1 }
-        }
+      if (x0 === size) continue
+      const spine = new Float32Array(HAIR_NODES * 2)
+      const rx = root[0], ry = root[1]
+      for (let node = 0; node < HAIR_NODES; node += 1) {
+        spine[node * 2] = rx
+        spine[node * 2 + 1] = ry + (y1 - ry + 1) * node / (HAIR_NODES - 1)
       }
-      this.layers.push({ group, pixels, field, x0, y0, x1, y1,
-        spans: new Uint16Array(spans), rowFirst, rowMix,
-        rowX: new Float64Array(size), rowY: new Float64Array(size),
-        stationScale: (STATIONS - 1) * 256 / (size * (region.end - region.root)),
-        stationOffset: -(STATIONS - 1) * region.root / (region.end - region.root) })
+      const material: HairMaterial = { id, side, z: 5, pixels, bounds: { x0, y0, x1, y1 }, spine,
+        motion: { mass: 1, drag: 1, bend: 1, wind: 1 } }
+      this.jewelry.push({ mesh: new HairMesh(material, size), pose: new Float32Array(spine), root: [rx, ry], channel })
     }
   }
 
-  /** Restrict inverse sampling to pixels a lock can actually reach this cycle. */
-  private prepareRaster(gain: number): void {
-    const { size, dynamics } = this
-    if (!dynamics) return
-    for (const layer of this.layers) {
-      const first = new Int16Array(size).fill(size)
-      const last = new Int16Array(size).fill(-1)
-      const maxX = dynamics.boundsX[layer.group]! * gain * size / 256
-      const maxY = dynamics.boundsY[layer.group]! * gain * size / 256
-      for (const i of layer.pixels) {
-        const x = i % size, y = Math.floor(i / size)
-        // The inverse mapper samples the field at the rounded source pixel.
-        // Two extra pixels cover rounding and the first fixed-point estimate.
-        const dx = Math.ceil(maxX * layer.field[i]!) + 2
-        const dy = Math.ceil(maxY * layer.field[i]!) + 2
-        const left = Math.max(layer.x0, x - dx), right = Math.min(layer.x1, x + dx)
-        for (let row = Math.max(layer.y0, y - dy); row <= Math.min(layer.y1, y + dy); row += 1) {
-          first[row] = Math.min(first[row]!, left)
-          last[row] = Math.max(last[row]!, right)
-        }
-      }
-      const spans: number[] = []
-      for (let y = layer.y0; y <= layer.y1; y += 1) {
-        let start = -1
-        for (let x = first[y]!; x <= last[y]! + 1; x += 1) {
-          const i = y * size + x
-          const eligible = x <= last[y]! && !this.protectedPixels[i] && layer.field[i]! > 0
-          if (eligible && start < 0) start = x
-          if (!eligible && start >= 0) { spans.push(y, start, x - 1); start = -1 }
-        }
-      }
-      layer.spans = new Uint16Array(spans)
+  private eyelids(eyeOpen: number): void {
+    if (eyeOpen >= 1) return
+    for (const eye of this.eyePixels) {
+      const lid = eye.top + eye.height * (1 - eyeOpen)
+      if (eyeOpen <= 0 || eye.y < lid) this.target[eye.index] = this.materials.closed[eye.index]!
+      if (eyeOpen > 0 && Math.abs(eye.y - lid) < 0.65) this.target[eye.index] = 0xff292324
     }
-    this.rasterGain = gain
   }
 
   paint(ctx: CanvasRenderingContext2D, table: Float32Array[], timeMs: number, gain: number, eyeOpen: number): void {
-    const { size } = this
-    const localTime = ((timeMs % LOOP_MS) + LOOP_MS) % LOOP_MS
-    const scale = gain * size / 256
-    if (table !== this.motionTable) {
-      this.motionTable = table
-      this.dynamics = new StrandDynamics(table)
-      this.rasterGain = -1
+    if (gain === 0 || this.config.direction === 0) {
+      this.target.set(this.materials.canonical)
+      this.eyelids(eyeOpen)
+      ctx.putImageData(this.output, 0, 0)
+      return
     }
-    this.dynamics!.write(localTime, scale, this.offsetsX, this.offsetsY)
-    for (let g = 8; g < MOTION_CHANNELS; g += 1) {
-      const offset = sampleMotion(table, localTime, g) * scale
-      for (let station = 0; station < STATIONS; station += 1) {
-        const index = g * STATIONS + station
-        this.offsetsX[index] = offset
-        this.offsetsY[index] = 0
+    if (!this.physics) throw new Error('Layered hair physics must finish preparing before painting.')
+    this.physics.sample(timeMs, gain, this.poses)
+    this.target.fill(0)
+    for (let lock = 0; lock < this.meshes.length; lock += 1) {
+      this.meshes[lock]!.update(this.poses[lock]!)
+    }
+    for (const lock of this.drawOrder) if (this.materials.locks[lock]!.z < 0) this.meshes[lock]!.draw(this.target)
+    const clean = this.materials.clean
+    for (let i = 0; i < clean.length; i += 1) if (clean[i]! >>> 24 === 255) this.target[i] = clean[i]!
+    this.shadowPixels.fill(0)
+    for (let shadow = 0; shadow < this.shadowMeshes.length; shadow += 1) {
+      const mesh = this.shadowMeshes[shadow]!, lock = this.materials.shadows[shadow]!.lock
+      mesh.update(this.poses[lock]!)
+      mesh.draw(this.shadowPixels)
+    }
+    let candidatePixels = 0, clippedPixels = 0
+    for (let i = 0; i < this.shadowPixels.length; i += 1) {
+      const color = this.shadowPixels[i]!
+      if (color >>> 24 !== 255) continue
+      candidatePixels += 1
+      if (!this.materials.bodyMask[i]) { clippedPixels += 1; continue }
+      this.target[i] = color
+    }
+    this.shadowDiagnostics.candidatePixels = candidatePixels
+    this.shadowDiagnostics.clippedPixels = clippedPixels
+    this.shadowDiagnostics.compositedPixels = candidatePixels - clippedPixels
+    this.eyelids(eyeOpen)
+    for (const jewelry of this.jewelry) {
+      const angle = sampleMotion(table, timeMs, jewelry.channel) * 0.22 * gain
+      const cosine = Math.cos(angle), sine = Math.sin(angle)
+      const spine = jewelry.mesh.material.spine
+      for (let node = 0; node < HAIR_NODES; node += 1) {
+        const x = spine[node * 2]! - jewelry.root[0], y = spine[node * 2 + 1]! - jewelry.root[1]
+        jewelry.pose[node * 2] = jewelry.root[0] + x * cosine - y * sine
+        jewelry.pose[node * 2 + 1] = jewelry.root[1] + x * sine + y * cosine
       }
+      jewelry.mesh.update(jewelry.pose)
+      jewelry.mesh.draw(this.target)
     }
-    this.target.set(this.source)
-    const moving = gain !== 0 && this.offsetsX.some(value => Math.abs(value) > 0.00001)
-    if (moving) {
-      if (gain !== this.rasterGain) this.prepareRaster(gain)
-      writeStrandCurve(this.offsetsX, this.curveX)
-      writeStrandCurve(this.offsetsY, this.curveY)
-      // Remove the old foreground once, then inverse-rasterize each moving
-      // lock onto the revealed clean plate. There is no stationary copy below.
-      for (const layer of this.layers) for (const i of layer.pixels) this.target[i] = this.underpaint[i]!
-      for (const layer of this.layers) {
-        const { group, field, rowX, rowY, rowFirst, rowMix, spans, stationScale, stationOffset } = layer
-        const channel = group * STATIONS
-        for (let y = layer.y0; y <= layer.y1; y += 1) {
-          const index = (channel + rowFirst[y]!) * 4
-          rowX[y] = sampleStrandCurve(this.curveX, index, rowMix[y]!)
-          rowY[y] = sampleStrandCurve(this.curveY, index, rowMix[y]!)
-        }
-        for (let span = 0; span < spans.length; span += 3) {
-          const y = spans[span]!, end = spans[span + 2]!
-          const initialX = rowX[y]!, initialY = rowY[y]!
-          let i = y * size + spans[span + 1]!
-          for (let x = spans[span + 1]!; x <= end; x += 1, i += 1) {
-            const initialWeight = field[i]!
-            let sx = x - initialX * initialWeight, sy = y - initialY * initialWeight
-            // Two remaining refinements retain continuous source-row sampling;
-            // artwork remains nearest-neighbor, without quantizing motion time.
-            for (let iteration = 1; iteration < 3; iteration += 1) {
-              const ix = Math.round(sx), iy = Math.round(sy)
-              if (ix < 0 || ix >= size || iy < 0 || iy >= size) break
-              const weight = field[iy * size + ix]!
-              const phase = Math.max(0, Math.min(STATIONS - 1, sy * stationScale + stationOffset))
-              const first = Math.floor(phase), mix = phase - first
-              const index = (channel + first) * 4
-              sx = x - sampleStrandCurve(this.curveX, index, mix) * weight
-              sy = y - sampleStrandCurve(this.curveY, index, mix) * weight
-            }
-            const ix = Math.round(sx), iy = Math.round(sy)
-            if (ix < 0 || ix >= size || iy < 0 || iy >= size) continue
-            const sourceIndex = iy * size + ix
-            if (this.groups[sourceIndex] === group) this.target[i] = this.source[sourceIndex]!
-          }
-        }
-      }
-    }
-    if (moving) for (const i of this.jewelryPixels) {
-      const group = this.groups[i]!
-      const x = i % size, y = Math.floor(i / size)
-      // Jewelry has one independently delayed rigid channel per side.
-      const dx = this.offsetsX[group * STATIONS]! * this.weights[i]!
-      const sx = Math.max(0, Math.min(size - 1, Math.round(x - dx)))
-      const sourceIndex = y * size + sx
-      // Never pull a piece of the fixed face, body or necklace into a lock.
-      this.target[i] = this.protectedPixels[sourceIndex] ? this.source[i]! : this.source[sourceIndex]!
-    }
-    if (eyeOpen < 1) for (const eye of this.eyePixels) {
-      const lid = eye.top + eye.height * (1 - eyeOpen)
-      if (eyeOpen <= 0 || eye.y < lid) this.target[eye.index] = this.closed[eye.index]!
-      // Intermediate closure has its own stepped upper-lash contour.
-      if (eyeOpen > 0 && Math.abs(eye.y - lid) < 0.65) this.target[eye.index] = 0xff292324
+    for (const lock of this.drawOrder) {
+      if (this.materials.locks[lock]!.z >= 0) this.meshes[lock]!.draw(this.target)
     }
     ctx.putImageData(this.output, 0, 0)
+  }
+
+  destroy(): void {
+    this.preparation += 1
+    this.physics = null
   }
 }
