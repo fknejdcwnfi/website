@@ -1,0 +1,120 @@
+{
+  "conditions": "fresh single-page headless Chromium per run;1200x1000;DPR1;no CPU throttle;no screenshots during sample",
+  "interpretation": "Native mode measures this container's rAF schedule. Unconstrained mode removes Chromium frame pacing to measure actual callback/paint throughput; neither establishes physical display refresh or device-wide performance.",
+  "phase_measurement": "Phase inferred from per-canvas native rAF paint timestamps using the player's elapsed-ms deltas (clamped at100ms), initial phase0 and speed1; uninterrupted visible playback throughout each sample. The whole12s breeze period remains active; no settled-rest interval is included. Three equal wind-phase bins expose phase differences. Per-phase rates assign each rAF interval to its ending phase and are estimates.",
+  "cpu_window_note": "CDP TaskDuration is divided by the CDP Timestamp window, which includes tool-call overhead around the page timer.",
+  "frame_budget_note": "Callback cost is JavaScript work including rendering; budgets exclude compositor, GPU, browser and OS overhead.",
+  "physical_high_refresh_display_verified": false,
+  "runs": [
+    {
+      "mode": "native",
+      "url": "http://127.0.0.1:4173/website/",
+      "chromium_flags": [
+        "--no-sandbox"
+      ],
+      "chromium_version": "154.0.8037.57",
+      "sample_seconds": 12.037,
+      "settle_ms": 2500,
+      "wind_loop_ms": 12000,
+      "raf_callbacks": 718,
+      "raf_callbacks_per_second": 59.65,
+      "portrait_canvas_paints": 718,
+      "portrait_paints_per_second": 59.65,
+      "callback_cpu_ms": {
+        "count": 718,
+        "min": 0.8,
+        "median": 1.1,
+        "p95": 1.5,
+        "p99": 3.1,
+        "max": 6.6,
+        "mean": 1.168
+      },
+      "callback_cpu_by_phase_ms": {
+        "first_wind_third": {
+          "count": 238,
+          "min": 0.8,
+          "median": 1.1,
+          "p95": 1.8,
+          "p99": 4.4,
+          "max": 6.6,
+          "mean": 1.203
+        },
+        "middle_wind_third": {
+          "count": 240,
+          "min": 0.9,
+          "median": 1.1,
+          "p95": 1.5,
+          "p99": 1.9,
+          "max": 2,
+          "mean": 1.145
+        },
+        "final_wind_third": {
+          "count": 240,
+          "min": 0.9,
+          "median": 1.1,
+          "p95": 1.5,
+          "p99": 1.9,
+          "max": 3.4,
+          "mean": 1.157
+        }
+      },
+      "phase_callback_rate_estimates": {
+        "first_wind_third": {
+          "raf_callbacks": 237,
+          "raf_timestamp_duration_ms": 3949.9,
+          "callbacks_per_second": 60.0
+        },
+        "middle_wind_third": {
+          "raf_callbacks": 240,
+          "raf_timestamp_duration_ms": 3999.8,
+          "callbacks_per_second": 60.0
+        },
+        "final_wind_third": {
+          "raf_callbacks": 240,
+          "raf_timestamp_duration_ms": 3999.8,
+          "callbacks_per_second": 60.0
+        }
+      },
+      "raf_interval_ms": {
+        "count": 717,
+        "min": 16.5,
+        "median": 16.7,
+        "p95": 16.7,
+        "p99": 16.8,
+        "max": 16.8,
+        "mean": 16.666
+      },
+      "paint_interval_ms": {
+        "count": 717,
+        "min": 1.4,
+        "median": 16.7,
+        "p95": 17.4,
+        "p99": 18.5,
+        "max": 32.4,
+        "mean": 16.67
+      },
+      "long_tasks": [],
+      "cdp_cpu_seconds": {
+        "TaskDuration": 2.478158,
+        "ScriptDuration": 0.969428,
+        "LayoutDuration": 0,
+        "RecalcStyleDuration": 0.18301
+      },
+      "cdp_metric_window_seconds": 13.443028,
+      "main_thread_busy_percent": 18.43,
+      "js_heap_used_bytes": 4849256,
+      "runtime_images": [
+        "http://127.0.0.1:4173/website/assets/portrait-natural/base.png"
+      ],
+      "browser_errors": [],
+      "http_errors": [],
+      "callback_cost_within_frame_budget_percent": {
+        "60": 100.0,
+        "120": 100.0,
+        "144": 100.0,
+        "240": 99.58
+      },
+      "metadata_and_asset_http200": true
+    }
+  ]
+}

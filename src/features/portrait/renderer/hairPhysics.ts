@@ -16,16 +16,12 @@ const finite = (value: number, fallback: number, low: number, high: number): num
   Number.isFinite(value) ? Math.max(low, Math.min(high, value)) : fallback
 const wrap = (time: number): number => Number.isFinite(time) ? ((time % LOOP_MS) + LOOP_MS) % LOOP_MS : 0
 
-/** Overlapping broad weather waves keep the load moving through the whole cycle.
- * Narrow isolated gusts make the portrait repeatedly open and fall shut. These
- * periodic components represent one uninterrupted breeze with unequal swells;
- * their value and derivatives also join across the twelve-second seam.
- */
+/** A persistent cross-breeze with small weather variations, not a rising pulse. */
 export const sampleReferenceWind = (timeMs: number): number => {
   const time = wrap(timeMs) / 1000
-  return 0.47 + 0.31 * Math.sin(TAU * time / 6 - 0.75)
-    + 0.13 * Math.sin(TAU * time / PERIOD_SECONDS + 0.4)
-    + 0.045 * Math.sin(TAU * time / 4 - 1)
+  return 0.56 + 0.13 * Math.sin(TAU * time / PERIOD_SECONDS - 0.75)
+    + 0.08 * Math.sin(TAU * time / 4 + 0.4)
+    + 0.035 * Math.sin(TAU * time / 2.4 - 1)
 }
 
 type Rod = {
@@ -149,17 +145,30 @@ const stepRod = (rod: Rod, timeMs: number, config: HairPhysicsConfig, index: num
     const normalExposure = 0.35 + 0.65 * Math.abs(ty) / Math.max(0.001, tangentLength)
     // The gust front travels through the lock; free ends receive its load
     // later instead of every node being forced by one simultaneous scalar.
-    const wind = sampleReferenceWind(timeMs - index * 27 - u * u * rod.travelMs) * (0.82 + detail * 0.5)
+    const downstreamTime = timeMs - u * u * rod.travelMs
+    const phase = index * 2.399963229728653
+    const eddy = (0.5 + 0.5 * u) * (
+      0.30 * Math.sin(TAU * downstreamTime / 4000 + phase - u * 2.1)
+      + 0.10 * Math.sin(TAU * downstreamTime / 3000 - phase * 1.7 - u * 1.5))
+    const wind = (sampleReferenceWind(downstreamTime) + eddy) * (0.82 + detail * 0.5)
     const load = wind * rod.wind * (0.32 + 0.68 * u) * rod.inverseMass[node]!
     // One world-space breeze acts on both sides of the portrait. Applying
     // opposite forces per side makes every gust open the hair symmetrically.
     // The face-side cutout has only the visible original artwork behind it;
     // attenuate inward movement so it cannot sweep across the portrait.
-    const horizontal = rod.side * direction < 0 ? 120 : 350
+    // The face shields inward-moving upper hair, but the long section below
+    // the chin is exposed to the same air and must not become a static curtain.
+    const belowChin = Math.max(0, Math.min(1, (rest[i + 1]! - 165) / 45))
+    const horizontal = rod.side * direction < 0 ? 120 + 140 * belowChin : 350
     const elasticity = restoration * (1 - 0.18 * u * u)
-    const fx = direction * load * horizontal * normalExposure + (rest[i]! - x) * elasticity
-    const flutter = 1 + 0.22 * u * u * Math.sin(TAU * timeMs / 6000 - u * 1.8 - index * 0.3)
-    const fy = -load * 80 * flutter + (rest[i + 1]! - y) * elasticity
+    // Drag depends on relative air/hair velocity. Nearby locks catch small
+    // eddies at different phases; a gust never imposes a shared upward force.
+    const fx = direction * load * horizontal * normalExposure
+      - 1.5 * vx / DT + (rest[i]! - x) * elasticity
+    // The drawn curl already includes its weight. A small residual downward
+    // load keeps free ends draped; only weak zero-mean cross-flow varies y.
+    const crossFlow = 2 * u * u * Math.sin(TAU * downstreamTime / 3000 + phase)
+    const fy = 12 * u * u + crossFlow - 1.5 * vy / DT + (rest[i + 1]! - y) * elasticity
     p[i] = x + vx + fx * DT * DT
     p[i + 1] = y + vy + fy * DT * DT
   }

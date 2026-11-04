@@ -25,7 +25,7 @@ const sample = (engine, locks, time, gain = 1) => {
 }
 const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1])
 
-test('the breeze has broad unequal swells with no isolated launch or silent loading interval', () => {
+test('the cross-breeze varies smoothly through the full period without switching off', () => {
   for (const time of [0, 83.3, 2150, 4150, 8150, 10150, 11999.5]) {
     assert.equal(sampleReferenceWind(time), sampleReferenceWind(time + 12000))
     assert.equal(sampleReferenceWind(time), sampleReferenceWind(time - 12000))
@@ -35,7 +35,7 @@ test('the breeze has broad unequal swells with no isolated launch or silent load
   const change = forces.slice(1).map((value, i) => value - forces[i])
   assert.ok(Math.max(...change.map(Math.abs)) < 0.008, 'the load changes gradually across adjacent display frames')
   assert.ok(forces.filter(value => value > 0.6).length > 180, 'stronger wind is sustained rather than a narrow impulse')
-  assert.ok(sampleReferenceWind(2000) > sampleReferenceWind(8000), 'the two broad swells are not identical repeats')
+  assert.ok(Math.abs(sampleReferenceWind(2000) - sampleReferenceWind(8000)) > 0.01, 'the second half is not an identical replay of the first')
   const before = sampleReferenceWind(-0.5), at = sampleReferenceWind(0), after = sampleReferenceWind(0.5)
   assert.ok(Math.abs((at - before) - (after - at)) < 1e-6, 'the wind derivative joins at the loop seam')
 })
@@ -59,20 +59,24 @@ test('constrained curl rods keep two anchored nodes and material length while ch
       }
     }
   }
-  const crest = sample(physics, materials, 2670)
-  for (let lock = 0; lock < materials.length; lock += 1) {
-    const rest = materials[lock].spine, pose = crest[lock]
-    assert.ok(pose[16] - rest[16] > 3, 'both middles follow the same world-space breeze')
-    assert.ok(pose[30] - rest[30] > 10, 'the complete free curl follows')
-    assert.ok((pose[30] - rest[30]) - (pose[16] - rest[16]) > 6, 'the lock bends instead of translating rigidly')
+  const peakTravel = (engine, sign) => {
+    const maxima = materials.map(() => ({ middle: 0, tip: 0 }))
+    for (let time = 0; time < 12000; time += 1000 / 60) {
+      for (const [lock, pose] of sample(engine, materials, time).entries()) {
+        maxima[lock].middle = Math.max(maxima[lock].middle, sign * (pose[16] - materials[lock].spine[16]))
+        maxima[lock].tip = Math.max(maxima[lock].tip, sign * (pose[30] - materials[lock].spine[30]))
+      }
+    }
+    for (const travel of maxima) {
+      assert.ok(travel.middle > 3, 'both middles follow the same world-space breeze')
+      assert.ok(travel.tip > travel.middle * 2, 'the free end bends substantially more than the attached middle')
+    }
+    return maxima
   }
-  assert.ok(crest[0][30] - materials[0].spine[30] < crest[1][30] - materials[1].spine[30],
+  const crest = peakTravel(physics, 1)
+  assert.ok(crest[0].tip < crest[1].tip,
     'inward hair travel is smaller where the artwork has limited hidden surface')
-  const reverse = new HairPhysics(materials, { ...config, direction: -1 }, 256)
-  for (const [lock, pose] of sample(reverse, materials, 2670).entries()) {
-    assert.ok(pose[16] - materials[lock].spine[16] < -3, 'reversing the wind reverses both sides')
-    assert.ok(pose[30] - materials[lock].spine[30] < -10)
-  }
+  peakTravel(new HairPhysics(materials, { ...config, direction: -1 }, 256), -1)
 })
 
 test('the free end moves continuously through the cycle without a 60 Hz velocity jump', () => {
@@ -88,16 +92,49 @@ test('the free end moves continuously through the cycle without a 60 Hz velocity
   }
 })
 
-test('the broad swell produces inertial lag and a gradual return instead of prescribed position keyframes', () => {
-  const rest = materials[1].spine
-  let peak = { time: 0, displacement: 0 }
-  for (let time = 1000; time < 3400; time += 10) {
-    const displacement = sample(physics, materials, time)[1][30] - rest[30]
-    if (displacement > peak.displacement) peak = { time, displacement }
+const correlation = (a, b) => {
+  const mean = values => values.reduce((sum, value) => sum + value, 0) / values.length
+  const ma = mean(a), mb = mean(b)
+  let numerator = 0, aa = 0, bb = 0
+  for (let index = 0; index < a.length; index += 1) {
+    const x = a[index] - ma, y = b[index] - mb
+    numerator += x * y; aa += x * x; bb += y * y
   }
-  assert.ok(peak.time > 2300 && peak.time < 2900, 'the free end peaks after the force crest at 2150ms')
-  const retained = sample(physics, materials, 5000)[1][30] - rest[30]
-  assert.ok(retained > 6 && retained < peak.displacement * 0.6, 'the curl returns gradually as the broad swell recedes')
+  return numerator / Math.sqrt(aa * bb)
+}
+
+const velocity = values => values.map((value, frame) => value - values[(frame + values.length - 1) % values.length])
+
+test('the free end follows a bending middle with a short inertial delay', () => {
+  const poses = Array.from({ length: 720 }, (_, frame) => sample(physics, materials, frame * 1000 / 60)[1])
+  const middle = velocity(poses.map(pose => pose[16])), tip = velocity(poses.map(pose => pose[30]))
+  const candidates = Array.from({ length: 37 }, (_, lag) => ({ lag,
+    correlation: correlation(middle, tip.map((_, frame) => tip[(frame + lag) % tip.length])),
+  }))
+  const best = candidates.reduce((a, b) => b.correlation > a.correlation ? b : a)
+  assert.ok(best.lag >= 1 && best.lag <= 36, 'the tip follows the middle instead of reversing at one prescribed global timestamp')
+  assert.ok(best.correlation > .95, 'the end remains connected to the same coherent bending lock')
+})
+
+test('air flowing along a horizontal lock does not create an artificial upward tide', () => {
+  const lock = { ...material(1), spine: Float32Array.from(Array.from({ length: HAIR_NODES }, (_, node) =>
+    [40 + node / (HAIR_NODES - 1) * 180, 100]).flat()) }
+  const engine = new HairPhysics([lock], config, 256)
+  for (let frame = 0; frame < 720; frame += 1) {
+    const [pose] = sample(engine, [lock], frame * 1000 / 60)
+    for (let node = 2; node < HAIR_NODES; node += 1) {
+      assert.ok(pose[node * 2 + 1] >= 99.99, 'tangent air motion must not lift the whole free section')
+    }
+  }
+})
+
+test('neighboring locks catch different eddies rather than rising and falling as one sheet', () => {
+  const locks = [material(1), material(1)]
+  const engine = new HairPhysics(locks, config, 256)
+  const frames = Array.from({ length: 720 }, (_, frame) => sample(engine, locks, frame * 1000 / 60).map(pose => pose[30]))
+  const a = velocity(frames.map(frame => frame[0])), b = velocity(frames.map(frame => frame[1]))
+  assert.ok(a.some(value => Math.abs(value) > .01) && b.some(value => Math.abs(value) > .01), 'both locks keep moving')
+  assert.ok(correlation(a, b) < .95, 'local air variation prevents perfectly synchronized lock velocities')
 })
 
 test('partial wind gain keeps strongly bent material long instead of compressing its rotational arc', () => {
