@@ -1,6 +1,7 @@
 import type { TimelineSample } from '../../../shared/animation/types'
 import type { StageOptions } from './stageOptions'
-import { loadImage, portraitHeight } from '../renderer/portraitAsset'
+import { portraitHeight } from '../renderer/portraitAsset'
+import { loadBakedMaterials } from '../renderer/bakedMaterials'
 import { PortraitRig } from '../renderer/portraitRig'
 import { BLINK_CYCLE_MS, BLINK_DURATION_MS, createMotionTable, LOOP_MS, sampleBlinkProgress, samplePortrait } from './portraitTimeline'
 
@@ -15,12 +16,17 @@ export class PortraitPlayer {
   private last: number | null = null
   private manualBlink: number | null = null
   private lastSnapshot = -Infinity
+  private preparation = 0
+  private preparedKey: string | null = null
   private rig: PortraitRig | null = null
   private readonly ctx: CanvasRenderingContext2D
   private readonly motion = reducedMotion
   private table: Float32Array[]
   private readonly visibility = (): void => this.sync()
-  private readonly preference = (): void => this.sync()
+  private readonly preference = (): void => {
+    if (this.rig) void this.prepareRig().catch(() => this.fail())
+    else this.sync()
+  }
 
   constructor(
     private readonly canvas: HTMLCanvasElement,
@@ -35,6 +41,9 @@ export class PortraitPlayer {
     canvas.dataset.playback = 'loading'
     canvas.dataset.loopDuration = String(LOOP_MS)
     canvas.dataset.blinkCycleDuration = String(BLINK_CYCLE_MS)
+    canvas.dataset.renderer = 'layered-arc-mesh'
+    canvas.dataset.physicsHz = '240'
+    canvas.dataset.physicsCacheHz = '120'
     const context = canvas.getContext('2d', { alpha: true })
     if (!context) throw new Error('A Canvas 2D context is required.')
     this.ctx = context
@@ -42,15 +51,38 @@ export class PortraitPlayer {
     this.table = createMotionTable(options)
     this.motion.addEventListener('change', this.preference)
     document.addEventListener('visibilitychange', this.visibility)
-    const suffix = options.pixel === 256 ? '' : `-${options.pixel}`
-    const base = `${import.meta.env.BASE_URL}assets/portrait-natural/`
-    void Promise.all([loadImage(`${base}base${suffix}.png`), loadImage(`${base}eyelids${suffix}.png`), loadImage(`${base}underpaint${suffix}.png`)])
-      .then(([open, closed, underpaint]) => {
+    void loadBakedMaterials(`${import.meta.env.BASE_URL}assets/portrait-rig/`, options.pixel)
+      .then((materials) => {
         if (this.destroyed) return
-        this.rig = new PortraitRig(open, closed, options.pixel, underpaint)
-        canvas.dataset.ready = 'true'
-        this.sync()
+        this.rig = new PortraitRig(materials)
+        return this.prepareRig()
       }).catch(() => this.fail())
+  }
+
+  private async prepareRig(): Promise<void> {
+    const rig = this.rig
+    if (!rig || this.destroyed) return
+    const generation = ++this.preparation
+    cancelAnimationFrame(this.raf)
+    this.raf = 0
+    this.last = null
+    this.canvas.dataset.ready = 'false'
+    this.canvas.dataset.playback = 'preparing'
+    if (this.canonicalMode()) {
+      this.canvas.dataset.ready = 'true'
+      this.sync()
+      return
+    }
+    const key = this.physicsKey()
+    try { await rig.prepare(this.options) }
+    catch (error) {
+      if (this.destroyed || generation !== this.preparation) return
+      throw error
+    }
+    if (this.destroyed || generation !== this.preparation) return
+    this.preparedKey = key
+    this.canvas.dataset.ready = 'true'
+    this.sync()
   }
 
   private fail(): void {
@@ -78,9 +110,14 @@ export class PortraitPlayer {
   }
 
   update(options: StageOptions): void {
-    if ((['direction', 'gust', 'stiffness', 'damping'] as const).some((key) =>
-      this.options[key] !== options[key])) this.table = createMotionTable(options)
+    const physicsChanged = (['direction', 'gust', 'stiffness', 'damping'] as const).some((key) =>
+      this.options[key] !== options[key])
+    if (physicsChanged) this.table = createMotionTable(options)
     this.options = options
+    if (physicsChanged && this.rig) {
+      void this.prepareRig().catch(() => this.fail())
+      return
+    }
     this.sync()
   }
 
@@ -94,6 +131,16 @@ export class PortraitPlayer {
     return this.motion.matches || this.options.frozenPose !== null || this.options.paused || this.options.timeMs !== null
   }
 
+  private canonicalMode(): boolean {
+    return this.motion.matches || this.options.frozenPose === 1 || this.options.frozenPose === 10
+      || this.options.wind === 0 || this.options.direction === 0
+  }
+
+  private physicsKey(): string {
+    const { direction, gust, stiffness, damping } = this.options
+    return JSON.stringify([direction, gust, stiffness, damping])
+  }
+
   private active(): boolean {
     return !this.staticMode() || (this.manualBlink !== null && !this.motion.matches)
   }
@@ -103,7 +150,7 @@ export class PortraitPlayer {
     if (this.manualBlink !== null) {
       sample.eyeOpen = sampleBlinkProgress(this.manualBlink)
     }
-    const canonicalRest = this.motion.matches || this.options.frozenPose === 1 || this.options.frozenPose === 10
+    const canonicalRest = this.canonicalMode()
     this.rig?.paint(this.ctx, this.table, sample.timeMs, canonicalRest ? 0 : this.options.wind, sample.eyeOpen)
     this.canvas.dataset.painted = 'true'
     if (this.elapsed - this.lastSnapshot >= 80 || this.staticMode()) {
@@ -116,7 +163,11 @@ export class PortraitPlayer {
     cancelAnimationFrame(this.raf)
     this.raf = 0
     this.last = null
-    if (this.destroyed || !this.rig) return
+    if (this.destroyed || !this.rig || this.canvas.dataset.ready !== 'true') return
+    if (!this.canonicalMode() && this.preparedKey !== this.physicsKey()) {
+      void this.prepareRig().catch(() => this.fail())
+      return
+    }
     if (document.hidden || !this.viewportVisible) {
       this.canvas.dataset.playback = 'suspended'
       return
@@ -150,6 +201,8 @@ export class PortraitPlayer {
 
   destroy(): void {
     this.destroyed = true
+    this.preparation += 1
+    this.rig?.destroy()
     this.canvas.dataset.playback = 'stopped'
     cancelAnimationFrame(this.raf)
     this.motion.removeEventListener('change', this.preference)

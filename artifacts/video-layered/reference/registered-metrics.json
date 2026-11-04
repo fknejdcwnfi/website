@@ -1,0 +1,442 @@
+{
+  "registration": "Eye-iris centroids, similarity transform into the 1.0s frame; positions during closure interpolated. Analysis resampling only, not production artwork.",
+  "head_eye_distance_px_start": 151.74017037761928,
+  "head_eye_distance_px_end": 138.58789023113115,
+  "end_to_start_scale": 0.9133236761646077,
+  "eye_midpoint_translation_px": [
+    8.764118748291423,
+    16.048045849035077
+  ],
+  "region_difference_note": "Mean RGB change / changed area are appearance differences after eye registration, NOT local displacement or proof of motion. Skin and face also change in the generated video.",
+  "region_differences": [
+    {
+      "time": 0.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 46.92064039408868,
+          "fraction_over_20": 0.5256650246305419
+        },
+        "left_side": {
+          "mean_rgb_difference": 44.849105691056906,
+          "fraction_over_20": 0.5832800672834314
+        },
+        "right_side": {
+          "mean_rgb_difference": 55.73914721881031,
+          "fraction_over_20": 0.5622389892963677
+        },
+        "left_long": {
+          "mean_rgb_difference": 68.36579386763813,
+          "fraction_over_20": 0.6611338797814208
+        },
+        "right_long": {
+          "mean_rgb_difference": 64.33877426041077,
+          "fraction_over_20": 0.6245053702656869
+        },
+        "face_center": {
+          "mean_rgb_difference": 16.008385964912282,
+          "fraction_over_20": 0.08589473684210526
+        },
+        "eyes": {
+          "mean_rgb_difference": 39.39265,
+          "fraction_over_20": 0.40005
+        }
+      }
+    },
+    {
+      "time": 0.5,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 38.524225506294464,
+          "fraction_over_20": 0.40504105090311987
+        },
+        "left_side": {
+          "mean_rgb_difference": 39.943470703672546,
+          "fraction_over_20": 0.5134735071488646
+        },
+        "right_side": {
+          "mean_rgb_difference": 57.550166695911564,
+          "fraction_over_20": 0.6136866116862607
+        },
+        "left_long": {
+          "mean_rgb_difference": 57.952588038858515,
+          "fraction_over_20": 0.5915528233151184
+        },
+        "right_long": {
+          "mean_rgb_difference": 57.706056466302364,
+          "fraction_over_20": 0.5517005841341625
+        },
+        "face_center": {
+          "mean_rgb_difference": 9.32922807017544,
+          "fraction_over_20": 0.07778947368421052
+        },
+        "eyes": {
+          "mean_rgb_difference": 43.33998333333333,
+          "fraction_over_20": 0.34085
+        }
+      }
+    },
+    {
+      "time": 1.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        },
+        "left_side": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        },
+        "right_side": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        },
+        "left_long": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        },
+        "right_long": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        },
+        "face_center": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        },
+        "eyes": {
+          "mean_rgb_difference": 0.0,
+          "fraction_over_20": 0.0
+        }
+      }
+    },
+    {
+      "time": 1.5,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 29.59695675971538,
+          "fraction_over_20": 0.3260591133004926
+        },
+        "left_side": {
+          "mean_rgb_difference": 46.72551724137931,
+          "fraction_over_20": 0.5704962153069807
+        },
+        "right_side": {
+          "mean_rgb_difference": 61.367058548283325,
+          "fraction_over_20": 0.6609580628180383
+        },
+        "left_long": {
+          "mean_rgb_difference": 48.46477686703096,
+          "fraction_over_20": 0.5774134790528234
+        },
+        "right_long": {
+          "mean_rgb_difference": 49.9356039193518,
+          "fraction_over_20": 0.5600857358206143
+        },
+        "face_center": {
+          "mean_rgb_difference": 6.2710877192982455,
+          "fraction_over_20": 0.07294736842105264
+        },
+        "eyes": {
+          "mean_rgb_difference": 13.6203,
+          "fraction_over_20": 0.14335
+        }
+      }
+    },
+    {
+      "time": 2.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 40.45646962233169,
+          "fraction_over_20": 0.45927750410509033
+        },
+        "left_side": {
+          "mean_rgb_difference": 53.418828146902165,
+          "fraction_over_20": 0.6246593776282591
+        },
+        "right_side": {
+          "mean_rgb_difference": 65.19709890624087,
+          "fraction_over_20": 0.6939112124934199
+        },
+        "left_long": {
+          "mean_rgb_difference": 49.425857619914986,
+          "fraction_over_20": 0.580396174863388
+        },
+        "right_long": {
+          "mean_rgb_difference": 52.102553231580934,
+          "fraction_over_20": 0.5562935745242134
+        },
+        "face_center": {
+          "mean_rgb_difference": 8.87501754385965,
+          "fraction_over_20": 0.09557894736842105
+        },
+        "eyes": {
+          "mean_rgb_difference": 13.724083333333335,
+          "fraction_over_20": 0.14425
+        }
+      }
+    },
+    {
+      "time": 2.5,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 37.099950738916256,
+          "fraction_over_20": 0.408128078817734
+        },
+        "left_side": {
+          "mean_rgb_difference": 58.86293243622091,
+          "fraction_over_20": 0.7205046257359126
+        },
+        "right_side": {
+          "mean_rgb_difference": 74.42541966426857,
+          "fraction_over_20": 0.7806632742586419
+        },
+        "left_long": {
+          "mean_rgb_difference": 45.366856405585914,
+          "fraction_over_20": 0.5852686703096539
+        },
+        "right_long": {
+          "mean_rgb_difference": 47.99633345895358,
+          "fraction_over_20": 0.5124835123421896
+        },
+        "face_center": {
+          "mean_rgb_difference": 9.232105263157893,
+          "fraction_over_20": 0.10252631578947369
+        },
+        "eyes": {
+          "mean_rgb_difference": 14.984533333333331,
+          "fraction_over_20": 0.1599
+        }
+      }
+    },
+    {
+      "time": 3.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 31.2952162014231,
+          "fraction_over_20": 0.3482430213464696
+        },
+        "left_side": {
+          "mean_rgb_difference": 57.030344827586205,
+          "fraction_over_20": 0.647098402018503
+        },
+        "right_side": {
+          "mean_rgb_difference": 61.14197812481722,
+          "fraction_over_20": 0.6273030356202842
+        },
+        "left_long": {
+          "mean_rgb_difference": 53.33349271402551,
+          "fraction_over_20": 0.631716757741348
+        },
+        "right_long": {
+          "mean_rgb_difference": 47.565369637585576,
+          "fraction_over_20": 0.5265922366685509
+        },
+        "face_center": {
+          "mean_rgb_difference": 8.47080701754386,
+          "fraction_over_20": 0.08989473684210526
+        },
+        "eyes": {
+          "mean_rgb_difference": 16.477216666666667,
+          "fraction_over_20": 0.1749
+        }
+      }
+    },
+    {
+      "time": 3.5,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 30.635900383141767,
+          "fraction_over_20": 0.33341543513957306
+        },
+        "left_side": {
+          "mean_rgb_difference": 58.32734510793384,
+          "fraction_over_20": 0.6444070647603027
+        },
+        "right_side": {
+          "mean_rgb_difference": 58.89399309820437,
+          "fraction_over_20": 0.6078610282505703
+        },
+        "left_long": {
+          "mean_rgb_difference": 61.246561930783244,
+          "fraction_over_20": 0.6940573770491804
+        },
+        "right_long": {
+          "mean_rgb_difference": 48.02732240437158,
+          "fraction_over_20": 0.5221876766534765
+        },
+        "face_center": {
+          "mean_rgb_difference": 7.955719298245613,
+          "fraction_over_20": 0.0851578947368421
+        },
+        "eyes": {
+          "mean_rgb_difference": 15.01608333333333,
+          "fraction_over_20": 0.15435
+        }
+      }
+    },
+    {
+      "time": 4.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 37.42352490421456,
+          "fraction_over_20": 0.4129885057471264
+        },
+        "left_side": {
+          "mean_rgb_difference": 53.606268573030555,
+          "fraction_over_20": 0.6372413793103449
+        },
+        "right_side": {
+          "mean_rgb_difference": 68.29881265719132,
+          "fraction_over_20": 0.708018950693104
+        },
+        "left_long": {
+          "mean_rgb_difference": 49.82125834851243,
+          "fraction_over_20": 0.57632058287796
+        },
+        "right_long": {
+          "mean_rgb_difference": 57.32032378619434,
+          "fraction_over_20": 0.5914122856604485
+        },
+        "face_center": {
+          "mean_rgb_difference": 7.209438596491227,
+          "fraction_over_20": 0.07631578947368421
+        },
+        "eyes": {
+          "mean_rgb_difference": 16.748916666666666,
+          "fraction_over_20": 0.16005
+        }
+      }
+    },
+    {
+      "time": 4.5,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 41.30506294471812,
+          "fraction_over_20": 0.4477011494252874
+        },
+        "left_side": {
+          "mean_rgb_difference": 64.80926268573029,
+          "fraction_over_20": 0.768040370058873
+        },
+        "right_side": {
+          "mean_rgb_difference": 77.25819734456338,
+          "fraction_over_20": 0.8018599754342867
+        },
+        "left_long": {
+          "mean_rgb_difference": 54.60572252580449,
+          "fraction_over_20": 0.6371129326047359
+        },
+        "right_long": {
+          "mean_rgb_difference": 54.005645059983664,
+          "fraction_over_20": 0.5661626154136047
+        },
+        "face_center": {
+          "mean_rgb_difference": 7.441684210526316,
+          "fraction_over_20": 0.08221052631578947
+        },
+        "eyes": {
+          "mean_rgb_difference": 22.848466666666667,
+          "fraction_over_20": 0.2262
+        }
+      }
+    },
+    {
+      "time": 5.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 31.887367268746576,
+          "fraction_over_20": 0.3476683087027915
+        },
+        "left_side": {
+          "mean_rgb_difference": 55.92879170171011,
+          "fraction_over_20": 0.6510681244743481
+        },
+        "right_side": {
+          "mean_rgb_difference": 58.361934842370005,
+          "fraction_over_20": 0.6218634848218986
+        },
+        "left_long": {
+          "mean_rgb_difference": 58.73002428658166,
+          "fraction_over_20": 0.6610655737704918
+        },
+        "right_long": {
+          "mean_rgb_difference": 56.059677470008175,
+          "fraction_over_20": 0.6052383644243452
+        },
+        "face_center": {
+          "mean_rgb_difference": 5.704350877192983,
+          "fraction_over_20": 0.06263157894736843
+        },
+        "eyes": {
+          "mean_rgb_difference": 20.921650000000003,
+          "fraction_over_20": 0.19955
+        }
+      }
+    },
+    {
+      "time": 5.5,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 39.668598795840175,
+          "fraction_over_20": 0.410311986863711
+        },
+        "left_side": {
+          "mean_rgb_difference": 46.8260947574993,
+          "fraction_over_20": 0.5614802354920101
+        },
+        "right_side": {
+          "mean_rgb_difference": 57.06635082178159,
+          "fraction_over_20": 0.5994384979821021
+        },
+        "left_long": {
+          "mean_rgb_difference": 56.761255312689734,
+          "fraction_over_20": 0.6020719489981785
+        },
+        "right_long": {
+          "mean_rgb_difference": 55.380087620124364,
+          "fraction_over_20": 0.5711560203504805
+        },
+        "face_center": {
+          "mean_rgb_difference": 8.120842105263158,
+          "fraction_over_20": 0.0911578947368421
+        },
+        "eyes": {
+          "mean_rgb_difference": 43.91053333333333,
+          "fraction_over_20": 0.34385
+        }
+      }
+    },
+    {
+      "time": 6.0,
+      "regions": {
+        "scalp_bangs": {
+          "mean_rgb_difference": 36.05733442802409,
+          "fraction_over_20": 0.41267651888341544
+        },
+        "left_side": {
+          "mean_rgb_difference": 46.075357443229606,
+          "fraction_over_20": 0.5346005046257359
+        },
+        "right_side": {
+          "mean_rgb_difference": 57.16544422998187,
+          "fraction_over_20": 0.6370591331812598
+        },
+        "left_long": {
+          "mean_rgb_difference": 59.821994535519124,
+          "fraction_over_20": 0.6414617486338798
+        },
+        "right_long": {
+          "mean_rgb_difference": 51.42089849883801,
+          "fraction_over_20": 0.559567552289429
+        },
+        "face_center": {
+          "mean_rgb_difference": 5.392561403508771,
+          "fraction_over_20": 0.06010526315789474
+        },
+        "eyes": {
+          "mean_rgb_difference": 15.7325,
+          "fraction_over_20": 0.17735
+        }
+      }
+    }
+  ]
+}

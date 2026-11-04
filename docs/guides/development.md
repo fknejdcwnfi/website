@@ -1,5 +1,7 @@
 # 開發指南
 
+> 最新動態契約以[影片驅動的獨立髮束重建](video-layered-rebuild.md)為準。擁有者已拒絕PR #9的髮動效果；下方舊field／反向取樣及其量測是歷史，不作新版美術通過證據。角色身份、原始素材保護及網站要求持續有效。
+
 使用Node24及既有checkout。首頁是完整Minecraft像素風個人網站，內容設定與動畫rig互相獨立。產品與帳號欄位見[個人網站](personal-site.md)，角色及最新動態見[Living Portrait](living-portrait.md)與[參考風動](reference-wind.md)。
 
 最新藍色三欄版面與髮束物理的實作／驗證見[參考版面與物理重構](reference-rebuild.md)，新證據輸出至 `artifacts/reference-rebuild/`，保留既有歷史證據。

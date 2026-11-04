@@ -1,3 +1,4 @@
+# Historical field-renderer probe. Use verify_layered_portrait.py for the current portrait.
 """Compare reachable raster candidates against the original full field at all reviewed grids."""
 import argparse
 import json
@@ -13,7 +14,7 @@ with sync_playwright() as p:
     page.goto(args.url.rstrip('/')+'/?view=portrait&pose=1')
     page.wait_for_selector('canvas[data-ready=true]')
     result=page.evaluate(r'''async()=>{
-      const {PortraitRig}=await import('/src/features/portrait/renderer/portraitRig.ts');
+      const {PortraitRig}=await import('/src/archive/fieldPortrait/portraitRig.ts');
       const {loadImage}=await import('/src/features/portrait/renderer/portraitAsset.ts');
       const {createMotionTable}=await import('/src/features/portrait/animation/portraitTimeline.ts');
       const cases=[

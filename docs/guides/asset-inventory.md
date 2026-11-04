@@ -2,6 +2,14 @@
 
 > **目前資源策略（2026-10-29）**：以 `original_reference.jpg` 為最高身份／構圖權威。保留前版2D像素母版的大小與內部構圖，從v2母版作背景移除編輯，再以局部眼瞼、髮場與耳環動畫呈現；使用者已拒絕向外補畫完整胸像。人物外透明，方形邏輯畫布不形成可見底板；最新圓形展示僅裁切容器，不改原始素材。所有原始來源維持唯讀。肖像契約見 [Living Portrait](living-portrait.md)，完整網站見 [個人網站](personal-site.md)。
 
+## 新獨立髮束選擇材料
+
+`assets/generated/portrait-rig/hair-matte.png`保留AI輔助產生的1254²選擇母版，來源為同一canonical而不是新角色。`public/assets/portrait-rig/`提供192／256／320三份nearest二值選擇格（約7.6／10.9／15.0KB），原1254²母版不隨網站下載。選擇資料不提供可見顏色或五官；runtime cutout只取原canonical像素，底圖使用已登記underpaint與局部隱蔽修復。
+
+來源、SHA與限制見[新材料登記](../../assets/generated/portrait-rig/README.md)、[提示詞](../../assets/generated/portrait-rig/PROMPTS.md)及新[manifest](../../public/assets/portrait-rig/manifest.json)。`scripts/assets/export_hair_matte.py`以瀏覽器相同nearest／threshold重建三格，保留母版；`assets:verify`檢查所有runtime與母版雜湊。最新動態見[影片重建](video-layered-rebuild.md)。
+
+正式Player讀 `rig-{size}.png/json`預烘焙圖層；三尺寸PNG為顯式58種RGBA索引與透明表，逐byte解碼一致，預設80,208bytes。binding／圖集SHA及來源程式／輸入圖依賴列在 `baked-manifest.json`；修改分層程式後重跑 `scripts/assets/export_baked_portrait.py`。原圖三素材仍用於authoring驗收與靜態poster，不再由Player現場拆層。
+
 ## 個人網站字體與內容來源
 
 - `public/fonts/PressStart2P-Regular.ttf`：Press Start 2P，由Google Fonts公開來源自託管；[public/fonts/OFL.txt](../../public/fonts/OFL.txt)保存SIL Open Font License。網站不向外部字體CDN請求資源，中文使用系統字體。

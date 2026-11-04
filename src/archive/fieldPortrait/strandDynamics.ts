@@ -1,4 +1,4 @@
-import { HAIR_CHANNELS, LOOP_MS, sampleMotion } from '../animation/portraitTimeline.ts'
+import { HAIR_CHANNELS, LOOP_MS, sampleMotion } from '../../features/portrait/animation/portraitTimeline.ts'
 import { CHAIN_STATIONS } from './strandCurve.ts'
 
 const HARMONICS = 3

@@ -1,0 +1,51 @@
+{
+  "conditions": "fresh single-page production Chromium;1200x1000;DPR1;no CPU throttle;no screenshots;startup timer probes responsiveness, not FPS",
+  "runs": [
+    {
+      "ready_ms": 2089.399999999907,
+      "workers": 1,
+      "timer_callbacks": 86,
+      "timer_interval_p95_ms": 19.100000000093132,
+      "timer_interval_max_ms": 330.89999999990687,
+      "long_tasks": [
+        {
+          "start": 252.5999999998603,
+          "duration": 59
+        },
+        {
+          "start": 317.0999999998603,
+          "duration": 100
+        },
+        {
+          "start": 445.0999999998603,
+          "duration": 312
+        }
+      ],
+      "renderer": "layered-arc-mesh",
+      "playback": "looping",
+      "mode": "animated",
+      "errors": []
+    },
+    {
+      "ready_ms": 819.7999999998137,
+      "workers": 0,
+      "timer_callbacks": 7,
+      "timer_interval_p95_ms": 291.39999999990687,
+      "timer_interval_max_ms": 291.39999999990687,
+      "long_tasks": [
+        {
+          "start": 404.79999999981374,
+          "duration": 90
+        },
+        {
+          "start": 543.2999999998137,
+          "duration": 244
+        }
+      ],
+      "renderer": "layered-arc-mesh",
+      "playback": "static",
+      "mode": "reduced_motion",
+      "errors": []
+    }
+  ]
+}

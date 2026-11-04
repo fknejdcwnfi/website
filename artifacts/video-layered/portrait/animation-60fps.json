@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:4173/website/",
+  "source": "Actual production PortraitPlayer at controlled rAF timestamps; CSS circular viewport screenshots",
+  "fps": 60,
+  "frames": 720,
+  "duration_ms": 12000,
+  "frame_sequence_sha256": "0d92050349e16d52d8047fbc0e9ea094437a3c33c55a6f5bcd0b49c233dd4434",
+  "file": "animation-60fps.mp4",
+  "bytes": 2134884,
+  "sha256": "4fe1a17ee10312d838b79d1a1806d1b775173f04ab199b0bbf96811e1950ad21",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 512,
+        "height": 512,
+        "avg_frame_rate": "60/1",
+        "nb_frames": "720"
+      }
+    ],
+    "format": {
+      "duration": "12.000000"
+    }
+  },
+  "browser_errors": [],
+  "capture_wall_seconds": 73.343,
+  "interpretation": "A rendered review video at 60-fps encoding; controlled timestamp capture is not real-time or physical-refresh FPS evidence. H264 color encoding is lossy; raw Canvas PNGs remain the pixel authority."
+}

@@ -1,3 +1,4 @@
+# Historical field-renderer probe. Use verify_layered_portrait.py for the current portrait.
 """Functional regression checks against a running Vite dev server (source-module probes)."""
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 def portrait_url(url):
@@ -54,7 +55,7 @@ with sync_playwright() as p:
     page.wait_for_selector('canvas[data-ready=true]')
     ok('rest_1_equals_10', native == page.locator('canvas').evaluate('(c)=>c.toDataURL()'))
     metrics = page.evaluate(r"""async()=>{
-      const {PortraitRig,HAIR_REGIONS,EYES,inside,CHAIN_STATIONS}=await import('/src/features/portrait/renderer/portraitRig.ts');
+      const {PortraitRig,HAIR_REGIONS,EYES,inside,CHAIN_STATIONS}=await import('/src/archive/fieldPortrait/portraitRig.ts');
       const {loadImage,PALETTE}=await import('/src/features/portrait/renderer/portraitAsset.ts');
       const {createMotionTable,samplePortrait,sampleBlink,KEY_TIMES,LOOP_MS,BLINK_CYCLE_MS,BLINK_STARTS,BLINK_DURATION_MS}=await import('/src/features/portrait/animation/portraitTimeline.ts');
       const [open,closed,underpaint]=await Promise.all([
