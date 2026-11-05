@@ -21,6 +21,12 @@ python3 scripts/assets/export_portrait.py --help
 
 正常發佈為PR檢查成功後合併main，再由既有GitHub Actions部署；不以手動備援繞過審查。指定時間截幀與完整24秒20 Hz GIF只用於動作檢視，不等於實體顯示器FPS。詳見 [開發指南](../docs/guides/development.md)。
 
+## 目前：原動畫直接像素轉製
+
+`assets/export_faithful_pixel_scene.py`逐幀轉製原16份PNG，保持16×80ms，不重建風。`assets/verify_faithful_pixel_scene.py`用標準庫獨立解碼PNG，核對完整ZIP／22份原檔、衍生雜湊、來源原生2×2鄰域、高清首幀與生成描述；已接入CI的`assets:verify`。
+
+`qa/verify_faithful_scene.py`在production核對全部16幀與接縫的Canvas、圓形／清晰顯示、真實像素更新、減少動態、隱藏／離屏、重試、手機及無JS；同時擷取16張實際CSS圓形。`qa/capture_faithful_scene.py --encode-preview`將它們按原80ms時長編碼四輪，沒有補幀；`--measure`須在其他瀏覽器工作結束後獨立量測，分別報告rAF與來源畫面更新率。完整命令見[最新指南](../docs/guides/faithful-source-pixels.md)。
+
 ## 參考版面與髮束物理重構
 
 `qa/verify_raster_cache.py` 將可達跨度快取與原完整field逐像素比較，預設dev5173，輸出 `artifacts/reference-rebuild/raster-cache.json`；可用 `--url`／`--output` 指定位置。其餘本輪QA、截圖與同環境production效能命令見[重構指南](../docs/guides/reference-rebuild.md)。舊證據不覆寫，效能量測與其他瀏覽器工作序列執行。
@@ -29,7 +35,7 @@ python3 scripts/assets/export_portrait.py --help
 
 `assets/export_baked_portrait.py`從同一source算法無損輸出三尺寸atlas與binding、source/input/output SHA清冊；`assets:verify`檢查過期bake。`qa/verify_layered_portrait.py`是目前正式角色驗收，舊field probes只供archive。`qa/measure_portrait_startup.py`把冷啟動與穩態FPS分開；`qa/capture_portrait_video.py`從真實CSS圓形截圖編碼60fps審查影片，編碼率不代表實體顯示器FPS。完整命令／條件見[影片重建指南](../docs/guides/video-layered-rebuild.md)。
 
-## Current calm circle
+## Historical calm circle (superseded)
 
 The owner rejected the PR16 whole-image warp and outer background. Current authoring is `assets/export_calm_portrait.py`; only generated selection alpha is used to isolate original Minecraft pixels into a fixed plate, two rigid rear locks and local eyelids. `assets/verify_calm_portrait.py` validates committed provenance and generated descriptors using only the standard library. Full instructions: [calm-circle.md](../docs/guides/calm-circle.md).
 

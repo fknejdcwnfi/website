@@ -43,7 +43,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
         <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
         <figure class="hero__visual hero__visual--reference">
           <div class="reference-scene-static"><div class="reference-scene__space"><div class="reference-scene__viewport">
-            <img class="reference-scene__poster" src="${escape(`${base}assets/calm-circle/canonical.png`)}" width="716" height="534" fetchpriority="high" alt="Vermouth的Minecraft像素圓形肖像">
+            <img class="reference-scene__poster" src="${escape(`${base}assets/faithful-pixel/canonical.png`)}" width="716" height="534" fetchpriority="high" alt="Vermouth的像素圓形肖像與原動畫風景">
           </div></div></div>
           <figcaption><span>VERMOUTH</span><span>像素肖像</span></figcaption>
         </figure>

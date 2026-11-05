@@ -105,7 +105,7 @@ export const site: SiteContent = {
       id: 'living-portrait',
       title: 'Living Portrait',
       subtitle: '個人網站 · 像素動態實驗',
-      description: '以 Vermouth 為主題的 Minecraft 像素肖像，探索自然眨眼與克制輕擺的動態效果。',
+      description: '將 Vermouth 原動畫逐幀轉成 Minecraft 靈感的像素畫，保留原來的飄髮、眨眼與場景時序。',
       tags: ['TypeScript', 'React', 'Canvas'],
       href: 'https://github.com/fknejdcwnfi/website',
       status: 'active',

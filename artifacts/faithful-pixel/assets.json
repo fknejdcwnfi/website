@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "originalArchiveSha256": "9ee2d35c4bbad5276b715de02ebf0e5e48e0e7372a3a26d42d790c9426c5760e",
+  "originalFilesVerified": 22,
+  "reuploadByteIdentical": true,
+  "sourceFrameCount": 16,
+  "sourceFrameDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "durationMs": 1280,
+  "sourceFps": 12.5,
+  "coordinatesVerified": 1529376,
+  "maximumColorSamplingOffsetPx": [
+    1,
+    1
+  ],
+  "paletteColors": 37,
+  "differentColorPixels": 1276709,
+  "clusterSelectedPixels": 408281,
+  "method": "Independent PNG decode: every output color belongs to its own original aligned2x2 block; dominant cluster rule and native thin features; canonical exact nearest2x"
+}

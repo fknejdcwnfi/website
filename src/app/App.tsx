@@ -3,15 +3,15 @@ import { site } from '../features/profile/content/site'
 import PersonalSections from '../features/profile/components/PersonalSections'
 import SiteShell from '../features/profile/components/SiteShell'
 import ReferenceScene from '../features/referenceScene/ReferenceScene'
-import { calmPortraitDefinition as referenceSceneDefinition } from '../features/calmPortrait/definition'
-import { createCalmRenderer as createSourceRenderer } from '../features/calmPortrait/renderer'
+import { faithfulPixelDefinition as referenceSceneDefinition } from '../features/faithfulPixel/definition'
+import { createFaithfulPixelRenderer as createSourceRenderer } from '../features/faithfulPixel/renderer'
 
 const ArchivedPortrait=lazy(()=>import('./ArchivedPortrait'))
 export default function App() {
   const params=new URLSearchParams(location.search)
   if(params.get('view')==='portrait'||['voxel','legacy'].includes(params.get('style')??''))return <Suspense fallback={<p>正在載入肖像…</p>}><ArchivedPortrait /></Suspense>
   const time=params.get('t')
-  const timeMs=time!==null&&time.trim()!==''&&Number.isFinite(Number(time))?Math.max(0,Math.min(120000,Number(time))):null
+  const timeMs=time!==null&&time.trim()!==''&&Number.isFinite(Number(time))?Math.max(-120000,Math.min(120000,Number(time))):null
   const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs} />
   if(params.get('view')==='scene')return <main className="reference-scene-page">{scene}</main>
   return (

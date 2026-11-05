@@ -1,3 +1,5 @@
+> 2026-11-06最新要求與預設以[原動畫逐幀像素畫](faithful-source-pixels.md)為準；下方calm／物理rig與固定臉契約屬歷史。
+
 # fknejdcwnfi 的完整個人網站
 
 - **日期**：2026-10-29

@@ -13,7 +13,7 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Latest authoritative rebuild
 
-Read [`docs/guides/calm-circle.md`](docs/guides/calm-circle.md) first. **The owner rejected PR #16's whole-image distortion as frightening on2026-11-06.** The new default is `src/features/calmPortrait/`: a stable, borderless circle, transparent background, fixed face/body/front curls/jewelry, two independently cut rear locks with restrained rigid rotations, and local occasional eyelids. No outer scenery, snow, old boot video, source-pose fields or whole-image flow may load by default. Keep Minecraft artwork and716×534 output. Do not restore the rejected full-frame warp, even at reduced strength. The new fixed-plate pixel invariant overrides the previous original-GIF timing/scene contract. Original source files and historical evidence stay immutable; current evidence is `artifacts/calm-circle/`.
+Read [`docs/guides/faithful-source-pixels.md`](docs/guides/faithful-source-pixels.md) first. **The latest owner request rejects PR #17's weak local sway and explicitly requires the uploaded ZIP animation, with only the pixel-art appearance changed.** The default is `src/features/faithfulPixel/`: a direct conversion of the original16 frames, native358×267 coordinates, unchanged16×80ms /1280ms timing, sharp716×534 nearest output, in the existing borderless circle. Preserve the original composition inside the circle; do not add outer scenery. No AI-mother retargeting, whole-image optical-flow fields, newly simulated wind, independent blink clock, cross-fades or estimated interframes in the default path. Original source movement (including face/background movement and its loop seam) is authoritative; the former fixed-plate invariant and12s/24s rig clocks are superseded. Pixel color/cluster processing is offline, documented and shared across frames, never a runtime geometric warp. Keep sourceZIP and originals immutable. Current evidence: `artifacts/faithful-pixel/`; older guides/results are history.
 
 ## Read in this order
 
@@ -40,11 +40,11 @@ Read [`docs/guides/calm-circle.md`](docs/guides/calm-circle.md) first. **The own
 
 - **`assets/source/**` is read-only.** Never overwrite, crop, re-encode, rename,
   or delete the original frames, reference image, contact sheet, or GIF.
-- **`original_reference.jpg` is the highest identity and framing authority.**
-  Preserve its pointed chin, tilted blue eyes, confident smirk, asymmetrical
-  curling platinum hair, shoulder crop, long sapphire earrings and low pendant.
-  Frames 01–10 supply motion intent only; do not copy their inconsistent faces.
-  Immutable frame_01 / frame_10 must remain byte-identical.
+- **The current default's identity, framing and motion authority is the complete
+  owner-supplied ZIP in `reference-projects/fuji-wind/`.** Retain every original
+  source file byte-for-byte. For the historical portrait rig only,
+  `original_reference.jpg` and frames01–10 retain their earlier authority;
+  immutable frame_01 / frame_10 must remain byte-identical.
 - **Never present the cross-fade as a finished seamless animation.** It remains
   an explicitly provisional legacy preview.
 - **Use faithful 2D pixel art, not Steve anatomy or a 3D voxel redesign.**
@@ -54,14 +54,15 @@ Read [`docs/guides/calm-circle.md`](docs/guides/calm-circle.md) first. **The own
 - **A complete personal website is required.** Navigation, personal introduction,
   real projects, contact links and footer are required.
   The former character-only / no-UI restriction is superseded by ADR-016.
-  The normal homepage has no public play/pause controls: hair moves continuously
-  on a reference-driven 12000 ms physical cycle while visible, with a separate 24000 ms blink schedule. Keep manual controls opt-in via debug=1 or
+  The normal homepage has no public play/pause controls: original source frames
+  play continuously on their1280ms cycle while visible, including the source blinks. Keep manual controls opt-in via debug=1 or
   explicit QA parameters; honor reduced motion and visibility suspension. Only when system reduced motion is active, explain the static state and allow explicit visitor opt-in with a reversible local choice; normal playback has no controls.
 - **Use a centered, circular, borderless portrait presentation.** The owner's latest
   2026-10-29 request supersedes the earlier unclipped silhouette presentation.
   Clip only the display viewport; keep the original close-up composition, canonical
-  artwork and transparent materials intact. Do not add a circular stroke, frame,
-  thick background, rectangular card or full-bust outpainting. Raw Canvas pixels
+  artwork and source proportions intact. The source scene stays inside the circle;
+  no outer background, stroke, frame, rectangular card or full-bust outpainting.
+  Raw Canvas pixels
   retain binary alpha; the browser's circular clipping edge may be antialiased.
 - **Keep pixel art crisp.** Disable image smoothing and use nearest-neighbor display.
   Align the displayed grid to integer physical-device-pixel multiples when space
@@ -70,8 +71,9 @@ Read [`docs/guides/calm-circle.md`](docs/guides/calm-circle.md) first. **The own
   Use owner-provided name fknejdcwnfi, greeting HELLOWORLD and the supplied email;
   never invent credentials, employment, project claims or social accounts.
 - **No whole-image translate/rotate/scale** to fake hair motion or blinking.
-- Keep the pixel character's facial geometry stable during animation. Eyelids,
-  hair and jewelry move locally; do not substitute other generated faces.
+- Do not substitute independently generated faces. In the current default, keep
+  each source frame's own facial geometry, hair, jewelry and blink state; original
+  movement supersedes the old fixed-face/local-rig rule.
 - **Do not disable or break `.github/workflows/deploy.yml` or `ci.yml`.**
   Pushes/merges to `main` auto-deploy to GitHub Pages. Modifying workflows
   requires a GitHub connection with `workflow` permission.
@@ -115,8 +117,10 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 
 ## Current state
 
+Only the default hero and personal-site statements below describe the active path. The detailed physics/Worker/12s wind/24s eyelid paragraphs are historical and must not be applied to the direct source-frame default.
+
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default hero: `src/features/calmPortrait/`, stable HD716×534 Minecraft circle with a transparent background, local rigid rear hair and occasional eyelids. See the latest guide; the portrait paragraphs below describe the historical renderer.
+- Default hero: `src/features/faithfulPixel/`, direct original16-frame pixel-art conversion, sharp716×534 output in a borderless circle. Read the latest guide; the rig/calm paragraphs below describe historical renderers.
 - Responsive personal homepage with an indigo double header, white document
   layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
 - Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their
