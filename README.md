@@ -1,17 +1,17 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。這是fknejdcwnfi的個人網站，以Minecraft-inspired二維像素美術呈現Vermouth、富士山、樱花、雪與夕陽。
+**HELLOWORLD**。fknejdcwnfi的個人網站，以穩定的Minecraft像素圓形肖像呈現Vermouth。
 
-- [正式網站](https://fknejdcwnfi.github.io/website/) · [GitHub](https://github.com/fknejdcwnfi) · Email：**fknejdcwnfi@gmail.com**
-- [最新工程與重跑指南](docs/guides/minecraft-scenic-rebuild.md) · [完整不可變原工程](reference-projects/fuji-wind/)
+- [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/calm-circle.md)
+- [完整不可變原工程](reference-projects/fuji-wind/) · GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 
-整幅美術已重新繪製，不再以原動畫放大當作Minecraft效果。單一像素母版保留角色特徵，以源16姿態驅動飄發及局部眨眼；高清輸出716×534，完整1536×1024方塊富士山／樱花／雪林／夕陽景色延展至無邊圓形人物外側。216片分層像素雪從首幀開始動態。
+依最新回饋，已撤下令人不適的整圖變形、外景、雪層和舊影片。現在是無邊框圓形、透明背景、716×534像素人物，臉、身體、前景髮與珠寶固定；只有兩塊後側髮束克制輕擺、眼睑局部自然眨動。動態在rAF更新，減少動態／隱藏／離屏及失敗恢復保持。
 
-初始HTML先播放約929KiB的progressive影片，React保留同一video節點，無損圖集依當前相位接手；沒有等待完整圖集的人工延遲。原16×80ms／1280ms節奏和160×8ms估計樣本保留，影片也為125fps／160張；編碼或樣本率不等於實體顯示器FPS。新RGB和遮擋形變不是原GIF逐像素相同，原ZIP／原圖全部保持不變。
+![穩定圓形肖像](artifacts/calm-circle/site/desktop.png)
 
-![Minecraft像素全景網站](artifacts/scenic-snow/site/desktop.png)
+[目前圓形畫面](artifacts/calm-circle/site/circle.png) · [克制動態預覽](artifacts/calm-circle/preview/animation.mp4) · [固定像素與整站檢查](artifacts/calm-circle/site/checks.json)
 
-[手機](artifacts/scenic-snow/site/mobile.png) · [完整動態預覽](artifacts/scenic-snow/preview/animation.mp4) · [首屏動態驗證](artifacts/scenic-snow/progressive-start.json) · [美術母版](assets/generated/minecraft-style/style-master.png)
+舊`scenic-snow`是被拒絕的歷史實作，不代表現在效果；原ZIP與所有原始圖片保留。新預設不下載那些整圖位移字段、圖集或影片，也不以全圖縮放／扭曲假裝飄髮。
 
 ## 開始開發
 
@@ -58,7 +58,8 @@ src/
   authoring/           歷史來源轉製工具，不由runtime引用
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
-    referenceScene/    Minecraft圓形人物／全景／飄雪／首屏影片與源時鐘
+    referenceScene/    共用圓形UI／可見性播放器；舊source場景歷史
+    calmPortrait/      現在預設：固定人物plate、後髮剛體與局部眼睑
     portrait/          歷史近景播放器，明確入口才載入
   shared/              共用動畫型別
   archive/             legacy／voxel歷史模式及舊field renderer對照
@@ -69,7 +70,8 @@ scripts/
   deploy/              手動部署備援
 reference-projects/    使用者完整工程ZIP、原檔與來源校驗
 assets/generated/      單一像素母版、局部眼瞼、完整景色與來源動作字段
-public/assets/reference-scene/  MC圖集、HD首幀、progressive影片、完整背景與清冊
+public/assets/reference-scene/  歷史場景素材，不由現在首頁載入
+public/assets/calm-circle/     現在的固定人物、兩側後髮、局部眼睑及來源清冊
 docs/
   guides/              現行個人化、角色、動態、開發及素材指南
   archive/             已標示日期的舊階段文件
@@ -83,9 +85,9 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-預設使用單一Minecraft美術母版的來源姿態重定向，保留原1280ms周期和160個8ms估計樣本。源時鐘與32秒雪景時鐘分開，沒有逐幀生成新臉。隱藏／離屏停止繪製並保留相位，減少動態不下載video／圖集。`?view=scene`可隔離觀看，`?t=560`檢查源時刻，`?motion=original`對照16個新美術源錨幀。舊肖像僅由明確歷史路由lazy載入。
+目前預設在`src/features/calmPortrait/`，共用播放器和圓形UI仍位於`referenceScene/`。12秒小角度剛體後髮輕擺與24秒不等間隔局部眨眼分開，固定人物像素不參與任何變形；這是刻意克制的肖像，不宣稱大幅風動或完整毛髮模擬。
 
-[最新指南](docs/guides/minecraft-scenic-rebuild.md)與`artifacts/scenic-snow/`保存本輪來源／新美術區分、無翻折字段、同相位媒體接手、真實全景截幀及performance。原像素資料保留不等於新美術和原RGB一致；位移估計、遮擋和隱藏髮層仍有限制。前版原畫風的像素檢查在`artifacts/crisp-circle/`，不替代新Minecraft美術證據。
+[最新指南](docs/guides/calm-circle.md)與`artifacts/calm-circle/`記錄當前圖層、穩定區域和整個固定plate的逐像素檢查。原GIF／舊sourceclock與PR16的無翻折數字不能證明新肖像自然，歷史路由只在明確選擇時載入。
 
 ## 素材
 

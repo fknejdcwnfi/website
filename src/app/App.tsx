@@ -3,8 +3,8 @@ import { site } from '../features/profile/content/site'
 import PersonalSections from '../features/profile/components/PersonalSections'
 import SiteShell from '../features/profile/components/SiteShell'
 import ReferenceScene from '../features/referenceScene/ReferenceScene'
-import { referenceSceneDefinition } from '../features/referenceScene/definition'
-import { createSourceRenderer } from '../features/referenceScene/createSourceRenderer'
+import { calmPortraitDefinition as referenceSceneDefinition } from '../features/calmPortrait/definition'
+import { createCalmRenderer as createSourceRenderer } from '../features/calmPortrait/renderer'
 
 const ArchivedPortrait=lazy(()=>import('./ArchivedPortrait'))
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
         </div>
         <figure className="hero__visual hero__visual--reference">
           {scene}
-          <figcaption><span>VERMOUTH</span><span>富士山與櫻花 · 像素風景</span></figcaption>
+          <figcaption><span>VERMOUTH</span><span>Minecraft · 像素肖像</span></figcaption>
         </figure>
         <aside className="welcome-note" aria-labelledby="welcome-note-title">
           <div className="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 歡迎，隨意逛逛</div>

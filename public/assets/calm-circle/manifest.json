@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "width": 716,
+  "height": 534,
+  "logicalWidth": 358,
+  "logicalHeight": 267,
+  "motionKind": "local-rigid-locks",
+  "periodMs": 12000,
+  "blinkCycleMs": 24000,
+  "hair": [
+    {
+      "name": "left-hair",
+      "pivot": [
+        210,
+        248
+      ],
+      "maxAngle": 0.022
+    },
+    {
+      "name": "right-hair",
+      "pivot": [
+        492,
+        248
+      ],
+      "maxAngle": 0.022
+    }
+  ],
+  "eyeRects": [
+    [
+      242,
+      166,
+      342,
+      222
+    ],
+    [
+      382,
+      162,
+      480,
+      222
+    ]
+  ],
+  "protectedRegions": {
+    "nose-mouth-chin": [
+      158,
+      111,
+      205,
+      167
+    ],
+    "central-neck-chain": [
+      169,
+      174,
+      193,
+      249
+    ],
+    "left-shoulder": [
+      40,
+      241,
+      70,
+      256
+    ],
+    "right-shoulder": [
+      299,
+      241,
+      321,
+      256
+    ],
+    "forehead": [
+      169,
+      52,
+      195,
+      75
+    ]
+  },
+  "qaTimesMs": [
+    0,
+    900,
+    2800,
+    4500,
+    6200,
+    9500,
+    11400,
+    12000,
+    20400
+  ],
+  "maximumChangedFraction": 0.18,
+  "liveChangeDeadlineMs": 1800,
+  "motionFiles": [
+    "plate.png",
+    "eyes.png",
+    "left-hair.png",
+    "right-hair.png"
+  ],
+  "fixedFacePolygon": [
+    [
+      127,
+      95
+    ],
+    [
+      143,
+      73
+    ],
+    [
+      214,
+      74
+    ],
+    [
+      240,
+      94
+    ],
+    [
+      232,
+      126
+    ],
+    [
+      207,
+      155
+    ],
+    [
+      180,
+      172
+    ],
+    [
+      157,
+      159
+    ],
+    [
+      135,
+      140
+    ]
+  ],
+  "assets": {
+    "canonical": {
+      "file": "canonical.png",
+      "width": 716,
+      "height": 534,
+      "sha256": "07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176"
+    },
+    "plate": {
+      "file": "plate.png",
+      "width": 716,
+      "height": 534,
+      "sha256": "a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f"
+    },
+    "eyes": {
+      "file": "eyes.png",
+      "width": 716,
+      "height": 534,
+      "sha256": "c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829"
+    },
+    "left-hair": {
+      "file": "left-hair.png",
+      "width": 716,
+      "height": 534,
+      "sha256": "11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b"
+    },
+    "right-hair": {
+      "file": "right-hair.png",
+      "width": 716,
+      "height": 534,
+      "sha256": "159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4"
+    }
+  },
+  "rearHairNativePixels": [
+    4664,
+    4647
+  ],
+  "sources": [
+    {
+      "file": "assets/generated/minecraft-style/style-master.png",
+      "bytes": 2160302,
+      "sha256": "faf09307c222eb4450dfb06dad5896427cf1e973f33e824d832707ef698540f6"
+    },
+    {
+      "file": "assets/generated/minecraft-style/closed-eye-master.png",
+      "bytes": 2100427,
+      "sha256": "8057a0d7027beb5dc3e73d4a7ac95cea27c398dc09f1854e71915c7d628b05e5"
+    },
+    {
+      "file": "assets/generated/calm-circle/cutout-reference.png",
+      "bytes": 1671036,
+      "sha256": "50bf2e786f85e24fa82b6f831bba2741a89bb48fdf29b679d00de3aedd0bb8e0"
+    },
+    {
+      "file": "assets/generated/calm-circle/clean-plate-reference.png",
+      "bytes": 1256038,
+      "sha256": "98cc2c62f0d4b1cd5f2fe1350bb90921c87783128121cf6957fcad63ee8de5d3"
+    }
+  ],
+  "authoring": [
+    {
+      "file": "scripts/assets/export_calm_portrait.py",
+      "bytes": 6506,
+      "sha256": "fea0336f4ffce79c642b2060e69e26d92efa85a487274cf67883ff74a8ef858d"
+    },
+    {
+      "file": "scripts/assets/scale_pixel_art.py",
+      "bytes": 2592,
+      "sha256": "d6f7c7418b10df1f37719c7d6bd482bc34c7edf4667559c8635194812ef715af"
+    }
+  ],
+  "files": [
+    {
+      "file": "public/assets/calm-circle/canonical.png",
+      "bytes": 182768,
+      "sha256": "07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176"
+    },
+    {
+      "file": "public/assets/calm-circle/plate.png",
+      "bytes": 153563,
+      "sha256": "a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f"
+    },
+    {
+      "file": "public/assets/calm-circle/eyes.png",
+      "bytes": 12464,
+      "sha256": "c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829"
+    },
+    {
+      "file": "public/assets/calm-circle/left-hair.png",
+      "bytes": 21229,
+      "sha256": "11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b"
+    },
+    {
+      "file": "public/assets/calm-circle/right-hair.png",
+      "bytes": 20593,
+      "sha256": "159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4"
+    }
+  ],
+  "notes": [
+    "Only selection alpha from generated edits is used; all visible face/body colors come from the same original Minecraft master.",
+    "Two rear locks rotate rigidly behind the fixed face, front curls, neck, shoulders and necklace. There is no image flow, scaling, breathing zoom or full-frame deformation.",
+    "Motion is deliberately restrained; this is not a source-identical large wind simulation."
+  ]
+}

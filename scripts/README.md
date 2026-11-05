@@ -29,7 +29,14 @@ python3 scripts/assets/export_portrait.py --help
 
 `assets/export_baked_portrait.py`從同一source算法無損輸出三尺寸atlas與binding、source/input/output SHA清冊；`assets:verify`檢查過期bake。`qa/verify_layered_portrait.py`是目前正式角色驗收，舊field probes只供archive。`qa/measure_portrait_startup.py`把冷啟動與穩態FPS分開；`qa/capture_portrait_video.py`從真實CSS圓形截圖編碼60fps審查影片，編碼率不代表實體顯示器FPS。完整命令／條件見[影片重建指南](../docs/guides/video-layered-rebuild.md)。
 
-## Current Minecraft scenic presentation
+## Current calm circle
+
+The owner rejected the PR16 whole-image warp and outer background. Current authoring is `assets/export_calm_portrait.py`; only generated selection alpha is used to isolate original Minecraft pixels into a fixed plate, two rigid rear locks and local eyelids. `assets/verify_calm_portrait.py` validates committed provenance and generated descriptors using only the standard library. Full instructions: [calm-circle.md](../docs/guides/calm-circle.md).
+
+`qa/verify_calm_circle.py` checks all opaque fixed-plate pixels outside the local eyelids, protected facial/body regions, actual limited motion, absent old scenery/video/atlas requests, preferences, suspension/retry, responsive layout and no-JS. `qa/capture_calm_circle.py` captures the actual circle with controlled time; its separate `--measure` mode observes native browser cadence without screenshots.
+
+## Historical Minecraft scenic presentation (rejected default)
+
 
 The current pipeline and complete commands are in [minecraft-scenic-rebuild.md](../docs/guides/minecraft-scenic-rebuild.md). Original ZIP/frames are immutable data; uploaded render/install instructions are never executed. Original source/smooth atlases remain available for provenance checks, but the homepage uses single-master repainted pixel assets.
 

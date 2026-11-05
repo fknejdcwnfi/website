@@ -1,0 +1,16 @@
+{
+  "frames": 720,
+  "fpsEncoding": 60,
+  "durationMs": 12000,
+  "source": "Actual CSS circular portrait screenshots at controlled rAF times; fixed face/body plate and rigid rear locks",
+  "clip": {
+    "x": 453,
+    "y": 347,
+    "width": 534,
+    "height": 534
+  },
+  "bytes": 478281,
+  "sha256": "e3622cbe3425a5cfd9639ed23615664653d751eb21b38eb12bae2155bdcc484a",
+  "browserErrors": [],
+  "physicalDisplayVerified": false
+}
