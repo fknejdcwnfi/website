@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "createdAt": "2026-11-05",
+  "kind": "AI-assisted scenic background extension, separate from source-driven portrait",
+  "sourceReference": {
+    "file": "reference-projects/fuji-wind/original/frames/frame_000.png",
+    "bytes": 143102,
+    "sha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b"
+  },
+  "generation": {
+    "tool": "image_gen__imagegen",
+    "prompt": "Edit the supplied reference into a BACKGROUND-ONLY high-resolution scenic landscape for a website. Remove the entire woman, all hair, face, body, jewelry and shoulders, and paint the hidden landscape plausibly. Preserve the reference's poetic scenery identity: snow-capped Mount Fuji is a distinct imposing peak on the LEFT; a warm peach sunset glows on the RIGHT horizon above a distant lake and snowy valley; detailed pink cherry blossom branches spread from the upper RIGHT and along the upper corners; blue-purple dusk sky with a few soft atmospheric clouds, layered indigo mountains, snow-dusted Japanese forest and a calm reflective lake. Compose as a complete, generous, horizontal 3:2 landscape, approximately 1536 by 1024 pixels. Keep the CENTRAL region quiet, with distant blue-violet mountains and calm sky, because a circular portrait will be placed over it later. The outside LEFT and RIGHT scenic areas must be beautiful and detailed, not empty. CRISP TWO-DIMENSIONAL PIXEL ART with Minecraft-inspired square color clusters, fine intentional pixel detail, sharp discrete contours and carefully composed limited color ramps. NO blurry pixelation, NO mosaic filter, NO smooth anime illustration, NO noisy dithering. Refined elegant environment, coherent dusk light and atmospheric depth. No person, no human silhouette, no face, no figure, no portrait, no circle, no frame, no rounded mask, no text, no logo. The output is a full rectangular background image only. Keep the recognizable original Fuji/sakura/sunset arrangement; the woman will be supplied separately and must not appear in the output.",
+    "referenceImageCount": 1,
+    "transparentBackground": false,
+    "outputWidth": 1536,
+    "outputHeight": 1024,
+    "outputIsSourceIdentical": false
+  },
+  "source": {
+    "file": "assets/generated/fuji-scenery/scenery-original.png",
+    "bytes": 2397442,
+    "sha256": "6e2f0e35fb2b432cc8d2a09a363c59961262bb7f7b922dd76290d49e8e623ffa"
+  },
+  "encoding": {
+    "format": "WebP",
+    "lossless": true,
+    "quality": 90,
+    "method": 4,
+    "decodedPixelDifferences": 0,
+    "sourceColorMode": "RGB"
+  },
+  "limitations": [
+    "This is newly drawn background extension inspired by the supplied Fuji/sakura/sunset scene; it is not recovered hidden source artwork.",
+    "It deliberately contains no people, faces, hair, shoulders or replacement portrait; the immutable source portrait is composited separately.",
+    "The source reference and uploaded archive were not modified. The new mountain, lake, branches and buildings are generated interpretations, not pixel-identical copies of the original background."
+  ],
+  "historicalRuntime": {
+    "sha256": "721d6ed9e0a15270552024c54dc954d89aad4da4bb93a1c17396bbd85f4644db",
+    "bytes": 1859632,
+    "status": "Superseded by the Minecraft-inspired current scenery; no current file dependency."
+  }
+}

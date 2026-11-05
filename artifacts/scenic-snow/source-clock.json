@@ -1,0 +1,361 @@
+{
+  "status": "passed",
+  "checks": [
+    "original_and_derived_clock_preserve_all_16_anchors_and_1280ms_loop",
+    "explicit_source_seeks_do_not_schedule_continuous_painting",
+    "all_16_derived_hd_anchors_match_styled_anchor_mode",
+    "all_hd_anchors_restore_exact_native_styled_pixels_by_2x2_majority",
+    "no_browser_errors"
+  ],
+  "samples": [
+    {
+      "mode": "original",
+      "timeMs": 0,
+      "actual": 0,
+      "expected": 0,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 80,
+      "actual": 1,
+      "expected": 1,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 160,
+      "actual": 2,
+      "expected": 2,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 240,
+      "actual": 3,
+      "expected": 3,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 320,
+      "actual": 4,
+      "expected": 4,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 400,
+      "actual": 5,
+      "expected": 5,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 480,
+      "actual": 6,
+      "expected": 6,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 560,
+      "actual": 7,
+      "expected": 7,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 640,
+      "actual": 8,
+      "expected": 8,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 720,
+      "actual": 9,
+      "expected": 9,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 800,
+      "actual": 10,
+      "expected": 10,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 880,
+      "actual": 11,
+      "expected": 11,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 960,
+      "actual": 12,
+      "expected": 12,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 1040,
+      "actual": 13,
+      "expected": 13,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 1120,
+      "actual": 14,
+      "expected": 14,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 1200,
+      "actual": 15,
+      "expected": 15,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": -1,
+      "actual": 15,
+      "expected": 15,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 1280,
+      "actual": 0,
+      "expected": 0,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 2560,
+      "actual": 0,
+      "expected": 0,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 12000,
+      "actual": 6,
+      "expected": 6,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "timeMs": 24000,
+      "actual": 12,
+      "expected": 12,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "original",
+      "inspectionPaints": 0
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 0,
+      "actual": 0,
+      "expected": 0,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 80,
+      "actual": 10,
+      "expected": 10,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 160,
+      "actual": 20,
+      "expected": 20,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 240,
+      "actual": 30,
+      "expected": 30,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 320,
+      "actual": 40,
+      "expected": 40,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 400,
+      "actual": 50,
+      "expected": 50,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 480,
+      "actual": 60,
+      "expected": 60,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 560,
+      "actual": 70,
+      "expected": 70,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 640,
+      "actual": 80,
+      "expected": 80,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 720,
+      "actual": 90,
+      "expected": 90,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 800,
+      "actual": 100,
+      "expected": 100,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 880,
+      "actual": 110,
+      "expected": 110,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 960,
+      "actual": 120,
+      "expected": 120,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 1040,
+      "actual": 130,
+      "expected": 130,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 1120,
+      "actual": 140,
+      "expected": 140,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 1200,
+      "actual": 150,
+      "expected": 150,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": -1,
+      "actual": 159,
+      "expected": 159,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 1280,
+      "actual": 0,
+      "expected": 0,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 2560,
+      "actual": 0,
+      "expected": 0,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 12000,
+      "actual": 60,
+      "expected": 60,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "timeMs": 24000,
+      "actual": 120,
+      "expected": 120,
+      "sourceDuration": 1280,
+      "playback": "static"
+    },
+    {
+      "mode": "smooth",
+      "inspectionPaints": 0
+    }
+  ],
+  "scope": "Styled source-timed atlas and HD reconstruction; does not compare restyled RGB with the original GIF",
+  "canvasSize": [
+    716,
+    534
+  ]
+}

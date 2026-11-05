@@ -1,0 +1,49 @@
+{
+  "samples": [
+    {
+      "input": "reference-projects/fuji-wind/original/frames/frame_000.png",
+      "sourceSize": [
+        358,
+        267
+      ],
+      "sourceColors": 252,
+      "scale2xSize": [
+        716,
+        534
+      ],
+      "scale2xColors": 252,
+      "sourcePixelsWithFewerThanTwoExactReplicas": 0,
+      "minimumExactReplicasPerSourcePixel": 2,
+      "changedFromNearestPixelCount": 18426,
+      "paletteMembershipNewColors": 0,
+      "originalBytes": 131270,
+      "nearest2xBytes": 162787,
+      "scale2xBytes": 221289,
+      "xbr2xBytes": 412162,
+      "hq2xBytes": 423759
+    },
+    {
+      "input": "work/reference-scene/interpolated/frame_040.png",
+      "sourceSize": [
+        358,
+        267
+      ],
+      "sourceColors": 251,
+      "scale2xSize": [
+        716,
+        534
+      ],
+      "scale2xColors": 251,
+      "sourcePixelsWithFewerThanTwoExactReplicas": 0,
+      "minimumExactReplicasPerSourcePixel": 2,
+      "changedFromNearestPixelCount": 20693,
+      "paletteMembershipNewColors": 0,
+      "originalBytes": 134065,
+      "nearest2xBytes": 165135,
+      "scale2xBytes": 228801,
+      "xbr2xBytes": 416546,
+      "hq2xBytes": 429680
+    }
+  ],
+  "note": "2x edge-aware pixel reconstruction changes edge geometry, does not recover unseen source detail; source-native atlas remains untouched."
+}

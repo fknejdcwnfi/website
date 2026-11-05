@@ -18,6 +18,7 @@ export class ScenePlayer {
   private preparing = false
   private painted = false
   private elapsedMs = 0
+  private handoffPending = true
   private lastTime: number | null = null
   private published = ''
   private motionEnabled: boolean
@@ -110,6 +111,18 @@ export class ScenePlayer {
     try {
       if (this.reducesMotion() || !this.renderer) this.canonical()
       else {
+        if (this.handoffPending && this.inspectionTime === null) {
+          // The preview and final renderer share one source phase. Read this only
+          // when a visible dynamic frame is actually about to replace the preview.
+          this.handoffPending = false
+          try {
+            const initial = this.options.initialElapsedMs?.()
+            if (typeof initial === 'number' && Number.isFinite(initial) && initial >= 0 && initial <= Number.MAX_SAFE_INTEGER) {
+              this.elapsedMs = initial
+            }
+          } catch { /* Preview timing is optional; a broken preview cannot stop the scene. */ }
+          this.canvas.dataset.initialElapsedMs = String(this.elapsedMs)
+        }
         this.renderer.paint(this.context, sampleScene(this.inspectionTime ?? this.elapsedMs))
         this.painted = true
       }

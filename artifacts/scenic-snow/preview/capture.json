@@ -1,0 +1,89 @@
+{
+  "source": "Complete real scenic CSS stage including outer background, circular HD portrait and independent snowfall; controlled rAF timestamps; no movie rescaling",
+  "fpsEncoding": 120,
+  "frames": 768,
+  "durationMs": 6400,
+  "encodedDurationMs": 6400.0,
+  "sourceLoops": 5,
+  "sourceFrameCount": 16,
+  "estimatedSampleCount": 160,
+  "estimatedSampleRate": 125.0,
+  "presentation": {
+    "x": 453,
+    "y": 432,
+    "width": 534,
+    "height": 534,
+    "radius": "50%",
+    "border": "0px",
+    "shadow": "none",
+    "canvasWidth": 716,
+    "canvasHeight": 534,
+    "initialElapsedMs": 0,
+    "imageRendering": "pixelated",
+    "objectFit": "cover"
+  },
+  "stage": {
+    "x": 295.03125,
+    "y": 347.171875,
+    "width": 849.9375,
+    "height": 627,
+    "scenery": {
+      "width": 1536,
+      "height": 1024,
+      "objectFit": "contain",
+      "complete": true
+    }
+  },
+  "snowCanvasSize": [
+    850,
+    627
+  ],
+  "snowDistinctCheckpoints": 3,
+  "uniqueSourceSamplesCaptured": 160,
+  "uncroppedHdAnchors": {
+    "directory": "hd-anchors",
+    "count": 16,
+    "actualSourceFrames": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      110,
+      120,
+      130,
+      140,
+      150
+    ],
+    "pngSha256": [
+      "58091cdd2f9ec14a9a4334f369d788040518f45bd2e19df4927928d8b24afc7b",
+      "66055219ab17d376dceee6a0b70ee9dc623c33299308f9030286f2c79f124d60",
+      "eb37ff219bc0e1daaeb4fa4ab20fb5853fdc012819fc31f5376eb19a22df3110",
+      "f79d3b5c0ce9c341068f85ee05cc3e1fdfc8c20335fab7bce2987681023ad41f",
+      "85e7bb36615be0f8d500421fd552f9b8dc6142b00d350f304efa0d534a10b06f",
+      "e825bb034472cf6819783d653bde7ee7990902f941e41e10eed3de102feb2ee5",
+      "c3a21ee4cc26dce912c6d69daad555146a7452817e94c0007dae7ec29202078f",
+      "db9f2f6e20a6eb7769ec9856fd940ebf7b87021b9066a9117b960f5ff171b708",
+      "3bb6adcdb133b6945921c24d2f443b508e6009e4f554426d6c9273a4b712838b",
+      "563faeb3fafadc9a40d0f97bead0c61724299e1974f620b49542b3e41b7af005",
+      "792f74d3e0e5bda59d50295bd3d96150f39f13aabc34007afdd3d3e7bca3dff7",
+      "c2afb639a9db57b00b4ad7f9ae2329d96cd0f6df572dceded3fc136741108fce",
+      "b20e8db74918ce20cca4d9bebd4791a83d15aacfe3a4cfdf1f6de9f13a43668f",
+      "35a2b2112b0559edb4eaacf3ea1c0beae56a3598b43fedd1779c3be5a2b9860d",
+      "7a54257181dbbc629d07e64e1f6a44052e7fc8e845a40169dfff40f95887c975",
+      "e58180d3c7ea964dca605e9418fa0ec77bf47c509718f2a8ed71e499592fb12a"
+    ]
+  },
+  "bytes": 11949368,
+  "sha256": "abdb1371fa3a5960be6971509e97905fc6d1f7634b7e106db9a49b81589ecb95",
+  "browserErrors": [],
+  "captureWallSeconds": 156.918,
+  "physicalDisplayVerified": false,
+  "interpretation": "Encoded FPS and controlled sampling do not measure physical display refresh. A single restyled pixel master is driven by source motion and reconstructed at two-times resolution; added output pixels are not recovered source details. Motion interframes and extended backdrop remain explicitly derived."
+}

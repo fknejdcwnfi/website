@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "DOM ownership and source-lifetime fixture; mocked media clock, not a real video playback measurement",
+  "checks": {
+    "sameParserCreatedNode": true,
+    "retainedAcrossRootReplacement": true,
+    "phasePreserved": true,
+    "noMediaReloadWhileAdopting": true,
+    "inlineListenersReleasedOnce": true,
+    "autoplayMutedInline": true,
+    "mediaSourceReleasedAfterHandoff": true
+  }
+}

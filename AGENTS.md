@@ -13,7 +13,7 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Latest authoritative rebuild
 
-Read [`docs/guides/reference-gif-rebuild.md`](docs/guides/reference-gif-rebuild.md) first. The supplied GIF is the source authority for the new scene; old close-up identity, fixed-face and independent blink/wind rules below apply only to historical portrait routes. The latest 2026-11-05 user request changes its **display to a borderless circle**, preserving the full source data. Use native358×267 Canvas/tiles and all255 source colors, with **no160×120 downsampling**. Original timing is16×80ms=1280ms;160×8ms derived samples are explicitly estimated. `src/authoring/` is offline-only, separate from `src/features/referenceScene/`. Do not restore a low-resolution grid, a rectangular default, or call interpolated samples original footage.
+Read [`docs/guides/minecraft-scenic-rebuild.md`](docs/guides/minecraft-scenic-rebuild.md) first. The latest explicit request requires **whole-scene Minecraft pixel artwork**, not the anime source merely enlarged. Use the single repainted master and local eyelids driven by the original16×80ms clock/160×8ms estimated samples. New RGB intentionally differs from the source; preserve the uploaded originals byte-for-byte. Output716×534 with no display blur. The owner chose a **borderless circular portrait with complete scenery extending outside the circle**; do not crop the panoramic Fuji/cherry/sunset background. Keep immediate parser-started video, phase-preserving Canvas handoff and independent layered snowfall, honoring reduced motion and visibility. Current evidence is `artifacts/scenic-snow/`; previous guide and portrait rules below are historical where they conflict.
 
 ## Read in this order
 
@@ -116,7 +116,7 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 ## Current state
 
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default hero: `src/features/referenceScene/`, source-native358×267 Minecraft-inspired landscape from the supplied GIF in a borderless circular display. See the latest guide; the portrait paragraphs below describe the historical renderer.
+- Default hero: `src/features/referenceScene/`, single-master Minecraft pixel art driven by source poses, HD716×534 circle within a complete1536×1024 landscape. See the latest guide; the portrait paragraphs below describe the historical renderer.
 - Responsive personal homepage with an indigo double header, white document
   layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
 - Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their

@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "createdDate": "2026-11-05",
+  "kind": "AI-assisted local closed-eyelid material reference for the single Minecraft style master",
+  "tool": "image_gen.imagegen",
+  "master": {
+    "file": "assets/generated/minecraft-style/style-master.png",
+    "bytes": 2160302,
+    "sha256": "faf09307c222eb4450dfb06dad5896427cf1e973f33e824d832707ef698540f6"
+  },
+  "sourceBlinkReference": {
+    "file": "reference-projects/fuji-wind/original/frames/frame_007.png",
+    "bytes": 138814,
+    "sha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e"
+  },
+  "prompt": {
+    "file": "assets/generated/minecraft-style/closed-eye-prompt.txt",
+    "bytes": 1217,
+    "sha256": "fd893f851b01259be01812905e57187eb6cdb3fa5c1b39cbc7ae69b013b77a03"
+  },
+  "output": {
+    "file": "assets/generated/minecraft-style/closed-eye-master.png",
+    "bytes": 2100427,
+    "sha256": "8057a0d7027beb5dc3e73d4a7ac95cea27c398dc09f1854e71915c7d628b05e5"
+  },
+  "dimensions": [
+    1452,
+    1083
+  ],
+  "originalToolOutput": "/workspace/generated_images/exec-d8e2674b-4b75-42ec-8864-bac89979a62b.png",
+  "suggestedExtractionRegions": {
+    "left_master_xyxy": [
+      493,
+      329,
+      691,
+      445
+    ],
+    "right_master_xyxy": [
+      777,
+      322,
+      968,
+      445
+    ],
+    "left_source358_xyxy": [
+      121.55,
+      81.11,
+      170.38,
+      109.71
+    ],
+    "right_source358_xyxy": [
+      191.57,
+      79.39,
+      238.67,
+      109.71
+    ]
+  },
+  "runtimeAsset": false,
+  "animationComplete": false,
+  "limitations": [
+    "Only two local eye regions should be extracted; all other generated pixels must be discarded to retain the single canonical character.",
+    "Suggested rectangular extraction bounds contain some skin and parts of brow edges; a local feathered/polygon mask is preferable.",
+    "Exact output pixels outside the eyes were not constrained by a hard mask, so this is not an identity-safe full-frame replacement.",
+    "Blink motion and timings must still follow the supplied source frames."
+  ]
+}
