@@ -24,8 +24,8 @@ def main():
  gif=(base/'original/original.gif').read_bytes();assert gif[:6]in(b'GIF87a',b'GIF89a')and struct.unpack('<HH',gif[6:10])==(358,267)
  for prefix in ['source','smooth']:
   m=json.loads((ROOT/f'public/assets/reference-scene/{prefix}-manifest.json').read_text())
-  assert m['durationMs']==1280 and m['width']==320 and m['height']==240
-  assert m['frameCount']==(16 if prefix=='source' else 128)
+  assert m['durationMs']==1280 and m['width']==358 and m['height']==267 and m['tileWidth']==358 and m['tileHeight']==267
+  assert m['frameCount']==(16 if prefix=='source' else 160)
   for kind in ['sources','authoring','files']:
    for e in m[kind]:
     path=ROOT/e['file'];assert path.is_file()and path.stat().st_size==e['bytes']and sha(path)==e['sha256'],'Stale reference dependency: '+e['file']

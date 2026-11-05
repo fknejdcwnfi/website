@@ -1,6 +1,8 @@
-.reference-scene { width: min(100%, 640px); margin-inline: auto; color: #454b60; }
-.reference-scene__viewport { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 0; border-radius: 0; background: #40597b; }
-.reference-scene__canvas, .reference-scene__poster { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: contain; image-rendering: pixelated; }
+.reference-scene { width: min(100%, 534px); margin-inline: auto; color: #454b60; }
+/* Reserve one square before measuring DPR, so pixel alignment cannot move copy. */
+.reference-scene__space { display: grid; place-items: center; width: 100%; aspect-ratio: 1; }
+.reference-scene__viewport { position: relative; left: var(--scene-offset-x, 0px); top: var(--scene-offset-y, 0px); width: var(--scene-diameter, 100%); max-width: 100%; aspect-ratio: 1; overflow: hidden; border: 0; border-radius: 50%; background: transparent; box-shadow: none; }
+.reference-scene__canvas, .reference-scene__poster { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .reference-scene__poster { position: absolute; inset: 0; }
 .reference-scene__status { font: 12px/1.7 system-ui, sans-serif; text-align: center; }
 .reference-scene__status:empty { display: none; }

@@ -1,0 +1,37 @@
+{
+  "conditions": "Fresh single production Chromium page; 1440x1100; DPR1; native rAF; no CPU/network throttling; 2.5s settle; 12.8s sample (10 source loops); no screenshots or concurrent browsers",
+  "physicalDisplayVerified": false,
+  "readyMsLocal": 699.3,
+  "presentation": {
+    "cssWidth": 534,
+    "cssHeight": 534,
+    "canvasWidth": 358,
+    "canvasHeight": 267,
+    "radius": "50%",
+    "border": "0px",
+    "shadow": "none",
+    "dpr": 1
+  },
+  "sourceDurationMs": 1280,
+  "estimatedSampleCount": 160,
+  "estimatedSampleRate": 125.0,
+  "paints": 768,
+  "seconds": 12.8,
+  "paintsPerSecond": 60.0,
+  "uniqueSourceSamplesPainted": 160,
+  "callbackMs": {
+    "median": 0.0,
+    "p95": 0.2,
+    "max": 0.7
+  },
+  "rafIntervalMs": {
+    "median": 16.7,
+    "p95": 16.8,
+    "max": 16.8
+  },
+  "longTasksMs": [],
+  "workers": [],
+  "browserErrors": [],
+  "httpErrors": [],
+  "interpretation": "Native headless-browser cadence and callback CPU cost, not verified physical monitor FPS. Estimated source samples do not increase the source GIF information rate."
+}

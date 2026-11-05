@@ -18,7 +18,7 @@ test('static HTML contains the complete personal site when JavaScript is unavail
   for (const id of ['about', 'work', 'contact']) assert.ok(html.includes(`id="${id}"`))
   for (const project of site.projects) assert.ok(html.includes(project.title) && html.includes(project.href))
   assert.ok(html.includes('/website/assets/reference-scene/canonical.png'))
-  assert.ok(html.includes('width="320" height="240"'))
+  assert.ok(html.includes('width="358" height="267"'))
   assert.ok(html.includes(`mailto:${site.email}`))
   assert.ok(html.includes(site.intro))
 })

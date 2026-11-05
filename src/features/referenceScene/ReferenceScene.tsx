@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ScenePlayer } from './ScenePlayer'
+import { useSceneViewport } from './useSceneViewport'
 import type { SceneDefinition, ScenePlayerState, SceneRendererFactory } from './types'
 import './referenceScene.css'
 
@@ -15,9 +16,10 @@ const readMotionChoice = (): boolean => {
   try { return localStorage.getItem(MOTION_CHOICE) === 'true' } catch { return false }
 }
 
-/** Full reference composition, with a single quiet recovery notice when needed. */
+/** Native reference imagery in a borderless display crop; notices remain outside. */
 export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null)
+  const viewport = useSceneViewport(definition.width, definition.height)
   const player = useRef<ScenePlayer | null>(null)
   const [state, setState] = useState<ScenePlayerState>({ playback: 'loading', painted: false, reduced: false })
   const [systemReduced, setSystemReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -111,12 +113,16 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
 
   return (
     <div className="reference-scene" data-playback={state.playback}>
-      <div className="reference-scene__viewport">
-        <canvas ref={canvas} width="320" height="240" role="img"
-          aria-label={definition.description} aria-hidden={showPoster || undefined}
-          className="reference-scene__canvas" />
-        {showPoster ? <img className="reference-scene__poster" src={fallbackSrc ?? definition.canonical.src}
-          alt={definition.description} width="320" height="240" /> : null}
+      <div ref={viewport.spaceRef} className="reference-scene__space"
+        data-pixel-grid={`${definition.width}x${definition.height}`}
+        data-pixel-scale={viewport.frame?.scale} data-integer-scale={viewport.frame?.integerScale}>
+        <div className="reference-scene__viewport" style={viewport.style}>
+          <canvas ref={canvas} width={definition.width} height={definition.height} role="img"
+            aria-label={definition.description} aria-hidden={showPoster || undefined}
+            className="reference-scene__canvas" />
+          {showPoster ? <img className="reference-scene__poster" src={fallbackSrc ?? definition.canonical.src}
+            alt={definition.description} width={definition.canonical.width} height={definition.canonical.height} /> : null}
+        </div>
       </div>
       <div className="reference-scene__status" aria-live="polite">
         {failed ? <p>動態場景暫時無法載入，先顯示靜態畫面。{' '}

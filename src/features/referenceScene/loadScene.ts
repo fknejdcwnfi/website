@@ -38,7 +38,9 @@ const checkImage = (image: SceneImageSource): void => {
 export const loadSceneAssets = async (definition: SceneDefinition, signal: AbortSignal): Promise<SceneAssets> => {
   if (definition.version !== 1 || definition.width !== SCENE_WIDTH || definition.height !== SCENE_HEIGHT ||
     typeof definition.description !== 'string' || !definition.description.length ||
-    definition.canonical.width * 3 !== definition.canonical.height * 4) throw new Error('Unsupported reference scene.')
+    definition.canonical.width !== definition.width || definition.canonical.height !== definition.height) {
+    throw new Error('Unsupported reference scene.')
+  }
   checkImage(definition.canonical)
   const entries = Object.entries(definition.layers ?? {})
   if (entries.length > 40 || entries.some(([name]) => !/^[a-z][a-z0-9-]{0,79}$/.test(name))) throw new Error('Invalid scene layer inventory.')

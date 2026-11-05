@@ -1,5 +1,6 @@
-export const SCENE_WIDTH = 320
-export const SCENE_HEIGHT = 240
+/** Native source raster. Display clipping must never resample the authored frames. */
+export const SCENE_WIDTH = 358
+export const SCENE_HEIGHT = 267
 
 export type SceneImageSource = { src: string; width: number; height: number }
 
