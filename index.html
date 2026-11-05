@@ -24,55 +24,21 @@
       property="og:description"
       content="__SITE_DESCRIPTION__"
     />
-    <meta property="og:image" content="https://fknejdcwnfi.github.io/website/assets/reference-scene/canonical-hd.png" />
+    <meta property="og:image" content="https://fknejdcwnfi.github.io/website/assets/calm-circle/canonical.png" />
     <meta property="og:image:width" content="716" />
     <meta property="og:image:height" content="534" />
-    <meta property="og:image:alt" content="Vermouth, Mount Fuji and cherry blossoms in a source-timed pixel-art landscape" />
+    <meta property="og:image:alt" content="Vermouth in a calm Minecraft-inspired pixel-art portrait" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="__SITE_TITLE__" />
     <meta
       name="twitter:description"
       content="__SITE_DESCRIPTION__"
     />
-    <meta name="twitter:image" content="https://fknejdcwnfi.github.io/website/assets/reference-scene/canonical-hd.png" />
+    <meta name="twitter:image" content="https://fknejdcwnfi.github.io/website/assets/calm-circle/canonical.png" />
     <link rel="stylesheet" href="/src/app/styles/app.css" />
   </head>
   <body>
     <div id="root"><!--site-fallback--></div>
-    <script>
-      (function () {
-        var video = document.getElementById('vermouth-bootstrap');
-        if (!video) return;
-        var query = window.matchMedia('(prefers-reduced-motion: reduce)');
-        var params = new URLSearchParams(location.search);
-        var quiet = params.has('t') || params.get('view') === 'portrait' || ['voxel', 'legacy'].indexOf(params.get('style')) !== -1;
-        window.__vermouthBootVideo = video;
-        function allowed() {
-          var choice = false;
-          try { choice = localStorage.getItem('vermouth-motion-enabled') === 'true'; } catch (e) {}
-          return !quiet && (!query.matches || choice);
-        }
-        function sync() {
-          if (!allowed()) {
-            video.pause(); video.removeAttribute('src'); video.load(); delete video.dataset.ready;
-          } else if (!document.hidden) {
-            if (!video.getAttribute('src')) video.src = '%BASE_URL%assets/reference-scene/boot.mp4?v=__SCENE_BOOT_SHA__';
-            video.muted = true;
-            var started = video.play(); if (started && started.catch) started.catch(function () {});
-          } else video.pause();
-        }
-        function ready() { video.dataset.ready = 'true'; }
-        video.addEventListener('loadeddata', ready);
-        query.addEventListener('change', sync);
-        document.addEventListener('visibilitychange', sync);
-        window.__vermouthBootCleanup = function () {
-          query.removeEventListener('change', sync);
-          document.removeEventListener('visibilitychange', sync);
-          video.removeEventListener('loadeddata', ready);
-        };
-        sync();
-      }());
-    </script>
     <p id="site-startup-status" class="site-startup-status" role="status" hidden>
       互動功能尚未載入，目前顯示靜態網站與肖像。
       <button type="button" onclick="window.location.reload()">重新載入</button>

@@ -42,14 +42,10 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
       <section class="hero static-hero" id="home" aria-labelledby="hero-title" tabindex="-1">
         <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
         <figure class="hero__visual hero__visual--reference">
-          <div class="reference-scene-static"><div class="reference-scene__stage">
-            <img class="reference-scene__scenery" src="${escape(`${base}assets/reference-scene/scenery.webp`)}" width="1536" height="1024" alt="富士山、粉櫻、夕陽與雪林的完整Minecraft像素風景">
-            <div class="reference-scene__space"><div class="reference-scene__viewport">
-              <img class="reference-scene__poster" src="${escape(`${base}assets/reference-scene/canonical-hd.png`)}" width="716" height="534" fetchpriority="high" alt="Vermouth的Minecraft像素圓形肖像">
-              <div class="reference-scene__boot-host"><video id="vermouth-bootstrap" class="reference-scene__boot" width="716" height="534" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video></div>
-            </div></div>
-          </div></div>
-          <figcaption><span>VERMOUTH</span><span>富士山與櫻花 · 像素風景</span></figcaption>
+          <div class="reference-scene-static"><div class="reference-scene__space"><div class="reference-scene__viewport">
+            <img class="reference-scene__poster" src="${escape(`${base}assets/calm-circle/canonical.png`)}" width="716" height="534" fetchpriority="high" alt="Vermouth的Minecraft像素圓形肖像">
+          </div></div></div>
+          <figcaption><span>VERMOUTH</span><span>像素肖像</span></figcaption>
         </figure>
         <aside class="welcome-note" aria-labelledby="welcome-note-title"><div class="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 歡迎，隨意逛逛</div><p>這裡記錄我的作品與探索。你可以從下方了解我，瀏覽公開專案，或透過 GitHub 與 Email 聯絡我。</p></aside>
       </section>

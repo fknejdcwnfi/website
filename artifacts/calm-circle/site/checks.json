@@ -1,0 +1,1223 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5180/website/",
+  "checks": [
+    {
+      "name": "production_document_loads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete_personal_site_remains",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_background_weather_or_video_nodes_remain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_normal_play_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_is_a_borderless_circle",
+      "passed": true,
+      "detail": {
+        "x": 453,
+        "y": 347,
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_is_hd_and_unfiltered",
+      "passed": true,
+      "detail": {
+        "x": 453,
+        "y": 347,
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_fits_available_space",
+      "passed": true,
+      "detail": {
+        "x": 453,
+        "y": 347,
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1
+      }
+    },
+    {
+      "name": "normal_playback_uses_live_animation_frames",
+      "passed": true,
+      "detail": {
+        "rafCallbacks": 16,
+        "canvasWrites": 48
+      }
+    },
+    {
+      "name": "no_default_worker_dependency",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_real_time_playback_changes_rendered_pixels",
+      "passed": true,
+      "detail": {
+        "observedChangeAfterMs": 114.4000000001397
+      }
+    },
+    {
+      "name": "reduced_frame_matches_authored_hd_canonical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_has_stable_pixels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_skips_dynamic_assets",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "reduced_motion_explains_static_state",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "explicit_local_choice_enables_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_choice_survives_reload",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "following_system_restores_exact_canonical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "time_0ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_0ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_0ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fraction": 0.0,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_900ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_900ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_900ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 16053,
+        "fraction": 0.041985751051409205,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_2800ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_2800ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_2800ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 27126,
+        "fraction": 0.07094658213545917,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_4500ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_4500ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_4500ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 32746,
+        "fraction": 0.08564538739982842,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_6200ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_6200ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_6200ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 7120,
+        "fraction": 0.0186219739292365,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_9500ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_9500ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_9500ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 21255,
+        "fraction": 0.05559129998116879,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_11400ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_11400ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_11400ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 20084,
+        "fraction": 0.052528612976795765,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_12000ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_12000ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_12000ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fraction": 0.0,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "time_20400ms_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "time_20400ms_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "time_20400ms_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 25891,
+        "fraction": 0.06771650660138515,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "local_motion_changes_actual_pixels",
+      "passed": true,
+      "detail": [
+        0,
+        16053,
+        27126,
+        32746,
+        7120,
+        21255,
+        20084,
+        0,
+        25891
+      ]
+    },
+    {
+      "name": "normal_live_frame_entire_fixed_plate_is_unchanged",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fixedPixels": 190755
+      }
+    },
+    {
+      "name": "normal_live_frame_face_shoulders_and_necklace_are_pixel_stable",
+      "passed": true,
+      "detail": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      }
+    },
+    {
+      "name": "normal_live_frame_changes_are_local_not_a_whole_image_wave",
+      "passed": true,
+      "detail": {
+        "differentPixels": 0,
+        "fraction": 0.0,
+        "maximum": 0.18
+      }
+    },
+    {
+      "name": "offscreen_pixels_stop_changing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "returning_onscreen_resumes_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hidden_document_stops_painting",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "visible_document_resumes_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "paint_failure_preserves_poster_and_personal_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retry_recovers_the_local_renderer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_rejected_warp_media_requested",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/?t=0",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=900",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=2800",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=4500",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=6200",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=9500",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=11400",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/?t=12000",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=20400",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+        "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+        "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+        "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+        "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+        "http://127.0.0.1:5180/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "width320_dpr1_is_a_borderless_circle",
+      "passed": true,
+      "detail": {
+        "x": 18.390625,
+        "y": 465,
+        "width": 284,
+        "height": 284,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1
+      }
+    },
+    {
+      "name": "width320_dpr1_is_hd_and_unfiltered",
+      "passed": true,
+      "detail": {
+        "x": 18.390625,
+        "y": 465,
+        "width": 284,
+        "height": 284,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1
+      }
+    },
+    {
+      "name": "width320_dpr1_fits_available_space",
+      "passed": true,
+      "detail": {
+        "x": 18.390625,
+        "y": 465,
+        "width": 284,
+        "height": 284,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1
+      }
+    },
+    {
+      "name": "width320_has_no_scenery_or_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "width390_dpr2_is_a_borderless_circle",
+      "passed": true,
+      "detail": {
+        "x": 17.828125,
+        "y": 419,
+        "width": 354,
+        "height": 354,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 2
+      }
+    },
+    {
+      "name": "width390_dpr2_is_hd_and_unfiltered",
+      "passed": true,
+      "detail": {
+        "x": 17.828125,
+        "y": 419,
+        "width": 354,
+        "height": 354,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 2
+      }
+    },
+    {
+      "name": "width390_dpr2_fits_available_space",
+      "passed": true,
+      "detail": {
+        "x": 17.828125,
+        "y": 419,
+        "width": 354,
+        "height": 354,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 2
+      }
+    },
+    {
+      "name": "width390_has_no_scenery_or_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "width768_dpr1.5_is_a_borderless_circle",
+      "passed": true,
+      "detail": {
+        "x": 117,
+        "y": 362.65625,
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1.5
+      }
+    },
+    {
+      "name": "width768_dpr1.5_is_hd_and_unfiltered",
+      "passed": true,
+      "detail": {
+        "x": 117,
+        "y": 362.65625,
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1.5
+      }
+    },
+    {
+      "name": "width768_dpr1.5_fits_available_space",
+      "passed": true,
+      "detail": {
+        "x": 117,
+        "y": 362.65625,
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "outline": "3px",
+        "outlineStyle": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "smoothing": false,
+        "overflow": false,
+        "dpr": 1.5
+      }
+    },
+    {
+      "name": "width768_has_no_scenery_or_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_has_a_complete_hd_poster",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_uses_the_same_borderless_circle",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none"
+      }
+    },
+    {
+      "name": "nojs_has_no_old_background_or_video",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_retains_content_and_navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_uncaught_browser_errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "samples": [
+    {
+      "label": "time_0ms",
+      "differentPixels": 0,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 0
+    },
+    {
+      "label": "time_900ms",
+      "differentPixels": 16053,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 900
+    },
+    {
+      "label": "time_2800ms",
+      "differentPixels": 27126,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 2800
+    },
+    {
+      "label": "time_4500ms",
+      "differentPixels": 32746,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 4500
+    },
+    {
+      "label": "time_6200ms",
+      "differentPixels": 7120,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 6200
+    },
+    {
+      "label": "time_9500ms",
+      "differentPixels": 21255,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 9500
+    },
+    {
+      "label": "time_11400ms",
+      "differentPixels": 20084,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 11400
+    },
+    {
+      "label": "time_12000ms",
+      "differentPixels": 0,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 12000
+    },
+    {
+      "label": "time_20400ms",
+      "differentPixels": 25891,
+      "protectedDifferences": {
+        "nose-mouth-chin": 0,
+        "central-neck-chain": 0,
+        "left-shoulder": 0,
+        "right-shoulder": 0,
+        "forehead": 0
+      },
+      "timeMs": 20400
+    }
+  ],
+  "presentations": {
+    "desktop": {
+      "x": 453,
+      "y": 347,
+      "width": 534,
+      "height": 534,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "outline": "3px",
+      "outlineStyle": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "smoothing": false,
+      "overflow": false,
+      "dpr": 1
+    },
+    "width320_dpr1": {
+      "x": 18.390625,
+      "y": 465,
+      "width": 284,
+      "height": 284,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "outline": "3px",
+      "outlineStyle": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "smoothing": false,
+      "overflow": false,
+      "dpr": 1
+    },
+    "width390_dpr2": {
+      "x": 17.828125,
+      "y": 419,
+      "width": 354,
+      "height": 354,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "outline": "3px",
+      "outlineStyle": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "smoothing": false,
+      "overflow": false,
+      "dpr": 2
+    },
+    "width768_dpr1.5": {
+      "x": 117,
+      "y": 362.65625,
+      "width": 534,
+      "height": 534,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "outline": "3px",
+      "outlineStyle": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "smoothing": false,
+      "overflow": false,
+      "dpr": 1.5
+    }
+  },
+  "browserErrors": [],
+  "scope": "Stable face/body pixels, local motion and circle presentation; not physical monitor FPS or subjective motion certification",
+  "requests": [
+    "http://127.0.0.1:5180/website/",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/?t=0",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=900",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=2800",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=4500",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=6200",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=9500",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=11400",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/?t=12000",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=20400",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/",
+    "http://127.0.0.1:5180/website/assets/index-BxXwJr5s.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/calm-circle/canonical.png?v=07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "http://127.0.0.1:5180/website/assets/calm-circle/plate.png?v=a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "http://127.0.0.1:5180/website/assets/calm-circle/eyes.png?v=c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "http://127.0.0.1:5180/website/assets/calm-circle/left-hair.png?v=11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "http://127.0.0.1:5180/website/assets/calm-circle/right-hair.png?v=159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "http://127.0.0.1:5180/website/favicon.svg"
+  ]
+}

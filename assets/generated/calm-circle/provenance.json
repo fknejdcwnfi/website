@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "createdDate": "2026-11-06",
+  "kind": "AI-assisted same-composition selection and hidden-surface underpaint references; not replacement character frames",
+  "tool": "image_gen.imagegen",
+  "source": {
+    "file": "assets/generated/minecraft-style/style-master.png",
+    "bytes": 2160302,
+    "sha256": "faf09307c222eb4450dfb06dad5896427cf1e973f33e824d832707ef698540f6"
+  },
+  "transparentBackgroundRequested": true,
+  "outputs": [
+    {
+      "image": {
+        "file": "assets/generated/calm-circle/cutout-reference.png",
+        "bytes": 1671036,
+        "sha256": "50bf2e786f85e24fa82b6f831bba2741a89bb48fdf29b679d00de3aedd0bb8e0"
+      },
+      "prompt": {
+        "file": "assets/generated/calm-circle/cutout-prompt.txt",
+        "bytes": 1242,
+        "sha256": "950721229cace244afe129cc4958fe106164b1a1291e6072089cbd2548a5d9b8"
+      },
+      "generationOriginal": "/workspace/generated_images/exec-7cfd7f16-d6b4-4ae9-9667-eac221520620.png",
+      "width": 1452,
+      "height": 1083,
+      "mode": "RGBA",
+      "transparentPixels": 552000,
+      "opaquePixels": 380,
+      "partialAlphaPixels": 1020136
+    },
+    {
+      "image": {
+        "file": "assets/generated/calm-circle/clean-plate-reference.png",
+        "bytes": 1256038,
+        "sha256": "98cc2c62f0d4b1cd5f2fe1350bb90921c87783128121cf6957fcad63ee8de5d3"
+      },
+      "prompt": {
+        "file": "assets/generated/calm-circle/clean-plate-prompt.txt",
+        "bytes": 1631,
+        "sha256": "fe58bd3daac7b192ee6dc89bfc2c3ed374399a0cd975e43b89ee876d0ab97b13"
+      },
+      "generationOriginal": "/workspace/generated_images/exec-ce43f906-1b62-4e53-bbcc-37888b324342.png",
+      "width": 1452,
+      "height": 1083,
+      "mode": "RGBA",
+      "transparentPixels": 753528,
+      "opaquePixels": 1302,
+      "partialAlphaPixels": 817686
+    }
+  ],
+  "usageContract": [
+    "Use cutout alpha only to select original source RGB; generated RGB is not guaranteed byte-identical.",
+    "Use clean-plate RGB only within explicitly removed lower-hair/hidden-surface regions; never replace the original face/eyes/head/shoulders outside these masks.",
+    "Threshold/select alpha intentionally for pixel-art binary silhouettes; partial-alpha fringe and red/yellow RGB contamination occur on some generated boundary texels.",
+    "The clean plate is a newly inferred hidden surface, not recovered original layered artwork.",
+    "Keep source rectangle and verify registration; image generation does not guarantee pixel-perfect geometry."
+  ]
+}

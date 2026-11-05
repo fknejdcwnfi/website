@@ -180,6 +180,10 @@ def main() -> int:
     if presentation.returncode:
         fail(errors, presentation.stderr.strip() or presentation.stdout.strip())
 
+    calm = subprocess.run([sys.executable, str(ROOT / 'scripts/assets/verify_calm_portrait.py')], capture_output=True, text=True)
+    if calm.returncode:
+        fail(errors, calm.stderr.strip() or calm.stdout.strip())
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

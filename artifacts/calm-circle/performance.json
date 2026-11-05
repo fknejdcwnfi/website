@@ -1,0 +1,14 @@
+{
+  "conditions": "Fresh single production Chromium1440x1100/DPR1; native rAF;2s settle;12s sample; no screenshots or concurrent browser",
+  "readyMsLocal": 732,
+  "paints": 720,
+  "seconds": 12.000100000000094,
+  "paintsPerSecond": 59.999500004166165,
+  "callbackMs": {
+    "median": 0.09999999986030161,
+    "p95": 0.20000000018626451,
+    "max": 1.5999999998603016
+  },
+  "browserErrors": [],
+  "physicalDisplayVerified": false
+}

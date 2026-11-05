@@ -32,7 +32,7 @@ export class ScenePlayer {
     private readonly createRenderer: SceneRendererFactory,
     private readonly options: ScenePlayerOptions = {},
   ) {
-    const context = canvas.getContext('2d', { alpha: false })
+    const context = canvas.getContext('2d', { alpha: true })
     if (!context) throw new Error('A Canvas 2D context is required for this scene.')
     this.context = context
     this.canvas.width = definition.width
@@ -73,6 +73,7 @@ export class ScenePlayer {
   private canonical(): void {
     if (!this.assets) return
     this.context.imageSmoothingEnabled = false
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
     this.context.drawImage(this.assets.canonical, 0, 0, this.canvas.width, this.canvas.height)
     this.painted = true
   }
