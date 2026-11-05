@@ -42,7 +42,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
       <section class="hero static-hero" id="home" aria-labelledby="hero-title" tabindex="-1">
         <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
         <figure class="hero__visual hero__visual--reference">
-          <div class="reference-scene-static"><img src="${escape(`${base}assets/reference-scene/canonical.png`)}" width="320" height="240" fetchpriority="high" alt="Vermouth、富士山、櫻花與夕陽的全幅像素風景"></div>
+          <div class="reference-scene-static"><img src="${escape(`${base}assets/reference-scene/canonical.png`)}" width="358" height="267" fetchpriority="high" alt="Vermouth、富士山、櫻花與夕陽的像素風景"></div>
           <figcaption><span>VERMOUTH</span><span>富士山與櫻花 · 像素風景</span></figcaption>
         </figure>
         <aside class="welcome-note" aria-labelledby="welcome-note-title"><div class="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 歡迎，隨意逛逛</div><p>這裡記錄我的作品與探索。你可以從下方了解我，瀏覽公開專案，或透過 GitHub 與 Email 聯絡我。</p></aside>

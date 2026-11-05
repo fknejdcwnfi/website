@@ -1,15 +1,16 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { compileSourceTiming, sampleSourceTime, validateSourceTiming } from '../../src/features/referenceScene/sourceTiming.ts'
+import { fitSceneViewport } from '../../src/features/referenceScene/sceneViewport.ts'
 
 const original = validateSourceTiming({ frameCount: 16, frameDurationsMs: Array(16).fill(80), durationMs: 1280, sourceAnchorCount: 16, loop: 0 })
-const smooth = validateSourceTiming({ frameCount: 128, frameDurationsMs: Array(128).fill(10), durationMs: 1280, sourceAnchorCount: 16, loop: 0 })
+const smooth = validateSourceTiming({ frameCount: 160, frameDurationsMs: Array(160).fill(8), durationMs: 1280, sourceAnchorCount: 16, loop: 0 })
 
 test('all sixteen source anchors retain the same clock in original and derived sequences', () => {
   for (let anchor = 0; anchor < 16; anchor++) {
     const source = sampleSourceTime(anchor * 80, original), derived = sampleSourceTime(anchor * 80, smooth)
     assert.equal(source.index, anchor)
-    assert.equal(derived.index, anchor * 8)
+    assert.equal(derived.index, anchor * 10)
     assert.equal(source.sourceIndex, derived.sourceIndex)
     assert.equal(source.sourceIndex, anchor)
     for (const sample of [source, derived]) {
@@ -20,12 +21,12 @@ test('all sixteen source anchors retain the same clock in original and derived s
     }
   }
   const between = sampleSourceTime(635, smooth)
-  assert.equal(between.index, 63)
-  assert.equal(between.nextIndex, 64)
+  assert.equal(between.index, 79)
+  assert.equal(between.nextIndex, 80)
   assert.equal(between.sourceIndex, 7)
   assert.equal(between.sourcePhase, 75 / 80)
-  assert.equal(between.localMs, 5)
-  assert.equal(between.phase, .5)
+  assert.equal(between.localMs, 3)
+  assert.equal(between.phase, 3 / 8)
   assert.equal(between.isSourceAnchor, false)
 })
 
@@ -47,7 +48,7 @@ test('the source loop wraps exactly at 1280ms without another wind or blink cloc
 test('negative seeks, fractional boundaries and malformed times stay finite and deterministic', () => {
   assert.equal(sampleSourceTime(-1, original).index, 15)
   assert.equal(sampleSourceTime(-1, original).localMs, 79)
-  assert.equal(sampleSourceTime(-1, smooth).index, 127)
+  assert.equal(sampleSourceTime(-1, smooth).index, 159)
   assert.equal(sampleSourceTime(-1280, smooth).timeMs, 0)
   assert.equal(Object.is(sampleSourceTime(-1280, smooth).timeMs, -0), false)
   for (const tiny of [-Number.MIN_VALUE, -1e-20]) {
@@ -107,4 +108,35 @@ test('invalid timing and ambiguous source manifests are rejected', () => {
     { frameCount: 1, frameDurationsMs: [80], frame_durations_ms: [90] },
     { frameCount: 1, frameDurationsMs: [80], loop: -1 },
     { frameCount: 1, frameDurationsMs: [80], sourceAnchorCount: 0 }]) assert.throws(() => validateSourceTiming(metadata))
+})
+
+test('native scene cover pixels align to the device grid, including odd cover crops', () => {
+  for (const [available, ratio] of [[534, 1], [534, 2], [534, 1.25], [284, 2], [354, 3], [534, 3]]) {
+    const left = 17.375, top = 381.25
+    const viewport = fitSceneViewport(available, left, top, 358, 267, ratio)
+    assert.ok(viewport.diameter <= available + 1e-6)
+    assert.ok(viewport.diameter >= available * .82)
+    assert.ok(Math.abs(viewport.offsetX) <= .5 / ratio + 1e-6)
+    assert.ok(Math.abs(viewport.offsetY) <= .5 / ratio + 1e-6)
+    const inset = (available - viewport.diameter) / 2
+    const sourceX = (left + inset + viewport.offsetX) * ratio - 91 * viewport.scale / 2
+    const sourceY = (top + inset + viewport.offsetY) * ratio
+    assert.ok(Math.abs(sourceX - Math.round(sourceX)) < 1e-6)
+    assert.ok(Math.abs(sourceY - Math.round(sourceY)) < 1e-6)
+    if (viewport.integerScale) assert.equal(viewport.scale, Math.round(viewport.scale))
+  }
+  assert.equal(fitSceneViewport(534, 0, 0, 358, 267, 1).diameter, 534)
+  assert.equal(fitSceneViewport(284, 0, 0, 358, 267, 2).diameter, 267)
+  assert.equal(fitSceneViewport(534, 0, 0, 358, 267, 1.5).scale, 3)
+})
+
+test('narrow viewports keep a useful native scene size without overflow', () => {
+  for (const [available, ratio] of [[354, 1], [354, 2], [354, 3], [180, 1], [240, .75]]) {
+    const viewport = fitSceneViewport(available, 0, 0, 358, 267, ratio)
+    assert.equal(viewport.integerScale, false)
+    assert.equal(viewport.diameter, available)
+  }
+  const invalid = fitSceneViewport(NaN, NaN, Infinity, -1, 0, 0)
+  assert.ok(Object.values(invalid).every(value => typeof value !== 'number' || Number.isFinite(value)))
+  assert.ok(invalid.diameter > 0)
 })

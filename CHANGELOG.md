@@ -3,6 +3,13 @@
 本專案遵循 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) 的精神，
 版本號使用 `MAJOR.MINOR.PATCH`。
 
+## 2026-11-05 · 原生清晰像素與無邊圓形
+
+- 依最新要求改為最大534px無描邊／陰影圓形，Canvas保留全圖，DPR事件對齊源像素；無JS後備同圓形，狀態提示留在圓外。
+- 移除160×120／80色降採樣，保留358×267及源全局255色；原16錨幀與上傳PNG解碼像素完全一致，避免大塊馬賽克及比例損失。
+- 平滑序列由128×10ms升為160×8ms，眼區單源眼形隨源頭部位置移動；原1280ms周期及眨眼時序不變。估計樣本不冒稱實體125fps。
+- 離線工具移至`src/authoring/referenceScene/`，與runtime／展示分離；更新原生素材、144Hz模擬回調、真實CSS像素和圓形後備檢查。[本輪指南與限制](docs/guides/reference-gif-rebuild.md)。
+
 ## 2026-11-05 · 原GIF工程全幅像素場景重構
 
 - 完整納入使用者ZIP及22個原檔、逐檔SHA與CRC驗證；保留原GIF16x80ms／1280ms動作與全部構圖。

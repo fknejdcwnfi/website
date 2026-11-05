@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "ScenePlayer lifecycle with a fixture image and test renderer; not visual fidelity or device FPS",
+  "checks": [
+    "normal_looping",
+    "visible_delayed_frame_keeps_source_wall_clock",
+    "simulated_144hz_callbacks_are_not_throttled_or_time_stretched",
+    "offscreen_stops_painting",
+    "visible_resumes",
+    "hidden_preserves_phase",
+    "destroy_cleans_renderer_and_raf",
+    "reduced_motion_skips_preparation",
+    "explicit_choice_enables_animation",
+    "system_choice_restores_canonical",
+    "choice_reuses_renderer",
+    "stale_async_renderer_is_destroyed",
+    "factory_failure_is_explicit",
+    "preference_cancels_preparation_and_ignores_outdated_error",
+    "preference_restarts_cancelled_preparation"
+  ]
+}

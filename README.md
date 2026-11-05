@@ -1,18 +1,18 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。這是 fknejdcwnfi 的個人網站，首頁是依使用者提供的富士山風雪GIF工程重構的全幅像素場景，保留原飄髮、眨眼、耳飾、富士山、櫻花與落日構圖。
+**HELLOWORLD**。這是 fknejdcwnfi 的個人網站，首頁是依使用者提供的富士山風雪GIF工程重構的原生像素圓形場景，保留原飄髮、眨眼、耳飾、富士山、櫻花與落日構圖。
 
 - 網站：<https://fknejdcwnfi.github.io/website/>
 - GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 - [原始ZIP與全量工程](reference-projects/fuji-wind/) · [重構／復現指南](docs/guides/reference-gif-rebuild.md)
 
-原GIF16幀、每幀80ms、周期1280ms；全幅轉為共享80色、160×120像素格，nearest整數放大。預設以128個運動補償樣本平滑播放，原16個像素錨幀保持逐像素一致，眼區保留原眨眼時序。中間影格是估計，不能宣稱原檔本來有100fps、像素化仍與原RGB完全相同或已實機驗證高刷。`?motion=original`提供原16幀節奏對照。
+原GIF16幀、每幀80ms、周期1280ms。本版移除先前160×120降採樣，圖集與Canvas均保留358×267原尺寸和全部255種源色，原16錨幀與原PNG逐像素一致。展示改為無描邊圓形，最大534px，nearest顯示並按DPR對齊像素；只裁展示窗口，不改原圖。這是保留源風格的Minecraft-inspired二維像素呈現。
 
-網站內容、搜尋、真實專案、聯絡和無JavaScript後備保留。預設不再使用舊圓形近景、獨立風表或獨立眨眼；歷史角色仍可用`?view=portrait`明確檢視，主頁不載入那些素材。
+預設160個8ms運動補償樣本（125樣本／秒），眼形隨源頭部位移而非整塊固定；源眨眼時序不變。中間影格是估計，實際顯示率取決於裝置，不冒稱源GIF125fps。`?motion=original`提供原16幀對照。網站內容、搜尋、真實專案、聯絡及無JavaScript圓形後備保留，歷史角色僅在`?view=portrait`等明確入口載入。
 
-![重構後網站](artifacts/reference-scene/site/desktop.png)
+![原生像素圓形網站](artifacts/crisp-circle/site/desktop.png)
 
-[手機](artifacts/reference-scene/site/mobile.png) · [動態預覽](artifacts/reference-scene/preview/animation.mp4) · [原始來源聯繫幀](artifacts/reference-scene/source-analysis/contact.png)
+[手機](artifacts/crisp-circle/site/mobile.png) · [實際圓形動畫預覽](artifacts/crisp-circle/preview/animation.mp4) · [清晰度前後對比](artifacts/crisp-circle/clarity-comparison.png) · [原生像素圓形](artifacts/crisp-circle/site/circle-native-grid.png) · [不可變來源](reference-projects/fuji-wind/)
 
 ## 開始開發
 
@@ -56,9 +56,10 @@ gameProfiles: [], // 填入你願意公開的王者荣耀／火影忍者等資�
 ```text
 src/
   app/                 頁面組合、全站錯誤邊界與基礎樣式
+  authoring/           離線原生像素工具，不由runtime引用
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
-    referenceScene/    預設全幅像素場景、原GIF時鐘、圖集與生命週期
+    referenceScene/    原生像素圓形展示、原GIF時鐘、圖集與生命週期
     portrait/          歷史近景播放器，明確入口才載入
   shared/              共用動畫型別
   archive/             legacy／voxel歷史模式及舊field renderer對照
@@ -82,16 +83,12 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-正常首頁在可見時持續風動，12秒中包含兩段影片尺度的六秒風勢／回落短語。眨眼仍是已認可的24秒獨立時鐘，三次事件相隔6.9–9秒，每次280ms。沒有公開播放／暫停按鈕；隱藏／離屏停止繪製並保留相位。減少動態、pose1／10、wind0／direction0直接畫原canonical且不啟動Worker；wind0仍可眨眼，恢復風動才準備物理緩存。`?view=portrait&debug=1`保留開發控制。
+預設場景使用原GIF1280ms時鐘，rAF不鎖60Hz，隱藏／離屏停止繪製並保留相位；減少動態免下載圖集，可明確啟用並恢復。載入逾時、取消、重試和無JS首幀保留完整網站可用性。離線運動估計／像素作者工具、runtime播放器及圓形展示分開，來源驗證和實際CSS截圖驗證共同防止重新降採樣。
 
-初始HTML、透明poster、素材逾時與錯誤邊界保留無JS或故障時的完整網站。Worker準備不阻塞操作，失敗使用獨立靜態肖像；設定切換與destroy使用世代檢查，防止過期結果或錯誤破壞新狀態。網站的藍色雙層導航、搜索、真實個人內容及帳號擴充設定保持。
-
-[目前重建指南](docs/guides/video-layered-rebuild.md)與 `artifacts/video-layered/` 記錄實際材料、物理、網格、固定五官、投影裁剪、生命週期、全站備援與production效能。像素變化量或測試項數不能單獨證明像影片；實際關鍵幀與完整動畫一同保留。
-
-實際顯示更新率受瀏覽器、OS、裝置與螢幕限制；240Hz求解、120Hz姿態緩存、GIF編碼率及不限幀容器吞吐都不等於實機顯示FPS。這是二維髮帶約束模型，並非三維逐根毛髮或完整流體模擬。證據不隨網站runtime下載。
+[目前指南](docs/guides/reference-gif-rebuild.md)與`artifacts/crisp-circle/`記錄本版清晰度、源錨點、125Hz估計樣本、144Hz模擬回調、生命週期、整站及production效能。預覽編碼率和模擬callback不等於實體顯示器FPS，細髮與遮擋的估計仍有限制。舊12秒物理風／24秒眨眼僅屬歷史肖像，見`docs/guides/video-layered-rebuild.md`。
 
 ## 素材
 
-`assets/source/**`及`docs/reference/**`保持唯讀。原始參考是身份與近景構圖的最高權威；canonical母版仍在 `assets/generated/portrait-v4/`，局部髮後修復在 `assets/generated/portrait-wind/`，runtime為 `public/assets/portrait-natural/`。不輪播新生成的臉、不整張圖晃動，也不擴圖成完整胸像。[素材清冊](docs/guides/asset-inventory.md)記錄來源及限制。
+`assets/source/**`及`docs/reference/**`保持唯讀。新首頁權威是`reference-projects/fuji-wind/`完整原工程；歷史近景canonical母版仍在 `assets/generated/portrait-v4/`，局部髮後修復在 `assets/generated/portrait-wind/`，runtime為 `public/assets/portrait-natural/`。不輪播新生成的臉、不整張圖晃動，也不擴圖成完整胸像。[素材清冊](docs/guides/asset-inventory.md)記錄來源及限制。
 
 貝爾摩德出自《名偵探柯南》，角色權利屬原權利方，本專案為個人非商業粉絲作品。Minecraft為相關權利方商標，本站不是官方合作產品。見[變更紀錄](CHANGELOG.md)。

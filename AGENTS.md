@@ -13,7 +13,7 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Latest authoritative rebuild
 
-Read [`docs/guides/reference-gif-rebuild.md`](docs/guides/reference-gif-rebuild.md) first. The owner supplied the actual full GIF project and explicitly required this reference as the new default. It supersedes the older circular close-up identity/framing, fixed-face and independent blink/wind clocks for the **new source-driven scene**. The default is a full 4:3 scene; source timing is 16x80ms=1280ms, with separately labelled motion-compensated intermediate samples. Old source files remain immutable, and old renderers remain explicit historical routes. Do not restore the old portrait as homepage or claim estimated interframes are original source frames.
+Read [`docs/guides/reference-gif-rebuild.md`](docs/guides/reference-gif-rebuild.md) first. The supplied GIF is the source authority for the new scene; old close-up identity, fixed-face and independent blink/wind rules below apply only to historical portrait routes. The latest 2026-11-05 user request changes its **display to a borderless circle**, preserving the full source data. Use native358×267 Canvas/tiles and all255 source colors, with **no160×120 downsampling**. Original timing is16×80ms=1280ms;160×8ms derived samples are explicitly estimated. `src/authoring/` is offline-only, separate from `src/features/referenceScene/`. Do not restore a low-resolution grid, a rectangular default, or call interpolated samples original footage.
 
 ## Read in this order
 
@@ -116,7 +116,7 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 ## Current state
 
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default hero: `src/features/referenceScene/`, source-anchored full 4:3 Minecraft-inspired pixel landscape using the supplied GIF. See the latest guide; the portrait paragraphs below describe the historical renderer.
+- Default hero: `src/features/referenceScene/`, source-native358×267 Minecraft-inspired landscape from the supplied GIF in a borderless circular display. See the latest guide; the portrait paragraphs below describe the historical renderer.
 - Responsive personal homepage with an indigo double header, white document
   layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
 - Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their

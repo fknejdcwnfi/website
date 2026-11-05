@@ -1,6 +1,6 @@
 import { loadSceneAssets } from './loadScene'
 import { sampleScene } from './sceneTimeline'
-import { SCENE_HEIGHT, SCENE_WIDTH, type SceneAssets, type SceneDefinition, type ScenePlayback, type ScenePlayerOptions, type SceneRenderer, type SceneRendererFactory } from './types'
+import type { SceneAssets, SceneDefinition, ScenePlayback, ScenePlayerOptions, SceneRenderer, SceneRendererFactory } from './types'
 
 /** A new full-frame player's only shared state is the browser motion preference. */
 export class ScenePlayer {
@@ -34,8 +34,8 @@ export class ScenePlayer {
     const context = canvas.getContext('2d', { alpha: false })
     if (!context) throw new Error('A Canvas 2D context is required for this scene.')
     this.context = context
-    this.canvas.width = SCENE_WIDTH
-    this.canvas.height = SCENE_HEIGHT
+    this.canvas.width = definition.width
+    this.canvas.height = definition.height
     this.context.imageSmoothingEnabled = false
     this.motionEnabled = options.motionEnabled === true
     this.inspectionTime = typeof options.timeMs === 'number' && Number.isFinite(options.timeMs)
@@ -72,7 +72,7 @@ export class ScenePlayer {
   private canonical(): void {
     if (!this.assets) return
     this.context.imageSmoothingEnabled = false
-    this.context.drawImage(this.assets.canonical, 0, 0, SCENE_WIDTH, SCENE_HEIGHT)
+    this.context.drawImage(this.assets.canonical, 0, 0, this.canvas.width, this.canvas.height)
     this.painted = true
   }
 

@@ -1,4 +1,4 @@
-"""Exercise reference-scene player lifecycle with a local 4:3 image and deterministic renderer.
+"""Exercise reference-scene player lifecycle with a local source-native image and deterministic renderer.
 
 Use a Vite development URL: source modules are imported intentionally. This is a
 lifecycle test, not motion-art fidelity or physical-refresh-rate verification.
@@ -13,21 +13,25 @@ base=args.url.rstrip('/')
 import io,json
 from PIL import Image
 from playwright.sync_api import sync_playwright
-png=io.BytesIO();Image.new('RGB',(4,3),'#51647e').save(png,format='PNG')
+manifest=json.loads((Path(__file__).resolve().parents[2]/'public/assets/reference-scene/source-manifest.json').read_text())
+png=io.BytesIO();Image.new('RGB',(manifest['width'],manifest['height']),'#51647e').save(png,format='PNG')
 checks=[]
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
  def setup(reduced='no-preference'):
   c=b.new_context(viewport={'width':1200,'height':1000},reduced_motion=reduced);q=c.new_page();q.route('**/__scene-test.png',lambda r:r.fulfill(content_type='image/png',body=png.getvalue()));q.route('**/__scene-lifecycle.html',lambda r:r.fulfill(content_type='text/html',body='<html><body></body></html>'));q.goto(base+'/__scene-lifecycle.html');q.evaluate('''async()=>{
    const {ScenePlayer}=await import('/src/features/referenceScene/ScenePlayer.ts');window.ScenePlayer=ScenePlayer;
-   window.definition={version:1,width:320,height:240,canonical:{src:'/__scene-test.png',width:4,height:3},description:'test',motionSource:'reconstructed'};
+   const{SCENE_WIDTH,SCENE_HEIGHT}=await import('/src/features/referenceScene/types.ts');
+   window.definition={version:1,width:SCENE_WIDTH,height:SCENE_HEIGHT,canonical:{src:'/__scene-test.png',width:SCENE_WIDTH,height:SCENE_HEIGHT},description:'test',motionSource:'reconstructed'};
    window.testCanvas=document.createElement('canvas');document.body.append(testCanvas);window.paintCount=0;window.prepares=0;window.destroyCalls=0;window.samples=[];
-   window.factory=async()=>{prepares++;return{paint(ctx,s){paintCount++;samples.push(s.elapsedMs);ctx.fillStyle='#bbccdd';ctx.fillRect(0,0,320,240)},destroy(){destroyCalls++}}};
+   window.factory=async()=>{prepares++;return{paint(ctx,s){paintCount++;samples.push(s.elapsedMs);ctx.fillStyle='#bbccdd';ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height)},destroy(){destroyCalls++}}};
    window.subject=new ScenePlayer(testCanvas,definition,factory);
   }''');return c,q
  c,q=setup();q.wait_for_function("testCanvas.dataset.playback==='looping'");q.wait_for_timeout(150);assert q.evaluate('paintCount>2&&prepares===1');checks.append('normal_looping')
  advance=q.evaluate('''()=>{cancelAnimationFrame(subject.raf);const before=samples.at(-1);subject.lastTime=performance.now()-450;subject.tick(performance.now());return samples.at(-1)-before}''')
  assert 400<advance<500,advance;checks.append('visible_delayed_frame_keeps_source_wall_clock')
+ high_refresh=q.evaluate('''()=>{cancelAnimationFrame(subject.raf);subject.elapsedMs=0;subject.lastTime=1000;const before=paintCount;for(let index=1;index<=144;index++){cancelAnimationFrame(subject.raf);subject.tick(1000+index*1000/144)}return{paints:paintCount-before,elapsedMs:samples.at(-1)}}''')
+ assert high_refresh['paints']==144 and abs(high_refresh['elapsedMs']-1000)<1e-6,high_refresh;checks.append('simulated_144hz_callbacks_are_not_throttled_or_time_stretched')
  q.evaluate("subject.setViewportVisible(false)");q.wait_for_timeout(60);n=q.evaluate('paintCount');q.wait_for_timeout(150);assert q.evaluate('paintCount')==n;checks.append('offscreen_stops_painting')
  q.evaluate('subject.setViewportVisible(true)');q.wait_for_timeout(80);assert q.evaluate('paintCount')>n;checks.append('visible_resumes')
  q.evaluate("window.fakeHidden=true;Object.defineProperty(document,'hidden',{configurable:true,get:()=>fakeHidden});document.dispatchEvent(new Event('visibilitychange'))");n=q.evaluate('paintCount');last=q.evaluate('samples.at(-1)');q.wait_for_timeout(200);assert q.evaluate('paintCount')==n

@@ -21,6 +21,8 @@ with sync_playwright() as p:
   const{ScenePlayer}=await import('/src/features/referenceScene/ScenePlayer.ts');
   const{createSourceRenderer}=await import('/src/features/referenceScene/createSourceRenderer.ts');
   const{validateSourceTiming}=await import('/src/features/referenceScene/sourceTiming.ts');
+  const source=await fetch('/assets/reference-scene/source-manifest.json').then(r=>r.json());
+  const sourceTiming=validateSourceTiming(source);
   const canvas=document.createElement('canvas');document.body.append(canvas);
   const put=CanvasRenderingContext2D.prototype.drawImage;let paints=0;
   CanvasRenderingContext2D.prototype.drawImage=function(...args){if(this.canvas===canvas)paints++;return put.apply(this,args)};
@@ -30,25 +32,25 @@ with sync_playwright() as p:
    const prefix=mode==='original'?'source':'smooth';
    const manifest=await fetch('/assets/reference-scene/'+prefix+'-manifest.json').then(r=>r.json());
    const timing=validateSourceTiming(manifest);
-   const definition={version:1,width:320,height:240,canonical:{src:'/assets/reference-scene/'+manifest.canonical,width:320,height:240},layers:{atlas:{src:'/assets/reference-scene/'+manifest.atlas,width:manifest.tileWidth*manifest.atlasColumns,height:manifest.tileHeight*manifest.atlasRows}},description:'source timing QA',motionSource:'source-timing'};
-   const times=[...Array.from({length:16},(_,i)=>i*80),-1,1280,2560,12000,24000];
+   const definition={version:1,width:manifest.width,height:manifest.height,canonical:{src:'/assets/reference-scene/'+manifest.canonical,width:manifest.width,height:manifest.height},layers:{atlas:{src:'/assets/reference-scene/'+manifest.atlas,width:manifest.tileWidth*manifest.atlasColumns,height:manifest.tileHeight*manifest.atlasRows}},description:'source timing QA',motionSource:'source-timing'};
+   const times=[...sourceTiming.startsMs,-1,timing.durationMs,2*timing.durationMs,12000,24000];
    anchors[mode]=[];
    for(const time of times){
     subject?.destroy();
     await new Promise((resolve,reject)=>{
      subject=new ScenePlayer(canvas,definition,createSourceRenderer,{timeMs:time,onState(s){if(s.playback==='static')resolve();if(s.playback==='failed')reject(Error('Source renderer failed'))}});
     });
-    const index=Number(canvas.dataset.sourceFrame),wrapped=((time%1280)+1280)%1280;
-    const expected=mode==='original'?Math.floor(wrapped/80):Math.floor(wrapped/10);
+    const index=Number(canvas.dataset.sourceFrame),wrapped=((time%timing.durationMs)+timing.durationMs)%timing.durationMs;
+    const expected=timing.startsMs.findLastIndex(start=>start<=wrapped);
     reports.push({mode,timeMs:time,actual:index,expected,sourceDuration:Number(canvas.dataset.sourceDuration),playback:canvas.dataset.playback});
-    if(time>=0&&time<1280){const pixels=canvas.getContext('2d').getImageData(0,0,320,240).data;let hash=2166136261;for(const value of pixels){hash^=value;hash=Math.imul(hash,16777619)}anchors[mode].push(hash>>>0)}
+    if(time>=0&&time<timing.durationMs){const pixels=canvas.getContext('2d').getImageData(0,0,manifest.width,manifest.height).data;let hash=2166136261;for(const value of pixels){hash^=value;hash=Math.imul(hash,16777619)}anchors[mode].push(hash>>>0)}
    }
    const before=paints;await new Promise(resolve=>setTimeout(resolve,100));reports.push({mode,inspectionPaints:paints-before});
   }
-  subject?.destroy();return{reports,anchors};
+  subject?.destroy();return{reports,anchors,sourceDurationMs:sourceTiming.durationMs,sourceAnchorCount:sourceTiming.frameCount};
  }''')
  result['samples']=state['reports']
- assert all(sample['actual']==sample['expected'] and sample['sourceDuration']==1280 and sample['playback']=='static' for sample in state['reports'] if 'actual' in sample)
+ assert all(sample['actual']==sample['expected'] and sample['sourceDuration']==state['sourceDurationMs'] and sample['playback']=='static' for sample in state['reports'] if 'actual' in sample)
  result['checks'].append('original_and_derived_clock_preserve_all_16_anchors_and_1280ms_loop')
  assert all(sample['inspectionPaints']==0 for sample in state['reports'] if 'inspectionPaints' in sample)
  result['checks'].append('explicit_source_seeks_do_not_schedule_continuous_painting')
