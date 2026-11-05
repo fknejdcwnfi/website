@@ -192,3 +192,8 @@
 }
 @media (prefers-reduced-motion: reduce) { .personal-site *, .personal-site *::before, .personal-site *::after { scroll-behavior: auto !important; transition: none !important; } }
 @media (forced-colors: active) { .wordmark__symbol { background: CanvasText; } .personal-site :focus-visible { outline-color: Highlight; } }
+
+.hero__visual--reference { max-width: 640px; }
+.reference-scene-static { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; }
+.reference-scene-static img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.reference-scene-page { min-height: 100svh; display: grid; place-items: center; padding: 20px; background: #f8f9fc; }

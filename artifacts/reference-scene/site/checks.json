@@ -1,0 +1,120 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/website/",
+  "checks": [
+    "production_http200",
+    "personal_content_and_real_links",
+    "source_scene_renderer_selected",
+    "source_scene_has_no_normal_play_controls",
+    "source_frames_change_continuously",
+    "no_worker_dependency",
+    "no_archived_portrait_assets_requested",
+    "canonical_and_atlas_are_local_source_scene_assets",
+    "desktop_full_4to3_frame",
+    "desktop_pixel_canvas_nearest_and_untransformed",
+    "desktop_fits_viewport",
+    "local_search_finds_real_project",
+    "offscreen_source_playback_suspends",
+    "onscreen_source_playback_resumes",
+    "hidden_source_playback_suspends",
+    "visible_source_playback_resumes",
+    "width320_dpr1_full_4to3_frame",
+    "width320_dpr1_pixel_canvas_nearest_and_untransformed",
+    "width320_dpr1_fits_viewport",
+    "width390_dpr2_full_4to3_frame",
+    "width390_dpr2_pixel_canvas_nearest_and_untransformed",
+    "width390_dpr2_fits_viewport",
+    "width768_dpr1_full_4to3_frame",
+    "width768_dpr1_pixel_canvas_nearest_and_untransformed",
+    "width768_dpr1_fits_viewport",
+    "reduced_preference_has_static_canonical",
+    "reduced_preference_skips_animation_atlas",
+    "reduced_preference_explains_static_mode",
+    "explicit_choice_starts_real_source_frames",
+    "explicit_choice_survives_reload",
+    "following_system_restores_static_canonical",
+    "atlas_failure_has_source_poster_and_recovery",
+    "manual_retry_recovers_real_source_animation",
+    "nojs_keeps_full_reference_poster",
+    "nojs_keeps_personal_content_and_navigation",
+    "normal_page_has_no_browser_errors"
+  ],
+  "presentations": {
+    "desktop": {
+      "x": 400,
+      "y": 347.171875,
+      "width": 640,
+      "height": 480,
+      "ratio": 1.3333333333333333,
+      "radius": "0px",
+      "border": "0px",
+      "imageRendering": "pixelated",
+      "transform": "none",
+      "canvas": [
+        320,
+        240
+      ],
+      "overflow": false
+    },
+    "width320_dpr1": {
+      "x": 18,
+      "y": 464.921875,
+      "width": 284,
+      "height": 213,
+      "ratio": 1.3333333333333333,
+      "radius": "0px",
+      "border": "0px",
+      "imageRendering": "pixelated",
+      "transform": "none",
+      "canvas": [
+        320,
+        240
+      ],
+      "overflow": false
+    },
+    "width390_dpr2": {
+      "x": 18,
+      "y": 419.03125,
+      "width": 354,
+      "height": 265.5,
+      "ratio": 1.3333333333333333,
+      "radius": "0px",
+      "border": "0px",
+      "imageRendering": "pixelated",
+      "transform": "none",
+      "canvas": [
+        320,
+        240
+      ],
+      "overflow": false
+    },
+    "width768_dpr1": {
+      "x": 64,
+      "y": 362.359375,
+      "width": 640,
+      "height": 480,
+      "ratio": 1.3333333333333333,
+      "radius": "0px",
+      "border": "0px",
+      "imageRendering": "pixelated",
+      "transform": "none",
+      "canvas": [
+        320,
+        240
+      ],
+      "overflow": false
+    }
+  },
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:4173/website/",
+    "http://127.0.0.1:4173/website/assets/index-B2DguXE9.js",
+    "http://127.0.0.1:4173/website/assets/index-C66b5L2B.css",
+    "http://127.0.0.1:4173/website/assets/reference-scene/canonical.png",
+    "http://127.0.0.1:4173/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:4173/website/assets/reference-scene/canonical.png?v=6eb9b333adcb31eab89561d1e7bf7df9a8e2614acc649f0c0db519a847d0d5ca",
+    "http://127.0.0.1:4173/website/favicon.svg",
+    "http://127.0.0.1:4173/website/assets/reference-scene/smooth-manifest.json",
+    "http://127.0.0.1:4173/website/assets/reference-scene/smooth-atlas.png?v=01ebea5400347d7a37609c8a113f550474e5887d9be8eb8404fc753d1e7a3215"
+  ]
+}

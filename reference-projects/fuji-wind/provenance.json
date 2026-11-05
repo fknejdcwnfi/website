@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "archive": "source-project.zip",
+  "archiveSha256": "9ee2d35c4bbad5276b715de02ebf0e5e48e0e7372a3a26d42d790c9426c5760e",
+  "sourceDimensions": [
+    358,
+    267
+  ],
+  "sourceFrames": 16,
+  "frameDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "periodMs": 1280,
+  "originalFiles": [
+    {
+      "path": "README.md",
+      "bytes": 2170,
+      "sha256": "e13ce893aca6c567052ee6f8a3222b845c7a636d53d9801f0ff6896617a5046a"
+    },
+    {
+      "path": "frames/frame_000.png",
+      "bytes": 143102,
+      "sha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b"
+    },
+    {
+      "path": "frames/frame_001.png",
+      "bytes": 143408,
+      "sha256": "9177c8726ad6bd5ddd290264acabb93b214bf0167e3412d2b5ad70d5f8879bff"
+    },
+    {
+      "path": "frames/frame_002.png",
+      "bytes": 149730,
+      "sha256": "c8f09e24dd745b4d88e8b950c4be2eed815e342da03dbb8d23bc4179f5108a9d"
+    },
+    {
+      "path": "frames/frame_003.png",
+      "bytes": 146387,
+      "sha256": "3aef741b6d33eb3f478904337c0ad3a3c4bc568ef7ec502c54e4299c0b8b7643"
+    },
+    {
+      "path": "frames/frame_004.png",
+      "bytes": 145997,
+      "sha256": "dfa02b2a0679916527bb6da6281b24fbbac55235141ef2ef36b1bd87316fccb6"
+    },
+    {
+      "path": "frames/frame_005.png",
+      "bytes": 145817,
+      "sha256": "dce183f9b9b4c28fc472568b3fdc7d99b70e7f4e59cc8c64fc4bc3cefa843d9e"
+    },
+    {
+      "path": "frames/frame_006.png",
+      "bytes": 143856,
+      "sha256": "a91f7c70dbddd0c0ebc40cd553310e2fd4e1dbe8cb1a9f837f19a3e4bb79e837"
+    },
+    {
+      "path": "frames/frame_007.png",
+      "bytes": 138814,
+      "sha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e"
+    },
+    {
+      "path": "frames/frame_008.png",
+      "bytes": 140823,
+      "sha256": "1fa9f3daf8b3d7b750ea5866a90c0c6147e82ed82387f565df63b16fd9fd1969"
+    },
+    {
+      "path": "frames/frame_009.png",
+      "bytes": 143095,
+      "sha256": "9b68d876dedfa8b86d171a8b693cb1edd2333c4d536f94d8b6ff3539cff35357"
+    },
+    {
+      "path": "frames/frame_010.png",
+      "bytes": 142726,
+      "sha256": "fd3b20eae1e76c4e22686080806682c0df2d4f25aecd2c8745586bf503797bab"
+    },
+    {
+      "path": "frames/frame_011.png",
+      "bytes": 142373,
+      "sha256": "2327d4cdb6b98c7e18a780b664d4cd6a276bf5e55c99ab0df0132ebebbd8a13f"
+    },
+    {
+      "path": "frames/frame_012.png",
+      "bytes": 142254,
+      "sha256": "a79d4289fdfba6f2e5ea7fc3c95ac0f11bc8a7a5328edfc64fed3667d4536e38"
+    },
+    {
+      "path": "frames/frame_013.png",
+      "bytes": 140562,
+      "sha256": "f645e7f94629d6a79efa83cde2ea3d77917b3fe1eb89e096e2b66e0178dd0e78"
+    },
+    {
+      "path": "frames/frame_014.png",
+      "bytes": 141476,
+      "sha256": "0be9764d4a914ba04adf85efa498627f02aff05d6301d77f63a49d80a7524d42"
+    },
+    {
+      "path": "frames/frame_015.png",
+      "bytes": 137724,
+      "sha256": "246c8d5acaf1e2473340f17439bffb27595b5c6e4f3e6019dec3c251d11a1552"
+    },
+    {
+      "path": "metadata.json",
+      "bytes": 406,
+      "sha256": "88c789740559ba0a2f3210516c003eea69f1dd72cc8e6b68d8427483e7a15974"
+    },
+    {
+      "path": "original.gif",
+      "bytes": 996543,
+      "sha256": "67fe636fbe05d7c6f29a71b1fbf781b94189c940d1655d8337041fd701ddcd02"
+    },
+    {
+      "path": "output/animation_12.5fps.gif",
+      "bytes": 986152,
+      "sha256": "3147cd32cce6e068412b4b60befa08c9a70c905431d04d4d699f0a400406d77f"
+    },
+    {
+      "path": "render.py",
+      "bytes": 4629,
+      "sha256": "bccf2333a4cdcd5d4cb11a68d0f68d85db47d69cba811e8af8ce5c35bba73ab5"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 44,
+      "sha256": "2241914e9410a21e28f8654d2d459988dd08ba1ed7b5eff1e1bd073f808313d0"
+    }
+  ],
+  "note": "Owner-supplied ZIP preserved byte-for-byte. Original README/render.py are reference data; the site does not execute them.",
+  "originalUploadName": "富士山風雪動畫_可編輯源文件.zip"
+}

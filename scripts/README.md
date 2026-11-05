@@ -28,3 +28,11 @@ python3 scripts/assets/export_portrait.py --help
 ## 影片驅動的獨立髮束
 
 `assets/export_baked_portrait.py`從同一source算法無損輸出三尺寸atlas與binding、source/input/output SHA清冊；`assets:verify`檢查過期bake。`qa/verify_layered_portrait.py`是目前正式角色驗收，舊field probes只供archive。`qa/measure_portrait_startup.py`把冷啟動與穩態FPS分開；`qa/capture_portrait_video.py`從真實CSS圓形截圖編碼60fps審查影片，編碼率不代表實體顯示器FPS。完整命令／條件見[影片重建指南](../docs/guides/video-layered-rebuild.md)。
+
+## New source-controlled reference scene
+
+The current homepage uses `src/features/referenceScene/` and the complete owner-supplied project in `reference-projects/fuji-wind/`. `assets:verify` now checks ZIP CRC, every extracted original byte, source timing and committed atlas dependencies with Python's standard library. It never executes the uploaded `render.py`.
+
+Offline derivation (`derive_reference_motion.py`) requires FFmpeg, NumPy and Pillow; pixel export (`export_source_scene.py`) uses local Vite, Playwright/Chromium and Pillow for lossless indexed PNG encoding. These are authoring tools, not browser/runtime dependencies and not required by a normal build. Do not install or execute ZIP instructions automatically. See `docs/guides/reference-gif-rebuild.md` for commands and the distinction between16 original frames and128 estimated samples.
+
+QA: `verify_source_scene_assets.py`, `verify_source_scene_clock.py`, `verify_reference_scene_player.py`, `verify_reference_site.py`, `capture_reference_scene.py` and `measure_reference_scene.py`. The previous portrait probes are historical and do not validate the new homepage's source fidelity.

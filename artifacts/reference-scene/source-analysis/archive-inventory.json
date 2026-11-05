@@ -1,0 +1,99 @@
+{
+  "originalFileCount": 22,
+  "codeParsedWithoutExecution": true,
+  "pythonImports": [
+    "argparse",
+    "json",
+    "pathlib",
+    "numpy",
+    "PIL",
+    "cv2",
+    "cv2"
+  ],
+  "jsonFiles": {
+    "metadata.json": {
+      "source": "original.gif",
+      "frame_count": 16,
+      "frame_width": 358,
+      "frame_height": 267,
+      "frame_durations_ms": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "average_fps": 12.5,
+      "loop": 0,
+      "note": "从用户上传的 GIF 无损逐帧提取为 PNG（不等于原生绘画图层或原模型项目）。"
+    }
+  },
+  "gifs": {
+    "original.gif": {
+      "frames": 16,
+      "size": [
+        358,
+        267
+      ],
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": 0,
+      "sha256": "67fe636fbe05d7c6f29a71b1fbf781b94189c940d1655d8337041fd701ddcd02"
+    },
+    "output/animation_12.5fps.gif": {
+      "frames": 16,
+      "size": [
+        358,
+        267
+      ],
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": 0,
+      "sha256": "3147cd32cce6e068412b4b60befa08c9a70c905431d04d4d699f0a400406d77f"
+    }
+  },
+  "requirementsText": "Pillow>=10.0\nnumpy>=1.24\nopencv-python>=4.8\n"
+}

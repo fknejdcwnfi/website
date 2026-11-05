@@ -1,0 +1,366 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/original.gif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/metadata.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_000.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_001.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_002.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_003.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_004.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_005.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_006.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_007.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_008.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_009.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_010.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_011.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_012.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_013.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_014.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_sources_reference-projects/fuji-wind/original/frames/frame_015.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_authoring_src/features/referenceScene/sourceAuthoring.ts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_authoring_scripts/assets/export_source_scene.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_files_public/assets/reference-scene/canonical.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_files_public/assets/reference-scene/source-atlas.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_atlas_dimensions",
+      "passed": true,
+      "detail": [
+        640,
+        480
+      ]
+    },
+    {
+      "name": "source_shared_palette_budget",
+      "passed": true,
+      "detail": 80
+    },
+    {
+      "name": "source_opaque_frames",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_packing_and_encoding_are_lossless",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_full_frame_no_crop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/original.gif",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/metadata.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_000.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_001.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_002.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_003.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_004.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_005.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_006.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_007.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_008.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_009.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_010.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_011.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_012.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_013.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_014.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_sources_reference-projects/fuji-wind/original/frames/frame_015.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_authoring_src/features/referenceScene/sourceAuthoring.ts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_authoring_scripts/assets/export_source_scene.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_files_public/assets/reference-scene/canonical.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_files_public/assets/reference-scene/smooth-atlas.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_atlas_dimensions",
+      "passed": true,
+      "detail": [
+        2560,
+        960
+      ]
+    },
+    {
+      "name": "smooth_shared_palette_budget",
+      "passed": true,
+      "detail": 80
+    },
+    {
+      "name": "smooth_opaque_frames",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_packing_and_encoding_are_lossless",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_full_frame_no_crop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_duration_and_frame_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "smooth_keeps_original_period",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "one_shared_palette",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_generated_face_replacements",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "derived_motion_is_explicit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sixteen_smooth_anchors_match_source_pixels_exactly",
+      "passed": true,
+      "detail": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "canonical_is_source_frame_zero_at_integer_pixel_scale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_anchor_input_bytes_are_original",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "derived_uses_exact_original_palette_manifest",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "failures": [],
+  "sourceFrames": 16,
+  "smoothFrames": 128,
+  "sourcePeriodMs": 1280,
+  "smoothPeriodMs": 1280,
+  "anchorPixelDifferences": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

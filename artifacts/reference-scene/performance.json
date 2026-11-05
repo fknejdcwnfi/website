@@ -1,0 +1,17 @@
+{
+  "conditions": "Fresh single production Chromium page;1440x1100;DPR1;native rAF;no CPU/network throttling;2.5s settle;12.8s sample (10 source loops);no screenshots or concurrent browsers",
+  "physicalDisplayVerified": false,
+  "readyMsLocal": 664.1,
+  "paints": 758,
+  "seconds": 12.8,
+  "paintsPerSecond": 59.22,
+  "callbackMs": {
+    "median": 0.1,
+    "p95": 0.2,
+    "max": 2.6
+  },
+  "longTasksMs": [],
+  "workers": [],
+  "browserErrors": [],
+  "httpErrors": []
+}
