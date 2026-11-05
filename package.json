@@ -3,18 +3,20 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A customizable pixel-style personal website with a layered, wind-animated Vermouth portrait.",
+  "description": "A personal pixel website rebuilt from the owner-provided Fuji wind animation source.",
   "scripts": {
     "prebuild": "npm test",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --test-isolation=none scripts/tests/test_voxel.mjs scripts/tests/test_portrait.mjs scripts/tests/test_asset_loading.mjs scripts/tests/test_site_content.mjs scripts/tests/test_layered_physics.mjs scripts/tests/test_hair_mesh.mjs",
+    "test": "node --test --test-isolation=none scripts/tests/test_voxel.mjs scripts/tests/test_portrait.mjs scripts/tests/test_asset_loading.mjs scripts/tests/test_site_content.mjs scripts/tests/test_layered_physics.mjs scripts/tests/test_hair_mesh.mjs scripts/tests/test_source_timing.mjs",
     "deploy": "bash scripts/deploy/deploy_gh_pages.sh",
     "assets": "python3 scripts/assets/optimize_assets.py",
     "assets:check": "python3 scripts/assets/optimize_assets.py --check",
-    "assets:verify": "python3 scripts/assets/verify_assets.py"
+    "assets:verify": "python3 scripts/assets/verify_assets.py",
+    "scene:verify": "python3 scripts/assets/verify_reference_project.py",
+    "scene:derive": "python3 scripts/assets/derive_reference_motion.py"
   },
   "dependencies": {
     "react": "^19.3.1",

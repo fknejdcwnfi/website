@@ -170,6 +170,12 @@ def main() -> int:
                 if not path.is_file() or path.stat().st_size != entry['bytes'] or sha256(path) != entry['sha256']:
                     fail(errors, f'stale baked physics dependency: {entry["file"]}; run node scripts/assets/export_baked_physics.mjs')
 
+    # The new full-frame scene is derived from the owner's immutable source ZIP.
+    import subprocess
+    verified = subprocess.run([sys.executable, str(ROOT / 'scripts/assets/verify_reference_project.py')], capture_output=True, text=True)
+    if verified.returncode:
+        fail(errors, verified.stderr.strip() or verified.stdout.strip())
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

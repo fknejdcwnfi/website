@@ -1,0 +1,27 @@
+{
+  "source": "original.gif",
+  "frame_count": 16,
+  "frame_width": 358,
+  "frame_height": 267,
+  "frame_durations_ms": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "average_fps": 12.5,
+  "loop": 0,
+  "note": "从用户上传的 GIF 无损逐帧提取为 PNG（不等于原生绘画图层或原模型项目）。"
+}

@@ -1,0 +1,131 @@
+import { useEffect, useRef, useState } from 'react'
+import { ScenePlayer } from './ScenePlayer'
+import type { SceneDefinition, ScenePlayerState, SceneRendererFactory } from './types'
+import './referenceScene.css'
+
+type Props = {
+  definition: SceneDefinition
+  createRenderer: SceneRendererFactory
+  fallbackSrc?: string
+  timeMs?: number | null
+}
+
+const MOTION_CHOICE = 'vermouth-motion-enabled'
+const readMotionChoice = (): boolean => {
+  try { return localStorage.getItem(MOTION_CHOICE) === 'true' } catch { return false }
+}
+
+/** Full reference composition, with a single quiet recovery notice when needed. */
+export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null }: Props) {
+  const canvas = useRef<HTMLCanvasElement>(null)
+  const player = useRef<ScenePlayer | null>(null)
+  const [state, setState] = useState<ScenePlayerState>({ playback: 'loading', painted: false, reduced: false })
+  const [systemReduced, setSystemReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [motionEnabled, setMotionEnabled] = useState(readMotionChoice)
+  const motionChoice = useRef(motionEnabled)
+  motionChoice.current = motionEnabled
+  const [attempt, setAttempt] = useState(0)
+  const attempts = useRef(0)
+  const [slowLoad, setSlowLoad] = useState(false)
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const change = (): void => setSystemReduced(query.matches)
+    query.addEventListener('change', change)
+    return () => query.removeEventListener('change', change)
+  }, [])
+
+  useEffect(() => {
+    if (!canvas.current) return
+    let disposed = false
+    let failed = false
+    let retryTimer = 0
+    const slowTimer = window.setTimeout(() => { if (!disposed) setSlowLoad(true) }, 2000)
+    const restart = (): void => {
+      if (disposed || !failed) return
+      failed = false
+      setAttempt(value => value + 1)
+    }
+    const online = (): void => {
+      if (!failed) return
+      attempts.current = 0
+      window.clearTimeout(retryTimer)
+      restart()
+    }
+    const onState = (next: ScenePlayerState): void => {
+      if (disposed) return
+      setState(next)
+      if (next.playback === 'failed') {
+        window.clearTimeout(slowTimer)
+        setSlowLoad(false)
+        failed = true
+        if (attempts.current < 2) retryTimer = window.setTimeout(restart, [2000, 5000][attempts.current++]!)
+      }
+      if (next.playback === 'looping' || next.playback === 'static') {
+        window.clearTimeout(slowTimer)
+        setSlowLoad(false)
+        attempts.current = 0
+      }
+    }
+    let instance: ScenePlayer
+    try {
+      instance = new ScenePlayer(canvas.current, definition, createRenderer, {
+        motionEnabled: motionChoice.current, timeMs, onState,
+      })
+    } catch {
+      onState({ playback: 'failed', painted: false, reduced: systemReduced && !motionChoice.current })
+      window.addEventListener('online', online)
+      return () => {
+        disposed = true
+        window.clearTimeout(slowTimer)
+        window.clearTimeout(retryTimer)
+        window.removeEventListener('online', online)
+      }
+    }
+    player.current = instance
+    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
+      instance.setViewportVisible(entry?.isIntersecting ?? true)
+    })
+    observer?.observe(canvas.current)
+    window.addEventListener('online', online)
+    return () => {
+      disposed = true
+      observer?.disconnect()
+      window.clearTimeout(slowTimer)
+      window.clearTimeout(retryTimer)
+      window.removeEventListener('online', online)
+      instance.destroy()
+      if (player.current === instance) player.current = null
+    }
+  }, [definition, createRenderer, attempt, timeMs])
+
+  useEffect(() => { player.current?.setMotionEnabled(motionEnabled) }, [motionEnabled])
+
+  const chooseMotion = (): void => {
+    const next = !motionEnabled
+    try { localStorage.setItem(MOTION_CHOICE, String(next)) } catch { /* A local choice does not require storage. */ }
+    setMotionEnabled(next)
+  }
+  const failed = state.playback === 'failed'
+  const showPoster = !state.painted || failed
+
+  return (
+    <div className="reference-scene" data-playback={state.playback}>
+      <div className="reference-scene__viewport">
+        <canvas ref={canvas} width="320" height="240" role="img"
+          aria-label={definition.description} aria-hidden={showPoster || undefined}
+          className="reference-scene__canvas" />
+        {showPoster ? <img className="reference-scene__poster" src={fallbackSrc ?? definition.canonical.src}
+          alt={definition.description} width="320" height="240" /> : null}
+      </div>
+      <div className="reference-scene__status" aria-live="polite">
+        {failed ? <p>動態場景暫時無法載入，先顯示靜態畫面。{' '}
+          <button type="button" onClick={() => { attempts.current = 0; setAttempt(value => value + 1) }}>重試載入</button>
+        </p> : slowLoad && (state.playback === 'loading' || state.playback === 'preparing') ? <p>正在載入動態場景…</p> : null}
+        {systemReduced && !failed ? <p>{motionEnabled ? '已為這個場景開啟動態。' : '系統已啟用「減少動態」，場景目前靜止。'}{' '}
+          <button type="button" onClick={chooseMotion}>{motionEnabled ? '跟隨系統' : '開啟動態'}</button>
+        </p> : null}
+      </div>
+    </div>
+  )
+}

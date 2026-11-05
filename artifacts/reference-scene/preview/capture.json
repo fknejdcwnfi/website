@@ -1,0 +1,12 @@
+{
+  "source": "Actual production ReferenceScene Canvas, controlled rAF timestamps; native320x240 Canvas PNG, integer2x nearest scaling; complete4:3 scene",
+  "fpsEncoding": 60,
+  "frames": 384,
+  "durationMs": 6400,
+  "sourceLoops": 5,
+  "bytes": 3430564,
+  "sha256": "32c5baab2482796fef7a1c37e5b07532377b7a07c5599d977c7708401fd53416",
+  "browserErrors": [],
+  "captureWallSeconds": 14.875,
+  "interpretation": "This is a60fps encoded review, not a physical display FPS capture. Source contains16 original anchors plus explicitly estimated intermediate samples."
+}

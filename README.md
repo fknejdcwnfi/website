@@ -1,18 +1,18 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。一個白底、靛藍雙層導航與文件式三欄的個人網站，包含站內搜尋、個人介紹、真實作品、聯絡方式，以及居中無框圓形、持續隨微風飄動並偶爾眨眼的 Minecraft-inspired 二維 Vermouth 像素近景。
+**HELLOWORLD**。這是 fknejdcwnfi 的個人網站，首頁是依使用者提供的富士山風雪GIF工程重構的全幅像素場景，保留原飄髮、眨眼、耳飾、富士山、櫻花與落日構圖。
 
 - 網站：<https://fknejdcwnfi.github.io/website/>
 - GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
-- 文件入口：[開發與個人化指南](docs/README.md)
+- [原始ZIP與全量工程](reference-projects/fuji-wind/) · [重構／復現指南](docs/guides/reference-gif-rebuild.md)
 
-保留同一張原近景角色、256²像素格與透明輪廓，依上傳影片從頭重建八條完整髮束。每束沿自身S形弧長綁定十六節點，以240Hz長度／曲率XPBD求解，預設讀取預烘焙120Hz姿態緩存，自訂物理才由Worker預熱；預烘焙圖集省去訪客端分層／補底計算，獨立三角網格呈現整束彎曲、分離、回彈及隨髮移動的原圖投影。原眨眼與完整耳環獨立運動，五官不重新生成。
+原GIF16幀、每幀80ms、周期1280ms；全幅轉為共享80色、160×120像素格，nearest整數放大。預設以128個運動補償樣本平滑播放，原16個像素錨幀保持逐像素一致，眼區保留原眨眼時序。中間影格是估計，不能宣稱原檔本來有100fps、像素化仍與原RGB完全相同或已實機驗證高刷。`?motion=original`提供原16幀節奏對照。
 
-最新髮動以[橫向風阻與下垂髮束](docs/guides/air-breeze.md)為準；啟動可靠性見[播放狀態](docs/guides/reliable-motion.md)。本輪證據位於 `artifacts/air-breeze/`；PR #9的field效果已被擁有者拒絕，保留其證據作歷史，預設不再使用。
+網站內容、搜尋、真實專案、聯絡和無JavaScript後備保留。預設不再使用舊圓形近景、獨立風表或獨立眨眼；歷史角色仍可用`?view=portrait`明確檢視，主頁不載入那些素材。
 
-![目前完整網站](artifacts/air-breeze/site/hero.png)
+![重構後網站](artifacts/reference-scene/site/desktop.png)
 
-[完整桌機](artifacts/air-breeze/site/desktop.png) · [手機](artifacts/air-breeze/site/mobile.png) · [無JavaScript](artifacts/air-breeze/site/no-javascript.png) · [60fps審查影片](artifacts/air-breeze/portrait/animation-60fps.mp4)
+[手機](artifacts/reference-scene/site/mobile.png) · [動態預覽](artifacts/reference-scene/preview/animation.mp4) · [原始來源聯繫幀](artifacts/reference-scene/source-analysis/contact.png)
 
 ## 開始開發
 
@@ -58,7 +58,8 @@ src/
   app/                 頁面組合、全站錯誤邊界與基礎樣式
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
-    portrait/          動畫、renderer與角色元件
+    referenceScene/    預設全幅像素場景、原GIF時鐘、圖集與生命週期
+    portrait/          歷史近景播放器，明確入口才載入
   shared/              共用動畫型別
   archive/             legacy／voxel歷史模式及舊field renderer對照
 scripts/
@@ -66,6 +67,8 @@ scripts/
   qa/                  真實網站截幀、瀏覽器與效能檢查
   tests/               Node單元測試
   deploy/              手動部署備援
+reference-projects/    使用者完整工程ZIP、原檔與來源校驗
+public/assets/reference-scene/  共享調色盤的源／平滑圖集與後備首幀
 docs/
   guides/              現行個人化、角色、動態、開發及素材指南
   archive/             已標示日期的舊階段文件

@@ -1,25 +1,19 @@
-import CharacterStage from '../features/portrait/components/CharacterStage'
-import { readStageOptions } from '../features/portrait/animation/stageOptions'
+import { lazy, Suspense } from 'react'
 import { site } from '../features/profile/content/site'
 import PersonalSections from '../features/profile/components/PersonalSections'
-import PortraitBoundary from '../features/portrait/components/PortraitBoundary'
 import SiteShell from '../features/profile/components/SiteShell'
-import PortraitViewport from '../features/profile/components/PortraitViewport'
+import ReferenceScene from '../features/referenceScene/ReferenceScene'
+import { referenceSceneDefinition } from '../features/referenceScene/definition'
+import { createSourceRenderer } from '../features/referenceScene/createSourceRenderer'
 
+const ArchivedPortrait=lazy(()=>import('./ArchivedPortrait'))
 export default function App() {
-  const options = readStageOptions(window.location.search)
-  const portraitOnly = new URLSearchParams(window.location.search).get('view') === 'portrait'
-  const portrait = (
-    <PortraitBoundary fallbackSrc={`${import.meta.env.BASE_URL}portrait-rest.png`}>
-      <CharacterStage />
-    </PortraitBoundary>
-  )
-  if (portraitOnly) return (
-    <main className={`page page--${options.style}`} data-theme={options.theme}>
-      <div className="aura" aria-hidden="true" />
-      {options.style === 'portrait' ? <PortraitViewport logicalSize={options.pixel}>{portrait}</PortraitViewport> : portrait}
-    </main>
-  )
+  const params=new URLSearchParams(location.search)
+  if(params.get('view')==='portrait'||['voxel','legacy'].includes(params.get('style')??''))return <Suspense fallback={<p>正在載入肖像…</p>}><ArchivedPortrait /></Suspense>
+  const time=params.get('t')
+  const timeMs=time!==null&&time.trim()!==''&&Number.isFinite(Number(time))?Math.max(0,Math.min(120000,Number(time))):null
+  const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs} />
+  if(params.get('view')==='scene')return <main className="reference-scene-page">{scene}</main>
   return (
     <SiteShell>
       <section className="hero" id="home" aria-labelledby="hero-title" tabIndex={-1}>
@@ -28,11 +22,9 @@ export default function App() {
           <h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1>
           <p className="hero__intro">你好，我是 <strong>{site.name}</strong>。{site.tagline}</p>
         </div>
-        <figure className="hero__visual">
-          <div className={`hero-portrait hero-portrait--${options.style}`} data-theme={options.theme}>
-            <PortraitViewport logicalSize={options.pixel}>{portrait}</PortraitViewport>
-          </div>
-          <figcaption><span>VERMOUTH</span><span>像素肖像 · 微風常在</span></figcaption>
+        <figure className="hero__visual hero__visual--reference">
+          {scene}
+          <figcaption><span>VERMOUTH</span><span>富士山與櫻花 · 像素風景</span></figcaption>
         </figure>
         <aside className="welcome-note" aria-labelledby="welcome-note-title">
           <div className="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 歡迎，隨意逛逛</div>
