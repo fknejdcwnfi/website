@@ -1,18 +1,17 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。這是 fknejdcwnfi 的個人網站，首頁是依使用者提供的富士山風雪GIF工程重構的原生像素圓形場景，保留原飄髮、眨眼、耳飾、富士山、櫻花與落日構圖。
+**HELLOWORLD**。這是fknejdcwnfi的個人網站，以Minecraft-inspired二維像素美術呈現Vermouth、富士山、樱花、雪與夕陽。
 
-- 網站：<https://fknejdcwnfi.github.io/website/>
-- GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
-- [原始ZIP與全量工程](reference-projects/fuji-wind/) · [重構／復現指南](docs/guides/reference-gif-rebuild.md)
+- [正式網站](https://fknejdcwnfi.github.io/website/) · [GitHub](https://github.com/fknejdcwnfi) · Email：**fknejdcwnfi@gmail.com**
+- [最新工程與重跑指南](docs/guides/minecraft-scenic-rebuild.md) · [完整不可變原工程](reference-projects/fuji-wind/)
 
-原GIF16幀、每幀80ms、周期1280ms。本版移除先前160×120降採樣，圖集與Canvas均保留358×267原尺寸和全部255種源色，原16錨幀與原PNG逐像素一致。展示改為無描邊圓形，最大534px，nearest顯示並按DPR對齊像素；只裁展示窗口，不改原圖。這是保留源風格的Minecraft-inspired二維像素呈現。
+整幅美術已重新繪製，不再以原動畫放大當作Minecraft效果。單一像素母版保留角色特徵，以源16姿態驅動飄發及局部眨眼；高清輸出716×534，完整1536×1024方塊富士山／樱花／雪林／夕陽景色延展至無邊圓形人物外側。216片分層像素雪從首幀開始動態。
 
-預設160個8ms運動補償樣本（125樣本／秒），眼形隨源頭部位移而非整塊固定；源眨眼時序不變。中間影格是估計，實際顯示率取決於裝置，不冒稱源GIF125fps。`?motion=original`提供原16幀對照。網站內容、搜尋、真實專案、聯絡及無JavaScript圓形後備保留，歷史角色僅在`?view=portrait`等明確入口載入。
+初始HTML先播放約929KiB的progressive影片，React保留同一video節點，無損圖集依當前相位接手；沒有等待完整圖集的人工延遲。原16×80ms／1280ms節奏和160×8ms估計樣本保留，影片也為125fps／160張；編碼或樣本率不等於實體顯示器FPS。新RGB和遮擋形變不是原GIF逐像素相同，原ZIP／原圖全部保持不變。
 
-![原生像素圓形網站](artifacts/crisp-circle/site/desktop.png)
+![Minecraft像素全景網站](artifacts/scenic-snow/site/desktop.png)
 
-[手機](artifacts/crisp-circle/site/mobile.png) · [實際圓形動畫預覽](artifacts/crisp-circle/preview/animation.mp4) · [清晰度前後對比](artifacts/crisp-circle/clarity-comparison.png) · [原生像素圓形](artifacts/crisp-circle/site/circle-native-grid.png) · [不可變來源](reference-projects/fuji-wind/)
+[手機](artifacts/scenic-snow/site/mobile.png) · [完整動態預覽](artifacts/scenic-snow/preview/animation.mp4) · [首屏動態驗證](artifacts/scenic-snow/progressive-start.json) · [美術母版](assets/generated/minecraft-style/style-master.png)
 
 ## 開始開發
 
@@ -56,10 +55,10 @@ gameProfiles: [], // 填入你願意公開的王者荣耀／火影忍者等資�
 ```text
 src/
   app/                 頁面組合、全站錯誤邊界與基礎樣式
-  authoring/           離線原生像素工具，不由runtime引用
+  authoring/           歷史來源轉製工具，不由runtime引用
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
-    referenceScene/    原生像素圓形展示、原GIF時鐘、圖集與生命週期
+    referenceScene/    Minecraft圓形人物／全景／飄雪／首屏影片與源時鐘
     portrait/          歷史近景播放器，明確入口才載入
   shared/              共用動畫型別
   archive/             legacy／voxel歷史模式及舊field renderer對照
@@ -69,7 +68,8 @@ scripts/
   tests/               Node單元測試
   deploy/              手動部署備援
 reference-projects/    使用者完整工程ZIP、原檔與來源校驗
-public/assets/reference-scene/  共享調色盤的源／平滑圖集與後備首幀
+assets/generated/      單一像素母版、局部眼瞼、完整景色與來源動作字段
+public/assets/reference-scene/  MC圖集、HD首幀、progressive影片、完整背景與清冊
 docs/
   guides/              現行個人化、角色、動態、開發及素材指南
   archive/             已標示日期的舊階段文件
@@ -83,9 +83,9 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-預設場景使用原GIF1280ms時鐘，rAF不鎖60Hz，隱藏／離屏停止繪製並保留相位；減少動態免下載圖集，可明確啟用並恢復。載入逾時、取消、重試和無JS首幀保留完整網站可用性。離線運動估計／像素作者工具、runtime播放器及圓形展示分開，來源驗證和實際CSS截圖驗證共同防止重新降採樣。
+預設使用單一Minecraft美術母版的來源姿態重定向，保留原1280ms周期和160個8ms估計樣本。源時鐘與32秒雪景時鐘分開，沒有逐幀生成新臉。隱藏／離屏停止繪製並保留相位，減少動態不下載video／圖集。`?view=scene`可隔離觀看，`?t=560`檢查源時刻，`?motion=original`對照16個新美術源錨幀。舊肖像僅由明確歷史路由lazy載入。
 
-[目前指南](docs/guides/reference-gif-rebuild.md)與`artifacts/crisp-circle/`記錄本版清晰度、源錨點、125Hz估計樣本、144Hz模擬回調、生命週期、整站及production效能。預覽編碼率和模擬callback不等於實體顯示器FPS，細髮與遮擋的估計仍有限制。舊12秒物理風／24秒眨眼僅屬歷史肖像，見`docs/guides/video-layered-rebuild.md`。
+[最新指南](docs/guides/minecraft-scenic-rebuild.md)與`artifacts/scenic-snow/`保存本輪來源／新美術區分、無翻折字段、同相位媒體接手、真實全景截幀及performance。原像素資料保留不等於新美術和原RGB一致；位移估計、遮擋和隱藏髮層仍有限制。前版原畫風的像素檢查在`artifacts/crisp-circle/`，不替代新Minecraft美術證據。
 
 ## 素材
 

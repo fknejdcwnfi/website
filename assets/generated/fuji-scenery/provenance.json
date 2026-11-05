@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "createdAt": "2026-11-05",
+  "kind": "AI-assisted Minecraft-inspired scenic background extension, separate from source-driven portrait",
+  "sourceReference": {
+    "file": "reference-projects/fuji-wind/original/frames/frame_000.png",
+    "bytes": 143102,
+    "sha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b"
+  },
+  "previousDraft": {
+    "file": "assets/generated/fuji-scenery/scenery-original.png",
+    "bytes": 2397442,
+    "sha256": "6e2f0e35fb2b432cc8d2a09a363c59961262bb7f7b922dd76290d49e8e623ffa"
+  },
+  "generation": {
+    "tool": "image_gen__imagegen",
+    "prompt": "Restyle this BACKGROUND-ONLY scenery into a distinctly MINECRAFT-INSPIRED BLOCK-AND-PIXEL WORLD while preserving exactly this beautiful composition: snow-capped Mount Fuji on the far LEFT, golden-peach sunset at the far RIGHT horizon, blue-violet lake in the lower half, pink cherry blossom branches along the top and corners, distant snowy forests, quiet open central blue mountains and sky. The current reference looks too much like a detailed anime painting. REDRAW its terrain and vegetation as deliberate square blocks: the Fuji snowcap and mountain slopes have CLEAR STAIR-STEP BLOCK TERRACES, the wooded hills are built from stacked cubic terrain, snow sits as rectangular layers on blocky evergreen canopies, cherry leaves and blossoms form recognizable Minecraft-like cubic pink clusters around angular wooden branch blocks, and lakeshore buildings are simple block-built Japanese structures. Water reflections are elegant horizontal stepped pixel clusters. Keep the poetic blue-purple dusk and warm peach light, no harsh oversaturation. Render a polished 2D PIXEL-ART LANDSCAPE, not a screenshot with UI and not a smooth painting. Internally use an approximately 512x341 intentional art grid displayed at 3x nearest-neighbor to make a crisp 1536x1024 image: consistent square pixel clusters, economical color ramps, NO noisy dithering, NO blur, NO antialiasing, NO glossy 3D materials. Fine clear texture detail within cubic block forms, not random mosaic squares or a coarse blur filter. The Minecraft material-and-terrain identity must be unmistakable at normal website size. Keep the upper central sky and central mountains tranquil so a separate circular portrait can overlay them, but keep rich snowy scenery and blossoms visible outside it on the left and right. No people, no woman, no face, no hair, no body, no animal, no portrait, no circular frame, no round mask, no border, no letters, no logo, no UI. Entire output is one complete rectangular landscape.",
+    "input": {
+      "file": "assets/generated/fuji-scenery/scenery-original.png",
+      "bytes": 2397442,
+      "sha256": "6e2f0e35fb2b432cc8d2a09a363c59961262bb7f7b922dd76290d49e8e623ffa"
+    },
+    "referenceImageCount": 1,
+    "transparentBackground": false,
+    "outputWidth": 1536,
+    "outputHeight": 1024,
+    "outputIsSourceIdentical": false,
+    "visualStyle": "Minecraft-inspired stepped cubic terrain, block-textured cherry foliage, wood branches, layered snow and a square sunset"
+  },
+  "source": {
+    "file": "assets/generated/fuji-scenery/style-scenery.png",
+    "bytes": 2095942,
+    "sha256": "1051b65b1e671555341751fcf06bd9a3b6c1d64b60d999dcee7c55268427dc0b"
+  },
+  "runtime": {
+    "file": "public/assets/reference-scene/scenery.webp",
+    "bytes": 1625208,
+    "sha256": "6ab241e2266ceb16a04a8af64ec4fb20f3797fa526a672e6686bf3260e55bd77"
+  },
+  "encoding": {
+    "format": "WebP",
+    "lossless": true,
+    "quality": 90,
+    "method": 4,
+    "decodedPixelDifferences": 0,
+    "sourceColorMode": "RGB"
+  },
+  "limitations": [
+    "This is newly drawn Minecraft-inspired scenery from an AI-assisted first-draft extension; it is not recovered hidden source artwork.",
+    "Generated block terrain and branches preserve the reference composition and dusk palette, not the original background's exact pixels.",
+    "It contains no replacement character; the immutable original portrait animation is composited separately.",
+    "A uniform internal512x341 logical grid was a generation prompt request, not a measured property of the delivered image. The native output dimensions are1536x1024."
+  ]
+}

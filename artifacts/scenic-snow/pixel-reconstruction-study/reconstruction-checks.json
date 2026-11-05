@@ -1,0 +1,151 @@
+{
+  "method": "Scale2x; source colors only; unique 2x2 block majority preserves every source pixel",
+  "originalsChecked": 16,
+  "canonicalHdExactRgbaMatch": true,
+  "frames": [
+    {
+      "source": "frame_000.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_001.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_002.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_003.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_004.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_005.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_006.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_007.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_008.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_009.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_010.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_011.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_012.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_013.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_014.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    },
+    {
+      "source": "frame_015.png",
+      "size": [
+        716,
+        534
+      ],
+      "sourcePixelsWithFewerThanTwoExactCopies": 0,
+      "newColors": 0
+    }
+  ]
+}

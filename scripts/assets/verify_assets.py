@@ -176,6 +176,10 @@ def main() -> int:
     if verified.returncode:
         fail(errors, verified.stderr.strip() or verified.stdout.strip())
 
+    presentation = subprocess.run([sys.executable, str(ROOT / 'scripts/assets/verify_scene_presentation.py')], capture_output=True, text=True)
+    if presentation.returncode:
+        fail(errors, presentation.stderr.strip() or presentation.stdout.strip())
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

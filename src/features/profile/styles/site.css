@@ -193,7 +193,7 @@
 @media (prefers-reduced-motion: reduce) { .personal-site *, .personal-site *::before, .personal-site *::after { scroll-behavior: auto !important; transition: none !important; } }
 @media (forced-colors: active) { .wordmark__symbol { background: CanvasText; } .personal-site :focus-visible { outline-color: Highlight; } }
 
-.hero__visual--reference { max-width: 534px; }
-.reference-scene-static { width: min(100%, 534px); margin-inline: auto; aspect-ratio: 1; overflow: hidden; border: 0; border-radius: 50%; box-shadow: none; }
-.reference-scene-static img { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.hero__visual--reference { max-width: 900px; }
+.reference-scene-static { width: min(100%, 900px); margin-inline: auto; }
+.reference-scene-static .reference-scene__viewport { min-height: 1px; }
 .reference-scene-page { min-height: 100svh; display: grid; place-items: center; padding: 20px; background: #f8f9fc; }

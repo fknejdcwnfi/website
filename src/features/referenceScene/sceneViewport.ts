@@ -17,11 +17,11 @@ export const fitSceneViewport = (
   deviceScale: number,
 ): SceneViewport => {
   const ratio = Number.isFinite(deviceScale) && deviceScale > 0 ? deviceScale : 1
-  const rows = Number.isFinite(sourceHeight) && sourceHeight > 0 ? sourceHeight : 267
-  const columns = Number.isFinite(sourceWidth) && sourceWidth > 0 ? sourceWidth : 358
+  const rows = Number.isFinite(sourceHeight) && sourceHeight > 0 ? sourceHeight : 534
+  const columns = Number.isFinite(sourceWidth) && sourceWidth > 0 ? sourceWidth : 716
   const available = Number.isFinite(availableWidth) && availableWidth > 0 ? availableWidth : 1
   // A cover-fit square is scaled by its shorter source dimension. The source
-  // currently has 267 rows; the full 358-column composition remains untouched.
+  // is kept at its authored resolution; the full composition remains untouched.
   const grid = Math.min(columns, rows)
   const wholeScale = Math.floor((available * ratio + 1e-7) / grid)
   const wholeDiameter = wholeScale * grid / ratio

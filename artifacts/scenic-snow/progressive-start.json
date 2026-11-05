@@ -1,0 +1,368 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "styled_source_native_atlas_geometry",
+      "passed": true,
+      "detail": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "name": "styled_source_opaque_palette_budget",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "styled_smooth_native_atlas_geometry",
+      "passed": true,
+      "detail": [
+        5728,
+        2670
+      ]
+    },
+    {
+      "name": "styled_smooth_opaque_palette_budget",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_and_styled_sample_timing_keeps_1280ms",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "one_styled_palette",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "styled_blink_retains_closed_source_anchors_seven_and_eight",
+      "passed": true,
+      "detail": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "derived_blink_follows_the_same_source_closure_timestamps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "provenance_uses_one_repainted_open_master",
+      "passed": true,
+      "detail": [
+        {
+          "file": "assets/generated/minecraft-style/style-master.png",
+          "bytes": 2160302,
+          "sha256": "faf09307c222eb4450dfb06dad5896427cf1e973f33e824d832707ef698540f6"
+        },
+        {
+          "file": "assets/generated/minecraft-style/closed-eye-master.png",
+          "bytes": 2100427,
+          "sha256": "8057a0d7027beb5dc3e73d4a7ac95cea27c398dc09f1854e71915c7d628b05e5"
+        },
+        {
+          "file": "reference-projects/fuji-wind/original/original.gif",
+          "bytes": 996543,
+          "sha256": "67fe636fbe05d7c6f29a71b1fbf781b94189c940d1655d8337041fd701ddcd02"
+        },
+        {
+          "file": "assets/generated/fuji-scenery/style-scenery.png",
+          "bytes": 2095942,
+          "sha256": "1051b65b1e671555341751fcf06bd9a3b6c1d64b60d999dcee7c55268427dc0b"
+        },
+        {
+          "file": "assets/generated/minecraft-style/provenance.json",
+          "bytes": 1312,
+          "sha256": "ee96f864f59beec8b973a5610f9b564771272472f7fea4995d72b84db4bf9e1c"
+        },
+        {
+          "file": "assets/generated/minecraft-style/closed-eye-provenance.json",
+          "bytes": 2047,
+          "sha256": "8ed7fa60de4ffa4ca6d8d398caae22f8dc830f5127ff75dfd66e0c66d4da34ea"
+        },
+        {
+          "file": "assets/generated/fuji-scenery/provenance.json",
+          "bytes": 4220,
+          "sha256": "7474413f8668644d697f8c933bc29111a359a491646825ade72982ba93bb30d6"
+        }
+      ]
+    },
+    {
+      "name": "all_sixteen_styled_anchors_match_between_motion_modes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hd_canonical_has_twice_the_native_styled_dimensions",
+      "passed": true,
+      "detail": [
+        716,
+        534
+      ]
+    },
+    {
+      "name": "hd_canonical_restores_exact_styled_native_pixels",
+      "passed": true,
+      "detail": {
+        "differentNativePixels": 0,
+        "nativePixels": 95586
+      }
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/canonical-hd.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/boot.mp4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/scenery.webp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/pixel-source-atlas.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/pixel-smooth-atlas.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/pixel-source-manifest.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_public/assets/reference-scene/pixel-smooth-manifest.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_scripts/assets/export_scene_presentation.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_scripts/assets/scale_pixel_art.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "presentation_hash_scripts/assets/retarget_pixel_motion.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "static_html_video_plays_before_react_module_download",
+      "passed": true,
+      "detail": {
+        "first": {
+          "phase": 0.085418,
+          "ready": 4,
+          "source": "http://127.0.0.1:5180/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+        },
+        "second": {
+          "phase": 0.448808,
+          "ready": 4,
+          "source": "http://127.0.0.1:5180/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+        },
+        "elapsedWallMs": 943
+      }
+    },
+    {
+      "name": "react_retains_the_already_playing_video_node",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "react_attachment_does_not_reload_or_seek_the_preview",
+      "passed": true,
+      "detail": {
+        "before": {
+          "phaseMs": 464.094,
+          "at": 943.2999999970198,
+          "mutations": 1
+        },
+        "after": {
+          "phaseMs": 695.997,
+          "at": 1202.2999999970198,
+          "mutations": 1
+        },
+        "mutations": [
+          {
+            "property": "src",
+            "value": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+            "at": 161
+          }
+        ]
+      }
+    },
+    {
+      "name": "snow_changes_before_the_full_atlas_is_available",
+      "passed": true,
+      "detail": {
+        "beforeMs": 16.59999999999991,
+        "afterMs": 616.5999999999999
+      }
+    },
+    {
+      "name": "avatar_video_keeps_playing_while_atlas_is_blocked",
+      "passed": true,
+      "detail": {
+        "beforePhase": 0.762772,
+        "afterPhase": 1.195863
+      }
+    },
+    {
+      "name": "full_atlas_has_not_been_needed_for_first_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hd_canvas_starts_at_the_actual_video_phase_even_at_loop_zero",
+      "passed": true,
+      "detail": {
+        "handoff": {
+          "frame": 16,
+          "phaseMs": 132.256,
+          "at": 3235.60000000149
+        },
+        "expectedFrame": 16,
+        "actualVideoReads": [
+          {
+            "phaseMs": 132.256,
+            "at": 3232.89999999851,
+            "ready": 4,
+            "seeking": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "handoff_does_not_rewind_the_visible_source_clock",
+      "passed": true,
+      "detail": {
+        "handoff": {
+          "frame": 16,
+          "phaseMs": 132.256,
+          "at": 3235.60000000149
+        },
+        "pauses": [
+          {
+            "phaseMs": 140.044,
+            "at": 3241.5
+          },
+          {
+            "phaseMs": 141.837,
+            "at": 3243
+          }
+        ]
+      }
+    },
+    {
+      "name": "bootstrap_is_released_after_hd_upgrade",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_canvas_is_hd_and_weather_separate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offscreen_snow_suspends",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "onscreen_snow_resumes_without_restart",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_reduced_motion_skips_video_and_full_atlas",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-CBYGEkgg.js",
+        "http://127.0.0.1:5180/website/assets/index-DTYoV9vy.css",
+        "http://127.0.0.1:5180/website/assets/reference-scene/scenery.webp",
+        "http://127.0.0.1:5180/website/assets/reference-scene/canonical-hd.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/reference-scene/scenery.webp?v=6ab241e2266ceb16a04a8af64ec4fb20f3797fa526a672e6686bf3260e55bd77",
+        "http://127.0.0.1:5180/website/assets/reference-scene/canonical-hd.png?v=67bbaedd5d6cdb2157090b4ffbf61c2618c0a12d5956237ed2cdd5eeb97a92c7",
+        "http://127.0.0.1:5180/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "system_reduced_motion_keeps_snow_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "details": {
+    "firstVideoDataMs": 482.5,
+    "startupTimingConditions": "Fresh local production page; main module deliberately held; native media clock and requestVideoFrameCallback; not a physical display or slow-network measurement",
+    "beforeRelease": {
+      "phaseMs": 1204.803,
+      "paused": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing",
+      "upgraded": "false",
+      "at": 3004.89999999851
+    },
+    "heldAtlasRequests": 1,
+    "staleHandledAtlasRequests": 0,
+    "bootPauses": [
+      {
+        "phaseMs": 140.044,
+        "at": 3241.5
+      },
+      {
+        "phaseMs": 141.837,
+        "at": 3243
+      }
+    ],
+    "loopBoundaryExplanation": "Native MP4 looping briefly seeks to0 and may expose currentTime0 or1280; compare phases modulo1280. Separate bootstrap-loop-probe.json records three real loop wraps with loop=true and ended=false.",
+    "firstObservedBrowserVideoFrame": {
+      "at": 511.4,
+      "expectedDisplayTime": 528.1,
+      "mediaTime": 0.064,
+      "presentedFrames": 4
+    },
+    "videoFrameTimingInterpretation": "The first requestVideoFrameCallback observed from JavaScript is best effort and may follow earlier compositor frames. It is an upper-bound observation of browser presentation, not an exact physical first-frame time."
+  },
+  "browserErrors": [],
+  "scope": "Styled reconstruction and progressive presentation; not equality of restyled RGB with the original GIF or physical display FPS"
+}

@@ -1,4 +1,4 @@
-"""Exercise reference-scene player lifecycle with a local source-native image and deterministic renderer.
+"""Exercise reference-scene player lifecycle with a local high-definition image and deterministic renderer.
 
 Use a Vite development URL: source modules are imported intentionally. This is a
 lifecycle test, not motion-art fidelity or physical-refresh-rate verification.
@@ -7,14 +7,14 @@ import argparse
 from pathlib import Path
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--url',default='http://127.0.0.1:5180/')
-parser.add_argument('--output',type=Path,default=Path('artifacts/reference-scene/player-lifecycle.json'))
+parser.add_argument('--output',type=Path,default=Path('artifacts/scenic-snow/player-lifecycle.json'))
 args=parser.parse_args()
 base=args.url.rstrip('/')
 import io,json
 from PIL import Image
 from playwright.sync_api import sync_playwright
 manifest=json.loads((Path(__file__).resolve().parents[2]/'public/assets/reference-scene/source-manifest.json').read_text())
-png=io.BytesIO();Image.new('RGB',(manifest['width'],manifest['height']),'#51647e').save(png,format='PNG')
+png=io.BytesIO();Image.new('RGB',(manifest['width']*2,manifest['height']*2),'#51647e').save(png,format='PNG')
 checks=[]
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
@@ -46,7 +46,15 @@ with sync_playwright() as p:
  c,q=setup();q.wait_for_function("testCanvas.dataset.playback==='looping'");q.evaluate('''subject.destroy();window.pendingStarts=0;window.cancelledPreparations=0;
    window.pending=new ScenePlayer(testCanvas,definition,(_assets,signal)=>new Promise((resolve,reject)=>{pendingStarts++;window.resolvePending=resolve;window.rejectPending=reject;signal.addEventListener('abort',()=>cancelledPreparations++)}));''');q.wait_for_function('pendingStarts===1')
  q.emulate_media(reduced_motion='reduce');q.wait_for_function("testCanvas.dataset.playback==='static'");q.evaluate("rejectPending(Error('outdated failure'))");q.wait_for_timeout(50);assert q.evaluate("testCanvas.dataset.playback==='static'&&cancelledPreparations===1");checks.append('preference_cancels_preparation_and_ignores_outdated_error')
- q.emulate_media(reduced_motion='no-preference');q.wait_for_function('pendingStarts===2');q.evaluate('resolvePending({paint(){}})');q.wait_for_function("testCanvas.dataset.playback==='looping'");checks.append('preference_restarts_cancelled_preparation');q.evaluate('pending.destroy()');c.close();b.close()
+ q.emulate_media(reduced_motion='no-preference');q.wait_for_function('pendingStarts===2');q.evaluate('resolvePending({paint(){}})');q.wait_for_function("testCanvas.dataset.playback==='looping'");checks.append('preference_restarts_cancelled_preparation');q.evaluate('pending.destroy()');c.close()
+ c,q=setup();q.wait_for_function("testCanvas.dataset.playback==='looping'");q.evaluate('''subject.destroy();window.samples=[];window.handoffReads=0;window.handoff=new ScenePlayer(testCanvas,definition,factory,{initialElapsedMs:()=>{handoffReads++;return 640}})''');q.wait_for_function("testCanvas.dataset.playback==='looping'");assert q.evaluate('handoffReads===1&&samples[0]===640');checks.append('preview_phase_is_sampled_at_first_dynamic_paint')
+ q.evaluate('handoff.setViewportVisible(false);handoff.setViewportVisible(true)');q.wait_for_timeout(50);assert q.evaluate('handoffReads')==1;checks.append('preview_phase_is_not_restarted_on_visibility_resume')
+ q.evaluate('handoff.destroy();window.samples=[];window.seekHandoffReads=0;window.inspection=new ScenePlayer(testCanvas,definition,factory,{timeMs:80,initialElapsedMs:()=>{seekHandoffReads++;return 640}})');q.wait_for_function("testCanvas.dataset.playback==='static'");assert q.evaluate('seekHandoffReads===0&&samples[0]===80');checks.append('explicit_seek_does_not_read_progressive_preview_phase');q.evaluate('inspection.destroy()');c.close()
+ c,q=setup();q.wait_for_function("testCanvas.dataset.playback==='looping'");q.evaluate('''subject.destroy();window.hiddenHandoffReads=0;window.hiddenHandoff=new ScenePlayer(testCanvas,definition,()=>new Promise(resolve=>window.completeHidden=resolve),{initialElapsedMs:()=>{hiddenHandoffReads++;return 320}})''');q.wait_for_function('typeof completeHidden==="function"');q.evaluate("window.fakeHidden=true;Object.defineProperty(document,'hidden',{configurable:true,get:()=>fakeHidden});document.dispatchEvent(new Event('visibilitychange'));completeHidden({paint(ctx,s){samples.push(s.elapsedMs)}})");q.wait_for_function("testCanvas.dataset.playback==='suspended'");q.wait_for_timeout(30);assert q.evaluate('hiddenHandoffReads')==0;checks.append('hidden_preparation_does_not_consume_preview_phase')
+ q.evaluate("window.samples=[];window.fakeHidden=false;document.dispatchEvent(new Event('visibilitychange'))");q.wait_for_function("testCanvas.dataset.playback==='looping'");assert q.evaluate('hiddenHandoffReads===1&&samples[0]===320');checks.append('visible_upgrade_reads_current_preview_phase');q.evaluate('hiddenHandoff.destroy()')
+ for mode in ['throws','nan','negative']:
+  q.evaluate('''mode=>{window.samples=[];window.optionalPreview=new ScenePlayer(testCanvas,definition,factory,{initialElapsedMs:()=>{if(mode==='throws')throw Error('optional preview failed');return mode==='nan'?NaN:-20}})}''',mode);q.wait_for_function("testCanvas.dataset.playback==='looping'");assert q.evaluate('samples[0]')==0;q.evaluate('optionalPreview.destroy()')
+ checks.append('invalid_optional_preview_clock_cannot_stop_motion');c.close();b.close()
 result={'status':'passed','scope':'ScenePlayer lifecycle with a fixture image and test renderer; not visual fidelity or device FPS','checks':checks}
 args.output.parent.mkdir(parents=True,exist_ok=True)
 args.output.write_text(json.dumps(result,indent=2)+'\n')

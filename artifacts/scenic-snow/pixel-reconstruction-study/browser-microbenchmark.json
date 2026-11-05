@@ -1,0 +1,24 @@
+{
+  "conditions": "Isolated native headless Chromium; no source/network load; 20 warmup iterations then 100 synchronous reconstruction iterations; no screenshots during measurement. This is an offline microbenchmark, not a display FPS measurement.",
+  "dimensions": [
+    358,
+    267,
+    716,
+    534
+  ],
+  "preallocatedScale2xAndPutImageData": {
+    "meanMs": 2.631000000014901,
+    "medianMs": 1.5999999977648258,
+    "p95Ms": 4.700000002980232,
+    "maxMs": 33.100000001490116
+  },
+  "preallocatedPureScale2x": {
+    "meanMs": 1.8540000000596046,
+    "medianMs": 1.3000000044703484,
+    "p95Ms": 2.5,
+    "maxMs": 31.799999997019768
+  },
+  "nativeAtlasDecodedBytes": 61175040,
+  "full2xAtlasDecodedBytes": 244700160,
+  "eightFrameCache2xBytes": 12235008
+}

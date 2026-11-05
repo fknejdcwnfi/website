@@ -1,6 +1,6 @@
-/** Native source raster. Display clipping must never resample the authored frames. */
-export const SCENE_WIDTH = 358
-export const SCENE_HEIGHT = 267
+/** High-definition output; source atlases retain their native 358×267 raster. */
+export const SCENE_WIDTH = 716
+export const SCENE_HEIGHT = 534
 
 export type SceneImageSource = { src: string; width: number; height: number }
 
@@ -38,6 +38,8 @@ export type ScenePlayback = 'loading' | 'preparing' | 'looping' | 'static' | 'su
 export type ScenePlayerState = { playback: ScenePlayback; painted: boolean; reduced: boolean }
 export type ScenePlayerOptions = {
   motionEnabled?: boolean
+  /** Read once when the first visible dynamic frame replaces a progressive preview. */
+  initialElapsedMs?: () => number
   /** Explicit QA seeks retain a single stable frame without scheduling rAF. */
   timeMs?: number | null
   onState?: (state: ScenePlayerState) => void

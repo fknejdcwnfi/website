@@ -1,0 +1,65 @@
+{
+  "conditions": "Fresh single production Chromium page; 1440x1100; DPR1; native rAF; no CPU/network throttling; HD upgrade and scenery ready; 2.5s settle; 12.8s sample (10 source loops); no screenshots or concurrent browsers",
+  "physicalDisplayVerified": false,
+  "readyMsLocal": 1050.2,
+  "presentation": {
+    "stage": [
+      849.9375,
+      627
+    ],
+    "cssWidth": 534,
+    "cssHeight": 534,
+    "canvasWidth": 716,
+    "canvasHeight": 534,
+    "snowCanvas": [
+      850,
+      627
+    ],
+    "scenery": [
+      1536,
+      1024
+    ],
+    "radius": "50%",
+    "border": "0px",
+    "shadow": "none",
+    "dpr": 1,
+    "bootstrapReleased": true
+  },
+  "sourceDurationMs": 1280,
+  "estimatedSampleCount": 160,
+  "estimatedSampleRate": 125.0,
+  "paints": 768,
+  "seconds": 12.8,
+  "paintsPerSecond": 60.0,
+  "weatherPaints": 768,
+  "weatherPaintsPerSecond": 60.0,
+  "uniqueRafTimestamps": 768,
+  "rafTimestampsPerSecond": 60.0,
+  "callbacks": 1536,
+  "uniqueSourceSamplesPainted": 160,
+  "combinedFrameWorkMs": {
+    "median": 2.5,
+    "p95": 3.1,
+    "max": 5.8
+  },
+  "portraitCallbackMs": {
+    "median": 2.3,
+    "p95": 2.8,
+    "max": 5.5
+  },
+  "weatherCallbackMs": {
+    "median": 0.2,
+    "p95": 0.3,
+    "max": 0.8
+  },
+  "rafIntervalMs": {
+    "median": 16.7,
+    "p95": 16.7,
+    "max": 16.8
+  },
+  "longTasksMs": [],
+  "workers": [],
+  "browserErrors": [],
+  "httpErrors": [],
+  "interpretation": "Portrait and weather each have an rAF loop. CPU is summed per unique browser timestamp; two callbacks are not two display frames. Native headless cadence is not verified physical monitor FPS. New artwork and estimated source-motion samples do not recover information absent from the reference."
+}

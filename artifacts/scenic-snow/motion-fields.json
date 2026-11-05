@@ -1,0 +1,255 @@
+{
+  "conditions": "Backward source0 retarget; low-frequency stationary-velocity diffeomorphic projection; rigid-face support; area bound0.16; estimated occlusion; blink material not applied",
+  "seconds": 23.40470962499967,
+  "frames": [
+    {
+      "frame": 0,
+      "meanAbsoluteRGBError": 0.0,
+      "flowXRange": [
+        0.0,
+        0.0
+      ],
+      "flowYRange": [
+        0.0,
+        0.0
+      ],
+      "minimumJacobianDeterminant": 1.0,
+      "maximumDisplacement": 0.0
+    },
+    {
+      "frame": 1,
+      "meanAbsoluteRGBError": 12.732345741008098,
+      "flowXRange": [
+        -18.15826988220215,
+        21.595237731933594
+      ],
+      "flowYRange": [
+        -9.034124374389648,
+        13.63576889038086
+      ],
+      "minimumJacobianDeterminant": 0.22987791895866394,
+      "maximumDisplacement": 22.15389633178711
+    },
+    {
+      "frame": 2,
+      "meanAbsoluteRGBError": 15.492662802781439,
+      "flowXRange": [
+        -26.462764739990234,
+        16.525192260742188
+      ],
+      "flowYRange": [
+        -21.058555603027344,
+        25.448165893554688
+      ],
+      "minimumJacobianDeterminant": 0.1600675880908966,
+      "maximumDisplacement": 28.47020721435547
+    },
+    {
+      "frame": 3,
+      "meanAbsoluteRGBError": 17.35117416079063,
+      "flowXRange": [
+        -33.78286361694336,
+        17.78934097290039
+      ],
+      "flowYRange": [
+        -17.479625701904297,
+        41.10370635986328
+      ],
+      "minimumJacobianDeterminant": 0.23311647772789001,
+      "maximumDisplacement": 42.16781234741211
+    },
+    {
+      "frame": 4,
+      "meanAbsoluteRGBError": 18.49363226134929,
+      "flowXRange": [
+        -32.90388107299805,
+        15.816380500793457
+      ],
+      "flowYRange": [
+        -17.92630386352539,
+        55.53276824951172
+      ],
+      "minimumJacobianDeterminant": 0.16006439924240112,
+      "maximumDisplacement": 57.1766471862793
+    },
+    {
+      "frame": 5,
+      "meanAbsoluteRGBError": 21.748024466623423,
+      "flowXRange": [
+        -44.62816619873047,
+        13.122339248657227
+      ],
+      "flowYRange": [
+        -16.32541847229004,
+        36.65015411376953
+      ],
+      "minimumJacobianDeterminant": 0.16005998849868774,
+      "maximumDisplacement": 48.429222106933594
+    },
+    {
+      "frame": 6,
+      "meanAbsoluteRGBError": 22.893537407849127,
+      "flowXRange": [
+        -61.97510528564453,
+        15.461050033569336
+      ],
+      "flowYRange": [
+        -33.103553771972656,
+        41.37156677246094
+      ],
+      "minimumJacobianDeterminant": 0.16002464294433594,
+      "maximumDisplacement": 64.30826568603516
+    },
+    {
+      "frame": 7,
+      "meanAbsoluteRGBError": 24.72674868704622,
+      "flowXRange": [
+        -70.7862548828125,
+        17.020797729492188
+      ],
+      "flowYRange": [
+        -27.377582550048828,
+        35.017330169677734
+      ],
+      "minimumJacobianDeterminant": 0.16457457840442657,
+      "maximumDisplacement": 71.92356872558594
+    },
+    {
+      "frame": 8,
+      "meanAbsoluteRGBError": 26.050879138507035,
+      "flowXRange": [
+        -50.29353332519531,
+        8.962434768676758
+      ],
+      "flowYRange": [
+        -18.565019607543945,
+        30.528995513916016
+      ],
+      "minimumJacobianDeterminant": 0.16005614399909973,
+      "maximumDisplacement": 51.07601547241211
+    },
+    {
+      "frame": 9,
+      "meanAbsoluteRGBError": 23.281512634346733,
+      "flowXRange": [
+        -49.232051849365234,
+        11.904193878173828
+      ],
+      "flowYRange": [
+        -47.18666458129883,
+        29.7457332611084
+      ],
+      "minimumJacobianDeterminant": 0.16004334390163422,
+      "maximumDisplacement": 51.05074691772461
+    },
+    {
+      "frame": 10,
+      "meanAbsoluteRGBError": 23.804807538063454,
+      "flowXRange": [
+        -54.02198791503906,
+        15.573714256286621
+      ],
+      "flowYRange": [
+        -35.88835906982422,
+        24.60227394104004
+      ],
+      "minimumJacobianDeterminant": 0.1600315421819687,
+      "maximumDisplacement": 55.89762878417969
+    },
+    {
+      "frame": 11,
+      "meanAbsoluteRGBError": 22.14935241562572,
+      "flowXRange": [
+        -39.70805358886719,
+        18.052669525146484
+      ],
+      "flowYRange": [
+        -41.93329620361328,
+        40.10105895996094
+      ],
+      "minimumJacobianDeterminant": 0.16003140807151794,
+      "maximumDisplacement": 47.398677825927734
+    },
+    {
+      "frame": 12,
+      "meanAbsoluteRGBError": 20.45510848869081,
+      "flowXRange": [
+        -24.26107406616211,
+        11.94923210144043
+      ],
+      "flowYRange": [
+        -35.758209228515625,
+        46.11695861816406
+      ],
+      "minimumJacobianDeterminant": 0.1600482314825058,
+      "maximumDisplacement": 47.198158264160156
+    },
+    {
+      "frame": 13,
+      "meanAbsoluteRGBError": 16.060957322899448,
+      "flowXRange": [
+        -24.603199005126953,
+        13.792718887329102
+      ],
+      "flowYRange": [
+        -11.645048141479492,
+        52.70315933227539
+      ],
+      "minimumJacobianDeterminant": 0.1691032201051712,
+      "maximumDisplacement": 53.84122085571289
+    },
+    {
+      "frame": 14,
+      "meanAbsoluteRGBError": 15.533331240976713,
+      "flowXRange": [
+        -18.167184829711914,
+        14.027021408081055
+      ],
+      "flowYRange": [
+        -11.409168243408203,
+        51.029808044433594
+      ],
+      "minimumJacobianDeterminant": 0.23778270184993744,
+      "maximumDisplacement": 53.21297073364258
+    },
+    {
+      "frame": 15,
+      "meanAbsoluteRGBError": 15.091837019368247,
+      "flowXRange": [
+        -17.4019832611084,
+        18.529035568237305
+      ],
+      "flowYRange": [
+        -11.635339736938477,
+        39.42829895019531
+      ],
+      "minimumJacobianDeterminant": 0.2522340416908264,
+      "maximumDisplacement": 41.16042709350586
+    }
+  ],
+  "intermediateLinearMixValidation": {
+    "samples": 160,
+    "samplesPerSourceAnchor": 10,
+    "minimumJacobianDeterminant": 0.16002464294433594,
+    "worstSourceAnchorAndSubsample": [
+      6,
+      0
+    ],
+    "coordinateRule": "target source pixels back to reference0; flow[...,0]=dx flow[...,1]=dy",
+    "frameZeroIsExactlyIdentity": true
+  },
+  "visibleCircleFrame7": {
+    "safe_circle": {
+      "maxDisplacement": 51.0396842956543,
+      "p95Displacement": 30.461090087890625
+    },
+    "right_visible_locks": {
+      "maxDisplacement": 51.0396842956543,
+      "p95Displacement": 43.69313430786133
+    },
+    "left_visible_locks": {
+      "maxDisplacement": 28.763330459594727,
+      "p95Displacement": 23.098526000976562
+    }
+  }
+}

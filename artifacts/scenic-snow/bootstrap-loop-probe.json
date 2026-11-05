@@ -1,0 +1,525 @@
+{
+  "samples": [
+    {
+      "at": 1516.7999999970198,
+      "phase": 0.054215,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 1724.2999999970198,
+      "phase": 0.239647,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 1930.5,
+      "phase": 0.44583,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 2133.7999999970198,
+      "phase": 0.649238,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 2341.10000000149,
+      "phase": 0.856461,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 2545.2999999970198,
+      "phase": 1.060705,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 2765.2999999970198,
+      "phase": 1.28,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 3008.7999999970198,
+      "phase": 0.224953,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 3223.60000000149,
+      "phase": 0.425165,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 3429.2999999970198,
+      "phase": 0.630888,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 3633.2999999970198,
+      "phase": 0.834961,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 3838.7999999970198,
+      "phase": 1.02647,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 2,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 4061.7000000029802,
+      "phase": 1.248946,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 4268.10000000149,
+      "phase": 0.161394,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 4492.89999999851,
+      "phase": 0.386319,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 4730.70000000298,
+      "phase": 0.624011,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 4940.20000000298,
+      "phase": 0.828639,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 5143.70000000298,
+      "phase": 1.032216,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 5347.20000000298,
+      "phase": 1.235662,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 5550.20000000298,
+      "phase": 0.121652,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 5755.89999999851,
+      "phase": 0.32734,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    },
+    {
+      "at": 5958.89999999851,
+      "phase": 0.530302,
+      "loop": true,
+      "paused": false,
+      "ended": false,
+      "seeking": false,
+      "ready": 4,
+      "connected": true,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+      "playback": "preparing"
+    }
+  ],
+  "events": [
+    {
+      "kind": "play",
+      "at": 1277.2999999970198,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 0,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 1277.6000000014901,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 0,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "pause",
+      "at": 1400.3999999985099,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 0,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "play",
+      "at": 1420,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 0,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 1420.1000000014901,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 0,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 1483.1000000014901,
+      "phase": 0.020501,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 1523,
+      "phase": 0.056619,
+      "paused": false,
+      "loop": true,
+      "ready": 2,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 1530.7999999970198,
+      "phase": 0.056916,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 1684.2000000029802,
+      "phase": 0.209848,
+      "paused": false,
+      "loop": true,
+      "ready": 2,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 1694.7999999970198,
+      "phase": 0.210177,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "seeking",
+      "at": 2766,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 1,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 2766.2000000029802,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 1,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "seeked",
+      "at": 2784.2000000029802,
+      "phase": 0.000345,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 2784.39999999851,
+      "phase": 0.000476,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 3025.10000000149,
+      "phase": 0.229222,
+      "paused": false,
+      "loop": true,
+      "ready": 2,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 3028.2000000029802,
+      "phase": 0.229821,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 3826.10000000149,
+      "phase": 1.02647,
+      "paused": false,
+      "loop": true,
+      "ready": 2,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 3839.5,
+      "phase": 1.026753,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "seeking",
+      "at": 4093.10000000149,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 1,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 4093.39999999851,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 1,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "seeked",
+      "at": 4107.29999999702,
+      "phase": 0.000543,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 4108.29999999702,
+      "phase": 0.001526,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 4790.89999999851,
+      "phase": 0.683872,
+      "paused": false,
+      "loop": true,
+      "ready": 2,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 4797.5,
+      "phase": 0.68597,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "seeking",
+      "at": 5392.20000000298,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 1,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "waiting",
+      "at": 5392.39999999851,
+      "phase": 0,
+      "paused": false,
+      "loop": true,
+      "ready": 1,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "seeked",
+      "at": 5428.79999999702,
+      "phase": 0.000236,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    },
+    {
+      "kind": "playing",
+      "at": 5428.89999999851,
+      "phase": 0.000274,
+      "paused": false,
+      "loop": true,
+      "ready": 4,
+      "src": "/website/assets/reference-scene/boot.mp4?v=34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb"
+    }
+  ],
+  "scope": "Native production Chromium, full pixel atlas held, normal real media clock; 22 snapshots at200ms intervals and media events; no controlled clock shim",
+  "loopWrapsObserved": 3,
+  "allSamplesLoopEnabledAndNotEnded": true
+}
