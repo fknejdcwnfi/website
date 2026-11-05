@@ -1,0 +1,14 @@
+{
+  "source": "Actual CSS circular viewport screenshots at each of the16 original80ms frames",
+  "sourceFramesPerLoop": 16,
+  "frameDurationMs": 80,
+  "periodMs": 1280,
+  "loops": 4,
+  "durationMs": 5120,
+  "encodingFps": 50,
+  "interpolation": false,
+  "encodingExplanation": "Each source frame repeated four times; no invented intermediate movement",
+  "bytes": 1660254,
+  "sha256": "c921e53e7bfc49e95ff0682b7c2c8a26ed6008c98742f7a88466c828d84cbb10",
+  "physicalDisplayVerified": false
+}

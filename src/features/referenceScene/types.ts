@@ -27,7 +27,7 @@ export type SceneSample = {
   static: boolean
 }
 
-/** The renderer owns local hair, eye and jewelry movement; the player owns time. */
+/** The renderer owns frame pixels; the shared player owns time and visibility. */
 export type SceneRenderer = {
   paint: (context: CanvasRenderingContext2D, sample: SceneSample) => void
   destroy?: () => void

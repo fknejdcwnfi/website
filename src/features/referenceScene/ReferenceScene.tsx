@@ -15,7 +15,7 @@ const readMotionChoice = (): boolean => {
   try { return localStorage.getItem(MOTION_CHOICE) === 'true' } catch { return false }
 }
 
-/** A stable, borderless circular portrait; motion belongs to local character layers. */
+/** A borderless circular viewport; the selected renderer owns source pixels and motion. */
 export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const viewport = useSceneViewport(definition.width, definition.height)

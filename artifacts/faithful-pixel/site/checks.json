@@ -1,0 +1,1929 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5180/website/",
+  "checks": [
+    {
+      "name": "production_document_loads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete_personal_site_remains",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_outer_background_weather_or_video",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_normal_motion_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "direct_frame_playback_is_selected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_worker_dependency",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_borderless_circle",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "x": 453,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "desktop_crisp_hd_output",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "x": 453,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "desktop_fits_screen",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "x": 453,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "visible_pixels_change_without_waiting",
+      "passed": true,
+      "detail": {
+        "observedChangeAfterMs": 40.89999999990687,
+        "sourceFrameDurationMs": 80
+      }
+    },
+    {
+      "name": "source_time_0_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 0,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "0",
+          "sourceDuration": "1280",
+          "elapsedMs": "0",
+          "sourceTimeMs": "0",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_0_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "0",
+        "sourceTimeMs": "0",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_80_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 1,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "1",
+          "sourceDuration": "1280",
+          "elapsedMs": "80",
+          "sourceTimeMs": "80",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_80_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "1",
+        "sourceDuration": "1280",
+        "elapsedMs": "80",
+        "sourceTimeMs": "80",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_160_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 2,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "2",
+          "sourceDuration": "1280",
+          "elapsedMs": "160",
+          "sourceTimeMs": "160",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_160_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "2",
+        "sourceDuration": "1280",
+        "elapsedMs": "160",
+        "sourceTimeMs": "160",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_240_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 3,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "3",
+          "sourceDuration": "1280",
+          "elapsedMs": "240",
+          "sourceTimeMs": "240",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_240_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "3",
+        "sourceDuration": "1280",
+        "elapsedMs": "240",
+        "sourceTimeMs": "240",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_320_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 4,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "4",
+          "sourceDuration": "1280",
+          "elapsedMs": "320",
+          "sourceTimeMs": "320",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_320_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "4",
+        "sourceDuration": "1280",
+        "elapsedMs": "320",
+        "sourceTimeMs": "320",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_400_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 5,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "5",
+          "sourceDuration": "1280",
+          "elapsedMs": "400",
+          "sourceTimeMs": "400",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_400_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "5",
+        "sourceDuration": "1280",
+        "elapsedMs": "400",
+        "sourceTimeMs": "400",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_480_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 6,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "6",
+          "sourceDuration": "1280",
+          "elapsedMs": "480",
+          "sourceTimeMs": "480",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_480_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "6",
+        "sourceDuration": "1280",
+        "elapsedMs": "480",
+        "sourceTimeMs": "480",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_560_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 7,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "7",
+          "sourceDuration": "1280",
+          "elapsedMs": "560",
+          "sourceTimeMs": "560",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_560_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "7",
+        "sourceDuration": "1280",
+        "elapsedMs": "560",
+        "sourceTimeMs": "560",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_640_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 8,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "8",
+          "sourceDuration": "1280",
+          "elapsedMs": "640",
+          "sourceTimeMs": "640",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_640_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "8",
+        "sourceDuration": "1280",
+        "elapsedMs": "640",
+        "sourceTimeMs": "640",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_720_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 9,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "9",
+          "sourceDuration": "1280",
+          "elapsedMs": "720",
+          "sourceTimeMs": "720",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_720_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "9",
+        "sourceDuration": "1280",
+        "elapsedMs": "720",
+        "sourceTimeMs": "720",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_800_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 10,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "10",
+          "sourceDuration": "1280",
+          "elapsedMs": "800",
+          "sourceTimeMs": "800",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_800_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "10",
+        "sourceDuration": "1280",
+        "elapsedMs": "800",
+        "sourceTimeMs": "800",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_880_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 11,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "11",
+          "sourceDuration": "1280",
+          "elapsedMs": "880",
+          "sourceTimeMs": "880",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_880_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "11",
+        "sourceDuration": "1280",
+        "elapsedMs": "880",
+        "sourceTimeMs": "880",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_960_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 12,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "12",
+          "sourceDuration": "1280",
+          "elapsedMs": "960",
+          "sourceTimeMs": "960",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_960_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "12",
+        "sourceDuration": "1280",
+        "elapsedMs": "960",
+        "sourceTimeMs": "960",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_1040_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 13,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "13",
+          "sourceDuration": "1280",
+          "elapsedMs": "1040",
+          "sourceTimeMs": "1040",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_1040_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "13",
+        "sourceDuration": "1280",
+        "elapsedMs": "1040",
+        "sourceTimeMs": "1040",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_1120_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 14,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "14",
+          "sourceDuration": "1280",
+          "elapsedMs": "1120",
+          "sourceTimeMs": "1120",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_1120_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "14",
+        "sourceDuration": "1280",
+        "elapsedMs": "1120",
+        "sourceTimeMs": "1120",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_1200_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 15,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "15",
+          "sourceDuration": "1280",
+          "elapsedMs": "1200",
+          "sourceTimeMs": "1200",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_1200_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "15",
+        "sourceDuration": "1280",
+        "elapsedMs": "1200",
+        "sourceTimeMs": "1200",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_79.999_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 0,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "0",
+          "sourceDuration": "1280",
+          "elapsedMs": "79.999",
+          "sourceTimeMs": "79.999",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_79.999_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "79.999",
+        "sourceTimeMs": "79.999",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_80.001_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 1,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "1",
+          "sourceDuration": "1280",
+          "elapsedMs": "80.001",
+          "sourceTimeMs": "80.001",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_80.001_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "1",
+        "sourceDuration": "1280",
+        "elapsedMs": "80.001",
+        "sourceTimeMs": "80.001",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_1279.999_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 15,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "15",
+          "sourceDuration": "1280",
+          "elapsedMs": "1279.999",
+          "sourceTimeMs": "1279.999",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_1279.999_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "15",
+        "sourceDuration": "1280",
+        "elapsedMs": "1279.999",
+        "sourceTimeMs": "1279.999",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_1280_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 0,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "0",
+          "sourceDuration": "1280",
+          "elapsedMs": "1280",
+          "sourceTimeMs": "0",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_1280_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "1280",
+        "sourceTimeMs": "0",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_1280.001_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 0,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "0",
+          "sourceDuration": "1280",
+          "elapsedMs": "1280.001",
+          "sourceTimeMs": "0.0009999999999763531",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_1280.001_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "1280.001",
+        "sourceTimeMs": "0.0009999999999763531",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "source_time_-1_exact_atlas_pixels",
+      "passed": true,
+      "detail": {
+        "expectedFrame": 15,
+        "differentPixels": 0,
+        "metadata": {
+          "scene": "reference-landscape",
+          "ready": "true",
+          "painted": "true",
+          "renderer": "reference-scene",
+          "playback": "static",
+          "motionPreference": "enabled",
+          "motionKind": "direct-source-frames",
+          "sourceFrame": "15",
+          "sourceDuration": "1280",
+          "elapsedMs": "-1",
+          "sourceTimeMs": "1279",
+          "sourceFrameDuration": "80",
+          "pixelReconstruction": "nearest-2x"
+        }
+      }
+    },
+    {
+      "name": "source_time_-1_correct_frame_index",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "sourceFrame": "15",
+        "sourceDuration": "1280",
+        "elapsedMs": "-1",
+        "sourceTimeMs": "1279",
+        "sourceFrameDuration": "80",
+        "pixelReconstruction": "nearest-2x"
+      }
+    },
+    {
+      "name": "reduced_motion_exact_canonical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_pixels_remain_still",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_skips_atlas",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "local_motion_opt_in_works",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_choice_survives_reload",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_preference_restores_canonical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offscreen_suspends_paints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "onscreen_resumes_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hidden_document_suspends_paints",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "visible_document_resumes_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "paint_failure_retains_poster_and_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retry_recovers_direct_frame_renderer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_rejected_animation_assets_requested",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=0",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=80",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/?t=160",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=240",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=320",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=400",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=480",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=560",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=640",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=720",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=800",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=880",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=960",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1040",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1120",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1200",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=79.999",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=80.001",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1279.999",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1280",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1280.001",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=-1",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+        "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+        "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+        "http://127.0.0.1:5180/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "atlas_http_failure_preserves_canonical_and_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_retry_recovers_original_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "width320_dpr1_borderless_circle",
+      "passed": true,
+      "detail": {
+        "width": 284,
+        "height": 284,
+        "x": 18.390625,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width320_dpr1_crisp_hd_output",
+      "passed": true,
+      "detail": {
+        "width": 284,
+        "height": 284,
+        "x": 18.390625,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width320_dpr1_fits_screen",
+      "passed": true,
+      "detail": {
+        "width": 284,
+        "height": 284,
+        "x": 18.390625,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width390_dpr2_borderless_circle",
+      "passed": true,
+      "detail": {
+        "width": 354,
+        "height": 354,
+        "x": 17.828125,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width390_dpr2_crisp_hd_output",
+      "passed": true,
+      "detail": {
+        "width": 354,
+        "height": 354,
+        "x": 17.828125,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width390_dpr2_fits_screen",
+      "passed": true,
+      "detail": {
+        "width": 354,
+        "height": 354,
+        "x": 17.828125,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width768_dpr1.5_borderless_circle",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "x": 117,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width768_dpr1.5_crisp_hd_output",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "x": 117,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "width768_dpr1.5_fits_screen",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "x": 117,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "canvas": [
+          716,
+          534
+        ],
+        "smoothing": false,
+        "imageRendering": "pixelated",
+        "filter": "none",
+        "transform": "none",
+        "overflow": false
+      }
+    },
+    {
+      "name": "nojs_has_exact_hd_poster",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_retains_borderless_circle",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none"
+      }
+    },
+    {
+      "name": "nojs_retains_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_uncaught_browser_errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "sourceSamples": [
+    {
+      "timeMs": 0,
+      "frame": 0,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 80,
+      "frame": 1,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 160,
+      "frame": 2,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 240,
+      "frame": 3,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 320,
+      "frame": 4,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 400,
+      "frame": 5,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 480,
+      "frame": 6,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 560,
+      "frame": 7,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 640,
+      "frame": 8,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 720,
+      "frame": 9,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 800,
+      "frame": 10,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 880,
+      "frame": 11,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 960,
+      "frame": 12,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 1040,
+      "frame": 13,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 1120,
+      "frame": 14,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 1200,
+      "frame": 15,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 79.999,
+      "frame": 0,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 80.001,
+      "frame": 1,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 1279.999,
+      "frame": 15,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 1280,
+      "frame": 0,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": 1280.001,
+      "frame": 0,
+      "differentPixels": 0
+    },
+    {
+      "timeMs": -1,
+      "frame": 15,
+      "differentPixels": 0
+    }
+  ],
+  "browserErrors": [],
+  "presentations": {
+    "desktop": {
+      "width": 534,
+      "height": 534,
+      "x": 453,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "smoothing": false,
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "overflow": false
+    },
+    "width320_dpr1": {
+      "width": 284,
+      "height": 284,
+      "x": 18.390625,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "smoothing": false,
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "overflow": false
+    },
+    "width390_dpr2": {
+      "width": 354,
+      "height": 354,
+      "x": 17.828125,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "smoothing": false,
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "overflow": false
+    },
+    "width768_dpr1.5": {
+      "width": 534,
+      "height": 534,
+      "x": 117,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "canvas": [
+        716,
+        534
+      ],
+      "smoothing": false,
+      "imageRendering": "pixelated",
+      "filter": "none",
+      "transform": "none",
+      "overflow": false
+    }
+  },
+  "sourceFrameCount": 16,
+  "sourceFrameDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "durationMs": 1280,
+  "scope": "Exact published source-frame pixel playback and lifecycle; not subjective art quality or physical monitor FPS",
+  "requests": [
+    "http://127.0.0.1:5180/website/",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=0",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=80",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/?t=160",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=240",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=320",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=400",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=480",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=560",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=640",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=720",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=800",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=880",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=960",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=1040",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=1120",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=1200",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=79.999",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=80.001",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=1279.999",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=1280",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=1280.001",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/?t=-1",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg",
+    "http://127.0.0.1:5180/website/",
+    "http://127.0.0.1:5180/website/assets/index-CmGEtTuR.js",
+    "http://127.0.0.1:5180/website/assets/index-COfP67eA.css",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png",
+    "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/canonical.png?v=672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "http://127.0.0.1:5180/website/assets/faithful-pixel/atlas.png?v=ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "http://127.0.0.1:5180/website/favicon.svg"
+  ]
+}

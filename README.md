@@ -1,17 +1,17 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。fknejdcwnfi的個人網站，以穩定的Minecraft像素圓形肖像呈現Vermouth。
+**HELLOWORLD**。fknejdcwnfi的個人網站，以保留原動畫動作的Minecraft-inspired2D像素圓形呈現Vermouth。
 
-- [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/calm-circle.md)
+- [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/faithful-source-pixels.md)
 - [完整不可變原工程](reference-projects/fuji-wind/) · GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 
-依最新回饋，已撤下令人不適的整圖變形、外景、雪層和舊影片。現在是無邊框圓形、透明背景、716×534像素人物，臉、身體、前景髮與珠寶固定；只有兩塊後側髮束克制輕擺、眼睑局部自然眨動。動態在rAF更新，減少動態／隱藏／離屏及失敗恢復保持。
+依最新回饋，預設直接使用上傳ZIP的16幀逐幀轉製，保持80ms／幀、1280ms循環的原動作、飄髮與眨眼；只改像素畫風。共用37色色板、銳利2×2色塊及五官／飾物細節保護，nearest輸出716×534。保留無邊框圓形，原景色在圓內，沒有圈外外景；不再用新母版拉扯、補幀或小幅rig模擬來源動作。
 
-![穩定圓形肖像](artifacts/calm-circle/site/desktop.png)
+![目前網站](artifacts/faithful-pixel/site/desktop.png)
 
-[目前圓形畫面](artifacts/calm-circle/site/circle.png) · [克制動態預覽](artifacts/calm-circle/preview/animation.mp4) · [固定像素與整站檢查](artifacts/calm-circle/site/checks.json)
+[目前圓形](artifacts/faithful-pixel/site/circle.png) · [原時序動態預覽](artifacts/faithful-pixel/preview/animation.mp4) · [逐幀與整站檢查](artifacts/faithful-pixel/site/checks.json) · [來源及像素鄰域核對](artifacts/faithful-pixel/assets.json)
 
-舊`scenic-snow`是被拒絕的歷史實作，不代表現在效果；原ZIP與所有原始圖片保留。新預設不下載那些整圖位移字段、圖集或影片，也不以全圖縮放／扭曲假裝飄髮。
+原動畫本身是12.5fps。rAF隨螢幕排程，不把重複繪製或高清放大宣稱為新增真實影格／細節。前版calm-circle與scenic-snow均為歷史，不能代表現在效果；原ZIP及22份檔案保持不變。
 
 ## 開始開發
 
@@ -58,8 +58,9 @@ src/
   authoring/           歷史來源轉製工具，不由runtime引用
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
-    referenceScene/    共用圓形UI／可見性播放器；舊source場景歷史
-    calmPortrait/      現在預設：固定人物plate、後髮剛體與局部眼睑
+    referenceScene/    共用圓形UI／可見性播放器與來源時鐘
+    faithfulPixel/     現在預設：逐幀像素衍生描述與直接來源播放器
+    calmPortrait/      歷史固定人物／小幅後髮rig，不由現在首頁載入
     portrait/          歷史近景播放器，明確入口才載入
   shared/              共用動畫型別
   archive/             legacy／voxel歷史模式及舊field renderer對照
@@ -69,9 +70,10 @@ scripts/
   tests/               Node單元測試
   deploy/              手動部署備援
 reference-projects/    使用者完整工程ZIP、原檔與來源校驗
-assets/generated/      單一像素母版、局部眼瞼、完整景色與來源動作字段
+assets/generated/      歷史生成母版、局部眼瞼與姿態字段，非目前素材
 public/assets/reference-scene/  歷史場景素材，不由現在首頁載入
-public/assets/calm-circle/     現在的固定人物、兩側後髮、局部眼睑及來源清冊
+public/assets/faithful-pixel/  現在的16幀像素圖集、高清首幀與來源清冊
+public/assets/calm-circle/     歷史固定人物與後髮圖層
 docs/
   guides/              現行個人化、角色、動態、開發及素材指南
   archive/             已標示日期的舊階段文件
@@ -85,12 +87,12 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-目前預設在`src/features/calmPortrait/`，共用播放器和圓形UI仍位於`referenceScene/`。12秒小角度剛體後髮輕擺與24秒不等間隔局部眨眼分開，固定人物像素不參與任何變形；這是刻意克制的肖像，不宣稱大幅風動或完整毛髮模擬。
+目前預設在`src/features/faithfulPixel/`，共用播放器和圓形UI位於`referenceScene/`。來源16份動作幀就是播放權威，不使用新風場、獨立眼睛時鐘或幾何重定向。隱藏／離屏停止繪製，恢復保相位；減少動態只載入靜態首幀，失敗保留完整個人內容。
 
-[最新指南](docs/guides/calm-circle.md)與`artifacts/calm-circle/`記錄當前圖層、穩定區域和整個固定plate的逐像素檢查。原GIF／舊sourceclock與PR16的無翻折數字不能證明新肖像自然，歷史路由只在明確選擇時載入。
+[最新指南](docs/guides/faithful-source-pixels.md)與`artifacts/faithful-pixel/`記錄本輪來源、像素轉製、逐幀播放及實際效能。CI用獨立PNG解碼核對每個輸出顏色來自自己的原生2×2鄰域，瀏覽器另對16幀與接縫做Canvas逐像素比較，不把歷史固定plate／無翻折數字當作當前證據。
 
 ## 素材
 
-`assets/source/**`及`docs/reference/**`保持唯讀。新首頁權威是`reference-projects/fuji-wind/`完整原工程；歷史近景canonical母版仍在 `assets/generated/portrait-v4/`，局部髮後修復在 `assets/generated/portrait-wind/`，runtime為 `public/assets/portrait-natural/`。不輪播新生成的臉、不整張圖晃動，也不擴圖成完整胸像。[素材清冊](docs/guides/asset-inventory.md)記錄來源及限制。
+`assets/source/**`及`docs/reference/**`保持唯讀。新首頁權威是`reference-projects/fuji-wind/`完整原工程；歷史近景canonical母版仍在 `assets/generated/portrait-v4/`，局部髮後修復在 `assets/generated/portrait-wind/`，runtime為 `public/assets/portrait-natural/`。現在的臉與動作直接取自原動畫，不輪播獨立生成的臉，不使用整圖位移場，也不擴圖成完整胸像。[素材清冊](docs/guides/asset-inventory.md)記錄來源及限制。
 
 貝爾摩德出自《名偵探柯南》，角色權利屬原權利方，本專案為個人非商業粉絲作品。Minecraft為相關權利方商標，本站不是官方合作產品。見[變更紀錄](CHANGELOG.md)。

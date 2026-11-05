@@ -184,6 +184,10 @@ def main() -> int:
     if calm.returncode:
         fail(errors, calm.stderr.strip() or calm.stdout.strip())
 
+    faithful = subprocess.run([sys.executable, str(ROOT / 'scripts/assets/verify_faithful_pixel_scene.py')], capture_output=True, text=True)
+    if faithful.returncode:
+        fail(errors, faithful.stderr.strip() or faithful.stdout.strip())
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

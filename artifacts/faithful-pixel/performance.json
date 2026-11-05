@@ -1,0 +1,17 @@
+{
+  "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s sample; native rAF; no screenshots or concurrent browsers",
+  "readyMsLocal": 608.5,
+  "callbacks": 720,
+  "seconds": 12.000099999999627,
+  "callbacksPerSecond": 59.999500004168496,
+  "sourceFrameChanges": 150,
+  "sourceFrameChangesPerSecond": 12.499895834201771,
+  "originalSourceFps": 12.5,
+  "callbackMs": {
+    "median": 0.10000000009313226,
+    "p95": 0.20000000018626451,
+    "max": 0.7000000001862645
+  },
+  "browserErrors": [],
+  "physicalDisplayVerified": false
+}

@@ -17,7 +17,7 @@ test('static HTML contains the complete personal site when JavaScript is unavail
   const html = renderStaticSite(site, '/website/')
   for (const id of ['about', 'work', 'contact']) assert.ok(html.includes(`id="${id}"`))
   for (const project of site.projects) assert.ok(html.includes(project.title) && html.includes(project.href))
-  assert.ok(html.includes('/website/assets/calm-circle/canonical.png'))
+  assert.ok(html.includes('/website/assets/faithful-pixel/canonical.png'))
   assert.ok(html.includes('width="716" height="534"'))
   assert.ok(!html.includes('scenery.webp'))
   assert.ok(!html.includes('vermouth-bootstrap'))
