@@ -37,10 +37,10 @@ const checkImage = (image: SceneImageSource): void => {
 
 export const loadSceneAssets = async (definition: SceneDefinition, signal: AbortSignal): Promise<SceneAssets> => {
   if (definition.version !== 1 || !Number.isInteger(definition.width) || !Number.isInteger(definition.height) ||
-    definition.width < 1 || definition.height < 1 || definition.width > 2048 || definition.height > 2048 ||
-    definition.width * definition.height > 4_194_304 ||
+    definition.width < 1 || definition.height < 1 || definition.width > 4096 || definition.height > 4096 ||
+    definition.width * definition.height > 8_388_608 ||
     typeof definition.description !== 'string' || !definition.description.length ||
-    definition.canonical.width !== definition.width || definition.canonical.height !== definition.height) {
+    definition.canonical.width * definition.height !== definition.canonical.height * definition.width) {
     throw new Error('Unsupported reference scene.')
   }
   checkImage(definition.canonical)

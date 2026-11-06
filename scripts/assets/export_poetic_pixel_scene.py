@@ -3,7 +3,7 @@
 
 A shared exact-source palette, native contour samples and small material clusters
 retain the original composition. Output enlargement is source-color-only Scale2x
-followed by nearest2, not newly recovered source detail. Intermediate frames, when
+applied twice followed by nearest2, not newly recovered source detail. Intermediate frames, when
 selected, are recorded offline estimates; all original source anchors remain exact.
 """
 from __future__ import annotations
@@ -107,8 +107,21 @@ class ColorMapper:
 
 
 def save_exact(path: Path, rgb: np.ndarray) -> None:
-    Image.fromarray(rgb.astype(np.uint8)).save(path, format='PNG', optimize=True)
-    assert np.asarray(Image.open(path).convert('RGB')).tobytes() == rgb.astype(np.uint8).tobytes()
+    # Store explicit indices into the SAME fixed palette. Pillow's quantize()
+    # uses a reduced-color cache and can alter already-known RGB samples; it is
+    # deliberately not involved in this lossless storage-only optimization.
+    colors = PALETTE.astype(np.uint8)
+    packed = colors.astype(np.uint32) @ np.array([65536, 256, 1], dtype=np.uint32)
+    order = np.argsort(packed)
+    sorted_colors = packed[order]
+    keys = rgb.astype(np.uint32) @ np.array([65536, 256, 1], dtype=np.uint32)
+    positions = np.searchsorted(sorted_colors, keys)
+    assert np.all(positions < len(sorted_colors)) and np.array_equal(sorted_colors[positions], keys)
+    indices = order[positions].astype(np.uint8)
+    image = Image.frombytes('P', (rgb.shape[1], rgb.shape[0]), indices.tobytes())
+    image.putpalette(colors.flatten().tolist() + [0] * (768 - colors.size))
+    image.save(path, format='PNG', optimize=True, bits=8)
+    assert Image.open(path).convert('RGB').tobytes() == rgb.astype(np.uint8).tobytes()
 
 
 def pack_atlas(frames: list[np.ndarray], columns: int) -> np.ndarray:
@@ -121,7 +134,7 @@ def pack_atlas(frames: list[np.ndarray], columns: int) -> np.ndarray:
 
 
 def hd_frame(frame: np.ndarray) -> np.ndarray:
-    reconstructed = np.asarray(scale2x(Image.fromarray(frame)).convert('RGB'))
+    reconstructed = np.asarray(scale2x(scale2x(Image.fromarray(frame))).convert('RGB'))
     return np.repeat(np.repeat(reconstructed, 2, axis=0), 2, axis=1)
 
 
@@ -165,8 +178,8 @@ def main() -> None:
             scale2x(Image.fromarray(frame)).save(directory / f'{index:03}.png')
         subprocess.run(['ffmpeg', '-y', '-v', 'error', '-framerate', '50' if len(converted) == 64 else '25/2',
                         '-i', str(directory / '%03d.png'), '-r', '50', '-fps_mode', 'cfr',
-                        '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-profile:v', 'main',
-                        '-pix_fmt', 'yuv420p', '-g', '64', '-keyint_min', '64', '-sc_threshold', '0',
+                        '-c:v', 'libx264', '-preset', 'medium', '-tune', 'zerolatency', '-crf', '22', '-profile:v', 'baseline',
+                        '-pix_fmt', 'yuv420p', '-bf', '0', '-refs', '2', '-g', '64', '-keyint_min', '64', '-sc_threshold', '0',
                         '-video_track_timescale', '50000', '-an', '-movflags', '+faststart', str(OUT / 'boot.mp4')], check=True)
     boot = {'file': 'boot.mp4', 'sha256': sha((OUT / 'boot.mp4').read_bytes()),
             'bytes': (OUT / 'boot.mp4').stat().st_size, 'width': 716, 'height': 534,
@@ -176,13 +189,14 @@ def main() -> None:
         return {'version': 1, 'motionSource': 'source-estimated-interframes' if count == 64 else 'original-source-frames',
                 'width': WIDTH, 'height': HEIGHT, 'tileWidth': WIDTH, 'tileHeight': HEIGHT,
                 'sourceWidth': WIDTH, 'sourceHeight': HEIGHT, 'outputWidth': 1432, 'outputHeight': 1068,
+                'maxOutputWidth': 2864, 'maxOutputHeight': 2136, 'reconstruction': 'scale4x',
                 'sourceFrameCount': 16, 'sourceAnchorCount': 16, 'framesPerSourceAnchor': count // 16,
                 'frameCount': count, 'frameDurationsMs': [frame_ms] * count, 'durationMs': 1280,
                 'loop': 0, 'atlasColumns': cols, 'atlasRows': count // cols,
                 'atlas': atlas_name, 'atlasSha256': sha((OUT / atlas_name).read_bytes()),
                 'atlasWidth': WIDTH * cols, 'atlasHeight': HEIGHT * (count // cols),
                 'canonical': 'canonical.png', 'canonicalSha256': sha((OUT / 'canonical.png').read_bytes()),
-                'canonicalWidth': 1432, 'canonicalHeight': 1068,
+                'canonicalWidth': 2864, 'canonicalHeight': 2136,
                 'sourceArchiveSha256': sha(archive.read_bytes()), 'boot': boot}
     runtime = descriptor('atlas.png', len(converted), durations[0], columns)
     source_descriptor = descriptor('source-atlas.png', 16, 80, 4)
@@ -200,7 +214,7 @@ def main() -> None:
                     'fineFeatures': {'eyesRect': [115,82,249,111], 'mouthRect': [157,137,210,153],
                         'blueJewel': 'B>R+20 && G>R+8 && y>111 && 105<x<263',
                         'chain': '184<=y<264 && luminance<1150000 && (abs(x-(130+(y-184)*5/7))<8 || abs(x-(234-(y-184)*5/7))<8)'},
-                    'upscale': 'offline-canonical-scale2x-once-then-nearest2; runtime-same-rule-native-tile-4-slot-cache',
+                    'upscale': 'offline-canonical-scale2x-twice-then-nearest2; runtime-scale4x-two-slot-cache-adaptive4-6-8x',
                     'dithering': False, 'blur': False, 'spatialRetargeting': False,
                     'note': 'Native 1px contours retain hair, cherry blossoms and Fuji peak detail;2px material clusters remain. Enlargement does not invent source resolution.'},
                 'sourceAnchors': [{'index': i, 'derivedFrameIndex': i * (len(converted)//16),

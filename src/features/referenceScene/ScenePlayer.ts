@@ -28,7 +28,7 @@ export class ScenePlayer {
 
   constructor(
     private readonly canvas: HTMLCanvasElement,
-    definition: SceneDefinition,
+    private readonly definition: SceneDefinition,
     private readonly createRenderer: SceneRendererFactory,
     private readonly options: ScenePlayerOptions = {},
   ) {
@@ -176,6 +176,22 @@ export class ScenePlayer {
   setMotionEnabled(enabled: boolean): void {
     if (this.motionEnabled === enabled || this.destroyed) return
     this.motionEnabled = enabled
+    this.sync()
+  }
+
+  /** Resize only the backing surface; keep the prepared renderer and source phase. */
+  setOutputSize(width: number, height: number): void {
+    if (this.destroyed) return
+    if (!Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1 ||
+      width > 4096 || height > 4096 || width * height > 8_388_608 ||
+      width * this.definition.height !== height * this.definition.width) {
+      throw new RangeError('Invalid scene output dimensions.')
+    }
+    if (this.canvas.width === width && this.canvas.height === height) return
+    this.canvas.width = width
+    this.canvas.height = height
+    this.context.imageSmoothingEnabled = false
+    this.painted = false
     this.sync()
   }
 

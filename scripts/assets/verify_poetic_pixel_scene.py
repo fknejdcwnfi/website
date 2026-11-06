@@ -86,7 +86,9 @@ def main():
     assert runtime['frameDurationsMs']==[1280/count]*count and runtime['durationMs']==1280
     assert runtime.get('sourceAnchorCount',16)==16 and columns*rows>=count
     assert (runtime['outputWidth'],runtime['outputHeight'])==(1432,1068)
-    assert (runtime['canonicalWidth'],runtime['canonicalHeight'])==(1432,1068)
+    assert (runtime['canonicalWidth'],runtime['canonicalHeight'])==(2864,2136)
+    assert (runtime['maxOutputWidth'],runtime['maxOutputHeight'])==(2864,2136)
+    assert runtime['reconstruction']=='scale4x'
     assert width*columns<=8192 and height*rows<=8192
     for category in ('authoring','files'):
         for entry in manifest[category]:
@@ -139,10 +141,11 @@ def main():
     canonical_blob=(base/runtime['canonical']).read_bytes()
     assert sha(canonical_blob)==runtime['canonicalSha256']
     cw,ch,canonical=png_rgb(canonical_blob)
-    assert (cw,ch)==(1432,1068)
+    assert (cw,ch)==(2864,2136)
     hd=scale2x_rgb(tile(0),width,height)
-    expected=nearest2x_rgb(hd,width*2,height*2)
-    assert canonical==expected,'Canonical differs from source-colour Scale2x followed by nearest2x'
+    hd=scale2x_rgb(hd,width*2,height*2)
+    expected=nearest2x_rgb(hd,width*4,height*4)
+    assert canonical==expected,'Canonical differs from two source-colour Scale2x passes followed by nearest2x'
     boot=manifest['boot'];video=(base/boot['file']).read_bytes()
     assert len(video)==boot['bytes'] and sha(video)==boot['sha256']
     assert (boot['width'],boot['height'])==(716,534) and boot['durationMs']==1280
@@ -159,7 +162,7 @@ def main():
               'coordinatesVerified':coordinates,'maximumStylingNeighbourhoodPx':[2,2],
               'paletteColors':len(palette),'nativeMappedPixelsRetained':native_retained,'changedSourceColours':changed,
               'sourceCoordinateDimensions':[width,height],'outputDimensions':[cw,ch],
-              'canonicalReconstruction':'Source-colour-only Scale2x once, then exact nearest2x; does not invent source detail',
+              'canonicalReconstruction':'Source-colour-only Scale2x twice, then exact nearest2x; does not invent source detail',
               'bootBytes':len(video)}
     if args.output:
         args.output.parent.mkdir(parents=True,exist_ok=True)

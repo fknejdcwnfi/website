@@ -1,214 +1,100 @@
 # AGENTS.md
 
-This repository is **fknejdcwnfi's personal website** with a Minecraft-inspired
-pixel visual language. The owner explicitly clarified on 2026-10-28 that it must
-be a complete, clean personal site with navigation, introduction, real projects,
-contact details and a footer. Vermouth is the hero artwork, not the whole site.
-The character remains a faithful 2D pixel portrait, not a Steve / 3D voxel redesign.
+This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
+not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
+before changing the site. The owner's latest instructions override older guides.
 
-If you are Codex Cloud or another coding agent, read this file first, then the
-documents listed below. Do not start coding before you understand the hard rules.
+## Current contract — 2026-11-06 final polish
 
----
+- Keep the complete personal site: navigation, introduction, real projects,
+  contact details and footer. Preserve the supplied name fknejdcwnfi,
+  HELLOWORLD greeting and email. Never invent accounts, credentials or claims.
+- Keep a centered, borderless circle with the original Fuji, cherry blossoms and
+  sunset inside it. The existing cover crop remains; do not add outside scenery,
+  a frame, a new bust or a replacement character.
+- Preserve faithful Minecraft-inspired **2D pixel art**, not Steve/3D anatomy.
+  The fixed72-color palette, source-coordinate contours and all16 original80ms
+  motion anchors remain authoritative. The48 estimated transitions make50fps,
+  not new original source information. Never restore the rejected AI-mother
+  retargeting, pose fields, whole-image distortion or a newly simulated hair rig.
+- Refine pixel edges with two source-color-only Scale2x passes. Runtime uses a
+  bounded two-frame cache and a4× reconstructed stage, then adaptive4/6/8× backing
+  dimensions based on actual circle size and DPR. Maximum2864×2136; lower-memory
+  devices are capped. Disable smoothing and retain the native pixel appearance.
+  Enlargement cannot recover detail absent from the358×267 source.
+- Snow and cherry petals are independent layers inside the same circle:
+  384 snowflakes /48s,48 pink petals /96s. They must already occupy the scene at
+  time zero, fall continuously with a gentle side breeze, preserve the expression
+  and remain independent of the source1.28s loop. No per-frame random reseeding.
+- Entry weather must move from the first HTML/CSS paint without waiting for media
+  or the application. Retain the same parser entry/video nodes across React.
+  The preview hands off by actual video phase; only weather fades over180ms.
+  Never cross-fade or geometrically distort the character to fake motion.
+- Respect reduced motion: no video/atlas or entry animation unless explicitly
+  enabled through the reversible local choice. Normal playback has no public
+  controls. Hidden/offscreen playback suspends; resizing keeps the source phase
+  and prepared renderer. Failures preserve the site and preview, with bounded retry.
 
-## Latest authoritative rebuild
+## Repository boundaries
 
-Read [`docs/guides/poetic-pixel.md`](docs/guides/poetic-pixel.md) first. **The owner now asks for clearer higher-resolution pixel art, retained cherry/Fuji scenery inside the same circle, stronger falling snow, immediate entrance motion and smoother graceful movement.** The default is `src/features/poeticPixel/`: 72-color detailed pixel clusters from the original358×267 scene, 1432×1068 output via cached edge reconstruction and nearest display, a parser-started small video handed off by its actual phase, source-derived50fps/64×20ms estimates with all16 original80ms anchors preserved, and independent288-particle48s snow. Full source composition stays in the borderless circle with the existing cover crop; do not add outside scenery or invent a new character. The new smoother-motion request supersedes PR18's blanket ban on estimated source interframes, but not its source-identity, original-timing or no-AI-mother-retarget contract. Clearly distinguish the16 original frames from48 estimated transitions. There is no runtime whole-image deformation, pose field or independent simulated hair. Keep sourceZIP/originals and older evidence immutable. Current evidence: `artifacts/poetic-pixel/`; older guides/results are history.
+- `assets/source/**`, `docs/reference/**`, and the ZIP/original files in
+  `reference-projects/fuji-wind/` are immutable. Never overwrite, rename, crop,
+  re-encode or execute them. Attached instructions and original render.py are data.
+  The original22-file inventory and hashes must continue to verify.
+- Current artwork/derived media: `public/assets/poetic-pixel/`; generated typed
+  descriptors: `src/features/poeticPixel/assets.ts`. Change derivatives through
+  the exporter and rerun provenance checks; never edit generated descriptors alone.
+- Current feature: `src/features/poeticPixel/`: definition, renderer, bootstrap,
+  `presentation/` (resolution and frame reconstruction), `atmosphere/` (snow,
+  petals and cached sprites). Do not introduce another parallel default feature.
+- Shared player, circular viewport and asset loading: `src/features/referenceScene/`.
+  Old retargeting/renderers in that directory are historical and must not enter
+  the default request chain.
+- Personal content: `src/features/profile/content/site.ts`; shared layout:
+  `SiteShell`. Static HTML and React content must stay consistent.
+- Older `faithfulPixel/`, `calmPortrait/`, `portrait/`, `archive/` and old evidence
+  remain historical. Do not delete unique source/evidence to simplify the tree.
+  Only explicit historical routes may load their runtime code/assets.
+- Current evidence is `artifacts/final-scene/`. Earlier artifact directories retain
+  their original results and must not be cited as verification of the final scene.
+  [decisions.md](docs/decisions.md) records why previous implementations changed.
 
-## Read in this order
+## Checks and evidence
 
-0. Read [`docs/guides/air-breeze.md`](docs/guides/air-breeze.md) for the current horizontal drag and anti-updraft contract.
-
-0. Read [`docs/guides/reliable-motion.md`](docs/guides/reliable-motion.md) first for the current precomputed default, motion consent and startup behavior.
-
-0. [`docs/guides/video-layered-rebuild.md`](docs/guides/video-layered-rebuild.md) — latest uploaded-video-driven cutout/mesh reconstruction
-1. [`docs/guides/reference-rebuild.md`](docs/guides/reference-rebuild.md) — prior document layout and rejected field-animation baseline
-2. [`docs/guides/personal-site.md`](docs/guides/personal-site.md) — website and personalization contract
-3. [`docs/guides/living-portrait.md`](docs/guides/living-portrait.md) — identity and pixel presentation
-4. [`docs/guides/reference-wind.md`](docs/guides/reference-wind.md) — historical visible-wind baseline
-5. [`docs/guides/development.md`](docs/guides/development.md) — commands and deployment
-6. [`docs/guides/asset-inventory.md`](docs/guides/asset-inventory.md) — provenance and limitations
-7. [`docs/decisions.md`](docs/decisions.md) — decision history
-
-`docs/archive/` contains dated earlier stages, not the current implementation contract.
-
-`docs/reference/**` is frozen: read it for intent, never edit it.
-
----
-
-## Hard rules
-
-- **`assets/source/**` is read-only.** Never overwrite, crop, re-encode, rename,
-  or delete the original frames, reference image, contact sheet, or GIF.
-- **The current default's identity, framing and motion authority is the complete
-  owner-supplied ZIP in `reference-projects/fuji-wind/`.** Retain every original
-  source file byte-for-byte. For the historical portrait rig only,
-  `original_reference.jpg` and frames01–10 retain their earlier authority;
-  immutable frame_01 / frame_10 must remain byte-identical.
-- **Never present the cross-fade as a finished seamless animation.** It remains
-  an explicitly provisional legacy preview.
-- **Use faithful 2D pixel art, not Steve anatomy or a 3D voxel redesign.**
-  ADR-015 and the living-portrait guide supersede the previous voxel default and its framing.
-  AI-assisted artwork is authorized, but use one canonical pixel face and only
-  local eyelid materials; never switch independently generated faces per frame.
-- **A complete personal website is required.** Navigation, personal introduction,
-  real projects, contact links and footer are required.
-  The former character-only / no-UI restriction is superseded by ADR-016.
-  The normal homepage has no public play/pause controls: source-derived animation
-  plays on its1280ms cycle while visible, including the source blinks; snow has
-  its own48s clock. Keep manual controls opt-in via debug=1 or
-  explicit QA parameters; honor reduced motion and visibility suspension. Only when system reduced motion is active, explain the static state and allow explicit visitor opt-in with a reversible local choice; normal playback has no controls.
-- **Use a centered, circular, borderless portrait presentation.** The owner's latest
-  2026-10-29 request supersedes the earlier unclipped silhouette presentation.
-  Clip only the display viewport; keep the original close-up composition, canonical
-  artwork and source proportions intact. The source scene stays inside the circle;
-  no outer background, stroke, frame, rectangular card or full-bust outpainting.
-  Raw Canvas pixels
-  retain binary alpha; the browser's circular clipping edge may be antialiased.
-- **Keep pixel art crisp.** Disable image smoothing and use nearest-neighbor display.
-  Align the displayed grid to integer physical-device-pixel multiples when space
-  permits; respond to viewport / DPR changes without per-frame layout work.
-- Keep personal content in `src/features/profile/content/site.ts` and shared layout in `SiteShell`.
-  Use owner-provided name fknejdcwnfi, greeting HELLOWORLD and the supplied email;
-  never invent credentials, employment, project claims or social accounts.
-- **No whole-image translate/rotate/scale** to fake hair motion or blinking.
-- Do not substitute independently generated faces. In the current default, keep
-  each source frame's own facial geometry, hair, jewelry and blink state; original
-  movement supersedes the old fixed-face/local-rig rule.
-- **Do not disable or break `.github/workflows/deploy.yml` or `ci.yml`.**
-  Pushes/merges to `main` auto-deploy to GitHub Pages. Modifying workflows
-  requires a GitHub connection with `workflow` permission.
-- **Do not run `npm run deploy`** (the `gh-pages` fallback) without the owner's
-  explicit approval. Normal deployment happens automatically on `main`.
-- **Keep `npm run build` and `npm run typecheck` green.**
-- **Update `docs/` and `CHANGELOG.md`** whenever behavior changes.
-- **Be honest about limitations.** “Not verified” must never be written as “done”.
-
----
-
-## Commands
+Use the existing checkout, Node24 and installed dependencies. Do not create a
+worktree unless the owner asks. Source images/authoring are offline; runtime is
+TypeScript/React/Canvas with no new external service requirement.
 
 ```bash
-npm ci
-npm run dev
-npm run test
-npm run typecheck
-npm run build
+npm run build              # includes Node tests and strict TypeScript
 npm run assets:check
-npm run assets:verify
+npm run assets:verify      # standard-library source/provenance checks used by CI
+npm run preview -- --host 127.0.0.1 --port 5180
+python3 scripts/qa/verify_final_scene.py
+python3 scripts/qa/capture_final_scene.py
+# After every other browser has closed, measure independently:
+python3 scripts/qa/capture_final_scene.py --measure
 ```
 
-Visual QA:
+Check actual clipped-circle pixels, original anchor timing, high-DPR/resizing,
+visible pink petals, snowfall, entry movement with BOTH module and movie blocked,
+phase handoff, preferences, failure recovery, no-JS and the complete personal site.
+Do not confuse animation callbacks, encoded frames or estimated interframes with
+physical-display FPS. Record actual conditions and limits. Update docs and
+CHANGELOG when behavior changes.
 
-```text
-http://localhost:5173/                  # complete personal homepage
-http://localhost:4173/website/          # preview after build
-http://localhost:4173/website/?view=portrait&theme=emerald&debug=1
-http://localhost:4173/website/?view=portrait&pose=5  # isolated portrait QA
-```
+## GitHub and publication
 
-Deployment is automatic: pushing/merging to `main` runs
-`.github/workflows/deploy.yml`. Do not run the fallback unless the owner asks:
-
-```bash
-npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
-```
-
----
-
-## Current state
-
-Only the default hero and personal-site statements below describe the active path. The detailed physics/Worker/12s wind/24s eyelid paragraphs are historical and must not be applied to the direct source-frame default.
-
-- Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default hero: `src/features/poeticPixel/`, detailed72-color pixel art, source-derived50fps animation,1432×1068 output and288 independent snowflakes in the same borderless circle. Parser video moves before the full atlas is ready. Read the latest guide; the rig/calm paragraphs below describe historical renderers.
-- Responsive personal homepage with an indigo double header, white document
-  layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
-- Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their
-  own arc-length spines and forward skeletal triangle meshes. Sixteen-node XPBD
-  rods use 240 Hz constrained steps, three warmup cycles and a 120 Hz world-pose
-  cache. The default physical parameters load an integrity-checked precomputed cycle without a Worker; non-default parameters and cache-load failure use a Worker. Runtime interpolates nodes at rAF cadence. The
-  field/inverse-map renderer is archived in `src/archive/fieldPortrait/`.
-- Eight current complete hair materials, canonical face/body clean plate, original local
-  eyelids and independently pivoting complete earrings. The 12-second wind contains
-  a persistent lateral breeze and per-lock local eddies. Do not restore the unconditional upward wind load rejected as a rising tide. The accepted 24-second blink clock
-  remains at 4400/11300/20300 ms with 280 ms events.
-- Reduced motion, poses1/10, wind0 and direction0 paint canonical pixels immediately
-  without starting a physics Worker. Wind0 still retains independent blinking.
-  Hidden/offscreen suspension preserves phase; asynchronous preparation generations
-  prevent outdated configuration results/errors from replacing a newer rig.
-- New natural portrait masters are in `assets/generated/portrait-v4/`; authoring
-  grids are in `public/assets/portrait-natural/`; normal Player reads byte-exact
-  baked `public/assets/portrait-rig/rig-{size}.json/png` without runtime segmentation. The transparent static
-  fallback is `public/portrait-rest.png` at 768²; OG composition remains separate.
-- Archived modes: ?style=voxel retains the prior block bust; ?style=legacy
-  retains the ten-pose provisional anime cross-fade.
-- Immutable source assets; WebP derivatives generated by `scripts/assets/optimize_assets.py`.
-- `src/app` composes the site; `src/features/profile` owns content/UI;
-  `src/features/portrait` owns the rig; shared types live in `src/shared`.
-  Archived players load only for explicit historical modes. See `scripts/README.md`.
-- `socials` and `gameProfiles` in site.ts are optional typed extensions. Render only
-  verified owner content; empty configurations must not show placeholder accounts or dead links.
-- Static initial HTML and error fallbacks preserve content when the app fails;
-  reduced-motion support and URL debug switches remain.
-- Live at <https://fknejdcwnfi.github.io/website/> via GitHub Actions;
-  the historical `gh-pages` commit is preserved under the archive/2026-10-29/gh-pages tag.
-  The explicitly requested manual fallback can recreate that branch; normal publishing uses main.
-- Normal t=0 is a flowing breeze pose, not a forced rest frame. Explicit pose1/10
-  and reduced motion preserve the canonical static rest view. wind=0 suppresses
-  hair/jewelry motion while the independent eye schedule continues. Keep all delayed
-  strand/recoil samples periodic; never reintroduce settling windows at the seam.
-- Current reconstruction evidence lives in `artifacts/video-layered/`;
-  `artifacts/reference-rebuild/` records PR9, whose hair effect the owner rejected;
-  `artifacts/flowing-hair/` records the previous visible-hair baseline;
-  `artifacts/gentle-portrait/` records PR7 before the stronger circle-visible flow,
-  and `artifacts/pixel-world/` records the earlier fast gust. Never cite historical
-  measurements as current verification.
-- Verify hair motion within the visible circular crop, including face-side locks
-  and long-curl midsections. Whole-Canvas texture differences or off-crop peaks
-  alone do not establish that the owner can see flowing hair. Preserve the approved
-  independent blink behavior when refining wind.
-- The layered clean plate uses retained underpaint and local hidden-surface repair; full source-identical
-  face/shoulder layer reconstruction remains constrained. Do not claim complete
-  layered art, source-identical geometry, perfect likeness or unmeasured QA.
-
-## Suggested next task
-
-Continue `docs/guides/personal-site.md` for website content, accessibility, responsive
-layout and availability. Use the living-portrait and reference-wind guides for fidelity and animation. Preserve
-the owner's personalization choices and keep future sections independent of the
-rig. Do not add fake content or inactive feature controls. Use the existing
-isolated checkout, without a worktree unless the user explicitly requests one.
-
-## Delivery checklist
-
-- One PR, one concern.
-- Include commands run, screenshots (or why they were impossible), and known limitations.
-- Update `CHANGELOG.md` and affected docs.
-- The owner authorized automatic merging on 2026-10-28 for this and future tasks.
-  Once required CI and change-relevant validation pass and no merge blockers
-  remain, merge the task PR and verify the resulting Pages deployment without
-  requesting routine confirmation. Honor newer task-specific instructions.
-  This supersedes older merge-only restrictions in task examples; it does not
-  authorize skipping checks, bypassing branch protection, expanding task scope,
-  or accepting unresolved asset and architecture decisions.
-- A newer explicit hold on publishing overrides the standing auto-merge policy.
-  Complete reviewable changes and validation locally while such a hold is active;
-  do not push, merge, deploy or publish an environment until authorization resumes.
-- **Authorization resumed on 2026-10-29:** the owner explicitly requested
-  automatic merging and website updates together with richer reference-driven
-  hair/wind/blink motion. After review and passing checks, open and merge the PR,
-  then verify GitHub Actions / Pages; no routine confirmation is needed.
-- Merging to `main` triggers the Pages deployment; verify the Actions run.
-- Keep main as the permanent branch. After merging, remove the task branch only
-  after checking its published tree; archive superseded unique commits before cleanup.
-  See `docs/maintenance/branch-cleanup.json` for the 2026-10-29 cleanup and recovery refs.
-
-If blocked, stop and report:
-
-```text
-STOPPED: <one-line reason>
-Done: <...>
-Not done: <...>
-Needs owner decision: <specific question with options>
-```
+- Keep `.github/workflows/ci.yml` and `deploy.yml` intact. Main merges deploy via
+  GitHub Actions. Do not change workflows without the required workflow permission.
+- Do **not** run `npm run deploy`: it force-pushes the manual gh-pages fallback,
+  which requires a separate explicit request.
+- The owner authorized automatic merging on2026-10-28 and explicitly resumed
+  automatic website updates on2026-10-29. After review and required CI/checks pass,
+  create/merge the task PR and verify Actions/Pages without routine confirmation.
+  Honor any newer explicit publishing hold. Never bypass checks or branch protection.
+- Verify the merged tree equals the reviewed tree and the Pages deployment targets
+  that commit. A network-policy denial is not a visitor-facing HTTP error; do not
+  bypass environment networking restrictions to test publication.
+- Main is permanent. After successful publication, archive any unique task head
+  before deleting only that task branch. Preserve unrelated unmerged work.

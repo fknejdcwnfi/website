@@ -1,0 +1,43 @@
+{
+  "method": "Explicit fixed72-color palette indices, PNG8; no quantization, color averaging or dithering",
+  "files": [
+    {
+      "file": "atlas.png",
+      "beforeBytes": 3560856,
+      "afterBytes": 1395624,
+      "decodedRgbIdentical": true,
+      "decodedRgbSha256": "ab1adb820729694c53196d15e5a9d7850749ac6705f6436a244b605b3711d755",
+      "dimensions": [
+        2864,
+        2136
+      ]
+    },
+    {
+      "file": "source-atlas.png",
+      "beforeBytes": 1103913,
+      "afterBytes": 419082,
+      "decodedRgbIdentical": true,
+      "decodedRgbSha256": "a3929c6bd0105f7425bb5235840d6fe3af677414b16131cea7225dfd6b873d71",
+      "dimensions": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "file": "canonical.png",
+      "beforeBytes": 300674,
+      "afterBytes": 148704,
+      "decodedRgbIdentical": true,
+      "comparison": "Same final8x canonical in RGB PNG vs palette PNG; expected pixels also independently verified by assets.json",
+      "decodedRgbSha256": "cff263b7789f95c169d8beb587e131fcdc49edbbc128f4b18744504062a7259e",
+      "dimensions": [
+        2864,
+        2136
+      ]
+    }
+  ],
+  "bootBeforeBytes": 1527379,
+  "bootAfterBytes": 972129,
+  "defaultMediaBeforeBytes": 5256040,
+  "defaultMediaAfterBytes": 2516457
+}

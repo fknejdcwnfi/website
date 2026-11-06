@@ -105,7 +105,7 @@ export const site: SiteContent = {
       id: 'living-portrait',
       title: 'Living Portrait',
       subtitle: '個人網站 · 像素動態實驗',
-      description: '將 Vermouth 原動畫轉成高清像素畫，保留樱花與富士山，讓飄髮、眨眼與細雪連貫流動。',
+      description: '將 Vermouth 原動畫轉成高清像素畫，保留樱花與富士山，讓飄髮、眨眼、細雪與粉色花瓣連貫流動。',
       tags: ['TypeScript', 'React', 'Canvas'],
       href: 'https://github.com/fknejdcwnfi/website',
       status: 'active',

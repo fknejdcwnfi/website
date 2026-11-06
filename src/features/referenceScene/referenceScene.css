@@ -5,7 +5,25 @@
 .reference-scene__canvas, .reference-scene__poster { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .reference-scene__poster { position: absolute; inset: 0; }
 .reference-scene__preview { position: absolute; inset: 0; pointer-events: none; }
-.reference-scene__preview[data-active="false"] { visibility: hidden; }
+.reference-scene__preview[data-active="false"] .poetic-scene__boot { visibility: hidden; }
+.poetic-entry-group { position: absolute; inset: 0; }
+.poetic-entry-atmosphere { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; opacity: 1; }
+.poetic-entry-group[data-weather="hidden"] .poetic-entry-atmosphere { display: none; }
+.poetic-entry-group[data-weather="fading"] .poetic-entry-atmosphere { opacity: 0; transition: opacity 180ms linear; }
+.poetic-entry-fall { animation: poetic-entry-fall var(--entry-duration) linear infinite; animation-delay: var(--entry-phase); }
+.poetic-entry-petal { opacity: .88; }
+.poetic-entry-tumble { transform-box: fill-box; transform-origin: center; animation: poetic-entry-tumble var(--entry-tumble) steps(12, end) infinite; animation-delay: var(--entry-phase); }
+.poetic-entry-group[data-motion="paused"] .poetic-entry-fall, .poetic-entry-group[data-motion="paused"] .poetic-entry-tumble { animation-play-state: paused; }
+@keyframes poetic-entry-fall {
+  from { transform: translate(var(--entry-x), -24px); }
+  to { transform: translate(var(--entry-end-x), 291px); }
+}
+@keyframes poetic-entry-tumble {
+  0%, 100% { transform: rotate(-24deg) scaleX(.8); }
+  25% { transform: rotate(12deg) scaleX(.4); }
+  50% { transform: rotate(42deg) scaleX(1); }
+  75% { transform: rotate(6deg) scaleX(.5); }
+}
 .poetic-scene__boot { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; opacity: 0; }
 .poetic-scene__boot[data-ready="true"] { opacity: 1; }
 .reference-scene__status { font: 12px/1.7 system-ui, sans-serif; text-align: center; }

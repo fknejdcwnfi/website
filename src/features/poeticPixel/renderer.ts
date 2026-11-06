@@ -1,8 +1,8 @@
 import type { SceneRendererFactory } from '../referenceScene/types'
 import { sampleSourceTime, validateSourceTiming } from '../referenceScene/sourceTiming'
-import { createPixelScaler } from '../referenceScene/pixelArtScale'
+import { createFrameReconstruction } from './presentation/frameReconstruction'
 import { poeticPixelAssets, sourcePixelAssets } from './assets'
-import { createPoeticSnowPainter } from './snowRenderer'
+import { createAtmospherePainter, POETIC_SNOW_PARTICLES, POETIC_PETALS } from './atmosphere'
 
 const abortError = (): DOMException => new DOMException('Pixel scene loading was cancelled.', 'AbortError')
 
@@ -64,28 +64,37 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
   }
   if (signal.aborted) { bitmap?.close(); throw abortError() }
   const source: CanvasImageSource = bitmap ?? atlas
-  const reconstructed = document.createElement('canvas')
-  reconstructed.width = nativeWidth * 2
-  reconstructed.height = nativeHeight * 2
-  const reconstruction = reconstructed.getContext('2d')
-  if (!reconstruction) { bitmap?.close(); throw new Error('Pixel scene reconstruction is unavailable.') }
-  const scaler = createPixelScaler(nativeWidth, nativeHeight)
-  try {
-    // Preparation and raster warmup happen under the playing preview, before
-    // ScenePlayer reads the video's currentTime for its first visible paint.
-    scaler.paint(reconstruction, source, 0, 0, 0)
-    const last = timing.frameCount - 1
-    scaler.paint(reconstruction, source, last % descriptor.atlasColumns * nativeWidth,
-      Math.floor(last / descriptor.atlasColumns) * nativeHeight, last)
-    if (signal.aborted) throw abortError()
-  } catch (error) {
-    scaler.destroy()
-    bitmap?.close()
-    reconstructed.width = reconstructed.height = 1
-    throw error
-  }
-  const snow = createPoeticSnowPainter()
-  const snowEnabled = parameters.get('snow') !== '0'
+  const weatherEnabled = parameters.get('atmosphere') !== '0' && parameters.get('snow') !== '0'
+  const petalsEnabled = weatherEnabled && parameters.get('petals') !== '0'
+  const prepared = (() => {
+    let stage: HTMLCanvasElement | undefined
+    let cache: ReturnType<typeof createFrameReconstruction> | undefined
+    try {
+      stage = document.createElement('canvas')
+      stage.width = nativeWidth * 4
+      stage.height = nativeHeight * 4
+      const reconstruction = stage.getContext('2d')
+      if (!reconstruction) throw new Error('Pixel scene reconstruction is unavailable.')
+      cache = createFrameReconstruction(nativeWidth, nativeHeight)
+      const paintAtmosphere = createAtmospherePainter({ snow: weatherEnabled, petals: petalsEnabled })
+      // Finish constructors and raster warmup under the playing preview, before
+      // ScenePlayer reads its video phase for the first visible HD paint.
+      cache.paint(reconstruction, source, 0, 0, 0)
+      const last = timing.frameCount - 1
+      cache.paint(reconstruction, source, last % descriptor.atlasColumns * nativeWidth,
+        Math.floor(last / descriptor.atlasColumns) * nativeHeight, last)
+      if (signal.aborted) throw abortError()
+      return { reconstructed: stage, reconstruction, scaler: cache, paintAtmosphere }
+    } catch (error) {
+      cache?.destroy()
+      bitmap?.close()
+      if (stage) stage.width = stage.height = 1
+      throw error
+    }
+  })()
+  const { reconstructed, reconstruction, scaler, paintAtmosphere } = prepared
+  const inspection = parameters.has('t') || original
+  let firstPaintMs: number | null = null
   let currentFrame = -1
   let destroyed = false
   return {
@@ -101,8 +110,11 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
       context.imageSmoothingEnabled = false
       // Redraw the complete opaque base on every visible rAF. Snow is painted
       // afterwards on a continuous clock, without accumulating old flake pixels.
-      context.drawImage(reconstructed, 0, 0, width, height)
-      if (snowEnabled && !sample.static) snow(context, sample.elapsedMs, width, height)
+      const outputWidth = context.canvas.width, outputHeight = context.canvas.height
+      context.drawImage(reconstructed, 0, 0, outputWidth, outputHeight)
+      firstPaintMs ??= sample.elapsedMs
+      const opacity = inspection ? 1 : Math.max(0, Math.min(1, (sample.elapsedMs - firstPaintMs) / 180))
+      if (weatherEnabled && !sample.static) paintAtmosphere(context, sample.elapsedMs, outputWidth, outputHeight, opacity)
       const canvas = context.canvas
       canvas.dataset.motionKind = 'direct-source-frames'
       canvas.dataset.motionSource = original ? 'original-anchors' : 'source-only-interframes'
@@ -112,8 +124,9 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
       canvas.dataset.sourceDuration = String(timing.durationMs)
       canvas.dataset.elapsedMs = String(sample.elapsedMs)
       canvas.dataset.sourceFrameDuration = String(phase.frameDurationMs)
-      canvas.dataset.pixelReconstruction = 'scale2x-nearest2'
-      canvas.dataset.snowParticles = snowEnabled && !sample.static ? '288' : '0'
+      canvas.dataset.pixelReconstruction = 'scale4x-adaptive'
+      canvas.dataset.snowParticles = weatherEnabled && !sample.static ? String(POETIC_SNOW_PARTICLES.length) : '0'
+      canvas.dataset.petalParticles = petalsEnabled && !sample.static ? String(POETIC_PETALS.length) : '0'
       canvas.dataset.snowTimeMs = String(sample.elapsedMs)
     },
     destroy() {

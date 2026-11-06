@@ -6,15 +6,15 @@ const base = `${import.meta.env.BASE_URL}assets/poetic-pixel/`
 
 export const poeticPixelDefinition: SceneDefinition = {
   version: 1,
-  width: poeticPixelAssets.canonicalWidth,
-  height: poeticPixelAssets.canonicalHeight,
+  width: poeticPixelAssets.outputWidth,
+  height: poeticPixelAssets.outputHeight,
   canonical: {
     src: `${base}${poeticPixelAssets.canonical}?v=${poeticPixelAssets.canonicalSha256}`,
     width: poeticPixelAssets.canonicalWidth,
     height: poeticPixelAssets.canonicalHeight,
   },
   layers: {},
-  description: 'Vermouth 的高清像素圓形風景，櫻花、富士山與夕陽之間長髮隨風飄動，細雪紛飛。',
+  description: 'Vermouth 的高清像素圓形風景，櫻花、富士山與夕陽之間長髮隨風飄動，細雪與粉色花瓣交錯飛舞。',
   motionSource: 'source-timing',
 }
 

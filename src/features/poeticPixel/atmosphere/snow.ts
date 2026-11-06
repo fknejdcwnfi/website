@@ -2,7 +2,7 @@
 export const POETIC_SNOW_PERIOD_MS = 48_000
 export const POETIC_SNOW_WIDTH = 358
 export const POETIC_SNOW_HEIGHT = 267
-export const POETIC_SNOW_LAYERS = Object.freeze({ far: 128, middle: 112, near: 48 })
+export const POETIC_SNOW_LAYERS = Object.freeze({ far: 160, middle: 144, near: 80 })
 export type PoeticSnowDepth = keyof typeof POETIC_SNOW_LAYERS
 export type PoeticSnowShape = 'point' | 'glint' | 'crystal'
 export type PoeticSnowParticle = Readonly<{
