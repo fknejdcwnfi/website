@@ -13,17 +13,17 @@ before changing the site. The owner's latest instructions override older guides.
   sunset inside it. The existing cover crop remains; do not add outside scenery,
   a frame, a new bust or a replacement character.
 - Preserve faithful Minecraft-inspired **2D pixel art**, not Steve/3D anatomy.
-  The fixed72-color palette, source-coordinate contours and all16 original80ms
+  The fixed96-color exact-source palette (including the previous72), contours and all16 original80ms
   motion anchors remain authoritative. The48 estimated transitions make50fps,
   not new original source information. Never restore the rejected AI-mother
   retargeting, pose fields, whole-image distortion or a newly simulated hair rig.
 - Refine pixel edges with two source-color-only Scale2x passes. Runtime uses a
-  bounded two-frame cache and a4× reconstructed stage, then adaptive4/6/8× backing
+  single bounded native-atlas RGBA readback, two-frame cache and a4× reconstructed stage, then adaptive4/6/8× backing
   dimensions based on actual circle size and DPR. Maximum2864×2136; lower-memory
   devices are capped. Disable smoothing and retain the native pixel appearance.
   Enlargement cannot recover detail absent from the358×267 source.
 - Snow and cherry petals are independent layers inside the same circle:
-  384 snowflakes /48s,48 pink petals /96s. They must already occupy the scene at
+  448 snowflakes /48s,60 pink petals /96s. They must already occupy the scene at
   time zero, fall continuously with a gentle side breeze, preserve the expression
   and remain independent of the source1.28s loop. No per-frame random reseeding.
 - Entry weather must move from the first HTML/CSS paint without waiting for media
@@ -55,7 +55,7 @@ before changing the site. The owner's latest instructions override older guides.
 - Older `faithfulPixel/`, `calmPortrait/`, `portrait/`, `archive/` and old evidence
   remain historical. Do not delete unique source/evidence to simplify the tree.
   Only explicit historical routes may load their runtime code/assets.
-- Current evidence is `artifacts/final-scene/`. Earlier artifact directories retain
+- Current evidence is `artifacts/scenic-refinement/`. Earlier artifact directories retain
   their original results and must not be cited as verification of the final scene.
   [decisions.md](docs/decisions.md) records why previous implementations changed.
 

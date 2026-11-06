@@ -13,7 +13,7 @@ from capture_portrait import CONTROLLED_RAF
 ROOT=Path(__file__).resolve().parents[2]
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--url',default='http://127.0.0.1:5180/website/')
-parser.add_argument('--output',type=Path,default=ROOT/'artifacts/final-scene')
+parser.add_argument('--output',type=Path,default=ROOT/'artifacts/scenic-refinement')
 parser.add_argument('--measure',action='store_true')
 parser.add_argument('--dpr',type=float,choices=[1,2,3,4],default=1)
 args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=True)
@@ -61,7 +61,7 @@ with sync_playwright() as playwright:
                 'firstDecodedPreviewMsLocal':result['previewDecodedMs'],'hdReadyMsLocal':ready,
                 'callbacks':len(costs),'seconds':result['seconds'],'callbacksPerSecond':len(costs)/result['seconds'],
                 'estimatedSourceFrameChanges':changes,'estimatedSourceChangesPerSecond':changes/result['seconds'],
-                'originalSourceFps':12.5,'estimatedPlaybackFps':50,'snowParticles':384,'petalParticles':48,
+                'originalSourceFps':12.5,'estimatedPlaybackFps':50,'snowParticles':448,'petalParticles':60,
                 'callbackMs':{'median':statistics.median(costs),'p95':costs[int((len(costs)-1)*.95)],'max':max(costs)},
                 'browserErrors':errors,'physicalDisplayVerified':False}
         (args.output/('performance.json' if args.dpr==1 else f'performance-dpr{args.dpr:g}.json')).write_text(json.dumps(report,indent=2)+'\n')

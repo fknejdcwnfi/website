@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { loadImage } from '../../src/features/portrait/renderer/portraitAsset.ts'
+import { readNativeAtlas } from '../../src/features/poeticPixel/presentation/readNativeAtlas.ts'
 
 function installImageMock(t) {
   const originalImage = globalThis.Image
@@ -84,4 +85,67 @@ test('a hanging portrait request times out, clears its handlers and removes the 
   assert.equal(images[0].onerror, null)
   lateOnload()
   await assert.rejects(failed, /Timed out loading portrait artwork/)
+})
+
+function installNativeReadbackMocks(t, createImageBitmap, document) {
+  for (const [name, value] of Object.entries({ createImageBitmap, document })) {
+    const original = Object.getOwnPropertyDescriptor(globalThis, name)
+    Object.defineProperty(globalThis, name, { configurable: true, writable: true, value })
+    t.after(() => {
+      if (original) Object.defineProperty(globalThis, name, original)
+      else delete globalThis[name]
+    })
+  }
+}
+
+test('native atlas abort closes a late bitmap without allocating a readback canvas', async (t) => {
+  let finishBitmap
+  const pendingBitmap = new Promise(resolve => { finishBitmap = resolve })
+  let closed = 0, removed = 0, allocated = 0
+  const bitmap = { close() { closed++ } }
+  const image = {
+    naturalWidth: 2, naturalHeight: 1,
+    removeAttribute(name) { assert.equal(name, 'src'); removed++ },
+  }
+  installNativeReadbackMocks(t, () => pendingBitmap, {
+    createElement() { allocated++; throw new Error('Aborted atlas must not allocate a canvas.') },
+  })
+  const controller = new AbortController()
+  const pendingRead = readNativeAtlas(image, controller.signal)
+  const rejection = assert.rejects(pendingRead, { name: 'AbortError' })
+  controller.abort()
+  finishBitmap(bitmap)
+  await rejection
+  assert.equal(closed, 1)
+  assert.equal(removed, 1)
+  assert.equal(allocated, 0)
+})
+
+test('native atlas readback falls back to its decoded image if bitmap creation rejects', async (t) => {
+  let removed = 0, drawn = 0
+  const image = {
+    naturalWidth: 2, naturalHeight: 1,
+    removeAttribute(name) { assert.equal(name, 'src'); removed++ },
+  }
+  const pixels = new Uint8ClampedArray([21, 44, 75, 255, 224, 184, 151, 128])
+  const scratch = {
+    width: 0, height: 0,
+    getContext() {
+      return {
+        drawImage(source) { assert.equal(source, image); drawn++ },
+        getImageData(x, y, width, height) {
+          assert.deepEqual([x, y, width, height], [0, 0, 2, 1])
+          return { data: pixels }
+        },
+      }
+    },
+  }
+  installNativeReadbackMocks(t, async () => { throw new Error('Bitmap creation is unavailable.') }, {
+    createElement() { return scratch },
+  })
+  const result = await readNativeAtlas(image, new AbortController().signal)
+  assert.deepEqual(result, { data: pixels, width: 2, height: 1 })
+  assert.equal(drawn, 1)
+  assert.equal(removed, 1)
+  assert.deepEqual([scratch.width, scratch.height], [1, 1])
 })

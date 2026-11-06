@@ -32,7 +32,7 @@ VIEWPORT = '.reference-scene__viewport'
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url', default='http://127.0.0.1:5180/website/')
-    parser.add_argument('--output', type=Path, default=ROOT/'artifacts/final-scene/site')
+    parser.add_argument('--output', type=Path, default=ROOT/'artifacts/scenic-refinement/site')
     parser.add_argument('--only-entry', action='store_true', help='Run an explicitly partial startup diagnostic')
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -41,7 +41,7 @@ def main():
     report = {'status':'failed', 'scope':'entry-only' if args.only_entry else 'complete',
               'checks':[], 'browserErrors':[], 'sourceSamples':[], 'weatherSamples':[],
               'presentation':[], 'sourceFrames':16, 'estimatedInterframes':48,
-              'playbackFps':50, 'snowParticles':384, 'petalParticles':48}
+              'playbackFps':50, 'snowParticles':448, 'petalParticles':60}
 
     def save():
         (args.output/'checks.json').write_text(json.dumps(report, indent=2)+'\n')
@@ -129,18 +129,43 @@ def main():
 
     with sync_playwright() as playwright:
         browser=playwright.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
-        context=browser.new_context(viewport={'width':1440,'height':1100},device_scale_factor=1)
+        def new_context(**options):
+            ctx=browser.new_context(**options)
+            ctx.on('page',lambda p:p.on('pageerror',lambda error:report['browserErrors'].append(str(error))))
+            return ctx
+        context=new_context(viewport={'width':1440,'height':1100},device_scale_factor=1)
+        context.add_init_script('''
+          window.__pixelReadbacks=[];
+          const read=CanvasRenderingContext2D.prototype.getImageData;
+          CanvasRenderingContext2D.prototype.getImageData=function(...args){
+            window.__pixelReadbacks.push({canvas:[this.canvas.width,this.canvas.height],region:args.slice(0,4)});
+            return read.apply(this,args);
+          };
+        ''')
         page=context.new_page();requests=[]
         page.on('request',lambda r:requests.append(r.url))
-        page.on('pageerror',lambda e:report['browserErrors'].append(str(e)))
 
         if not args.only_entry:
             page.goto(url());page.wait_for_selector(CANVAS+'[data-ready=true][data-playback=looping]')
             presentation(page,'desktop_dpr1',(1432,1068))
             check('complete_site',all(page.locator(s).count() for s in ('#about','#work','#contact','footer')))
             check('no_normal_controls',page.locator('.reference-scene button').count()==0)
-            check('snow_and_petals_selected',page.locator(CANVAS).get_attribute('data-snow-particles')=='384' and
-                  page.locator(CANVAS).get_attribute('data-petal-particles')=='48')
+            check('snow_and_petals_selected',page.locator(CANVAS).get_attribute('data-snow-particles')=='448' and
+                  page.locator(CANVAS).get_attribute('data-petal-particles')=='60')
+            readbacks=page.evaluate('window.__pixelReadbacks')
+            check('one_bounded_native_atlas_readback',len(readbacks)==1 and
+                  readbacks[0]['canvas']==list(atlas.size) and
+                  readbacks[0]['region']==[0,0,*atlas.size],readbacks)
+            running=page.locator(CANVAS).evaluate('''async c=>{
+              const reads=window.__pixelReadbacks.length,frames=new Set();
+              const observer=new MutationObserver(()=>frames.add(c.dataset.sourceFrame));
+              observer.observe(c,{attributes:true,attributeFilter:['data-source-frame']});
+              await new Promise(resolve=>setTimeout(resolve,320));observer.disconnect();
+              return {additionalReadbacks:window.__pixelReadbacks.length-reads,sourceFramesObserved:frames.size};
+            }''')
+            check('source_frames_without_pixel_readback',running['additionalReadbacks']==0 and
+                  running['sourceFramesObserved']>=5,running)
+            report['reconstructionReadback']={'preparation':readbacks,**running}
             check('no_old_artwork',not any(any(prefix in request for prefix in
                   ('/reference-scene/','/calm-circle/','/faithful-pixel/')) for request in requests),requests)
             page.screenshot(path=str(args.output/'desktop.png'),full_page=True)
@@ -173,7 +198,7 @@ def main():
 
         # Neither a video frame nor any application bundle may be required for
         # the first clearly pink, moving entry weather.
-        blocked=browser.new_context(viewport={'width':1440,'height':1100})
+        blocked=new_context(viewport={'width':1440,'height':1100})
         p=blocked.new_page();held_media=[]
         p.route('**/*.js',lambda route:route.abort())
         p.route('**/assets/poetic-pixel/*.mp4*',lambda route:held_media.append(route))
@@ -202,7 +227,7 @@ def main():
         blocked.close()
 
         if not args.only_entry:
-            delayed=browser.new_context(viewport={'width':1440,'height':1100})
+            delayed=new_context(viewport={'width':1440,'height':1100})
             delayed.add_init_script('''
               window.__firstHandoff=null;window.__parserVideo=null;window.__parserEntry=null;
               document.addEventListener('DOMContentLoaded',()=>{
@@ -238,7 +263,7 @@ def main():
             delayed.close()
 
             # The legacy all-weather switch must apply before handoff too.
-            legacy=browser.new_context();g=legacy.new_page();legacy_atlas=[]
+            legacy=new_context();g=legacy.new_page();legacy_atlas=[]
             g.route('**/assets/poetic-pixel/atlas.png*',lambda route:legacy_atlas.append(route))
             g.goto(url(snow=0),wait_until='domcontentloaded')
             g.wait_for_selector(CANVAS+'[data-playback=preparing]')
@@ -249,7 +274,7 @@ def main():
                   g.locator(CANVAS).get_attribute('data-petal-particles')=='0')
             legacy.close()
 
-            reduced=browser.new_context(reduced_motion='reduce')
+            reduced=new_context(reduced_motion='reduce')
             r=reduced.new_page();reduced_requests=[];r.on('request',lambda request:reduced_requests.append(request.url))
             r.goto(url());r.wait_for_selector(CANVAS+'[data-playback=static]')
             actual=pixels(r)
@@ -268,7 +293,7 @@ def main():
             check('offscreen_pauses_weather',pixels(page).tobytes()==before)
             page.evaluate('scrollTo(0,0)');page.wait_for_selector(CANVAS+'[data-playback=looping]')
 
-            failure=browser.new_context();f=failure.new_page()
+            failure=new_context();f=failure.new_page()
             f.route('**/assets/poetic-pixel/atlas.png*',lambda route:route.fulfill(status=503,body='QA'))
             f.goto(url());f.wait_for_selector(CANVAS+'[data-playback=failed]')
             f.wait_for_selector(ENTRY+'[data-motion=running]');first=screenshot_circle(f);f.wait_for_timeout(180)
@@ -276,7 +301,37 @@ def main():
             f.unroute('**/assets/poetic-pixel/atlas.png*');f.get_by_role('button',name='重試載入',exact=True).click()
             f.wait_for_selector(CANVAS+'[data-playback=looping]');check('atlas_retry_recovers');failure.close()
 
-            construction=browser.new_context()
+            read_failure=new_context()
+            read_failure.add_init_script('''
+              window.__readFault=true;window.__bitmapAcquired=0;window.__bitmapClosed=0;window.__nativeScratch=null;
+              const make=window.createImageBitmap;
+              window.createImageBitmap=async function(...args){
+                const bitmap=await make.apply(window,args);window.__bitmapAcquired++;return bitmap;
+              };
+              const close=ImageBitmap.prototype.close;
+              ImageBitmap.prototype.close=function(...args){window.__bitmapClosed++;return close.apply(this,args)};
+              const read=CanvasRenderingContext2D.prototype.getImageData;
+              CanvasRenderingContext2D.prototype.getImageData=function(...args){
+                if(this.canvas.width===2864&&this.canvas.height===2136){
+                  window.__nativeScratch=this.canvas;
+                  if(window.__readFault)throw Error('QA simulated native atlas readback failure');
+                }
+                return read.apply(this,args);
+              };
+            ''')
+            q=read_failure.new_page();q.goto(url());q.wait_for_selector(CANVAS+'[data-playback=failed]')
+            released=q.evaluate('({acquired:__bitmapAcquired,closed:__bitmapClosed,scratch:[__nativeScratch.width,__nativeScratch.height]})')
+            check('atlas_readback_failure_releases_resources',released['acquired']>=1 and
+                  released['closed']==released['acquired'] and released['scratch']==[1,1],released)
+            check('atlas_readback_failure_preserves_site',all(q.locator(s).count() for s in ('#about','#work','#contact','footer')))
+            q.evaluate('window.__readFault=false');q.get_by_role('button',name='重試載入',exact=True).click()
+            q.wait_for_selector(CANVAS+'[data-playback=looping]')
+            released=q.evaluate('({acquired:__bitmapAcquired,closed:__bitmapClosed,scratch:[__nativeScratch.width,__nativeScratch.height]})')
+            check('atlas_readback_retry_releases_temporary_resources',released['acquired']>=2 and
+                  released['closed']==released['acquired'] and released['scratch']==[1,1],released)
+            read_failure.close()
+
+            construction=new_context()
             construction.add_init_script('''
               window.__spriteFault=true;window.__bitmapAcquired=0;window.__bitmapClosed=0;
               const make=window.createImageBitmap;
@@ -287,7 +342,7 @@ def main():
               ImageBitmap.prototype.close=function(...args){window.__bitmapClosed++;return close.apply(this,args)};
               const create=CanvasRenderingContext2D.prototype.createImageData;
               CanvasRenderingContext2D.prototype.createImageData=function(...args){
-                if(window.__spriteFault&&this.canvas.width===176&&this.canvas.height===99){
+                if(window.__spriteFault&&this.canvas.width===352&&this.canvas.height===165){
                   throw Error('QA simulated petal atlas construction failure');
                 }
                 return create.apply(this,args);
@@ -310,7 +365,7 @@ def main():
                     ('desktop_dpr3',{'width':1440,'height':1100},3,(2148,1602)),
                     ('desktop_dpr4',{'width':1440,'height':1100},4,(2864,2136)),
                     ('mobile_dpr3',{'width':390,'height':844},3,(1432,1068))]:
-                ctx=browser.new_context(viewport=viewport,device_scale_factor=dpr)
+                ctx=new_context(viewport=viewport,device_scale_factor=dpr)
                 ctx.add_init_script("Object.defineProperty(navigator,'deviceMemory',{configurable:true,get:()=>8})")
                 m=ctx.new_page();m.goto(url());m.wait_for_selector(CANVAS+'[data-ready=true][data-playback=looping]')
                 presentation(m,label,size)
@@ -331,12 +386,12 @@ def main():
                     check('maximum_resolution_exact_source_pixels',actual.tobytes()==expected(16,actual.size).tobytes())
                 ctx.close()
 
-            low_memory=browser.new_context(viewport={'width':1440,'height':1100},device_scale_factor=4)
+            low_memory=new_context(viewport={'width':1440,'height':1100},device_scale_factor=4)
             low_memory.add_init_script("Object.defineProperty(navigator,'deviceMemory',{configurable:true,get:()=>2})")
             l=low_memory.new_page();l.goto(url());l.wait_for_selector(CANVAS+'[data-ready=true]')
             presentation(l,'low_memory_dpr4',(1432,1068));low_memory.close()
 
-            nojs=browser.new_context(java_script_enabled=False,reduced_motion='reduce')
+            nojs=new_context(java_script_enabled=False,reduced_motion='reduce')
             n=nojs.new_page();n.goto(url());n.wait_for_selector('.reference-scene__poster')
             check('nojs_complete_content',all(n.locator(s).count() for s in ('#about','#work','#contact','footer')))
             check('nojs_entry_not_running',n.locator(ENTRY).get_attribute('data-motion')!='running')

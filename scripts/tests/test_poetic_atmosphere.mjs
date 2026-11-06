@@ -2,23 +2,25 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { POETIC_PETALS, POETIC_PETAL_LAYERS, POETIC_PETAL_PERIOD_MS,
   poeticPetalFaceVisibility, samplePoeticPetal } from '../../src/features/poeticPixel/atmosphere/petals.ts'
-import { POETIC_SNOW_PARTICLES } from '../../src/features/poeticPixel/atmosphere/snow.ts'
+import { POETIC_SNOW_PARTICLES, POETIC_SNOW_LAYERS } from '../../src/features/poeticPixel/atmosphere/snow.ts'
 import { PETAL_PALETTE, PETAL_SPRITE_CELL, PETAL_SPRITE_ATLAS_WIDTH, PETAL_SPRITE_ATLAS_HEIGHT,
-  makePetalSpritePixels } from '../../src/features/poeticPixel/atmosphere/petalSprites.ts'
+  PETAL_SPRITE_ROTATIONS, PETAL_SPRITE_TUMBLES, makePetalSpritePixels,
+  petalSpriteRow } from '../../src/features/poeticPixel/atmosphere/petalSprites.ts'
 import { createPoeticPetalPainter } from '../../src/features/poeticPixel/atmosphere/petalRenderer.ts'
 
 const shortestAngle = (a, b) => Math.atan2(Math.sin(b - a), Math.cos(b - a))
 
 test('the initial circle has recognizable middle and near petals alongside a stronger snow field', () => {
-  assert.equal(POETIC_PETALS.length, 48)
-  assert.equal(POETIC_SNOW_PARTICLES.length, 384)
-  assert.deepEqual(POETIC_PETAL_LAYERS, { far: 20, middle: 18, near: 10 })
+  assert.equal(POETIC_PETALS.length, Object.values(POETIC_PETAL_LAYERS).reduce((sum, count) => sum + count, 0))
+  assert.equal(POETIC_SNOW_PARTICLES.length, Object.values(POETIC_SNOW_LAYERS).reduce((sum, count) => sum + count, 0))
+  assert.deepEqual(POETIC_PETAL_LAYERS, { far: 24, middle: 22, near: 14 })
+  assert.deepEqual(POETIC_SNOW_LAYERS, { far: 192, middle: 160, near: 96 })
   for (const time of [0, 1000, 5000, 13000, 29000, 47000, 71000, 95000]) {
     const visible = POETIC_PETALS.map((_, index) => samplePoeticPetal(index, time))
       .filter(petal => Math.hypot(petal.x - 179, petal.y - 133.5) < 133.5 && petal.alpha > .25)
-    assert.ok(visible.length >= 12 && visible.length <= 28, `${time}: ${visible.length}`)
-    assert.ok(visible.filter(petal => petal.depth !== 'far').length >= 7, `No clear petals at ${time}`)
-    assert.ok(visible.some(petal => petal.depth === 'near'))
+    assert.ok(visible.length >= 16 && visible.length <= 36, `${time}: ${visible.length}`)
+    assert.ok(visible.filter(petal => petal.depth !== 'far').length >= 10, `No clear petals at ${time}`)
+    assert.ok(visible.filter(petal => petal.depth === 'near').length >= 3)
   }
   assert.ok(Object.isFrozen(POETIC_PETALS) && POETIC_PETALS.every(Object.isFrozen))
 })
@@ -75,6 +77,7 @@ test('the expression stays readable without a hard face-shaped exclusion', () =>
 test('the cached petal atlas uses pink binary-alpha silhouettes at every angle and tumble pose', () => {
   const pixels = makePetalSpritePixels()
   assert.equal(pixels.length, PETAL_SPRITE_ATLAS_WIDTH * PETAL_SPRITE_ATLAS_HEIGHT * 4)
+  assert.deepEqual([PETAL_SPRITE_ATLAS_WIDTH, PETAL_SPRITE_ATLAS_HEIGHT], [352, 165])
   const allowed = new Set(PETAL_PALETTE.map(color => color.slice(1)))
   for (let p = 0; p < pixels.length; p += 4) {
     assert.ok(pixels[p + 3] === 0 || pixels[p + 3] === 255)
@@ -91,9 +94,32 @@ test('the cached petal atlas uses pink binary-alpha silhouettes at every angle a
     }
     return total
   }
-  for (let row = 0; row < 9; row++) for (let rotation = 0; rotation < 16; rotation++) assert.ok(area(row, rotation) > 0)
-  assert.ok(area(8, 0) > area(6, 0), 'Face-on petal should open from its edge-on pose')
-  assert.ok(area(8, 0) > area(2, 0), 'Foreground petals should be larger than distant petals')
+  const layers = Object.keys(POETIC_PETAL_LAYERS)
+  for (let row = 0; row < layers.length * PETAL_SPRITE_TUMBLES; row++) {
+    for (let rotation = 0; rotation < PETAL_SPRITE_ROTATIONS; rotation++) {
+      assert.ok(area(row, rotation) > 0)
+      for (let edge = 0; edge < PETAL_SPRITE_CELL; edge++) {
+        for (const [x, y] of [[edge, 0], [edge, PETAL_SPRITE_CELL - 1], [0, edge], [PETAL_SPRITE_CELL - 1, edge]]) {
+          const offset = ((row * PETAL_SPRITE_CELL + y) * PETAL_SPRITE_ATLAS_WIDTH + rotation * PETAL_SPRITE_CELL + x) * 4
+          assert.equal(pixels[offset + 3], 0, `Petal clipped its cell at ${row}/${rotation}`)
+        }
+      }
+    }
+  }
+  assert.ok(area(petalSpriteRow('near', 1), 0) > area(petalSpriteRow('near', .35), 0),
+    'Face-on petal should open from its edge-on pose')
+  assert.ok(area(petalSpriteRow('near', 1), 0) > area(petalSpriteRow('far', 1), 0),
+    'Foreground petals should be larger than distant petals')
+  for (let layer = 0; layer < layers.length; layer++) {
+    const areas = Array.from({ length: PETAL_SPRITE_TUMBLES }, (_, pose) =>
+      Array.from({ length: PETAL_SPRITE_ROTATIONS }, (_, rotation) => area(layer * PETAL_SPRITE_TUMBLES + pose, rotation))
+        .reduce((sum, count) => sum + count, 0))
+    for (let pose = 1; pose < areas.length; pose++) {
+      assert.ok(areas[pose] > areas[pose - 1], 'Projected petal area must open gradually')
+      assert.ok(areas[pose] - areas[pose - 1] < areas.at(-1) * .25,
+        'One cached turn should not pop by a quarter of the face-on area')
+    }
+  }
 })
 
 test('petal drawing caches one sprite atlas, respects entry opacity and restores Canvas state', () => {
@@ -112,7 +138,7 @@ test('petal drawing caches one sprite atlas, respects entry opacity and restores
   }
   for (const time of [0, 19, 1280]) painter(context, time, 2864, 2136, .4)
   assert.equal(allocations, 1); assert.equal(uploads, 1)
-  assert.ok(draws.length >= 80 && draws.length <= 144)
+  assert.ok(draws.length >= POETIC_PETALS.length * 1.5 && draws.length <= POETIC_PETALS.length * 3)
   assert.equal(context.globalAlpha, .37); assert.equal(context.imageSmoothingEnabled, true)
   assert.equal(stack.length, 0)
   for (const { args, alpha } of draws) {

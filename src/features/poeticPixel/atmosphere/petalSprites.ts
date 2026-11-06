@@ -1,8 +1,8 @@
 import type { PoeticPetalDepth } from './petals.ts'
 
 export const PETAL_SPRITE_CELL = 11
-export const PETAL_SPRITE_ROTATIONS = 16
-export const PETAL_SPRITE_TUMBLES = 3
+export const PETAL_SPRITE_ROTATIONS = 32
+export const PETAL_SPRITE_TUMBLES = 5
 export const PETAL_SPRITE_ATLAS_WIDTH = PETAL_SPRITE_CELL * PETAL_SPRITE_ROTATIONS
 export const PETAL_SPRITE_ATLAS_HEIGHT = PETAL_SPRITE_CELL * PETAL_SPRITE_TUMBLES * 3
 export const PETAL_PALETTE = Object.freeze([
@@ -12,7 +12,7 @@ export const PETAL_PALETTE = Object.freeze([
 const COLORS = [[207, 115, 161], [245, 173, 203], [255, 226, 238], [233, 139, 183]] as const
 const WIDTHS = [2.1, 4.4, 6.0]
 const HEIGHTS = [3.2, 5.8, 7.4]
-const TUMBLE_WIDTH = [.35, .65, 1]
+const TUMBLE_WIDTH = [.35, .5125, .675, .8375, 1]
 // A notched rounded shoulder, tapered base and pointed tip distinguish petals from confetti.
 const OUTLINE = [
   [-.10, -.98], [-.47, -.89], [-.76, -.57], [-.82, -.10], [-.65, .36],
@@ -31,7 +31,8 @@ const inside = (x: number, y: number): boolean => {
 
 export const petalSpriteRow = (depth: PoeticPetalDepth, tumble: number): number => {
   const layer = depth === 'far' ? 0 : depth === 'middle' ? 1 : 2
-  const pose = tumble < .5 ? 0 : tumble < .8 ? 1 : 2
+  const pose = Math.min(PETAL_SPRITE_TUMBLES - 1,
+    Math.max(0, Math.round((tumble - .35) / .65 * (PETAL_SPRITE_TUMBLES - 1))))
   return layer * PETAL_SPRITE_TUMBLES + pose
 }
 

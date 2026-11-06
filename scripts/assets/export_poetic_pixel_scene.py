@@ -23,10 +23,28 @@ SOURCE = ROOT / 'reference-projects/fuji-wind/original'
 OUT = ROOT / 'public/assets/poetic-pixel'
 AUTHOR = ROOT / 'src/features/poeticPixel/assets.ts'
 WIDTH, HEIGHT = 358, 267
-# Fixed once from the complete original16-frame histogram using deterministic
-# weighted source-color medoids. The first five pin exact iris/sapphire/glint RGB.
+# Fixed once from all16 original frames: retain the existing72 source medoids,
+# then24 exact-source RGB selected by weighted error reduction for the visible
+# background and hair. The first five pin exact iris/sapphire/glint RGB.
 # No intermediate frame trains the palette; there is no frame-local adaptation.
-PALETTE = np.array([[33, 58, 99], [69, 133, 185], [108, 170, 216], [128, 183, 219], [254, 251, 236], [216, 186, 180], [125, 103, 105], [170, 140, 136], [12, 10, 15], [87, 67, 71], [63, 88, 140], [115, 121, 161], [169, 162, 188], [246, 219, 208], [197, 165, 155], [80, 109, 164], [49, 35, 41], [155, 118, 117], [132, 150, 192], [108, 86, 88], [97, 130, 185], [54, 67, 101], [93, 99, 131], [145, 132, 167], [202, 176, 169], [229, 202, 195], [182, 143, 168], [134, 120, 131], [67, 54, 61], [187, 177, 197], [84, 83, 98], [94, 108, 151], [136, 111, 112], [191, 151, 139], [133, 90, 83], [35, 27, 35], [122, 134, 176], [101, 122, 170], [173, 127, 120], [164, 169, 199], [234, 192, 168], [113, 140, 191], [143, 102, 95], [38, 48, 74], [109, 97, 105], [120, 117, 145], [138, 129, 148], [246, 213, 191], [159, 125, 154], [85, 90, 118], [200, 161, 181], [108, 107, 135], [210, 209, 221], [174, 153, 155], [69, 64, 77], [108, 66, 62], [63, 79, 118], [70, 86, 125], [157, 163, 196], [160, 133, 131], [162, 138, 167], [76, 100, 151], [206, 170, 157], [222, 194, 188], [252, 234, 218], [77, 74, 87], [128, 127, 163], [87, 116, 170], [123, 112, 125], [89, 75, 81], [105, 114, 155], [95, 53, 50]], dtype=np.int32)
+PALETTE = np.array([
+    [33, 58, 99], [69, 133, 185], [108, 170, 216], [128, 183, 219], [254, 251, 236], [216, 186, 180],
+    [125, 103, 105], [170, 140, 136], [12, 10, 15], [87, 67, 71], [63, 88, 140], [115, 121, 161],
+    [169, 162, 188], [246, 219, 208], [197, 165, 155], [80, 109, 164], [49, 35, 41], [155, 118, 117],
+    [132, 150, 192], [108, 86, 88], [97, 130, 185], [54, 67, 101], [93, 99, 131], [145, 132, 167],
+    [202, 176, 169], [229, 202, 195], [182, 143, 168], [134, 120, 131], [67, 54, 61], [187, 177, 197],
+    [84, 83, 98], [94, 108, 151], [136, 111, 112], [191, 151, 139], [133, 90, 83], [35, 27, 35],
+    [122, 134, 176], [101, 122, 170], [173, 127, 120], [164, 169, 199], [234, 192, 168], [113, 140, 191],
+    [143, 102, 95], [38, 48, 74], [109, 97, 105], [120, 117, 145], [138, 129, 148], [246, 213, 191],
+    [159, 125, 154], [85, 90, 118], [200, 161, 181], [108, 107, 135], [210, 209, 221], [174, 153, 155],
+    [69, 64, 77], [108, 66, 62], [63, 79, 118], [70, 86, 125], [157, 163, 196], [160, 133, 131],
+    [162, 138, 167], [76, 100, 151], [206, 170, 157], [222, 194, 188], [252, 234, 218], [77, 74, 87],
+    [128, 127, 163], [87, 116, 170], [123, 112, 125], [89, 75, 81], [105, 114, 155], [95, 53, 50],
+    [211, 182, 174], [148, 123, 123], [118, 97, 99], [200, 171, 163], [182, 168, 189], [199, 181, 196],
+    [181, 144, 136], [129, 109, 112], [138, 116, 118], [250, 227, 211], [83, 106, 156], [109, 92, 96],
+    [98, 84, 91], [95, 90, 104], [112, 127, 172], [219, 189, 183], [145, 110, 107], [157, 155, 186],
+    [129, 98, 96], [189, 156, 148], [135, 105, 104], [96, 115, 163], [84, 100, 144], [209, 177, 166],
+], dtype=np.int32)
 LUMA_WEIGHTS = np.array([2126, 7152, 722], dtype=np.int32)
 CONTOUR_THRESHOLD = 50
 
@@ -147,7 +165,8 @@ def main() -> None:
     originals = [np.asarray(Image.open(path).convert('RGB')) for path in source_paths]
     assert all(frame.shape == (HEIGHT, WIDTH, 3) for frame in originals)
     source_colors = np.unique(np.concatenate([frame.reshape(-1, 3) for frame in originals]), axis=0)
-    assert len(source_colors) == 255 and len(PALETTE) == 72
+    assert len(source_colors) == 255 and len(PALETTE) == 96
+    assert len(np.unique(PALETTE, axis=0)) == 96
     assert all(any(np.array_equal(color, source) for source in source_colors) for color in PALETTE)
     mapper = ColorMapper()
     source_mapped = [mapper(frame) for frame in originals]
@@ -204,8 +223,14 @@ def main() -> None:
     manifest = {**runtime, 'sourceDescriptor': source_descriptor,
                 'sourceArchive': record(archive), 'palette': PALETTE.tolist(),
                 'colorMapping': [{'source': a.tolist(), 'target': b.tolist()} for a,b in zip(source_colors, mapped_colors)],
-                'algorithm': {'name': 'shared-source-palette-adaptive-native-contours', 'version': 1,
-                    'paletteSize': 72, 'paletteSource': 'fixed-once-original16-source-color-medoids-with5-exact-pins',
+                'algorithm': {'name': 'shared-source-palette-adaptive-native-contours', 'version': 2,
+                    'paletteSize': len(PALETTE), 'paletteSource': 'fixed-original72-plus24-original16-background-hair-weighted-source-colors',
+                    'paletteRefinement': {'basePaletteSize': 72, 'addedSourceColors': PALETTE[72:].tolist(),
+                        'selection': 'fixed-once-greedy-reduction-of-weighted-squared-RGB-distance-over-original16-frames',
+                        'sampleWeights': {'all': 1, 'visibleBackgroundExtra': 5, 'visibleHairExtra': 1.5},
+                        'visibleCircle': {'center': [179,133.5], 'radius': 133.5},
+                        'backgroundRegion': 'visible && ((x<92 && y<194) || (x>274 && y<148) || (y<64 && (x<110 || x>255)))',
+                        'hairRegion': 'visible && ((x<128 && y>40) || (x>232 && y>35) || (y<80 && x>108 && x<252))'},
                     'colorDistance': 'squared-euclidean-rgb; palette-index tie-break',
                     'nativeGrid': [WIDTH, HEIGHT], 'clusterSize': [2,2], 'clusterOrigin': [0,0],
                     'clusterRepresentative': 'most-frequent-mapped-colour; lowest-integer-luminance; RGB-order tie-break',
