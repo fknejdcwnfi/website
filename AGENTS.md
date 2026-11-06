@@ -4,7 +4,26 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
-## Current contract — 2026-11-06 final polish
+## Current profile modules — 2026-11-06
+
+- The live website and all normal/failure/reduced-motion copy use Simplified
+  Chinese, with `zh-CN` document language and matching static HTML/metadata.
+- Keep the requested Naruto / Detective Conan interest cards and Honor of Kings
+  content area. The owner explicitly said account/game details will come later:
+  leave WeChat/QQ IDs, rank, heroes, media and other private details empty.
+- `profile/content/site.ts` is the public content entry; `types.ts` defines rich
+  social/interest/game blocks, `selectors.ts` validates and indexes them, and
+  `ProfileModules.tsx` / `staticMarkup.ts` render the same content. Keep URLs HTTPS,
+  media local and text escaped. Empty optional data adds no dead controls.
+- Games support ordered facts/collection/notes/gallery/links with optional initial
+  expansion. Copy-account feedback must reflect actual clipboard success; native
+  details and static account text remain useful without JavaScript.
+- Preserve Minecraft-style square panels, pixel icons, readable Chinese and mobile
+  layout. New module QA is `scripts/qa/verify_profile_modules.py`, with independent
+  evidence in `artifacts/profile-modules/`; synthetic fixtures never enter default
+  published content. See [profile guide](docs/guides/profile-modules.md).
+
+## Artwork contract — 2026-11-06 final polish
 
 - Keep the complete personal site: navigation, introduction, real projects,
   contact details and footer. Preserve the supplied name fknejdcwnfi,
@@ -55,7 +74,8 @@ before changing the site. The owner's latest instructions override older guides.
 - Older `faithfulPixel/`, `calmPortrait/`, `portrait/`, `archive/` and old evidence
   remain historical. Do not delete unique source/evidence to simplify the tree.
   Only explicit historical routes may load their runtime code/assets.
-- Current evidence is `artifacts/scenic-refinement/`. Earlier artifact directories retain
+- Current artwork evidence is `artifacts/scenic-refinement/`; new profile/module
+  evidence is `artifacts/profile-modules/`. Earlier artifact directories retain
   their original results and must not be cited as verification of the final scene.
   [decisions.md](docs/decisions.md) records why previous implementations changed.
 

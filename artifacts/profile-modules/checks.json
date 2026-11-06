@@ -1,0 +1,1993 @@
+{
+  "status": "passed",
+  "productionUrl": "http://127.0.0.1:5180/website/",
+  "fixtureUrl": "http://127.0.0.1:5181/website/",
+  "fixtureIsSynthetic": true,
+  "productionContentChangedByQA": false,
+  "checks": [
+    {
+      "name": "isolated_fixture_build",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "name": "fixture_explicitly_synthetic",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_port_available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi个人网站\n搜索此网站\n/\nGitHub 仓库\n首页\n关于\n作品\n兴趣\n游戏\n社交\n首页\n关于\n作品\n兴趣\n游戏\n社交\nHELLOWORLD\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\nMinecraft · 像素肖像\n✦\n欢迎，随意逛逛\n\n这里记"
+    },
+    {
+      "name": "desktop_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_accounts_wait_for_owner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_no_invented_player_data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_no_fixture_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "desktop_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "cards": [
+          {
+            "x": 295.03125,
+            "right": 707.5,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 729.5,
+            "right": 1141.96875,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 1144.96875,
+            "width": 849.9375,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 707.5,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 729.5,
+            "right": 1141.96875,
+            "width": 412.46875,
+            "radius": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop_cards_fit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_pixel_square_cards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portrait_still_circle",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portrait_still_pixelated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "portrait_and_weather_continue",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snow_and_petals_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offscreen_portrait_pauses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_target_火影",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_focus_火影",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_target_柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_focus_柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_target_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_focus_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi\n搜索此网站\n/\n首页\n关于\n作品\n兴趣\n游戏\n社交\n本页目录\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\nMinecraft · 像素肖像\n✦\n欢迎，随意逛逛\n\n这里记录我的作品、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号"
+    },
+    {
+      "name": "mobile320_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_accounts_wait_for_owner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_no_invented_player_data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_no_fixture_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "mobile320_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "cards": [
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 302,
+            "width": 284,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile320_cards_fit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_pixel_square_cards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile320_contents_navigate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi\n搜索此网站\n/\n首页\n关于\n作品\n兴趣\n游戏\n社交\n本页目录\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\nMinecraft · 像素肖像\n✦\n欢迎，随意逛逛\n\n这里记录我的作品、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号"
+    },
+    {
+      "name": "mobile390_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_accounts_wait_for_owner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_no_invented_player_data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_no_fixture_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "mobile390_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "cards": [
+          {
+            "x": 18,
+            "right": 369,
+            "width": 351,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 369,
+            "width": 351,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 372,
+            "width": 354,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 369,
+            "width": 351,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 369,
+            "width": 351,
+            "radius": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile390_cards_fit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_pixel_square_cards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile390_contents_navigate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi\n搜索此网站\n/\n首页\n关于\n作品\n兴趣\n游戏\n社交\n本页目录\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\nMinecraft · 像素肖像\n✦\n欢迎，随意逛逛\n\n这里记录我的作品、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号"
+    },
+    {
+      "name": "mobile768_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_accounts_wait_for_owner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_no_invented_player_data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_no_fixture_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "mobile768_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "cards": [
+          {
+            "x": 22,
+            "right": 371.5,
+            "width": 349.5,
+            "radius": "0px"
+          },
+          {
+            "x": 393.5,
+            "right": 743,
+            "width": 349.5,
+            "radius": "0px"
+          },
+          {
+            "x": 22,
+            "right": 746,
+            "width": 724,
+            "radius": "0px"
+          },
+          {
+            "x": 22,
+            "right": 371.5,
+            "width": 349.5,
+            "radius": "0px"
+          },
+          {
+            "x": 393.5,
+            "right": 743,
+            "width": 349.5,
+            "radius": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile768_cards_fit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_pixel_square_cards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile768_contents_navigate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_avoids_animation_downloads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified_motion_opt_in",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "simplified_motion_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "first_entry_weather_moves_without_module_or_movie",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "blocked_application_keeps_new_modules",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi个人网站\nGitHub 仓库\n首页\n关于\n作品\n兴趣\n游戏\n社交\n首页\n关于\n作品\n兴趣\n游戏\n社交\nHELLOWORLD\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\n像素肖像\n✦\n欢迎，随意逛逛\n\n这里记录我的作品、兴趣和游戏内容。你可以从下方"
+    },
+    {
+      "name": "nojs_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_accounts_wait_for_owner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_invented_player_data",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_fixture_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "nojs_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_dead_copy_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi个人网站\n搜索此网站\n/\nGitHub 仓库\n首页\n关于\n作品\n兴趣\n游戏\n社交\n首页\n关于\n作品\n兴趣\n游戏\n社交\nHELLOWORLD\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\nMinecraft · 像素肖像\n✦\n欢迎，随意逛逛\n\n这里记"
+    },
+    {
+      "name": "fixture_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "fixture_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "cards": [
+          {
+            "x": 295.03125,
+            "right": 707.5,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 729.5,
+            "right": 1141.96875,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 1144.96875,
+            "width": 849.9375,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 1144.96875,
+            "width": 849.9375,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 1144.96875,
+            "width": 849.9375,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 707.5,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 729.5,
+            "right": 1141.96875,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 707.5,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 729.5,
+            "right": 1141.96875,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 295.03125,
+            "right": 707.5,
+            "width": 412.46875,
+            "radius": "0px"
+          },
+          {
+            "x": 729.5,
+            "right": 1141.96875,
+            "width": 412.46875,
+            "radius": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fixture_cards_fit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_pixel_square_cards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_accounts_and_qr_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_invalid_profiles_hidden",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_link_only_game_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_region_without_player_id",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_bad_media_filtered",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_html_is_text",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_note_escaped",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_blocks_keep_order_and_omit_empty",
+      "passed": true,
+      "detail": [
+        "游戏手记",
+        "自定义数据",
+        "角色收藏",
+        "截图相册",
+        "精彩片段"
+      ]
+    },
+    {
+      "name": "fixture_owner_controls_initial_expansion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_all_five_block_contents",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_gallery_local_and_loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_video_is_safe_link",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clipboard_success_after_real_promise",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "qr_keyboard_disclosure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "qr_local_media_loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "qr_expands_without_stretching_neighbor",
+      "passed": true,
+      "detail": {
+        "wechat": 488.484375,
+        "qq": 191.59375
+      }
+    },
+    {
+      "name": "custom_block_text_searchable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "custom_social_text_searchable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture320_all_open_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "cards": [
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 302,
+            "width": 284,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 302,
+            "width": 284,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 302,
+            "width": 284,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          },
+          {
+            "x": 18,
+            "right": 299,
+            "width": 281,
+            "radius": "0px"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fixture320_all_open_cards_fit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture320_all_open_pixel_square_cards",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clipboard_denial_truthful_status",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clipboard_denial_selects_visible_account",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clipboard_denial_restores_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_simplified_language",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_simplified_locale",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_section_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_section_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_section_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_section_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_section_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_section_footer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_title_兴趣图鉴",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_title_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_title_名侦探柯南",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_title_游戏基地",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_title_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_title_社交坐标",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_no_traditional_live_copy",
+      "passed": true,
+      "detail": "跳至主要内容\nfknejdcwnfi个人网站\nGitHub 仓库\n首页\n关于\n作品\n兴趣\n游戏\n社交\n首页\n关于\n作品\n兴趣\n游戏\n社交\nHELLOWORLD\n\nHELLOWORLD\n\n👋 欢迎来到我的像素小世界\n\n你好，我是 fknejdcwnfi。把好奇心，慢慢做成作品。欢迎来到我的像素小世界。\n\nVERMOUTH\n像素肖像\n✦\n欢迎，随意逛逛\n\n这里记录我的作品、兴趣和游戏内容。你可以从下方"
+    },
+    {
+      "name": "fixture_nojs_real_projects_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_no_embedded_services",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_no_executable_or_empty_links",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_six_module_navigation",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "fixture_nojs_unique_working_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_no_dead_copy_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_accounts_still_readable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_nojs_custom_blocks_still_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_动漫",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_火影忍者",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_测试兴趣说明。",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_动漫",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_QA_TAG",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_特别喜欢",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_QA 收藏角色",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#interest-naruto_QA <script>window.__fixt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA_GAME_TAGLINE_WITH_A_L",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_王者荣耀",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_仅用于验证个性化游戏模块。",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_MOBA",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA_ONLY",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_玩家",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 玩家（非真实）",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_ID",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA_PLAYER_ID",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_区服",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 区服",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_游戏手记",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA_NARRATIVE 练习记录",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_<img src=x onerror=\"wind",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_自定义数据",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_段位",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 段位（非真实）",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_角色收藏",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 英雄",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 练习记录",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_截图相册",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 战绩截图",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_合成测试图片，不是实际战绩。",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_精彩片段",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_QA 精彩视频",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-honor-of-kings_只提供链接，不嵌入第三方播放器。",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-link-only-qa_仅主页链接的游戏",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-link-only-qa_查看游戏主页",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-region-only-qa_仅公开区服的游戏",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-region-only-qa_区服",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#game-region-only-qa_QA 区服（无玩家ID）",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#contact-wechat-qa_微信测试账号",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#contact-wechat-qa_WECHAT_QA_ONLY",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#contact-wechat-qa_仅用于独立测试，不是真实账号。",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#contact-wechat-qa_查看微信测试账号二维码",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#contact-qq-qa_QQ测试账号",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixture_static_parity_#contact-qq-qa_QQ_QA_ONLY",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_unexpected_http_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_remote_fetches_or_embeds",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "browserErrors": [],
+  "unexpectedResponses": [],
+  "externalRequests": [],
+  "layouts": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "scroll": 1440,
+      "cards": [
+        {
+          "x": 295.03125,
+          "right": 707.5,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 729.5,
+          "right": 1141.96875,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 1144.96875,
+          "width": 849.9375,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 707.5,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 729.5,
+          "right": 1141.96875,
+          "width": 412.46875,
+          "radius": "0px"
+        }
+      ]
+    },
+    {
+      "label": "mobile320",
+      "width": 320,
+      "scroll": 320,
+      "cards": [
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 302,
+          "width": 284,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        }
+      ]
+    },
+    {
+      "label": "mobile390",
+      "width": 390,
+      "scroll": 390,
+      "cards": [
+        {
+          "x": 18,
+          "right": 369,
+          "width": 351,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 369,
+          "width": 351,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 372,
+          "width": 354,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 369,
+          "width": 351,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 369,
+          "width": 351,
+          "radius": "0px"
+        }
+      ]
+    },
+    {
+      "label": "mobile768",
+      "width": 768,
+      "scroll": 768,
+      "cards": [
+        {
+          "x": 22,
+          "right": 371.5,
+          "width": 349.5,
+          "radius": "0px"
+        },
+        {
+          "x": 393.5,
+          "right": 743,
+          "width": 349.5,
+          "radius": "0px"
+        },
+        {
+          "x": 22,
+          "right": 746,
+          "width": 724,
+          "radius": "0px"
+        },
+        {
+          "x": 22,
+          "right": 371.5,
+          "width": 349.5,
+          "radius": "0px"
+        },
+        {
+          "x": 393.5,
+          "right": 743,
+          "width": 349.5,
+          "radius": "0px"
+        }
+      ]
+    },
+    {
+      "label": "fixture",
+      "width": 1440,
+      "scroll": 1440,
+      "cards": [
+        {
+          "x": 295.03125,
+          "right": 707.5,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 729.5,
+          "right": 1141.96875,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 1144.96875,
+          "width": 849.9375,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 1144.96875,
+          "width": 849.9375,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 1144.96875,
+          "width": 849.9375,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 707.5,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 729.5,
+          "right": 1141.96875,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 707.5,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 729.5,
+          "right": 1141.96875,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 295.03125,
+          "right": 707.5,
+          "width": 412.46875,
+          "radius": "0px"
+        },
+        {
+          "x": 729.5,
+          "right": 1141.96875,
+          "width": 412.46875,
+          "radius": "0px"
+        }
+      ]
+    },
+    {
+      "label": "fixture320_all_open",
+      "width": 320,
+      "scroll": 320,
+      "cards": [
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 302,
+          "width": 284,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 302,
+          "width": 284,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 302,
+          "width": 284,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        },
+        {
+          "x": 18,
+          "right": 299,
+          "width": 281,
+          "radius": "0px"
+        }
+      ]
+    }
+  ]
+}

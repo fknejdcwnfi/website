@@ -1,4 +1,4 @@
-import { getGameProfiles, getSiteNavigation, getSocialLinks, getTableOfContents, type SiteContent } from './site.ts'
+import { getGameProfiles, getInterests, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
@@ -10,71 +10,133 @@ const pixelIcon = (name: PixelIconName): string => `<svg viewBox="0 0 16 16" fil
 const arrow = pixelIcon('arrow-up-right')
 const heading = (id: string, symbol: string, title: string): string => `<div class="personal-section__label"><h2 id="${id}"><span aria-hidden="true">${symbol}</span> ${title}</h2></div>`
 
-const renderGames = (site: SiteContent): string => {
+const sectionHeading = (id: string, icon: PixelIconName, title: string): string => `<div class="personal-section__label"><h2 id="${id}"><span aria-hidden="true">${pixelIcon(icon)}</span> ${title}</h2></div>`
+const tags = (items: string[] | undefined, className: string, label: string): string => items?.length
+  ? `<ul class="${className}" aria-label="${escape(label)}">${items.map(item => `<li>${escape(item)}</li>`).join('')}</ul>` : ''
+const categoryNames = { anime: '动漫', manga: '漫画', music: '音乐', other: '兴趣' } as const
+
+const renderInterests = (site: SiteContent, base: string): string => {
+  const interests = getInterests(site)
+  if (!interests.length) return ''
+  return `<section class="personal-section" id="interests" aria-labelledby="interests-title" tabindex="-1">
+    ${sectionHeading('interests-title', 'heart', '兴趣图鉴')}
+    <p class="profile-section__intro">喜欢的故事，值得留一格。</p>
+    <div class="interest-grid">${interests.map(interest => {
+      const cover = resolveProfileAsset(interest.cover, base)
+      return `<article class="interest-card" data-category="${interest.category}" id="interest-${escape(interest.id)}" tabindex="-1">
+        ${cover ? `<img class="interest-card__cover" src="${escape(cover)}" width="640" height="360" loading="lazy" decoding="async" alt="${escape(interest.title)}封面">` : ''}
+        <div class="interest-card__heading"><span class="interest-card__icon">${pixelIcon('heart')}</span><div><p class="interest-card__category">${categoryNames[interest.category]}</p><h3>${escape(interest.title)}</h3></div></div>
+        ${interest.description ? `<p>${escape(interest.description)}</p>` : ''}
+        ${tags(interest.tags, 'interest-card__tags', `${interest.title}标签`)}
+        ${interest.favorites?.length ? `<div class="interest-card__favorites"><h4>特别喜欢</h4><ul>${interest.favorites.map(item => `<li>${escape(item)}</li>`).join('')}</ul></div>` : ''}
+        ${interest.note ? `<p class="interest-card__note">${escape(interest.note)}</p>` : ''}
+        ${interest.href ? `<a class="personal-text-link" href="${escape(interest.href)}" target="_blank" rel="noopener noreferrer">了解更多 ${arrow}</a>` : ''}
+      </article>`
+    }).join('')}</div>
+  </section>`
+}
+
+const renderShowcaseBlock = (block: GameShowcaseBlock, base: string): string => {
+  let body: string
+  switch (block.kind) {
+    case 'facts': body = `<dl class="showcase-facts">${block.items.map(item => `<div><dt>${escape(item.label)}</dt><dd>${escape(item.value)}</dd></div>`).join('')}</dl>`; break
+    case 'collection': body = `<ul class="showcase-collection">${block.items.map(item => `<li><strong>${escape(item.name)}</strong>${item.note ? `<p>${escape(item.note)}</p>` : ''}</li>`).join('')}</ul>`; break
+    case 'notes': body = `<p class="showcase-note">${escape(block.text)}</p>`; break
+    case 'gallery': body = `<div class="showcase-gallery">${block.items.map(item => {
+      const src = resolveProfileAsset(item.src, base)
+      if (!src) return ''
+      const image = `<img src="${escape(src)}" alt="${escape(item.title)}" width="640" height="360" loading="lazy" decoding="async">`
+      return `<figure>${item.href ? `<a href="${escape(item.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(item.title)}（在新标签页打开）">${image}</a>` : image}<figcaption><strong>${escape(item.title)}</strong>${item.description ? `<span>${escape(item.description)}</span>` : ''}</figcaption></figure>`
+    }).join('')}</div>`; break
+    case 'links': body = `<ul class="showcase-links">${block.items.map(item => `<li><a class="personal-text-link" href="${escape(item.href)}" target="_blank" rel="noopener noreferrer">${escape(item.title)} ${arrow}</a>${item.description ? `<p>${escape(item.description)}</p>` : ''}</li>`).join('')}</ul>`; break
+  }
+  return `<details class="showcase-block"${block.expanded === true ? ' open' : ''}><summary><span>${escape(block.title)}</span>${pixelIcon('arrow-down')}</summary><div class="showcase-block__body">${body}</div></details>`
+}
+
+const renderGames = (site: SiteContent, base: string): string => {
   const profiles = getGameProfiles(site)
   if (!profiles.length) return ''
   return `<section class="personal-section" id="games" aria-labelledby="games-title" tabindex="-1">
-    ${heading('games-title', '🎮', '遊戲足跡')}
-    <div class="personal-games">${profiles.map((profile) => `<article class="personal-game">
-      <div class="personal-game__heading"><span class="personal-game__icon">${pixelIcon('gamepad')}</span><h3>${escape(profile.label)}</h3></div>
-      <dl class="personal-game__details">${profile.playerName ? `<div><dt>玩家</dt><dd>${escape(profile.playerName)}</dd></div>` : ''}${profile.playerId ? `<div><dt>ID</dt><dd>${escape(profile.playerId)}</dd></div>` : ''}${profile.region ? `<div><dt>區服</dt><dd>${escape(profile.region)}</dd></div>` : ''}</dl>
-      ${profile.description ? `<p>${escape(profile.description)}</p>` : ''}
-      ${profile.href ? `<a class="personal-text-link" href="${escape(profile.href)}" target="_blank" rel="noopener noreferrer">查看遊戲檔案 ${arrow}</a>` : ''}
-    </article>`).join('')}</div>
+    ${sectionHeading('games-title', 'gamepad', '游戏基地')}
+    <p class="profile-section__intro">在喜欢的世界里，留下自己的足迹。</p>
+    <div class="personal-games">${profiles.map(profile => {
+      const cover = resolveProfileAsset(profile.cover, base)
+      return `<article class="game-showcase" data-game="${escape(profile.game)}" id="game-${escape(profile.id)}" tabindex="-1">
+        ${cover ? `<img class="game-showcase__cover" src="${escape(cover)}" alt="${escape(profile.label)}封面" width="640" height="360" loading="lazy" decoding="async">` : ''}
+        <div class="game-showcase__header"><span class="game-showcase__icon">${pixelIcon('gamepad')}</span><div>${profile.tagline ? `<p class="game-showcase__tagline">${escape(profile.tagline)}</p>` : ''}<h3>${escape(profile.label)}</h3></div></div>
+        ${profile.description ? `<p>${escape(profile.description)}</p>` : ''}
+        ${tags(profile.tags, 'game-showcase__tags', `${profile.label}标签`)}
+        ${profile.playerName || profile.playerId || profile.region ? `<dl class="game-showcase__details">${profile.playerName ? `<div><dt>玩家</dt><dd>${escape(profile.playerName)}</dd></div>` : ''}${profile.playerId ? `<div><dt>ID</dt><dd>${escape(profile.playerId)}</dd></div>` : ''}${profile.region ? `<div><dt>区服</dt><dd>${escape(profile.region)}</dd></div>` : ''}</dl>` : ''}
+        ${profile.blocks?.length ? `<div class="game-showcase__blocks">${profile.blocks.map(block => renderShowcaseBlock(block, base)).join('')}</div>` : ''}
+        ${profile.href ? `<a class="personal-text-link" href="${escape(profile.href)}" target="_blank" rel="noopener noreferrer">查看游戏主页 ${arrow}</a>` : ''}
+      </article>`
+    }).join('')}</div>
   </section>`
 }
+
+const renderSocials = (site: SiteContent, base: string): string => `<section class="personal-section personal-section--contact" id="contact" aria-labelledby="contact-title" tabindex="-1">
+  ${sectionHeading('contact-title', 'other', '社交坐标')}
+  <div class="personal-contact"><p class="personal-contact__description">关于作品、兴趣，或者只是说声你好，都欢迎来打个招呼。</p><div class="social-cards">${getSocialLinks(site).map(profile => {
+    const qrCode = resolveProfileAsset(profile.qrCode, base)
+    return `<article class="social-card" data-platform="${profile.platform}" id="contact-${escape(profile.id)}" tabindex="-1">
+      <div class="social-card__heading"><span class="social-card__icon">${pixelIcon(profile.platform)}</span><h3 class="social-card__label">${escape(profile.label)}</h3></div>
+      ${profile.handle ? `<p class="social-card__handle" id="account-${escape(profile.id)}">${escape(profile.handle)}</p>` : ''}
+      ${profile.description ? `<p class="social-card__description">${escape(profile.description)}</p>` : ''}
+      ${profile.href ? `<div class="social-card__actions"><a class="personal-text-link" href="${escape(profile.href)}"${profile.platform === 'email' ? '' : ' target="_blank" rel="noopener noreferrer"'}>${profile.platform === 'email' ? '发送邮件' : '打开主页'} ${arrow}</a></div>` : ''}
+      ${qrCode ? `<details class="social-qr"><summary>查看${escape(profile.label)}二维码</summary><img src="${escape(qrCode)}" alt="${escape(profile.label)}联系二维码" width="240" height="240" loading="lazy" decoding="async"></details>` : ''}
+    </article>`
+  }).join('')}</div></div>
+</section>`
 
 /** Same document structure and confirmed content without JavaScript. Search is progressive enhancement. */
 export const renderStaticSite = (site: SiteContent, base = '/'): string => {
   const navigation = getSiteNavigation(site)
   const contents = getTableOfContents(site)
   return `<div class="personal-site static-site" id="top">
-  <a class="skip-link" href="#main-content">跳至主要內容</a>
+  <a class="skip-link" href="#main-content">跳至主要内容</a>
   <header class="site-header">
     <div class="site-header__bar site-container">
-      <a class="wordmark" href="#home" aria-label="${escape(site.name)}，回到首頁"><span class="wordmark__symbol" aria-hidden="true"><span></span></span><span>${escape(site.name)}<small>個人網站</small></span></a>
-      <div class="site-header__tools"><a class="repository-link" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">${pixelIcon('github')}<span>GitHub Repository</span></a></div>
+      <a class="wordmark" href="#home" aria-label="${escape(site.name)}，回到首页"><span class="wordmark__symbol" aria-hidden="true"><span></span></span><span>${escape(site.name)}<small>个人网站</small></span></a>
+      <div class="site-header__tools"><a class="repository-link" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">${pixelIcon('github')}<span>GitHub 仓库</span></a></div>
     </div>
-    <nav class="site-header__nav site-container" aria-label="主要導覽">${navigation.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav>
+    <nav class="site-header__nav site-container" aria-label="主导航">${navigation.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav>
   </header>
   <div class="document-layout site-container">
-    <aside class="site-sidebar" aria-label="網站導覽"><nav><a class="site-sidebar__home" href="#home">首頁</a>${navigation.filter((item) => item.href !== '#home').map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav><span class="site-sidebar__caption">${escape(site.intro)}</span></aside>
+    <aside class="site-sidebar" aria-label="网站导航"><nav><a class="site-sidebar__home" href="#home">首页</a>${navigation.filter((item) => item.href !== '#home').map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav><span class="site-sidebar__caption">${escape(site.intro)}</span></aside>
     <main class="document-main" id="main-content" tabindex="-1">
-      <details class="mobile-contents"><summary>本頁目錄</summary><nav aria-label="行動版目錄">${contents.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav></details>
+      <details class="mobile-contents"><summary>本页目录</summary><nav aria-label="移动端目录">${contents.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav></details>
       <section class="hero static-hero" id="home" aria-labelledby="hero-title" tabindex="-1">
-        <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
+        <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 欢迎来到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
         <figure class="hero__visual hero__visual--reference">
           <div class="reference-scene-static"><div class="reference-scene__space"><div class="reference-scene__viewport">
-            <img class="reference-scene__poster" src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" width="${poeticPixelAssets.canonicalWidth}" height="${poeticPixelAssets.canonicalHeight}" fetchpriority="high" alt="Vermouth的高清像素圓形肖像，保留樱花、富士山與夕陽">
+            <img class="reference-scene__poster" src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" width="${poeticPixelAssets.canonicalWidth}" height="${poeticPixelAssets.canonicalHeight}" fetchpriority="high" alt="Vermouth的高清像素圆形肖像，保留樱花、富士山与夕阳">
             <div class="reference-scene__preview" data-active="true" aria-hidden="true"><div id="vermouth-poetic-entry" class="poetic-entry-group" data-weather="hidden" data-motion="paused"><video id="vermouth-poetic-bootstrap" class="poetic-scene__boot" data-src="${escape(`${base}assets/poetic-pixel/${poeticPixelAssets.boot.file}?v=${poeticPixelAssets.boot.sha256}`)}" width="${poeticPixelAssets.boot.width}" height="${poeticPixelAssets.boot.height}" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>${renderPoeticEntryAtmosphere()}</div></div>
           </div></div></div>
           <figcaption><span>VERMOUTH</span><span>像素肖像</span></figcaption>
         </figure>
-        <aside class="welcome-note" aria-labelledby="welcome-note-title"><div class="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 歡迎，隨意逛逛</div><p>這裡記錄我的作品與探索。你可以從下方了解我，瀏覽公開專案，或透過 GitHub 與 Email 聯絡我。</p></aside>
+        <aside class="welcome-note" aria-labelledby="welcome-note-title"><div class="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 欢迎，随意逛逛</div><p>这里记录我的作品、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号打个招呼。</p></aside>
       </section>
       <section class="personal-section" id="about" aria-labelledby="about-title" tabindex="-1">
-        ${heading('about-title', '📖', '關於我')}
+        ${heading('about-title', '📖', '关于我')}
         <div class="personal-about">${site.about.map((text, index) => `<p${index === 0 ? ' class="personal-about__lead"' : ''}>${escape(text)}</p>`).join('')}<a class="personal-text-link" href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">了解我的 GitHub ${arrow}</a></div>
       </section>
       <section class="personal-section" id="work" aria-labelledby="work-title" tabindex="-1">
-        ${heading('work-title', '🧩', '作品與實驗')}
-        <div class="personal-work"><div class="personal-work__intro"><p>做過的，與正在做的。</p><a class="personal-text-link" href="${escape(`${site.github}?tab=repositories`)}" target="_blank" rel="noopener noreferrer">所有公開專案 ${arrow}</a></div>
-          <div class="project-table-wrap"><table class="project-table"><caption class="visually-hidden">公開專案</caption><thead><tr><th scope="col">專案</th><th scope="col">狀態</th><th scope="col">說明</th></tr></thead><tbody>${site.projects.map((project) => `<tr class="personal-project" id="project-${escape(project.id)}" tabindex="-1">
-            <td><a class="personal-project__link" href="${escape(project.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(`${project.title} — ${project.subtitle}，開啟專案（另開分頁）`)}"><span class="personal-project__heading">${escape(project.title)} ${arrow}</span></a><span class="personal-project__subtitle">${escape(project.subtitle)}</span></td>
-            <td><span class="personal-project__status personal-project__status--${project.status === 'active' ? 'active' : 'archived'}"><span aria-hidden="true"></span>${project.status === 'active' ? '持續製作中' : '已封存'}</span></td>
-            <td><p class="personal-project__description">${escape(project.description)}</p><ul class="personal-project__tags" aria-label="專案技術">${project.tags.map((tag) => `<li>${escape(tag)}</li>`).join('')}</ul></td>
+        ${heading('work-title', '🧩', '作品与实验')}
+        <div class="personal-work"><div class="personal-work__intro"><p>做过的，与正在做的。</p><a class="personal-text-link" href="${escape(`${site.github}?tab=repositories`)}" target="_blank" rel="noopener noreferrer">所有公开项目 ${arrow}</a></div>
+          <div class="project-table-wrap"><table class="project-table"><caption class="visually-hidden">公开项目</caption><thead><tr><th scope="col">项目</th><th scope="col">状态</th><th scope="col">说明</th></tr></thead><tbody>${site.projects.map((project) => `<tr class="personal-project" id="project-${escape(project.id)}" tabindex="-1">
+            <td><a class="personal-project__link" href="${escape(project.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`)}"><span class="personal-project__heading">${escape(project.title)} ${arrow}</span></a><span class="personal-project__subtitle">${escape(project.subtitle)}</span></td>
+            <td><span class="personal-project__status personal-project__status--${project.status === 'active' ? 'active' : 'archived'}"><span aria-hidden="true"></span>${project.status === 'active' ? '持续制作中' : '已归档'}</span></td>
+            <td><p class="personal-project__description">${escape(project.description)}</p><ul class="personal-project__tags" aria-label="项目技术">${project.tags.map((tag) => `<li>${escape(tag)}</li>`).join('')}</ul></td>
           </tr>`).join('')}</tbody></table></div>
-          <blockquote class="document-note">每個作品都連結到真實的公開原始碼；已封存的專案保留當時的探索。</blockquote>
+          <blockquote class="document-note">每个作品都链接到真实的公开源码；已归档的项目保留当时的探索。</blockquote>
         </div>
       </section>
-      ${renderGames(site)}
-      <section class="personal-section personal-section--contact" id="contact" aria-labelledby="contact-title" tabindex="-1">
-        ${heading('contact-title', '✉', '社群與聯絡')}
-        <div class="personal-contact"><p class="personal-contact__description">關於作品、想法，或只是說聲你好，都歡迎來打個招呼。</p><div class="social-links">${getSocialLinks(site).map((profile) => `<a class="social-link" href="${escape(profile.href)}"${profile.platform === 'email' ? '' : ' target="_blank" rel="noopener noreferrer"'}><span class="social-link__icon">${pixelIcon(profile.platform)}</span><span class="social-link__copy"><span class="social-link__label">${escape(profile.label)}</span>${profile.handle ? `<span class="social-link__handle">${escape(profile.handle)}</span>` : ''}</span>${arrow}</a>`).join('')}</div></div>
-      </section>
+      ${renderInterests(site, base)}
+      ${renderGames(site, base)}
+      ${renderSocials(site, base)}
     </main>
-    <aside class="site-toc" aria-labelledby="toc-title"><h2 id="toc-title">目錄</h2><nav aria-label="本頁目錄">${contents.map((item) => `<a href="${escape(item.href)}"><span aria-hidden="true">${item.symbol}</span>${escape(item.label)}</a>`).join('')}</nav><a class="site-toc__source" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">查看本站原始碼 ${arrow}</a></aside>
+    <aside class="site-toc" aria-labelledby="toc-title"><h2 id="toc-title">目录</h2><nav aria-label="本页目录">${contents.map((item) => `<a href="${escape(item.href)}"><span aria-hidden="true">${item.symbol}</span>${escape(item.label)}</a>`).join('')}</nav><a class="site-toc__source" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">查看本站源码 ${arrow}</a></aside>
   </div>
-  <footer class="site-footer site-container"><p>© ${new Date().getFullYear()} ${escape(site.fullName)}<span class="site-footer__note">一格一格，慢慢建造。</span></p><a href="#top">回到頂端 ↑</a><a href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></footer>
+  <footer class="site-footer site-container"><p>© ${new Date().getFullYear()} ${escape(site.fullName)}<span class="site-footer__note">一格一格，慢慢建造。</span></p><a href="#top">回到顶端 ↑</a><a href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></footer>
 </div>`
 }

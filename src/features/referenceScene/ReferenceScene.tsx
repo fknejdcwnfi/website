@@ -185,11 +185,11 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
         </div>
       </div>
       <div className="reference-scene__status" aria-live="polite">
-        {failed ? <p>動態場景暫時無法載入，先保留預覽畫面。{' '}
-          <button type="button" onClick={() => { attempts.current = 0; setAttempt(value => value + 1) }}>重試載入</button>
-        </p> : slowLoad && (state.playback === 'loading' || state.playback === 'preparing') ? <p>正在載入動態場景…</p> : null}
-        {systemReduced && !failed ? <p>{motionEnabled ? '已為這個場景開啟動態。' : '系統已啟用「減少動態」，場景目前靜止。'}{' '}
-          <button type="button" onClick={chooseMotion}>{motionEnabled ? '跟隨系統' : '開啟動態'}</button>
+        {failed ? <p>动态场景暂时无法加载，先保留预览画面。{' '}
+          <button type="button" onClick={() => { attempts.current = 0; setAttempt(value => value + 1) }}>重试加载</button>
+        </p> : slowLoad && (state.playback === 'loading' || state.playback === 'preparing') ? <p>正在加载动态场景…</p> : null}
+        {systemReduced && !failed ? <p>{motionEnabled ? '已为这个场景开启动态。' : '系统已启用「减少动态」，场景目前静止。'}{' '}
+          <button type="button" onClick={chooseMotion}>{motionEnabled ? '跟随系统' : '开启动态'}</button>
         </p> : null}
       </div>
     </div>

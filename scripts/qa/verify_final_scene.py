@@ -281,9 +281,9 @@ def main():
             check('reduced_exact_canonical',actual.tobytes()==canonical.resize(actual.size,Image.Resampling.NEAREST).tobytes())
             check('reduced_no_video_atlas',not any('/boot.mp4' in s or '/atlas.png' in s for s in reduced_requests))
             check('reduced_entry_not_running',r.locator(ENTRY).get_attribute('data-motion')!='running')
-            r.get_by_role('button',name='開啟動態',exact=True).click();r.wait_for_selector(CANVAS+'[data-playback=looping]')
+            r.get_by_role('button',name='开启动态',exact=True).click();r.wait_for_selector(CANVAS+'[data-playback=looping]')
             check('explicit_motion_choice');r.reload();r.wait_for_selector(CANVAS+'[data-playback=looping]')
-            check('motion_choice_persists');r.get_by_role('button',name='跟隨系統',exact=True).click()
+            check('motion_choice_persists');r.get_by_role('button',name='跟随系统',exact=True).click()
             r.wait_for_selector(CANVAS+'[data-playback=static]');check('motion_choice_reversible');reduced.close()
 
             page.goto(url());page.wait_for_selector(CANVAS+'[data-playback=looping]')
@@ -298,7 +298,7 @@ def main():
             f.goto(url());f.wait_for_selector(CANVAS+'[data-playback=failed]')
             f.wait_for_selector(ENTRY+'[data-motion=running]');first=screenshot_circle(f);f.wait_for_timeout(180)
             check('failure_keeps_moving_weather',screenshot_circle(f).tobytes()!=first.tobytes())
-            f.unroute('**/assets/poetic-pixel/atlas.png*');f.get_by_role('button',name='重試載入',exact=True).click()
+            f.unroute('**/assets/poetic-pixel/atlas.png*');f.get_by_role('button',name='重试加载',exact=True).click()
             f.wait_for_selector(CANVAS+'[data-playback=looping]');check('atlas_retry_recovers');failure.close()
 
             read_failure=new_context()
@@ -324,7 +324,7 @@ def main():
             check('atlas_readback_failure_releases_resources',released['acquired']>=1 and
                   released['closed']==released['acquired'] and released['scratch']==[1,1],released)
             check('atlas_readback_failure_preserves_site',all(q.locator(s).count() for s in ('#about','#work','#contact','footer')))
-            q.evaluate('window.__readFault=false');q.get_by_role('button',name='重試載入',exact=True).click()
+            q.evaluate('window.__readFault=false');q.get_by_role('button',name='重试加载',exact=True).click()
             q.wait_for_selector(CANVAS+'[data-playback=looping]')
             released=q.evaluate('({acquired:__bitmapAcquired,closed:__bitmapClosed,scratch:[__nativeScratch.width,__nativeScratch.height]})')
             check('atlas_readback_retry_releases_temporary_resources',released['acquired']>=2 and
@@ -356,7 +356,7 @@ def main():
             c.wait_for_selector(ENTRY+'[data-motion=running]');before=screenshot_circle(c);c.wait_for_timeout(180)
             check('constructor_failure_keeps_moving_preview',screenshot_circle(c).tobytes()!=before.tobytes())
             c.evaluate('window.__spriteFault=false')
-            c.get_by_role('button',name='重試載入',exact=True).click()
+            c.get_by_role('button',name='重试加载',exact=True).click()
             c.wait_for_selector(CANVAS+'[data-playback=looping]');check('constructor_failure_retry_recovers')
             construction.close()
 
