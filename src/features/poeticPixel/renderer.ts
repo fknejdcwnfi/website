@@ -1,6 +1,7 @@
 import type { SceneRendererFactory } from '../referenceScene/types'
 import { sampleSourceTime, validateSourceTiming } from '../referenceScene/sourceTiming'
 import { createFrameReconstruction } from './presentation/frameReconstruction'
+import { readNativeAtlas } from './presentation/readNativeAtlas'
 import { poeticPixelAssets, sourcePixelAssets } from './assets'
 import { createAtmospherePainter, POETIC_SNOW_PARTICLES, POETIC_PETALS } from './atmosphere'
 
@@ -52,18 +53,13 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
     }
     image.src = `${import.meta.env.BASE_URL}assets/poetic-pixel/${descriptor.atlas}?v=${descriptor.atlasSha256}`
   })
-  if (signal.aborted) throw abortError()
+  if (signal.aborted) { atlas.removeAttribute('src'); throw abortError() }
   if (atlas.naturalWidth !== nativeWidth * descriptor.atlasColumns ||
     atlas.naturalHeight !== nativeHeight * descriptor.atlasRows) {
+    atlas.removeAttribute('src')
     throw new Error('Pixel scene atlas dimensions do not match the description.')
   }
-
-  let bitmap: ImageBitmap | null = null
-  if (typeof createImageBitmap === 'function') {
-    try { bitmap = await createImageBitmap(atlas) } catch { /* Native decoded image fallback remains supported. */ }
-  }
-  if (signal.aborted) { bitmap?.close(); throw abortError() }
-  const source: CanvasImageSource = bitmap ?? atlas
+  let source: Awaited<ReturnType<typeof readNativeAtlas>> | undefined = await readNativeAtlas(atlas, signal)
   const weatherEnabled = parameters.get('atmosphere') !== '0' && parameters.get('snow') !== '0'
   const petalsEnabled = weatherEnabled && parameters.get('petals') !== '0'
   const prepared = (() => {
@@ -75,21 +71,24 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
       stage.height = nativeHeight * 4
       const reconstruction = stage.getContext('2d')
       if (!reconstruction) throw new Error('Pixel scene reconstruction is unavailable.')
-      cache = createFrameReconstruction(nativeWidth, nativeHeight)
+      cache = createFrameReconstruction(source, nativeWidth, nativeHeight)
       const paintAtmosphere = createAtmospherePainter({ snow: weatherEnabled, petals: petalsEnabled })
       // Finish constructors and raster warmup under the playing preview, before
       // ScenePlayer reads its video phase for the first visible HD paint.
-      cache.paint(reconstruction, source, 0, 0, 0)
+      cache.paint(reconstruction, 0, 0, 0)
       const last = timing.frameCount - 1
-      cache.paint(reconstruction, source, last % descriptor.atlasColumns * nativeWidth,
+      cache.paint(reconstruction, last % descriptor.atlasColumns * nativeWidth,
         Math.floor(last / descriptor.atlasColumns) * nativeHeight, last)
       if (signal.aborted) throw abortError()
       return { reconstructed: stage, reconstruction, scaler: cache, paintAtmosphere }
     } catch (error) {
       cache?.destroy()
-      bitmap?.close()
       if (stage) stage.width = stage.height = 1
       throw error
+    } finally {
+      // The preparation closure shares its context with the returned renderer.
+      // Only the cache should own native pixels after this handoff.
+      source = undefined
     }
   })()
   const { reconstructed, reconstruction, scaler, paintAtmosphere } = prepared
@@ -103,7 +102,7 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
       const phase = sampleSourceTime(sample.static ? 0 : sample.elapsedMs, timing)
       const frame = phase.index
       if (currentFrame !== frame) {
-        scaler.paint(reconstruction, source, frame % descriptor.atlasColumns * nativeWidth,
+        scaler.paint(reconstruction, frame % descriptor.atlasColumns * nativeWidth,
           Math.floor(frame / descriptor.atlasColumns) * nativeHeight, frame)
         currentFrame = frame
       }
@@ -133,7 +132,6 @@ export const createPoeticPixelRenderer: SceneRendererFactory = async (assets, si
       if (destroyed) return
       destroyed = true
       scaler.destroy()
-      bitmap?.close()
       reconstructed.width = reconstructed.height = 1
     },
   }

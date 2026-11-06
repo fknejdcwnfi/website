@@ -2,7 +2,7 @@
 export const POETIC_PETAL_PERIOD_MS = 96_000
 export const POETIC_PETAL_WIDTH = 358
 export const POETIC_PETAL_HEIGHT = 267
-export const POETIC_PETAL_LAYERS = Object.freeze({ far: 20, middle: 18, near: 10 })
+export const POETIC_PETAL_LAYERS = Object.freeze({ far: 24, middle: 22, near: 14 })
 export type PoeticPetalDepth = keyof typeof POETIC_PETAL_LAYERS
 export type PoeticPetal = Readonly<{
   id: number
@@ -78,7 +78,7 @@ export const samplePoeticPetalInto = (
   const depth = petal.depth === 'far' ? 0 : petal.depth === 'middle' ? 1 : 2
   const scaleX = Number.isFinite(width) && width > 0 ? width / POETIC_PETAL_WIDTH : 1
   const scaleY = Number.isFinite(height) && height > 0 ? height / POETIC_PETAL_HEIGHT : 1
-  // The common breeze shares the snow's48s period; small private eddies make each petal distinct.
+  // Snow and petals share a 24s breeze; small private eddies make each petal distinct.
   const drift = (5 + depth * 3) * Math.sin(phase * 4 + .4) +
     (2.1 + depth * .8) * Math.sin(phase * petal.flutterCycles + petal.phase)
   const lift = (.7 + depth * .5) * Math.sin(phase * 3 + petal.phase)

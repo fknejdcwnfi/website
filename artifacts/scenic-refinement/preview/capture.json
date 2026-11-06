@@ -1,0 +1,42 @@
+{
+  "source": "Actual final CSS circle screenshots after entry handoff;50fps source estimates, independent snow and pink sakura petals",
+  "frames": 384,
+  "encodingFps": 60,
+  "durationMs": 6400,
+  "initialSceneState": {
+    "scene": "reference-landscape",
+    "ready": "true",
+    "painted": "true",
+    "renderer": "reference-scene",
+    "playback": "looping",
+    "motionPreference": "enabled",
+    "initialElapsedMs": "183.692",
+    "motionKind": "direct-source-frames",
+    "motionSource": "source-only-interframes",
+    "sourceFrame": "19",
+    "sourceAnchor": "4",
+    "sourceTimeMs": "383.692",
+    "sourceDuration": "1280",
+    "elapsedMs": "383.692",
+    "sourceFrameDuration": "20",
+    "pixelReconstruction": "scale4x-adaptive",
+    "snowParticles": "448",
+    "petalParticles": "60",
+    "snowTimeMs": "383.692"
+  },
+  "clip": {
+    "x": 453,
+    "y": 347,
+    "width": 534,
+    "height": 534
+  },
+  "dpr": 1,
+  "canvasDimensions": [
+    1432,
+    1068
+  ],
+  "bytes": 5597523,
+  "sha256": "8249f5180f49ea82f83baa1b9dd14dd803e7cf4867821d34789c461072210d4e",
+  "browserErrors": [],
+  "physicalDisplayVerified": false
+}

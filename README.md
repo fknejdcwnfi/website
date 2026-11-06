@@ -5,15 +5,15 @@
 - [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/poetic-pixel.md)
 - [完整不可變原工程](reference-projects/fuji-wind/) · GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 
-最後一輪精修保留原樱花、富士山、暮色與無邊框圓形。像素輪廓採兩次既有顏色重建，畫布依實際尺寸／DPR選擇1432×1068、2148×1602或最高2864×2136；原16幀錨點與50fps來源過渡保持。
+最新精修保留原樱花、富士山、暮色與無邊框圓形。固定96色保留原72色，新增24種原畫顏色，細化髮絲與景物層次；輪廓採兩次既有顏色重建，畫布依實際尺寸／DPR選擇1432×1068、2148×1602或最高2864×2136。原16幀錨點與50fps來源過渡保持。
 
-384片三層雪與48片粉色花瓣沿獨立長周期交錯飄落，中近景花瓣放大到能辨認缺口與尖端，減少臉部遮擋。首屏40片雪／12片花瓣從HTML/CSS便開始動，不等待主程式或影片；同節點預覽按影片相位接手，只對氣象作180ms過渡。
+448片三層雪與60片粉色花瓣沿獨立長周期交錯飄落；32朝向、5側轉讓花瓣開合更細膩，保留臉部柔和減量。首屏40片雪／12片花瓣從HTML/CSS便開始動，不等待主程式或影片；同節點預覽按影片相位接手，只對氣象作180ms過渡。
 
-![目前網站](artifacts/final-scene/site/desktop.png)
+![目前網站](artifacts/scenic-refinement/site/desktop.png)
 
-[雪與粉色樱花實際圓形](artifacts/final-scene/site/weather-time8000.png) · [實際動態預覽](artifacts/final-scene/preview/animation.mp4) · [高DPR清晰度對照](artifacts/final-scene/style/dpr2-clarity.png) · [完整檢查](artifacts/final-scene/site/checks.json)
+[雪與粉色樱花實際圓形](artifacts/scenic-refinement/site/weather-time8000.png) · [實際動態預覽](artifacts/scenic-refinement/preview/animation.mp4) · [色彩細節對照](artifacts/scenic-refinement/style/background-closeups.png) · [完整檢查](artifacts/scenic-refinement/site/checks.json)
 
-圖集另作逐像素無損PNG8儲存，主圖集約縮小61%，正常媒體資源合計約減半。原ZIP及22份檔案保持不變。原片仍358×267／12.5fps；48個過渡幀為估計，高清放大不創造缺失原畫。當前說明：[場景指南](docs/guides/poetic-pixel.md)，驗證在`artifacts/final-scene/`，舊artifact保留為歷史。
+PNG8以明確色板索引保存，正常媒體約2.77MB；顏色增加使主圖集比前版增大約18%。執行時一次讀取原生圖集，換幀不再配置／讀回原生ImageData，仍只快取兩張高清幀。原ZIP及22份檔案不變；原片358×267／12.5fps，48個過渡幀為估計，放大不創造缺失原畫。當前說明：[場景指南](docs/guides/poetic-pixel.md)，驗證在`artifacts/scenic-refinement/`，舊artifact保留為歷史。
 
 ## 開始開發
 
@@ -62,7 +62,7 @@ src/
     profile/           個人內容、網站版面、靜態HTML與像素UI
     referenceScene/    共用圓形UI／可見性播放器與來源時鐘
     poeticPixel/       唯一預設：場景組合、來源播放及同節點入口
-      presentation/  分辨率政策／事件hook與兩幀像素重建快取
+      presentation/  一次原生讀回／兩幀像素重建／分辨率事件
       atmosphere/    雪、花瓣、精靈圖集與組合繪製
     faithfulPixel/     歷史16幀直接像素轉製
     calmPortrait/      歷史固定人物／小幅後髮rig，不由現在首頁載入

@@ -1,0 +1,116 @@
+{
+  "72": {
+    "visible": {
+      "pixelsPerFrame": 55991,
+      "mappingMse": 20.26100176814131,
+      "styledMse": 122.43380037267893
+    },
+    "background": {
+      "pixelsPerFrame": 9958,
+      "mappingMse": 23.817263757782687,
+      "styledMse": 126.94722208274754
+    },
+    "cherry": {
+      "pixelsPerFrame": 3046,
+      "mappingMse": 24.432288246881157,
+      "styledMse": 168.9198949441891
+    },
+    "fuji": {
+      "pixelsPerFrame": 5864,
+      "mappingMse": 23.2834704695316,
+      "styledMse": 123.18644483287858
+    },
+    "sunset": {
+      "pixelsPerFrame": 2447,
+      "mappingMse": 26.31511374472143,
+      "styledMse": 147.88386289333877
+    },
+    "hair": {
+      "pixelsPerFrame": 36262,
+      "mappingMse": 21.954130127038407,
+      "styledMse": 142.63616067324838
+    },
+    "face": {
+      "pixelsPerFrame": 10120,
+      "mappingMse": 19.01707015810277,
+      "styledMse": 79.56252470355732
+    },
+    "uniform2x2Fraction": 0.7627693535514765
+  },
+  "88": {
+    "visible": {
+      "pixelsPerFrame": 55991,
+      "mappingMse": 13.756425511838213,
+      "styledMse": 119.86280272722402
+    },
+    "background": {
+      "pixelsPerFrame": 9958,
+      "mappingMse": 16.950061089910957,
+      "styledMse": 124.69587894155453
+    },
+    "cherry": {
+      "pixelsPerFrame": 3046,
+      "mappingMse": 16.342997647187566,
+      "styledMse": 161.54719987962358
+    },
+    "fuji": {
+      "pixelsPerFrame": 5864,
+      "mappingMse": 16.69213989313324,
+      "styledMse": 120.23678021259664
+    },
+    "sunset": {
+      "pixelsPerFrame": 2447,
+      "mappingMse": 17.68393270671571,
+      "styledMse": 144.6663942242201
+    },
+    "hair": {
+      "pixelsPerFrame": 36262,
+      "mappingMse": 14.687321323515892,
+      "styledMse": 138.71187066810066
+    },
+    "face": {
+      "pixelsPerFrame": 10120,
+      "mappingMse": 13.888576663372858,
+      "styledMse": 75.60243741765481
+    },
+    "uniform2x2Fraction": 0.7484300835888604
+  },
+  "96": {
+    "visible": {
+      "pixelsPerFrame": 55991,
+      "mappingMse": 11.70138578819215,
+      "styledMse": 117.89128572746809
+    },
+    "background": {
+      "pixelsPerFrame": 9958,
+      "mappingMse": 14.378564972886121,
+      "styledMse": 124.19169679319808
+    },
+    "cherry": {
+      "pixelsPerFrame": 3046,
+      "mappingMse": 13.266524403589406,
+      "styledMse": 160.0075782446925
+    },
+    "fuji": {
+      "pixelsPerFrame": 5864,
+      "mappingMse": 14.6221826682583,
+      "styledMse": 119.58229237721692
+    },
+    "sunset": {
+      "pixelsPerFrame": 2447,
+      "mappingMse": 14.436537937610678,
+      "styledMse": 142.55795361667347
+    },
+    "hair": {
+      "pixelsPerFrame": 36262,
+      "mappingMse": 12.265479933079622,
+      "styledMse": 136.46421299615758
+    },
+    "face": {
+      "pixelsPerFrame": 10120,
+      "mappingMse": 12.607332839262185,
+      "styledMse": 74.91703516139657
+    },
+    "uniform2x2Fraction": 0.7455002730289411
+  }
+}

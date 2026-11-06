@@ -87,18 +87,18 @@
   "atlasColumns": 8,
   "atlasRows": 8,
   "atlas": "atlas.png",
-  "atlasSha256": "3449ba67b3243f3949c6f8b180b0b1acc13c347638f90d7b1ffccfef4bb378e8",
+  "atlasSha256": "ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
   "atlasWidth": 2864,
   "atlasHeight": 2136,
   "canonical": "canonical.png",
-  "canonicalSha256": "d742adc995ab9b190bdc1132689307372da51bb29ac942c1bd6557d8a40fe1f9",
+  "canonicalSha256": "8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
   "canonicalWidth": 2864,
   "canonicalHeight": 2136,
   "sourceArchiveSha256": "9ee2d35c4bbad5276b715de02ebf0e5e48e0e7372a3a26d42d790c9426c5760e",
   "boot": {
     "file": "boot.mp4",
-    "sha256": "e14a78bd8458e40a53e72a16a0dd0cd80de6d4ca071bd10004b9eafbe0ac32aa",
-    "bytes": 972129,
+    "sha256": "e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "bytes": 967503,
     "width": 716,
     "height": 534,
     "durationMs": 1280,
@@ -146,18 +146,18 @@
     "atlasColumns": 4,
     "atlasRows": 4,
     "atlas": "source-atlas.png",
-    "atlasSha256": "f3f9495987949edeeb8cc2e8ca851d9673ab1b8ae2b750c6106b7def9629c235",
+    "atlasSha256": "830b706ebdfd5afbad070ce6f67ee4cd443247434b982d3c3e5628251ba4bd95",
     "atlasWidth": 1432,
     "atlasHeight": 1068,
     "canonical": "canonical.png",
-    "canonicalSha256": "d742adc995ab9b190bdc1132689307372da51bb29ac942c1bd6557d8a40fe1f9",
+    "canonicalSha256": "8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
     "canonicalWidth": 2864,
     "canonicalHeight": 2136,
     "sourceArchiveSha256": "9ee2d35c4bbad5276b715de02ebf0e5e48e0e7372a3a26d42d790c9426c5760e",
     "boot": {
       "file": "boot.mp4",
-      "sha256": "e14a78bd8458e40a53e72a16a0dd0cd80de6d4ca071bd10004b9eafbe0ac32aa",
-      "bytes": 972129,
+      "sha256": "e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "bytes": 967503,
       "width": 716,
       "height": 534,
       "durationMs": 1280,
@@ -530,6 +530,126 @@
       95,
       53,
       50
+    ],
+    [
+      211,
+      182,
+      174
+    ],
+    [
+      148,
+      123,
+      123
+    ],
+    [
+      118,
+      97,
+      99
+    ],
+    [
+      200,
+      171,
+      163
+    ],
+    [
+      182,
+      168,
+      189
+    ],
+    [
+      199,
+      181,
+      196
+    ],
+    [
+      181,
+      144,
+      136
+    ],
+    [
+      129,
+      109,
+      112
+    ],
+    [
+      138,
+      116,
+      118
+    ],
+    [
+      250,
+      227,
+      211
+    ],
+    [
+      83,
+      106,
+      156
+    ],
+    [
+      109,
+      92,
+      96
+    ],
+    [
+      98,
+      84,
+      91
+    ],
+    [
+      95,
+      90,
+      104
+    ],
+    [
+      112,
+      127,
+      172
+    ],
+    [
+      219,
+      189,
+      183
+    ],
+    [
+      145,
+      110,
+      107
+    ],
+    [
+      157,
+      155,
+      186
+    ],
+    [
+      129,
+      98,
+      96
+    ],
+    [
+      189,
+      156,
+      148
+    ],
+    [
+      135,
+      105,
+      104
+    ],
+    [
+      96,
+      115,
+      163
+    ],
+    [
+      84,
+      100,
+      144
+    ],
+    [
+      209,
+      177,
+      166
     ]
   ],
   "colorMapping": [
@@ -1224,9 +1344,9 @@
         158
       ],
       "target": [
-        76,
-        100,
-        151
+        83,
+        106,
+        156
       ]
     },
     {
@@ -1308,9 +1428,9 @@
         156
       ],
       "target": [
-        80,
-        109,
-        164
+        83,
+        106,
+        156
       ]
     },
     {
@@ -1332,9 +1452,9 @@
         144
       ],
       "target": [
-        76,
+        84,
         100,
-        151
+        144
       ]
     },
     {
@@ -1488,9 +1608,9 @@
         104
       ],
       "target": [
-        84,
-        83,
-        98
+        95,
+        90,
+        104
       ]
     },
     {
@@ -1500,9 +1620,9 @@
         163
       ],
       "target": [
-        101,
-        122,
-        170
+        96,
+        115,
+        163
       ]
     },
     {
@@ -1560,9 +1680,9 @@
         91
       ],
       "target": [
-        108,
-        86,
-        88
+        98,
+        84,
+        91
       ]
     },
     {
@@ -1584,9 +1704,9 @@
         82
       ],
       "target": [
-        89,
-        75,
-        81
+        98,
+        84,
+        91
       ]
     },
     {
@@ -1656,9 +1776,9 @@
         98
       ],
       "target": [
-        108,
-        86,
-        88
+        98,
+        84,
+        91
       ]
     },
     {
@@ -1716,9 +1836,9 @@
         96
       ],
       "target": [
-        108,
-        86,
-        88
+        109,
+        92,
+        96
       ]
     },
     {
@@ -1752,9 +1872,9 @@
         172
       ],
       "target": [
-        101,
-        122,
-        170
+        112,
+        127,
+        172
       ]
     },
     {
@@ -1812,9 +1932,9 @@
         99
       ],
       "target": [
-        109,
+        118,
         97,
-        105
+        99
       ]
     },
     {
@@ -1848,9 +1968,9 @@
         90
       ],
       "target": [
-        108,
-        86,
-        88
+        118,
+        97,
+        99
       ]
     },
     {
@@ -1872,9 +1992,9 @@
         112
       ],
       "target": [
-        109,
+        118,
         97,
-        105
+        99
       ]
     },
     {
@@ -1992,9 +2112,9 @@
         96
       ],
       "target": [
-        125,
-        103,
-        105
+        129,
+        98,
+        96
       ]
     },
     {
@@ -2004,8 +2124,8 @@
         112
       ],
       "target": [
-        136,
-        111,
+        129,
+        109,
         112
       ]
     },
@@ -2064,9 +2184,9 @@
         104
       ],
       "target": [
-        136,
-        111,
-        112
+        135,
+        105,
+        104
       ]
     },
     {
@@ -2112,9 +2232,9 @@
         118
       ],
       "target": [
-        136,
-        111,
-        112
+        138,
+        116,
+        118
       ]
     },
     {
@@ -2196,9 +2316,9 @@
         107
       ],
       "target": [
-        136,
-        111,
-        112
+        145,
+        110,
+        107
       ]
     },
     {
@@ -2220,9 +2340,9 @@
         114
       ],
       "target": [
-        155,
-        118,
-        117
+        138,
+        116,
+        118
       ]
     },
     {
@@ -2232,9 +2352,9 @@
         132
       ],
       "target": [
-        134,
-        120,
-        131
+        148,
+        123,
+        123
       ]
     },
     {
@@ -2244,9 +2364,9 @@
         131
       ],
       "target": [
-        134,
-        120,
-        131
+        138,
+        116,
+        118
       ]
     },
     {
@@ -2268,9 +2388,9 @@
         123
       ],
       "target": [
-        155,
-        118,
-        117
+        148,
+        123,
+        123
       ]
     },
     {
@@ -2376,9 +2496,9 @@
         102
       ],
       "target": [
-        155,
-        118,
-        117
+        145,
+        110,
+        107
       ]
     },
     {
@@ -2389,8 +2509,8 @@
       ],
       "target": [
         157,
-        163,
-        196
+        155,
+        186
       ]
     },
     {
@@ -2700,9 +2820,9 @@
         145
       ],
       "target": [
-        174,
-        153,
-        155
+        181,
+        144,
+        136
       ]
     },
     {
@@ -2712,8 +2832,8 @@
         136
       ],
       "target": [
-        170,
-        140,
+        181,
+        144,
         136
       ]
     },
@@ -2736,8 +2856,8 @@
         128
       ],
       "target": [
-        170,
-        140,
+        181,
+        144,
         136
       ]
     },
@@ -2760,9 +2880,9 @@
         189
       ],
       "target": [
-        187,
-        177,
-        197
+        182,
+        168,
+        189
       ]
     },
     {
@@ -2832,9 +2952,9 @@
         148
       ],
       "target": [
-        191,
-        151,
-        139
+        189,
+        156,
+        148
       ]
     },
     {
@@ -2868,9 +2988,9 @@
         170
       ],
       "target": [
-        202,
-        176,
-        169
+        200,
+        171,
+        163
       ]
     },
     {
@@ -2880,9 +3000,9 @@
         188
       ],
       "target": [
-        187,
-        177,
-        197
+        199,
+        181,
+        196
       ]
     },
     {
@@ -2892,9 +3012,9 @@
         210
       ],
       "target": [
-        187,
-        177,
-        197
+        199,
+        181,
+        196
       ]
     },
     {
@@ -2952,9 +3072,9 @@
         196
       ],
       "target": [
-        187,
-        177,
-        197
+        199,
+        181,
+        196
       ]
     },
     {
@@ -2964,9 +3084,9 @@
         200
       ],
       "target": [
-        187,
-        177,
-        197
+        199,
+        181,
+        196
       ]
     },
     {
@@ -3000,9 +3120,9 @@
         163
       ],
       "target": [
-        202,
-        176,
-        169
+        200,
+        171,
+        163
       ]
     },
     {
@@ -3048,9 +3168,9 @@
         188
       ],
       "target": [
-        216,
-        186,
-        180
+        199,
+        181,
+        196
       ]
     },
     {
@@ -3060,9 +3180,9 @@
         166
       ],
       "target": [
-        202,
-        176,
-        169
+        209,
+        177,
+        166
       ]
     },
     {
@@ -3108,9 +3228,9 @@
         174
       ],
       "target": [
-        216,
-        186,
-        180
+        211,
+        182,
+        174
       ]
     },
     {
@@ -3144,9 +3264,9 @@
         194
       ],
       "target": [
-        222,
-        194,
-        188
+        219,
+        189,
+        183
       ]
     },
     {
@@ -3168,9 +3288,9 @@
         158
       ],
       "target": [
-        206,
-        170,
-        157
+        209,
+        177,
+        166
       ]
     },
     {
@@ -3204,9 +3324,9 @@
         168
       ],
       "target": [
-        216,
-        186,
-        180
+        211,
+        182,
+        174
       ]
     },
     {
@@ -3216,9 +3336,9 @@
         183
       ],
       "target": [
-        216,
-        186,
-        180
+        219,
+        189,
+        183
       ]
     },
     {
@@ -3252,9 +3372,9 @@
         187
       ],
       "target": [
-        216,
-        186,
-        180
+        219,
+        189,
+        183
       ]
     },
     {
@@ -3276,9 +3396,9 @@
         170
       ],
       "target": [
-        216,
-        186,
-        180
+        209,
+        177,
+        166
       ]
     },
     {
@@ -3288,9 +3408,9 @@
         175
       ],
       "target": [
-        216,
-        186,
-        180
+        219,
+        189,
+        183
       ]
     },
     {
@@ -3528,9 +3648,9 @@
         211
       ],
       "target": [
-        246,
-        219,
-        208
+        250,
+        227,
+        211
       ]
     },
     {
@@ -3564,9 +3684,9 @@
         207
       ],
       "target": [
-        252,
-        234,
-        218
+        250,
+        227,
+        211
       ]
     },
     {
@@ -3596,9 +3716,149 @@
   ],
   "algorithm": {
     "name": "shared-source-palette-adaptive-native-contours",
-    "version": 1,
-    "paletteSize": 72,
-    "paletteSource": "fixed-once-original16-source-color-medoids-with5-exact-pins",
+    "version": 2,
+    "paletteSize": 96,
+    "paletteSource": "fixed-original72-plus24-original16-background-hair-weighted-source-colors",
+    "paletteRefinement": {
+      "basePaletteSize": 72,
+      "addedSourceColors": [
+        [
+          211,
+          182,
+          174
+        ],
+        [
+          148,
+          123,
+          123
+        ],
+        [
+          118,
+          97,
+          99
+        ],
+        [
+          200,
+          171,
+          163
+        ],
+        [
+          182,
+          168,
+          189
+        ],
+        [
+          199,
+          181,
+          196
+        ],
+        [
+          181,
+          144,
+          136
+        ],
+        [
+          129,
+          109,
+          112
+        ],
+        [
+          138,
+          116,
+          118
+        ],
+        [
+          250,
+          227,
+          211
+        ],
+        [
+          83,
+          106,
+          156
+        ],
+        [
+          109,
+          92,
+          96
+        ],
+        [
+          98,
+          84,
+          91
+        ],
+        [
+          95,
+          90,
+          104
+        ],
+        [
+          112,
+          127,
+          172
+        ],
+        [
+          219,
+          189,
+          183
+        ],
+        [
+          145,
+          110,
+          107
+        ],
+        [
+          157,
+          155,
+          186
+        ],
+        [
+          129,
+          98,
+          96
+        ],
+        [
+          189,
+          156,
+          148
+        ],
+        [
+          135,
+          105,
+          104
+        ],
+        [
+          96,
+          115,
+          163
+        ],
+        [
+          84,
+          100,
+          144
+        ],
+        [
+          209,
+          177,
+          166
+        ]
+      ],
+      "selection": "fixed-once-greedy-reduction-of-weighted-squared-RGB-distance-over-original16-frames",
+      "sampleWeights": {
+        "all": 1,
+        "visibleBackgroundExtra": 5,
+        "visibleHairExtra": 1.5
+      },
+      "visibleCircle": {
+        "center": [
+          179,
+          133.5
+        ],
+        "radius": 133.5
+      },
+      "backgroundRegion": "visible && ((x<92 && y<194) || (x>274 && y<148) || (y<64 && (x<110 || x>255)))",
+      "hairRegion": "visible && ((x<128 && y>40) || (x>232 && y>35) || (y<80 && x>108 && x<252))"
+    },
     "colorDistance": "squared-euclidean-rgb; palette-index tie-break",
     "nativeGrid": [
       358,
@@ -3658,7 +3918,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_000.png",
       "sourceSha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b",
       "sourcePixelSha256": "fc85cd14be2e7c4da821a26b16c20b6f38467e1432fced460924cc9e26e92733",
-      "nativeStylePixelSha256": "50236e7442275db3c5c7e3d1193e553002df9b34105cdfa22126e4547047df40"
+      "nativeStylePixelSha256": "4feac3c908648e46c9eb761d33799d8ebc83153ba13ae54135930453841ff988"
     },
     {
       "index": 1,
@@ -3666,7 +3926,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_001.png",
       "sourceSha256": "9177c8726ad6bd5ddd290264acabb93b214bf0167e3412d2b5ad70d5f8879bff",
       "sourcePixelSha256": "e5b22db305c6424d42fc4ec39b8798d47aa35a49e6998fdc202ff9a9790c7a55",
-      "nativeStylePixelSha256": "b03a326457b15251479c79c952825fd657ac1b9435b4f2659248953840f2dc24"
+      "nativeStylePixelSha256": "d55bdf70196e8181ee4af75e201a9b4aa83e1d18037150ced8f23dfd4b3ea1c6"
     },
     {
       "index": 2,
@@ -3674,7 +3934,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_002.png",
       "sourceSha256": "c8f09e24dd745b4d88e8b950c4be2eed815e342da03dbb8d23bc4179f5108a9d",
       "sourcePixelSha256": "5848943d4064659dacae2fca7f4ad930178141085494353ac47365255c589a95",
-      "nativeStylePixelSha256": "7937282bb40103fcd4584e1231ee793b94c50c1d519f02f63ea22e8d9e6521d6"
+      "nativeStylePixelSha256": "e4f3a46a36183e12030ae4d55334c605b97d4c77573e9083de967975acb9ab20"
     },
     {
       "index": 3,
@@ -3682,7 +3942,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_003.png",
       "sourceSha256": "3aef741b6d33eb3f478904337c0ad3a3c4bc568ef7ec502c54e4299c0b8b7643",
       "sourcePixelSha256": "ffdc8ab9a661ae41db268f5c6e5aedfe99d03bb4bea936cf471a0e7e2cfd84a7",
-      "nativeStylePixelSha256": "4d5df7b8ea9799aa2ee7c071306c4dbd9b03e67d397a7c5417e03d1fea51403b"
+      "nativeStylePixelSha256": "46970ae45e5b0cf520f01b3e5ed436ec21cf3e2c343dced4c17c3fdf7be95adf"
     },
     {
       "index": 4,
@@ -3690,7 +3950,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_004.png",
       "sourceSha256": "dfa02b2a0679916527bb6da6281b24fbbac55235141ef2ef36b1bd87316fccb6",
       "sourcePixelSha256": "f81f097c8d32b81e7103327fbef537dab6919ac2a785ee327be3b18a1939fd8b",
-      "nativeStylePixelSha256": "05c49a05958544993269cbfa2fc277fb95693e4a736dd58684b463dc9e0a22fa"
+      "nativeStylePixelSha256": "1439c8830ecc226898266915c92dde7a1641ad67c900987055c70e39d8fd50e9"
     },
     {
       "index": 5,
@@ -3698,7 +3958,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_005.png",
       "sourceSha256": "dce183f9b9b4c28fc472568b3fdc7d99b70e7f4e59cc8c64fc4bc3cefa843d9e",
       "sourcePixelSha256": "bd7c797bb251c57edd1173f1aa90cbbc32f2b5c6d63d0b02713c3303a7ee8150",
-      "nativeStylePixelSha256": "7c91612748faeb492aa0c17534773e36f08357e5cfb74bad0286710535fb4b46"
+      "nativeStylePixelSha256": "99f0e45437afe3366b34e211f19c1e432f37989adddcec5f6c1bd16a1532bcfb"
     },
     {
       "index": 6,
@@ -3706,7 +3966,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_006.png",
       "sourceSha256": "a91f7c70dbddd0c0ebc40cd553310e2fd4e1dbe8cb1a9f837f19a3e4bb79e837",
       "sourcePixelSha256": "a2eaf0d550d717f13d677a1dd9446272795ac54ad203a6a36ec519844998408b",
-      "nativeStylePixelSha256": "36f903077814c87014edb7e4d9fb7dab6e79d37d9c4582280d818d2af49af60d"
+      "nativeStylePixelSha256": "d48db26e47ccb99ad656bb6bbcff7f1480b8714164e264fda0600c61b6216c63"
     },
     {
       "index": 7,
@@ -3714,7 +3974,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_007.png",
       "sourceSha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e",
       "sourcePixelSha256": "476ce8c85590fd68ec1d03f44d6042fdf6791fd1b25b767a9ad99b27927f7369",
-      "nativeStylePixelSha256": "a537a9a227827e05396ff0e1799c9703a45a0a28780c0b59d9f1ae8ef4164656"
+      "nativeStylePixelSha256": "c5ad426e5ec59f8be7a2246c7ee8f2bba40784dde1cf97319baa169073b37283"
     },
     {
       "index": 8,
@@ -3722,7 +3982,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_008.png",
       "sourceSha256": "1fa9f3daf8b3d7b750ea5866a90c0c6147e82ed82387f565df63b16fd9fd1969",
       "sourcePixelSha256": "ae835707a865dff24f07dc15b81b96c34957df07ea886f0be3b0946f699fd8ce",
-      "nativeStylePixelSha256": "d6608b10217b93b051a8b0025ca64cf90137df2a2f8e8f856deda7083ca4ef1c"
+      "nativeStylePixelSha256": "9ebe6ec5e27a709ec018112bb28fab17cc5688658e94483074b9612045d4d20e"
     },
     {
       "index": 9,
@@ -3730,7 +3990,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_009.png",
       "sourceSha256": "9b68d876dedfa8b86d171a8b693cb1edd2333c4d536f94d8b6ff3539cff35357",
       "sourcePixelSha256": "530ecf2f83fd3c6f4994663a762e5c54d367132ad8f36ff1e46b1d156eb67425",
-      "nativeStylePixelSha256": "6f7d378ba895165ab2fdf872577dce1df988e371037445b5e70aa21a8e328258"
+      "nativeStylePixelSha256": "663371efc703625d04d43947bd2c3dcd87cb441c39de7593e0da3edd1eadfc67"
     },
     {
       "index": 10,
@@ -3738,7 +3998,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_010.png",
       "sourceSha256": "fd3b20eae1e76c4e22686080806682c0df2d4f25aecd2c8745586bf503797bab",
       "sourcePixelSha256": "df4c5cb528f540096c66ea3fe7b449415ad80eaea034c97470d5451efcf577db",
-      "nativeStylePixelSha256": "8f026d84c56c7093459afb77bdeebf48fa936c6044c405a8317cf9d1902cef86"
+      "nativeStylePixelSha256": "67d16ff03c56367533ada550fc4d3f38ccacb54ce473315904d74f9594739388"
     },
     {
       "index": 11,
@@ -3746,7 +4006,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_011.png",
       "sourceSha256": "2327d4cdb6b98c7e18a780b664d4cd6a276bf5e55c99ab0df0132ebebbd8a13f",
       "sourcePixelSha256": "89dabb5f64876540704190f44341916cb025e3e5421c8b66a35c31b22efd79ae",
-      "nativeStylePixelSha256": "9ca2a1691639f362a6f93fc7ecf2f1b4e2edbdb9dd05a8aafbb231db38ceff98"
+      "nativeStylePixelSha256": "56ec0d8e90aee8457800a25c8d59eb01d6f73e90b9c6befe3c843cb887765068"
     },
     {
       "index": 12,
@@ -3754,7 +4014,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_012.png",
       "sourceSha256": "a79d4289fdfba6f2e5ea7fc3c95ac0f11bc8a7a5328edfc64fed3667d4536e38",
       "sourcePixelSha256": "dc31266222c6c6dcb8f6d66db6c23123162ddadfbc4b304bfa73441d4ff54cf3",
-      "nativeStylePixelSha256": "94aee73eaea93ea2813b9f557f0e3d3d9d7d475a47a689fc727dda08b3922e91"
+      "nativeStylePixelSha256": "bb0a5459ffc7e68544c38cbe442f8b7b824449d246c988b77f126714bd0c6de0"
     },
     {
       "index": 13,
@@ -3762,7 +4022,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_013.png",
       "sourceSha256": "f645e7f94629d6a79efa83cde2ea3d77917b3fe1eb89e096e2b66e0178dd0e78",
       "sourcePixelSha256": "4dc561fef46f6c08f31602f535666b8545f3c8c58fa185d8ab4bd6d9f8c53239",
-      "nativeStylePixelSha256": "a40fcee818c505bb1717a133b19bbd563ce0fa27cabb0df6df4530eba1a1fc2e"
+      "nativeStylePixelSha256": "7b225497456ba5137b49be15a51550cb66578e7030bbb8206555a1aa866f8a47"
     },
     {
       "index": 14,
@@ -3770,7 +4030,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_014.png",
       "sourceSha256": "0be9764d4a914ba04adf85efa498627f02aff05d6301d77f63a49d80a7524d42",
       "sourcePixelSha256": "a3dc271e869fda33251714d576d3b19fcecf2bcbe107733b6544fe1fd7aa741e",
-      "nativeStylePixelSha256": "8749ca14b9a61524306d13a034d1301da0e5958fe9f13c25f8679695b8edcf68"
+      "nativeStylePixelSha256": "88d6d3f8404516499fba197286a27659ff2fcd33ffdbc6b8c5daf9db90d60b3c"
     },
     {
       "index": 15,
@@ -3778,7 +4038,7 @@
       "sourceFile": "reference-projects/fuji-wind/original/frames/frame_015.png",
       "sourceSha256": "246c8d5acaf1e2473340f17439bffb27595b5c6e4f3e6019dec3c251d11a1552",
       "sourcePixelSha256": "f64e24d38275a69b2b6d43eb8d024583f58d4ec415d0c6d6a888ab4a7b65b898",
-      "nativeStylePixelSha256": "08548c58bf69ab94e9885a577cb009a5b6b7e9db57cc74b80c2d94655fdfbd24"
+      "nativeStylePixelSha256": "e4c1bd403ad8d74fb4c3e4accd23a376963390ab0eaf0ff20d704df53b339c21"
     }
   ],
   "frames": [
@@ -3788,7 +4048,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_000.png",
       "inputSha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b",
       "inputPixelSha256": "fc85cd14be2e7c4da821a26b16c20b6f38467e1432fced460924cc9e26e92733",
-      "outputPixelSha256": "50236e7442275db3c5c7e3d1193e553002df9b34105cdfa22126e4547047df40",
+      "outputPixelSha256": "4feac3c908648e46c9eb761d33799d8ebc83153ba13ae54135930453841ff988",
       "sourceAnchor": 0
     },
     {
@@ -3797,7 +4057,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_001.png",
       "inputSha256": "f68cbd6f411e7dfaff5f20908963edaa2b5fb9fea0796954432850a79d8858e4",
       "inputPixelSha256": "d6b071cf7afaa26a35539d5372effd992e1bd23c2c61a7ee6597560908ecdc33",
-      "outputPixelSha256": "94a1f61d43b83ab2da11c8b3f4ae411fadc4f307f685cb633db7e7bdc061f59b",
+      "outputPixelSha256": "5a739d23b061aa38a7d78c3c0422d41c70a0fa5d9db0da63635dc12c636b7ea1",
       "sourceAnchor": null
     },
     {
@@ -3806,7 +4066,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_002.png",
       "inputSha256": "858fede3863e5f965056ac67b88ca00346759806114e02a75f89f197bb70b83c",
       "inputPixelSha256": "4e52dbd11e9f87707df62cf2b583ccef2c1e97115dc80f6419cabdf40737e80a",
-      "outputPixelSha256": "282ef7bb22b8ad06672c04b9faa64be446be1e17c9749626acf1f6af23ca843f",
+      "outputPixelSha256": "484eb4267f5d9e9b7943b3a9dc1c9cc7494a2cf9347458732e39c305d22f966d",
       "sourceAnchor": null
     },
     {
@@ -3815,7 +4075,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_003.png",
       "inputSha256": "5b83048f30896feea3c4998c4e0af5d75fb31fdd35aac9dcdfa5758e41d4a096",
       "inputPixelSha256": "84709cb23084ca53a0a0ee2721d74736885bc43f1121beb35887d3ca8e076157",
-      "outputPixelSha256": "829ada872764b925ece5daa5d007a4780190cc34b1c03cb2836419868cc57223",
+      "outputPixelSha256": "e02ba795c71af6621406b71c8a743d701b10eb84c5f35d8e8376e2e087e107d9",
       "sourceAnchor": null
     },
     {
@@ -3824,7 +4084,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_004.png",
       "inputSha256": "9177c8726ad6bd5ddd290264acabb93b214bf0167e3412d2b5ad70d5f8879bff",
       "inputPixelSha256": "e5b22db305c6424d42fc4ec39b8798d47aa35a49e6998fdc202ff9a9790c7a55",
-      "outputPixelSha256": "b03a326457b15251479c79c952825fd657ac1b9435b4f2659248953840f2dc24",
+      "outputPixelSha256": "d55bdf70196e8181ee4af75e201a9b4aa83e1d18037150ced8f23dfd4b3ea1c6",
       "sourceAnchor": 1
     },
     {
@@ -3833,7 +4093,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_005.png",
       "inputSha256": "25f1f401552a6cadbe91a9e43ce02f629ed0d285d2b776529b9efa321f5b0985",
       "inputPixelSha256": "de9f8175f212caac7fe61c6c30a3da9496a7015bd3ce5f5b22cae91466f8ab38",
-      "outputPixelSha256": "dbec3a47416f8728eb776392225219ca8b212b3d6f640a7e392a68c93a095f61",
+      "outputPixelSha256": "3ba264153065f6c7ea1e0ec49954d49a9facd122f5cc9528806a411467aa5c91",
       "sourceAnchor": null
     },
     {
@@ -3842,7 +4102,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_006.png",
       "inputSha256": "f1bf96b43113f22865b12b5b4dbc27aac068b0082f2342d3ac8d115f37961427",
       "inputPixelSha256": "03233ccc4538413c4806b1578a6c2938e89fb61fcf8f884c1c279b3295c7d8a2",
-      "outputPixelSha256": "89115624fbab69683575c23b4259bb101e77f22b233ea981035926e6f5613b67",
+      "outputPixelSha256": "9eadf4bc8a545e79f637b756651257bd6205ed40362eec4acdc281d3c6861423",
       "sourceAnchor": null
     },
     {
@@ -3851,7 +4111,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_007.png",
       "inputSha256": "25975479c215d866824f4ee5cb0f0a69d4efe524cd3be287e9374b71652b4423",
       "inputPixelSha256": "6ea9bafc7801b1c91b36d7a2d304d666ce00ec9225237758150a68f3b9647651",
-      "outputPixelSha256": "c2d5a223f90f1ff13578f02dc409a8780226495bea6dd6247995c75bf52e52d7",
+      "outputPixelSha256": "9e52ce8f8f71750aea8ae90d4b023805e20d4c9cbae0dcd065fa756ec156d845",
       "sourceAnchor": null
     },
     {
@@ -3860,7 +4120,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_008.png",
       "inputSha256": "c8f09e24dd745b4d88e8b950c4be2eed815e342da03dbb8d23bc4179f5108a9d",
       "inputPixelSha256": "5848943d4064659dacae2fca7f4ad930178141085494353ac47365255c589a95",
-      "outputPixelSha256": "7937282bb40103fcd4584e1231ee793b94c50c1d519f02f63ea22e8d9e6521d6",
+      "outputPixelSha256": "e4f3a46a36183e12030ae4d55334c605b97d4c77573e9083de967975acb9ab20",
       "sourceAnchor": 2
     },
     {
@@ -3869,7 +4129,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_009.png",
       "inputSha256": "35d892617a382be90f7d0b13a1cb05814148763185c2fe99031ab713b0b05928",
       "inputPixelSha256": "0592a65ca4ebf4eff264680c2b63f9e18a4f014dac5e450a364d9b12e9ee0053",
-      "outputPixelSha256": "f161fd4f31d2537483acf55b206218272fd088eebf1bb931a8c0a482040349e3",
+      "outputPixelSha256": "d673956e35b243634305e31fc51b4f176535f9cc2a9242b883af7588ef139441",
       "sourceAnchor": null
     },
     {
@@ -3878,7 +4138,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_010.png",
       "inputSha256": "a88c31abec4803fdc1cf8c6d172b43c86f0e2ada9e2a40d1bcbf08ac156e29eb",
       "inputPixelSha256": "bca7a8b06ec0e7a732a4eb29d7db5bdeab9b50cbc7ebd5bfcd8eb6e79d5ed923",
-      "outputPixelSha256": "4844342ea8219ac7d904fc8314241597c33299bdbac359c88d2d7222797ee10b",
+      "outputPixelSha256": "e055d216096e4a0129eea030675aa4305629e4aa6006f3aaf94d75d2df929aea",
       "sourceAnchor": null
     },
     {
@@ -3887,7 +4147,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_011.png",
       "inputSha256": "dd8e58776f9063053999fafdcd6924ea04c43ae933fcdfd94a1b4531a128c2cb",
       "inputPixelSha256": "429adf3c66f3e13d013e5c5c4d7a9c1d421aa4389a4c7be551df4db7128663f1",
-      "outputPixelSha256": "472b658380c2e660d10db12aaad3f888529a25a4e1355562549883a52bef35fb",
+      "outputPixelSha256": "a0de0fa1aed6fd1db042a63babc378296e941a7d183c1bb162bdf54f5cdae7d9",
       "sourceAnchor": null
     },
     {
@@ -3896,7 +4156,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_012.png",
       "inputSha256": "3aef741b6d33eb3f478904337c0ad3a3c4bc568ef7ec502c54e4299c0b8b7643",
       "inputPixelSha256": "ffdc8ab9a661ae41db268f5c6e5aedfe99d03bb4bea936cf471a0e7e2cfd84a7",
-      "outputPixelSha256": "4d5df7b8ea9799aa2ee7c071306c4dbd9b03e67d397a7c5417e03d1fea51403b",
+      "outputPixelSha256": "46970ae45e5b0cf520f01b3e5ed436ec21cf3e2c343dced4c17c3fdf7be95adf",
       "sourceAnchor": 3
     },
     {
@@ -3905,7 +4165,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_013.png",
       "inputSha256": "6389c9b6c46b9e36468a3b3e20b78efed58d8bfc3c9264473dda8f8b715e52da",
       "inputPixelSha256": "56a9a6b18f06aedb3b045e16df860628e9cf12232e4321b71ec42614799af8dd",
-      "outputPixelSha256": "d354159742e7c832b9053311c744145317f6d49e8d63c2e32625fb109eeb3ab5",
+      "outputPixelSha256": "d53c89445de6b1a56ca5338094e9ca71cb5df0a6ffe76350dda13b9ee2f0f3f4",
       "sourceAnchor": null
     },
     {
@@ -3914,7 +4174,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_014.png",
       "inputSha256": "1823cee3c9b64d25d0663740398126a3d7973da30e8921be5c40e718b2c1d240",
       "inputPixelSha256": "5b0dada4f216aa89f5554db78c219a5864e0e56647a5d36671fe2476a59ce58e",
-      "outputPixelSha256": "edd6a4516a0969f02b67d292f9daa735fccea8144393d6ea6deec5a7bd6b10c5",
+      "outputPixelSha256": "409b8fea498ee1ce81720ce37ca220b5e4bf556dcc1446d0a5845de6d4626c10",
       "sourceAnchor": null
     },
     {
@@ -3923,7 +4183,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_015.png",
       "inputSha256": "8deb1e0c1b24b3d01b2bad66d33d27cdedcb42a02b259212535219183df50945",
       "inputPixelSha256": "bb8b1f80da378b4071096c23dcc8828cb29962c65ebf066865f3e676fadbc9ac",
-      "outputPixelSha256": "bef5a5e41d1fdd584af465b4f0530ce12046cd731a5419bafbff0abe9599b9a9",
+      "outputPixelSha256": "5525fc8f1eb1a4b628054b7d3660eb4da653492063f8db6ee385e8142bdef611",
       "sourceAnchor": null
     },
     {
@@ -3932,7 +4192,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_016.png",
       "inputSha256": "dfa02b2a0679916527bb6da6281b24fbbac55235141ef2ef36b1bd87316fccb6",
       "inputPixelSha256": "f81f097c8d32b81e7103327fbef537dab6919ac2a785ee327be3b18a1939fd8b",
-      "outputPixelSha256": "05c49a05958544993269cbfa2fc277fb95693e4a736dd58684b463dc9e0a22fa",
+      "outputPixelSha256": "1439c8830ecc226898266915c92dde7a1641ad67c900987055c70e39d8fd50e9",
       "sourceAnchor": 4
     },
     {
@@ -3941,7 +4201,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_017.png",
       "inputSha256": "f72dec10d13684f2196fcc4133c071a1e53304e17f79dace7155fbf7dc2bdce1",
       "inputPixelSha256": "4b18dc97ad8fc730a16fa9c3e9882170fdf7440697a36a231a2ce3e5586a0573",
-      "outputPixelSha256": "a8e55d4401c093ba7d62c6cccc293c37702d2fea36bf15ec5bb2ca88349eaaa2",
+      "outputPixelSha256": "dd0cf69f518230b6b18401a4a5e81afdc239b96bc749aba297b9d7cfb16575ec",
       "sourceAnchor": null
     },
     {
@@ -3950,7 +4210,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_018.png",
       "inputSha256": "d2b9c0fd2db4ad58fd96cfcfea136905ea230ec8f3edef3feb27842c07b65643",
       "inputPixelSha256": "fd58e5c68fbdb4440d5d88aaa29ab5caa6382778a254b1c0cbc53a0c8673257e",
-      "outputPixelSha256": "e290dce586016407f4594feca5a4370b079fb3e51fb5e15462fc3080be9a82d4",
+      "outputPixelSha256": "70411123ef7aa1caffb1b50f4528633e9c41a5022f3b5e2a844fb044e8b33f5d",
       "sourceAnchor": null
     },
     {
@@ -3959,7 +4219,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_019.png",
       "inputSha256": "e0fab9431163e287eacdac82d3c8b3d05ea24e0f3e2aeb88d69f979abfdfc3b7",
       "inputPixelSha256": "31d034e6632b494b7b46dc22a45dbac1c9f8f770c15c93048b8e771b1224f786",
-      "outputPixelSha256": "1e8930e99a8123baa9bca1d3ce1ad44c663756e81108311cbb8214337d59e1aa",
+      "outputPixelSha256": "212c2141254885dba60b221994015ced2005f6692aad22f2f1645aae9e079fef",
       "sourceAnchor": null
     },
     {
@@ -3968,7 +4228,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_020.png",
       "inputSha256": "dce183f9b9b4c28fc472568b3fdc7d99b70e7f4e59cc8c64fc4bc3cefa843d9e",
       "inputPixelSha256": "bd7c797bb251c57edd1173f1aa90cbbc32f2b5c6d63d0b02713c3303a7ee8150",
-      "outputPixelSha256": "7c91612748faeb492aa0c17534773e36f08357e5cfb74bad0286710535fb4b46",
+      "outputPixelSha256": "99f0e45437afe3366b34e211f19c1e432f37989adddcec5f6c1bd16a1532bcfb",
       "sourceAnchor": 5
     },
     {
@@ -3977,7 +4237,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_021.png",
       "inputSha256": "cf6bcc37b432c06a300cbc5814cefc0a8ef5e2f3baad7cf0abe883a4c70bf935",
       "inputPixelSha256": "3f6218169bdf9a67c9365e04eaecb538f5eac5c40d25e8115db93fe7bcdac2a8",
-      "outputPixelSha256": "ccf0e1e92955d2a2cfe3b0afcca2bbfb55df6e3eab4fbe4f4cbea4c262158358",
+      "outputPixelSha256": "03c90d287eb148ff640e0a86bd478562a0976db0bdb89a0452be0a6717d80816",
       "sourceAnchor": null
     },
     {
@@ -3986,7 +4246,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_022.png",
       "inputSha256": "5fd8806b84a3edb4e05afd81ce487e042a61cd9ca15e796bc3dbe5ac0e51950b",
       "inputPixelSha256": "6a51fb28c8b9e6d50246a07544c9f697c12d2b675e0481f1885a1108cbbdb7d6",
-      "outputPixelSha256": "b89be6969641915a909ea3fde76f5f67a1b571acfef000f55eff2c2f05f6f4ad",
+      "outputPixelSha256": "59602f5e1dc248f73dcc7b06c425bc1137c5447cd97807b63c17d7968afcf733",
       "sourceAnchor": null
     },
     {
@@ -3995,7 +4255,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_023.png",
       "inputSha256": "7360baf9d81a2d910c7c486c67ab1afb4ef834f621b90f056797d4bd119c9aff",
       "inputPixelSha256": "b103e840ef3bd277391e751ee4d99120d5dbda5a5a8a7e90a527164abeb53b57",
-      "outputPixelSha256": "1751e8b6507bd5f2e256514a37f500f28472caffc66f5385cf1cc104ad8f8156",
+      "outputPixelSha256": "55056af2f00e045c927464ef289f2693f2894dd80d652997a6f14524f50cc363",
       "sourceAnchor": null
     },
     {
@@ -4004,7 +4264,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_024.png",
       "inputSha256": "a91f7c70dbddd0c0ebc40cd553310e2fd4e1dbe8cb1a9f837f19a3e4bb79e837",
       "inputPixelSha256": "a2eaf0d550d717f13d677a1dd9446272795ac54ad203a6a36ec519844998408b",
-      "outputPixelSha256": "36f903077814c87014edb7e4d9fb7dab6e79d37d9c4582280d818d2af49af60d",
+      "outputPixelSha256": "d48db26e47ccb99ad656bb6bbcff7f1480b8714164e264fda0600c61b6216c63",
       "sourceAnchor": 6
     },
     {
@@ -4013,7 +4273,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_025.png",
       "inputSha256": "2bb5b2ee4d601ffd285d8a3e61b92d1095336c259e3bc518577486a178fb53ad",
       "inputPixelSha256": "ddb5296a1e53c20555b8d016dfa111e1f088477682acf27a8f12c450f7f046b8",
-      "outputPixelSha256": "76ee42aa4b89b9e083e2cb71632ad5787af62d8c2e53cff48d285edfd89b999b",
+      "outputPixelSha256": "dc8f8c6eaed4618276eeabd526b8fbb658a5416ab73b92ec959c11af281806a9",
       "sourceAnchor": null
     },
     {
@@ -4022,7 +4282,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_026.png",
       "inputSha256": "17e3a548f913d841089e091a3577800c168de885dc61388937c9a55d4ba30df0",
       "inputPixelSha256": "060f675e9095af8b8938ce0feace08340388fbcf4e672ea92b9655c56adf288d",
-      "outputPixelSha256": "8e35905e60176257f7d2a1ce5009f2c67333432d1bd2ea5fa5cbc478af061371",
+      "outputPixelSha256": "a6c77bb06620dd3ab3a5a47a88594d87f6d84d491a09a47b5b3f8c2f603a4260",
       "sourceAnchor": null
     },
     {
@@ -4031,7 +4291,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_027.png",
       "inputSha256": "053eee3fffada9d70102bf37c5e714a43399849c6fe5a3ef4effc7e9c6484edf",
       "inputPixelSha256": "9b574f74884d2c2d2ba2272b2a9863e08da4149632b17ad5fe782da847cb6ee6",
-      "outputPixelSha256": "51dea4295f6f9a609ec1f20982291bc3a51758dd5f1fedae13099b836939cb9b",
+      "outputPixelSha256": "78ed0d3512a314ee5578f7d45cdca4be12df981b4821dde8349ddf2379e500a7",
       "sourceAnchor": null
     },
     {
@@ -4040,7 +4300,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_028.png",
       "inputSha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e",
       "inputPixelSha256": "476ce8c85590fd68ec1d03f44d6042fdf6791fd1b25b767a9ad99b27927f7369",
-      "outputPixelSha256": "a537a9a227827e05396ff0e1799c9703a45a0a28780c0b59d9f1ae8ef4164656",
+      "outputPixelSha256": "c5ad426e5ec59f8be7a2246c7ee8f2bba40784dde1cf97319baa169073b37283",
       "sourceAnchor": 7
     },
     {
@@ -4049,7 +4309,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_029.png",
       "inputSha256": "5a991580ee22d368ada8753a671e5fe19c78380817e2707f6546f962e85f9cda",
       "inputPixelSha256": "d4b1ad08658e96398290664629cd08d69c7e39582bd5ca749bb81821dcc422a9",
-      "outputPixelSha256": "06f8136eae2a5ce9a42593ec2fa9db5d5e68eebd01d41d3ac8df979fb631d002",
+      "outputPixelSha256": "07107ae4a27877e931a1730134f2f4b8c8cf5774d442cdbd7485d4f7bbb7da71",
       "sourceAnchor": null
     },
     {
@@ -4058,7 +4318,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_030.png",
       "inputSha256": "f8bbe88ebcfaa7c8a26299162baae5e5f6fc122a5c758697a7f651858e79a463",
       "inputPixelSha256": "cc8c73e7887c1c9f0f339808458975ab27b52268b027375340df7388b2b20a70",
-      "outputPixelSha256": "aed103534755eecf6c3438e0a1a143e904d25803f4b3e4e2b39ba197216a0ca7",
+      "outputPixelSha256": "6f5472c54c7d334788cf80562aebd4a01d388f98377b7fbacf9143206dfa3a5b",
       "sourceAnchor": null
     },
     {
@@ -4067,7 +4327,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_031.png",
       "inputSha256": "96d825ca5aa59a2f24cb44ea0ed78422f1c05a0c78a962192f7ee5160c30e7bb",
       "inputPixelSha256": "1211467b30df6909bbac32dddca6a7079bad93f48ffa09561e835c653a6ff049",
-      "outputPixelSha256": "920fc25ffc59744ee128d87a928eec2f5c629d67766af223e6e2f06b2f3fc88a",
+      "outputPixelSha256": "4016c395b31c49b9df3ef0618436d2a4bcdc8a0eb40e24a225d281931580f72e",
       "sourceAnchor": null
     },
     {
@@ -4076,7 +4336,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_032.png",
       "inputSha256": "1fa9f3daf8b3d7b750ea5866a90c0c6147e82ed82387f565df63b16fd9fd1969",
       "inputPixelSha256": "ae835707a865dff24f07dc15b81b96c34957df07ea886f0be3b0946f699fd8ce",
-      "outputPixelSha256": "d6608b10217b93b051a8b0025ca64cf90137df2a2f8e8f856deda7083ca4ef1c",
+      "outputPixelSha256": "9ebe6ec5e27a709ec018112bb28fab17cc5688658e94483074b9612045d4d20e",
       "sourceAnchor": 8
     },
     {
@@ -4085,7 +4345,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_033.png",
       "inputSha256": "f57cd546299db2da4bc95b5921e80a77a7a1c9103c205f9b00ceda247ebbb16d",
       "inputPixelSha256": "c58edec4fb2ecb62706ca2ceb6f3b8a24b8f252c13f8bf7f278964aabfe5a1d0",
-      "outputPixelSha256": "c42f650823bd86102ad65958d79a404efe168aa42f4c929a42aef083fe725c30",
+      "outputPixelSha256": "9ca111808e1e33b2143add4e043dded0d6a0ab386cff0ea3106b958cda06632b",
       "sourceAnchor": null
     },
     {
@@ -4094,7 +4354,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_034.png",
       "inputSha256": "c6a644efda637ac4dd0a72d8352a2cc75d7168164a06b3568a105e7c3aff0908",
       "inputPixelSha256": "b100f24a059477804f032302b43a5d31f16c91a4ca12e08936b48c8564bb6ad9",
-      "outputPixelSha256": "d39f4ccd41c8caeba0699d3b5d8e4170835cc046d04dc6940fdd2c54015da886",
+      "outputPixelSha256": "606127e2cdd14dc88eba46028a1be49e71903304899a15f8fe9b059826e3841a",
       "sourceAnchor": null
     },
     {
@@ -4103,7 +4363,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_035.png",
       "inputSha256": "5bef1e8ae92316d524bd5deb7813d933f9b602531d11262d664f493fd9053a5d",
       "inputPixelSha256": "7876e5e9d5345e49b80b616767c5cc6e4e32bb03b2c0a2de801833bb8b03f2f0",
-      "outputPixelSha256": "dcbf80b2341d2cf95274a2968f86198dc38e8c3b321553f271561ec58ac71944",
+      "outputPixelSha256": "4a027d04b3edfacbafb044af4ec10788c1e1a50a2f32a114134ffd22f0b78073",
       "sourceAnchor": null
     },
     {
@@ -4112,7 +4372,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_036.png",
       "inputSha256": "9b68d876dedfa8b86d171a8b693cb1edd2333c4d536f94d8b6ff3539cff35357",
       "inputPixelSha256": "530ecf2f83fd3c6f4994663a762e5c54d367132ad8f36ff1e46b1d156eb67425",
-      "outputPixelSha256": "6f7d378ba895165ab2fdf872577dce1df988e371037445b5e70aa21a8e328258",
+      "outputPixelSha256": "663371efc703625d04d43947bd2c3dcd87cb441c39de7593e0da3edd1eadfc67",
       "sourceAnchor": 9
     },
     {
@@ -4121,7 +4381,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_037.png",
       "inputSha256": "413d1fe941f8d180dee07c3ca3291cb7793d066170dc098248e71bd2c8092226",
       "inputPixelSha256": "e7f784110636810d432863a3d3c98236c37a91d2f80b2c155eadc4666682536e",
-      "outputPixelSha256": "4bf49caa8f5a26609ed7ed1586927bc7244c16e2d58e78a370797abd8cbe0e81",
+      "outputPixelSha256": "e8cec7b21dde143ea86bdb0937f48bef026992b054139744fe4fe37194616995",
       "sourceAnchor": null
     },
     {
@@ -4130,7 +4390,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_038.png",
       "inputSha256": "96a7b18027b085105b7413d3476f090491bee87976dd74e901073d67af792d47",
       "inputPixelSha256": "26d268b9a4a865e0fe3f93a5b4d7c63a48ffb799cd5b25b401c282c0da7a86a3",
-      "outputPixelSha256": "e92ce3b1f860eafac63dcfd2e99a66b32b6db10bec5cb639c3dc14985ed9316a",
+      "outputPixelSha256": "e24d88dbb18161f7c2ac20dfbf60056dc5470efd81a608cfc4c4a429be8a9e3b",
       "sourceAnchor": null
     },
     {
@@ -4139,7 +4399,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_039.png",
       "inputSha256": "40ab2cdb260121b58610a5346fecc32b807f3f9da4a8a8bb189a9f2d6704d45a",
       "inputPixelSha256": "7114d6e00361b78155a2772f73358385399520228a4e51d59503ca45808b3d56",
-      "outputPixelSha256": "b2cce5289813e29bd8a51888f69c6b6115f8490c3d0af1b5f2c0ed22d47f1921",
+      "outputPixelSha256": "15766f7f49c2f8ea8de678815750866e7f26800019609be34022223f990addd5",
       "sourceAnchor": null
     },
     {
@@ -4148,7 +4408,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_040.png",
       "inputSha256": "fd3b20eae1e76c4e22686080806682c0df2d4f25aecd2c8745586bf503797bab",
       "inputPixelSha256": "df4c5cb528f540096c66ea3fe7b449415ad80eaea034c97470d5451efcf577db",
-      "outputPixelSha256": "8f026d84c56c7093459afb77bdeebf48fa936c6044c405a8317cf9d1902cef86",
+      "outputPixelSha256": "67d16ff03c56367533ada550fc4d3f38ccacb54ce473315904d74f9594739388",
       "sourceAnchor": 10
     },
     {
@@ -4157,7 +4417,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_041.png",
       "inputSha256": "51bc99078604da5553286eb8c2414de7c658b2d207f0f869ef7adc7643ae31fc",
       "inputPixelSha256": "01ea1facef58c46a1902d386a0de09b9c1850338ec75c78435e1065c3450d33f",
-      "outputPixelSha256": "0934bdf7e281f26d5120d8e5a48d091f131685909f34a955e14ae91d99e99f54",
+      "outputPixelSha256": "4bf36d3be0a509e91b625ef8a8b4d7f26f31b1ed706df2b826aab6ac30a01522",
       "sourceAnchor": null
     },
     {
@@ -4166,7 +4426,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_042.png",
       "inputSha256": "937cb4dcb91d8b1417bfe604e2662757fc3147c8915be07d40c012f255856d7c",
       "inputPixelSha256": "57835d8fb61e35b5de00bc02e5ddd977a208fa4da0779d96a6167e51edb3d419",
-      "outputPixelSha256": "ce62b7982f4dd316589eb3b4e0d998df580be78e196b45d224b7c4c98daae948",
+      "outputPixelSha256": "7202ca9bf62bfab249fc5b84a7ab58061de73964b9b108b758568f4b1a3c1aa4",
       "sourceAnchor": null
     },
     {
@@ -4175,7 +4435,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_043.png",
       "inputSha256": "bd53632f4f0095f24ba9615d4f07b895e308d45bebcf7dbb8df19a0efe6f4ef9",
       "inputPixelSha256": "f2a9ce63f6f0ad63c9d92dbda3642877a7bffdc4bf6f8e9113cfb81b700e90f1",
-      "outputPixelSha256": "f994544b9c1085a2eece444a50856c56209a0942026b0a64d4681ccd7ae95794",
+      "outputPixelSha256": "82b074ec09d5b07847dd447d2f6caac185edc92f061c74e07c35a9966106e257",
       "sourceAnchor": null
     },
     {
@@ -4184,7 +4444,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_044.png",
       "inputSha256": "2327d4cdb6b98c7e18a780b664d4cd6a276bf5e55c99ab0df0132ebebbd8a13f",
       "inputPixelSha256": "89dabb5f64876540704190f44341916cb025e3e5421c8b66a35c31b22efd79ae",
-      "outputPixelSha256": "9ca2a1691639f362a6f93fc7ecf2f1b4e2edbdb9dd05a8aafbb231db38ceff98",
+      "outputPixelSha256": "56ec0d8e90aee8457800a25c8d59eb01d6f73e90b9c6befe3c843cb887765068",
       "sourceAnchor": 11
     },
     {
@@ -4193,7 +4453,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_045.png",
       "inputSha256": "d932528af9b4efbbff4029685d804d7cbf08f27a4ea1b2ed51a696782b539113",
       "inputPixelSha256": "a57e2f98be341e1ad116e4f3921bc4af73146b5295c9f3adc4aa87f3536f3a63",
-      "outputPixelSha256": "9cc427c32e04bfa62224ec7efca7b7c7e9cf3bf16f83a5d5dfb13d14988285c8",
+      "outputPixelSha256": "d200c665072b22fe278f6861f8b37b3881ee6ab04badeb480305e1a4062cfe08",
       "sourceAnchor": null
     },
     {
@@ -4202,7 +4462,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_046.png",
       "inputSha256": "9296402f7f631b16e1ada947b7df0b64d24a5def96029fc9af4b720c489c7d7b",
       "inputPixelSha256": "8d0340d3381d80314c981a5d9ef0c44126b430d5aa5c1dc99c6c907861bd5331",
-      "outputPixelSha256": "48368b97fb727cdd028d9633860b5c09b7a02795a98ff5f8d5def62fc97c422c",
+      "outputPixelSha256": "12adb50a89659f37695d78e24e0386fba717e9ab338e1901513ebe153763423c",
       "sourceAnchor": null
     },
     {
@@ -4211,7 +4471,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_047.png",
       "inputSha256": "4251ed30e6f42fdfd74a9fb67bf872dba156e2404c4107671169082000b3ad7c",
       "inputPixelSha256": "3e030bdceecc004c2b190610e12d723fe68346d7ae564ea9844560e5dea7bd06",
-      "outputPixelSha256": "2699abe38d339e59b06df2a05d81b840b3a70483054c43f2ffb22005c4098b1e",
+      "outputPixelSha256": "1fc8ebad874c1dcad820123aab528ca98ade253b05303f995a7bb83e020fd884",
       "sourceAnchor": null
     },
     {
@@ -4220,7 +4480,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_048.png",
       "inputSha256": "a79d4289fdfba6f2e5ea7fc3c95ac0f11bc8a7a5328edfc64fed3667d4536e38",
       "inputPixelSha256": "dc31266222c6c6dcb8f6d66db6c23123162ddadfbc4b304bfa73441d4ff54cf3",
-      "outputPixelSha256": "94aee73eaea93ea2813b9f557f0e3d3d9d7d475a47a689fc727dda08b3922e91",
+      "outputPixelSha256": "bb0a5459ffc7e68544c38cbe442f8b7b824449d246c988b77f126714bd0c6de0",
       "sourceAnchor": 12
     },
     {
@@ -4229,7 +4489,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_049.png",
       "inputSha256": "eba561dc83cdd9d5de3a8b0fbad742db0cff0b3fdbd6dc878ecf3a6c4f346491",
       "inputPixelSha256": "6e248bf70cf55bdfa5d776049824e8ec5144579f5556b19b5652db84b8aff74e",
-      "outputPixelSha256": "dd1215b44913a2a98e95d4c65a88f9bb14be2c6f77759700e3568c5ec414724d",
+      "outputPixelSha256": "910f84920413638f2680e7a163283aa3c52447cb2e13569a1c50dac2f9269090",
       "sourceAnchor": null
     },
     {
@@ -4238,7 +4498,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_050.png",
       "inputSha256": "befd8122efd7f950b42c5f8255208d64f7b8af1a96d0ebf16b4a66c6cd4d972e",
       "inputPixelSha256": "738552e762f32446bc149d6a7f0e74c78cce64be42a1d54563278f35b3d3bb0f",
-      "outputPixelSha256": "638b794959e5133cfcfc491425d43e47ab7fbbcaf14e9a033ed1853e88fe8066",
+      "outputPixelSha256": "675c6d7026d2ffa8561bba254f8f0bf649e205962692772544b32a4a91962cc8",
       "sourceAnchor": null
     },
     {
@@ -4247,7 +4507,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_051.png",
       "inputSha256": "dd66186ad10b0bc3d33c48556c7a08fda693860c699b6f7234bdfa55844f5a73",
       "inputPixelSha256": "056e91382c68a0f7bbf194e66051be4d8d3b4653a3250491575b18bed3d9e263",
-      "outputPixelSha256": "487a0c438e31be6a826841821b357992da80e4f0331e591fd2f604a3f05ddda4",
+      "outputPixelSha256": "b240e611d23bffbeb200ac69fab199d95fe4dae645eec964fcd48762af368a3a",
       "sourceAnchor": null
     },
     {
@@ -4256,7 +4516,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_052.png",
       "inputSha256": "f645e7f94629d6a79efa83cde2ea3d77917b3fe1eb89e096e2b66e0178dd0e78",
       "inputPixelSha256": "4dc561fef46f6c08f31602f535666b8545f3c8c58fa185d8ab4bd6d9f8c53239",
-      "outputPixelSha256": "a40fcee818c505bb1717a133b19bbd563ce0fa27cabb0df6df4530eba1a1fc2e",
+      "outputPixelSha256": "7b225497456ba5137b49be15a51550cb66578e7030bbb8206555a1aa866f8a47",
       "sourceAnchor": 13
     },
     {
@@ -4265,7 +4525,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_053.png",
       "inputSha256": "5897ff603ef89735bde5829f7cb8ae9eb287b038fdb1d3c559b326791b1b6bf8",
       "inputPixelSha256": "04a3ca44efbf053cc077457d73ee2a3192c07c6331bee0627a08376928bdb812",
-      "outputPixelSha256": "4db2d74cd10774751f00ba61c52eb644983890d10f3ae2a5755b29b1bee12bc6",
+      "outputPixelSha256": "0350de0c191366df2f239d4906ff0a189c8340d4996d62d2d934c04efb2fad6e",
       "sourceAnchor": null
     },
     {
@@ -4274,7 +4534,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_054.png",
       "inputSha256": "4ef6e149c15ef48ce91d52ab25a6d1557f9bfe71953eba6cf6986844fc75373e",
       "inputPixelSha256": "8f52135be3245b467012f9dade63fcc0246769208c8b0556a2054b3ada9c3d95",
-      "outputPixelSha256": "46663d34651ef55ab260bb1c3f419ae0e5060fdd9c35306a810f234b8ccbd768",
+      "outputPixelSha256": "fd6439f7a29b41be55a1a744817c385b48972a2093c627919c9a48e3909ba9f1",
       "sourceAnchor": null
     },
     {
@@ -4283,7 +4543,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_055.png",
       "inputSha256": "dfad81ea8b943afa9592a358bf55cafcb660d5efdb867ceff3c5363660fd6da8",
       "inputPixelSha256": "2936def24ee65ad459efb9fcd71d8405633f1dc5f6e681764906809fc497da37",
-      "outputPixelSha256": "48dee6b21e122e84a781eee70d3a8208098b73625b5c8310ca7aeefe91365efe",
+      "outputPixelSha256": "acb174eeda790811e37fe076829d0657bd4fbb5102d988176e1200ad9c581faf",
       "sourceAnchor": null
     },
     {
@@ -4292,7 +4552,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_056.png",
       "inputSha256": "0be9764d4a914ba04adf85efa498627f02aff05d6301d77f63a49d80a7524d42",
       "inputPixelSha256": "a3dc271e869fda33251714d576d3b19fcecf2bcbe107733b6544fe1fd7aa741e",
-      "outputPixelSha256": "8749ca14b9a61524306d13a034d1301da0e5958fe9f13c25f8679695b8edcf68",
+      "outputPixelSha256": "88d6d3f8404516499fba197286a27659ff2fcd33ffdbc6b8c5daf9db90d60b3c",
       "sourceAnchor": 14
     },
     {
@@ -4301,7 +4561,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_057.png",
       "inputSha256": "15d91caf937b6f2e5e78b49a8008eba06670c90bb953b6be9e155d924101eeea",
       "inputPixelSha256": "8742b4c4cf0082e7305ae2070fa0dc049ff1aa729e4c13b92e207f7aa24bc688",
-      "outputPixelSha256": "ebcb0a60f50e14fe879229280b2fe56eaea6120ef5ff4b93336b14710f4f4097",
+      "outputPixelSha256": "6ea0b1418f344a58c5641d0443a4c7f0422df5ded884f7892c257422b2785971",
       "sourceAnchor": null
     },
     {
@@ -4310,7 +4570,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_058.png",
       "inputSha256": "2f5772c1875690dd6bc5f7db9b682ae10dc78db978eaa2d94fd2fdb0e286c9d0",
       "inputPixelSha256": "027fce004890877f966e51256d7eb566ab1a8db20b23615ef44ce93ecb50d013",
-      "outputPixelSha256": "ec36b87ffd420da9dc525133ce03681c4524822a02a97200cacfb5c52e0c0bda",
+      "outputPixelSha256": "11b19ac2027e85eeb29abaa81ba7b9f68d80893a3a05617a1bef6e7c87a24ba6",
       "sourceAnchor": null
     },
     {
@@ -4319,7 +4579,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_059.png",
       "inputSha256": "8b0fcddf7d18661af7dcabd200eedce54db676674bb751ae4d79f6944a10add3",
       "inputPixelSha256": "bcbccb3e39a9169c1b3f31c59710ad08997736ddf3af49d9d791f3ae23033478",
-      "outputPixelSha256": "ddc22e670f774492c800a14bea4ea7a97c0bab47bb0905077556c1ea59aa620c",
+      "outputPixelSha256": "39114527652dacbe49a00ccc6e1a8174d5bea2dd9b6de4505474870f30c20cc1",
       "sourceAnchor": null
     },
     {
@@ -4328,7 +4588,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_060.png",
       "inputSha256": "246c8d5acaf1e2473340f17439bffb27595b5c6e4f3e6019dec3c251d11a1552",
       "inputPixelSha256": "f64e24d38275a69b2b6d43eb8d024583f58d4ec415d0c6d6a888ab4a7b65b898",
-      "outputPixelSha256": "08548c58bf69ab94e9885a577cb009a5b6b7e9db57cc74b80c2d94655fdfbd24",
+      "outputPixelSha256": "e4c1bd403ad8d74fb4c3e4accd23a376963390ab0eaf0ff20d704df53b339c21",
       "sourceAnchor": 15
     },
     {
@@ -4337,7 +4597,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_061.png",
       "inputSha256": "d3a7b92e609005569463f2668245ae73b0a2f0f4836aaa1d3825748080576647",
       "inputPixelSha256": "071fb361ff6b625dec03c8393cf5492daa139f87f6c8866f0cde3f0a9006fa5c",
-      "outputPixelSha256": "a84dfe080cf1ed5c4149fe830730defb4836a2e9463e13a392130e1e70e0fbe6",
+      "outputPixelSha256": "b6aca4d5b08443cbe7c66136a1ad62c7d34dc903ee77803db8f5cbbcfe38af1c",
       "sourceAnchor": null
     },
     {
@@ -4346,7 +4606,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_062.png",
       "inputSha256": "53db6b63c11f9ef84a96d33981983a8164853d88ff8f2127833ebf0aed663df0",
       "inputPixelSha256": "d3919c38a443896f1b98325bca7bde640af1bf132035d512f34c089472bf017c",
-      "outputPixelSha256": "f0fb602feaf0b0fb882aa22c6321c08f8e6c38a5f99affd7426f5c72ddf0d59d",
+      "outputPixelSha256": "1d695d55187eb259a76d753c2a44c37eed3c69d1d99b4149f20dfd1b3fb1243e",
       "sourceAnchor": null
     },
     {
@@ -4355,7 +4615,7 @@
       "inputFile": "work/poetic-motion/interpolated50/frame_063.png",
       "inputSha256": "f78ac29fc6b2ba586465ceb74dc5f88cf96649c0d2c173bea6b39e3da23ad60d",
       "inputPixelSha256": "c41832245fa61be66b6fd9d09a4efec42447a9481652ee36642cc141de1208c6",
-      "outputPixelSha256": "f9534ef6cecf02457d462ab28b4ea78940cc12dcc7734a0e6bde286420e925f4",
+      "outputPixelSha256": "769c01a0caa134f3307c4d861291f2dd9f8aacf789ef1e68c1396218bafcaec9",
       "sourceAnchor": null
     }
   ],
@@ -5315,8 +5575,8 @@
   "authoring": [
     {
       "file": "scripts/assets/export_poetic_pixel_scene.py",
-      "bytes": 16192,
-      "sha256": "c28eb7e2293cb2ef394e922fb2daa05cb3807fe5f84c96dd4d48fb4238882eea"
+      "bytes": 17463,
+      "sha256": "bb28a993afef89af5f7010bab40edebb8b868bd95767b2cd654acd33317a694a"
     },
     {
       "file": "scripts/assets/scale_pixel_art.py",
@@ -5337,23 +5597,23 @@
   "files": [
     {
       "file": "public/assets/poetic-pixel/atlas.png",
-      "bytes": 1395624,
-      "sha256": "3449ba67b3243f3949c6f8b180b0b1acc13c347638f90d7b1ffccfef4bb378e8"
+      "bytes": 1641539,
+      "sha256": "ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3"
     },
     {
       "file": "public/assets/poetic-pixel/source-atlas.png",
-      "bytes": 419082,
-      "sha256": "f3f9495987949edeeb8cc2e8ca851d9673ab1b8ae2b750c6106b7def9629c235"
+      "bytes": 491665,
+      "sha256": "830b706ebdfd5afbad070ce6f67ee4cd443247434b982d3c3e5628251ba4bd95"
     },
     {
       "file": "public/assets/poetic-pixel/canonical.png",
-      "bytes": 148704,
-      "sha256": "d742adc995ab9b190bdc1132689307372da51bb29ac942c1bd6557d8a40fe1f9"
+      "bytes": 160986,
+      "sha256": "8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7"
     },
     {
       "file": "public/assets/poetic-pixel/boot.mp4",
-      "bytes": 972129,
-      "sha256": "e14a78bd8458e40a53e72a16a0dd0cd80de6d4ca071bd10004b9eafbe0ac32aa"
+      "bytes": 967503,
+      "sha256": "e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5"
     },
     {
       "file": "public/assets/poetic-pixel/motion-provenance.json",
