@@ -1,149 +1,37 @@
-/** Edit personal content here; portrait geometry and animation remain independent. */
-export type Project = {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  tags: string[]
-  href: string
-  status: 'active' | 'archived'
-}
+import type { SiteContent } from './types.ts'
+export type { Project, SocialPlatform, SocialProfile, ContactLink, Interest, GameProfile, GameShowcaseBlock, SiteContent, ContentsEntry, SiteSearchEntry } from './types.ts'
+export { getSocialLinks, getInterests, getGameProfiles, getSiteNavigation, getTableOfContents, getSiteSearchEntries, searchSite, resolveProfileAsset } from './selectors.ts'
 
-/** Additional, owner-confirmed accounts. GitHub and email come from the fields below. */
-export type SocialProfile = {
-  id: string
-  platform: 'bilibili' | 'douyin' | 'other'
-  label: string
-  href: string
-  handle?: string
-}
-
-export type ContactLink = Omit<SocialProfile, 'platform'> & {
-  platform: SocialProfile['platform'] | 'github' | 'email'
-}
-
-/** Supply a real public player name or ID; games never require a link to be useful. */
-export type GameProfile = {
-  id: string
-  game: 'honor-of-kings' | 'naruto' | 'other'
-  label: string
-  playerName?: string
-  playerId?: string
-  region?: string
-  description?: string
-  href?: string
-}
-
-export type SiteContent = {
-  name: string
-  fullName: string
-  handle: string
-  intro: string
-  tagline: string
-  about: string[]
-  github: string
-  email?: string
-  projects: Project[]
-  navigation: { label: string; href: string }[]
-  socials?: SocialProfile[]
-  gameProfiles?: GameProfile[]
-}
-
-const isPublicLink = (href: string): boolean => {
-  try { return new URL(href).protocol === 'https:' }
-  catch { return false }
-}
-
-export const getSocialLinks = (content: SiteContent): ContactLink[] => [
-  ...(isPublicLink(content.github)
-    ? [{ id: 'github', platform: 'github' as const, label: 'GitHub', href: content.github, handle: `@${content.handle}` }]
-    : []),
-  ...(content.email?.trim()
-    ? [{ id: 'email', platform: 'email' as const, label: 'Email', href: `mailto:${content.email}`, handle: content.email }]
-    : []),
-  ...(content.socials ?? []).filter((profile) => profile.id.trim() && profile.label.trim() && isPublicLink(profile.href)),
-]
-
-export const getGameProfiles = (content: SiteContent): GameProfile[] => (content.gameProfiles ?? [])
-  .filter((profile) => profile.id.trim() && profile.label.trim() && (profile.playerName?.trim() || profile.playerId?.trim()))
-  .map((profile) => ({ ...profile, href: profile.href && isPublicLink(profile.href) ? profile.href : undefined }))
-
-/** An optional section adds its own working anchor; an empty configuration adds no navigation. */
-export const getSiteNavigation = (content: SiteContent): SiteContent['navigation'] => {
-  const navigation = content.navigation.filter((link) => link.href !== '#games')
-  if (!getGameProfiles(content).length) return navigation
-  const contactIndex = navigation.findIndex((link) => link.href === '#contact')
-  navigation.splice(contactIndex < 0 ? navigation.length : contactIndex, 0, { label: '遊戲', href: '#games' })
-  return navigation
-}
-
-// Name, greeting and email were supplied by the owner; project links are real public repositories.
-// No invented job title, location, client work or social accounts.
+/** Edit public content here. Empty accounts and custom blocks are intentionally hidden. */
 export const site: SiteContent = {
-  name: 'fknejdcwnfi',
-  fullName: 'fknejdcwnfi',
-  handle: 'fknejdcwnfi',
-  intro: 'HELLOWORLD',
-  tagline: '把好奇心，慢慢做成作品。歡迎來到我的像素小世界。',
+  name: 'fknejdcwnfi', fullName: 'fknejdcwnfi', handle: 'fknejdcwnfi', intro: 'HELLOWORLD',
+  tagline: '把好奇心，慢慢做成作品。欢迎来到我的像素小世界。',
   about: [
-    '你好，我是 fknejdcwnfi。HELLOWORLD，歡迎來到我的像素小世界。',
-    '從 Java 的象棋專案，到這個結合像素美術與前端動態的網站，我想把想法一步步做成可以看見、可以使用的東西。',
+    '你好，我是 fknejdcwnfi。HELLOWORLD，欢迎来到我的像素小世界。',
+    '从 Java 的象棋项目，到这个结合像素美术与前端动态的网站，我想把想法一步步做成可以看见、可以使用的东西。',
+    '这里也留了一些位置，收藏喜欢的动漫、游戏和日常灵感。',
   ],
-  github: 'https://github.com/fknejdcwnfi',
-  email: 'fknejdcwnfi@gmail.com',
-  // Add only confirmed accounts / public player details. Empty lists create no placeholder UI.
+  github: 'https://github.com/fknejdcwnfi', email: 'fknejdcwnfi@gmail.com',
+  // The owner will supply WeChat, QQ and other public accounts later. Never invent them.
   socials: [],
-  gameProfiles: [],
+  interests: [
+    { id: 'naruto', title: '火影忍者', category: 'anime', description: '忍者世界里的羁绊与成长。', tags: ['动漫', '热血', '羁绊'] },
+    { id: 'detective-conan', title: '名侦探柯南', category: 'anime', description: '推理、悬念与角色故事。', tags: ['动漫', '推理', '悬念'] },
+  ],
+  // Player name, ID, region, rank, favorite heroes and media remain blank until supplied.
+  gameProfiles: [
+    { id: 'honor-of-kings', game: 'honor-of-kings', label: '王者荣耀', description: '峡谷里的对局、英雄与精彩瞬间。', tags: ['MOBA', '团队竞技'], blocks: [] },
+  ],
   navigation: [
-    { label: '首頁', href: '#home' },
-    { label: '關於', href: '#about' },
-    { label: '作品', href: '#work' },
-    { label: '聯絡', href: '#contact' },
+    { label: '首页', href: '#home' }, { label: '关于', href: '#about' },
+    { label: '作品', href: '#work' }, { label: '社交', href: '#contact' },
   ],
   projects: [
-    {
-      id: 'living-portrait',
-      title: 'Living Portrait',
-      subtitle: '個人網站 · 像素動態實驗',
-      description: '將 Vermouth 原動畫轉成高清像素畫，保留樱花與富士山，讓飄髮、眨眼、細雪與粉色花瓣連貫流動。',
-      tags: ['TypeScript', 'React', 'Canvas'],
-      href: 'https://github.com/fknejdcwnfi/website',
-      status: 'active',
-    },
-    {
-      id: 'xiangqi-review',
-      title: 'Xiangqi Review',
-      subtitle: 'Java · 象棋專案',
-      description: '一段以 Java 製作象棋專案的開發嘗試。目前已封存，保留程式碼與當時的探索。',
-      tags: ['Java', 'Xiangqi', 'Archive'],
-      href: 'https://github.com/fknejdcwnfi/xiangqi-review',
-      status: 'archived',
-    },
+    { id: 'living-portrait', title: 'Living Portrait', subtitle: '个人网站 · 像素动态实验',
+      description: '将 Vermouth 原动画转成高清像素画，保留樱花与富士山，让飘发、眨眼、细雪与粉色花瓣连贯流动。',
+      tags: ['TypeScript', 'React', 'Canvas'], href: 'https://github.com/fknejdcwnfi/website', status: 'active' },
+    { id: 'xiangqi-review', title: 'Xiangqi Review', subtitle: 'Java · 象棋项目',
+      description: '一段以 Java 制作象棋项目的开发尝试。目前已归档，保留代码与当时的探索。',
+      tags: ['Java', 'Xiangqi', 'Archive'], href: 'https://github.com/fknejdcwnfi/xiangqi-review', status: 'archived' },
   ],
-}
-
-
-export type ContentsEntry = { label: string; href: string; symbol: string }
-export const getTableOfContents = (content: SiteContent): ContentsEntry[] => [
-  { label: '歡迎來到我的網站', href: '#home', symbol: '👋' },
-  { label: '關於我', href: '#about', symbol: '📖' },
-  { label: '作品與實驗', href: '#work', symbol: '🧩' },
-  ...(getGameProfiles(content).length ? [{ label: '遊戲足跡', href: '#games', symbol: '🎮' }] : []),
-  { label: '社群與聯絡', href: '#contact', symbol: '✉' },
-]
-
-export type SiteSearchEntry = { id: string; title: string; href: string; excerpt: string; text: string }
-/** One local search index from confirmed content; no requests, HTML injection or user tracking. */
-export const getSiteSearchEntries = (content: SiteContent): SiteSearchEntry[] => [
-  { id: 'home', title: content.intro, href: '#home', excerpt: content.tagline, text: `${content.name} ${content.intro} ${content.tagline} Vermouth 像素肖像` },
-  { id: 'about', title: '關於我', href: '#about', excerpt: content.about[0] ?? '', text: content.about.join(' ') },
-  ...content.projects.map((project) => ({ id: project.id, title: project.title, href: `#project-${project.id}`, excerpt: project.subtitle, text: `${project.title} ${project.subtitle} ${project.description} ${project.tags.join(' ')} ${project.status === 'active' ? '持續製作中' : '已封存'}` })),
-  ...getGameProfiles(content).map((profile) => ({ id: `game-${profile.id}`, title: profile.label, href: '#games', excerpt: profile.playerName ?? profile.playerId ?? '', text: `${profile.label} ${profile.playerName ?? ''} ${profile.playerId ?? ''} ${profile.region ?? ''} ${profile.description ?? ''}` })),
-  { id: 'contact', title: '社群與聯絡', href: '#contact', excerpt: content.email ?? content.github, text: getSocialLinks(content).map((profile) => `${profile.label} ${profile.handle ?? ''}`).join(' ') },
-]
-
-/** Literal, case-insensitive tokens only. A query can never become executable code. */
-export const searchSite = (entries: SiteSearchEntry[], query: string): SiteSearchEntry[] => {
-  const tokens = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean)
-  return entries.filter((entry) => tokens.every((token) => `${entry.title} ${entry.text}`.toLocaleLowerCase().includes(token))).slice(0, 8)
 }

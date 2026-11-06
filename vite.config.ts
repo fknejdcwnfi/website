@@ -18,8 +18,8 @@ export default defineConfig(({ mode }) => ({
     transformIndexHtml: {
       order: 'pre',
       handler: (html) => html.replace('<!--site-fallback-->', renderStaticSite(site, '%BASE_URL%'))
-        .replaceAll('__SITE_TITLE__', escapeHtml(`${site.name} · 個人網站`))
-        .replaceAll('__SITE_DESCRIPTION__', escapeHtml(`${site.intro}｜${site.name} 的個人網站，收藏程式作品、像素動態實驗與新的想法。`))
+        .replaceAll('__SITE_TITLE__', escapeHtml(`${site.name} · 个人网站`))
+        .replaceAll('__SITE_DESCRIPTION__', escapeHtml(`${site.intro}｜${site.name} 的个人网站，记录作品、动漫兴趣、游戏内容与新的想法。`))
         .replaceAll('__SITE_HANDLE__', escapeHtml(site.handle)),
     },
   }],

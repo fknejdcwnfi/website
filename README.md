@@ -1,116 +1,69 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。fknejdcwnfi的個人網站，以高清Minecraft-inspired2D像素圓形呈現Vermouth。
+**HELLOWORLD**。我的个人网站，以 Minecraft 风格的高清2D像素圆形呈现 Vermouth，记录作品、兴趣、游戏和社交坐标。
 
-- [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/poetic-pixel.md)
-- [完整不可變原工程](reference-projects/fuji-wind/) · GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
+[正式网站](https://fknejdcwnfi.github.io/website/) · [个性化模块指南](docs/guides/profile-modules.md) · [形象实现与来源](docs/guides/poetic-pixel.md)
 
-最新精修保留原樱花、富士山、暮色與無邊框圓形。固定96色保留原72色，新增24種原畫顏色，細化髮絲與景物層次；輪廓採兩次既有顏色重建，畫布依實際尺寸／DPR選擇1432×1068、2148×1602或最高2864×2136。原16幀錨點與50fps來源過渡保持。
+网站使用简体中文，保留靛蓝文档布局与方形像素面板。兴趣图鉴已加入《火影忍者》《名侦探柯南》，游戏基地加入王者荣耀；微信、QQ和游戏资料按用户要求先留空。已有真实GitHub和电子邮件继续可用，不展示虚构账号或成绩。
 
-448片三層雪與60片粉色花瓣沿獨立長周期交錯飄落；32朝向、5側轉讓花瓣開合更細膩，保留臉部柔和減量。首屏40片雪／12片花瓣從HTML/CSS便開始動，不等待主程式或影片；同節點預覽按影片相位接手，只對氣象作180ms過渡。
+- 社交：微信、QQ、哔哩哔哩、抖音等；可展示账号、复制、主页和可选二维码。
+- 兴趣：分类、标签、喜欢的角色、个人感想与本地封面。
+- 游戏：自主组合和排序数据、角色收藏、文字、截图及视频链接，选择每块初始展开状态。
+- 同一配置生成导航、目录、本地搜索与无JS页面，未填项目自动隐藏。
 
-![目前網站](artifacts/scenic-refinement/site/desktop.png)
+[兴趣图鉴截图](artifacts/profile-modules/interests.png) · [游戏区域截图](artifacts/profile-modules/games-empty-profile.png) · [完整页面](artifacts/profile-modules/desktop.png)
 
-[雪與粉色樱花實際圓形](artifacts/scenic-refinement/site/weather-time8000.png) · [實際動態預覽](artifacts/scenic-refinement/preview/animation.mp4) · [色彩細節對照](artifacts/scenic-refinement/style/background-closeups.png) · [完整檢查](artifacts/scenic-refinement/site/checks.json)
+只需修改 [site.ts](src/features/profile/content/site.ts)。[类型](src/features/profile/content/types.ts)、[配置工厂](src/features/profile/content/site.example.ts)和[字段指南](docs/guides/profile-modules.md)提供完整扩展入口；无需改动画、接数据库或填写游戏密码。
 
-PNG8以明確色板索引保存，正常媒體約2.77MB；顏色增加使主圖集比前版增大約18%。執行時一次讀取原生圖集，換幀不再配置／讀回原生ImageData，仍只快取兩張高清幀。原ZIP及22份檔案不變；原片358×267／12.5fps，48個過渡幀為估計，放大不創造缺失原畫。當前說明：[場景指南](docs/guides/poetic-pixel.md)，驗證在`artifacts/scenic-refinement/`，舊artifact保留為歷史。
-
-## 開始開發
+## 开发与验证
 
 使用 `.nvmrc` 指定的 Node24：
 
 ```bash
 npm ci
 npm run dev
-```
-
-開發網址為 `/`；`npm run build` 後用 `npm run preview` 檢查 `/website/`。送出前執行：
-
-```bash
-npm test
-npm run typecheck
 npm run build
 npm run assets:check
 npm run assets:verify
+npm run preview -- --host 127.0.0.1 --port 5180
+npm run profile:qa
 ```
 
-任務PR通過檢查後自動合併至 `main`，GitHub Actions負責Pages發佈；擁有者已授權自動更新。`npm run deploy`保留為明確要求時的手動備援，不用它跳過PR流程。
+开发路径为 `/`，production预览为 `/website/`。`build`包含Node测试和strict TypeScript；模块验证与截图在 `artifacts/profile-modules/`。测试账号只存在于隔离夹具，不会出现在正常发布内容中。
 
-## 改成我的內容
-
-只需先編輯 [site.ts](src/features/profile/content/site.ts)，角色動畫與個人資料互相獨立：
-
-```ts
-name: 'fknejdcwnfi',
-intro: 'HELLOWORLD',
-email: 'fknejdcwnfi@gmail.com',
-socials: [],       // 填入你已確認的公開B站／抖音等帳號
-gameProfiles: [], // 填入你願意公開的王者荣耀／火影忍者等資料
-```
-
-`socials`支援平台、名稱、HTTPS公開網址及可選暱稱；`gameProfiles`支援遊戲、公開暱稱／ID、區服、說明及可選HTTPS連結。沒有資料時不顯示空卡片、遊戲導覽或無效按鈕。需要新增時，參考 [site.example.ts](src/features/profile/content/site.example.ts) 的四個型別工廠與[完整欄位說明](docs/guides/personal-site.md#帳號與遊戲擴充)，填入自己的真實資料；範例檔不由網站載入。
-
-作品只列真實公開repo，`xiangqi-review`如實標為封存。聯絡使用Email／GitHub及設定完成的社群，不使用假送信表單。Press Start 2P字體自託管，附[SIL OFL](public/fonts/OFL.txt)，中文使用系統字體。
-
-## 目錄
+## 当前结构
 
 ```text
-src/
-  app/                 頁面組合、全站錯誤邊界與基礎樣式
-  authoring/           歷史來源轉製工具，不由runtime引用
-  features/
-    profile/           個人內容、網站版面、靜態HTML與像素UI
-    referenceScene/    共用圓形UI／可見性播放器與來源時鐘
-    poeticPixel/       唯一預設：場景組合、來源播放及同節點入口
-      presentation/  一次原生讀回／兩幀像素重建／分辨率事件
-      atmosphere/    雪、花瓣、精靈圖集與組合繪製
-    faithfulPixel/     歷史16幀直接像素轉製
-    calmPortrait/      歷史固定人物／小幅後髮rig，不由現在首頁載入
-    portrait/          歷史近景播放器，明確入口才載入
-  shared/              共用動畫型別
-  archive/             legacy／voxel歷史模式及舊field renderer對照
-scripts/
-  assets/              素材匯出與來源驗證
-  qa/                  真實網站截幀、瀏覽器與效能檢查
-  tests/               Node單元測試
-  deploy/              手動部署備援
-reference-projects/    使用者完整工程ZIP、原檔與來源校驗
-assets/generated/      歷史生成母版、局部眼瞼與姿態字段，非目前素材
-public/assets/reference-scene/  歷史場景素材，不由現在首頁載入
-public/assets/poetic-pixel/    現在的原生圖集、高清首幀、首屏影片及來源清冊
-public/assets/faithful-pixel/  歷史16幀直接像素素材
-public/assets/calm-circle/     歷史固定人物與後髮圖層
-docs/
-  guides/              現行個人化、角色、動態、開發及素材指南
-  archive/             已標示日期的舊階段文件
-  reference/           原始委託與分鏡，凍結唯讀
-  decisions.md         決策歷史
-archive/runtime/       保留但不隨網站打包的舊runtime素材
-archive/evidence/      原v2／v4／v5量測與影像歷史
+src/features/
+  profile/
+    content/site.ts          真实个人配置
+    content/types.ts         社交、兴趣、游戏与内容区块类型
+    content/selectors.ts     验证、导航和搜索索引
+    content/staticMarkup.ts  同一份内容的无JS页面
+    components/              布局、作品及个性化模块
+    styles/                  方形像素面板与响应式布局
+  poeticPixel/               唯一默认形象、来源播放与同节点入口
+    presentation/            一次原生读回、两帧像素重建与尺寸事件
+    atmosphere/              雪、樱花、精灵图集与组合绘制
+  referenceScene/            共用圆形UI、播放器与来源时钟
+  faithfulPixel/             历史逐帧转制
+  calmPortrait/              历史固定人物与小幅后发
+  portrait/                 历史近景，显式入口才加载
+scripts/assets/              来源转制及完整性核对
+scripts/qa/                  production与隔离夹具验证
+public/assets/poetic-pixel/   当前衍生素材和来源清单
+reference-projects/          不可变的完整原工程
+artifacts/                   各轮独立证据，旧目录保持
 ```
 
-`SiteShell`提供共享版面與內容插槽；未來真實功能可組合新區塊並更新靜態HTML，不需要修改髮束rig。詳細路徑見[開發指南](docs/guides/development.md)。
+## Vermouth与原工程
 
-## 動態與驗證
+保留圆形里的樱花、富士山和夕阳；96种原画颜色、两次既有颜色Scale2x细化，画布按实际大小／DPR选择1432×1068、2148×1602或最高2864×2136。448片雪与60片粉色花瓣独立飘落，首屏HTML/CSS雪樱不等待影片，保留同节点、相位和180ms气象接手。
 
-目前唯一預設在`src/features/poeticPixel/`，其中`presentation/`與`atmosphere/`分別管理清晰度／尺寸及雪／花瓣。`referenceScene/`仍負責共享生命週期與圓形UI；重新調整畫布不會重新解碼圖集或把來源動作歸零。AGENTS已移除互相混淆的舊rig「目前狀態」，歷史實作與證據維持原位。
+原ZIP及22份文件完整保留。原片358×267／12.5fps，48个过渡帧为估计，形成50fps播放；高清放大不创造缺失原画。原生图集一次读回、两帧缓存；详见[当前形象指南](docs/guides/poetic-pixel.md)及`artifacts/scenic-refinement/`，不把历史性能或截图当作新模块的验证。
 
-場景命令亦已更新到當前實作：
+## 发布
 
-```bash
-npm run source:verify   # 不可變完整原工程
-npm run scene:derive   # 來源50fps估計，16原錨點保持
-npm run scene:export   # 目前像素素材、高清首幀及低延遲預覽
-npm run scene:verify   # 目前來源／像素／高清完整性
-npm run scene:qa       # production瀏覽器驗證
-npm run scene:capture  # 實際圓形動畫截幀
-npm run scene:measure  # 其它瀏覽器關閉後獨立量測
-```
+GitHub：[fknejdcwnfi](https://github.com/fknejdcwnfi) · Email：**fknejdcwnfi@gmail.com**。作品只列真实仓库，`xiangqi-review`如实标记为已归档；不虚构职业、所在地或成就。像素字体自托管，附[SIL OFL](public/fonts/OFL.txt)。
 
-作者工具需要Pillow／NumPy／FFmpeg，瀏覽器工具需要Playwright／Chromium；CI資產驗證僅用Python標準庫。[目前指南](docs/guides/poetic-pixel.md)包含完整重跑、尺寸上限、動態偏好及來源限制。
-
-## 素材
-
-`assets/source/**`及`docs/reference/**`保持唯讀。新首頁權威是`reference-projects/fuji-wind/`完整原工程；歷史近景canonical母版仍在 `assets/generated/portrait-v4/`，局部髮後修復在 `assets/generated/portrait-wind/`，runtime為 `public/assets/portrait-natural/`。現在的臉與動作直接取自原動畫，不輪播獨立生成的臉，不使用整圖位移場，也不擴圖成完整胸像。[素材清冊](docs/guides/asset-inventory.md)記錄來源及限制。
-
-貝爾摩德出自《名偵探柯南》，角色權利屬原權利方，本專案為個人非商業粉絲作品。Minecraft為相關權利方商標，本站不是官方合作產品。見[變更紀錄](CHANGELOG.md)。
+按用户已有授权，任务PR通过检查后自动合并到`main`，由GitHub Actions部署Pages，并核对部署提交。`npm run deploy`是需明确另行要求的手动备用流程，不用于日常发布。

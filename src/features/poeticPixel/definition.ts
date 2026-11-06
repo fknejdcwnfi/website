@@ -14,7 +14,7 @@ export const poeticPixelDefinition: SceneDefinition = {
     height: poeticPixelAssets.canonicalHeight,
   },
   layers: {},
-  description: 'Vermouth 的高清像素圓形風景，櫻花、富士山與夕陽之間長髮隨風飄動，細雪與粉色花瓣交錯飛舞。',
+  description: 'Vermouth 的高清像素圆形风景，樱花、富士山与夕阳之间长发随风飘动，细雪与粉色花瓣交错飞舞。',
   motionSource: 'source-timing',
 }
 

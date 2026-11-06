@@ -20,6 +20,7 @@
     "source:verify": "python3 scripts/assets/verify_reference_project.py",
     "scene:export": "python3 scripts/assets/export_poetic_pixel_scene.py",
     "scene:qa": "python3 scripts/qa/verify_final_scene.py",
+    "profile:qa": "python3 scripts/qa/verify_profile_modules.py",
     "scene:capture": "python3 scripts/qa/capture_final_scene.py",
     "scene:measure": "python3 scripts/qa/capture_final_scene.py --measure"
   },

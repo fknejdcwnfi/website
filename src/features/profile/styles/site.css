@@ -20,7 +20,7 @@
   min-height: 100svh;
   background: var(--paper);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Noto Sans TC', sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
   font-size: 15px;
   line-height: 1.8;
   color-scheme: light;
@@ -45,7 +45,7 @@
 .site-header__tools { display: flex; align-items: center; justify-content: flex-end; gap: 32px; min-width: 0; }
 .repository-link { display: inline-flex; align-items: center; gap: 11px; flex: 0 0 auto; color: #fff !important; font-size: 13px; font-weight: 550; }
 .repository-link svg { width: 24px; height: 24px; }
-.site-header__nav { display: flex; gap: 30px; align-items: center; min-height: 49px; }
+.site-header__nav { display: flex; gap: 30px; align-items: center; min-width: 0; min-height: 49px; }
 .site-header__nav a { display: inline-flex; align-items: center; min-height: 49px; padding-block: 8px; color: #e0e3ff; font-size: 14px; }
 .site-header__nav a:first-child { color: #fff; font-weight: 650; }
 .site-header__nav a:hover { color: #fff; text-decoration: none; }
