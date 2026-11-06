@@ -2,7 +2,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ScenePlayer } from './ScenePlayer'
 import { useSceneViewport } from './useSceneViewport'
 import type { SceneDefinition, ScenePlayerState, SceneRendererFactory } from './types'
-import { attachPoeticBootstrap, playPoeticBootstrap, releasePoeticBootstrap, type ScenePreview } from '../poeticPixel/bootstrap'
+import { attachPoeticBootstrap, detachPoeticBootstrap, pausePoeticBootstrap, playPoeticBootstrap, releasePoeticBootstrap, type ScenePreview } from '../poeticPixel/bootstrap'
+import { useSceneResolution } from '../poeticPixel/presentation/useSceneResolution'
 
 type Props = {
   definition: SceneDefinition
@@ -10,6 +11,7 @@ type Props = {
   fallbackSrc?: string
   timeMs?: number | null
   preview?: ScenePreview
+  adaptiveResolution?: boolean
 }
 
 const MOTION_CHOICE = 'vermouth-motion-enabled'
@@ -18,9 +20,13 @@ const readMotionChoice = (): boolean => {
 }
 
 /** A borderless circular viewport; the selected renderer owns source pixels and motion. */
-export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null, preview }: Props) {
+export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null, preview, adaptiveResolution = false }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null)
+  const circle = useRef<HTMLDivElement>(null)
   const viewport = useSceneViewport(definition.width, definition.height)
+  const resolution = useSceneResolution(circle, adaptiveResolution)
+  const outputWidth = adaptiveResolution ? resolution.width : definition.width
+  const outputHeight = adaptiveResolution ? resolution.height : definition.height
   const player = useRef<ScenePlayer | null>(null)
   const previewHost = useRef<HTMLDivElement>(null)
   const previewVideo = useRef<HTMLVideoElement | null>(null)
@@ -41,8 +47,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
     const video = attachPoeticBootstrap(host, preview)
     previewVideo.current = video
     return () => {
-      video.pause()
-      video.remove()
+      detachPoeticBootstrap(video)
       if (previewVideo.current === video) previewVideo.current = null
     }
   }, [preview])
@@ -55,8 +60,8 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
     const sync = (): void => {
       if (showPreview && !document.hidden && inViewport) playPoeticBootstrap(video, preview.src)
       else {
-        video.pause()
-        if (!showPreview) releasePoeticBootstrap(video)
+        pausePoeticBootstrap(video)
+        if (!showPreview) releasePoeticBootstrap(video, handoffDone.current && timeMs === null && (!systemReduced || motionEnabled))
       }
     }
     const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
@@ -69,9 +74,9 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
     return () => {
       observer?.disconnect()
       document.removeEventListener('visibilitychange', sync)
-      video.pause()
+      pausePoeticBootstrap(video)
     }
-  }, [preview, showPreview])
+  }, [preview, showPreview, timeMs, systemReduced, motionEnabled])
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -153,6 +158,9 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
   }, [definition, createRenderer, attempt, timeMs])
 
   useEffect(() => { player.current?.setMotionEnabled(motionEnabled) }, [motionEnabled])
+  useEffect(() => {
+    player.current?.setOutputSize(outputWidth, outputHeight)
+  }, [outputWidth, outputHeight, definition, createRenderer, attempt, timeMs])
 
   const chooseMotion = (): void => {
     const next = !motionEnabled
@@ -165,9 +173,9 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
   return (
     <div className="reference-scene" data-playback={state.playback}>
       <div ref={viewport.spaceRef} className="reference-scene__space"
-        data-pixel-grid={`${definition.width}x${definition.height}`}
+        data-pixel-grid={`${outputWidth}x${outputHeight}`}
         data-pixel-scale={viewport.frame?.scale} data-integer-scale={viewport.frame?.integerScale}>
-        <div className="reference-scene__viewport" style={viewport.style}>
+        <div ref={circle} className="reference-scene__viewport" style={viewport.style}>
           <canvas ref={canvas} width={definition.width} height={definition.height} role="img"
             aria-label={definition.description} aria-hidden={showPoster || undefined}
             className="reference-scene__canvas" />

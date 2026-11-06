@@ -1,0 +1,43 @@
+{
+  "source": "Actual final CSS circle screenshots after entry handoff;50fps source estimates, independent snow and pink sakura petals",
+  "frames": 384,
+  "encodingFps": 60,
+  "durationMs": 6400,
+  "initialSceneState": {
+    "scene": "reference-landscape",
+    "ready": "true",
+    "painted": "true",
+    "renderer": "reference-scene",
+    "playback": "looping",
+    "motionPreference": "enabled",
+    "initialElapsedMs": "221.136",
+    "motionKind": "direct-source-frames",
+    "motionSource": "source-only-interframes",
+    "sourceFrame": "21",
+    "sourceAnchor": "5",
+    "sourceTimeMs": "421.13599999999997",
+    "sourceDuration": "1280",
+    "elapsedMs": "421.13599999999997",
+    "sourceFrameDuration": "20",
+    "pixelReconstruction": "scale4x-adaptive",
+    "snowParticles": "384",
+    "petalParticles": "48",
+    "snowTimeMs": "421.13599999999997"
+  },
+  "clip": {
+    "x": 453,
+    "y": 347,
+    "width": 534,
+    "height": 534
+  },
+  "dpr": 1,
+  "canvasDimensions": [
+    1432,
+    1068
+  ],
+  "bytes": 5601954,
+  "sha256": "fcc07d8c36b2b98fe3249f4e859c8dff33961d0114f140dee61cf671dfa5edf2",
+  "browserErrors": [],
+  "physicalDisplayVerified": false,
+  "assetStorageNote": "Captured before lossless indexed-PNG storage; decoded source pixels and all renderer/atmosphere code are identical. See lossless-size.json and final browser checks."
+}

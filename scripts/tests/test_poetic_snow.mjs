@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { POETIC_SNOW_LAYERS, POETIC_SNOW_PARTICLES, POETIC_SNOW_PERIOD_MS,
-  poeticSnowFaceVisibility, samplePoeticSnow } from '../../src/features/poeticPixel/snow.ts'
-import { createPoeticSnowPainter } from '../../src/features/poeticPixel/snowRenderer.ts'
+  poeticSnowFaceVisibility, samplePoeticSnow } from '../../src/features/poeticPixel/atmosphere/snow.ts'
+import { createPoeticSnowPainter } from '../../src/features/poeticPixel/atmosphere/snowRenderer.ts'
 
 const wrappedDelta = (a, b, period) => {
   const difference = b - a
@@ -85,7 +85,7 @@ test('sampling scales for high-resolution output, handles malformed seeks, and p
     fillRect(...values) { calls.push({ values, alpha: this.globalAlpha }) },
   }
   createPoeticSnowPainter()(context, 0, 1432, 1068)
-  assert.ok(calls.length > 150 && calls.length < 500)
+  assert.ok(calls.length > 150 && calls.length < POETIC_SNOW_PARTICLES.length * 5)
   assert.equal(context.globalAlpha, .42)
   assert.equal(context.imageSmoothingEnabled, true)
   assert.equal(context.fillStyle, '#123456')

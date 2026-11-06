@@ -5,13 +5,15 @@
 - [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/poetic-pixel.md)
 - [完整不可變原工程](reference-projects/fuji-wind/) · GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 
-72色與原生細像素輪廓保留細髮、樱花枝及富士山；輸出從716×534提升至1432×1068，維持無邊框圓形及原景色，沒有圈外外景。原16個動作錨點不變，在其間估計48份過渡形成50fps，288片三層細雪沿獨立48秒時鐘持續飄落。
+最後一輪精修保留原樱花、富士山、暮色與無邊框圓形。像素輪廓採兩次既有顏色重建，畫布依實際尺寸／DPR選擇1432×1068、2148×1602或最高2864×2136；原16幀錨點與50fps來源過渡保持。
 
-![目前網站](artifacts/poetic-pixel/site/desktop.png)
+384片三層雪與48片粉色花瓣沿獨立長周期交錯飄落，中近景花瓣放大到能辨認缺口與尖端，減少臉部遮擋。首屏40片雪／12片花瓣從HTML/CSS便開始動，不等待主程式或影片；同節點預覽按影片相位接手，只對氣象作180ms過渡。
 
-[目前圓形](artifacts/poetic-pixel/site/circle.png) · [實際動態預覽](artifacts/poetic-pixel/preview/animation.mp4) · [首屏／逐幀／整站檢查](artifacts/poetic-pixel/site/checks.json) · [來源與高清核對](artifacts/poetic-pixel/assets.json)
+![目前網站](artifacts/final-scene/site/desktop.png)
 
-初始HTML先播放小型預覽，不等待React及高清圖集；同一video節點按實際播放相位接手高清Canvas。圖集故障仍可保留動態預覽，減少動態／隱藏／離屏及無JS備援保持。原ZIP及22份檔案未修改；原片仍12.5fps，新增過渡是估計影格，高清放大也不能創造原片沒有的資訊。
+[雪與粉色樱花實際圓形](artifacts/final-scene/site/weather-time8000.png) · [實際動態預覽](artifacts/final-scene/preview/animation.mp4) · [高DPR清晰度對照](artifacts/final-scene/style/dpr2-clarity.png) · [完整檢查](artifacts/final-scene/site/checks.json)
+
+圖集另作逐像素無損PNG8儲存，主圖集約縮小61%，正常媒體資源合計約減半。原ZIP及22份檔案保持不變。原片仍358×267／12.5fps；48個過渡幀為估計，高清放大不創造缺失原畫。當前說明：[場景指南](docs/guides/poetic-pixel.md)，驗證在`artifacts/final-scene/`，舊artifact保留為歷史。
 
 ## 開始開發
 
@@ -59,7 +61,9 @@ src/
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
     referenceScene/    共用圓形UI／可見性播放器與來源時鐘
-    poeticPixel/       現在預設：高清像素、來源過渡、預覽接手及三層細雪
+    poeticPixel/       唯一預設：場景組合、來源播放及同節點入口
+      presentation/  分辨率政策／事件hook與兩幀像素重建快取
+      atmosphere/    雪、花瓣、精靈圖集與組合繪製
     faithfulPixel/     歷史16幀直接像素轉製
     calmPortrait/      歷史固定人物／小幅後髮rig，不由現在首頁載入
     portrait/          歷史近景播放器，明確入口才載入
@@ -89,9 +93,21 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-目前預設在`src/features/poeticPixel/`，共用播放器與圓形UI在`referenceScene/`。64×20ms來源過渡維持1280ms原周期與16份原動作錨點，48秒雪場獨立繪製。沒有新母版姿態字段或runtime頭髮變形；只對當前原生圖集幀進行有界像素重建，避免烘焙大型高清全圖集。
+目前唯一預設在`src/features/poeticPixel/`，其中`presentation/`與`atmosphere/`分別管理清晰度／尺寸及雪／花瓣。`referenceScene/`仍負責共享生命週期與圓形UI；重新調整畫布不會重新解碼圖集或把來源動作歸零。AGENTS已移除互相混淆的舊rig「目前狀態」，歷史實作與證據維持原位。
 
-[最新指南](docs/guides/poetic-pixel.md)與`artifacts/poetic-pixel/`記錄來源、高清、逐幀、首屏及效能。CI以標準庫獨立解碼核對16原錨點的1,529,376個原生像素鄰域與高清重建；瀏覽器另檢查原幀／估計過渡、雪獨立運動、module阻擋及圖集延遲時預覽仍動、同節點相位接手、減少動態、重試、手機與無JS。
+場景命令亦已更新到當前實作：
+
+```bash
+npm run source:verify   # 不可變完整原工程
+npm run scene:derive   # 來源50fps估計，16原錨點保持
+npm run scene:export   # 目前像素素材、高清首幀及低延遲預覽
+npm run scene:verify   # 目前來源／像素／高清完整性
+npm run scene:qa       # production瀏覽器驗證
+npm run scene:capture  # 實際圓形動畫截幀
+npm run scene:measure  # 其它瀏覽器關閉後獨立量測
+```
+
+作者工具需要Pillow／NumPy／FFmpeg，瀏覽器工具需要Playwright／Chromium；CI資產驗證僅用Python標準庫。[目前指南](docs/guides/poetic-pixel.md)包含完整重跑、尺寸上限、動態偏好及來源限制。
 
 ## 素材
 

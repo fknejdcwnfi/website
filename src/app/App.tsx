@@ -12,7 +12,7 @@ export default function App() {
   if(params.get('view')==='portrait'||['voxel','legacy'].includes(params.get('style')??''))return <Suspense fallback={<p>正在載入肖像…</p>}><ArchivedPortrait /></Suspense>
   const time=params.get('t')
   const timeMs=time!==null&&time.trim()!==''&&Number.isFinite(Number(time))?Math.max(-120000,Math.min(120000,Number(time))):null
-  const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs}
+  const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs} adaptiveResolution
     preview={params.get('motion') === 'original' ? undefined : poeticPreview} />
   if(params.get('view')==='scene')return <main className="reference-scene-page">{scene}</main>
   return (

@@ -21,7 +21,13 @@ python3 scripts/assets/export_portrait.py --help
 
 正常發佈為PR檢查成功後合併main，再由既有GitHub Actions部署；不以手動備援繞過審查。指定時間截幀與完整24秒20 Hz GIF只用於動作檢視，不等於實體顯示器FPS。詳見 [開發指南](../docs/guides/development.md)。
 
-## 目前：高清圓形風景
+## 目前：最後精修場景
+
+使用`npm run scene:derive`／`scene:export`／`scene:verify`處理目前來源50fps、72色素材、兩次像素重建及最高2864×2136首幀。`source:verify`保留原工程核對。CI仍由`assets:verify`串接標準庫來源／衍生驗證，不改workflow。
+
+`scene:qa`執行`qa/verify_final_scene.py`，核對無媒體入口、明顯粉色花瓣、4／6／8倍尺寸、原來源像素、氣象時鐘、resize相位、故障清理、偏好與備援。`scene:capture`及`scene:measure`使用`qa/capture_final_scene.py`；量測必須獨立執行，可用`--measure --dpr 4`量測最高尺寸。新證據在`artifacts/final-scene/`，舊artifact不覆寫。見[目前指南](../docs/guides/poetic-pixel.md)。
+
+## 歷史：PR19高清圓形風景
 
 `assets/derive_poetic_motion.py`離線估計來源50fps過渡、保留16個原錨點；`assets/export_poetic_pixel_scene.py`匯出72色、細輪廓、原生64幀圖集、高清首幀及faststart影片。`assets/verify_poetic_pixel_scene.py`使用標準庫，已接入CI資產驗證。
 

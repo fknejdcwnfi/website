@@ -1,0 +1,1 @@
+These are retained baseline measurements made before the storage-only indexed-PNG optimization. Decoded artwork and atmosphere pixels are identical; startup/resource conditions differ. Current final results are in the parent performance.json and performance-dpr4.json.

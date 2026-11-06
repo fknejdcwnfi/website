@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "originalFilesVerified": 22,
+  "sourceArchiveSha256": "9ee2d35c4bbad5276b715de02ebf0e5e48e0e7372a3a26d42d790c9426c5760e",
+  "sourceAnchors": 16,
+  "originalFrameDurationMs": 80,
+  "periodMs": 1280,
+  "playbackFrames": 64,
+  "playbackFrameDurationMs": 20.0,
+  "intermediateFramesEstimated": true,
+  "coordinatesVerified": 1529376,
+  "maximumStylingNeighbourhoodPx": [
+    2,
+    2
+  ],
+  "paletteColors": 72,
+  "nativeMappedPixelsRetained": 1249389,
+  "changedSourceColours": 940903,
+  "sourceCoordinateDimensions": [
+    358,
+    267
+  ],
+  "outputDimensions": [
+    2864,
+    2136
+  ],
+  "canonicalReconstruction": "Source-colour-only Scale2x twice, then exact nearest2x; does not invent source detail",
+  "bootBytes": 972129
+}
