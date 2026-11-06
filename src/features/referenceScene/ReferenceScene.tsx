@@ -1,13 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ScenePlayer } from './ScenePlayer'
 import { useSceneViewport } from './useSceneViewport'
 import type { SceneDefinition, ScenePlayerState, SceneRendererFactory } from './types'
+import { attachPoeticBootstrap, playPoeticBootstrap, releasePoeticBootstrap, type ScenePreview } from '../poeticPixel/bootstrap'
 
 type Props = {
   definition: SceneDefinition
   createRenderer: SceneRendererFactory
   fallbackSrc?: string
   timeMs?: number | null
+  preview?: ScenePreview
 }
 
 const MOTION_CHOICE = 'vermouth-motion-enabled'
@@ -16,10 +18,13 @@ const readMotionChoice = (): boolean => {
 }
 
 /** A borderless circular viewport; the selected renderer owns source pixels and motion. */
-export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null }: Props) {
+export default function ReferenceScene({ definition, createRenderer, fallbackSrc, timeMs = null, preview }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null)
   const viewport = useSceneViewport(definition.width, definition.height)
   const player = useRef<ScenePlayer | null>(null)
+  const previewHost = useRef<HTMLDivElement>(null)
+  const previewVideo = useRef<HTMLVideoElement | null>(null)
+  const handoffDone = useRef(false)
   const [state, setState] = useState<ScenePlayerState>({ playback: 'loading', painted: false, reduced: false })
   const [systemReduced, setSystemReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   const [motionEnabled, setMotionEnabled] = useState(readMotionChoice)
@@ -28,6 +33,45 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
   const [attempt, setAttempt] = useState(0)
   const attempts = useRef(0)
   const [slowLoad, setSlowLoad] = useState(false)
+  const showPreview = Boolean(preview && timeMs === null && (!systemReduced || motionEnabled) && !handoffDone.current)
+
+  useLayoutEffect(() => {
+    const host = previewHost.current
+    if (!preview || !host) return
+    const video = attachPoeticBootstrap(host, preview)
+    previewVideo.current = video
+    return () => {
+      video.pause()
+      video.remove()
+      if (previewVideo.current === video) previewVideo.current = null
+    }
+  }, [preview])
+
+  useEffect(() => {
+    const video = previewVideo.current
+    const host = previewHost.current
+    if (!video || !host || !preview) return
+    let inViewport = true
+    const sync = (): void => {
+      if (showPreview && !document.hidden && inViewport) playPoeticBootstrap(video, preview.src)
+      else {
+        video.pause()
+        if (!showPreview) releasePoeticBootstrap(video)
+      }
+    }
+    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
+      inViewport = entry?.isIntersecting ?? true
+      sync()
+    })
+    observer?.observe(host)
+    document.addEventListener('visibilitychange', sync)
+    sync()
+    return () => {
+      observer?.disconnect()
+      document.removeEventListener('visibilitychange', sync)
+      video.pause()
+    }
+  }, [preview, showPreview])
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -55,6 +99,8 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
     }
     const onState = (next: ScenePlayerState): void => {
       if (disposed) return
+      if (next.playback === 'loading' || next.playback === 'failed') handoffDone.current = false
+      if (next.playback === 'looping') handoffDone.current = true
       setState(next)
       if (next.playback === 'failed') {
         window.clearTimeout(slowTimer)
@@ -72,6 +118,11 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
     try {
       instance = new ScenePlayer(canvas.current, definition, createRenderer, {
         motionEnabled: motionChoice.current, timeMs,
+        initialElapsedMs: () => {
+          const video = previewVideo.current
+          return video && video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA && Number.isFinite(video.currentTime)
+            ? video.currentTime * 1000 : 0
+        },
         onState,
       })
     } catch {
@@ -122,10 +173,11 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
             className="reference-scene__canvas" />
           {showPoster ? <img className="reference-scene__poster" src={fallbackSrc ?? definition.canonical.src}
             alt={definition.description} width={definition.canonical.width} height={definition.canonical.height} /> : null}
+          {preview ? <div ref={previewHost} className="reference-scene__preview" data-active={showPreview} aria-hidden="true" /> : null}
         </div>
       </div>
       <div className="reference-scene__status" aria-live="polite">
-        {failed ? <p>動態肖像暫時無法載入，先顯示靜態畫面。{' '}
+        {failed ? <p>動態場景暫時無法載入，先保留預覽畫面。{' '}
           <button type="button" onClick={() => { attempts.current = 0; setAttempt(value => value + 1) }}>重試載入</button>
         </p> : slowLoad && (state.playback === 'loading' || state.playback === 'preparing') ? <p>正在載入動態場景…</p> : null}
         {systemReduced && !failed ? <p>{motionEnabled ? '已為這個場景開啟動態。' : '系統已啟用「減少動態」，場景目前靜止。'}{' '}

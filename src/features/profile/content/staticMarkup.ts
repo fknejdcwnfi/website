@@ -1,5 +1,6 @@
 import { getGameProfiles, getSiteNavigation, getSocialLinks, getTableOfContents, type SiteContent } from './site.ts'
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
+import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!)
@@ -43,7 +44,8 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
         <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 歡迎來到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
         <figure class="hero__visual hero__visual--reference">
           <div class="reference-scene-static"><div class="reference-scene__space"><div class="reference-scene__viewport">
-            <img class="reference-scene__poster" src="${escape(`${base}assets/faithful-pixel/canonical.png`)}" width="716" height="534" fetchpriority="high" alt="Vermouth的像素圓形肖像與原動畫風景">
+            <img class="reference-scene__poster" src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" width="1432" height="1068" fetchpriority="high" alt="Vermouth的高清像素圓形肖像，保留樱花、富士山與夕陽">
+            <div class="reference-scene__preview" data-active="true" aria-hidden="true"><video id="vermouth-poetic-bootstrap" class="poetic-scene__boot" data-src="${escape(`${base}assets/poetic-pixel/${poeticPixelAssets.boot.file}?v=${poeticPixelAssets.boot.sha256}`)}" width="716" height="534" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video></div>
           </div></div></div>
           <figcaption><span>VERMOUTH</span><span>像素肖像</span></figcaption>
         </figure>

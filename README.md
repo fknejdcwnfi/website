@@ -1,17 +1,17 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。fknejdcwnfi的個人網站，以保留原動畫動作的Minecraft-inspired2D像素圓形呈現Vermouth。
+**HELLOWORLD**。fknejdcwnfi的個人網站，以高清Minecraft-inspired2D像素圓形呈現Vermouth。
 
-- [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/faithful-source-pixels.md)
+- [正式網站](https://fknejdcwnfi.github.io/website/) · [目前重構指南](docs/guides/poetic-pixel.md)
 - [完整不可變原工程](reference-projects/fuji-wind/) · GitHub：<https://github.com/fknejdcwnfi> · Email：**fknejdcwnfi@gmail.com**
 
-依最新回饋，預設直接使用上傳ZIP的16幀逐幀轉製，保持80ms／幀、1280ms循環的原動作、飄髮與眨眼；只改像素畫風。共用37色色板、銳利2×2色塊及五官／飾物細節保護，nearest輸出716×534。保留無邊框圓形，原景色在圓內，沒有圈外外景；不再用新母版拉扯、補幀或小幅rig模擬來源動作。
+72色與原生細像素輪廓保留細髮、樱花枝及富士山；輸出從716×534提升至1432×1068，維持無邊框圓形及原景色，沒有圈外外景。原16個動作錨點不變，在其間估計48份過渡形成50fps，288片三層細雪沿獨立48秒時鐘持續飄落。
 
-![目前網站](artifacts/faithful-pixel/site/desktop.png)
+![目前網站](artifacts/poetic-pixel/site/desktop.png)
 
-[目前圓形](artifacts/faithful-pixel/site/circle.png) · [原時序動態預覽](artifacts/faithful-pixel/preview/animation.mp4) · [逐幀與整站檢查](artifacts/faithful-pixel/site/checks.json) · [來源及像素鄰域核對](artifacts/faithful-pixel/assets.json)
+[目前圓形](artifacts/poetic-pixel/site/circle.png) · [實際動態預覽](artifacts/poetic-pixel/preview/animation.mp4) · [首屏／逐幀／整站檢查](artifacts/poetic-pixel/site/checks.json) · [來源與高清核對](artifacts/poetic-pixel/assets.json)
 
-原動畫本身是12.5fps。rAF隨螢幕排程，不把重複繪製或高清放大宣稱為新增真實影格／細節。前版calm-circle與scenic-snow均為歷史，不能代表現在效果；原ZIP及22份檔案保持不變。
+初始HTML先播放小型預覽，不等待React及高清圖集；同一video節點按實際播放相位接手高清Canvas。圖集故障仍可保留動態預覽，減少動態／隱藏／離屏及無JS備援保持。原ZIP及22份檔案未修改；原片仍12.5fps，新增過渡是估計影格，高清放大也不能創造原片沒有的資訊。
 
 ## 開始開發
 
@@ -59,7 +59,8 @@ src/
   features/
     profile/           個人內容、網站版面、靜態HTML與像素UI
     referenceScene/    共用圓形UI／可見性播放器與來源時鐘
-    faithfulPixel/     現在預設：逐幀像素衍生描述與直接來源播放器
+    poeticPixel/       現在預設：高清像素、來源過渡、預覽接手及三層細雪
+    faithfulPixel/     歷史16幀直接像素轉製
     calmPortrait/      歷史固定人物／小幅後髮rig，不由現在首頁載入
     portrait/          歷史近景播放器，明確入口才載入
   shared/              共用動畫型別
@@ -72,7 +73,8 @@ scripts/
 reference-projects/    使用者完整工程ZIP、原檔與來源校驗
 assets/generated/      歷史生成母版、局部眼瞼與姿態字段，非目前素材
 public/assets/reference-scene/  歷史場景素材，不由現在首頁載入
-public/assets/faithful-pixel/  現在的16幀像素圖集、高清首幀與來源清冊
+public/assets/poetic-pixel/    現在的原生圖集、高清首幀、首屏影片及來源清冊
+public/assets/faithful-pixel/  歷史16幀直接像素素材
 public/assets/calm-circle/     歷史固定人物與後髮圖層
 docs/
   guides/              現行個人化、角色、動態、開發及素材指南
@@ -87,9 +89,9 @@ archive/evidence/      原v2／v4／v5量測與影像歷史
 
 ## 動態與驗證
 
-目前預設在`src/features/faithfulPixel/`，共用播放器和圓形UI位於`referenceScene/`。來源16份動作幀就是播放權威，不使用新風場、獨立眼睛時鐘或幾何重定向。隱藏／離屏停止繪製，恢復保相位；減少動態只載入靜態首幀，失敗保留完整個人內容。
+目前預設在`src/features/poeticPixel/`，共用播放器與圓形UI在`referenceScene/`。64×20ms來源過渡維持1280ms原周期與16份原動作錨點，48秒雪場獨立繪製。沒有新母版姿態字段或runtime頭髮變形；只對當前原生圖集幀進行有界像素重建，避免烘焙大型高清全圖集。
 
-[最新指南](docs/guides/faithful-source-pixels.md)與`artifacts/faithful-pixel/`記錄本輪來源、像素轉製、逐幀播放及實際效能。CI用獨立PNG解碼核對每個輸出顏色來自自己的原生2×2鄰域，瀏覽器另對16幀與接縫做Canvas逐像素比較，不把歷史固定plate／無翻折數字當作當前證據。
+[最新指南](docs/guides/poetic-pixel.md)與`artifacts/poetic-pixel/`記錄來源、高清、逐幀、首屏及效能。CI以標準庫獨立解碼核對16原錨點的1,529,376個原生像素鄰域與高清重建；瀏覽器另檢查原幀／估計過渡、雪獨立運動、module阻擋及圖集延遲時預覽仍動、同節點相位接手、減少動態、重試、手機與無JS。
 
 ## 素材
 

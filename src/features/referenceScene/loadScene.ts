@@ -1,4 +1,4 @@
-import { SCENE_HEIGHT, SCENE_WIDTH, type SceneAssets, type SceneDefinition, type SceneImageSource } from './types'
+import type { SceneAssets, SceneDefinition, SceneImageSource } from './types'
 
 const abortError = (): DOMException => new DOMException('Scene loading was cancelled.', 'AbortError')
 
@@ -36,7 +36,9 @@ const checkImage = (image: SceneImageSource): void => {
 }
 
 export const loadSceneAssets = async (definition: SceneDefinition, signal: AbortSignal): Promise<SceneAssets> => {
-  if (definition.version !== 1 || definition.width !== SCENE_WIDTH || definition.height !== SCENE_HEIGHT ||
+  if (definition.version !== 1 || !Number.isInteger(definition.width) || !Number.isInteger(definition.height) ||
+    definition.width < 1 || definition.height < 1 || definition.width > 2048 || definition.height > 2048 ||
+    definition.width * definition.height > 4_194_304 ||
     typeof definition.description !== 'string' || !definition.description.length ||
     definition.canonical.width !== definition.width || definition.canonical.height !== definition.height) {
     throw new Error('Unsupported reference scene.')

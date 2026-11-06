@@ -1,0 +1,36 @@
+{
+  "source": "Actual CSS circle screenshots with controlled rAF;50fps source estimates and independent snow",
+  "frames": 384,
+  "encodingFps": 60,
+  "durationMs": 6400,
+  "initialSceneState": {
+    "scene": "reference-landscape",
+    "ready": "true",
+    "painted": "true",
+    "renderer": "reference-scene",
+    "playback": "looping",
+    "motionPreference": "enabled",
+    "initialElapsedMs": "220.979",
+    "motionKind": "direct-source-frames",
+    "motionSource": "source-only-interframes",
+    "sourceFrame": "11",
+    "sourceAnchor": "2",
+    "sourceTimeMs": "220.979",
+    "sourceDuration": "1280",
+    "elapsedMs": "220.979",
+    "sourceFrameDuration": "20",
+    "pixelReconstruction": "scale2x-nearest2",
+    "snowParticles": "288",
+    "snowTimeMs": "220.979"
+  },
+  "clip": {
+    "x": 453,
+    "y": 347,
+    "width": 534,
+    "height": 534
+  },
+  "bytes": 5507084,
+  "sha256": "7b86d0eb5f7b15d4574369a5581386c8b90e2f90899008280b72c62494cec13d",
+  "browserErrors": [],
+  "physicalDisplayVerified": false
+}

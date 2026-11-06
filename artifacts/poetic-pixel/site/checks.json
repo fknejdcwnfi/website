@@ -1,0 +1,1331 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "desktop_circle",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "imageRendering": "pixelated"
+      }
+    },
+    {
+      "name": "desktop_hd_crisp",
+      "passed": true,
+      "detail": {
+        "width": 534,
+        "height": 534,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "imageRendering": "pixelated"
+      }
+    },
+    {
+      "name": "desktop_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "personal_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_outer_scenery",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_normal_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_snow_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_rejected_artwork_requests",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/boot.mp4?v=a6f3e8944e90c801139fd5cd9a2d0951bf6dc1ccc4c7bfc624f7bcb7ac04655d",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=0&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=80&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=160&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=240&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=320&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=400&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=480&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=560&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=640&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=720&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=800&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=880&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=960&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1040&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1120&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1200&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=20&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=40&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=60&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=79.999&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=80.001&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1260&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1279.999&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1280&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1280.001&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=-1&snow=0",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=19",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/?t=1281",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg",
+        "http://127.0.0.1:5180/website/",
+        "http://127.0.0.1:5180/website/assets/index-BjQuEsiR.js",
+        "http://127.0.0.1:5180/website/assets/index-B9OGfc-C.css",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=c10ce9cf746b89eaa2ab0c310fd72c993eb61eb89170c12b5990a65a90ed825b",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/boot.mp4?v=a6f3e8944e90c801139fd5cd9a2d0951bf6dc1ccc4c7bfc624f7bcb7ac04655d",
+        "http://127.0.0.1:5180/website/fonts/PressStart2P-Regular.ttf",
+        "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=7294d84a77285220154dc881e743558038d68c706ae89fb7ae82a3aed9fb54b4",
+        "http://127.0.0.1:5180/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "frame_0_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_0_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "0",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "0",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "0"
+      }
+    },
+    {
+      "name": "frame_80_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_80_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "4",
+        "sourceAnchor": "1",
+        "sourceTimeMs": "80",
+        "sourceDuration": "1280",
+        "elapsedMs": "80",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "80"
+      }
+    },
+    {
+      "name": "frame_160_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_160_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "8",
+        "sourceAnchor": "2",
+        "sourceTimeMs": "160",
+        "sourceDuration": "1280",
+        "elapsedMs": "160",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "160"
+      }
+    },
+    {
+      "name": "frame_240_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_240_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "12",
+        "sourceAnchor": "3",
+        "sourceTimeMs": "240",
+        "sourceDuration": "1280",
+        "elapsedMs": "240",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "240"
+      }
+    },
+    {
+      "name": "frame_320_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_320_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "16",
+        "sourceAnchor": "4",
+        "sourceTimeMs": "320",
+        "sourceDuration": "1280",
+        "elapsedMs": "320",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "320"
+      }
+    },
+    {
+      "name": "frame_400_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_400_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "20",
+        "sourceAnchor": "5",
+        "sourceTimeMs": "400",
+        "sourceDuration": "1280",
+        "elapsedMs": "400",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "400"
+      }
+    },
+    {
+      "name": "frame_480_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_480_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "24",
+        "sourceAnchor": "6",
+        "sourceTimeMs": "480",
+        "sourceDuration": "1280",
+        "elapsedMs": "480",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "480"
+      }
+    },
+    {
+      "name": "frame_560_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_560_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "28",
+        "sourceAnchor": "7",
+        "sourceTimeMs": "560",
+        "sourceDuration": "1280",
+        "elapsedMs": "560",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "560"
+      }
+    },
+    {
+      "name": "frame_640_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_640_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "32",
+        "sourceAnchor": "8",
+        "sourceTimeMs": "640",
+        "sourceDuration": "1280",
+        "elapsedMs": "640",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "640"
+      }
+    },
+    {
+      "name": "frame_720_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_720_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "36",
+        "sourceAnchor": "9",
+        "sourceTimeMs": "720",
+        "sourceDuration": "1280",
+        "elapsedMs": "720",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "720"
+      }
+    },
+    {
+      "name": "frame_800_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_800_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "40",
+        "sourceAnchor": "10",
+        "sourceTimeMs": "800",
+        "sourceDuration": "1280",
+        "elapsedMs": "800",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "800"
+      }
+    },
+    {
+      "name": "frame_880_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_880_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "44",
+        "sourceAnchor": "11",
+        "sourceTimeMs": "880",
+        "sourceDuration": "1280",
+        "elapsedMs": "880",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "880"
+      }
+    },
+    {
+      "name": "frame_960_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_960_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "48",
+        "sourceAnchor": "12",
+        "sourceTimeMs": "960",
+        "sourceDuration": "1280",
+        "elapsedMs": "960",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "960"
+      }
+    },
+    {
+      "name": "frame_1040_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1040_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "52",
+        "sourceAnchor": "13",
+        "sourceTimeMs": "1040",
+        "sourceDuration": "1280",
+        "elapsedMs": "1040",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1040"
+      }
+    },
+    {
+      "name": "frame_1120_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1120_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "56",
+        "sourceAnchor": "14",
+        "sourceTimeMs": "1120",
+        "sourceDuration": "1280",
+        "elapsedMs": "1120",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1120"
+      }
+    },
+    {
+      "name": "frame_1200_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1200_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "60",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1200",
+        "sourceDuration": "1280",
+        "elapsedMs": "1200",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1200"
+      }
+    },
+    {
+      "name": "frame_20_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_20_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "1",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "20",
+        "sourceDuration": "1280",
+        "elapsedMs": "20",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "20"
+      }
+    },
+    {
+      "name": "frame_40_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_40_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "2",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "40",
+        "sourceDuration": "1280",
+        "elapsedMs": "40",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "40"
+      }
+    },
+    {
+      "name": "frame_60_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_60_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "3",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "60",
+        "sourceDuration": "1280",
+        "elapsedMs": "60",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "60"
+      }
+    },
+    {
+      "name": "frame_79.999_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_79.999_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "3",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "79.999",
+        "sourceDuration": "1280",
+        "elapsedMs": "79.999",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "79.999"
+      }
+    },
+    {
+      "name": "frame_80.001_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_80.001_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "4",
+        "sourceAnchor": "1",
+        "sourceTimeMs": "80.001",
+        "sourceDuration": "1280",
+        "elapsedMs": "80.001",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "80.001"
+      }
+    },
+    {
+      "name": "frame_1260_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1260_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "63",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1260",
+        "sourceDuration": "1280",
+        "elapsedMs": "1260",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1260"
+      }
+    },
+    {
+      "name": "frame_1279.999_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1279.999_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "63",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1279.999",
+        "sourceDuration": "1280",
+        "elapsedMs": "1279.999",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1279.999"
+      }
+    },
+    {
+      "name": "frame_1280_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1280_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "0",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "1280",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1280"
+      }
+    },
+    {
+      "name": "frame_1280.001_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_1280.001_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "0",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "0.0009999999999763531",
+        "sourceDuration": "1280",
+        "elapsedMs": "1280.001",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "1280.001"
+      }
+    },
+    {
+      "name": "frame_-1_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frame_-1_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "63",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1279",
+        "sourceDuration": "1280",
+        "elapsedMs": "-1",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale2x-nearest2",
+        "snowParticles": "0",
+        "snowTimeMs": "-1"
+      }
+    },
+    {
+      "name": "snow_moves_between_source_frames",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snow_does_not_reset_with_source",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "expression_remains_readable",
+      "passed": true,
+      "detail": {
+        "faceChangedFraction": 0.002465483234713961
+      }
+    },
+    {
+      "name": "parser_pixels_move_with_module_blocked",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "parser_preserves_document",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "preview_moves_while_atlas_pending",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "preview_visible_while_preparing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "parser_node_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_really_pending",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "handoff_uses_actual_video_phase",
+      "passed": true,
+      "detail": {
+        "deltaMs": 0.0,
+        "videoMs": 680.631,
+        "initialMs": 680.631,
+        "at": 3847
+      }
+    },
+    {
+      "name": "preview_released_after_handoff",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_exact_canonical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_skips_video_and_atlas",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "explicit_motion_opt_in",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_choice_persists",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offscreen_stops_drawing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hidden_stops_drawing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "visibility_resumes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_failure_keeps_moving_preview",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_retry_recovers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_circle",
+      "passed": true,
+      "detail": {
+        "width": 354,
+        "height": 354,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "imageRendering": "pixelated"
+      }
+    },
+    {
+      "name": "mobile_hd_crisp",
+      "passed": true,
+      "detail": {
+        "width": 354,
+        "height": 354,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "imageRendering": "pixelated"
+      }
+    },
+    {
+      "name": "mobile_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_preserves_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_new_hd_image",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "browserErrors": [],
+  "sourceSamples": [
+    {
+      "timeMs": 0,
+      "frame": 0,
+      "exact": true
+    },
+    {
+      "timeMs": 80,
+      "frame": 4,
+      "exact": true
+    },
+    {
+      "timeMs": 160,
+      "frame": 8,
+      "exact": true
+    },
+    {
+      "timeMs": 240,
+      "frame": 12,
+      "exact": true
+    },
+    {
+      "timeMs": 320,
+      "frame": 16,
+      "exact": true
+    },
+    {
+      "timeMs": 400,
+      "frame": 20,
+      "exact": true
+    },
+    {
+      "timeMs": 480,
+      "frame": 24,
+      "exact": true
+    },
+    {
+      "timeMs": 560,
+      "frame": 28,
+      "exact": true
+    },
+    {
+      "timeMs": 640,
+      "frame": 32,
+      "exact": true
+    },
+    {
+      "timeMs": 720,
+      "frame": 36,
+      "exact": true
+    },
+    {
+      "timeMs": 800,
+      "frame": 40,
+      "exact": true
+    },
+    {
+      "timeMs": 880,
+      "frame": 44,
+      "exact": true
+    },
+    {
+      "timeMs": 960,
+      "frame": 48,
+      "exact": true
+    },
+    {
+      "timeMs": 1040,
+      "frame": 52,
+      "exact": true
+    },
+    {
+      "timeMs": 1120,
+      "frame": 56,
+      "exact": true
+    },
+    {
+      "timeMs": 1200,
+      "frame": 60,
+      "exact": true
+    },
+    {
+      "timeMs": 20,
+      "frame": 1,
+      "exact": true
+    },
+    {
+      "timeMs": 40,
+      "frame": 2,
+      "exact": true
+    },
+    {
+      "timeMs": 60,
+      "frame": 3,
+      "exact": true
+    },
+    {
+      "timeMs": 79.999,
+      "frame": 3,
+      "exact": true
+    },
+    {
+      "timeMs": 80.001,
+      "frame": 4,
+      "exact": true
+    },
+    {
+      "timeMs": 1260,
+      "frame": 63,
+      "exact": true
+    },
+    {
+      "timeMs": 1279.999,
+      "frame": 63,
+      "exact": true
+    },
+    {
+      "timeMs": 1280,
+      "frame": 0,
+      "exact": true
+    },
+    {
+      "timeMs": 1280.001,
+      "frame": 0,
+      "exact": true
+    },
+    {
+      "timeMs": -1,
+      "frame": 63,
+      "exact": true
+    }
+  ],
+  "sourceFrames": 16,
+  "estimatedInterframes": 48,
+  "playbackFps": 50,
+  "outputDimensions": [
+    1432,
+    1068
+  ]
+}
