@@ -188,6 +188,10 @@ def main() -> int:
     if faithful.returncode:
         fail(errors, faithful.stderr.strip() or faithful.stdout.strip())
 
+    poetic = subprocess.run([sys.executable, str(ROOT / 'scripts/assets/verify_poetic_pixel_scene.py')], capture_output=True, text=True)
+    if poetic.returncode:
+        fail(errors, poetic.stderr.strip() or poetic.stdout.strip())
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

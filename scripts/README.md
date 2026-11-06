@@ -21,7 +21,13 @@ python3 scripts/assets/export_portrait.py --help
 
 正常發佈為PR檢查成功後合併main，再由既有GitHub Actions部署；不以手動備援繞過審查。指定時間截幀與完整24秒20 Hz GIF只用於動作檢視，不等於實體顯示器FPS。詳見 [開發指南](../docs/guides/development.md)。
 
-## 目前：原動畫直接像素轉製
+## 目前：高清圓形風景
+
+`assets/derive_poetic_motion.py`離線估計來源50fps過渡、保留16個原錨點；`assets/export_poetic_pixel_scene.py`匯出72色、細輪廓、原生64幀圖集、高清首幀及faststart影片。`assets/verify_poetic_pixel_scene.py`使用標準庫，已接入CI資產驗證。
+
+`qa/verify_poetic_scene.py`核對高清來源／過渡、獨立雪、實際parser動態、3秒圖集等待與相位接手、故障預覽、偏好、手機及無JS。`qa/capture_poetic_scene.py`擷取6.4秒實際CSS圓形；`--measure`在其他瀏覽器結束後獨立觀察原生rAF。完整命令與限制見[目前指南](../docs/guides/poetic-pixel.md)。
+
+## 歷史：原動畫直接像素轉製
 
 `assets/export_faithful_pixel_scene.py`逐幀轉製原16份PNG，保持16×80ms，不重建風。`assets/verify_faithful_pixel_scene.py`用標準庫獨立解碼PNG，核對完整ZIP／22份原檔、衍生雜湊、來源原生2×2鄰域、高清首幀與生成描述；已接入CI的`assets:verify`。
 

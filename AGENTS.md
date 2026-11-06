@@ -13,7 +13,7 @@ documents listed below. Do not start coding before you understand the hard rules
 
 ## Latest authoritative rebuild
 
-Read [`docs/guides/faithful-source-pixels.md`](docs/guides/faithful-source-pixels.md) first. **The latest owner request rejects PR #17's weak local sway and explicitly requires the uploaded ZIP animation, with only the pixel-art appearance changed.** The default is `src/features/faithfulPixel/`: a direct conversion of the original16 frames, native358×267 coordinates, unchanged16×80ms /1280ms timing, sharp716×534 nearest output, in the existing borderless circle. Preserve the original composition inside the circle; do not add outer scenery. No AI-mother retargeting, whole-image optical-flow fields, newly simulated wind, independent blink clock, cross-fades or estimated interframes in the default path. Original source movement (including face/background movement and its loop seam) is authoritative; the former fixed-plate invariant and12s/24s rig clocks are superseded. Pixel color/cluster processing is offline, documented and shared across frames, never a runtime geometric warp. Keep sourceZIP and originals immutable. Current evidence: `artifacts/faithful-pixel/`; older guides/results are history.
+Read [`docs/guides/poetic-pixel.md`](docs/guides/poetic-pixel.md) first. **The owner now asks for clearer higher-resolution pixel art, retained cherry/Fuji scenery inside the same circle, stronger falling snow, immediate entrance motion and smoother graceful movement.** The default is `src/features/poeticPixel/`: 72-color detailed pixel clusters from the original358×267 scene, 1432×1068 output via cached edge reconstruction and nearest display, a parser-started small video handed off by its actual phase, source-derived50fps/64×20ms estimates with all16 original80ms anchors preserved, and independent288-particle48s snow. Full source composition stays in the borderless circle with the existing cover crop; do not add outside scenery or invent a new character. The new smoother-motion request supersedes PR18's blanket ban on estimated source interframes, but not its source-identity, original-timing or no-AI-mother-retarget contract. Clearly distinguish the16 original frames from48 estimated transitions. There is no runtime whole-image deformation, pose field or independent simulated hair. Keep sourceZIP/originals and older evidence immutable. Current evidence: `artifacts/poetic-pixel/`; older guides/results are history.
 
 ## Read in this order
 
@@ -54,8 +54,9 @@ Read [`docs/guides/faithful-source-pixels.md`](docs/guides/faithful-source-pixel
 - **A complete personal website is required.** Navigation, personal introduction,
   real projects, contact links and footer are required.
   The former character-only / no-UI restriction is superseded by ADR-016.
-  The normal homepage has no public play/pause controls: original source frames
-  play continuously on their1280ms cycle while visible, including the source blinks. Keep manual controls opt-in via debug=1 or
+  The normal homepage has no public play/pause controls: source-derived animation
+  plays on its1280ms cycle while visible, including the source blinks; snow has
+  its own48s clock. Keep manual controls opt-in via debug=1 or
   explicit QA parameters; honor reduced motion and visibility suspension. Only when system reduced motion is active, explain the static state and allow explicit visitor opt-in with a reversible local choice; normal playback has no controls.
 - **Use a centered, circular, borderless portrait presentation.** The owner's latest
   2026-10-29 request supersedes the earlier unclipped silhouette presentation.
@@ -120,7 +121,7 @@ npm run deploy   # manual fallback: builds and force-pushes dist/ to gh-pages
 Only the default hero and personal-site statements below describe the active path. The detailed physics/Worker/12s wind/24s eyelid paragraphs are historical and must not be applied to the direct source-frame default.
 
 - Vite 8 + React 19 + TypeScript 7; Canvas 2D player.
-- Default hero: `src/features/faithfulPixel/`, direct original16-frame pixel-art conversion, sharp716×534 output in a borderless circle. Read the latest guide; the rig/calm paragraphs below describe historical renderers.
+- Default hero: `src/features/poeticPixel/`, detailed72-color pixel art, source-derived50fps animation,1432×1068 output and288 independent snowflakes in the same borderless circle. Parser video moves before the full atlas is ready. Read the latest guide; the rig/calm paragraphs below describe historical renderers.
 - Responsive personal homepage with an indigo double header, white document
   layout, left navigation, right contents, local search, about, real project table and contact sections; editable content and shared site shell.
 - Hero / isolated view=portrait: rebuilt independent canonical cutouts bound to their

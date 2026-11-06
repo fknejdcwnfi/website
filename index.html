@@ -24,9 +24,9 @@
       property="og:description"
       content="__SITE_DESCRIPTION__"
     />
-    <meta property="og:image" content="https://fknejdcwnfi.github.io/website/assets/faithful-pixel/canonical.png" />
-    <meta property="og:image:width" content="716" />
-    <meta property="og:image:height" content="534" />
+    <meta property="og:image" content="https://fknejdcwnfi.github.io/website/assets/poetic-pixel/canonical.png" />
+    <meta property="og:image:width" content="1432" />
+    <meta property="og:image:height" content="1068" />
     <meta property="og:image:alt" content="Vermouth pixel art preserving the original Fuji animation scene" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="__SITE_TITLE__" />
@@ -34,11 +34,54 @@
       name="twitter:description"
       content="__SITE_DESCRIPTION__"
     />
-    <meta name="twitter:image" content="https://fknejdcwnfi.github.io/website/assets/faithful-pixel/canonical.png" />
+    <meta name="twitter:image" content="https://fknejdcwnfi.github.io/website/assets/poetic-pixel/canonical.png" />
     <link rel="stylesheet" href="/src/app/styles/app.css" />
   </head>
   <body>
     <div id="root"><!--site-fallback--></div>
+    <script>
+      (function () {
+        var video = document.getElementById('vermouth-poetic-bootstrap');
+        if (!video) return;
+        var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var params = new URLSearchParams(window.location.search);
+        var fixed = params.get('t');
+        var inspect = fixed !== null && fixed.trim() !== '' && Number.isFinite(Number(fixed));
+        var archived = params.get('view') === 'portrait' || ['legacy', 'voxel'].includes(params.get('style'));
+        var inViewport = true;
+        function ready() { video.dataset.ready = 'true'; }
+        function sync() {
+          var enabled = false;
+          try { enabled = localStorage.getItem('vermouth-motion-enabled') === 'true'; } catch (_) {}
+          var allowed = !inspect && !archived && params.get('motion') !== 'original' && (!preference.matches || enabled);
+          if (!allowed) {
+            video.pause();
+            if (video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
+            delete video.dataset.ready;
+          } else if (!document.hidden && inViewport) {
+            video.muted = true;
+            if (video.getAttribute('src') !== video.dataset.src) video.src = video.dataset.src;
+            video.play().catch(function () {});
+          } else video.pause();
+        }
+        var observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(function (entries) {
+          inViewport = entries[0] ? entries[0].isIntersecting : true;
+          sync();
+        });
+        if (observer) observer.observe(video.parentElement);
+        video.addEventListener('loadeddata', ready);
+        preference.addEventListener('change', sync);
+        document.addEventListener('visibilitychange', sync);
+        window.__vermouthPoeticVideo = video;
+        window.__vermouthPoeticCleanup = function () {
+          if (observer) observer.disconnect();
+          video.removeEventListener('loadeddata', ready);
+          preference.removeEventListener('change', sync);
+          document.removeEventListener('visibilitychange', sync);
+        };
+        sync();
+      }());
+    </script>
     <p id="site-startup-status" class="site-startup-status" role="status" hidden>
       互動功能尚未載入，目前顯示靜態網站與肖像。
       <button type="button" onclick="window.location.reload()">重新載入</button>

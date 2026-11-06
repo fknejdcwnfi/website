@@ -4,6 +4,10 @@
 .reference-scene__viewport { position: relative; left: var(--scene-offset-x, 0px); top: var(--scene-offset-y, 0px); width: var(--scene-diameter, 100%); max-width: 100%; aspect-ratio: 1; overflow: hidden; border: 0; border-radius: 50%; background: transparent; box-shadow: none; }
 .reference-scene__canvas, .reference-scene__poster { display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .reference-scene__poster { position: absolute; inset: 0; }
+.reference-scene__preview { position: absolute; inset: 0; pointer-events: none; }
+.reference-scene__preview[data-active="false"] { visibility: hidden; }
+.poetic-scene__boot { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; opacity: 0; }
+.poetic-scene__boot[data-ready="true"] { opacity: 1; }
 .reference-scene__status { font: 12px/1.7 system-ui, sans-serif; text-align: center; }
 .reference-scene__status:empty { display: none; }
 .reference-scene__status p { margin: 10px 0 0; }

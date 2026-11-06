@@ -7,8 +7,8 @@ export type SceneImageSource = { src: string; width: number; height: number }
 /** Authored imagery and provenance belong to this reference, never the archived portrait. */
 export type SceneDefinition = {
   version: 1
-  width: typeof SCENE_WIDTH
-  height: typeof SCENE_HEIGHT
+  width: number
+  height: number
   canonical: SceneImageSource
   layers?: Readonly<Record<string, SceneImageSource>>
   description: string

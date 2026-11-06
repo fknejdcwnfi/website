@@ -3,8 +3,8 @@ import { site } from '../features/profile/content/site'
 import PersonalSections from '../features/profile/components/PersonalSections'
 import SiteShell from '../features/profile/components/SiteShell'
 import ReferenceScene from '../features/referenceScene/ReferenceScene'
-import { faithfulPixelDefinition as referenceSceneDefinition } from '../features/faithfulPixel/definition'
-import { createFaithfulPixelRenderer as createSourceRenderer } from '../features/faithfulPixel/renderer'
+import { poeticPixelDefinition as referenceSceneDefinition, poeticPreview } from '../features/poeticPixel/definition'
+import { createPoeticPixelRenderer as createSourceRenderer } from '../features/poeticPixel/renderer'
 
 const ArchivedPortrait=lazy(()=>import('./ArchivedPortrait'))
 export default function App() {
@@ -12,7 +12,8 @@ export default function App() {
   if(params.get('view')==='portrait'||['voxel','legacy'].includes(params.get('style')??''))return <Suspense fallback={<p>正在載入肖像…</p>}><ArchivedPortrait /></Suspense>
   const time=params.get('t')
   const timeMs=time!==null&&time.trim()!==''&&Number.isFinite(Number(time))?Math.max(-120000,Math.min(120000,Number(time))):null
-  const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs} />
+  const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs}
+    preview={params.get('motion') === 'original' ? undefined : poeticPreview} />
   if(params.get('view')==='scene')return <main className="reference-scene-page">{scene}</main>
   return (
     <SiteShell>

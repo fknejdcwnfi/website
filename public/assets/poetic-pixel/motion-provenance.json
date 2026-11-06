@@ -1,0 +1,953 @@
+{
+  "version": 1,
+  "motionSource": "source-timing-with-estimated-intermediates",
+  "width": 358,
+  "height": 267,
+  "frameCount": 64,
+  "frameDurationsMs": [
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20,
+    20
+  ],
+  "durationMs": 1280,
+  "loop": 0,
+  "samplingFps": 50,
+  "sourceFrameCount": 16,
+  "sourceFrameDurationsMs": [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80
+  ],
+  "sourceFps": 12.5,
+  "framesPerAnchor": 4,
+  "sourceGif": {
+    "file": "reference-projects/fuji-wind/original/original.gif",
+    "bytes": 996543,
+    "sha256": "67fe636fbe05d7c6f29a71b1fbf781b94189c940d1655d8337041fd701ddcd02"
+  },
+  "sourceMetadata": {
+    "file": "reference-projects/fuji-wind/original/metadata.json",
+    "bytes": 406,
+    "sha256": "88c789740559ba0a2f3210516c003eea69f1dd72cc8e6b68d8427483e7a15974"
+  },
+  "authoring": [
+    {
+      "file": "scripts/assets/derive_poetic_motion.py",
+      "bytes": 8233,
+      "sha256": "a6da81b1b9e691cf134968bc0cd5bf17f71d3df68f0fd2a5ef9a63c6b8f71ed2"
+    },
+    {
+      "file": "scripts/assets/derive_reference_motion.py",
+      "bytes": 12787,
+      "sha256": "8c76fda8ad5668f2aa13577bb8dfb593d58ee42d8c2e6ea289b7379474629ca7"
+    }
+  ],
+  "method": "FFmpeg bidirectional source-image motion compensation; three actual source loops, middle loop selected; no style-master retargeting or runtime displacement fields.",
+  "filter": "format=yuv444p,minterpolate=fps=50:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:me=epzs:mb_size=8:search_param=32:vsbmc=1:scd=none,trim=start=1.28:end=2.56,setpts=PTS-STARTPTS",
+  "ffmpegVersion": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "anchors": [
+    {
+      "sourceIndex": 0,
+      "frame": 0,
+      "timeMs": 0,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_000.png",
+        "bytes": 143102,
+        "sha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b"
+      },
+      "outputSha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 1,
+      "frame": 4,
+      "timeMs": 80,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_001.png",
+        "bytes": 143408,
+        "sha256": "9177c8726ad6bd5ddd290264acabb93b214bf0167e3412d2b5ad70d5f8879bff"
+      },
+      "outputSha256": "9177c8726ad6bd5ddd290264acabb93b214bf0167e3412d2b5ad70d5f8879bff",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 2,
+      "frame": 8,
+      "timeMs": 160,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_002.png",
+        "bytes": 149730,
+        "sha256": "c8f09e24dd745b4d88e8b950c4be2eed815e342da03dbb8d23bc4179f5108a9d"
+      },
+      "outputSha256": "c8f09e24dd745b4d88e8b950c4be2eed815e342da03dbb8d23bc4179f5108a9d",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 3,
+      "frame": 12,
+      "timeMs": 240,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_003.png",
+        "bytes": 146387,
+        "sha256": "3aef741b6d33eb3f478904337c0ad3a3c4bc568ef7ec502c54e4299c0b8b7643"
+      },
+      "outputSha256": "3aef741b6d33eb3f478904337c0ad3a3c4bc568ef7ec502c54e4299c0b8b7643",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 4,
+      "frame": 16,
+      "timeMs": 320,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_004.png",
+        "bytes": 145997,
+        "sha256": "dfa02b2a0679916527bb6da6281b24fbbac55235141ef2ef36b1bd87316fccb6"
+      },
+      "outputSha256": "dfa02b2a0679916527bb6da6281b24fbbac55235141ef2ef36b1bd87316fccb6",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 5,
+      "frame": 20,
+      "timeMs": 400,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_005.png",
+        "bytes": 145817,
+        "sha256": "dce183f9b9b4c28fc472568b3fdc7d99b70e7f4e59cc8c64fc4bc3cefa843d9e"
+      },
+      "outputSha256": "dce183f9b9b4c28fc472568b3fdc7d99b70e7f4e59cc8c64fc4bc3cefa843d9e",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 6,
+      "frame": 24,
+      "timeMs": 480,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_006.png",
+        "bytes": 143856,
+        "sha256": "a91f7c70dbddd0c0ebc40cd553310e2fd4e1dbe8cb1a9f837f19a3e4bb79e837"
+      },
+      "outputSha256": "a91f7c70dbddd0c0ebc40cd553310e2fd4e1dbe8cb1a9f837f19a3e4bb79e837",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 7,
+      "frame": 28,
+      "timeMs": 560,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_007.png",
+        "bytes": 138814,
+        "sha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e"
+      },
+      "outputSha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 8,
+      "frame": 32,
+      "timeMs": 640,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_008.png",
+        "bytes": 140823,
+        "sha256": "1fa9f3daf8b3d7b750ea5866a90c0c6147e82ed82387f565df63b16fd9fd1969"
+      },
+      "outputSha256": "1fa9f3daf8b3d7b750ea5866a90c0c6147e82ed82387f565df63b16fd9fd1969",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 9,
+      "frame": 36,
+      "timeMs": 720,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_009.png",
+        "bytes": 143095,
+        "sha256": "9b68d876dedfa8b86d171a8b693cb1edd2333c4d536f94d8b6ff3539cff35357"
+      },
+      "outputSha256": "9b68d876dedfa8b86d171a8b693cb1edd2333c4d536f94d8b6ff3539cff35357",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 10,
+      "frame": 40,
+      "timeMs": 800,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_010.png",
+        "bytes": 142726,
+        "sha256": "fd3b20eae1e76c4e22686080806682c0df2d4f25aecd2c8745586bf503797bab"
+      },
+      "outputSha256": "fd3b20eae1e76c4e22686080806682c0df2d4f25aecd2c8745586bf503797bab",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 11,
+      "frame": 44,
+      "timeMs": 880,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_011.png",
+        "bytes": 142373,
+        "sha256": "2327d4cdb6b98c7e18a780b664d4cd6a276bf5e55c99ab0df0132ebebbd8a13f"
+      },
+      "outputSha256": "2327d4cdb6b98c7e18a780b664d4cd6a276bf5e55c99ab0df0132ebebbd8a13f",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 12,
+      "frame": 48,
+      "timeMs": 960,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_012.png",
+        "bytes": 142254,
+        "sha256": "a79d4289fdfba6f2e5ea7fc3c95ac0f11bc8a7a5328edfc64fed3667d4536e38"
+      },
+      "outputSha256": "a79d4289fdfba6f2e5ea7fc3c95ac0f11bc8a7a5328edfc64fed3667d4536e38",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 13,
+      "frame": 52,
+      "timeMs": 1040,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_013.png",
+        "bytes": 140562,
+        "sha256": "f645e7f94629d6a79efa83cde2ea3d77917b3fe1eb89e096e2b66e0178dd0e78"
+      },
+      "outputSha256": "f645e7f94629d6a79efa83cde2ea3d77917b3fe1eb89e096e2b66e0178dd0e78",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 14,
+      "frame": 56,
+      "timeMs": 1120,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_014.png",
+        "bytes": 141476,
+        "sha256": "0be9764d4a914ba04adf85efa498627f02aff05d6301d77f63a49d80a7524d42"
+      },
+      "outputSha256": "0be9764d4a914ba04adf85efa498627f02aff05d6301d77f63a49d80a7524d42",
+      "differentSourcePixels": 0
+    },
+    {
+      "sourceIndex": 15,
+      "frame": 60,
+      "timeMs": 1200,
+      "source": {
+        "file": "reference-projects/fuji-wind/original/frames/frame_015.png",
+        "bytes": 137724,
+        "sha256": "246c8d5acaf1e2473340f17439bffb27595b5c6e4f3e6019dec3c251d11a1552"
+      },
+      "outputSha256": "246c8d5acaf1e2473340f17439bffb27595b5c6e4f3e6019dec3c251d11a1552",
+      "differentSourcePixels": 0
+    }
+  ],
+  "anchorRule": "Frame4*i at80*i ms is a byte-exact copy of original source frame i.",
+  "rawFilterAnchorMeanRgbErrorBeforeExactCopy": [
+    0.35981559363644605,
+    0.3609803388222822,
+    0.3580789376407982,
+    0.3558854504495079,
+    0.3520250524832786,
+    0.3524539855906374,
+    0.35158565759281346,
+    0.3566700841824814,
+    0.34697898576500047,
+    0.35590637401572056,
+    0.35058132641460743,
+    0.3473590972178631,
+    0.35635971795032745,
+    0.35918439938903185,
+    0.36034565731383256,
+    0.35793944719938064
+  ],
+  "eyeProtection": {
+    "sourceIndexRule": "floor(index/4); original80ms eye and blink states retained",
+    "regionsXyxy": [
+      [
+        114,
+        75,
+        169,
+        118
+      ],
+      [
+        188,
+        74,
+        243,
+        116
+      ]
+    ],
+    "featherPixels": 4,
+    "registrationRegionXyxy": [
+      166,
+      126,
+      184,
+      150
+    ],
+    "sourceHeadOffsetsXy": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        2,
+        -3
+      ],
+      [
+        2,
+        -3
+      ],
+      [
+        2,
+        -3
+      ],
+      [
+        0,
+        -4
+      ],
+      [
+        1,
+        -4
+      ],
+      [
+        2,
+        -4
+      ],
+      [
+        1,
+        -4
+      ],
+      [
+        0,
+        -3
+      ],
+      [
+        2,
+        -2
+      ],
+      [
+        1,
+        -3
+      ],
+      [
+        1,
+        -3
+      ]
+    ],
+    "rule": "Single original donor eye shape with estimated source-derived local head translation; outer4px skin feather only. Source anchors bypass this operation."
+  },
+  "temporalDifference": {
+    "sourceOrdinaryMeanRgb": 16.369625026445064,
+    "sourceSeamMeanRgb": 20.91263713654022,
+    "derivedOrdinaryMeanRgb": 5.3756446035963945,
+    "derivedSeamMeanRgb": 6.456555702020519,
+    "derivedMaximumMeanRgb": 8.119539821033763
+  },
+  "frames": [
+    {
+      "index": 0,
+      "file": "frame_000.png",
+      "durationMs": 20,
+      "sourceIndex": 0,
+      "isOriginalAnchor": true,
+      "sha256": "e3c3f52e7b4a0ec531e8deb3ff59971972ec8e44219266598ac9bd25b1e4fc5b"
+    },
+    {
+      "index": 1,
+      "file": "frame_001.png",
+      "durationMs": 20,
+      "sourceIndex": 0,
+      "isOriginalAnchor": false,
+      "sha256": "f68cbd6f411e7dfaff5f20908963edaa2b5fb9fea0796954432850a79d8858e4"
+    },
+    {
+      "index": 2,
+      "file": "frame_002.png",
+      "durationMs": 20,
+      "sourceIndex": 0,
+      "isOriginalAnchor": false,
+      "sha256": "858fede3863e5f965056ac67b88ca00346759806114e02a75f89f197bb70b83c"
+    },
+    {
+      "index": 3,
+      "file": "frame_003.png",
+      "durationMs": 20,
+      "sourceIndex": 0,
+      "isOriginalAnchor": false,
+      "sha256": "5b83048f30896feea3c4998c4e0af5d75fb31fdd35aac9dcdfa5758e41d4a096"
+    },
+    {
+      "index": 4,
+      "file": "frame_004.png",
+      "durationMs": 20,
+      "sourceIndex": 1,
+      "isOriginalAnchor": true,
+      "sha256": "9177c8726ad6bd5ddd290264acabb93b214bf0167e3412d2b5ad70d5f8879bff"
+    },
+    {
+      "index": 5,
+      "file": "frame_005.png",
+      "durationMs": 20,
+      "sourceIndex": 1,
+      "isOriginalAnchor": false,
+      "sha256": "25f1f401552a6cadbe91a9e43ce02f629ed0d285d2b776529b9efa321f5b0985"
+    },
+    {
+      "index": 6,
+      "file": "frame_006.png",
+      "durationMs": 20,
+      "sourceIndex": 1,
+      "isOriginalAnchor": false,
+      "sha256": "f1bf96b43113f22865b12b5b4dbc27aac068b0082f2342d3ac8d115f37961427"
+    },
+    {
+      "index": 7,
+      "file": "frame_007.png",
+      "durationMs": 20,
+      "sourceIndex": 1,
+      "isOriginalAnchor": false,
+      "sha256": "25975479c215d866824f4ee5cb0f0a69d4efe524cd3be287e9374b71652b4423"
+    },
+    {
+      "index": 8,
+      "file": "frame_008.png",
+      "durationMs": 20,
+      "sourceIndex": 2,
+      "isOriginalAnchor": true,
+      "sha256": "c8f09e24dd745b4d88e8b950c4be2eed815e342da03dbb8d23bc4179f5108a9d"
+    },
+    {
+      "index": 9,
+      "file": "frame_009.png",
+      "durationMs": 20,
+      "sourceIndex": 2,
+      "isOriginalAnchor": false,
+      "sha256": "35d892617a382be90f7d0b13a1cb05814148763185c2fe99031ab713b0b05928"
+    },
+    {
+      "index": 10,
+      "file": "frame_010.png",
+      "durationMs": 20,
+      "sourceIndex": 2,
+      "isOriginalAnchor": false,
+      "sha256": "a88c31abec4803fdc1cf8c6d172b43c86f0e2ada9e2a40d1bcbf08ac156e29eb"
+    },
+    {
+      "index": 11,
+      "file": "frame_011.png",
+      "durationMs": 20,
+      "sourceIndex": 2,
+      "isOriginalAnchor": false,
+      "sha256": "dd8e58776f9063053999fafdcd6924ea04c43ae933fcdfd94a1b4531a128c2cb"
+    },
+    {
+      "index": 12,
+      "file": "frame_012.png",
+      "durationMs": 20,
+      "sourceIndex": 3,
+      "isOriginalAnchor": true,
+      "sha256": "3aef741b6d33eb3f478904337c0ad3a3c4bc568ef7ec502c54e4299c0b8b7643"
+    },
+    {
+      "index": 13,
+      "file": "frame_013.png",
+      "durationMs": 20,
+      "sourceIndex": 3,
+      "isOriginalAnchor": false,
+      "sha256": "6389c9b6c46b9e36468a3b3e20b78efed58d8bfc3c9264473dda8f8b715e52da"
+    },
+    {
+      "index": 14,
+      "file": "frame_014.png",
+      "durationMs": 20,
+      "sourceIndex": 3,
+      "isOriginalAnchor": false,
+      "sha256": "1823cee3c9b64d25d0663740398126a3d7973da30e8921be5c40e718b2c1d240"
+    },
+    {
+      "index": 15,
+      "file": "frame_015.png",
+      "durationMs": 20,
+      "sourceIndex": 3,
+      "isOriginalAnchor": false,
+      "sha256": "8deb1e0c1b24b3d01b2bad66d33d27cdedcb42a02b259212535219183df50945"
+    },
+    {
+      "index": 16,
+      "file": "frame_016.png",
+      "durationMs": 20,
+      "sourceIndex": 4,
+      "isOriginalAnchor": true,
+      "sha256": "dfa02b2a0679916527bb6da6281b24fbbac55235141ef2ef36b1bd87316fccb6"
+    },
+    {
+      "index": 17,
+      "file": "frame_017.png",
+      "durationMs": 20,
+      "sourceIndex": 4,
+      "isOriginalAnchor": false,
+      "sha256": "f72dec10d13684f2196fcc4133c071a1e53304e17f79dace7155fbf7dc2bdce1"
+    },
+    {
+      "index": 18,
+      "file": "frame_018.png",
+      "durationMs": 20,
+      "sourceIndex": 4,
+      "isOriginalAnchor": false,
+      "sha256": "d2b9c0fd2db4ad58fd96cfcfea136905ea230ec8f3edef3feb27842c07b65643"
+    },
+    {
+      "index": 19,
+      "file": "frame_019.png",
+      "durationMs": 20,
+      "sourceIndex": 4,
+      "isOriginalAnchor": false,
+      "sha256": "e0fab9431163e287eacdac82d3c8b3d05ea24e0f3e2aeb88d69f979abfdfc3b7"
+    },
+    {
+      "index": 20,
+      "file": "frame_020.png",
+      "durationMs": 20,
+      "sourceIndex": 5,
+      "isOriginalAnchor": true,
+      "sha256": "dce183f9b9b4c28fc472568b3fdc7d99b70e7f4e59cc8c64fc4bc3cefa843d9e"
+    },
+    {
+      "index": 21,
+      "file": "frame_021.png",
+      "durationMs": 20,
+      "sourceIndex": 5,
+      "isOriginalAnchor": false,
+      "sha256": "cf6bcc37b432c06a300cbc5814cefc0a8ef5e2f3baad7cf0abe883a4c70bf935"
+    },
+    {
+      "index": 22,
+      "file": "frame_022.png",
+      "durationMs": 20,
+      "sourceIndex": 5,
+      "isOriginalAnchor": false,
+      "sha256": "5fd8806b84a3edb4e05afd81ce487e042a61cd9ca15e796bc3dbe5ac0e51950b"
+    },
+    {
+      "index": 23,
+      "file": "frame_023.png",
+      "durationMs": 20,
+      "sourceIndex": 5,
+      "isOriginalAnchor": false,
+      "sha256": "7360baf9d81a2d910c7c486c67ab1afb4ef834f621b90f056797d4bd119c9aff"
+    },
+    {
+      "index": 24,
+      "file": "frame_024.png",
+      "durationMs": 20,
+      "sourceIndex": 6,
+      "isOriginalAnchor": true,
+      "sha256": "a91f7c70dbddd0c0ebc40cd553310e2fd4e1dbe8cb1a9f837f19a3e4bb79e837"
+    },
+    {
+      "index": 25,
+      "file": "frame_025.png",
+      "durationMs": 20,
+      "sourceIndex": 6,
+      "isOriginalAnchor": false,
+      "sha256": "2bb5b2ee4d601ffd285d8a3e61b92d1095336c259e3bc518577486a178fb53ad"
+    },
+    {
+      "index": 26,
+      "file": "frame_026.png",
+      "durationMs": 20,
+      "sourceIndex": 6,
+      "isOriginalAnchor": false,
+      "sha256": "17e3a548f913d841089e091a3577800c168de885dc61388937c9a55d4ba30df0"
+    },
+    {
+      "index": 27,
+      "file": "frame_027.png",
+      "durationMs": 20,
+      "sourceIndex": 6,
+      "isOriginalAnchor": false,
+      "sha256": "053eee3fffada9d70102bf37c5e714a43399849c6fe5a3ef4effc7e9c6484edf"
+    },
+    {
+      "index": 28,
+      "file": "frame_028.png",
+      "durationMs": 20,
+      "sourceIndex": 7,
+      "isOriginalAnchor": true,
+      "sha256": "21cd424f8d4860b770fee474a99cffc52e0255abcf771c99af169a7ec1b39a8e"
+    },
+    {
+      "index": 29,
+      "file": "frame_029.png",
+      "durationMs": 20,
+      "sourceIndex": 7,
+      "isOriginalAnchor": false,
+      "sha256": "5a991580ee22d368ada8753a671e5fe19c78380817e2707f6546f962e85f9cda"
+    },
+    {
+      "index": 30,
+      "file": "frame_030.png",
+      "durationMs": 20,
+      "sourceIndex": 7,
+      "isOriginalAnchor": false,
+      "sha256": "f8bbe88ebcfaa7c8a26299162baae5e5f6fc122a5c758697a7f651858e79a463"
+    },
+    {
+      "index": 31,
+      "file": "frame_031.png",
+      "durationMs": 20,
+      "sourceIndex": 7,
+      "isOriginalAnchor": false,
+      "sha256": "96d825ca5aa59a2f24cb44ea0ed78422f1c05a0c78a962192f7ee5160c30e7bb"
+    },
+    {
+      "index": 32,
+      "file": "frame_032.png",
+      "durationMs": 20,
+      "sourceIndex": 8,
+      "isOriginalAnchor": true,
+      "sha256": "1fa9f3daf8b3d7b750ea5866a90c0c6147e82ed82387f565df63b16fd9fd1969"
+    },
+    {
+      "index": 33,
+      "file": "frame_033.png",
+      "durationMs": 20,
+      "sourceIndex": 8,
+      "isOriginalAnchor": false,
+      "sha256": "f57cd546299db2da4bc95b5921e80a77a7a1c9103c205f9b00ceda247ebbb16d"
+    },
+    {
+      "index": 34,
+      "file": "frame_034.png",
+      "durationMs": 20,
+      "sourceIndex": 8,
+      "isOriginalAnchor": false,
+      "sha256": "c6a644efda637ac4dd0a72d8352a2cc75d7168164a06b3568a105e7c3aff0908"
+    },
+    {
+      "index": 35,
+      "file": "frame_035.png",
+      "durationMs": 20,
+      "sourceIndex": 8,
+      "isOriginalAnchor": false,
+      "sha256": "5bef1e8ae92316d524bd5deb7813d933f9b602531d11262d664f493fd9053a5d"
+    },
+    {
+      "index": 36,
+      "file": "frame_036.png",
+      "durationMs": 20,
+      "sourceIndex": 9,
+      "isOriginalAnchor": true,
+      "sha256": "9b68d876dedfa8b86d171a8b693cb1edd2333c4d536f94d8b6ff3539cff35357"
+    },
+    {
+      "index": 37,
+      "file": "frame_037.png",
+      "durationMs": 20,
+      "sourceIndex": 9,
+      "isOriginalAnchor": false,
+      "sha256": "413d1fe941f8d180dee07c3ca3291cb7793d066170dc098248e71bd2c8092226"
+    },
+    {
+      "index": 38,
+      "file": "frame_038.png",
+      "durationMs": 20,
+      "sourceIndex": 9,
+      "isOriginalAnchor": false,
+      "sha256": "96a7b18027b085105b7413d3476f090491bee87976dd74e901073d67af792d47"
+    },
+    {
+      "index": 39,
+      "file": "frame_039.png",
+      "durationMs": 20,
+      "sourceIndex": 9,
+      "isOriginalAnchor": false,
+      "sha256": "40ab2cdb260121b58610a5346fecc32b807f3f9da4a8a8bb189a9f2d6704d45a"
+    },
+    {
+      "index": 40,
+      "file": "frame_040.png",
+      "durationMs": 20,
+      "sourceIndex": 10,
+      "isOriginalAnchor": true,
+      "sha256": "fd3b20eae1e76c4e22686080806682c0df2d4f25aecd2c8745586bf503797bab"
+    },
+    {
+      "index": 41,
+      "file": "frame_041.png",
+      "durationMs": 20,
+      "sourceIndex": 10,
+      "isOriginalAnchor": false,
+      "sha256": "51bc99078604da5553286eb8c2414de7c658b2d207f0f869ef7adc7643ae31fc"
+    },
+    {
+      "index": 42,
+      "file": "frame_042.png",
+      "durationMs": 20,
+      "sourceIndex": 10,
+      "isOriginalAnchor": false,
+      "sha256": "937cb4dcb91d8b1417bfe604e2662757fc3147c8915be07d40c012f255856d7c"
+    },
+    {
+      "index": 43,
+      "file": "frame_043.png",
+      "durationMs": 20,
+      "sourceIndex": 10,
+      "isOriginalAnchor": false,
+      "sha256": "bd53632f4f0095f24ba9615d4f07b895e308d45bebcf7dbb8df19a0efe6f4ef9"
+    },
+    {
+      "index": 44,
+      "file": "frame_044.png",
+      "durationMs": 20,
+      "sourceIndex": 11,
+      "isOriginalAnchor": true,
+      "sha256": "2327d4cdb6b98c7e18a780b664d4cd6a276bf5e55c99ab0df0132ebebbd8a13f"
+    },
+    {
+      "index": 45,
+      "file": "frame_045.png",
+      "durationMs": 20,
+      "sourceIndex": 11,
+      "isOriginalAnchor": false,
+      "sha256": "d932528af9b4efbbff4029685d804d7cbf08f27a4ea1b2ed51a696782b539113"
+    },
+    {
+      "index": 46,
+      "file": "frame_046.png",
+      "durationMs": 20,
+      "sourceIndex": 11,
+      "isOriginalAnchor": false,
+      "sha256": "9296402f7f631b16e1ada947b7df0b64d24a5def96029fc9af4b720c489c7d7b"
+    },
+    {
+      "index": 47,
+      "file": "frame_047.png",
+      "durationMs": 20,
+      "sourceIndex": 11,
+      "isOriginalAnchor": false,
+      "sha256": "4251ed30e6f42fdfd74a9fb67bf872dba156e2404c4107671169082000b3ad7c"
+    },
+    {
+      "index": 48,
+      "file": "frame_048.png",
+      "durationMs": 20,
+      "sourceIndex": 12,
+      "isOriginalAnchor": true,
+      "sha256": "a79d4289fdfba6f2e5ea7fc3c95ac0f11bc8a7a5328edfc64fed3667d4536e38"
+    },
+    {
+      "index": 49,
+      "file": "frame_049.png",
+      "durationMs": 20,
+      "sourceIndex": 12,
+      "isOriginalAnchor": false,
+      "sha256": "eba561dc83cdd9d5de3a8b0fbad742db0cff0b3fdbd6dc878ecf3a6c4f346491"
+    },
+    {
+      "index": 50,
+      "file": "frame_050.png",
+      "durationMs": 20,
+      "sourceIndex": 12,
+      "isOriginalAnchor": false,
+      "sha256": "befd8122efd7f950b42c5f8255208d64f7b8af1a96d0ebf16b4a66c6cd4d972e"
+    },
+    {
+      "index": 51,
+      "file": "frame_051.png",
+      "durationMs": 20,
+      "sourceIndex": 12,
+      "isOriginalAnchor": false,
+      "sha256": "dd66186ad10b0bc3d33c48556c7a08fda693860c699b6f7234bdfa55844f5a73"
+    },
+    {
+      "index": 52,
+      "file": "frame_052.png",
+      "durationMs": 20,
+      "sourceIndex": 13,
+      "isOriginalAnchor": true,
+      "sha256": "f645e7f94629d6a79efa83cde2ea3d77917b3fe1eb89e096e2b66e0178dd0e78"
+    },
+    {
+      "index": 53,
+      "file": "frame_053.png",
+      "durationMs": 20,
+      "sourceIndex": 13,
+      "isOriginalAnchor": false,
+      "sha256": "5897ff603ef89735bde5829f7cb8ae9eb287b038fdb1d3c559b326791b1b6bf8"
+    },
+    {
+      "index": 54,
+      "file": "frame_054.png",
+      "durationMs": 20,
+      "sourceIndex": 13,
+      "isOriginalAnchor": false,
+      "sha256": "4ef6e149c15ef48ce91d52ab25a6d1557f9bfe71953eba6cf6986844fc75373e"
+    },
+    {
+      "index": 55,
+      "file": "frame_055.png",
+      "durationMs": 20,
+      "sourceIndex": 13,
+      "isOriginalAnchor": false,
+      "sha256": "dfad81ea8b943afa9592a358bf55cafcb660d5efdb867ceff3c5363660fd6da8"
+    },
+    {
+      "index": 56,
+      "file": "frame_056.png",
+      "durationMs": 20,
+      "sourceIndex": 14,
+      "isOriginalAnchor": true,
+      "sha256": "0be9764d4a914ba04adf85efa498627f02aff05d6301d77f63a49d80a7524d42"
+    },
+    {
+      "index": 57,
+      "file": "frame_057.png",
+      "durationMs": 20,
+      "sourceIndex": 14,
+      "isOriginalAnchor": false,
+      "sha256": "15d91caf937b6f2e5e78b49a8008eba06670c90bb953b6be9e155d924101eeea"
+    },
+    {
+      "index": 58,
+      "file": "frame_058.png",
+      "durationMs": 20,
+      "sourceIndex": 14,
+      "isOriginalAnchor": false,
+      "sha256": "2f5772c1875690dd6bc5f7db9b682ae10dc78db978eaa2d94fd2fdb0e286c9d0"
+    },
+    {
+      "index": 59,
+      "file": "frame_059.png",
+      "durationMs": 20,
+      "sourceIndex": 14,
+      "isOriginalAnchor": false,
+      "sha256": "8b0fcddf7d18661af7dcabd200eedce54db676674bb751ae4d79f6944a10add3"
+    },
+    {
+      "index": 60,
+      "file": "frame_060.png",
+      "durationMs": 20,
+      "sourceIndex": 15,
+      "isOriginalAnchor": true,
+      "sha256": "246c8d5acaf1e2473340f17439bffb27595b5c6e4f3e6019dec3c251d11a1552"
+    },
+    {
+      "index": 61,
+      "file": "frame_061.png",
+      "durationMs": 20,
+      "sourceIndex": 15,
+      "isOriginalAnchor": false,
+      "sha256": "d3a7b92e609005569463f2668245ae73b0a2f0f4836aaa1d3825748080576647"
+    },
+    {
+      "index": 62,
+      "file": "frame_062.png",
+      "durationMs": 20,
+      "sourceIndex": 15,
+      "isOriginalAnchor": false,
+      "sha256": "53db6b63c11f9ef84a96d33981983a8164853d88ff8f2127833ebf0aed663df0"
+    },
+    {
+      "index": 63,
+      "file": "frame_063.png",
+      "durationMs": 20,
+      "sourceIndex": 15,
+      "isOriginalAnchor": false,
+      "sha256": "f78ac29fc6b2ba586465ceb74dc5f88cf96649c0d2c173bea6b39e3da23ad60d"
+    }
+  ],
+  "limitations": [
+    "Derived50fps samples are estimates, not original frames or recovered high-resolution information.",
+    "Motion compensation can soften or distort thin hair, snow and occlusions; view the rendered pixel derivatives.",
+    "Original facial/background movement and its1280ms source loop remain authoritative; source blink shape changes stay at80ms boundaries.",
+    "Image sample rate does not measure real-world physical screen FPS."
+  ]
+}
