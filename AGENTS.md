@@ -4,7 +4,35 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
-## Current minimal pixel UI — 2026-11-07
+## Current cream scenic UI — 2026-11-07
+
+- The owner's latest four-page reference collage replaces the minimal layout:
+  use the twilight scenic background, a blue header and chapter navigation,
+  rounded cream left/right navigation panels, warm peach active states, cream
+  about/project panels and image-led interest/game/social cards. Follow
+  [the current cream scenic guide](docs/guides/cream-scenic-ui.md).
+- Desktop shows the header navigation and both sidebars; collapse sidebars on
+  tablet/mobile while keeping all six header targets and native mobile contents
+  usable. Keep tables, cards and the right column within the actual viewport.
+- The latest rounded cream reference overrides older square-panel and hidden
+  desktop-menu rules. It does not revoke the self-hosted `Fusion Pixel` Chinese/
+  Latin typography or SVG pixel icons; keep their real loading and licenses.
+- Reuse existing local `public/assets/pixel-ui/` backdrop/card images as page
+  decoration. Do not replace or modify the original scene assets, source colors,
+  crop, renderer, clock, snow/petals, media handoff or stable scene instance.
+  The actual scene viewport remains circular, borderless and shadowless.
+  Decorative rings may sit on the outer figure as in the latest reference;
+  keep them separate from the actual viewport and source pixels.
+- Import `creamScenic.css` through the document stylesheet so the initial static
+  markup and no-JS page match React. Preserve BASE_URL support for both hosts,
+  real content, optional profiles, search and all section/card IDs.
+- Retain the explicit-anchor choice/release behavior, same-hash navigation and
+  `site:navigate` search Enter handling without remounting the scene. New UI QA
+  is `scripts/qa/verify_cream_scenic_ui.py`; earlier UI evidence remains historical.
+  The profile QA's one card-shape assertion now expects a positive radius;
+  all of its functional checks stay in place.
+
+## Previous minimal pixel UI — 2026-11-07 (appearance superseded above)
 
 - The owner's latest request replaces the ornate reference-driven appearance
   with a quiet, minimal interface inspired by Claude's simplicity: warm neutral
@@ -75,8 +103,9 @@ before changing the site. The owner's latest instructions override older guides.
 - Games support ordered facts/collection/notes/gallery/links with optional initial
   expansion. Copy-account feedback must reflect actual clipboard success; native
   details and static account text remain useful without JavaScript.
-- Preserve Minecraft-style square panels, pixel icons, readable Chinese and mobile
-  layout. New module QA is `scripts/qa/verify_profile_modules.py`, with independent
+- Preserve pixel icons, readable Chinese and mobile layout; the current cream
+  reference determines rounded panel shapes instead of the older square rule.
+  Module QA is `scripts/qa/verify_profile_modules.py`, with independent
   evidence in `artifacts/profile-modules/`; synthetic fixtures never enter default
   published content. See [profile guide](docs/guides/profile-modules.md).
 
@@ -88,8 +117,9 @@ before changing the site. The owner's latest instructions override older guides.
 - Keep the actual scene viewport centered, borderless and circular, with the
   original Fuji, cherry blossoms, sunset and existing cover crop. Do not add
   scenery, a frame, a new bust or a replacement character to its source pixels.
-  The current minimal UI also removes the earlier figure-only gold outline and
-  surrounding scenic decoration; it does not change the scene pixels or renderer.
+  Current cream page scenery and figure-only decorative rings are separate
+  exterior layers; they do not change the source pixels, actual viewport or
+  renderer. The earlier minimal theme's removal of scenery/rings is historical.
 - Preserve faithful Minecraft-inspired **2D pixel art**, not Steve/3D anatomy.
   The fixed96-color exact-source palette (including the previous72), contours and all16 original80ms
   motion anchors remain authoritative. The48 estimated transitions make50fps,
