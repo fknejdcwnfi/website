@@ -1,0 +1,13 @@
+{
+  "base": "/website/",
+  "errors": [],
+  "failedResponses": [],
+  "httpStatus": 200,
+  "background": "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/twilight-world.png\")",
+  "covers": [
+    "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/naruto.png\")",
+    "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/conan.png\")"
+  ],
+  "basePathsCorrect": true,
+  "status": "passed"
+}

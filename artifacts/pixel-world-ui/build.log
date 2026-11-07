@@ -1,0 +1,143 @@
+
+> vermouth-character-stage@0.1.0 prebuild
+> npm test
+
+
+> vermouth-character-stage@0.1.0 test
+> node --test --test-isolation=none scripts/tests/test_voxel.mjs scripts/tests/test_portrait.mjs scripts/tests/test_asset_loading.mjs scripts/tests/test_site_content.mjs scripts/tests/test_layered_physics.mjs scripts/tests/test_hair_mesh.mjs scripts/tests/test_source_timing.mjs scripts/tests/test_pixel_scale.mjs scripts/tests/test_weather.mjs scripts/tests/test_calm_motion.mjs scripts/tests/test_poetic_snow.mjs scripts/tests/test_poetic_atmosphere.mjs scripts/tests/test_scene_resolution.mjs
+
+✔ portrait image load resolves a valid image and releases its timeout and handlers (2.338913ms)
+✔ portrait resource errors reject without leaving a pending timeout (0.723274ms)
+✔ an onload event with no usable pixels is rejected (0.279945ms)
+✔ a hanging portrait request times out, clears its handlers and removes the pending source (4.652767ms)
+✔ native atlas abort closes a late bitmap without allocating a readback canvas (0.95652ms)
+✔ native atlas readback falls back to its decoded image if bitmap creation rejects (1.145481ms)
+✔ calm hair starts at the canonical pose and remains periodic with continuous velocity (0.412152ms)
+✔ rigid hair matrices keep their root, length and area without stretching (1.274392ms)
+✔ only local eyelids blink on the independent accepted schedule (0.186096ms)
+✔ a rest skeletal mesh reconstructs every opaque cutout pixel and preserves its transparent holes (1.528579ms)
+✔ a translated lock moves its own complete silhouette without copying neighboring artwork (0.767019ms)
+✔ bone-frame skinning rotates the cutout around its root while preserving nearest-neighbor colors (0.834138ms)
+✔ off-canvas material is clipped without corrupting existing scene pixels (0.499492ms)
+✔ a curled broad edge keeps positive area with a local correction while the attachment and tip motion remain intact (7.064028ms)
+✔ the cross-breeze varies smoothly through the full period without switching off (0.547914ms)
+✔ constrained curl rods keep two anchored nodes and material length while changing curvature (277.874007ms)
+✔ the free end moves continuously through the cycle without a 60 Hz velocity jump (1.263847ms)
+✔ the free end follows a bending middle with a short inertial delay (3.009618ms)
+✔ air flowing along a horizontal lock does not create an artificial upward tide (133.471404ms)
+✔ neighboring locks catch different eddies rather than rising and falling as one sheet (254.217395ms)
+✔ partial wind gain keeps strongly bent material long instead of compressing its rotational arc (271.64892ms)
+✔ periodic warmed poses are independent of sampling history and join without resetting roots or velocity (0.848539ms)
+✔ worker-prepared normalized cycles preserve exact rest poses at all supported grids (0.733328ms)
+✔ zero, invalid and extreme inputs are finite, with constrained length and bounded sampling storage (505.23015ms)
+✔ Scale2x improves a diagonal with source colors instead of interpolated blur (0.537879ms)
+✔ every original pixel is recoverable as the unique most frequent color of its 2x2 block (2.246836ms)
+✔ single pixels, image boundaries and transparent holes retain exact RGBA colors (0.153859ms)
+✔ reusable output and unaligned typed views produce identical pixels without buffer overlap (0.286755ms)
+✔ atlas tiles exactly match two existing Scale2x passes for every five-neighbor topology (3.748145ms)
+✔ strided atlas reads preserve exact tile boundaries, alpha and aligned buffer offsets (0.623516ms)
+✔ reconstruction reuses two output slots in least-recently-used order and disposes idempotently (0.26946ms)
+✔ native atlas validation rejects mismatched buffers and tiles outside the source (0.463077ms)
+✔ the initial circle has recognizable middle and near petals alongside a stronger snow field (1.598063ms)
+✔ petals descend smoothly with the breeze, including their96s seam, without sudden alpha flashes (10.169529ms)
+✔ weather is independent of the1.28s character loop and handles safe high-resolution sampling (0.265965ms)
+✔ the expression stays readable without a hard face-shaped exclusion (0.452762ms)
+✔ the cached petal atlas uses pink binary-alpha silhouettes at every angle and tumble pose (23.412641ms)
+✔ petal drawing caches one sprite atlas, respects entry opacity and restores Canvas state (5.689056ms)
+✔ the first circle contains distributed snowfall at three depths without a startup ramp (1.026805ms)
+✔ snow always falls downward and stays continuous across recycling and the long-cycle seam (31.08329ms)
+✔ snow keeps moving inside one source frame and does not reset every character loop (0.215289ms)
+✔ the expression remains clear while scenery receives a visibly stronger snow field (7.309472ms)
+✔ sampling scales for high-resolution output, handles malformed seeks, and painting restores Canvas state (1.089447ms)
+✔ the breeze has a12second period and ten evenly spaced inspection anchors (0.319935ms)
+✔ the24second composition repeats while blinking is independent of the12second breeze (0.302419ms)
+✔ gentle breeze metadata is always present instead of having a settled rest segment (1.323094ms)
+✔ occasional blinks use unequal gaps, a full closure hold and a slower reopening (10.449434ms)
+✔ eyelid velocity joins smoothly at open, fully closed, hold and reopened boundaries (0.153848ms)
+✔ subnanosecond clock differences cannot switch closed-donor and open-lash endpoint states (0.116042ms)
+✔ frozen poses remain explicit time-independent eye and canonical rest overrides (0.225575ms)
+✔ malformed pure-function inputs still produce finite bounded samples (0.112677ms)
+✔ steady-state wind tables are deterministic and include all eight hair and two jewelry channels (12.43357ms)
+✔ the wind value and first derivative join at the seam without any forced reset (3.03721ms)
+✔ there is no common motionless interval anywhere in the continuous breeze (0.772447ms)
+✔ short locks, long curls and jewelry respond independently and earrings follow the earliest hair (4.502234ms)
+✔ direction reverses motion, zero stops it and spring damping changes the steady response (18.706894ms)
+✔ fractional and negative wind lookups wrap at every delayed strand sample (0.157514ms)
+✔ invalid solver inputs are sanitized and extreme settings stay bounded (21.310289ms)
+✔ the17-station strand curve preserves fixed roots, tips and straight strands (0.359553ms)
+✔ strand bends have continuous tangents across stations and independent channels (0.18245ms)
+✔ root-anchored flex moves visible strand middles while remaining bounded and monotone (0.550558ms)
+✔ the anchored/free spring chain preserves its static loading profile and adds increasing inertial lag (0.384681ms)
+✔ coupled strand dynamics are periodic, bounded and independent of refresh cadence (9.908762ms)
+✔ scene backing follows physical circle size while retaining the current minimum (0.224854ms)
+✔ narrow high-DPR mobile circles avoid unnecessary desktop-sized surfaces (0.090254ms)
+✔ an explicit low-memory hint caps optional growth and unknown memory remains neutral (0.101801ms)
+✔ malformed sizing stays bounded with finite source-aspect output (0.177854ms)
+✔ editable profile and projects provide usable content without requiring a code change (0.361897ms)
+✔ static HTML contains the complete personal site when JavaScript is unavailable (2.267868ms)
+✔ editable content is escaped in initial HTML and empty email is omitted (0.549556ms)
+✔ empty optional modules create no placeholder accounts or navigation (0.293826ms)
+✔ real optional profiles add working social links, game details and matching static navigation (0.689003ms)
+✔ optional profiles reject unusable links and escape user-provided player text (0.701872ms)
+✔ local search finds confirmed content with mixed case and multiple words (0.536336ms)
+✔ search results and table of contents point to real static sections (0.772737ms)
+✔ configured games become searchable without exposing invalid account links (0.354657ms)
+✔ pixel portrait sizing keeps art pixels and origins aligned across screen scales (0.385022ms)
+✔ a narrow portrait viewport fits without demanding a full logical-grid width (0.128601ms)
+✔ owner-requested interests and game area work without invented player details (0.498941ms)
+✔ WeChat and QQ can display real account text without a made-up profile URL (0.533081ms)
+✔ profile media stays local and works with a GitHub Pages base path (0.670666ms)
+✔ ordered custom game blocks support public content without publishing a player ID (2.14852ms)
+✔ unsafe custom content is escaped and unusable blocks, media and duplicate IDs stay hidden (0.605699ms)
+✔ all sixteen source anchors retain the same clock in original and derived sequences (0.425021ms)
+✔ the source loop wraps exactly at 1280ms without another wind or blink clock (0.166087ms)
+✔ negative seeks, fractional boundaries and malformed times stay finite and deterministic (0.227217ms)
+✔ large safe timestamps use represented-value modulo without a false claim of unsafe precision (0.12088ms)
+✔ variable source frame durations are respected and compiled clocks cannot be mutated (0.223242ms)
+✔ invalid timing and ambiguous source manifests are rejected (0.391041ms)
+✔ native scene cover pixels align to the device grid, including odd cover crops (0.228239ms)
+✔ narrow viewports keep a useful native scene size without overflow (0.132827ms)
+✔ the default stage is the faithful2D pixel portrait with safe motion controls (0.210062ms)
+✔ portrait, voxel, legacy, debug and supported themes remain explicit URL options (0.248649ms)
+✔ frozen poses accept only integers from one through ten (0.261208ms)
+✔ URL controls reject non-finite values and clamp finite extremes (0.256431ms)
+✔ physics controls retain finite signed direction and bounded solver values (0.24891ms)
+✔ logical pixel resolutions are restricted to the three reviewed grids (0.110034ms)
+✔ pause is an explicit static flag and does not implicitly enable debug UI (0.138055ms)
+✔ deterministic timeline seeking accepts finite input across independent animation periods (0.226466ms)
+✔ the 4800 ms timeline repeats without a seam, including negative time (0.251223ms)
+✔ blink is one continuous 220 ms event per loop and fully closes (1.220532ms)
+✔ pose one and ten have identical resting visuals, while pose five closes eyes (0.159717ms)
+✔ frozen poses are time-independent and wind zero stops hair motion (0.166608ms)
+✔ snow has three distributed depth layers present on the initial paint (1.004662ms)
+✔ all visible snow falls downward and has bounded frame-to-frame drift (28.576357ms)
+✔ long weather cycle wraps independently from the short source GIF without a visible jump (1.327451ms)
+✔ face and eyes remain readable while the scenic sides retain the stronger snow field (3.4621ms)
+✔ snow sampling remains finite at malformed seeks and scales positions without changing the scene layout (0.164835ms)
+✔ snow painter restores context and uses crisp bounded pixel rectangles without frame allocation (0.550668ms)
+ℹ tests 109
+ℹ suites 0
+ℹ pass 109
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2061.123729
+
+> vermouth-character-stage@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 78 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/hairPhysics.worker-BTlrfoNr.js    7.22 kB
+dist/index.html                              39.39 kB │ gzip:  7.77 kB
+dist/assets/index-CDrKj4wa.css               60.04 kB │ gzip: 13.80 kB
+dist/assets/player-BJtkARD5.js                4.73 kB │ gzip:  1.84 kB
+dist/assets/voxelPlayer-Bosa0-tk.js           6.51 kB │ gzip:  3.00 kB
+dist/assets/ArchivedPortrait-CLc8l7zN.js     49.60 kB │ gzip: 19.19 kB
+dist/assets/index-DZLUrB73.js               288.80 kB │ gzip: 91.45 kB
+
+✓ built in 220ms

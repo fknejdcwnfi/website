@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import PixelIcon from './PixelIcon'
 import { getSiteNavigation, getSiteSearchEntries, getTableOfContents, searchSite, site } from '../content/site'
+import { getNavigationIconPath } from '../content/navigationIcons'
+
+function NavigationIcon({ href }: { href: string }) {
+  return <svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath(href)} /></svg>
+}
 
 function SiteSearch() {
   const [query, setQuery] = useState('')
@@ -75,13 +80,49 @@ function SiteSearch() {
 export default function SiteShell({ children }: { children: ReactNode }) {
   const navigation = getSiteNavigation(site)
   const contents = getTableOfContents(site)
+  const [activeSection, setActiveSection] = useState('home')
+
+  useEffect(() => {
+    const sections = navigation.map(link => document.getElementById(link.href.slice(1))).filter((section): section is HTMLElement => section !== null)
+    let frame = 0
+    const update = (): void => {
+      frame = 0
+      const header = document.querySelector('.site-header')?.getBoundingClientRect()
+      const marker = Math.max(48, Math.min(window.innerHeight * .3, (header?.bottom ?? 0) + 48))
+      let active = sections[0]?.id ?? 'home'
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= marker) active = section.id
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = sections[sections.length - 1]?.id ?? active
+      setActiveSection(active)
+    }
+    const schedule = (): void => { if (!frame) frame = window.requestAnimationFrame(update) }
+    const hashChanged = (): void => {
+      const target = document.getElementById(window.location.hash.slice(1))
+      const section = target?.closest('main > section')
+      if (section) setActiveSection(section.id)
+      schedule()
+    }
+    update()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    window.addEventListener('hashchange', hashChanged)
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      window.removeEventListener('hashchange', hashChanged)
+    }
+  }, [])
+
+  const activeLink = (href: string) => href === `#${activeSection}`
   return (
-    <div className="personal-site" id="top">
+    <div className="personal-site" id="top" data-active-section={activeSection}>
       <a className="skip-link" href="#main-content">跳至主要内容</a>
       <header className="site-header">
         <div className="site-header__bar site-container">
           <a className="wordmark" href="#home" aria-label={`${site.name}，回到首页`}>
-            <span className="wordmark__symbol" aria-hidden="true"><span /></span>
+            <span className="wordmark__symbol" aria-hidden="true"><span className="grass-block" /></span>
             <span>{site.name}<small>个人网站</small></span>
           </a>
           <div className="site-header__tools">
@@ -90,21 +131,23 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           </div>
         </div>
         <nav className="site-header__nav site-container" aria-label="主要导航">
-          {navigation.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+          {navigation.map((link) => <a key={link.href} href={link.href} className={activeLink(link.href) ? 'is-active' : undefined} aria-current={activeLink(link.href) ? 'location' : undefined}><NavigationIcon href={link.href} /><span>{link.label}</span></a>)}
         </nav>
       </header>
       <div className="document-layout site-container">
         <aside className="site-sidebar" aria-label="网站导航">
-          <nav><a className="site-sidebar__home" href="#home">首页</a>{navigation.filter((link) => link.href !== '#home').map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}</nav>
-          <span className="site-sidebar__caption">{site.intro}</span>
+          <span className="pixel-lantern pixel-lantern--sidebar" aria-hidden="true" />
+          <nav>{navigation.map((link) => <a key={link.href} href={link.href} className={`${link.href === '#home' ? 'site-sidebar__home ' : ''}${activeLink(link.href) ? 'is-active' : ''}`.trim() || undefined} aria-current={activeLink(link.href) ? 'location' : undefined}><NavigationIcon href={link.href} /><span>{link.label}</span></a>)}</nav>
+          <span className="site-sidebar__caption"><span className="grass-block" aria-hidden="true" />{site.intro}</span>
         </aside>
         <main className="document-main" id="main-content" tabIndex={-1}>
           <details className="mobile-contents"><summary>本页目录</summary><nav aria-label="手机版目录">{contents.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}</nav></details>
           {children}
         </main>
         <aside className="site-toc" aria-labelledby="toc-title">
-          <h2 id="toc-title">目录</h2>
-          <nav aria-label="本页目录">{contents.map((link) => <a key={link.href} href={link.href}><span aria-hidden="true">{link.symbol}</span>{link.label}</a>)}</nav>
+          <span className="pixel-lantern pixel-lantern--toc" aria-hidden="true" />
+          <h2 id="toc-title"><span aria-hidden="true">📖</span> 目录</h2>
+          <nav aria-label="本页目录">{contents.map((link) => <a key={link.href} href={link.href} className={activeLink(link.href) ? 'is-active' : undefined} aria-current={activeLink(link.href) ? 'location' : undefined}><span aria-hidden="true">{link.symbol}</span><span>{link.label}</span></a>)}</nav>
           <a className="site-toc__source" href={`${site.github}/website`} target="_blank" rel="noopener noreferrer">查看本站源码 <PixelIcon name="arrow-up-right" /></a>
         </aside>
       </div>

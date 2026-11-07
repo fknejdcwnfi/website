@@ -20,7 +20,7 @@ export default function App() {
       <section className="hero" id="home" aria-labelledby="hero-title" tabIndex={-1}>
         <div className="hero__copy">
           <p className="eyebrow">{site.intro}</p>
-          <h1 id="hero-title"><span aria-hidden="true">👋</span> 欢迎来到我的像素小世界</h1>
+          <h1 id="hero-title"><span className="hero__wave" aria-hidden="true">👋</span> 欢迎来到我的<strong className="hero__highlight">像素小世界</strong></h1>
           <p className="hero__intro">你好，我是 <strong>{site.name}</strong>。{site.tagline}</p>
         </div>
         <figure className="hero__visual hero__visual--reference">

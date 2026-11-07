@@ -4,6 +4,33 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
+## Current reference-driven UI — 2026-11-07
+
+- Follow the owner's four reference screenshots for the surrounding website:
+  a twilight pixel landscape, translucent blue/violet panels, gold/violet pixel
+  frames, wooden section signs, grass blocks, lanterns and matching navigation.
+  See [the current UI guide](docs/guides/pixel-world-ui.md). Earlier white document
+  layout guidance is historical; retain its real content and working features.
+- Decorative assets belong to `public/assets/pixel-ui/`. They are separate from
+  the immutable source and the current `poetic-pixel` artwork. Do not replace,
+  recolor, deform or bake page decoration into the original character/scene.
+- The gold circular outline is a pseudo-element on the surrounding hero figure.
+  The actual `.reference-scene__viewport` stays borderless, shadowless and circular,
+  with the same crop, source clock, renderer, snow, petals and media handoff.
+- `profile/styles/pixelWorld.css` is imported by the document stylesheet so the
+  same theme is present before React and without JavaScript. Preserve Vite base
+  rewriting for GitHub Pages (`/website/`) and Sites (`VITE_BASE=/`).
+- Keep React and `staticMarkup.ts` in sync: shell, section/card IDs, icons,
+  thumbnails and decorative layers. Existing content selectors remain authoritative;
+  do not invent accounts or game results to resemble reference screenshots.
+- Active navigation follows scrolling through one queued requestAnimationFrame,
+  with listener cleanup. Keep one stable scene instance; navigation state must
+  never key/remount the player or restart its source phase.
+- Check dark-panel and light-card contrast, visible keyboard focus, search and
+  anchors, 320px table/card layout, no-JS parity and both hosting bases. Record new
+  evidence separately from earlier scene/profile results; do not claim past checks
+  validate this UI revision before rerunning applicable checks.
+
 ## Current profile modules — 2026-11-06
 
 - The live website and all normal/failure/reduced-motion copy use Simplified
@@ -28,9 +55,11 @@ before changing the site. The owner's latest instructions override older guides.
 - Keep the complete personal site: navigation, introduction, real projects,
   contact details and footer. Preserve the supplied name fknejdcwnfi,
   HELLOWORLD greeting and email. Never invent accounts, credentials or claims.
-- Keep a centered, borderless circle with the original Fuji, cherry blossoms and
-  sunset inside it. The existing cover crop remains; do not add outside scenery,
-  a frame, a new bust or a replacement character.
+- Keep the actual scene viewport centered, borderless and circular, with the
+  original Fuji, cherry blossoms, sunset and existing cover crop. Do not add
+  scenery, a frame, a new bust or a replacement character to its source pixels.
+  The surrounding page decoration and figure-only outline follow the current UI
+  contract above; they do not change the scene viewport or renderer.
 - Preserve faithful Minecraft-inspired **2D pixel art**, not Steve/3D anatomy.
   The fixed96-color exact-source palette (including the previous72), contours and all16 original80ms
   motion anchors remain authoritative. The48 estimated transitions make50fps,
