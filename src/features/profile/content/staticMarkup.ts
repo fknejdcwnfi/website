@@ -97,13 +97,13 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
   <a class="skip-link" href="#main-content">跳至主要内容</a>
   <header class="site-header">
     <div class="site-header__bar site-container">
-      <a class="wordmark" href="#home" aria-label="${escape(site.name)}，回到首页"><span class="wordmark__symbol" aria-hidden="true">${renderNavigationIcon('#home')}</span><span>${escape(site.name)}<small>个人网站</small></span></a>
+      <a class="wordmark" href="#home" aria-label="${escape(site.name)}，回到首页"><span class="wordmark__symbol" aria-hidden="true"><span class="grass-block"></span></span><span>${escape(site.name)}<small>个人网站</small></span></a>
       <div class="site-header__tools"><a class="repository-link" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">${pixelIcon('github')}<span>GitHub 仓库</span></a></div>
     </div>
     <nav class="site-header__nav site-container" aria-label="主导航">${navigation.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav>
   </header>
   <div class="document-layout site-container">
-    <aside class="site-sidebar" aria-label="网站导航"><nav>${navigation.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="site-sidebar__home is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav><span class="site-sidebar__caption">${escape(site.intro)}</span></aside>
+    <aside class="site-sidebar" aria-label="网站导航"><span class="pixel-lantern pixel-lantern--sidebar" aria-hidden="true"></span><nav>${navigation.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="site-sidebar__home is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav><span class="site-sidebar__caption"><span class="grass-block" aria-hidden="true"></span>${escape(site.intro)}</span></aside>
     <main class="document-main" id="main-content" tabindex="-1">
       <details class="mobile-contents"><summary>本页目录</summary><nav aria-label="移动端目录">${contents.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav></details>
       <section class="hero static-hero" id="home" aria-labelledby="hero-title" tabindex="-1">
@@ -119,7 +119,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
       </section>
       <section class="personal-section" id="about" aria-labelledby="about-title" tabindex="-1">
         ${heading('about-title', '#about', '关于我')}
-        <div class="personal-about">${site.about.map((text, index) => `<p${index === 0 ? ' class="personal-about__lead"' : ''}>${escape(text)}</p>`).join('')}<a class="personal-text-link" href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">了解我的 GitHub ${arrow}</a></div>
+        <div class="personal-about"><div class="personal-about__scene" aria-hidden="true"></div>${site.about.map((text, index) => `<p${index === 0 ? ' class="personal-about__lead"' : ''}>${escape(text)}</p>`).join('')}<a class="personal-text-link" href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">了解我的 GitHub ${arrow}</a></div>
       </section>
       <section class="personal-section" id="work" aria-labelledby="work-title" tabindex="-1">
         ${heading('work-title', '#work', '作品与实验')}
@@ -136,7 +136,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
       ${renderGames(site, base)}
       ${renderSocials(site, base)}
     </main>
-    <aside class="site-toc" aria-labelledby="toc-title"><h2 id="toc-title">${renderNavigationIcon('#work')}<span>目录</span></h2><nav aria-label="本页目录">${contents.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav><a class="site-toc__source" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">查看本站源码 ${arrow}</a></aside>
+    <aside class="site-toc" aria-labelledby="toc-title"><span class="pixel-lantern pixel-lantern--toc" aria-hidden="true"></span><h2 id="toc-title">${renderNavigationIcon('#work')}<span>目录</span></h2><nav aria-label="本页目录">${contents.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav><a class="site-toc__source" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">查看本站源码 ${arrow}</a></aside>
   </div>
   <footer class="site-footer site-container"><p>© ${new Date().getFullYear()} ${escape(site.fullName)}<span class="site-footer__note">一格一格，慢慢建造。</span></p><a href="#top">回到顶端 ↑</a><a href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></footer>
 </div>`

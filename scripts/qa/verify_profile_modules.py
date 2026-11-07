@@ -45,7 +45,7 @@ def no_overflow(page, label):
     report['layouts'].append({'label':label, **layout})
     check(label+'_no_page_overflow', layout['scroll']<=layout['width'], layout)
     check(label+'_cards_fit', all(card['x']>=-.5 and card['right']<=layout['width']+.5 for card in layout['cards']))
-    check(label+'_pixel_square_cards', all(card['radius']=='0px' for card in layout['cards']))
+    check(label+'_reference_rounded_cards', all(float(card['radius'].removesuffix('px'))>0 for card in layout['cards']))
 
 def anchors_work(page, label):
     targets = page.locator('.site-header__nav a').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))')

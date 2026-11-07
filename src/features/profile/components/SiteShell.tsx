@@ -150,7 +150,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       <header className="site-header">
         <div className="site-header__bar site-container">
           <a className="wordmark" href="#home" aria-label={`${site.name}，回到首页`}>
-            <span className="wordmark__symbol" aria-hidden="true"><NavigationIcon href="#home" /></span>
+            <span className="wordmark__symbol" aria-hidden="true"><span className="grass-block" /></span>
             <span>{site.name}<small>个人网站</small></span>
           </a>
           <div className="site-header__tools">
@@ -164,14 +164,16 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       </header>
       <div className="document-layout site-container">
         <aside className="site-sidebar" aria-label="网站导航">
+          <span className="pixel-lantern pixel-lantern--sidebar" aria-hidden="true" />
           <nav>{navigation.map((link) => <a key={link.href} href={link.href} className={`${link.href === '#home' ? 'site-sidebar__home ' : ''}${activeLink(link.href) ? 'is-active' : ''}`.trim() || undefined} aria-current={activeLink(link.href) ? 'location' : undefined}><NavigationIcon href={link.href} /><span>{link.label}</span></a>)}</nav>
-          <span className="site-sidebar__caption">{site.intro}</span>
+          <span className="site-sidebar__caption"><span className="grass-block" aria-hidden="true" />{site.intro}</span>
         </aside>
         <main className="document-main" id="main-content" tabIndex={-1}>
           <details className="mobile-contents"><summary>本页目录</summary><nav aria-label="手机版目录">{contents.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}</nav></details>
           {children}
         </main>
         <aside className="site-toc" aria-labelledby="toc-title">
+          <span className="pixel-lantern pixel-lantern--toc" aria-hidden="true" />
           <h2 id="toc-title"><NavigationIcon href="#work" /><span>目录</span></h2>
           <nav aria-label="本页目录">{contents.map((link) => <a key={link.href} href={link.href} className={activeLink(link.href) ? 'is-active' : undefined} aria-current={activeLink(link.href) ? 'location' : undefined}><NavigationIcon href={link.href} /><span>{link.label}</span></a>)}</nav>
           <a className="site-toc__source" href={`${site.github}/website`} target="_blank" rel="noopener noreferrer">查看本站源码 <PixelIcon name="arrow-up-right" /></a>

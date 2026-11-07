@@ -1,0 +1,2510 @@
+{
+  "status": "passed",
+  "scope": "complete",
+  "checks": [
+    {
+      "name": "desktop_dpr1_circle",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_crisp",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_capped",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_resolution",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_normal_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snow_and_petals_selected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "one_bounded_native_atlas_readback",
+      "passed": true,
+      "detail": [
+        {
+          "canvas": [
+            2864,
+            2136
+          ],
+          "region": [
+            0,
+            0,
+            2864,
+            2136
+          ]
+        }
+      ]
+    },
+    {
+      "name": "source_frames_without_pixel_readback",
+      "passed": true,
+      "detail": {
+        "additionalReadbacks": 0,
+        "sourceFramesObserved": 17
+      }
+    },
+    {
+      "name": "no_old_artwork",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=0&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=80&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=160&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=240&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=320&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=400&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=480&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=560&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=640&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=720&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=800&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=880&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=960&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1040&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1120&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1200&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=20&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=40&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=60&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1279.999&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1280&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=-1&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=19",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=1281",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=8000",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?t=32000",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5180/assets/index-D4Z2Dj1A.js",
+        "http://127.0.0.1:5180/assets/index-BTFk5tTh.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.png",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.png",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "name": "source_0_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_0_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "0",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "0",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "0"
+      }
+    },
+    {
+      "name": "source_80_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_80_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "4",
+        "sourceAnchor": "1",
+        "sourceTimeMs": "80",
+        "sourceDuration": "1280",
+        "elapsedMs": "80",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "80"
+      }
+    },
+    {
+      "name": "source_160_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_160_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "8",
+        "sourceAnchor": "2",
+        "sourceTimeMs": "160",
+        "sourceDuration": "1280",
+        "elapsedMs": "160",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "160"
+      }
+    },
+    {
+      "name": "source_240_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_240_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "12",
+        "sourceAnchor": "3",
+        "sourceTimeMs": "240",
+        "sourceDuration": "1280",
+        "elapsedMs": "240",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "240"
+      }
+    },
+    {
+      "name": "source_320_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_320_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "16",
+        "sourceAnchor": "4",
+        "sourceTimeMs": "320",
+        "sourceDuration": "1280",
+        "elapsedMs": "320",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "320"
+      }
+    },
+    {
+      "name": "source_400_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_400_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "20",
+        "sourceAnchor": "5",
+        "sourceTimeMs": "400",
+        "sourceDuration": "1280",
+        "elapsedMs": "400",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "400"
+      }
+    },
+    {
+      "name": "source_480_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_480_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "24",
+        "sourceAnchor": "6",
+        "sourceTimeMs": "480",
+        "sourceDuration": "1280",
+        "elapsedMs": "480",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "480"
+      }
+    },
+    {
+      "name": "source_560_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_560_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "28",
+        "sourceAnchor": "7",
+        "sourceTimeMs": "560",
+        "sourceDuration": "1280",
+        "elapsedMs": "560",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "560"
+      }
+    },
+    {
+      "name": "source_640_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_640_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "32",
+        "sourceAnchor": "8",
+        "sourceTimeMs": "640",
+        "sourceDuration": "1280",
+        "elapsedMs": "640",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "640"
+      }
+    },
+    {
+      "name": "source_720_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_720_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "36",
+        "sourceAnchor": "9",
+        "sourceTimeMs": "720",
+        "sourceDuration": "1280",
+        "elapsedMs": "720",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "720"
+      }
+    },
+    {
+      "name": "source_800_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_800_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "40",
+        "sourceAnchor": "10",
+        "sourceTimeMs": "800",
+        "sourceDuration": "1280",
+        "elapsedMs": "800",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "800"
+      }
+    },
+    {
+      "name": "source_880_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_880_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "44",
+        "sourceAnchor": "11",
+        "sourceTimeMs": "880",
+        "sourceDuration": "1280",
+        "elapsedMs": "880",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "880"
+      }
+    },
+    {
+      "name": "source_960_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_960_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "48",
+        "sourceAnchor": "12",
+        "sourceTimeMs": "960",
+        "sourceDuration": "1280",
+        "elapsedMs": "960",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "960"
+      }
+    },
+    {
+      "name": "source_1040_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_1040_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "52",
+        "sourceAnchor": "13",
+        "sourceTimeMs": "1040",
+        "sourceDuration": "1280",
+        "elapsedMs": "1040",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "1040"
+      }
+    },
+    {
+      "name": "source_1120_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_1120_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "56",
+        "sourceAnchor": "14",
+        "sourceTimeMs": "1120",
+        "sourceDuration": "1280",
+        "elapsedMs": "1120",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "1120"
+      }
+    },
+    {
+      "name": "source_1200_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_1200_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "60",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1200",
+        "sourceDuration": "1280",
+        "elapsedMs": "1200",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "1200"
+      }
+    },
+    {
+      "name": "source_20_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_20_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "1",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "20",
+        "sourceDuration": "1280",
+        "elapsedMs": "20",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "20"
+      }
+    },
+    {
+      "name": "source_40_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_40_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "2",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "40",
+        "sourceDuration": "1280",
+        "elapsedMs": "40",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "40"
+      }
+    },
+    {
+      "name": "source_60_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_60_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "3",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "60",
+        "sourceDuration": "1280",
+        "elapsedMs": "60",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "60"
+      }
+    },
+    {
+      "name": "source_1279.999_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_1279.999_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "63",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1279.999",
+        "sourceDuration": "1280",
+        "elapsedMs": "1279.999",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "1279.999"
+      }
+    },
+    {
+      "name": "source_1280_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_1280_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "0",
+        "sourceAnchor": "0",
+        "sourceTimeMs": "0",
+        "sourceDuration": "1280",
+        "elapsedMs": "1280",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "1280"
+      }
+    },
+    {
+      "name": "source_-1_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_-1_clock",
+      "passed": true,
+      "detail": {
+        "scene": "reference-landscape",
+        "ready": "true",
+        "painted": "true",
+        "renderer": "reference-scene",
+        "playback": "static",
+        "motionPreference": "enabled",
+        "motionKind": "direct-source-frames",
+        "motionSource": "source-only-interframes",
+        "sourceFrame": "63",
+        "sourceAnchor": "15",
+        "sourceTimeMs": "1279",
+        "sourceDuration": "1280",
+        "elapsedMs": "-1",
+        "sourceFrameDuration": "20",
+        "pixelReconstruction": "scale4x-adaptive",
+        "snowParticles": "0",
+        "petalParticles": "0",
+        "snowTimeMs": "-1"
+      }
+    },
+    {
+      "name": "visible_pink_1",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 571,
+        "visiblePinkPixels": 147,
+        "visiblePinkClusters": 20,
+        "largestPinkCluster": 27,
+        "faceChangedFraction": 0.01065031466838793
+      }
+    },
+    {
+      "name": "expression_clear_1",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 571,
+        "visiblePinkPixels": 147,
+        "visiblePinkClusters": 20,
+        "largestPinkCluster": 27,
+        "faceChangedFraction": 0.01065031466838793
+      }
+    },
+    {
+      "name": "visible_pink_19",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 571,
+        "visiblePinkPixels": 148,
+        "visiblePinkClusters": 20,
+        "largestPinkCluster": 27,
+        "faceChangedFraction": 0.010973051476520897
+      }
+    },
+    {
+      "name": "expression_clear_19",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 571,
+        "visiblePinkPixels": 148,
+        "visiblePinkClusters": 20,
+        "largestPinkCluster": 27,
+        "faceChangedFraction": 0.010973051476520897
+      }
+    },
+    {
+      "name": "visible_pink_1281",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 636,
+        "visiblePinkPixels": 157,
+        "visiblePinkClusters": 23,
+        "largestPinkCluster": 19,
+        "faceChangedFraction": 0.00935936743585606
+      }
+    },
+    {
+      "name": "expression_clear_1281",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 636,
+        "visiblePinkPixels": 157,
+        "visiblePinkClusters": 23,
+        "largestPinkCluster": 19,
+        "faceChangedFraction": 0.00935936743585606
+      }
+    },
+    {
+      "name": "visible_pink_8000",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 736,
+        "visiblePinkPixels": 302,
+        "visiblePinkClusters": 31,
+        "largestPinkCluster": 26,
+        "faceChangedFraction": 0.007584314991124738
+      }
+    },
+    {
+      "name": "expression_clear_8000",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 736,
+        "visiblePinkPixels": 302,
+        "visiblePinkClusters": 31,
+        "largestPinkCluster": 26,
+        "faceChangedFraction": 0.007584314991124738
+      }
+    },
+    {
+      "name": "visible_pink_32000",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 621,
+        "visiblePinkPixels": 193,
+        "visiblePinkClusters": 21,
+        "largestPinkCluster": 20,
+        "faceChangedFraction": 0.003711473293529127
+      }
+    },
+    {
+      "name": "expression_clear_32000",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 621,
+        "visiblePinkPixels": 193,
+        "visiblePinkClusters": 21,
+        "largestPinkCluster": 20,
+        "faceChangedFraction": 0.003711473293529127
+      }
+    },
+    {
+      "name": "atmosphere_moves_between_source_frames",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atmosphere_independent_source_cycle",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "entry_moves_before_movie_and_module",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "entry_visible_pink_before_movie",
+      "passed": true,
+      "detail": {
+        "visibleChangedPixels": 193,
+        "visiblePinkPixels": 83,
+        "visiblePinkClusters": 5,
+        "largestPinkCluster": 28,
+        "faceChangedFraction": 0.0009682104243989027
+      }
+    },
+    {
+      "name": "entry_has_no_decoded_video",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "entry_content_survives_module_block",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "entry_hidden_pauses_actual_pixels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "entry_visibility_resumes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "parser_video_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "parser_entry_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pending_atlas_circle_keeps_moving",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_held_three_seconds",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "phase_handoff",
+      "passed": true,
+      "detail": {
+        "deltaMs": 0.0,
+        "videoMs": 934.714,
+        "initialMs": 934.714,
+        "at": 3961.60000000149
+      }
+    },
+    {
+      "name": "no_duplicate_weather_after_handoff",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_snow_zero_hides_entry_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_switch_atlas_really_pending",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_snow_zero_disables_canvas_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_exact_canonical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_no_video_atlas",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_entry_not_running",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "explicit_motion_choice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_choice_persists",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "offscreen_pauses_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "failure_keeps_moving_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_retry_recovers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_readback_failure_releases_resources",
+      "passed": true,
+      "detail": {
+        "acquired": 1,
+        "closed": 1,
+        "scratch": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "atlas_readback_failure_preserves_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "atlas_readback_retry_releases_temporary_resources",
+      "passed": true,
+      "detail": {
+        "acquired": 2,
+        "closed": 2,
+        "scratch": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "constructor_failure_closes_acquired_bitmap",
+      "passed": true,
+      "detail": {
+        "acquired": 1,
+        "closed": 1
+      }
+    },
+    {
+      "name": "constructor_failure_preserves_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "constructor_failure_keeps_moving_preview",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "constructor_failure_retry_recovers",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dpr2_circle",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 2
+      }
+    },
+    {
+      "name": "desktop_dpr2_crisp",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 2
+      }
+    },
+    {
+      "name": "desktop_dpr2_capped",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 2
+      }
+    },
+    {
+      "name": "desktop_dpr2_resolution",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 2
+      }
+    },
+    {
+      "name": "desktop_dpr2_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dpr3_circle",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2148,
+          1602
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "desktop_dpr3_crisp",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2148,
+          1602
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "desktop_dpr3_capped",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2148,
+          1602
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "desktop_dpr3_resolution",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2148,
+          1602
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "desktop_dpr3_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "resized_mobile_dpr3_circle",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "resized_mobile_dpr3_crisp",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "resized_mobile_dpr3_capped",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "resized_mobile_dpr3_resolution",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "resized_mobile_dpr3_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "resize_preserves_elapsed_phase",
+      "passed": true,
+      "detail": {
+        "beforeMs": 670.92,
+        "afterMs": 754.3199999999999
+      }
+    },
+    {
+      "name": "resize_does_not_reload_atlas",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_dpr4_circle",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2864,
+          2136
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "desktop_dpr4_crisp",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2864,
+          2136
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "desktop_dpr4_capped",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2864,
+          2136
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "desktop_dpr4_resolution",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          2864,
+          2136
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "desktop_dpr4_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "maximum_resolution_exact_source_pixels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_dpr3_circle",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "mobile_dpr3_crisp",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "mobile_dpr3_capped",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "mobile_dpr3_resolution",
+      "passed": true,
+      "detail": {
+        "width": 336,
+        "height": 336,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 3
+      }
+    },
+    {
+      "name": "mobile_dpr3_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "low_memory_dpr4_circle",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "low_memory_dpr4_crisp",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "low_memory_dpr4_capped",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "low_memory_dpr4_resolution",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 4
+      }
+    },
+    {
+      "name": "low_memory_dpr4_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_complete_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_entry_not_running",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "browserErrors": [],
+  "sourceSamples": [
+    {
+      "timeMs": 0,
+      "frame": 0,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 80,
+      "frame": 4,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 160,
+      "frame": 8,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 240,
+      "frame": 12,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 320,
+      "frame": 16,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 400,
+      "frame": 20,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 480,
+      "frame": 24,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 560,
+      "frame": 28,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 640,
+      "frame": 32,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 720,
+      "frame": 36,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 800,
+      "frame": 40,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 880,
+      "frame": 44,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 960,
+      "frame": 48,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 1040,
+      "frame": 52,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 1120,
+      "frame": 56,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 1200,
+      "frame": 60,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 20,
+      "frame": 1,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 40,
+      "frame": 2,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 60,
+      "frame": 3,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 1279.999,
+      "frame": 63,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": 1280,
+      "frame": 0,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    },
+    {
+      "timeMs": -1,
+      "frame": 63,
+      "exact": true,
+      "size": [
+        1432,
+        1068
+      ]
+    }
+  ],
+  "weatherSamples": [
+    {
+      "timeMs": 1,
+      "visibleChangedPixels": 571,
+      "visiblePinkPixels": 147,
+      "visiblePinkClusters": 20,
+      "largestPinkCluster": 27,
+      "faceChangedFraction": 0.01065031466838793
+    },
+    {
+      "timeMs": 19,
+      "visibleChangedPixels": 571,
+      "visiblePinkPixels": 148,
+      "visiblePinkClusters": 20,
+      "largestPinkCluster": 27,
+      "faceChangedFraction": 0.010973051476520897
+    },
+    {
+      "timeMs": 1281,
+      "visibleChangedPixels": 636,
+      "visiblePinkPixels": 157,
+      "visiblePinkClusters": 23,
+      "largestPinkCluster": 19,
+      "faceChangedFraction": 0.00935936743585606
+    },
+    {
+      "timeMs": 8000,
+      "visibleChangedPixels": 736,
+      "visiblePinkPixels": 302,
+      "visiblePinkClusters": 31,
+      "largestPinkCluster": 26,
+      "faceChangedFraction": 0.007584314991124738
+    },
+    {
+      "timeMs": 32000,
+      "visibleChangedPixels": 621,
+      "visiblePinkPixels": 193,
+      "visiblePinkClusters": 21,
+      "largestPinkCluster": 20,
+      "faceChangedFraction": 0.003711473293529127
+    }
+  ],
+  "presentation": [
+    {
+      "label": "desktop_dpr1",
+      "width": 448,
+      "height": 448,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        1432,
+        1068
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 1
+    },
+    {
+      "label": "desktop_dpr2",
+      "width": 448,
+      "height": 448,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        1432,
+        1068
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 2
+    },
+    {
+      "label": "desktop_dpr3",
+      "width": 448,
+      "height": 448,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        2148,
+        1602
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 3
+    },
+    {
+      "label": "resized_mobile_dpr3",
+      "width": 336,
+      "height": 336,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        1432,
+        1068
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 3
+    },
+    {
+      "label": "desktop_dpr4",
+      "width": 448,
+      "height": 448,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        2864,
+        2136
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 4
+    },
+    {
+      "label": "mobile_dpr3",
+      "width": 336,
+      "height": 336,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        1432,
+        1068
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 3
+    },
+    {
+      "label": "low_memory_dpr4",
+      "width": 448,
+      "height": 448,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        1432,
+        1068
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 4
+    }
+  ],
+  "sourceFrames": 16,
+  "estimatedInterframes": 48,
+  "playbackFps": 50,
+  "snowParticles": 448,
+  "petalParticles": 60,
+  "reconstructionReadback": {
+    "preparation": [
+      {
+        "canvas": [
+          2864,
+          2136
+        ],
+        "region": [
+          0,
+          0,
+          2864,
+          2136
+        ]
+      }
+    ],
+    "additionalReadbacks": 0,
+    "sourceFramesObserved": 17
+  }
+}
