@@ -1,0 +1,4249 @@
+{
+  "status": "passed",
+  "productionUrl": "http://127.0.0.1:5180/",
+  "fontFamily": "Fusion Pixel",
+  "checks": [
+    {
+      "name": "production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ]
+    },
+    {
+      "name": "desktop_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_no_emoji_fallback_in_chrome",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_svg_section_icons",
+      "passed": true,
+      "detail": [
+        {
+          "text": "关于我",
+          "svg": true
+        },
+        {
+          "text": "作品与实验",
+          "svg": true
+        },
+        {
+          "text": "兴趣图鉴",
+          "svg": true
+        },
+        {
+          "text": "游戏基地",
+          "svg": true
+        },
+        {
+          "text": "社交坐标",
+          "svg": true
+        }
+      ]
+    },
+    {
+      "name": "desktop_plain_page_background",
+      "passed": true,
+      "detail": {
+        "emoji": [],
+        "background": "none",
+        "before": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "after": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "ring": {
+          "content": "none",
+          "display": "none",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "panels": [
+          {
+            "class": "site-sidebar",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "hero",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "game-showcase",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section personal-section--contact",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "site-toc",
+            "image": "none",
+            "borderImage": "none"
+          }
+        ],
+        "visibleOrnaments": [],
+        "headings": [
+          {
+            "text": "关于我",
+            "svg": true
+          },
+          {
+            "text": "作品与实验",
+            "svg": true
+          },
+          {
+            "text": "兴趣图鉴",
+            "svg": true
+          },
+          {
+            "text": "游戏基地",
+            "svg": true
+          },
+          {
+            "text": "社交坐标",
+            "svg": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop_no_decorative_portrait_ring",
+      "passed": true,
+      "detail": {
+        "content": "none",
+        "display": "none",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none"
+      }
+    },
+    {
+      "name": "desktop_no_ornate_panels_or_scene_layers",
+      "passed": true,
+      "detail": {
+        "emoji": [],
+        "background": "none",
+        "before": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "after": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "ring": {
+          "content": "none",
+          "display": "none",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "panels": [
+          {
+            "class": "site-sidebar",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "hero",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "game-showcase",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section personal-section--contact",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "site-toc",
+            "image": "none",
+            "borderImage": "none"
+          }
+        ],
+        "visibleOrnaments": [],
+        "headings": [
+          {
+            "text": "关于我",
+            "svg": true
+          },
+          {
+            "text": "作品与实验",
+            "svg": true
+          },
+          {
+            "text": "兴趣图鉴",
+            "svg": true
+          },
+          {
+            "text": "游戏基地",
+            "svg": true
+          },
+          {
+            "text": "社交坐标",
+            "svg": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop_six_targets_.site-header__nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "desktop_six_targets_.site-sidebar nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "desktop_unique_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_sidebar_navigation_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_repeated_header_nav_hidden",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "right_toc_hidden",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_pixel_portrait_and_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "borderless_original_circle",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_manual_scroll_releases_anchor_choice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_hash_can_navigate_again",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_nodes_after_same_hash_and_manual_scroll",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "keyboard_search_shortcut",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_preserves_target_focus",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_empty_feedback",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "escape_closes_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "width_320_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          278,
+          278
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_320_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          278,
+          278
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_320_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          278,
+          278
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_320_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          278,
+          278
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          348,
+          348
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          348,
+          348
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          348,
+          348
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          348,
+          348
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ],
+          [
+            20,
+            370
+          ]
+        ]
+      }
+    },
+    {
+      "name": "mobile_header_navigation_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_sidebar_hidden",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_manual_scroll_releases_anchor_choice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_hash_can_navigate_again",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_nodes_after_same_hash_and_manual_scroll",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ]
+    },
+    {
+      "name": "mobile_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_no_emoji_fallback_in_chrome",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_svg_section_icons",
+      "passed": true,
+      "detail": [
+        {
+          "text": "关于我",
+          "svg": true
+        },
+        {
+          "text": "作品与实验",
+          "svg": true
+        },
+        {
+          "text": "兴趣图鉴",
+          "svg": true
+        },
+        {
+          "text": "游戏基地",
+          "svg": true
+        },
+        {
+          "text": "社交坐标",
+          "svg": true
+        }
+      ]
+    },
+    {
+      "name": "mobile_plain_page_background",
+      "passed": true,
+      "detail": {
+        "emoji": [],
+        "background": "none",
+        "before": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "after": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "ring": {
+          "content": "none",
+          "display": "none",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "panels": [
+          {
+            "class": "site-sidebar",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "hero",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "game-showcase",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section personal-section--contact",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "site-toc",
+            "image": "none",
+            "borderImage": "none"
+          }
+        ],
+        "visibleOrnaments": [],
+        "headings": [
+          {
+            "text": "关于我",
+            "svg": true
+          },
+          {
+            "text": "作品与实验",
+            "svg": true
+          },
+          {
+            "text": "兴趣图鉴",
+            "svg": true
+          },
+          {
+            "text": "游戏基地",
+            "svg": true
+          },
+          {
+            "text": "社交坐标",
+            "svg": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile_no_decorative_portrait_ring",
+      "passed": true,
+      "detail": {
+        "content": "none",
+        "display": "none",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none"
+      }
+    },
+    {
+      "name": "mobile_no_ornate_panels_or_scene_layers",
+      "passed": true,
+      "detail": {
+        "emoji": [],
+        "background": "none",
+        "before": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "after": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "ring": {
+          "content": "none",
+          "display": "none",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "panels": [
+          {
+            "class": "site-sidebar",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "hero",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "game-showcase",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section personal-section--contact",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "site-toc",
+            "image": "none",
+            "borderImage": "none"
+          }
+        ],
+        "visibleOrnaments": [],
+        "headings": [
+          {
+            "text": "关于我",
+            "svg": true
+          },
+          {
+            "text": "作品与实验",
+            "svg": true
+          },
+          {
+            "text": "兴趣图鉴",
+            "svg": true
+          },
+          {
+            "text": "游戏基地",
+            "svg": true
+          },
+          {
+            "text": "社交坐标",
+            "svg": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_768_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          702,
+          702
+        ],
+        "headerVisible": true,
+        "header": [
+          720,
+          720
+        ],
+        "cards": [
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ],
+          [
+            32,
+            736
+          ],
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          702,
+          702
+        ],
+        "headerVisible": true,
+        "header": [
+          720,
+          720
+        ],
+        "cards": [
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ],
+          [
+            32,
+            736
+          ],
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          702,
+          702
+        ],
+        "headerVisible": true,
+        "header": [
+          720,
+          720
+        ],
+        "cards": [
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ],
+          [
+            32,
+            736
+          ],
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          702,
+          702
+        ],
+        "headerVisible": true,
+        "header": [
+          720,
+          720
+        ],
+        "cards": [
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ],
+          [
+            32,
+            736
+          ],
+          [
+            32,
+            376
+          ],
+          [
+            392,
+            736
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ],
+          [
+            262,
+            1046
+          ],
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ],
+          [
+            262,
+            1046
+          ],
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ],
+          [
+            262,
+            1046
+          ],
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ],
+          [
+            262,
+            1046
+          ],
+          [
+            262,
+            646
+          ],
+          [
+            662,
+            1046
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ],
+          [
+            312,
+            1096
+          ],
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ],
+          [
+            312,
+            1096
+          ],
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ],
+          [
+            312,
+            1096
+          ],
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ],
+          [
+            312,
+            1096
+          ],
+          [
+            312,
+            696
+          ],
+          [
+            712,
+            1096
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ],
+          [
+            444,
+            1228
+          ],
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ],
+          [
+            444,
+            1228
+          ],
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ],
+          [
+            444,
+            1228
+          ],
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ],
+          [
+            444,
+            1228
+          ],
+          [
+            444,
+            828
+          ],
+          [
+            844,
+            1228
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ],
+          [
+            560,
+            1344
+          ],
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ],
+          [
+            560,
+            1344
+          ],
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ],
+          [
+            560,
+            1344
+          ],
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          782,
+          782
+        ],
+        "headerVisible": false,
+        "header": [
+          0,
+          0
+        ],
+        "cards": [
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ],
+          [
+            560,
+            1344
+          ],
+          [
+            560,
+            944
+          ],
+          [
+            960,
+            1344
+          ]
+        ]
+      }
+    },
+    {
+      "name": "short_desktop_last_nav_item_visible",
+      "passed": true,
+      "detail": {
+        "top": 352.984375,
+        "bottom": 399.78125,
+        "railTop": 72,
+        "railBottom": 400,
+        "height": 400,
+        "current": "location"
+      }
+    },
+    {
+      "name": "short_desktop_contact_active",
+      "passed": true,
+      "detail": {
+        "top": 352.984375,
+        "bottom": 399.78125,
+        "railTop": 72,
+        "railBottom": 400,
+        "height": 400,
+        "current": "location"
+      }
+    },
+    {
+      "name": "reduced_motion_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ]
+    },
+    {
+      "name": "reduced_motion_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "reduced_motion_control_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ]
+    },
+    {
+      "name": "nojs_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "nojs_no_emoji_fallback_in_chrome",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "nojs_svg_section_icons",
+      "passed": true,
+      "detail": [
+        {
+          "text": "关于我",
+          "svg": true
+        },
+        {
+          "text": "作品与实验",
+          "svg": true
+        },
+        {
+          "text": "兴趣图鉴",
+          "svg": true
+        },
+        {
+          "text": "游戏基地",
+          "svg": true
+        },
+        {
+          "text": "社交坐标",
+          "svg": true
+        }
+      ]
+    },
+    {
+      "name": "nojs_plain_page_background",
+      "passed": true,
+      "detail": {
+        "emoji": [],
+        "background": "none",
+        "before": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "after": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "ring": {
+          "content": "none",
+          "display": "none",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "panels": [
+          {
+            "class": "site-sidebar",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "hero static-hero",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "game-showcase",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section personal-section--contact",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "site-toc",
+            "image": "none",
+            "borderImage": "none"
+          }
+        ],
+        "visibleOrnaments": [],
+        "headings": [
+          {
+            "text": "关于我",
+            "svg": true
+          },
+          {
+            "text": "作品与实验",
+            "svg": true
+          },
+          {
+            "text": "兴趣图鉴",
+            "svg": true
+          },
+          {
+            "text": "游戏基地",
+            "svg": true
+          },
+          {
+            "text": "社交坐标",
+            "svg": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "nojs_no_decorative_portrait_ring",
+      "passed": true,
+      "detail": {
+        "content": "none",
+        "display": "none",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none"
+      }
+    },
+    {
+      "name": "nojs_no_ornate_panels_or_scene_layers",
+      "passed": true,
+      "detail": {
+        "emoji": [],
+        "background": "none",
+        "before": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "after": {
+          "content": "none",
+          "display": "inline",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "ring": {
+          "content": "none",
+          "display": "none",
+          "image": "none",
+          "border": "0px",
+          "shadow": "none"
+        },
+        "panels": [
+          {
+            "class": "site-sidebar",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "hero static-hero",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "interest-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "game-showcase",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "personal-section personal-section--contact",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "social-card",
+            "image": "none",
+            "borderImage": "none"
+          },
+          {
+            "class": "site-toc",
+            "image": "none",
+            "borderImage": "none"
+          }
+        ],
+        "visibleOrnaments": [],
+        "headings": [
+          {
+            "text": "关于我",
+            "svg": true
+          },
+          {
+            "text": "作品与实验",
+            "svg": true
+          },
+          {
+            "text": "兴趣图鉴",
+            "svg": true
+          },
+          {
+            "text": "游戏基地",
+            "svg": true
+          },
+          {
+            "text": "社交坐标",
+            "svg": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "nojs_six_targets_.site-header__nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "nojs_six_targets_.site-sidebar nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "nojs_unique_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_complete_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_original_poster_loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_dead_search_or_copy_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_anchor_navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_ornate_asset_requests",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_failed_assets",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "browserErrors": [],
+  "badResponses": [],
+  "requests": [
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "http://127.0.0.1:5180/assets/index-IjGc_g_O.js",
+    "http://127.0.0.1:5180/assets/index-BDzEZule.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "http://127.0.0.1:5180/assets/index-IjGc_g_O.js",
+    "http://127.0.0.1:5180/assets/index-BDzEZule.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "http://127.0.0.1:5180/assets/index-BDzEZule.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "table": [
+        278,
+        278
+      ],
+      "headerVisible": true,
+      "header": [
+        296,
+        296
+      ],
+      "cards": [
+        [
+          20,
+          300
+        ],
+        [
+          20,
+          300
+        ],
+        [
+          20,
+          300
+        ],
+        [
+          20,
+          300
+        ],
+        [
+          20,
+          300
+        ]
+      ]
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "table": [
+        348,
+        348
+      ],
+      "headerVisible": true,
+      "header": [
+        366,
+        366
+      ],
+      "cards": [
+        [
+          20,
+          370
+        ],
+        [
+          20,
+          370
+        ],
+        [
+          20,
+          370
+        ],
+        [
+          20,
+          370
+        ],
+        [
+          20,
+          370
+        ]
+      ]
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "table": [
+        702,
+        702
+      ],
+      "headerVisible": true,
+      "header": [
+        720,
+        720
+      ],
+      "cards": [
+        [
+          32,
+          376
+        ],
+        [
+          392,
+          736
+        ],
+        [
+          32,
+          736
+        ],
+        [
+          32,
+          376
+        ],
+        [
+          392,
+          736
+        ]
+      ]
+    },
+    {
+      "width": 1100,
+      "scroll": 1100,
+      "table": [
+        782,
+        782
+      ],
+      "headerVisible": false,
+      "header": [
+        0,
+        0
+      ],
+      "cards": [
+        [
+          262,
+          646
+        ],
+        [
+          662,
+          1046
+        ],
+        [
+          262,
+          1046
+        ],
+        [
+          262,
+          646
+        ],
+        [
+          662,
+          1046
+        ]
+      ]
+    },
+    {
+      "width": 1200,
+      "scroll": 1200,
+      "table": [
+        782,
+        782
+      ],
+      "headerVisible": false,
+      "header": [
+        0,
+        0
+      ],
+      "cards": [
+        [
+          312,
+          696
+        ],
+        [
+          712,
+          1096
+        ],
+        [
+          312,
+          1096
+        ],
+        [
+          312,
+          696
+        ],
+        [
+          712,
+          1096
+        ]
+      ]
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "table": [
+        782,
+        782
+      ],
+      "headerVisible": false,
+      "header": [
+        0,
+        0
+      ],
+      "cards": [
+        [
+          444,
+          828
+        ],
+        [
+          844,
+          1228
+        ],
+        [
+          444,
+          1228
+        ],
+        [
+          444,
+          828
+        ],
+        [
+          844,
+          1228
+        ]
+      ]
+    },
+    {
+      "width": 1672,
+      "scroll": 1672,
+      "table": [
+        782,
+        782
+      ],
+      "headerVisible": false,
+      "header": [
+        0,
+        0
+      ],
+      "cards": [
+        [
+          560,
+          944
+        ],
+        [
+          960,
+          1344
+        ],
+        [
+          560,
+          1344
+        ],
+        [
+          560,
+          944
+        ],
+        [
+          960,
+          1344
+        ]
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "label": "desktop",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ],
+      "latin": true,
+      "chinese": true,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "INPUT",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "KBD",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "reference-scene__status",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ],
+      "latin": true,
+      "chinese": true,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "INPUT",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "KBD",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "reference-scene__status",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ]
+    },
+    {
+      "label": "reduced_motion",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ],
+      "latin": true,
+      "chinese": true,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "INPUT",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "KBD",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "reference-scene__status",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ]
+    },
+    {
+      "label": "nojs",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        }
+      ],
+      "latin": true,
+      "chinese": true,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site static-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ]
+    }
+  ]
+}

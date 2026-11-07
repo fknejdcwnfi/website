@@ -1,0 +1,21 @@
+Fusion Pixel Font — 12px proportional, Simplified Chinese variant
+Version: 2026.10.25
+Author: TakWolf
+License: SIL Open Font License 1.1; see FusionPixel-OFL.txt.
+Bundled upstream font notices are retained in FusionPixel-ArkPixel-OFL.txt
+and FusionPixel-Cubic11-OFL.txt.
+
+Original font project:
+https://github.com/TakWolf/fusion-pixel-font
+Official font file source:
+https://github.com/TakWolf/godot-pixel-font-localization-sample/blob/3dacf0fc9959f39ab3591226edccfcc5670d8a31/assets/fonts/fusion-pixel/fusion-pixel-12px-proportional-zh_hans.otf
+
+The original OpenType font was repackaged as WOFF2 using fontTools and
+system libbrotli. Character mappings and CFF glyph outlines were verified
+byte-for-byte identical after decompression. No glyphs were modified.
+Internal font family: Fusion Pixel 12px Prop zh-Hans
+38130 Unicode characters, including 19466 CJK Unified Ideograph codepoints.
+Current website source coverage: 388/388 distinct CJK characters plus
+Latin letters and digits. Missing uncommon user-provided characters can
+still require a fallback font.
+WOFF2 SHA-256: b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6

@@ -1,0 +1,21 @@
+{
+  "base": "/website/",
+  "errors": [],
+  "failedResponses": [],
+  "requests": [
+    "http://127.0.0.1:5182/website/",
+    "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "http://127.0.0.1:5182/website/assets/index-7eDslcJU.js",
+    "http://127.0.0.1:5182/website/assets/index-DgMGjhMk.css",
+    "http://127.0.0.1:5182/website/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5182/website/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5182/website/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5182/website/favicon.svg",
+    "http://127.0.0.1:5182/website/favicon.svg"
+  ],
+  "httpStatus": 200,
+  "fontLoaded": true,
+  "fontFromCorrectBase": true,
+  "noOldUiArtRequests": true,
+  "status": "passed"
+}

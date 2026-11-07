@@ -1,0 +1,414 @@
+{
+  "verifiedAt": "2026-11-07T02:04:33.837963+00:00",
+  "verification": "FontTools TTFont parsing with installed system libbrotlidec; no Python Brotli package, installation, download or font mutation during verification.",
+  "font": {
+    "path": "public/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "format": "WOFF2",
+    "family": "Fusion Pixel 12px Prop zh-Hans",
+    "version": "2026.10.25",
+    "bytes": 701520,
+    "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+    "mappedUnicodeCodepoints": 38130,
+    "mappedCjkUnifiedIdeographsU4E00ToU9FFF": 19466
+  },
+  "originalOfficialFont": {
+    "localPath": "/workspace/work/pixel-minimal/fusion-pixel-12px-proportional-zh_hans.otf",
+    "repository": "https://github.com/TakWolf/godot-pixel-font-localization-sample",
+    "commit": "3dacf0fc9959f39ab3591226edccfcc5670d8a31",
+    "path": "assets/fonts/fusion-pixel/fusion-pixel-12px-proportional-zh_hans.otf",
+    "bytes": 5125076,
+    "sha256": "2972782f05d7dd5f8414bc0215f69c181561172286b1f9823b5c279d9e5e6674",
+    "gitBlobSha": "5a6554a9eb12614abf2a7821c64f6e7877a912b5",
+    "gitBlobShaMatchesDownloadedOfficialBlob": true,
+    "upstreamProject": "https://github.com/TakWolf/fusion-pixel-font"
+  },
+  "roundTrip": {
+    "cmapEqual": true,
+    "cffGlyphOutlinesByteForByteEqual": true,
+    "originalCffSha256": "b1589118d18dcc58d3b2fd42724a0d690472051d8e7d4a034f6c1be1bd63fd10",
+    "publishedCffSha256": "b1589118d18dcc58d3b2fd42724a0d690472051d8e7d4a034f6c1be1bd63fd10",
+    "description": "WOFF2 only repackages the OpenType font; original character mappings and CFF glyph data are unchanged."
+  },
+  "coverage": {
+    "scope": "All unique U+4E00–U+9FFF characters in current src/**/*.ts, src/**/*.tsx and src/**/*.json; plus explicit Latin/digit and status/interest copy probes.",
+    "sourceFileCount": 85,
+    "sourceFilesManifestSha256": "6f3126228e8e3f67a96485b00873e98aaf665d9024f75885709d5521a93ae18c",
+    "uniqueSourceCjkCount": 388,
+    "coveredSourceCjkCount": 388,
+    "sourceCjkCharacters": "一下与世东並个中为主之乐也了事二于些交人从仓代以件位作你使依侦保信個值做停備像先入公关兴内冰减别到制前剛力加动動匹区南原叉发只可号合名向启吹呈呼和品哔哩啟喜回团图圆圓在地场坐基塊士声复夕多奇好始姿子存定实家容富寶对导封将小少尖尝尼局層山峡己已巴常幀库度建开式归当录形彩影得微德心忍念态悬想意感態慢戏成我或所手打找技把抖招持捲探接推援搜摩播擺收放故新方无日时明是時景暂暫更有服未本术机束来果查柯标格档棋樱櫻次欢止正此步段每没法流浏淡清減游源漫火灵為热無然爾版物特状王玩現理瓣用电画界留畫發白的目看真眨眼睛瞬石码示社神秘移穩站竞端笑签範粉精系素索統絲維繼續细绊结统续维网置羁美耀者耳联肖能自至與舞航色花英荣藍藏血西要覽见览角解試調让记试说请谷象貝账贯趣足跟跳載輕转载过迎这连迹送选逐這通逛速造邮部都配里重金鉴鍵链错長长開間關间队阳阻随隨雄雪静靜面音預顯页顶项预風飄风飘飞飾首验高髮",
+    "missingSourceCjk": [],
+    "latinAndDigitsTested": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+    "missingLatinAndDigits": [],
+    "extraStatusAndInterestCopyTested": "羁绊哔哩哔哩正在准备像素画面复制成功复制失败页面加载失败减少动态导航搜索作品兴趣游戏社交",
+    "missingExtraStatusAndInterestCharacters": [],
+    "limitation": "Coverage of arbitrary future user-provided characters is not asserted."
+  },
+  "license": {
+    "name": "SIL Open Font License 1.1",
+    "fontCopyright": "Copyright (c) 2022, TakWolf (https://takwolf.com)",
+    "fontEmbeddedLicense": "This Font Software is licensed under the SIL Open Font License, Version 1.1",
+    "fontEmbeddedLicenseUrl": "https://github.com/TakWolf/fusion-pixel-font/blob/master/LICENSE-OFL",
+    "files": [
+      {
+        "path": "public/fonts/FusionPixel-OFL.txt",
+        "sha256": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63"
+      },
+      {
+        "path": "public/fonts/FusionPixel-ArkPixel-OFL.txt",
+        "sha256": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee"
+      },
+      {
+        "path": "public/fonts/FusionPixel-Cubic11-OFL.txt",
+        "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188"
+      }
+    ],
+    "sourceNotice": "public/fonts/FusionPixel-SOURCE.txt"
+  },
+  "reproduce": {
+    "script": "/workspace/work/pixel-minimal/verify_font_coverage.py",
+    "command": "python3 /workspace/work/pixel-minimal/verify_font_coverage.py",
+    "decoderLibrary": "libbrotlidec.so.1",
+    "sourceFiles": [
+      {
+        "path": "src/app/App.tsx",
+        "sha256": "da1536ca9894c82f732ad9d3ea52cf4184d52a95ecec52d229c265ccbdb3d52f"
+      },
+      {
+        "path": "src/app/ArchivedPortrait.tsx",
+        "sha256": "53032e47e6355f679f64d45910363d18bfe91a2389f53d6b05630e58d6c52735"
+      },
+      {
+        "path": "src/app/SiteBoundary.tsx",
+        "sha256": "0151b15a10a71586cc3cfa275247f7df77d678058f71acfce47c5321eeb8c483"
+      },
+      {
+        "path": "src/archive/fieldPortrait/portraitRig.ts",
+        "sha256": "38e439a1d8819dd83e61aaad62962d2ae2e745a4e4c2e48417c00521cb1a1698"
+      },
+      {
+        "path": "src/archive/fieldPortrait/strandCurve.ts",
+        "sha256": "c5ceb05160cc8f5b8669c1540b24110435b9d047caef12157c6e7481f7164e04"
+      },
+      {
+        "path": "src/archive/fieldPortrait/strandDynamics.ts",
+        "sha256": "5d1f62b113c19a20c69eb01aeb1fe4d746a0e684b3cc8b9dfbe549f491ec7b66"
+      },
+      {
+        "path": "src/archive/legacy/keyPoses.ts",
+        "sha256": "872fac9063c0d6936ca1ff1e7b0799948907b0d67892bfc0a61802c15867040b"
+      },
+      {
+        "path": "src/archive/legacy/player.ts",
+        "sha256": "93fcdcd4026f62d648722438afc0b73bce895b233e4d4a090cb80934469ec2df"
+      },
+      {
+        "path": "src/archive/legacy/timeline.ts",
+        "sha256": "ffe1b39f7744bc2c3e992e782054766f3f254ad503cc50abd07f6f69d2f4698d"
+      },
+      {
+        "path": "src/archive/voxel/voxelPlayer.ts",
+        "sha256": "600e68daa76636fd08c42e8c97deb01fec34a9c58466aa98e473f0a54f21b942"
+      },
+      {
+        "path": "src/archive/voxel/voxelScene.ts",
+        "sha256": "eaa67bb2efd027c83cd01f613aed1f848dcaa89898cc6c56b8bcdd9b71c06c6e"
+      },
+      {
+        "path": "src/archive/voxel/voxelTimeline.ts",
+        "sha256": "33a8593cdd172a2f8f4867ae223baf437f71542eebf7140c1cfef877c83365bd"
+      },
+      {
+        "path": "src/authoring/referenceScene/sourcePixels.ts",
+        "sha256": "2f86cd69a2e9b50ee2cf37b15f18eed3fd3ffebf0db9e852b6cc3d304e65d76f"
+      },
+      {
+        "path": "src/features/calmPortrait/assets.ts",
+        "sha256": "635ef173678f452f56baeab60c5b8d22f33be993e450d19483e64e70b5a9d66e"
+      },
+      {
+        "path": "src/features/calmPortrait/definition.ts",
+        "sha256": "cf61e1c8f03a3e1e96be9c8aaf08234c7eb5cfb1b331405d1b2100b864cf0e92"
+      },
+      {
+        "path": "src/features/calmPortrait/motion.ts",
+        "sha256": "1d440c9b2522dbe2eaa412f91a9aa92fc2046053a83428a7d98b7d23aca81884"
+      },
+      {
+        "path": "src/features/calmPortrait/renderer.ts",
+        "sha256": "17976e5544677a275fffa00248637fab70df1f58d8176275d7107be064bbcd45"
+      },
+      {
+        "path": "src/features/faithfulPixel/assets.ts",
+        "sha256": "49a35631674a8661562ac12752b244ce9ae137821cd1579acb113a995832fb35"
+      },
+      {
+        "path": "src/features/faithfulPixel/definition.ts",
+        "sha256": "744c10a6b671880b42b885f644b860a40dd6d29cb0926ee8bb4758224bad3ba0"
+      },
+      {
+        "path": "src/features/faithfulPixel/renderer.ts",
+        "sha256": "a0c79a0c75f12c6ed9e519ab92c51885e614c6dea90056d4b1d5459f317cd154"
+      },
+      {
+        "path": "src/features/poeticPixel/assets.ts",
+        "sha256": "854ac6453539c8bd755cd39daab602ef72b9c064bb64da5f24d7fb1e3a04af2c"
+      },
+      {
+        "path": "src/features/poeticPixel/atmosphere/index.ts",
+        "sha256": "e71c2a0438d66aa560021fe855d5210dd35e6c4d3e6a2f72b55ee981ba6fe8a4"
+      },
+      {
+        "path": "src/features/poeticPixel/atmosphere/petalRenderer.ts",
+        "sha256": "29a63c6c4b9dc72c6e92704e0a92645cd1cfb5141aa66aa8ce51ecf84d2f9b9c"
+      },
+      {
+        "path": "src/features/poeticPixel/atmosphere/petalSprites.ts",
+        "sha256": "77cbc06e1c23cd7e3a9b355aa17f3c20ca658c143e1f0b5a4cce8095fc4e5dc7"
+      },
+      {
+        "path": "src/features/poeticPixel/atmosphere/petals.ts",
+        "sha256": "76ec01a530bcd9ae1fa79cd768527305d9f78f9e5db152ba8f746455b201c76a"
+      },
+      {
+        "path": "src/features/poeticPixel/atmosphere/snow.ts",
+        "sha256": "3124de8195de15a02c54f1a54a0ede16c8c0dd7b58f3a9854643bf80f8158231"
+      },
+      {
+        "path": "src/features/poeticPixel/atmosphere/snowRenderer.ts",
+        "sha256": "a1a8308a51ca6e8a8161bd78a4f680721680bb32a72b854b17786fff02723e6c"
+      },
+      {
+        "path": "src/features/poeticPixel/bootstrap.ts",
+        "sha256": "9e1843bcc49923824d1bb4617f5bf136d74c3e22f21ffdf85d4b8b7d7580ba04"
+      },
+      {
+        "path": "src/features/poeticPixel/definition.ts",
+        "sha256": "88d7adfd299f9829552aca304495d94a8231995fdc6c0e80519842df80d77030"
+      },
+      {
+        "path": "src/features/poeticPixel/presentation/frameReconstruction.ts",
+        "sha256": "a7138a944fd40ca058c3e70cf9a8ef90b9bb5294908bf61165a03caadc419c94"
+      },
+      {
+        "path": "src/features/poeticPixel/presentation/readNativeAtlas.ts",
+        "sha256": "f095edfff87b83f90de9091e588980b4c06325f38ec7cb4a93e981625c7f9185"
+      },
+      {
+        "path": "src/features/poeticPixel/presentation/resolution.ts",
+        "sha256": "d224894e22828f80df692a5dab497f09e7a9cf8d1f7b2548474467a08a162314"
+      },
+      {
+        "path": "src/features/poeticPixel/presentation/useSceneResolution.ts",
+        "sha256": "626d22de2b92a08ef7855cb6e1dd6a318df58368aee3ea1788ba415bbf21af5a"
+      },
+      {
+        "path": "src/features/poeticPixel/renderer.ts",
+        "sha256": "44e7d3c05fb91d596dfed5bed33a0b1ec119305dac85d4b6fc410b1341ec80fa"
+      },
+      {
+        "path": "src/features/portrait/animation/portraitPlayer.ts",
+        "sha256": "9a914e947c4d1bbe3f9c4a728fafd9ec8da3d49e617f69a9389273134647cf97"
+      },
+      {
+        "path": "src/features/portrait/animation/portraitTimeline.ts",
+        "sha256": "81d43a4246750208b17706fdce97778eb99566ea318b99e7c5bf8392cd25608f"
+      },
+      {
+        "path": "src/features/portrait/animation/stageOptions.ts",
+        "sha256": "bc55c0a63457a06550afc59e56000d75d24e7bd4e26ffc711327c48c7b748e6d"
+      },
+      {
+        "path": "src/features/portrait/components/CharacterStage.tsx",
+        "sha256": "21737d3bcecc386c0a777e4556927a562296bb95ac1314e24a55bb3eb5d5620f"
+      },
+      {
+        "path": "src/features/portrait/components/PortraitBoundary.tsx",
+        "sha256": "a643dc9af67bbbc44d18c4cb4b27506153e7e4303d639aabf71d4d0c755654bc"
+      },
+      {
+        "path": "src/features/portrait/components/PortraitControls.tsx",
+        "sha256": "505b570682f53f3ff6730a09b5b405752559cfdaccbe213b0614b156ae0a6c21"
+      },
+      {
+        "path": "src/features/portrait/renderer/bakedMaterials.ts",
+        "sha256": "86ed9a9d27fad5a0dcbaa1809f4f13b1a7efbaaeb13a2fbc3bd7dbd7f2af1051"
+      },
+      {
+        "path": "src/features/portrait/renderer/bakedPhysics.ts",
+        "sha256": "31b658fae2acedcc7b76844af0873869703d3721316014eeeef4079c77b2fbbf"
+      },
+      {
+        "path": "src/features/portrait/renderer/bakedPhysicsManifest.ts",
+        "sha256": "0747f6eb6a291a063e27f34abc95191722f6913c40d900d4b5acdf201d6da895"
+      },
+      {
+        "path": "src/features/portrait/renderer/hairMaterials.ts",
+        "sha256": "85a51a2dc87dd068cd634eb2cd8ad60eddc516564c131eb79ef81128fd9f0350"
+      },
+      {
+        "path": "src/features/portrait/renderer/hairMesh.ts",
+        "sha256": "628b7caa20e3a30093dadbf58621eaec7fb5dd76b28585309d597413e7e13c19"
+      },
+      {
+        "path": "src/features/portrait/renderer/hairPhysics.ts",
+        "sha256": "d1aa48d462fb8a2ec1962bb42a7d581fb12d4427a26d7788185819ccb199698c"
+      },
+      {
+        "path": "src/features/portrait/renderer/hairPhysics.worker.ts",
+        "sha256": "1b3d69af8cc028dae9e0eb657cce645a6b30404a7124bbf2c6062943dbd02b8d"
+      },
+      {
+        "path": "src/features/portrait/renderer/hairPhysicsClient.ts",
+        "sha256": "f20e79eb6263b9eb6af61de49b64279b96bcfcba7b7556ecbfc0b173f1d0eb09"
+      },
+      {
+        "path": "src/features/portrait/renderer/hairTypes.ts",
+        "sha256": "c40e1f964996d0a24d7a3939b2b0ffa2f2fefef4355af2e50a47694f6cda9bfc"
+      },
+      {
+        "path": "src/features/portrait/renderer/portraitAsset.ts",
+        "sha256": "2489fd76b2167fdd51415e6d2d55a192ef08e9d8d5d533d43530ce0373f33a42"
+      },
+      {
+        "path": "src/features/portrait/renderer/portraitJewelry.ts",
+        "sha256": "ea8d706652a94a65314e6719fd2ba5a53414106f1fe1932b1c5e6f2d14507220"
+      },
+      {
+        "path": "src/features/portrait/renderer/portraitRig.ts",
+        "sha256": "0469a8230a0dde165c84d91d9738aa4e47834bb4eada907ed3c39e2cdd79cc92"
+      },
+      {
+        "path": "src/features/profile/components/PersonalSections.tsx",
+        "sha256": "e133c4d7f7fa82ea9cf1c42642f30c33e46fef5e454adb2580067c0197db9810"
+      },
+      {
+        "path": "src/features/profile/components/PixelIcon.tsx",
+        "sha256": "b4a566a798bd829bb47c26aeab6cf1a51ecdd0a5d05e0ed3a7bcb675251d6e55"
+      },
+      {
+        "path": "src/features/profile/components/PortraitViewport.tsx",
+        "sha256": "b435c766ae8c6667046bbe053f87b17eaf6efd48e2555048198c3bd6d118e276"
+      },
+      {
+        "path": "src/features/profile/components/ProfileModules.tsx",
+        "sha256": "edb8da1f5a072ff5de926470fadd351ebc1bf15e4bea53f29c86ceb8f169492b"
+      },
+      {
+        "path": "src/features/profile/components/SiteShell.tsx",
+        "sha256": "46c63521e5867e3538f6c7eb807ccd2e7e50a195ac8b91b1d5e5eaf343c8f433"
+      },
+      {
+        "path": "src/features/profile/content/navigationIcons.ts",
+        "sha256": "24309c9c8f7c56feb775caebd32689ab5948d950f29c7a626debccb0463561a6"
+      },
+      {
+        "path": "src/features/profile/content/pixelIcons.ts",
+        "sha256": "b80022cce97952cbde75fadf3e3b034d90336cd8b50e9eb9694e34ce7a4ef9c5"
+      },
+      {
+        "path": "src/features/profile/content/selectors.ts",
+        "sha256": "bf1c7b554a3c800ee396ec7f17544c528f5ee9c6e89295123029c34859502082"
+      },
+      {
+        "path": "src/features/profile/content/site.example.ts",
+        "sha256": "8bb83b925c3bcdca0a4b879be20eb44a4c49fff07aad2d1927ec3f92f553059c"
+      },
+      {
+        "path": "src/features/profile/content/site.ts",
+        "sha256": "bc204ab4c6f8481a7649c49e09b703155c4f1ec89af4ebc8c511649082801c16"
+      },
+      {
+        "path": "src/features/profile/content/staticMarkup.ts",
+        "sha256": "949007b58cfca64713767ff08e392049263e57dfdfd4010165a456812bc87118"
+      },
+      {
+        "path": "src/features/profile/content/types.ts",
+        "sha256": "33929603746ab8ad50d3bdf9dea1fd5f6edec9cf64d6246429ef68f3ee8c4324"
+      },
+      {
+        "path": "src/features/profile/presentation/pixelViewport.ts",
+        "sha256": "4daa23c232933d5b8072c2494310a94dbf60481a522442261c19cf02776366f4"
+      },
+      {
+        "path": "src/features/referenceScene/ReferenceScene.tsx",
+        "sha256": "17909ce4924f287ddbca2ab54ed66e4db72ea0f34661e8551260120cfd30efe4"
+      },
+      {
+        "path": "src/features/referenceScene/ScenePlayer.ts",
+        "sha256": "47013ec86949c2847beb9fc1e74e03fadbaf87cc0faea8e622364d72cdec28bf"
+      },
+      {
+        "path": "src/features/referenceScene/bootstrapVideo.ts",
+        "sha256": "7d0a4a549bfda58c7a36ad25d1cdf4e8bcac4451edf5505c9dfa3dd92a677cf6"
+      },
+      {
+        "path": "src/features/referenceScene/createSourceRenderer.ts",
+        "sha256": "7b0da307d75ab8333b795d583a3f3ba33bf1ac23da0d7531533c7784f7761c1d"
+      },
+      {
+        "path": "src/features/referenceScene/definition.ts",
+        "sha256": "c8b69f2e45288a726d841255d77aa145ad078e466b5ead79b492f40e7a0248f2"
+      },
+      {
+        "path": "src/features/referenceScene/index.ts",
+        "sha256": "6b633062066898bf50e84800f619d826ab6393f9f96e4549c72d38a726e8cca7"
+      },
+      {
+        "path": "src/features/referenceScene/loadScene.ts",
+        "sha256": "b6b1a6eed4b216f11c6a8d8d986dcb10e04e0994fc18810dd93d31fd8a64d89a"
+      },
+      {
+        "path": "src/features/referenceScene/pixelArtScale.ts",
+        "sha256": "cb8fd7a0b8ad9f59869a2ca67dcd8c660feb2ce315a797a678de7819a0d703f9"
+      },
+      {
+        "path": "src/features/referenceScene/pixelAssets.ts",
+        "sha256": "e74743c73a7fe03ac04ab1537941b1cfe7fc0540d9d15f12b867a89f726bb0a5"
+      },
+      {
+        "path": "src/features/referenceScene/presentationAssets.ts",
+        "sha256": "ef65338833237454dee7d5af555d86ede1a79b212a00151420c731e042e8be52"
+      },
+      {
+        "path": "src/features/referenceScene/sceneTimeline.ts",
+        "sha256": "6368681f2445737d668f017229ea96836e28988e046462a84af7c39eb91fd3f5"
+      },
+      {
+        "path": "src/features/referenceScene/sceneViewport.ts",
+        "sha256": "a7aa88cc94439ed5f29b41c9daff9c2ce334c38862491c6bbbdb37bd89da0080"
+      },
+      {
+        "path": "src/features/referenceScene/sourceAssets.ts",
+        "sha256": "bb640cc3c501c8b7b0ba74cfc2fab23d09fe1c52332294b24b63bf151f92d752"
+      },
+      {
+        "path": "src/features/referenceScene/sourceTiming.ts",
+        "sha256": "835e8f294df59110568858c8cfafc15afdaa39560f44431575e96544693cabbc"
+      },
+      {
+        "path": "src/features/referenceScene/types.ts",
+        "sha256": "264715a53303a55fdcdc7d169e199a95914bbe77cd92ed295bd37cf1502b9d44"
+      },
+      {
+        "path": "src/features/referenceScene/useSceneViewport.ts",
+        "sha256": "6a2eace9a83f4e6e2f4ff367344b43927d4ee6565bbf891774f58e541292af4d"
+      },
+      {
+        "path": "src/features/referenceScene/weather/Snowfall.tsx",
+        "sha256": "17d59b3abda79afd137e5f0e91594fbc11f6ddc97f940532804c031717f74cf8"
+      },
+      {
+        "path": "src/features/referenceScene/weather/snowField.ts",
+        "sha256": "bbe3749e2f650a76d589a4baf787056d8d4667b165ab61f283f971d7e600725b"
+      },
+      {
+        "path": "src/main.tsx",
+        "sha256": "d48a958f6c5cc4efce4fa30c5bf15bb70a6c1066a869aec636eaa584e9b3e323"
+      },
+      {
+        "path": "src/shared/animation/types.ts",
+        "sha256": "e896f98143a1afc40882678b0603cd1116264f75e6feae9e9a23742528f74083"
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@ import SiteShell from '../features/profile/components/SiteShell'
 import ReferenceScene from '../features/referenceScene/ReferenceScene'
 import { poeticPixelDefinition as referenceSceneDefinition, poeticPreview } from '../features/poeticPixel/definition'
 import { createPoeticPixelRenderer as createSourceRenderer } from '../features/poeticPixel/renderer'
+import { getNavigationIconPath } from '../features/profile/content/navigationIcons'
 
 const ArchivedPortrait=lazy(()=>import('./ArchivedPortrait'))
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
       <section className="hero" id="home" aria-labelledby="hero-title" tabIndex={-1}>
         <div className="hero__copy">
           <p className="eyebrow">{site.intro}</p>
-          <h1 id="hero-title"><span className="hero__wave" aria-hidden="true">👋</span> 欢迎来到我的<strong className="hero__highlight">像素小世界</strong></h1>
+          <h1 id="hero-title"><span className="hero__wave" aria-hidden="true"><svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath('#interests')} /></svg></span> 欢迎来到我的<strong className="hero__highlight">像素小世界</strong></h1>
           <p className="hero__intro">你好，我是 <strong>{site.name}</strong>。{site.tagline}</p>
         </div>
         <figure className="hero__visual hero__visual--reference">
@@ -28,7 +29,7 @@ export default function App() {
           <figcaption><span>VERMOUTH</span><span>Minecraft · 像素肖像</span></figcaption>
         </figure>
         <aside className="welcome-note" aria-labelledby="welcome-note-title">
-          <div className="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">✦</span> 欢迎，随意逛逛</div>
+          <div className="welcome-note__title" id="welcome-note-title"><span aria-hidden="true"><svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath('#interests')} /></svg></span> 欢迎，随意逛逛</div>
           <p>这里记录我的作品、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号打个招呼。</p>
         </aside>
       </section>

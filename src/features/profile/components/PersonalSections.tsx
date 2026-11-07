@@ -2,6 +2,7 @@ import { site } from '../content/site'
 import { GameSection, InterestSection, SocialSection } from './ProfileModules'
 import PixelIcon from './PixelIcon'
 import { poeticPixelAssets } from '../../poeticPixel/assets'
+import { getNavigationIconPath } from '../content/navigationIcons'
 
 const Arrow = () => <PixelIcon name="arrow-up-right" />
 
@@ -9,7 +10,7 @@ export default function PersonalSections() {
   return (
     <>
       <section className="personal-section" id="about" aria-labelledby="about-title" tabIndex={-1}>
-        <div className="personal-section__label"><h2 id="about-title"><span aria-hidden="true">📖</span> 关于我</h2></div>
+        <div className="personal-section__label"><h2 id="about-title"><span aria-hidden="true"><svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath('#about')} /></svg></span> 关于我</h2></div>
         <div className="personal-about">
           {site.about.map((paragraph, index) => <p className={index === 0 ? 'personal-about__lead' : undefined} key={paragraph}>{paragraph}</p>)}
           <a className="personal-text-link" href={site.github} target="_blank" rel="noopener noreferrer">了解我的 GitHub <Arrow /></a>
@@ -17,7 +18,7 @@ export default function PersonalSections() {
       </section>
 
       <section className="personal-section" id="work" aria-labelledby="work-title" tabIndex={-1}>
-        <div className="personal-section__label"><h2 id="work-title"><span aria-hidden="true">🧩</span> 作品与实验</h2></div>
+        <div className="personal-section__label"><h2 id="work-title"><span aria-hidden="true"><svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath('#work')} /></svg></span> 作品与实验</h2></div>
         <div className="personal-work">
           <div className="personal-work__intro"><p>做过的，与正在做的。</p><a className="personal-text-link" href={`${site.github}?tab=repositories`} target="_blank" rel="noopener noreferrer">所有公开项目 <Arrow /></a></div>
           <div className="project-table-wrap">
