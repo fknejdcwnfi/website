@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { site, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
+import { site, getProjects, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
 import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
@@ -11,6 +11,69 @@ test('editable profile and projects provide usable content without requiring a c
   assert.ok(site.projects.length > 0)
   assert.equal(new Set(site.projects.map(project => project.id)).size, site.projects.length)
   assert.ok(site.projects.every(project => project.title.trim() && new URL(project.href).protocol === 'https:'))
+})
+
+test('project selectors reject invalid targets and duplicate IDs before display or search', () => {
+  const project = site.projects[0]
+  const configured = { ...site, projects: [
+    project, { ...project, title: 'Duplicate title' },
+    { ...project, id: 'invalid target', href: 'https://example.com/' },
+    { ...project, id: 'unsafe-link', href: 'javascript:alert(1)' },
+    { ...project, id: 'credentials', href: 'https://name:secret@example.com/' },
+    { ...project, id: 'invalid-status', status: 'unknown' },
+    { ...project, id: 'empty-title', title: ' ' },
+  ] }
+  assert.deepEqual(getProjects(configured).map(item => item.id), ['living-portrait'])
+  const html = renderStaticSite(configured)
+  assert.ok(!html.includes('javascript:') && !html.includes('name:secret'))
+  assert.ok(!html.includes('Duplicate title') && !html.includes('project-invalid'))
+  assert.equal(getSiteSearchEntries(configured).filter(entry => entry.href.startsWith('#project-')).length, 1)
+})
+
+test('optional project facts are bounded, escaped and indexed from the same source', () => {
+  const project = site.projects[0]
+  const configured = { ...site, projects: [{ ...project, kind: '<script>kind</script>', year: 2101,
+    tags: [' ', ...Array.from({ length: 10 }, (_, i) => `${i}${'t'.repeat(40)}`)],
+    highlights: [' ', '  <img src=x onerror=alert(1)>  ', 'x'.repeat(300), 'x'.repeat(300), 'third', 'fourth', 'fifth'],
+    note: '<script>note</script>' + 'n'.repeat(300),
+  }] }
+  const selected = getProjects(configured)[0]
+  assert.equal(selected.year, undefined)
+  assert.equal(selected.tags.length, 8)
+  assert.ok(selected.tags.every(tag => tag.length <= 32))
+  assert.equal(selected.highlights.length, 4)
+  assert.ok(selected.highlights.every(item => item.length <= 180))
+  assert.equal(selected.note.length, 240)
+  const html = renderStaticSite(configured)
+  assert.ok(!html.includes('<script>kind') && !html.includes('<script>note') && !html.includes('<img src=x'))
+  assert.ok(html.includes('&lt;script&gt;kind&lt;/script&gt;') && html.includes('&lt;img src=x'))
+  assert.ok(!html.includes('fifth'))
+  assert.deepEqual(searchSite(getSiteSearchEntries(site), '过河').map(entry => entry.id), ['xiangqi-review'])
+  const empty = getProjects({ ...site, projects: [{ ...project, kind: ' ', year: 2026.5, highlights: [], note: ' ' }] })[0]
+  assert.equal(empty.kind, undefined)
+  assert.equal(empty.year, undefined)
+  assert.deepEqual(empty.highlights, [])
+  assert.equal(empty.note, undefined)
+})
+
+test('project overview and native details remain accurate without JavaScript', () => {
+  const html = renderStaticSite(site)
+  assert.ok(html.includes('<dt>公开项目</dt><dd>2<span> 个</span></dd>'))
+  assert.ok(html.includes('<dt>持续制作</dt><dd>1<span> 个</span></dd>'))
+  assert.ok(html.includes('<dt>已归档</dt><dd>1<span> 个</span></dd>'))
+  assert.equal((html.match(/<details class="personal-project__details">/g) ?? []).length, 2)
+  for (const project of getProjects(site)) {
+    const row = html.match(new RegExp(`<tr class="personal-project" id="project-${project.id}"[\\s\\S]*?</tr>`))?.[0]
+    assert.ok(row)
+    assert.equal((row.match(/<a /g) ?? []).length, 1)
+    assert.ok(row.includes(`href="${project.href}"`))
+    assert.ok(row.includes('<summary><span>项目亮点</span>'))
+    for (const highlight of project.highlights) assert.ok(row.includes(escapeHtml(highlight)))
+  }
+  const single = renderStaticSite({ ...site, projects: [{ ...site.projects[0], kind: undefined, year: undefined, highlights: [], note: undefined }] })
+  assert.ok(single.includes('<dt>公开项目</dt><dd>1<span> 个</span></dd>'))
+  assert.ok(single.includes('<dt>已归档</dt><dd>0<span> 个</span></dd>'))
+  assert.ok(!single.includes('class="personal-project__details"') && !single.includes('class="personal-project__meta"'))
 })
 
 test('static HTML contains the complete personal site when JavaScript is unavailable', () => {

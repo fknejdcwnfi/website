@@ -12,8 +12,28 @@ function SiteSearch() {
   const [expanded, setExpanded] = useState(false)
   const input = useRef<HTMLInputElement>(null)
   const wrapper = useRef<HTMLDivElement>(null)
-  const results = searchSite(getSiteSearchEntries(site), query)
+  const matches = searchSite(getSiteSearchEntries(site), query)
+  const describeGroup = (href: string) => {
+    if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }
+    if (href.startsWith('#interest-')) return { id: 'interests', label: '兴趣', icon: '#interests' }
+    if (href.startsWith('#game-')) return { id: 'games', label: '游戏', icon: '#games' }
+    if (href.startsWith('#contact-')) return { id: 'contact', label: '联系方式', icon: '#contact' }
+    return { id: 'pages', label: '页面导航', icon: '#home' }
+  }
+  const groups: { id: string; label: string; icon: string; items: typeof matches }[] = []
+  for (const result of matches) {
+    const category = describeGroup(result.href)
+    const group = groups.find(item => item.id === category.id)
+    if (group) group.items.push(result)
+    else groups.push({ ...category, items: [result] })
+  }
+  const results = groups.flatMap(group => group.items)
   const close = (): void => setExpanded(false)
+  const focusResult = (index: number): void => {
+    const links = wrapper.current?.querySelectorAll<HTMLAnchorElement>('.site-search__result')
+    if (!links?.length) return
+    links[(index + links.length) % links.length]?.focus()
+  }
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent): void => {
@@ -61,16 +81,36 @@ function SiteSearch() {
       <form role="search" onSubmit={jump}>
         <label className="visually-hidden" htmlFor="site-search">搜索此网站</label>
         <svg className="site-search__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" shapeRendering="crispEdges"><path fillRule="evenodd" d="M3 1h6v1h2v2h1v5h-1v2h-1v1h2v1h1v1h2v2h-3v-1h-1v-1h-1v-2H4v-1H2V9H1V4h1V2h1V1zm1 2v1H3v5h1v1h5V9h1V4H9V3H4z" /></svg>
-        <input ref={input} id="site-search" type="search" placeholder="搜索此网站" autoComplete="off" maxLength={120} value={query} aria-expanded={expanded} aria-controls="site-search-results" onChange={(event) => { setQuery(event.target.value); setExpanded(true) }} onFocus={() => setExpanded(true)} />
+        <input ref={input} id="site-search" type="search" placeholder="搜索此网站" autoComplete="off" maxLength={120} value={query} aria-expanded={expanded} aria-controls="site-search-results"
+          onChange={(event) => { setQuery(event.target.value); setExpanded(true) }} onFocus={() => setExpanded(true)} onClick={() => setExpanded(true)}
+          onKeyDown={(event) => {
+            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+              event.preventDefault()
+              setExpanded(true)
+              const last = event.key === 'ArrowUp'
+              window.requestAnimationFrame(() => focusResult(last ? -1 : 0))
+            }
+          }} />
         <kbd aria-hidden="true">/</kbd>
       </form>
       {expanded ? (
         <div className="site-search__results" id="site-search-results">
-          <p className="site-search__summary" role="status">{query.trim() ? `找到 ${results.length} 个结果` : '搜索作品、兴趣、游戏与联系方式'}</p>
-          {results.length ? <ul>{results.map((result) => <li key={result.id}><a href={result.href} onClick={() => {
-            close()
-            window.setTimeout(() => document.getElementById(result.href.slice(1))?.focus({ preventScroll: true }), 0)
-          }}><span>{result.title}</span><small>{result.excerpt}</small></a></li>)}</ul> : <p className="site-search__empty">没有匹配内容，试试「火影」「柯南」或「王者荣耀」。</p>}
+          <div className="site-search__summary"><span role="status">{query.trim() ? `找到 ${results.length} 个结果` : '快速跳转'}</span><span className="site-search__count" aria-hidden="true">{results.length}</span></div>
+          {results.length ? <div className="site-search__list">{groups.map(group => <section className="site-search__group" key={group.id} aria-labelledby={`search-group-${group.id}`}>
+            <h3 className="site-search__group-label" id={`search-group-${group.id}`}>{group.label}</h3>
+            <ul>{group.items.map(result => <li key={result.id}><a className="site-search__result" href={result.href}
+              onKeyDown={(event) => {
+                if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return
+                event.preventDefault()
+                const links = [...(wrapper.current?.querySelectorAll<HTMLAnchorElement>('.site-search__result') ?? [])]
+                focusResult(links.indexOf(event.currentTarget) + (event.key === 'ArrowDown' ? 1 : -1))
+              }}
+              onClick={() => {
+                close()
+                window.setTimeout(() => document.getElementById(result.href.slice(1))?.focus({ preventScroll: true }), 0)
+              }}><span className="site-search__result-icon"><NavigationIcon href={group.icon} /></span><span className="site-search__result-copy"><span>{result.title}</span><small>{result.excerpt}</small></span><PixelIcon name="arrow-up-right" /></a></li>)}</ul>
+          </section>)}</div> : <p className="site-search__empty">没有匹配内容，试试「火影」「柯南」或「王者荣耀」。</p>}
+          <div className="site-search__help" aria-hidden="true"><span>↑↓ 切换</span><span>Enter 前往</span><span>Esc 收起</span></div>
         </div>
       ) : null}
     </div>

@@ -4,6 +4,30 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
+## Current UI consistency and fuller works — 2026-11-07
+
+- Keep the current cream scenic page, blue header, pixel font and original
+  character. This is a focused improvement to works, borders and local search;
+  it does not replace the design or create additional fictional projects.
+- Share a 1px border, 16px reading-panel radius, 14px card radius and 10px control
+  radius through the active theme's tokens. Apply them consistently across desktop
+  and mobile panels, cards, navigation and controls. Circular scene/icon shapes
+  and small noninteractive tags remain intentional exceptions.
+- Search focus belongs to its single rounded form container. Suppress the
+  input's own outline/border, while retaining an obvious container focus ring
+  for keyboard users. Do not hide focus throughout the site to fix one input.
+- Keep local search compact, grouped, icon-led and scrollable within the real
+  viewport. Preserve real anchor links, target focus, Escape, slash shortcut,
+  pointer/Tab access and arrow-key navigation. Result choice
+  must notify the same active-section logic without remounting the scene.
+- Enrich existing public works with verified project information, capability
+  summaries and accessible native details. Keep existing table/project IDs and
+  a single primary external project link per row. Static HTML and React expose
+  the same complete content; optional data never creates dead controls.
+- See [the current consistency guide](docs/guides/ui-consistency.md) and run
+  `scripts/qa/verify_ui_consistency.py` alongside applicable cream/profile/scene
+  checks. Record this revision's actual results independently of earlier evidence.
+
 ## Current cream scenic UI — 2026-11-07
 
 - The owner's latest four-page reference collage replaces the minimal layout:

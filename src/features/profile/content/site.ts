@@ -1,6 +1,6 @@
 import type { SiteContent } from './types.ts'
 export type { Project, SocialPlatform, SocialProfile, ContactLink, Interest, GameProfile, GameShowcaseBlock, SiteContent, ContentsEntry, SiteSearchEntry } from './types.ts'
-export { getSocialLinks, getInterests, getGameProfiles, getSiteNavigation, getTableOfContents, getSiteSearchEntries, searchSite, resolveProfileAsset } from './selectors.ts'
+export { getProjects, getSocialLinks, getInterests, getGameProfiles, getSiteNavigation, getTableOfContents, getSiteSearchEntries, searchSite, resolveProfileAsset } from './selectors.ts'
 
 /** Edit public content here. Empty accounts and custom blocks are intentionally hidden. */
 export const site: SiteContent = {
@@ -29,9 +29,23 @@ export const site: SiteContent = {
   projects: [
     { id: 'living-portrait', title: 'Living Portrait', subtitle: '个人网站 · 像素动态实验',
       description: '将 Vermouth 原动画转成高清像素画，保留樱花与富士山，让飘发、眨眼、细雪与粉色花瓣连贯流动。',
-      tags: ['TypeScript', 'React', 'Canvas'], href: 'https://github.com/fknejdcwnfi/website', status: 'active' },
+      tags: ['TypeScript', 'React', 'Canvas', 'Vite'], href: 'https://github.com/fknejdcwnfi/website', status: 'active',
+      kind: '个人网站', year: 2026,
+      highlights: [
+        '从原动画保留人物动作与场景，以固定色板重建像素画面。',
+        '细雪与粉色花瓣独立流动，尊重减少动态偏好。',
+        '包含本地搜索、章节导航与响应式布局；无 JavaScript 时仍可阅读主要内容。',
+      ],
+      note: '持续完善像素表现、页面内容与浏览体验。' },
     { id: 'xiangqi-review', title: 'Xiangqi Review', subtitle: 'Java · 象棋项目',
-      description: '一段以 Java 制作象棋项目的开发尝试。目前已归档，保留代码与当时的探索。',
-      tags: ['Java', 'Xiangqi', 'Archive'], href: 'https://github.com/fknejdcwnfi/xiangqi-review', status: 'archived' },
+      description: '以 Java 与 Swing 制作的象棋开发原型，保留棋盘交互与规则探索。目前已归档。',
+      tags: ['Java 8', 'Swing', 'Maven'], href: 'https://github.com/fknejdcwnfi/xiangqi-review', status: 'archived',
+      kind: '桌面原型', year: 2026,
+      highlights: [
+        '使用 Swing 绘制棋盘、楚河汉界与红黑棋子。',
+        '通过鼠标点击选择棋子、尝试移动，并显示选中边角。',
+        '兵卒实现过河前后的基础移动规则，棋盘模型与界面分层。',
+      ],
+      note: '保留开发阶段源码；将帅规则等仍待补全。' },
   ],
 }

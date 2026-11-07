@@ -1,4 +1,4 @@
-import { getGameProfiles, getInterests, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
+import { getGameProfiles, getInterests, getProjects, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
@@ -93,6 +93,12 @@ const renderSocials = (site: SiteContent, base: string): string => `<section cla
 export const renderStaticSite = (site: SiteContent, base = '/'): string => {
   const navigation = getSiteNavigation(site)
   const contents = getTableOfContents(site)
+  const projects = getProjects(site)
+  const projectOverview = [
+    { label: '公开项目', count: projects.length },
+    { label: '持续制作', count: projects.filter(project => project.status === 'active').length },
+    { label: '已归档', count: projects.filter(project => project.status === 'archived').length },
+  ]
   return `<div class="personal-site static-site" id="top" data-active-section="home">
   <a class="skip-link" href="#main-content">跳至主要内容</a>
   <header class="site-header">
@@ -124,10 +130,11 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
       <section class="personal-section" id="work" aria-labelledby="work-title" tabindex="-1">
         ${heading('work-title', '#work', '作品与实验')}
         <div class="personal-work"><div class="personal-work__intro"><p>做过的，与正在做的。</p><a class="personal-text-link" href="${escape(`${site.github}?tab=repositories`)}" target="_blank" rel="noopener noreferrer">所有公开项目 ${arrow}</a></div>
-          <div class="project-table-wrap"><table class="project-table"><caption class="visually-hidden">公开项目</caption><thead><tr><th scope="col">项目</th><th scope="col">状态</th><th scope="col">说明</th></tr></thead><tbody>${site.projects.map((project) => `<tr class="personal-project" id="project-${escape(project.id)}" tabindex="-1">
-            <td><div class="personal-project__identity"><span class="personal-project__thumbnail personal-project__thumbnail--${escape(project.id)}" aria-hidden="true">${project.id === 'living-portrait' ? `<img src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" alt="" width="64" height="64" loading="lazy" decoding="async">` : pixelIcon('chess')}</span><div><a class="personal-project__link" href="${escape(project.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`)}"><span class="personal-project__heading">${escape(project.title)} ${arrow}</span></a><span class="personal-project__subtitle">${escape(project.subtitle)}</span></div></div></td>
+          <dl class="project-overview" aria-label="项目概览">${projectOverview.map(item => `<div><dt>${item.label}</dt><dd>${item.count}<span> 个</span></dd></div>`).join('')}</dl>
+          <div class="project-table-wrap"><table class="project-table"><caption class="visually-hidden">公开项目</caption><thead><tr><th scope="col">项目</th><th scope="col">状态</th><th scope="col">说明</th></tr></thead><tbody>${projects.map((project) => `<tr class="personal-project" id="project-${escape(project.id)}" tabindex="-1">
+            <td><div class="personal-project__identity"><span class="personal-project__thumbnail personal-project__thumbnail--${escape(project.id)}" aria-hidden="true">${project.id === 'living-portrait' ? `<img src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" alt="" width="64" height="64" loading="lazy" decoding="async">` : pixelIcon('chess')}</span><div><a class="personal-project__link" href="${escape(project.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`)}"><span class="personal-project__heading">${escape(project.title)} ${arrow}</span></a><span class="personal-project__subtitle">${escape(project.subtitle)}</span>${project.kind || project.year ? `<p class="personal-project__meta">${escape([project.kind, project.year].filter(Boolean).join(' · '))}</p>` : ''}</div></div></td>
             <td><span class="personal-project__status personal-project__status--${project.status === 'active' ? 'active' : 'archived'}"><span aria-hidden="true"></span>${project.status === 'active' ? '持续制作中' : '已归档'}</span></td>
-            <td><p class="personal-project__description">${escape(project.description)}</p><ul class="personal-project__tags" aria-label="项目技术">${project.tags.map((tag) => `<li>${escape(tag)}</li>`).join('')}</ul></td>
+            <td><p class="personal-project__description">${escape(project.description)}</p><ul class="personal-project__tags" aria-label="项目技术">${project.tags.map((tag) => `<li>${escape(tag)}</li>`).join('')}</ul>${project.highlights?.length || project.note ? `<details class="personal-project__details"><summary><span>项目亮点</span>${project.highlights?.length ? `<span class="personal-project__detail-count">${project.highlights.length}</span>` : ''}${pixelIcon('arrow-down')}</summary><div class="personal-project__details-body">${project.highlights?.length ? `<ul class="personal-project__highlights">${project.highlights.map(item => `<li>${escape(item)}</li>`).join('')}</ul>` : ''}${project.note ? `<p class="personal-project__note">${escape(project.note)}</p>` : ''}</div></details>` : ''}</td>
           </tr>`).join('')}</tbody></table></div>
           <blockquote class="document-note">每个作品都链接到真实的公开源码；已归档的项目保留当时的探索。</blockquote>
         </div>

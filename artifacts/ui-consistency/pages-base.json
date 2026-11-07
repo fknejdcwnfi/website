@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5182/website/",
+  "base": "/website/",
+  "build": {
+    "command": "./node_modules/.bin/vite build --base /website/ --outDir /workspace/work/ui-consistency/pages-dist",
+    "status": "passed",
+    "typecheckAndNodeTestsRerun": false
+  },
+  "checks": [
+    {
+      "name": "subpath_document_http200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual_fusion_pixel_loaded",
+      "passed": true,
+      "detail": {
+        "loaded": [
+          {
+            "family": "Fusion Pixel",
+            "status": "loaded"
+          }
+        ],
+        "body": "\"Fusion Pixel\", \"Press Start 2P\", monospace",
+        "cjk": true,
+        "latin": true
+      }
+    },
+    {
+      "name": "visible_html_images_loaded_all_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "six_css_scenic_images_decode_under_subpath",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/twilight-world.png",
+          "loaded": true,
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.png",
+          "loaded": true,
+          "width": 1774,
+          "height": 887
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.png",
+          "loaded": true,
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.png",
+          "loaded": true,
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.png",
+          "loaded": true,
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.png",
+          "loaded": true,
+          "width": 2172,
+          "height": 724
+        }
+      ]
+    },
+    {
+      "name": "native_project_details_toggle",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_project_highlights_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "grouped_search_with_icons",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_verified_capability_search_targets_real_project",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_and_details_keep_scene_nodes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320_no_horizontal_overflow_open_details",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "document": 320,
+        "table": 266,
+        "wrap": 266,
+        "details": [
+          {
+            "client": 100,
+            "scroll": 100
+          },
+          {
+            "client": 100,
+            "scroll": 100
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile_320_search_panel_inside_viewport",
+      "passed": true,
+      "detail": {
+        "left": 12,
+        "right": 308,
+        "bottom": 544.984375,
+        "width": 320,
+        "height": 844
+      }
+    },
+    {
+      "name": "mobile_390_no_horizontal_overflow_open_details",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "document": 390,
+        "table": 336,
+        "wrap": 336,
+        "details": [
+          {
+            "client": 129,
+            "scroll": 129
+          },
+          {
+            "client": 129,
+            "scroll": 129
+          }
+        ]
+      }
+    },
+    {
+      "name": "mobile_390_search_panel_inside_viewport",
+      "passed": true,
+      "detail": {
+        "left": 12,
+        "right": 378,
+        "bottom": 544.984375,
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_failed_local_responses",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "browserErrors": [],
+  "badResponses": [],
+  "timestamp": "2026-11-07T07:01:10.551693+00:00"
+}
