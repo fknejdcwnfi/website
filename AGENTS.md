@@ -4,7 +4,37 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
-## Current reference-driven UI — 2026-11-07
+## Current minimal pixel UI — 2026-11-07
+
+- The owner's latest request replaces the ornate reference-driven appearance
+  with a quiet, minimal interface inspired by Claude's simplicity: warm neutral
+  surfaces, clear hierarchy, restrained borders and generous space. Keep this
+  website's identity and content; do not copy product branding or add chat UI.
+  See [the current minimal UI guide](docs/guides/pixel-minimal-ui.md).
+- All live Chinese and Latin text uses the locally hosted `Fusion Pixel` font,
+  including headings, navigation, forms, buttons, keyboard hints, captions,
+  failure/reduced-motion/startup messages and no-JS content. Retain its license.
+  SVG pixel icons replace emoji in chrome/headings; actual user content remains
+  plain text and must not be rewritten merely to satisfy an icon check.
+- Remove the ornate theme from the active stylesheet chain. No twilight page
+  scenery, wood signs, grass/lantern decoration, gold portrait outline, glow or
+  decorative card backgrounds remain in the default request chain. Keep their
+  unique historical files/evidence rather than deleting them.
+- Desktop uses unobtrusive left navigation and hides repeated top/right menus;
+  mobile uses the header navigation. Preserve all six working chapter targets,
+  local search, optional profile customization and complete static content.
+- Keep the existing single scene instance and all source/renderer/media/weather
+  behavior unchanged. Typography or active navigation must not restart playback.
+  The actual circle stays borderless, shadowless and free of exterior rings.
+- Explicit anchor choices persist when the browser clamps a short bottom section;
+  actual scrolling releases that choice. Same-hash clicks and search Enter share
+  this navigation logic. Do not force activity from an unchanged URL hash.
+- Import the theme and fonts as document CSS for first paint and no-JS parity;
+  preserve both hosting bases. Verify real font loading and inherited font on
+  status/control text, not just a CSS family name. New UI QA is
+  `scripts/qa/verify_pixel_minimal_ui.py`; record new evidence independently.
+
+## Previous reference-driven UI — 2026-11-07 (appearance superseded above)
 
 - Follow the owner's four reference screenshots for the surrounding website:
   a twilight pixel landscape, translucent blue/violet panels, gold/violet pixel
@@ -58,8 +88,8 @@ before changing the site. The owner's latest instructions override older guides.
 - Keep the actual scene viewport centered, borderless and circular, with the
   original Fuji, cherry blossoms, sunset and existing cover crop. Do not add
   scenery, a frame, a new bust or a replacement character to its source pixels.
-  The surrounding page decoration and figure-only outline follow the current UI
-  contract above; they do not change the scene viewport or renderer.
+  The current minimal UI also removes the earlier figure-only gold outline and
+  surrounding scenic decoration; it does not change the scene pixels or renderer.
 - Preserve faithful Minecraft-inspired **2D pixel art**, not Steve/3D anatomy.
   The fixed96-color exact-source palette (including the previous72), contours and all16 original80ms
   motion anchors remain authoritative. The48 estimated transitions make50fps,
