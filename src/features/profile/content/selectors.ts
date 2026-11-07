@@ -1,4 +1,4 @@
-import type { ContactLink, ContentsEntry, GameProfile, GameShowcaseBlock, Interest, SiteContent, SiteSearchEntry, SocialPlatform } from './types.ts'
+import type { ContactLink, ContentsEntry, GameProfile, GameShowcaseBlock, Interest, Project, SiteContent, SiteSearchEntry, SocialPlatform } from './types.ts'
 
 const text = (value: string | undefined): string => value?.trim() ?? ''
 const validId = (value: string): boolean => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)
@@ -13,6 +13,19 @@ export const isPublicLink = (href: string | undefined): boolean => {
   } catch { return false }
 }
 const publicLink = (href: string | undefined): string | undefined => isPublicLink(href) ? new URL(href!).href : undefined
+
+const boundedText = (value: string | undefined, limit: number): string => text(value).slice(0, limit)
+/** Project cards and search share the same bounded, public source data. */
+export const getProjects = (content: SiteContent): Project[] => unique(content.projects
+  .filter(project => validId(project.id) && project.id.length <= 80 && text(project.title) &&
+    isPublicLink(project.href) && ['active', 'archived'].includes(project.status))
+  .map(project => ({ ...project, title: boundedText(project.title, 100),
+    subtitle: boundedText(project.subtitle, 120), description: boundedText(project.description, 400),
+    tags: strings(project.tags.map(tag => boundedText(tag, 32))).slice(0, 8), href: publicLink(project.href)!,
+    kind: boundedText(project.kind, 40) || undefined,
+    year: Number.isInteger(project.year) && project.year! >= 1970 && project.year! <= 2100 ? project.year : undefined,
+    highlights: strings((project.highlights ?? []).map(item => boundedText(item, 180))).slice(0, 4),
+    note: boundedText(project.note, 240) || undefined })))
 
 /** Media is opt-in and local: no trackers, remote embeds, traversal or executable URLs. */
 const localMedia = (path: string | undefined): string | undefined => {
@@ -126,8 +139,8 @@ const blockText = (block: GameShowcaseBlock): string => {
 export const getSiteSearchEntries = (content: SiteContent): SiteSearchEntry[] => [
   { id: 'home', title: content.intro, href: '#home', excerpt: content.tagline, text: `${content.name} ${content.intro} ${content.tagline} Vermouth 像素肖像` },
   { id: 'about', title: '关于我', href: '#about', excerpt: content.about[0] ?? '', text: content.about.join(' ') },
-  ...content.projects.map(project => ({ id: project.id, title: project.title, href: `#project-${project.id}`, excerpt: project.subtitle,
-    text: `${project.title} ${project.subtitle} ${project.description} ${project.tags.join(' ')} ${project.status === 'active' ? '持续制作中' : '已归档'}` })),
+  ...getProjects(content).map(project => ({ id: project.id, title: project.title, href: `#project-${project.id}`, excerpt: project.subtitle,
+    text: `${project.title} ${project.subtitle} ${project.description} ${project.tags.join(' ')} ${project.kind ?? ''} ${project.year ?? ''} ${(project.highlights ?? []).join(' ')} ${project.note ?? ''} ${project.status === 'active' ? '持续制作中' : '已归档'}` })),
   ...getInterests(content).map(interest => ({ id: `interest-${interest.id}`, title: interest.title, href: `#interest-${interest.id}`,
     excerpt: interest.description ?? '兴趣图鉴', text: `${interest.title} ${interest.description ?? ''} ${(interest.tags ?? []).join(' ')} ${(interest.favorites ?? []).join(' ')} ${interest.note ?? ''}` })),
   ...getGameProfiles(content).map(profile => ({ id: `game-${profile.id}`, title: profile.label, href: `#game-${profile.id}`,

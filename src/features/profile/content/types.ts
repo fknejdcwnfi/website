@@ -2,6 +2,8 @@
 export type Project = {
   id: string; title: string; subtitle: string; description: string
   tags: string[]; href: string; status: 'active' | 'archived'
+  /** Public, source-verified context; optional fields create no empty controls. */
+  kind?: string; year?: number; highlights?: string[]; note?: string
 }
 export type SocialPlatform = 'wechat' | 'qq' | 'bilibili' | 'douyin' | 'weibo' | 'xiaohongshu' | 'telegram' | 'discord' | 'other'
 export type SocialProfile = {

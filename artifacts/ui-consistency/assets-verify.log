@@ -1,0 +1,5 @@
+
+> vermouth-character-stage@0.1.0 assets:verify
+> python3 scripts/assets/verify_assets.py
+
+asset verification OK: legacy frames, portrait grids, provenance, public files

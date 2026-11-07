@@ -1,0 +1,98 @@
+{
+  "verifiedAt": "2026-11-07T07:00:33.924633+00:00",
+  "baseline": "1bd98611f53449cd33d53ad3d90749709ffee67f",
+  "scope": "Read-only source/font/public-output verification; only this evidence file is written. Browser rendering and deployment are verified separately.",
+  "font": {
+    "path": "public/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "bytes": 701520,
+    "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+    "matchesKnownShippedSha256": true,
+    "originalOtfSha256": "2972782f05d7dd5f8414bc0215f69c181561172286b1f9823b5c279d9e5e6674",
+    "mappedUnicodeCodepoints": 38130,
+    "cmapMatchesOriginalOtf": true,
+    "cffGlyphOutlinesMatchOriginalOtf": true,
+    "coverage": {
+      "scope": "Unique U+4E00–U+9FFF in current src/**/*.ts, src/**/*.tsx and src/**/*.json, added src diff lines, plus ASCII Latin letters and digits. Comments are included; arbitrary future content is outside scope.",
+      "sourceFileCount": 85,
+      "currentSourceCjkCount": 447,
+      "missingCurrentSourceCjk": "",
+      "addedDiffLineCjkCount": 188,
+      "missingAddedDiffLineCjk": "",
+      "newSourceCjkSinceBaselineCount": 60,
+      "newSourceCjkSinceBaseline": "互亮仍体偏全兵击分切则包卒后含响善固型完尊层布帅并应往待快择换显板桌楚概模汉河点独现盘础立章等红绘节补表规读起边阅阶黑鼠",
+      "missingNewSourceCjk": "",
+      "latinAndDigitCount": 62,
+      "missingLatinAndDigits": ""
+    },
+    "method": "FontTools 4.61.1 and installed libbrotlidec parse current WOFF2 and local OTF; no downloads, installations or font edits."
+  },
+  "publicToDist": {
+    "publicFileCount": 90,
+    "missingFromDist": [],
+    "mismatchedBytes": [],
+    "allByteIdentical": true,
+    "publicManifestSha256": "3f0d886efea1d7d39cc6808040c8d9edd13086dee1693c90570df81a5773ae37",
+    "method": "SHA-256 compare every public/ file to the same relative path under current dist/; generated build bundles are outside this copy check."
+  },
+  "immutableCore": {
+    "filesChecked": 81,
+    "groups": [
+      {
+        "path": "assets/source",
+        "baselineFiles": 13,
+        "currentFiles": 13,
+        "missing": [],
+        "changed": [],
+        "extra": [],
+        "byteIdentical": true
+      },
+      {
+        "path": "docs/reference",
+        "baselineFiles": 3,
+        "currentFiles": 3,
+        "missing": [],
+        "changed": [],
+        "extra": [],
+        "byteIdentical": true
+      },
+      {
+        "path": "reference-projects/fuji-wind",
+        "baselineFiles": 25,
+        "currentFiles": 25,
+        "missing": [],
+        "changed": [],
+        "extra": [],
+        "byteIdentical": true
+      },
+      {
+        "path": "src/features/poeticPixel",
+        "baselineFiles": 15,
+        "currentFiles": 15,
+        "missing": [],
+        "changed": [],
+        "extra": [],
+        "byteIdentical": true
+      },
+      {
+        "path": "src/features/referenceScene",
+        "baselineFiles": 19,
+        "currentFiles": 19,
+        "missing": [],
+        "changed": [],
+        "extra": [],
+        "byteIdentical": true
+      },
+      {
+        "path": "public/assets/poetic-pixel",
+        "baselineFiles": 6,
+        "currentFiles": 6,
+        "missing": [],
+        "changed": [],
+        "extra": [],
+        "byteIdentical": true
+      }
+    ],
+    "allByteIdentical": true,
+    "method": "Compare baseline Git blob IDs against current file bytes for every tracked file under each core prefix; also detect missing and extra on-disk files."
+  }
+}
