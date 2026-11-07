@@ -1,0 +1,1436 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "scenic_background_loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_portrait_and_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active_navigation_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sidebar_and_toc_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_portrait_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active_navigation_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sidebar_and_toc_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_portrait_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active_navigation_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sidebar_and_toc_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_portrait_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active_navigation_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sidebar_and_toc_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_portrait_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active_navigation_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sidebar_and_toc_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_portrait_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "active_navigation_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sidebar_and_toc_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "retained_portrait_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "width_320_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          254,
+          254
+        ],
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_320_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          254,
+          254
+        ],
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_320_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          254,
+          254
+        ],
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_320_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "table": [
+          254,
+          254
+        ],
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ],
+          [
+            31,
+            289
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          324,
+          324
+        ],
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          324,
+          324
+        ],
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          324,
+          324
+        ],
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_390_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "table": [
+          324,
+          324
+        ],
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ],
+          [
+            31,
+            359
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          660,
+          660
+        ],
+        "header": [
+          732,
+          732
+        ],
+        "cards": [
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ],
+          [
+            52,
+            716
+          ],
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          660,
+          660
+        ],
+        "header": [
+          732,
+          732
+        ],
+        "cards": [
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ],
+          [
+            52,
+            716
+          ],
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          660,
+          660
+        ],
+        "header": [
+          732,
+          732
+        ],
+        "cards": [
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ],
+          [
+            52,
+            716
+          ],
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_768_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "table": [
+          660,
+          660
+        ],
+        "header": [
+          732,
+          732
+        ],
+        "cards": [
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ],
+          [
+            52,
+            716
+          ],
+          [
+            52,
+            372.5
+          ],
+          [
+            395.5,
+            716
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          828,
+          828
+        ],
+        "header": [
+          1046,
+          1046
+        ],
+        "cards": [
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ],
+          [
+            134,
+            966
+          ],
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          828,
+          828
+        ],
+        "header": [
+          1046,
+          1046
+        ],
+        "cards": [
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ],
+          [
+            134,
+            966
+          ],
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          828,
+          828
+        ],
+        "header": [
+          1046,
+          1046
+        ],
+        "cards": [
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ],
+          [
+            134,
+            966
+          ],
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1100_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "table": [
+          828,
+          828
+        ],
+        "header": [
+          1046,
+          1046
+        ],
+        "cards": [
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ],
+          [
+            134,
+            966
+          ],
+          [
+            134,
+            538.5
+          ],
+          [
+            561.5,
+            966
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          654,
+          654
+        ],
+        "header": [
+          1138,
+          1138
+        ],
+        "cards": [
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ],
+          [
+            234,
+            892
+          ],
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          654,
+          654
+        ],
+        "header": [
+          1138,
+          1138
+        ],
+        "cards": [
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ],
+          [
+            234,
+            892
+          ],
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          654,
+          654
+        ],
+        "header": [
+          1138,
+          1138
+        ],
+        "cards": [
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ],
+          [
+            234,
+            892
+          ],
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1200_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "table": [
+          654,
+          654
+        ],
+        "header": [
+          1138,
+          1138
+        ],
+        "cards": [
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ],
+          [
+            234,
+            892
+          ],
+          [
+            234,
+            551.5
+          ],
+          [
+            574.5,
+            892
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          720,
+          720
+        ],
+        "header": [
+          1336,
+          1336
+        ],
+        "cards": [
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ],
+          [
+            310,
+            1034
+          ],
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          720,
+          720
+        ],
+        "header": [
+          1336,
+          1336
+        ],
+        "cards": [
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ],
+          [
+            310,
+            1034
+          ],
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          720,
+          720
+        ],
+        "header": [
+          1336,
+          1336
+        ],
+        "cards": [
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ],
+          [
+            310,
+            1034
+          ],
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1440_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "table": [
+          720,
+          720
+        ],
+        "header": [
+          1336,
+          1336
+        ],
+        "cards": [
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ],
+          [
+            310,
+            1034
+          ],
+          [
+            310,
+            660.5
+          ],
+          [
+            683.5,
+            1034
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          928,
+          928
+        ],
+        "header": [
+          1568,
+          1568
+        ],
+        "cards": [
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ],
+          [
+            322,
+            1254
+          ],
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          928,
+          928
+        ],
+        "header": [
+          1568,
+          1568
+        ],
+        "cards": [
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ],
+          [
+            322,
+            1254
+          ],
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          928,
+          928
+        ],
+        "header": [
+          1568,
+          1568
+        ],
+        "cards": [
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ],
+          [
+            322,
+            1254
+          ],
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ]
+        ]
+      }
+    },
+    {
+      "name": "width_1672_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "table": [
+          928,
+          928
+        ],
+        "header": [
+          1568,
+          1568
+        ],
+        "cards": [
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ],
+          [
+            322,
+            1254
+          ],
+          [
+            322,
+            776.5
+          ],
+          [
+            799.5,
+            1254
+          ]
+        ]
+      }
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_failed_assets",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_js_same_world",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_js_all_content",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "browserErrors": [],
+  "badResponses": [],
+  "layouts": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "table": [
+        254,
+        254
+      ],
+      "header": [
+        296,
+        296
+      ],
+      "cards": [
+        [
+          31,
+          289
+        ],
+        [
+          31,
+          289
+        ],
+        [
+          31,
+          289
+        ],
+        [
+          31,
+          289
+        ],
+        [
+          31,
+          289
+        ]
+      ]
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "table": [
+        324,
+        324
+      ],
+      "header": [
+        366,
+        366
+      ],
+      "cards": [
+        [
+          31,
+          359
+        ],
+        [
+          31,
+          359
+        ],
+        [
+          31,
+          359
+        ],
+        [
+          31,
+          359
+        ],
+        [
+          31,
+          359
+        ]
+      ]
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "table": [
+        660,
+        660
+      ],
+      "header": [
+        732,
+        732
+      ],
+      "cards": [
+        [
+          52,
+          372.5
+        ],
+        [
+          395.5,
+          716
+        ],
+        [
+          52,
+          716
+        ],
+        [
+          52,
+          372.5
+        ],
+        [
+          395.5,
+          716
+        ]
+      ]
+    },
+    {
+      "width": 1100,
+      "scroll": 1100,
+      "table": [
+        828,
+        828
+      ],
+      "header": [
+        1046,
+        1046
+      ],
+      "cards": [
+        [
+          134,
+          538.5
+        ],
+        [
+          561.5,
+          966
+        ],
+        [
+          134,
+          966
+        ],
+        [
+          134,
+          538.5
+        ],
+        [
+          561.5,
+          966
+        ]
+      ]
+    },
+    {
+      "width": 1200,
+      "scroll": 1200,
+      "table": [
+        654,
+        654
+      ],
+      "header": [
+        1138,
+        1138
+      ],
+      "cards": [
+        [
+          234,
+          551.5
+        ],
+        [
+          574.5,
+          892
+        ],
+        [
+          234,
+          892
+        ],
+        [
+          234,
+          551.5
+        ],
+        [
+          574.5,
+          892
+        ]
+      ]
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "table": [
+        720,
+        720
+      ],
+      "header": [
+        1336,
+        1336
+      ],
+      "cards": [
+        [
+          310,
+          660.5
+        ],
+        [
+          683.5,
+          1034
+        ],
+        [
+          310,
+          1034
+        ],
+        [
+          310,
+          660.5
+        ],
+        [
+          683.5,
+          1034
+        ]
+      ]
+    },
+    {
+      "width": 1672,
+      "scroll": 1672,
+      "table": [
+        928,
+        928
+      ],
+      "header": [
+        1568,
+        1568
+      ],
+      "cards": [
+        [
+          322,
+          776.5
+        ],
+        [
+          799.5,
+          1254
+        ],
+        [
+          322,
+          1254
+        ],
+        [
+          322,
+          776.5
+        ],
+        [
+          799.5,
+          1254
+        ]
+      ]
+    }
+  ]
+}

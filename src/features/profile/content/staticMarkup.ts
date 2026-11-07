@@ -2,6 +2,7 @@ import { getGameProfiles, getInterests, getSiteNavigation, getSocialLinks, getTa
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
+import { renderNavigationIcon } from './navigationIcons.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!)
@@ -24,7 +25,7 @@ const renderInterests = (site: SiteContent, base: string): string => {
     <div class="interest-grid">${interests.map(interest => {
       const cover = resolveProfileAsset(interest.cover, base)
       return `<article class="interest-card" data-category="${interest.category}" id="interest-${escape(interest.id)}" tabindex="-1">
-        ${cover ? `<img class="interest-card__cover" src="${escape(cover)}" width="640" height="360" loading="lazy" decoding="async" alt="${escape(interest.title)}封面">` : ''}
+        ${cover ? `<img class="interest-card__cover" src="${escape(cover)}" width="640" height="360" loading="lazy" decoding="async" alt="${escape(interest.title)}封面">` : `<div class="interest-card__scene" data-interest="${escape(interest.id)}" aria-hidden="true"></div>`}
         <div class="interest-card__heading"><span class="interest-card__icon">${pixelIcon('heart')}</span><div><p class="interest-card__category">${categoryNames[interest.category]}</p><h3>${escape(interest.title)}</h3></div></div>
         ${interest.description ? `<p>${escape(interest.description)}</p>` : ''}
         ${tags(interest.tags, 'interest-card__tags', `${interest.title}标签`)}
@@ -62,7 +63,7 @@ const renderGames = (site: SiteContent, base: string): string => {
     <div class="personal-games">${profiles.map(profile => {
       const cover = resolveProfileAsset(profile.cover, base)
       return `<article class="game-showcase" data-game="${escape(profile.game)}" id="game-${escape(profile.id)}" tabindex="-1">
-        ${cover ? `<img class="game-showcase__cover" src="${escape(cover)}" alt="${escape(profile.label)}封面" width="640" height="360" loading="lazy" decoding="async">` : ''}
+        ${cover ? `<img class="game-showcase__cover" src="${escape(cover)}" alt="${escape(profile.label)}封面" width="640" height="360" loading="lazy" decoding="async">` : '<div class="game-showcase__scene" aria-hidden="true"></div>'}
         <div class="game-showcase__header"><span class="game-showcase__icon">${pixelIcon('gamepad')}</span><div>${profile.tagline ? `<p class="game-showcase__tagline">${escape(profile.tagline)}</p>` : ''}<h3>${escape(profile.label)}</h3></div></div>
         ${profile.description ? `<p>${escape(profile.description)}</p>` : ''}
         ${tags(profile.tags, 'game-showcase__tags', `${profile.label}标签`)}
@@ -92,21 +93,21 @@ const renderSocials = (site: SiteContent, base: string): string => `<section cla
 export const renderStaticSite = (site: SiteContent, base = '/'): string => {
   const navigation = getSiteNavigation(site)
   const contents = getTableOfContents(site)
-  return `<div class="personal-site static-site" id="top">
+  return `<div class="personal-site static-site" id="top" data-active-section="home">
   <a class="skip-link" href="#main-content">跳至主要内容</a>
   <header class="site-header">
     <div class="site-header__bar site-container">
-      <a class="wordmark" href="#home" aria-label="${escape(site.name)}，回到首页"><span class="wordmark__symbol" aria-hidden="true"><span></span></span><span>${escape(site.name)}<small>个人网站</small></span></a>
+      <a class="wordmark" href="#home" aria-label="${escape(site.name)}，回到首页"><span class="wordmark__symbol" aria-hidden="true"><span class="grass-block"></span></span><span>${escape(site.name)}<small>个人网站</small></span></a>
       <div class="site-header__tools"><a class="repository-link" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">${pixelIcon('github')}<span>GitHub 仓库</span></a></div>
     </div>
-    <nav class="site-header__nav site-container" aria-label="主导航">${navigation.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav>
+    <nav class="site-header__nav site-container" aria-label="主导航">${navigation.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav>
   </header>
   <div class="document-layout site-container">
-    <aside class="site-sidebar" aria-label="网站导航"><nav><a class="site-sidebar__home" href="#home">首页</a>${navigation.filter((item) => item.href !== '#home').map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav><span class="site-sidebar__caption">${escape(site.intro)}</span></aside>
+    <aside class="site-sidebar" aria-label="网站导航"><span class="pixel-lantern pixel-lantern--sidebar" aria-hidden="true"></span><nav>${navigation.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="site-sidebar__home is-active" aria-current="location"' : ''}>${renderNavigationIcon(item.href)}<span>${escape(item.label)}</span></a>`).join('')}</nav><span class="site-sidebar__caption"><span class="grass-block" aria-hidden="true"></span>${escape(site.intro)}</span></aside>
     <main class="document-main" id="main-content" tabindex="-1">
       <details class="mobile-contents"><summary>本页目录</summary><nav aria-label="移动端目录">${contents.map((item) => `<a href="${escape(item.href)}">${escape(item.label)}</a>`).join('')}</nav></details>
       <section class="hero static-hero" id="home" aria-labelledby="hero-title" tabindex="-1">
-        <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span aria-hidden="true">👋</span> 欢迎来到我的像素小世界</h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
+        <div class="hero__copy"><p class="eyebrow">${escape(site.intro)}</p><h1 id="hero-title"><span class="hero__wave" aria-hidden="true">👋</span> 欢迎来到我的<strong class="hero__highlight">像素小世界</strong></h1><p class="hero__intro">你好，我是 <strong>${escape(site.name)}</strong>。${escape(site.tagline)}</p></div>
         <figure class="hero__visual hero__visual--reference">
           <div class="reference-scene-static"><div class="reference-scene__space"><div class="reference-scene__viewport">
             <img class="reference-scene__poster" src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" width="${poeticPixelAssets.canonicalWidth}" height="${poeticPixelAssets.canonicalHeight}" fetchpriority="high" alt="Vermouth的高清像素圆形肖像，保留樱花、富士山与夕阳">
@@ -124,7 +125,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
         ${heading('work-title', '🧩', '作品与实验')}
         <div class="personal-work"><div class="personal-work__intro"><p>做过的，与正在做的。</p><a class="personal-text-link" href="${escape(`${site.github}?tab=repositories`)}" target="_blank" rel="noopener noreferrer">所有公开项目 ${arrow}</a></div>
           <div class="project-table-wrap"><table class="project-table"><caption class="visually-hidden">公开项目</caption><thead><tr><th scope="col">项目</th><th scope="col">状态</th><th scope="col">说明</th></tr></thead><tbody>${site.projects.map((project) => `<tr class="personal-project" id="project-${escape(project.id)}" tabindex="-1">
-            <td><a class="personal-project__link" href="${escape(project.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`)}"><span class="personal-project__heading">${escape(project.title)} ${arrow}</span></a><span class="personal-project__subtitle">${escape(project.subtitle)}</span></td>
+            <td><div class="personal-project__identity"><span class="personal-project__thumbnail personal-project__thumbnail--${escape(project.id)}" aria-hidden="true">${project.id === 'living-portrait' ? `<img src="${escape(`${base}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`)}" alt="" width="64" height="64" loading="lazy" decoding="async">` : pixelIcon('chess')}</span><div><a class="personal-project__link" href="${escape(project.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`)}"><span class="personal-project__heading">${escape(project.title)} ${arrow}</span></a><span class="personal-project__subtitle">${escape(project.subtitle)}</span></div></div></td>
             <td><span class="personal-project__status personal-project__status--${project.status === 'active' ? 'active' : 'archived'}"><span aria-hidden="true"></span>${project.status === 'active' ? '持续制作中' : '已归档'}</span></td>
             <td><p class="personal-project__description">${escape(project.description)}</p><ul class="personal-project__tags" aria-label="项目技术">${project.tags.map((tag) => `<li>${escape(tag)}</li>`).join('')}</ul></td>
           </tr>`).join('')}</tbody></table></div>
@@ -135,7 +136,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
       ${renderGames(site, base)}
       ${renderSocials(site, base)}
     </main>
-    <aside class="site-toc" aria-labelledby="toc-title"><h2 id="toc-title">目录</h2><nav aria-label="本页目录">${contents.map((item) => `<a href="${escape(item.href)}"><span aria-hidden="true">${item.symbol}</span>${escape(item.label)}</a>`).join('')}</nav><a class="site-toc__source" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">查看本站源码 ${arrow}</a></aside>
+    <aside class="site-toc" aria-labelledby="toc-title"><span class="pixel-lantern pixel-lantern--toc" aria-hidden="true"></span><h2 id="toc-title"><span aria-hidden="true">📖</span> 目录</h2><nav aria-label="本页目录">${contents.map((item) => `<a href="${escape(item.href)}"${item.href === '#home' ? ' class="is-active" aria-current="location"' : ''}><span aria-hidden="true">${item.symbol}</span><span>${escape(item.label)}</span></a>`).join('')}</nav><a class="site-toc__source" href="${escape(`${site.github}/website`)}" target="_blank" rel="noopener noreferrer">查看本站源码 ${arrow}</a></aside>
   </div>
   <footer class="site-footer site-container"><p>© ${new Date().getFullYear()} ${escape(site.fullName)}<span class="site-footer__note">一格一格，慢慢建造。</span></p><a href="#top">回到顶端 ↑</a><a href="${escape(site.github)}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></footer>
 </div>`

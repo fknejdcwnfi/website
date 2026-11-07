@@ -1,6 +1,7 @@
 import { site } from '../content/site'
 import { GameSection, InterestSection, SocialSection } from './ProfileModules'
 import PixelIcon from './PixelIcon'
+import { poeticPixelAssets } from '../../poeticPixel/assets'
 
 const Arrow = () => <PixelIcon name="arrow-up-right" />
 
@@ -24,7 +25,7 @@ export default function PersonalSections() {
               <caption className="visually-hidden">公开项目</caption>
               <thead><tr><th scope="col">项目</th><th scope="col">状态</th><th scope="col">说明</th></tr></thead>
               <tbody>{site.projects.map((project) => <tr className="personal-project" id={`project-${project.id}`} tabIndex={-1} key={project.id}>
-                <td><a className="personal-project__link" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`}><span className="personal-project__heading">{project.title} <Arrow /></span></a><span className="personal-project__subtitle">{project.subtitle}</span></td>
+                <td><div className="personal-project__identity"><span className={`personal-project__thumbnail personal-project__thumbnail--${project.id}`} aria-hidden="true">{project.id === 'living-portrait' ? <img src={`${import.meta.env.BASE_URL}assets/poetic-pixel/canonical.png?v=${poeticPixelAssets.canonicalSha256}`} alt="" width="64" height="64" loading="lazy" decoding="async" /> : <PixelIcon name="chess" />}</span><div><a className="personal-project__link" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} — ${project.subtitle}，打开项目（在新标签页打开）`}><span className="personal-project__heading">{project.title} <Arrow /></span></a><span className="personal-project__subtitle">{project.subtitle}</span></div></div></td>
                 <td><span className={`personal-project__status personal-project__status--${project.status}`}><span aria-hidden="true" />{project.status === 'active' ? '持续制作中' : '已归档'}</span></td>
                 <td><p className="personal-project__description">{project.description}</p><ul className="personal-project__tags" aria-label="项目技术">{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul></td>
               </tr>)}</tbody>

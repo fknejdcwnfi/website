@@ -17,7 +17,7 @@ export function InterestSection({ content, base = import.meta.env.BASE_URL }: Mo
     <div className="interest-grid">{interests.map(interest => {
       const cover = resolveProfileAsset(interest.cover, base)
       return <article className="interest-card" data-category={interest.category} id={`interest-${interest.id}`} tabIndex={-1} key={interest.id}>
-        {cover ? <img className="interest-card__cover" src={cover} width="640" height="360" loading="lazy" decoding="async" alt={`${interest.title}封面`} /> : null}
+        {cover ? <img className="interest-card__cover" src={cover} width="640" height="360" loading="lazy" decoding="async" alt={`${interest.title}封面`} /> : <div className="interest-card__scene" data-interest={interest.id} aria-hidden="true" />}
         <div className="interest-card__heading"><span className="interest-card__icon"><PixelIcon name="heart" /></span><div><p className="interest-card__category">{categoryNames[interest.category]}</p><h3>{interest.title}</h3></div></div>
         {interest.description ? <p>{interest.description}</p> : null}
         {interest.tags?.length ? <ul className="interest-card__tags" aria-label={`${interest.title}标签`}>{interest.tags.map(tag => <li key={tag}>{tag}</li>)}</ul> : null}
@@ -54,7 +54,7 @@ export function GameSection({ content, base = import.meta.env.BASE_URL }: Module
       const cover = resolveProfileAsset(profile.cover, base)
       const hasDetails = profile.playerName || profile.playerId || profile.region
       return <article className="game-showcase" data-game={profile.game} id={`game-${profile.id}`} tabIndex={-1} key={profile.id}>
-        {cover ? <img className="game-showcase__cover" src={cover} alt={`${profile.label}封面`} width="640" height="360" loading="lazy" decoding="async" /> : null}
+        {cover ? <img className="game-showcase__cover" src={cover} alt={`${profile.label}封面`} width="640" height="360" loading="lazy" decoding="async" /> : <div className="game-showcase__scene" aria-hidden="true" />}
         <div className="game-showcase__header"><span className="game-showcase__icon"><PixelIcon name="gamepad" /></span><div>{profile.tagline ? <p className="game-showcase__tagline">{profile.tagline}</p> : null}<h3>{profile.label}</h3></div></div>
         {profile.description ? <p>{profile.description}</p> : null}
         {profile.tags?.length ? <ul className="game-showcase__tags" aria-label={`${profile.label}标签`}>{profile.tags.map(tag => <li key={tag}>{tag}</li>)}</ul> : null}
