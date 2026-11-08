@@ -41,19 +41,22 @@
   </head>
   <body>
     <div id="root"><!--site-fallback--></div>
-    <script>
+    <script id="site-parser-bootstrap">
       (function () {
         var video = document.getElementById('vermouth-poetic-bootstrap');
         if (!video) return;
         var group = document.getElementById('vermouth-poetic-entry');
-        var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var preference = { matches: true };
+        try { preference = window.matchMedia('(prefers-reduced-motion: reduce)') || preference; } catch (_) {}
         var params = new URLSearchParams(window.location.search);
         var fixed = params.get('t');
         var inspect = fixed !== null && fixed.trim() !== '' && Number.isFinite(Number(fixed));
         var archived = params.get('view') === 'portrait' || ['legacy', 'voxel'].includes(params.get('style'));
         var inViewport = true;
-        function ready() { video.dataset.ready = 'true'; }
+        var disposed = false;
+        function ready() { if (!disposed) video.dataset.ready = 'true'; }
         function sync() {
+          if (disposed) return;
           var enabled = false;
           try { enabled = localStorage.getItem('vermouth-motion-enabled') === 'true'; } catch (_) {}
           var allowed = !inspect && !archived && params.get('motion') !== 'original' && (!preference.matches || enabled);
@@ -69,26 +72,52 @@
             }
             video.muted = true;
             if (video.getAttribute('src') !== video.dataset.src) video.src = video.dataset.src;
-            video.play().catch(function () {});
+            try {
+              var playing = video.play();
+              if (playing && playing.catch) playing.catch(function () {});
+            } catch (_) {}
           } else {
             video.pause();
             if (group) group.dataset.motion = 'paused';
           }
         }
-        var observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(function (entries) {
-          inViewport = entries[0] ? entries[0].isIntersecting : true;
-          sync();
-        });
-        if (observer) observer.observe(video.parentElement);
+        var observer = null;
+        try {
+          if (typeof IntersectionObserver !== 'undefined') {
+            observer = new IntersectionObserver(function (entries) {
+              inViewport = entries[0] ? entries[0].isIntersecting : true;
+              sync();
+            });
+            observer.observe(video.parentElement);
+          }
+        } catch (_) {
+          try { if (observer) observer.disconnect(); } catch (_) {}
+          observer = null;
+        }
+        var unlistenPreference = function () {};
+        var preferenceListening = false;
+        try {
+          if (typeof preference.addEventListener === 'function') {
+            preference.addEventListener('change', sync);
+            preferenceListening = true;
+            unlistenPreference = function () { try { preference.removeEventListener('change', sync); } catch (_) {} };
+          }
+        } catch (_) { try { preference.removeEventListener('change', sync); } catch (_) {} }
+        try {
+          if (!preferenceListening && typeof preference.addListener === 'function') {
+            preference.addListener(sync);
+            unlistenPreference = function () { try { preference.removeListener(sync); } catch (_) {} };
+          }
+        } catch (_) { try { preference.removeListener(sync); } catch (_) {} }
         video.addEventListener('loadeddata', ready);
-        preference.addEventListener('change', sync);
         document.addEventListener('visibilitychange', sync);
         window.__vermouthPoeticVideo = video;
         window.__vermouthPoeticEntry = group;
         window.__vermouthPoeticCleanup = function () {
-          if (observer) observer.disconnect();
+          disposed = true;
+          try { if (observer) observer.disconnect(); } catch (_) {}
           video.removeEventListener('loadeddata', ready);
-          preference.removeEventListener('change', sync);
+          unlistenPreference();
           document.removeEventListener('visibilitychange', sync);
         };
         sync();
@@ -96,11 +125,12 @@
     </script>
     <p id="site-startup-status" class="site-startup-status" role="status" hidden>
       页面加载较慢，你仍可浏览内容与场景预览。
-      <button type="button" onclick="window.location.reload()">重新加载</button>
+      <button type="button" id="site-startup-reload">重新加载</button>
     </p>
     <noscript><p class="site-startup-status">浏览器未启用 JavaScript，目前显示静态网站与肖像。</p></noscript>
-    <script>
+    <script id="site-startup-watchdog">
       (function () {
+        document.getElementById('site-startup-reload').addEventListener('click', function () { window.location.reload(); });
         var timer = window.setTimeout(function () {
           if (document.documentElement.getAttribute('data-site-module') !== 'ready') {
             document.getElementById('site-startup-status').hidden = false;

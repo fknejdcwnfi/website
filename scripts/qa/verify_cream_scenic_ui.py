@@ -72,11 +72,11 @@ def scenic_chrome(page, label, *, browser_images=True):
       const world=document.querySelector('.personal-site'),header=getComputedStyle(document.querySelector('.site-header'));
       const rgb=s=>(s.match(/[\d.]+/g)||[]).slice(0,3).map(Number);
       const tiles=[
-        ['naruto','.interest-card__scene[data-interest="naruto"]','naruto.png'],
-        ['conan','.interest-card__scene[data-interest="detective-conan"]','conan.png'],
-        ['game','.game-showcase__scene','game-realm.png'],
-        ['github','.social-card[data-platform="github"]','social-github.png'],
-        ['email','.social-card[data-platform="email"]','social-mail.png']
+        ['naruto','.interest-card__scene[data-interest="naruto"]','naruto.webp'],
+        ['conan','.interest-card__scene[data-interest="detective-conan"]','conan.webp'],
+        ['game','.game-showcase__scene','game-realm.webp'],
+        ['github','.social-card[data-platform="github"]','social-github.webp'],
+        ['email','.social-card[data-platform="email"]','social-mail.webp']
       ].map(([name,selector,file])=>{const e=document.querySelector(selector);return {name,file,visible:!!e&&visible(e),image:e?images(e):''}});
       const panels=[...document.querySelectorAll('#about,#work,.site-sidebar,.site-toc,.interest-card,.game-showcase,.social-card')]
         .filter(visible).map(e=>({class:e.className,id:e.id,radius:parseFloat(getComputedStyle(e).borderTopLeftRadius),background:getComputedStyle(e).backgroundColor}));
@@ -89,7 +89,7 @@ def scenic_chrome(page, label, *, browser_images=True):
         urls:[...images(world).matchAll(/url\(["']?(.*?)["']?\)/g)].map(m=>m[1])
           .concat(tiles.flatMap(t=>[...t.image.matchAll(/url\(["']?(.*?)["']?\)/g)].map(m=>m[1])))};
     }''')
-    check(label + '_twilight_background_declared', 'twilight-world.png' in info['worldImage'], info['worldImage'])
+    check(label + '_twilight_background_declared', 'twilight-world.webp' in info['worldImage'], info['worldImage'])
     check(label + '_blue_header', len(info['header']) == 3 and info['header'][2] > info['header'][0], info['header'])
     check(label + '_image_cards_visible', all(t['visible'] and t['file'] in t['image'] for t in info['tiles']), info['tiles'])
     check(label + '_reference_rounded_panels', bool(info['panels']) and all(p['radius'] > 0 for p in info['panels']), info['panels'])
@@ -127,10 +127,10 @@ def scenic_chrome(page, label, *, browser_images=True):
                 response = page.context.request.get(src, timeout=10000, max_redirects=0)
                 asset['status'] = response.status
                 if response.status == 200:
-                    with Image.open(BytesIO(response.body())) as png:
-                        asset.update(format=png.format, width=png.width, height=png.height)
-                        png.verify()
-                    asset['verified'] = (asset['format'] == 'PNG' and
+                    with Image.open(BytesIO(response.body())) as image:
+                        asset.update(format=image.format, width=image.width, height=image.height)
+                        image.verify()
+                    asset['verified'] = (asset['format'] == 'WEBP' and
                                          asset['width'] > 0 and asset['height'] > 0)
                 response.dispose()
             except Exception as error:
@@ -169,17 +169,17 @@ def active_navigation(page, prefix, label):
     # remains, and clicking that same hash again must still work.
     page.locator(f'{prefix} a[href="#games"]').click()
     page.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
-    page.wait_for_function('document.querySelector(".personal-site").dataset.activeSection==="games"')
+    page.wait_for_function('() => (document.querySelector(".personal-site").dataset.activeSection==="games")')
     page.evaluate('scrollTo(0,0)')
-    page.wait_for_function('document.querySelector(".personal-site").dataset.activeSection==="home"')
+    page.wait_for_function('() => (document.querySelector(".personal-site").dataset.activeSection==="home")')
     check(label + '_manual_scroll_releases_anchor_choice',
           page.url.endswith('#games') and page.evaluate('scrollY===0'))
     page.locator(f'{prefix} a[href="#games"]').click()
     page.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
-    page.wait_for_function('document.querySelector(".personal-site").dataset.activeSection==="games"&&scrollY>0')
+    page.wait_for_function('() => (document.querySelector(".personal-site").dataset.activeSection==="games"&&scrollY>0)')
     check(label + '_same_hash_can_navigate_again', page.url.endswith('#games'))
     page.locator(f'{prefix} a[href="#home"]').click()
-    page.wait_for_function('document.querySelector(".personal-site").dataset.activeSection==="home"')
+    page.wait_for_function('() => (document.querySelector(".personal-site").dataset.activeSection==="home")')
     check(label + '_same_nodes_after_same_hash_and_manual_scroll', page.evaluate('''() =>
       window.__qaCanvas===document.querySelector('.reference-scene__canvas') &&
       window.__qaVideo===document.getElementById('vermouth-poetic-bootstrap')'''))
@@ -232,7 +232,7 @@ try:
         result = page.locator('#site-search-results a[href="#interest-detective-conan"]')
         result.wait_for()
         result.click()
-        page.wait_for_function('document.activeElement.id==="interest-detective-conan"')
+        page.wait_for_function('() => (document.activeElement.id==="interest-detective-conan")')
         check('search_preserves_target_focus', True)
         page.locator('#site-search').fill('no-matching-pixel-ui-314159')
         check('search_empty_feedback', page.locator('.site-search__empty').is_visible())
@@ -288,7 +288,7 @@ try:
         last_link = page.locator('.site-sidebar nav a[href="#contact"]')
         last_link.click()
         page.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
-        page.wait_for_function('document.querySelector(".personal-site").dataset.activeSection==="contact"')
+        page.wait_for_function('() => (document.querySelector(".personal-site").dataset.activeSection==="contact")')
         rail = last_link.evaluate('''e=>{
           const r=e.getBoundingClientRect(),rail=e.closest('.site-sidebar').getBoundingClientRect();
           return {top:r.top,bottom:r.bottom,railTop:rail.top,railBottom:rail.bottom,height:innerHeight,

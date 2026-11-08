@@ -4,6 +4,7 @@ import { useSceneViewport } from './useSceneViewport'
 import type { SceneDefinition, ScenePlayerState, SceneRendererFactory } from './types'
 import { attachPoeticBootstrap, detachPoeticBootstrap, pausePoeticBootstrap, playPoeticBootstrap, releasePoeticBootstrap, type ScenePreview } from '../poeticPixel/bootstrap'
 import { useSceneResolution } from '../poeticPixel/presentation/useSceneResolution'
+import { getMediaQuery, listenMediaQuery, observeIntersection } from './browserSignals'
 
 type Props = {
   definition: SceneDefinition
@@ -32,7 +33,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
   const previewVideo = useRef<HTMLVideoElement | null>(null)
   const handoffDone = useRef(false)
   const [state, setState] = useState<ScenePlayerState>({ playback: 'loading', painted: false, reduced: false })
-  const [systemReduced, setSystemReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [systemReduced, setSystemReduced] = useState(() => getMediaQuery('(prefers-reduced-motion: reduce)')?.matches ?? true)
   const [motionEnabled, setMotionEnabled] = useState(readMotionChoice)
   const motionChoice = useRef(motionEnabled)
   motionChoice.current = motionEnabled
@@ -64,25 +65,23 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
         if (!showPreview) releasePoeticBootstrap(video, handoffDone.current && timeMs === null && (!systemReduced || motionEnabled))
       }
     }
-    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
+    const stopObserving = observeIntersection(host, ([entry]) => {
       inViewport = entry?.isIntersecting ?? true
       sync()
     })
-    observer?.observe(host)
     document.addEventListener('visibilitychange', sync)
     sync()
     return () => {
-      observer?.disconnect()
+      stopObserving()
       document.removeEventListener('visibilitychange', sync)
       pausePoeticBootstrap(video)
     }
   }, [preview, showPreview, timeMs, systemReduced, motionEnabled])
 
   useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const change = (): void => setSystemReduced(query.matches)
-    query.addEventListener('change', change)
-    return () => query.removeEventListener('change', change)
+    const query = getMediaQuery('(prefers-reduced-motion: reduce)')
+    const change = (): void => setSystemReduced(query?.matches ?? true)
+    return listenMediaQuery(query, change)
   }, [])
 
   useEffect(() => {
@@ -141,14 +140,13 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
       }
     }
     player.current = instance
-    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
+    const stopObserving = observeIntersection(canvas.current, ([entry]) => {
       instance.setViewportVisible(entry?.isIntersecting ?? true)
     })
-    observer?.observe(canvas.current)
     window.addEventListener('online', online)
     return () => {
       disposed = true
-      observer?.disconnect()
+      stopObserving()
       window.clearTimeout(slowTimer)
       window.clearTimeout(retryTimer)
       window.removeEventListener('online', online)

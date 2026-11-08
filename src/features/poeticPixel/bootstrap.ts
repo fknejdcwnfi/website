@@ -68,8 +68,9 @@ const restoreEntryPhase = (group: HTMLDivElement): void => {
 }
 
 const clearParserListeners = (): void => {
-  window.__vermouthPoeticCleanup?.()
+  const cleanup = window.__vermouthPoeticCleanup
   window.__vermouthPoeticCleanup = undefined
+  try { cleanup?.() } catch { /* A failed optional parser listener cannot block media cleanup. */ }
 }
 
 /** Detach the same playing node before React replaces the initial document. */
@@ -167,5 +168,24 @@ export const releasePoeticBootstrap = (video: HTMLVideoElement, fadeWeather = fa
   } else if (!fadeWeather || group.dataset.weather !== 'fading') {
     group.dataset.weather = 'hidden'
     group.dataset.motion = 'paused'
+  }
+}
+
+/** A render failure will not reattach the retained node; release its decoder too. */
+export const discardPoeticBootstrap = (): void => {
+  clearParserListeners()
+  const video = window.__vermouthPoeticVideo
+  const group = window.__vermouthPoeticEntry
+  try {
+    if (video) {
+      try { releasePoeticBootstrap(video) } catch { /* Keep the static error fallback available. */ }
+      video.onloadeddata = null
+      video.remove()
+    }
+    group?.remove()
+  } finally {
+    window.__vermouthPoeticVideo = undefined
+    window.__vermouthPoeticEntry = undefined
+    window.__vermouthPoeticEntryPhase = undefined
   }
 }

@@ -1,0 +1,714 @@
+{
+  "verifiedAt": "2026-11-08T01:15:57.727832+00:00",
+  "status": "passed",
+  "base": "/website/",
+  "productionUrl": "http://127.0.0.1:5182/website/",
+  "buildOutput": "/workspace/work/audit-20261108/pages-dist",
+  "checks": [
+    {
+      "name": "production_http_200",
+      "passed": true,
+      "detail": 200
+    },
+    {
+      "name": "production_scene_ready",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "recorded_actual_scene_nodes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "production_meta_csp_has_hashed_scripts",
+      "passed": true,
+      "detail": "default-src 'none'; script-src 'self' 'sha256-3oai00CzAb6mhzesEtgIZ40FJSLTJ9cBmcHWxwTouqA=' 'sha256-0VLc15PmnVmaP7jNdK9sKsLR3oWQ6Ulgot5pJsH+R1g='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    },
+    {
+      "name": "production_startup_ready_under_csp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_csp_violations_zero_initial",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "actual_fusion_pixel_font_loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "font_requested_from_pages_base",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_input_uses_pixel_font",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_six_webps_decode_at_pages_base",
+      "passed": true,
+      "detail": [
+        {
+          "name": "twilight-world",
+          "url": "http://127.0.0.1:5182/website/assets/pixel-ui/twilight-world.webp",
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "name": "naruto",
+          "url": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+          "width": 1774,
+          "height": 887
+        },
+        {
+          "name": "conan",
+          "url": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "name": "game-realm",
+          "url": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "name": "social-github",
+          "url": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "name": "social-mail",
+          "url": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+          "width": 2172,
+          "height": 724
+        }
+      ]
+    },
+    {
+      "name": "actual_background_css_uses_pages_webp_base",
+      "passed": true,
+      "detail": [
+        "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/twilight-world.webp\")",
+        "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp\")",
+        "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp\")",
+        "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp\")",
+        "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp\")",
+        "url(\"http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp\")"
+      ]
+    },
+    {
+      "name": "two_real_project_rows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "living-portrait_single_safe_source_link",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "living-portrait_native_keyboard_details_open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xiangqi-review_single_safe_source_link",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "xiangqi-review_native_keyboard_details_open",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "project_overview_derived_two_one_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_details_preserve_scene_nodes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_project_search_enters_actual_work_target",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_and_navigation_preserve_scene_nodes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "320x844_page_table_within_bounds",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "height": 844,
+        "documentScrollWidth": 320,
+        "panel": {
+          "left": 12,
+          "right": 308,
+          "top": 101,
+          "bottom": 544.984375,
+          "height": 443.984375
+        },
+        "list": {
+          "client": 360,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 506.59375,
+          "bottom": 543.984375
+        },
+        "table": {
+          "scroll": 266,
+          "client": 266
+        }
+      }
+    },
+    {
+      "name": "320x844_search_panel_footer_within_viewport",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "height": 844,
+        "documentScrollWidth": 320,
+        "panel": {
+          "left": 12,
+          "right": 308,
+          "top": 101,
+          "bottom": 544.984375,
+          "height": 443.984375
+        },
+        "list": {
+          "client": 360,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 506.59375,
+          "bottom": 543.984375
+        },
+        "table": {
+          "scroll": 266,
+          "client": 266
+        }
+      }
+    },
+    {
+      "name": "320x844_last_keyboard_result_reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "320x844_escape_returns_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "320x844_scene_nodes_stable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "390x844_page_table_within_bounds",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "height": 844,
+        "documentScrollWidth": 390,
+        "panel": {
+          "left": 12,
+          "right": 378,
+          "top": 101,
+          "bottom": 544.984375,
+          "height": 443.984375
+        },
+        "list": {
+          "client": 360,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 506.59375,
+          "bottom": 543.984375
+        },
+        "table": {
+          "scroll": 336,
+          "client": 336
+        }
+      }
+    },
+    {
+      "name": "390x844_search_panel_footer_within_viewport",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "height": 844,
+        "documentScrollWidth": 390,
+        "panel": {
+          "left": 12,
+          "right": 378,
+          "top": 101,
+          "bottom": 544.984375,
+          "height": 443.984375
+        },
+        "list": {
+          "client": 360,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 506.59375,
+          "bottom": 543.984375
+        },
+        "table": {
+          "scroll": 336,
+          "client": 336
+        }
+      }
+    },
+    {
+      "name": "390x844_last_keyboard_result_reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "390x844_escape_returns_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "390x844_scene_nodes_stable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "320x480_page_table_within_bounds",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "height": 480,
+        "documentScrollWidth": 320,
+        "panel": {
+          "left": 12,
+          "right": 308,
+          "top": 101,
+          "bottom": 434.578125,
+          "height": 333.578125
+        },
+        "list": {
+          "client": 250,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 396.1875,
+          "bottom": 433.578125
+        },
+        "table": {
+          "scroll": 266,
+          "client": 266
+        }
+      }
+    },
+    {
+      "name": "320x480_search_panel_footer_within_viewport",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "height": 480,
+        "documentScrollWidth": 320,
+        "panel": {
+          "left": 12,
+          "right": 308,
+          "top": 101,
+          "bottom": 434.578125,
+          "height": 333.578125
+        },
+        "list": {
+          "client": 250,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 396.1875,
+          "bottom": 433.578125
+        },
+        "table": {
+          "scroll": 266,
+          "client": 266
+        }
+      }
+    },
+    {
+      "name": "320x480_last_keyboard_result_reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "320x480_escape_returns_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "320x480_scene_nodes_stable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "390x480_page_table_within_bounds",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "height": 480,
+        "documentScrollWidth": 390,
+        "panel": {
+          "left": 12,
+          "right": 378,
+          "top": 101,
+          "bottom": 434.578125,
+          "height": 333.578125
+        },
+        "list": {
+          "client": 250,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 396.1875,
+          "bottom": 433.578125
+        },
+        "table": {
+          "scroll": 336,
+          "client": 336
+        }
+      }
+    },
+    {
+      "name": "390x480_search_panel_footer_within_viewport",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "height": 480,
+        "documentScrollWidth": 390,
+        "panel": {
+          "left": 12,
+          "right": 378,
+          "top": 101,
+          "bottom": 434.578125,
+          "height": 333.578125
+        },
+        "list": {
+          "client": 250,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 396.1875,
+          "bottom": 433.578125
+        },
+        "table": {
+          "scroll": 336,
+          "client": 336
+        }
+      }
+    },
+    {
+      "name": "390x480_last_keyboard_result_reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "390x480_escape_returns_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "390x480_scene_nodes_stable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "1440x560_page_table_within_bounds",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "height": 560,
+        "documentScrollWidth": 1440,
+        "panel": {
+          "left": 843,
+          "right": 1251,
+          "top": 58,
+          "bottom": 433.171875,
+          "height": 375.171875
+        },
+        "list": {
+          "client": 291,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 394.78125,
+          "bottom": 432.171875
+        },
+        "table": {
+          "scroll": 790,
+          "client": 790
+        }
+      }
+    },
+    {
+      "name": "1440x560_search_panel_footer_within_viewport",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "height": 560,
+        "documentScrollWidth": 1440,
+        "panel": {
+          "left": 843,
+          "right": 1251,
+          "top": 58,
+          "bottom": 433.171875,
+          "height": 375.171875
+        },
+        "list": {
+          "client": 291,
+          "scroll": 662
+        },
+        "footer": {
+          "top": 394.78125,
+          "bottom": 432.171875
+        },
+        "table": {
+          "scroll": 790,
+          "client": 790
+        }
+      }
+    },
+    {
+      "name": "1440x560_last_keyboard_result_reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "1440x560_escape_returns_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "1440x560_scene_nodes_stable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_csp_violations_zero_after_interactions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "normal_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "all_runtime_requests_use_pages_base",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5182/website/",
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5182/website/assets/index-DwtMxTYs.js",
+        "http://127.0.0.1:5182/website/assets/index-CK2M_xMs.css",
+        "http://127.0.0.1:5182/website/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5182/website/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5182/website/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5182/website/favicon.svg",
+        "http://127.0.0.1:5182/website/favicon.svg",
+        "http://127.0.0.1:5182/website/favicon.svg",
+        "http://127.0.0.1:5182/website/favicon.svg"
+      ]
+    },
+    {
+      "name": "nojs_pages_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_complete_two_real_native_project_details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_project_native_detail_opens",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "errors": [],
+  "failedResponses": [],
+  "layouts": [
+    {
+      "width": 320,
+      "height": 844,
+      "documentScrollWidth": 320,
+      "panel": {
+        "left": 12,
+        "right": 308,
+        "top": 101,
+        "bottom": 544.984375,
+        "height": 443.984375
+      },
+      "list": {
+        "client": 360,
+        "scroll": 662
+      },
+      "footer": {
+        "top": 506.59375,
+        "bottom": 543.984375
+      },
+      "table": {
+        "scroll": 266,
+        "client": 266
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentScrollWidth": 390,
+      "panel": {
+        "left": 12,
+        "right": 378,
+        "top": 101,
+        "bottom": 544.984375,
+        "height": 443.984375
+      },
+      "list": {
+        "client": 360,
+        "scroll": 662
+      },
+      "footer": {
+        "top": 506.59375,
+        "bottom": 543.984375
+      },
+      "table": {
+        "scroll": 336,
+        "client": 336
+      }
+    },
+    {
+      "width": 320,
+      "height": 480,
+      "documentScrollWidth": 320,
+      "panel": {
+        "left": 12,
+        "right": 308,
+        "top": 101,
+        "bottom": 434.578125,
+        "height": 333.578125
+      },
+      "list": {
+        "client": 250,
+        "scroll": 662
+      },
+      "footer": {
+        "top": 396.1875,
+        "bottom": 433.578125
+      },
+      "table": {
+        "scroll": 266,
+        "client": 266
+      }
+    },
+    {
+      "width": 390,
+      "height": 480,
+      "documentScrollWidth": 390,
+      "panel": {
+        "left": 12,
+        "right": 378,
+        "top": 101,
+        "bottom": 434.578125,
+        "height": 333.578125
+      },
+      "list": {
+        "client": 250,
+        "scroll": 662
+      },
+      "footer": {
+        "top": 396.1875,
+        "bottom": 433.578125
+      },
+      "table": {
+        "scroll": 336,
+        "client": 336
+      }
+    },
+    {
+      "width": 1440,
+      "height": 560,
+      "documentScrollWidth": 1440,
+      "panel": {
+        "left": 843,
+        "right": 1251,
+        "top": 58,
+        "bottom": 433.171875,
+        "height": 375.171875
+      },
+      "list": {
+        "client": 291,
+        "scroll": 662
+      },
+      "footer": {
+        "top": 394.78125,
+        "bottom": 432.171875
+      },
+      "table": {
+        "scroll": 790,
+        "client": 790
+      }
+    }
+  ],
+  "requests": [
+    "http://127.0.0.1:5182/website/",
+    "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+    "http://127.0.0.1:5182/website/assets/index-DwtMxTYs.js",
+    "http://127.0.0.1:5182/website/assets/index-CK2M_xMs.css",
+    "http://127.0.0.1:5182/website/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5182/website/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/grass-edge.svg",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/lantern.svg",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+    "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+    "http://127.0.0.1:5182/website/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5182/website/favicon.svg",
+    "http://127.0.0.1:5182/website/favicon.svg",
+    "http://127.0.0.1:5182/website/favicon.svg",
+    "http://127.0.0.1:5182/website/favicon.svg"
+  ],
+  "limitations": "Local Chromium functional verification of an independent production build; not a public deployment or physical-device performance measurement.",
+  "totalChecks": 51,
+  "passedChecks": 51,
+  "indexHtmlSha256": "6414d2bc546d2712f09eb72bdfb25308e63f9ad776fa7ac92caf10a62ef71853",
+  "ownPreviewServerStopped": true,
+  "toolingNote": "CSP intentionally blocks unsafe evaluation; final Playwright wait predicates use explicit function forms. The final run passed without bypassing CSP."
+}

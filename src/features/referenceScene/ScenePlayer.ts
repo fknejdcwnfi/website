@@ -1,11 +1,13 @@
 import { loadSceneAssets } from './loadScene'
 import { sampleScene } from './sceneTimeline'
+import { getMediaQuery, listenMediaQuery } from './browserSignals'
 import type { SceneAssets, SceneDefinition, ScenePlayback, ScenePlayerOptions, SceneRenderer, SceneRendererFactory } from './types'
 
 /** A new full-frame player's only shared state is the browser motion preference. */
 export class ScenePlayer {
   private readonly context: CanvasRenderingContext2D
-  private readonly motion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  private readonly motion = getMediaQuery('(prefers-reduced-motion: reduce)')
+  private stopMotion = (): void => {}
   private readonly lifetime = new AbortController()
   private assets: SceneAssets | null = null
   private renderer: SceneRenderer | null = null
@@ -45,7 +47,7 @@ export class ScenePlayer {
     canvas.dataset.ready = 'false'
     canvas.dataset.painted = 'false'
     canvas.dataset.renderer = 'reference-scene'
-    this.motion.addEventListener('change', this.preference)
+    this.stopMotion = listenMediaQuery(this.motion, this.preference)
     document.addEventListener('visibilitychange', this.visibility)
     this.publish('loading')
     this.loadingTimer = window.setTimeout(() => this.fail(), 12_000)
@@ -57,7 +59,7 @@ export class ScenePlayer {
     }).catch(() => this.fail())
   }
 
-  private reducesMotion(): boolean { return this.motion.matches && !this.motionEnabled }
+  private reducesMotion(): boolean { return (this.motion?.matches ?? true) && !this.motionEnabled }
 
   private publish(playback: ScenePlayback): void {
     const reduced = this.reducesMotion()
@@ -202,7 +204,7 @@ export class ScenePlayer {
     this.cancelPreparation()
     window.clearTimeout(this.loadingTimer)
     window.clearTimeout(this.preparationTimer)
-    this.motion.removeEventListener('change', this.preference)
+    this.stopMotion()
     document.removeEventListener('visibilitychange', this.visibility)
     const renderer = this.renderer
     this.renderer = null

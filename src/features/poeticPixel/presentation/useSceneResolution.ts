@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState, type RefObject } from 'react'
 import { BASE_SCENE_RESOLUTION, resolveSceneResolution, type SceneResolution } from './resolution'
+import { getMediaQuery, listenMediaQuery, observeResize } from '../../referenceScene/browserSignals'
 
 /** Size and DPR reads happen only after layout changes, never in the paint loop. */
 export const useSceneResolution = (
@@ -16,7 +17,7 @@ export const useSceneResolution = (
     if (!element) return
     let disposed = false
     let scheduled = 0
-    let query: MediaQueryList | undefined
+    let stopDpr = (): void => {}
     const measure = (): void => {
       if (disposed) return
       const width = element.getBoundingClientRect().width
@@ -30,20 +31,18 @@ export const useSceneResolution = (
       scheduled = requestAnimationFrame(() => { scheduled = 0; measure() })
     }
     const watchDpr = (): void => {
-      query?.removeEventListener('change', dprChanged)
-      query = matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`)
-      query.addEventListener('change', dprChanged)
+      stopDpr()
+      stopDpr = listenMediaQuery(getMediaQuery(`(resolution: ${window.devicePixelRatio}dppx)`), dprChanged)
     }
     const dprChanged = (): void => { watchDpr(); schedule() }
-    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(schedule)
-    observer?.observe(element)
+    const stopObserving = observeResize(element, schedule)
     window.addEventListener('resize', schedule)
     watchDpr()
     measure()
     return () => {
       disposed = true
-      observer?.disconnect()
-      query?.removeEventListener('change', dprChanged)
+      stopObserving()
+      stopDpr()
       window.removeEventListener('resize', schedule)
       cancelAnimationFrame(scheduled)
     }

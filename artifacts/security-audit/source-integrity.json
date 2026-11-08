@@ -1,0 +1,93 @@
+{
+  "baseline": "7258c9379bb5426bf8eb06a51dc1365f16a0fba5",
+  "scope": "Immutable originals and unchanged pixel/clock/weather algorithms; lifecycle infrastructure changes are deliberately outside this equality scope.",
+  "groups": [
+    {
+      "path": "assets/source",
+      "files": 13,
+      "changed": []
+    },
+    {
+      "path": "docs/reference",
+      "files": 3,
+      "changed": []
+    },
+    {
+      "path": "reference-projects/fuji-wind",
+      "files": 25,
+      "changed": []
+    },
+    {
+      "path": "public/assets/poetic-pixel",
+      "files": 6,
+      "changed": []
+    },
+    {
+      "path": "src/features/poeticPixel/renderer.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "src/features/poeticPixel/atmosphere",
+      "files": 6,
+      "changed": []
+    },
+    {
+      "path": "src/features/poeticPixel/presentation/frameReconstruction.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "src/features/referenceScene/sceneTimeline.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "src/features/referenceScene/sourceTiming.ts",
+      "files": 1,
+      "changed": []
+    }
+  ],
+  "publicToDist": {
+    "files": 97,
+    "missing": [],
+    "mismatched": []
+  },
+  "branchesBeforeCleanup": [
+    {
+      "name": "docs/p1-layer-plan",
+      "commit": "8fe19bc356df4aa214df13d50c084c43fd218407",
+      "containedInMain": true
+    },
+    {
+      "name": "docs/verified-auto-merge",
+      "commit": "ca7b9bf1e8cc807d97df30673bea2a9d3ec5f331",
+      "containedInMain": true
+    },
+    {
+      "name": "feat/faithful-pixel-portrait",
+      "commit": "e6c118bca2e3029502e2b95f63aaa2322136abce",
+      "containedInMain": true
+    },
+    {
+      "name": "feat/pixel-vermouth",
+      "commit": "32d564879476705c7d6fa4a1eb64a6c9e93584c1",
+      "containedInMain": true
+    },
+    {
+      "name": "work",
+      "commit": "7258c9379bb5426bf8eb06a51dc1365f16a0fba5",
+      "containedInMain": true
+    },
+    {
+      "name": "origin/main",
+      "commit": "7258c9379bb5426bf8eb06a51dc1365f16a0fba5",
+      "containedInMain": true
+    },
+    {
+      "name": "origin/work",
+      "commit": "7258c9379bb5426bf8eb06a51dc1365f16a0fba5",
+      "containedInMain": true
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { fitSceneViewport, type SceneViewport } from './sceneViewport'
+import { getMediaQuery, listenMediaQuery, observeResize } from './browserSignals'
 
 /** Size/DPR work runs only on layout changes, independently of scene playback. */
 export const useSceneViewport = (sourceWidth: number, sourceHeight: number) => {
@@ -11,7 +12,7 @@ export const useSceneViewport = (sourceWidth: number, sourceHeight: number) => {
     if (!space) return
     let disposed = false
     let queuedFrame = 0
-    let resolution: MediaQueryList | undefined
+    let stopResolution = (): void => {}
     const measure = (): void => {
       if (disposed) return
       const box = space.getBoundingClientRect()
@@ -26,22 +27,20 @@ export const useSceneViewport = (sourceWidth: number, sourceHeight: number) => {
       queuedFrame = requestAnimationFrame(() => { queuedFrame = 0; measure() })
     }
     const watchResolution = (): void => {
-      resolution?.removeEventListener('change', onResolution)
-      resolution = window.matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`)
-      resolution.addEventListener('change', onResolution)
+      stopResolution()
+      stopResolution = listenMediaQuery(getMediaQuery(`(resolution: ${window.devicePixelRatio}dppx)`), onResolution)
     }
     const onResolution = (): void => { watchResolution(); schedule() }
-    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(schedule)
-    observer?.observe(space)
+    const stopObserving = observeResize(space, schedule)
     window.addEventListener('resize', schedule)
     watchResolution()
     measure()
     void document.fonts?.ready.then(schedule)
     return () => {
       disposed = true
-      observer?.disconnect()
+      stopObserving()
       window.removeEventListener('resize', schedule)
-      resolution?.removeEventListener('change', onResolution)
+      stopResolution()
       cancelAnimationFrame(queuedFrame)
     }
   }, [sourceWidth, sourceHeight])

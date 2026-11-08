@@ -1,0 +1,13 @@
+{
+  "lockfileSha256": "30cae0c57e282692ca157c79e136daeb6d0a143ebf7ac835ccc47ff242919e4e",
+  "entries": 70,
+  "resolvedHosts": [
+    "registry.npmjs.org"
+  ],
+  "missingIntegrity": [],
+  "nonSha512IntegrityCount": 0,
+  "credentialBearingResolvedUrls": 0,
+  "limitations": [
+    "Checks declared lockfile metadata, not independently downloaded tarball bytes. npm ci integrity checks remain part of CI."
+  ]
+}

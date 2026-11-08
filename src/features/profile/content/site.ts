@@ -1,6 +1,6 @@
 import type { SiteContent } from './types.ts'
 export type { Project, SocialPlatform, SocialProfile, ContactLink, Interest, GameProfile, GameShowcaseBlock, SiteContent, ContentsEntry, SiteSearchEntry } from './types.ts'
-export { getProjects, getSocialLinks, getInterests, getGameProfiles, getSiteNavigation, getTableOfContents, getSiteSearchEntries, searchSite, resolveProfileAsset } from './selectors.ts'
+export { getSiteGithub, getSiteRepository, getProjects, getSocialLinks, getInterests, getGameProfiles, getSiteNavigation, getTableOfContents, getSiteSearchEntries, searchSite, resolveProfileAsset } from './selectors.ts'
 
 /** Edit public content here. Empty accounts and custom blocks are intentionally hidden. */
 export const site: SiteContent = {

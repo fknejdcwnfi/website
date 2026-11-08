@@ -195,7 +195,7 @@ try:
         for block in page.locator('#game-honor-of-kings .showcase-block').all():
             if block.get_attribute('open') is None:block.locator('summary').click()
         check('fixture_all_five_block_contents',all(text in page.locator('#games').inner_text() for text in ('QA_NARRATIVE','QA 段位（非真实）','QA 英雄','QA 战绩截图','QA 精彩视频')))
-        page.wait_for_function('document.querySelector(".showcase-gallery img")?.naturalWidth===240')
+        page.wait_for_function('() => (document.querySelector(".showcase-gallery img")?.naturalWidth===240)')
         check('fixture_gallery_local_and_loaded',page.locator('.showcase-gallery img').count()==1 and page.locator('.showcase-gallery img').evaluate('e=>e.complete&&e.naturalWidth===240'))
         check('fixture_video_is_safe_link',page.locator('a[href="https://example.com/qa/video"]').count()==1 and page.locator('iframe,video:not(#vermouth-poetic-bootstrap)').count()==0)
         page.get_by_role('button',name='复制微信测试账号账号',exact=True).click()
@@ -204,7 +204,7 @@ try:
         qr=page.locator('#contact-wechat-qa .social-qr summary');qr.focus();page.keyboard.press('Enter')
         check('qr_keyboard_disclosure',page.locator('#contact-wechat-qa .social-qr').get_attribute('open') is not None)
         page.locator('#contact-wechat-qa .social-qr img').wait_for(state='visible')
-        page.wait_for_function('document.querySelector("#contact-wechat-qa .social-qr img").naturalWidth===240')
+        page.wait_for_function('() => (document.querySelector("#contact-wechat-qa .social-qr img").naturalWidth===240)')
         check('qr_local_media_loaded',page.locator('#contact-wechat-qa .social-qr img').get_attribute('src')=='/website/qa-profile/media-test.png')
         qr_heights=page.evaluate('()=>({wechat:document.querySelector("#contact-wechat-qa").getBoundingClientRect().height,qq:document.querySelector("#contact-qq-qa").getBoundingClientRect().height})')
         check('qr_expands_without_stretching_neighbor',qr_heights['wechat']>qr_heights['qq']+100,qr_heights)

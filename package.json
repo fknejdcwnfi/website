@@ -10,11 +10,11 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --test-isolation=none scripts/tests/test_voxel.mjs scripts/tests/test_portrait.mjs scripts/tests/test_asset_loading.mjs scripts/tests/test_site_content.mjs scripts/tests/test_layered_physics.mjs scripts/tests/test_hair_mesh.mjs scripts/tests/test_source_timing.mjs scripts/tests/test_pixel_scale.mjs scripts/tests/test_weather.mjs scripts/tests/test_calm_motion.mjs scripts/tests/test_poetic_snow.mjs scripts/tests/test_poetic_atmosphere.mjs scripts/tests/test_scene_resolution.mjs",
+    "test": "node --test --test-isolation=none scripts/tests/test_voxel.mjs scripts/tests/test_portrait.mjs scripts/tests/test_asset_loading.mjs scripts/tests/test_site_content.mjs scripts/tests/test_layered_physics.mjs scripts/tests/test_hair_mesh.mjs scripts/tests/test_source_timing.mjs scripts/tests/test_pixel_scale.mjs scripts/tests/test_weather.mjs scripts/tests/test_calm_motion.mjs scripts/tests/test_poetic_snow.mjs scripts/tests/test_poetic_atmosphere.mjs scripts/tests/test_scene_resolution.mjs scripts/tests/test_security_policy.mjs scripts/tests/test_browser_signals.mjs",
     "deploy": "bash scripts/deploy/deploy_gh_pages.sh",
     "assets": "python3 scripts/assets/optimize_assets.py",
     "assets:check": "python3 scripts/assets/optimize_assets.py --check",
-    "assets:verify": "python3 scripts/assets/verify_assets.py",
+    "assets:verify": "python3 scripts/assets/verify_assets.py && python3 scripts/assets/optimize_pixel_ui.py --verify && python3 scripts/qa/verify_repository_structure.py",
     "scene:verify": "python3 scripts/assets/verify_poetic_pixel_scene.py",
     "scene:derive": "python3 scripts/assets/derive_poetic_motion.py",
     "source:verify": "python3 scripts/assets/verify_reference_project.py",
@@ -22,7 +22,9 @@
     "scene:qa": "python3 scripts/qa/verify_final_scene.py",
     "profile:qa": "python3 scripts/qa/verify_profile_modules.py",
     "scene:capture": "python3 scripts/qa/capture_final_scene.py",
-    "scene:measure": "python3 scripts/qa/capture_final_scene.py --measure"
+    "scene:measure": "python3 scripts/qa/capture_final_scene.py --measure",
+    "assets:ui:check": "python3 scripts/assets/optimize_pixel_ui.py --check",
+    "repo:verify": "python3 scripts/qa/verify_repository_structure.py"
   },
   "dependencies": {
     "react": "^19.3.1",

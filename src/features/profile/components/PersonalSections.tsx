@@ -1,4 +1,4 @@
-import { getProjects, site } from '../content/site'
+import { getProjects, getSiteGithub, site } from '../content/site'
 import { GameSection, InterestSection, SocialSection } from './ProfileModules'
 import PixelIcon from './PixelIcon'
 import { poeticPixelAssets } from '../../poeticPixel/assets'
@@ -7,6 +7,7 @@ import { getNavigationIconPath } from '../content/navigationIcons'
 const Arrow = () => <PixelIcon name="arrow-up-right" />
 
 export default function PersonalSections() {
+  const github = getSiteGithub(site)
   const projects = getProjects(site)
   const projectOverview = [
     { label: '公开项目', count: projects.length },
@@ -20,14 +21,14 @@ export default function PersonalSections() {
         <div className="personal-about">
           <div className="personal-about__scene" aria-hidden="true" />
           {site.about.map((paragraph, index) => <p className={index === 0 ? 'personal-about__lead' : undefined} key={paragraph}>{paragraph}</p>)}
-          <a className="personal-text-link" href={site.github} target="_blank" rel="noopener noreferrer">了解我的 GitHub <Arrow /></a>
+          {github ? <a className="personal-text-link" href={github} target="_blank" rel="noopener noreferrer">了解我的 GitHub <Arrow /></a> : null}
         </div>
       </section>
 
       <section className="personal-section" id="work" aria-labelledby="work-title" tabIndex={-1}>
         <div className="personal-section__label"><h2 id="work-title"><span aria-hidden="true"><svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath('#work')} /></svg></span> 作品与实验</h2></div>
         <div className="personal-work">
-          <div className="personal-work__intro"><p>做过的，与正在做的。</p><a className="personal-text-link" href={`${site.github}?tab=repositories`} target="_blank" rel="noopener noreferrer">所有公开项目 <Arrow /></a></div>
+          <div className="personal-work__intro"><p>做过的，与正在做的。</p>{github ? <a className="personal-text-link" href={`${github}?tab=repositories`} target="_blank" rel="noopener noreferrer">所有公开项目 <Arrow /></a> : null}</div>
           <dl className="project-overview" aria-label="项目概览">{projectOverview.map(item => <div key={item.label}><dt>{item.label}</dt><dd>{item.count}<span> 个</span></dd></div>)}</dl>
           <div className="project-table-wrap">
             <table className="project-table">

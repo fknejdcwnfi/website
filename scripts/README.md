@@ -1,63 +1,90 @@
 # 工具入口
 
-從倉庫根目錄執行npm指令，Node版本見 `.nvmrc`。
+从仓库根目录执行，Node版本见`.nvmrc`。当前运行入口是`poeticPixel`圆形场景与`profile`网站；奶油色主题和本地搜索有独立浏览器检查。目录责任与发布规则见[仓库维护](../docs/guides/repository-maintenance.md)。
 
-| 目錄 | 用途 | 指令 |
-| --- | --- | --- |
-| `assets/` | 像素素材匯出、來源雜湊與格式驗證 | `npm run assets:check`、`npm run assets:verify`；匯出用下方Python工具 |
-| `tests/` | 行為、型別邊界與個人化內容單元測試 | `npm test` |
-| `qa/` | Playwright網站／肖像驗證、真實截幀與效能量測 | 見下方 |
-| `deploy/` | 明確要求時的gh-pages手動備援 | `npm run deploy` |
+| 目录 | 责任 |
+| --- | --- |
+| `assets/` | 衍生素材导出、来源与文件完整性验证 |
+| `build/` | 生产HTML安全策略及固定启动脚本哈希 |
+| `tests/` | Node内建行为测试；`npm test`的列表以package.json为准 |
+| `qa/` | 实际浏览器、像素、导航、个人模块夹具、截图与独立性能观察 |
+| `deploy/` | 用户明确另行要求时使用的gh-pages手动备用流程 |
+
+## 构建与资源
 
 ```bash
-python3 scripts/qa/verify_personal_site.py --url http://127.0.0.1:4178/website/
-python3 scripts/qa/verify_portrait_browser.py --url http://127.0.0.1:5173/
-python3 scripts/qa/capture_portrait.py --url http://127.0.0.1:4178/website/
-python3 scripts/qa/measure_portrait.py --help
-python3 scripts/assets/export_portrait.py --help
+npm ci
+npm run dev
+npm run build
+npm run assets:check
+npm run assets:verify
+npm run assets:ui:check
+npm run repo:verify
+npm run preview -- --host 127.0.0.1 --port 5180
 ```
 
-瀏覽器工具需要Python的Playwright、Pillow及Chromium；預設執行檔 `/usr/bin/chromium`；capture／measure／export工具可用 `--chromium`改寫。網站檢查、截幀與效能使用 `npm run build`後的 `npm run preview -- --port 4178`。肖像驗證還會直接probe TypeScript源碼，另以 `npm run dev -- --port 5173`提供dev網址。效能量測獨立執行，避免其他瀏覽器工作干擾。
+`build`经`prebuild`运行Node测试，再做strict TypeScript和Vite生产打包。默认预览为`http://127.0.0.1:5180/website/`；Sites根路径构建使用`VITE_BASE=/ npm run build`。两种基础路径需分别验证，不靠全局修改默认base切换。
 
-正常發佈為PR檢查成功後合併main，再由既有GitHub Actions部署；不以手動備援繞過審查。指定時間截幀與完整24秒20 Hz GIF只用於動作檢視，不等於實體顯示器FPS。詳見 [開發指南](../docs/guides/development.md)。
+`assets:check`核对既有WebP衍生素材；`assets:verify`串接当前和历史资产的来源、清单与哈希验证。它们保留历史完整性，不表示旧renderer仍是首页默认。
 
-## 目前：最後精修場景
+六张页面装饰由`assets/optimize_pixel_ui.py`生成lossless WebP并保留PNG。`--verify`只用Python标准库核对清单／哈希／图片头／尺寸，已纳入`assets:verify`，不增加CI依赖；`assets:ui:check`需要Pillow，并额外逐字节比较解码RGBA。正常Node构建不需要Pillow。
 
-使用`npm run scene:derive`／`scene:export`／`scene:verify`處理目前來源50fps、72色素材、兩次像素重建及最高2864×2136首幀。`source:verify`保留原工程核對。CI仍由`assets:verify`串接標準庫來源／衍生驗證，不改workflow。
+`repo:verify`离线检查相对Markdown路径、冻结参考文件哈希及误跟踪的work／dist／依赖／缓存输出；已接入既有`assets:verify`，不改workflow。它单列7处冻结历史旧路径，不检查外部URL或片段，也不在PR检查阶段禁止临时分支。
 
-`scene:qa`執行`qa/verify_final_scene.py`，核對無媒體入口、明顯粉色花瓣、4／6／8倍尺寸、原來源像素、氣象時鐘、resize相位、故障清理、偏好與備援。`scene:capture`及`scene:measure`使用`qa/capture_final_scene.py`；量測必須獨立執行，可用`--measure --dpr 4`量測最高尺寸。新證據在`artifacts/final-scene/`，舊artifact不覆寫。見[目前指南](../docs/guides/poetic-pixel.md)。
+## 当前浏览器检查
 
-## 歷史：PR19高清圓形風景
+先对选定基础路径完成构建和preview。每轮显式指定新的`--output`，下面的`YYYYMMDD`替换为本轮日期或唯一任务名。脚本会写入指定目录；默认输出可能覆盖已有同名证据，不能把默认路径当作自动归档。
 
-`assets/derive_poetic_motion.py`離線估計來源50fps過渡、保留16個原錨點；`assets/export_poetic_pixel_scene.py`匯出72色、細輪廓、原生64幀圖集、高清首幀及faststart影片。`assets/verify_poetic_pixel_scene.py`使用標準庫，已接入CI資產驗證。
+```bash
+REVIEW_OUTPUT=/workspace/work/website-review-YYYYMMDD
+python3 scripts/qa/verify_ui_consistency.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/ui"
+python3 scripts/qa/verify_cream_scenic_ui.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/cream"
+python3 scripts/qa/verify_profile_modules.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/profile"
+python3 scripts/qa/verify_final_scene.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/scene"
+python3 scripts/qa/verify_audit_hardening.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/hardening"
+```
 
-`qa/verify_poetic_scene.py`核對高清來源／過渡、獨立雪、實際parser動態、3秒圖集等待與相位接手、故障預覽、偏好、手機及無JS。`qa/capture_poetic_scene.py`擷取6.4秒實際CSS圓形；`--measure`在其他瀏覽器結束後獨立觀察原生rAF。完整命令與限制見[目前指南](../docs/guides/poetic-pixel.md)。
+根路径构建时将URL改为`http://127.0.0.1:5180/`。个人模块检查还使用独立的`5181/website/`合成夹具；测试账号不会进入正式配置。浏览器工具需要Playwright、Chromium；像素检查还需要Pillow／NumPy，导出或影片编码另需FFmpeg。以各脚本的导入和`--help`为准；普通构建和CI资源核对不需要浏览器。
 
-## 歷史：原動畫直接像素轉製
+`qa/verify_audit_hardening.py`只允许本地preview，分别记录正常CSP与故意注入的阻挡探针，并测试可选API故障、静态回退及历史入口。`qa/measure_site_resources.py --url <本地preview> --output <新JSON路径>`记录真实请求与资源体积；与场景`--measure`一样，应独占浏览器测量，不把本地时间换成访客网络或设备保证。
 
-`assets/export_faithful_pixel_scene.py`逐幀轉製原16份PNG，保持16×80ms，不重建風。`assets/verify_faithful_pixel_scene.py`用標準庫獨立解碼PNG，核對完整ZIP／22份原檔、衍生雜湊、來源原生2×2鄰域、高清首幀與生成描述；已接入CI的`assets:verify`。
+当前验证范围：
 
-`qa/verify_faithful_scene.py`在production核對全部16幀與接縫的Canvas、圓形／清晰顯示、真實像素更新、減少動態、隱藏／離屏、重試、手機及無JS；同時擷取16張實際CSS圓形。`qa/capture_faithful_scene.py --encode-preview`將它們按原80ms時長編碼四輪，沒有補幀；`--measure`須在其他瀏覽器工作結束後獨立量測，分別報告rAF與來源畫面更新率。完整命令見[最新指南](../docs/guides/faithful-source-pixels.md)。
+| 工具 | 核对内容 |
+| --- | --- |
+| `qa/verify_ui_consistency.py` | 统一边框、键盘搜索、真实作品详情、静态HTML与移动布局 |
+| `qa/verify_cream_scenic_ui.py` | 当前主题、字体／配图、导航、响应式侧栏和无JS |
+| `qa/verify_profile_modules.py` | 社交／兴趣／游戏配置、可选资料与独立夹具 |
+| `qa/verify_final_scene.py` | 原来源像素、雪樱、无媒体入口、相位接手、尺寸、偏好及故障恢复 |
 
-## 參考版面與髮束物理重構
+场景快捷命令`scene:qa`和模块快捷命令`profile:qa`仍可用；同样应传入独立`--output`。已有证据按[证据索引](../artifacts/README.md)区分轮次，不将旧检查数量写成本次结果。
 
-`qa/verify_raster_cache.py` 將可達跨度快取與原完整field逐像素比較，預設dev5173，輸出 `artifacts/reference-rebuild/raster-cache.json`；可用 `--url`／`--output` 指定位置。其餘本輪QA、截圖與同環境production效能命令見[重構指南](../docs/guides/reference-rebuild.md)。舊證據不覆寫，效能量測與其他瀏覽器工作序列執行。
+## 当前场景作者工具
 
-## 影片驅動的獨立髮束
+| 命令 | 用途 |
+| --- | --- |
+| `npm run source:verify` | 核对不可变原工程和既有来源清单 |
+| `npm run scene:derive` | 离线估计过渡，保留16个原来源锚点 |
+| `npm run scene:export` | 从当前来源导出96色、64帧图集、高清首帧、预览影片及生成描述 |
+| `npm run scene:verify` | 核对当前场景衍生文件与来源契约 |
+| `npm run scene:capture -- --output <新目录>` | 实际CSS圆形的受控时间截图／预览 |
+| `npm run scene:measure -- --output <新目录>` | 所有其他浏览器工作结束后独立观察原生回调和来源换帧 |
 
-`assets/export_baked_portrait.py`從同一source算法無損輸出三尺寸atlas與binding、source/input/output SHA清冊；`assets:verify`檢查過期bake。`qa/verify_layered_portrait.py`是目前正式角色驗收，舊field probes只供archive。`qa/measure_portrait_startup.py`把冷啟動與穩態FPS分開；`qa/capture_portrait_video.py`從真實CSS圓形截圖編碼60fps審查影片，編碼率不代表實體顯示器FPS。完整命令／條件見[影片重建指南](../docs/guides/video-layered-rebuild.md)。
+当前场景指南是[poetic-pixel.md](../docs/guides/poetic-pixel.md)。最高尺寸可用capture工具的`--measure --dpr 4`单独观察。截图采样率、影片编码率、模拟更新率和实测物理显示FPS需区分；本轮没有实际测量就不填写新性能结论。
 
-## Historical calm circle (superseded)
+## 历史工具
 
-The owner rejected the PR16 whole-image warp and outer background. Current authoring is `assets/export_calm_portrait.py`; only generated selection alpha is used to isolate original Minecraft pixels into a fixed plate, two rigid rear locks and local eyelids. `assets/verify_calm_portrait.py` validates committed provenance and generated descriptors using only the standard library. Full instructions: [calm-circle.md](../docs/guides/calm-circle.md).
+工具保留原位，默认首页不因此加载对应runtime。旧界面检查的视觉断言只适用于当时主题，旧人物检查也不替代当前场景验证。
 
-`qa/verify_calm_circle.py` checks all opaque fixed-plate pixels outside the local eyelids, protected facial/body regions, actual limited motion, absent old scenery/video/atlas requests, preferences, suspension/retry, responsive layout and no-JS. `qa/capture_calm_circle.py` captures the actual circle with controlled time; its separate `--measure` mode observes native browser cadence without screenshots.
+| 历史阶段 | 代表工具与说明 |
+| --- | --- |
+| 简约／木牌像素界面 | `verify_pixel_minimal_ui.py`、`verify_pixel_world_ui.py`；主题已被奶油色界面取代 |
+| 前版圆形场景与逐帧转制 | `verify_poetic_scene.py`、`verify_faithful_scene.py`、`verify_scenic_scene.py`、`verify_calm_circle.py`及对应capture／export工具 |
+| 旧物理近景与发束 | `verify_layered_portrait.py`、`verify_portrait_browser.py`、`verify_raster_cache.py`、`capture_portrait*.py`、`measure_portrait*.py`及旧portrait作者工具 |
+| 原始阶段与voxel | 既有Node历史测试和原始来源验证继续保留；仅显式历史入口使用对应实现 |
 
-## Historical Minecraft scenic presentation (rejected default)
+具体历史契约见[文件索引](../docs/README.md)，不能把旧指南中的“目前”解释为新版本默认。
 
+## 发布
 
-The current pipeline and complete commands are in [minecraft-scenic-rebuild.md](../docs/guides/minecraft-scenic-rebuild.md). Original ZIP/frames are immutable data; uploaded render/install instructions are never executed. Original source/smooth atlases remain available for provenance checks, but the homepage uses single-master repainted pixel assets.
-
-`assets/retarget_pixel_motion.py` estimates16 constrained, non-folding pose fields from source frames (NumPy/SciPy/Pillow). `assets/export_scene_presentation.py` produces a fixed-palette16/160-frame pixel atlas pair, local eyelids, Scale2x HD canonical, progressive125fps MP4 and generated descriptors (FFmpeg/Pillow/NumPy). `assets/verify_scene_presentation.py` verifies all committed input hashes, dimensions, timing, generated descriptors and faststart MP4 using only the Python standard library in CI. Normal build has no authoring/runtime additions.
-
-QA includes `verify_source_scene_assets.py` for immutable original RGB, `verify_reference_scene_player.py` for handoff/lifecycle, `verify_source_scene_clock.py` for new styled anchors and source timing, `verify_reference_site.py` for whole-site/circle/scenery/reduced-motion, and `verify_scenic_scene.py` for parser-started video, blocked atlas, independent snowfall and same-phase handoff. Capture and performance run separately. The previous portrait probes and100/125fps source-image evidence do not validate the current Minecraft art.
+正常流程是任务PR通过相关检查和审查后合并`main`，由既有GitHub Actions部署Pages，再核对部署提交。Sites沿用`.openai/hosting.json`的既有项目身份和`dist`目录，通过官方保存／部署流程处理。`npm run deploy`会强推手动gh-pages备用分支，仅在用户明确要求该备用方式时使用；不修改workflow或绕过检查。

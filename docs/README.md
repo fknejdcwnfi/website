@@ -1,43 +1,64 @@
 # 文件入口
 
-目前是完整Minecraft像素風個人網站：個人內容與可擴充帳號配置、居中無框圓形Vermouth近景、持續緩慢微風和獨立偶發眨眼。角色保持同一像素母版，顯示尺寸按裝置像素比對齊。使用者已恢復自動合併與網站更新；PR檢查通過後，依GitHub Actions／Pages流程發佈。
+当前网站采用暮色风景、蓝色页首、圆角奶油色面板和自托管中英像素字体；真实内容、搜索、导航和无JS页面由同一配置驱动。默认人物是`poeticPixel`原场景与独立雪樱，使用共享圆形播放器；旧发束物理、透明近景和其他主题属于历史实现。
 
-## 現行指南
+第一次维护先读根目录[README](../README.md)、[AGENTS](../AGENTS.md)，再按下表进入具体职责。用户最新要求优先；历史文档里的“当前”“正式”只描述当时版本。
 
-| 文件 | 解決的問題 |
+## 当前指南
+
+| 文件 | 负责的范围 |
 | --- | --- |
-| [影片驅動的獨立髮束重建](guides/video-layered-rebuild.md) | 最新上傳影片、完整cutout、弧長骨架／網格、Worker物理及視覺驗證 |
-| [前版參考版面與物理重構](guides/reference-rebuild.md) | 藍色雙層導航、三欄正文、搜尋、髮束物理與本輪驗證 |
-| [個人網站](guides/personal-site.md) | 首頁、真實內容、B站／抖音與遊戲帳號的設定、未來擴充 |
-| [Living Portrait](guides/living-portrait.md) | 角色身份、原近景構圖、像素格、透明邊緣及動畫邊界 |
-| [參考風動與高更新率](guides/reference-wind.md) | 髮束、眨眼、遮擋修復、真實截幀與效能證據 |
-| [開發指南](guides/development.md) | 目錄、指令、除錯、QA及PR／發佈流程 |
-| [素材清冊](guides/asset-inventory.md) | 原始來源、canonical／底圖、runtime、字體與使用限制 |
-| [決策紀錄](decisions.md) | 各階段採用、取代與授權的原因 |
+| [仓库维护](guides/repository-maintenance.md) | 目录责任、默认加载链、日常检查、历史与发布边界 |
+| [2026-11-08多维审计](reports/2026-11-08-audit.md) | 可复现发现、修复、无损优化、实测与剩余验证范围 |
+| [奶油色风景界面](guides/cream-scenic-ui.md) | 当前外观、桌面双侧栏、移动布局及页面装饰 |
+| [边框、搜索与作品](guides/ui-consistency.md) | 统一边框、键盘搜索、真实项目详情与静态一致性 |
+| [个性化模块](guides/profile-modules.md) | 社交、兴趣、游戏的配置、可选资料及独立夹具 |
+| [高清圆形场景与雪樱](guides/poetic-pixel.md) | 唯一默认人物、原始来源、96色、像素重建、入口与场景QA |
+| [工具入口](../scripts/README.md) | 当前构建、资源、浏览器验证及独立输出命令 |
+| [证据索引](../artifacts/README.md) | 各轮实际验证的范围与历史证据区别 |
+| [决策记录](decisions.md) | 实现被采用或取代的理由与授权历史 |
 
-第一次開發先讀根目錄[README](../README.md)、[AGENTS](../AGENTS.md)，再依工作閱讀上述指南；改視覺前必讀角色及素材契約。提交規範見[CONTRIBUTING](../CONTRIBUTING.md)。
+当前源工程见[fuji-wind](../reference-projects/fuji-wind/README.md)；字体来源与许可证见[Fusion Pixel登记](../public/fonts/FusionPixel-SOURCE.txt)。提交和协作规则见[CONTRIBUTING](../CONTRIBUTING.md)，其中旧角色实现说明应结合本索引和最新AGENTS阅读。
 
-## 歷史與凍結資料
+## 历史实现指南
 
-[archive/](archive/)保留原anime／voxel階段文件，每份頂部都標示歸檔日期與目前入口。其中的舊來源路徑、no-UI限制、渲染路線與量測只適用當時階段，不能覆蓋現行指南或當作本輪證據。
+文件保留原位以便追溯，不作为当前主题、人物管线或最新验收结果。当前实现和命令以表中“当前指南”为准。
 
-| 歷史文件 | 原用途 |
+| 阶段 | 保留文件 |
 | --- | --- |
-| [專案章程](archive/01-project-charter.md) | 最初範圍與非目標 |
-| [動畫規格](archive/03-animation-spec.md) | 原十關鍵姿態與動作要求 |
-| [架構](archive/04-architecture.md) | 原播放器及Stage路線 |
-| [Codex交接](archive/06-codex-handoff.md) | 早期代理操作範例 |
-| [QA清單](archive/07-qa-checklist.md) | 早期驗收流程 |
-| [圖層計畫](archive/09-layer-plan.md) | 原anime圖層／clean plate研究 |
-| [像素舞台](archive/10-pixel-stage.md) | 已封存voxel方案及當時實測 |
-| [PR #6風動與量測](archive/14-reference-wind-pixel-world.md) | 舊2300 ms風動、十七段髮束及當時的密集截幀／效能 |
-| [PR #6肖像契約](archive/15-living-portrait-reference-timeline.md) | 新持續微風與圓形展示之前的肖像契約 |
-| [PR #7持續微風](archive/16-gentle-portrait.md) | 首次12秒微風／24秒眨眼與當時量測，未以圓形內可見髮段校準 |
+| 先前像素界面 | [简约像素界面](guides/pixel-minimal-ui.md)、[木牌与暮色像素界面](guides/pixel-world-ui.md) |
+| 先前逐帧和场景展示 | [原动画像素转制](guides/faithful-source-pixels.md)、[Minecraft场景重建](guides/minecraft-scenic-rebuild.md)、[参考GIF重建](guides/reference-gif-rebuild.md)、[固定人物小幅后发](guides/calm-circle.md) |
+| 旧发束与近景管线 | [影片发束重建](guides/video-layered-rebuild.md)、[参考版面与物理](guides/reference-rebuild.md)、[持续风动](guides/reliable-motion.md)、[自然风恢复](guides/natural-wind-recovery.md)、[轻柔风](guides/air-breeze.md)、[参考风动](guides/reference-wind.md)、[Living Portrait](guides/living-portrait.md) |
+| 早期综合资料 | [旧开发指南](guides/development.md)、[旧个人网站指南](guides/personal-site.md)、[旧素材清册](guides/asset-inventory.md)；其中的来源和权利记录继续保留，当前入口已在上方列明 |
 
-[reference/](reference/)的原始委託、分鏡與README保持原路徑及逐位元內容不變。它們記錄原始意圖，包含舊目錄連結與過時指令；閱讀時以本入口的新路徑及現行指南為準，不改寫原文。
+## 历史与冻结资料
 
-## 維護規則
+[docs/archive/](archive/)保存最初anime／voxel阶段文件；[仓库archive](../archive/README.md)保存移出public的历史runtime与原始证据。这些目录不作为Vite公共目录发布。
 
-使用者較新的明確要求優先。現行網站以個人網站指南為準，身份與素材以Living Portrait／素材清冊為準，動作與新量測以參考風動指南為準。決策歷史不因新要求而刪除；追加ADR說明變更，歷史文件不重新冒充目前規格。
+| 历史文件 | 原用途 |
+| --- | --- |
+| [项目章程](archive/01-project-charter.md) | 最初范围与非目标 |
+| [动画规格](archive/03-animation-spec.md) | 原十关键姿态与动作要求 |
+| [架构](archive/04-architecture.md) | 原播放器及Stage路线 |
+| [Codex交接](archive/06-codex-handoff.md) | 早期代理操作范例 |
+| [QA清单](archive/07-qa-checklist.md) | 早期验收流程 |
+| [图层计划](archive/09-layer-plan.md) | 原anime图层／clean plate研究 |
+| [像素舞台](archive/10-pixel-stage.md) | 已封存voxel方案及当时实测 |
+| [PR6风动与量测](archive/14-reference-wind-pixel-world.md) | 旧2300ms风动与当时采样 |
+| [PR6肖像契约](archive/15-living-portrait-reference-timeline.md) | 新圆形展示之前的契约 |
+| [PR7持续微风](archive/16-gentle-portrait.md) | 首次12秒微风／24秒眨眼及当时量测 |
 
-程式行為、目錄或發佈流程變動時同步文件與CHANGELOG。相對連結需能從所在文件開啟，截圖與數值必須來自實際網站並附量測條件。密集截幀、GIF編碼率、模擬更新率及實際螢幕繪製率需分別記錄。
+[docs/reference/](reference/)保持逐字节不变。其README有7处沿用旧位置的链接；为保留原文，不在冻结文件内修复，阅读时使用以下映射：
+
+| 原链接目标 | 当前可读入口 |
+| --- | --- |
+| `01-project-charter.md` | [历史项目章程](archive/01-project-charter.md) |
+| `03-animation-spec.md` | [历史动画规格](archive/03-animation-spec.md) |
+| `04-architecture.md` | [历史架构](archive/04-architecture.md) |
+| `05-development.md` | [当前仓库维护](guides/repository-maintenance.md)；[旧开发实现](guides/development.md)另保留 |
+| `06-codex-handoff.md` | [历史交接](archive/06-codex-handoff.md) |
+| `08-decisions.md` | [决策记录](decisions.md) |
+
+## 维护规则
+
+改变行为、目录责任或发布流程时同步对应指南与CHANGELOG；不通过重写历史证据来更新结论。相对链接须从所在文件可打开，冻结资料的已知旧链接单独记录。截图、检查数量和性能数字只用于它们实际记录的提交与运行条件，不能替代新一轮验证。

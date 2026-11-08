@@ -257,7 +257,7 @@ def main():
             handoff=d.evaluate('window.__firstHandoff')
             delta=abs(handoff['videoMs']-handoff['initialMs'])%1280;delta=min(delta,1280-delta)
             check('phase_handoff',delta<40,{'deltaMs':delta,**handoff})
-            d.wait_for_function("!window.__vermouthPoeticVideo.hasAttribute('src')")
+            d.wait_for_function("() => (!window.__vermouthPoeticVideo.hasAttribute('src'))")
             d.wait_for_selector(ENTRY+'[data-weather=hidden]',state='attached')
             check('no_duplicate_weather_after_handoff',d.locator(ENTRY).get_attribute('data-motion')=='paused')
             delayed.close()
@@ -375,7 +375,7 @@ def main():
                     atlas_requests=[]
                     m.on('request',lambda request:atlas_requests.append(request.url) if '/atlas.png' in request.url else None)
                     m.set_viewport_size({'width':390,'height':844})
-                    m.wait_for_function("document.querySelector('.reference-scene__canvas').width===1432")
+                    m.wait_for_function("() => (document.querySelector('.reference-scene__canvas').width===1432)")
                     presentation(m,'resized_mobile_dpr3',(1432,1068))
                     after=float(m.locator(CANVAS).get_attribute('data-elapsed-ms'))
                     check('resize_preserves_elapsed_phase',after>=before,{'beforeMs':before,'afterMs':after})

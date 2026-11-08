@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "generatedBy": "scripts/assets/optimize_pixel_ui.py",
+  "encoder": {
+    "pillow": "12.3.0",
+    "libwebp": "1.6.0",
+    "options": {
+      "lossless": true,
+      "quality": 100,
+      "method": 6,
+      "exact": true
+    }
+  },
+  "sourceBytes": 11365490,
+  "bytes": 8456376,
+  "bytesSaved": 2909114,
+  "images": [
+    {
+      "source": "conan.png",
+      "sourceSha256": "e58cccc62da07e969ead31b528be711c5bffd1682c09dbcaea401ade85d269a0",
+      "sourceBytes": 2172862,
+      "file": "conan.webp",
+      "sha256": "522389f76ba761bf9a72dbc9f85f402ab45613043cdb06afbebf5f99f5606c43",
+      "bytes": 1723086,
+      "width": 2172,
+      "height": 724,
+      "decodedFormat": "RGBA",
+      "decodedSha256": "f4d25f642b860c9e9dd112ff3749a4c45e7549946a73e08c7aae2a95adc7d83f",
+      "decodedPixelsIdentical": true
+    },
+    {
+      "source": "game-realm.png",
+      "sourceSha256": "fd635623913f51c08ab37b56a5e6c1d5b2684b6a70bcba3ba5b91b66ac34c8c7",
+      "sourceBytes": 1785554,
+      "file": "game-realm.webp",
+      "sha256": "9be5ea16a36db677c6b0c866c874c9e1d228b90d26a7ad57c648f1d8afa8eff3",
+      "bytes": 1282202,
+      "width": 2172,
+      "height": 724,
+      "decodedFormat": "RGBA",
+      "decodedSha256": "8b2252b61bfca81ea690fbb677fa088d61d0c540de8ce05561b8acdb43f362f4",
+      "decodedPixelsIdentical": true
+    },
+    {
+      "source": "naruto.png",
+      "sourceSha256": "f6a95353999299b190d03ac6b66916022477700f45001bfa5c55f71654588c0f",
+      "sourceBytes": 2502462,
+      "file": "naruto.webp",
+      "sha256": "07cfbe280ec48a0c992c716cf9a82cd89f2a48467284dfd67bf0272a11013b40",
+      "bytes": 2041608,
+      "width": 1774,
+      "height": 887,
+      "decodedFormat": "RGBA",
+      "decodedSha256": "5d792e2770554a40c9a7c25867beb15c1b8346602bda7a22f171cb3dacae3dca",
+      "decodedPixelsIdentical": true
+    },
+    {
+      "source": "social-github.png",
+      "sourceSha256": "bca4c39aae007d4681ea5b7b2088f371365bf888429e0f38fa024147ee3486af",
+      "sourceBytes": 1442214,
+      "file": "social-github.webp",
+      "sha256": "45ccdba3ce071d7e815f4cb3114a8dec470afa28dd8181ad52ed80318bc971ba",
+      "bytes": 911076,
+      "width": 2172,
+      "height": 724,
+      "decodedFormat": "RGBA",
+      "decodedSha256": "db45fe2850776e3d1f797ed886fc0b88302fb78df3b94c5a6fcb02e167ba20fa",
+      "decodedPixelsIdentical": true
+    },
+    {
+      "source": "social-mail.png",
+      "sourceSha256": "f106d60426ee90ea711028920795064c84ef4115aa55790cd5087f3e0673453e",
+      "sourceBytes": 1376087,
+      "file": "social-mail.webp",
+      "sha256": "9537c9a8f6e5c1d947daad81b906d7ff4f94a9bcc444afcb73412c11db052d51",
+      "bytes": 856866,
+      "width": 2172,
+      "height": 724,
+      "decodedFormat": "RGBA",
+      "decodedSha256": "b39befd4103941031857d361373eb3cc2bea2378b1ac4386a54cf692a26c3e1e",
+      "decodedPixelsIdentical": true
+    },
+    {
+      "source": "twilight-world.png",
+      "sourceSha256": "a9f6ef8866538d2235ed40de3d279f6d3241d41dd4cfc64e27e69ba15f98f1ff",
+      "sourceBytes": 2086311,
+      "file": "twilight-world.webp",
+      "sha256": "9e310936a32d3efa463bf4f979c67c799dfa2dfde2c04f14c090d36df8ba2f17",
+      "bytes": 1641538,
+      "width": 1672,
+      "height": 941,
+      "decodedFormat": "RGBA",
+      "decodedSha256": "ee7c0f08d981e73e2333586d37a4de704ab0e85ac72b07ca0bc5c7153e0a1c9e",
+      "decodedPixelsIdentical": true
+    }
+  ]
+}
