@@ -1,0 +1,80 @@
+{
+  "review_date": "2026-11-08",
+  "baseline_commit": "7258c9379bb5426bf8eb06a51dc1365f16a0fba5",
+  "runtime": "Node v24.19.0",
+  "scope": "Startup, optional browser signals, effect cleanup and retained preview media. Renderer, source pixels, clock and weather algorithms were not modified by these fixes; application lifecycle infrastructure was modified.",
+  "baseline_reproductions": [
+    {
+      "id": "legacy-media-query-partial-effect-leak",
+      "method": "Executed each original hook's actual TypeScript-stripped effect body with stubbed React hooks and browser objects; no duplicate hook implementation and no browser used.",
+      "conditions": {
+        "media_query": "matches plus addListener/removeListener only; modern addEventListener/removeEventListener absent",
+        "resize_observer": "Successful observe; disconnect counter retained",
+        "window_resize": "Counted add/removeEventListener registrations"
+      },
+      "results": [
+        {
+          "file": "src/features/referenceScene/useSceneViewport.ts",
+          "failure_line": 31,
+          "partial_setup_lines": [34, 35, 36, 37],
+          "cleanup_return_line": 40,
+          "error": "resolution.addEventListener is not a function",
+          "observed": 1,
+          "disconnected": 0,
+          "resize_listeners_remaining": 1,
+          "cleanup_registered": false
+        },
+        {
+          "file": "src/features/poeticPixel/presentation/useSceneResolution.ts",
+          "failure_line": 35,
+          "partial_setup_lines": [38, 39, 40, 41],
+          "cleanup_return_line": 43,
+          "error": "query.addEventListener is not a function",
+          "observed": 1,
+          "disconnected": 0,
+          "resize_listeners_remaining": 1,
+          "cleanup_registered": false
+        }
+      ],
+      "limits": "Injected legacy API shape, not a claim that a specific physical browser was tested. The throwing effect never returned its cleanup, leaving the already registered observer and resize listener."
+    },
+    {
+      "id": "detached-retained-preview-on-render-failure",
+      "method": "Imported and executed the original retainPoeticBootstrap function with an initially playing mock HTMLVideoElement and entry group; no mirrored implementation and no browser used.",
+      "conditions": "Parser cleanup is registered; video starts paused=false; group.getAnimations returns an empty list; retain runs, then React rendering fails before attachPoeticBootstrap can run.",
+      "source": [
+        { "file": "src/main.tsx", "line": 10, "role": "Retain/detach before React render" },
+        { "file": "src/features/poeticPixel/bootstrap.ts", "line": 77, "role": "Parser listeners cleared" },
+        { "file": "src/features/poeticPixel/bootstrap.ts", "line": 85, "role": "Playing entry group detached" },
+        { "file": "src/app/SiteBoundary.tsx", "line": 10, "role": "Fallback restores copied HTML without releasing the retained original" }
+      ],
+      "result": {
+        "parser_cleanup_calls": 1,
+        "retained_same_video": true,
+        "detached": true,
+        "paused": false,
+        "pause_calls": 0,
+        "retained_group": true
+      },
+      "limits": "The mock proves the missing pause/release lifecycle operation and retained references. It does not measure a real decoder or CPU usage. Browser fault-injection regression is recorded separately."
+    }
+  ],
+  "follow_on_source_finding": {
+    "id": "fallback-copy-retains-autoplay-source",
+    "source": [
+      { "file": "src/main.tsx", "line": 9, "role": "Snapshots root.innerHTML after the earlier parser has assigned video.src" },
+      { "file": "src/app/SiteBoundary.tsx", "line": 10, "role": "Recreates that markup after render failure" }
+    ],
+    "condition": "Static bootstrap video has autoplay and preload=auto; parser has assigned src before main captures fallbackHtml.",
+    "assessment": "Releasing the original retained video alone leaves a new autoplay-capable video in copied fallback HTML. This was a source finding, not an additional original-browser reproduction.",
+    "fix": "snapshotStaticFallback copies trusted current markup into an inert template, removes video/source src and video autoplay, selects preload=none and disables copied entry animation/preview. The live parser video and its source phase are untouched."
+  },
+  "post_fix_actual_module_checks": {
+    "typecheck": "passed",
+    "legacy_listener": { "added": 1, "removed": 1, "callback_calls": 1, "late_callback_suppressed": true },
+    "partial_observer_failure": { "intersection_and_resize_disconnected": 2, "late_callbacks_suppressed": true },
+    "size_hooks": "Both actual hooks return cleanup with legacy media queries, disconnect one observer and leave zero resize listeners after cleanup.",
+    "retained_preview_discard": { "pause_calls": 1, "load_calls": 1, "retained_globals": false, "weather": "hidden", "motion": "paused" },
+    "persistent_regression_ownership": "scripts/tests/test_browser_signals.mjs and scripts/qa/verify_audit_hardening.py contain independently maintained regression coverage. See their actual results for final-browser claims."
+  }
+}

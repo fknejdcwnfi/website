@@ -1,0 +1,5 @@
+
+> vermouth-character-stage@0.1.0 assets:check
+> python3 scripts/assets/optimize_assets.py --check
+
+asset derivatives are present

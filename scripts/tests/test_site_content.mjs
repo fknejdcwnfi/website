@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { site, getProjects, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
+import { site, getProjects, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
 import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
@@ -74,6 +74,155 @@ test('project overview and native details remain accurate without JavaScript', (
   assert.ok(single.includes('<dt>公开项目</dt><dd>1<span> 个</span></dd>'))
   assert.ok(single.includes('<dt>已归档</dt><dd>0<span> 个</span></dd>'))
   assert.ok(!single.includes('class="personal-project__details"') && !single.includes('class="personal-project__meta"'))
+})
+
+test('malformed runtime project records cannot crash display or indexing', () => {
+  for (const projects of [null, false, 42, 'projects', {}]) {
+    assert.deepEqual(getProjects({ ...site, projects }), [])
+  }
+  const configured = { ...site, projects: [null, false, [], 42,
+    { ...site.projects[0], id: null }, { ...site.projects[0], title: 42 },
+    { ...site.projects[0], tags: ['  TypeScript  ', null, 42, 'TypeScript', 'React'],
+      kind: 42, highlights: [' first ', null, false, 'first', 'second'], note: {}, year: '2026' },
+  ] }
+  const projects = getProjects(configured)
+  assert.equal(projects.length, 1)
+  assert.deepEqual(projects[0].tags, ['TypeScript', 'React'])
+  assert.deepEqual(projects[0].highlights, ['first', 'second'])
+  for (const field of ['kind', 'year', 'note']) assert.equal(projects[0][field], undefined)
+  assert.doesNotThrow(() => renderStaticSite(configured))
+  assert.equal(getSiteSearchEntries(configured).filter(entry => entry.href.startsWith('#project-')).length, 1)
+  const missingLists = getProjects({ ...site, projects: [{ ...site.projects[0], tags: null, highlights: {} }] })[0]
+  assert.deepEqual(missingLists.tags, [])
+  assert.deepEqual(missingLists.highlights, [])
+})
+
+test('malformed optional profile records retain only valid members and omit unusable data', () => {
+  for (const value of [null, false, 42, 'records', {}]) {
+    const configured = { ...site, socials: value, interests: value, gameProfiles: value }
+    assert.deepEqual(getInterests(configured), [])
+    assert.deepEqual(getGameProfiles(configured), [])
+    assert.deepEqual(getSocialLinks(configured).map(profile => profile.id), ['github', 'email'])
+    assert.doesNotThrow(() => renderStaticSite(configured))
+  }
+  const configured = { ...site,
+    socials: [null, false, [], { id: 'invalid', label: 42, handle: 'no' },
+      { id: 'good', label: ' Good ', platform: 'unsupported', handle: ' public-name ', description: 42, qrCode: {}, href: [] },
+      { id: 'empty', label: 'Empty', platform: 'other', handle: 42, href: 'javascript:alert(1)' }],
+    interests: [null, false, [], { id: 'invalid', title: 42 },
+      { id: 'good', title: ' Good ', category: 'unsupported', tags: [' a ', null, 42, 'a', 'b'],
+        favorites: [' f ', {}, 'f'], description: false, note: 42, href: [], cover: {} }],
+    gameProfiles: [null, false, [], { id: 'invalid', label: 42 },
+      { id: 'good', label: ' Good ', game: 'unsupported', tags: [' team ', null, 42], description: 42,
+        playerName: false, playerId: [], region: {}, blocks: [null, false, [],
+          { id: 'invalid', kind: 'notes', title: 42, text: 'hidden' },
+          { id: 'bad-items', kind: 'facts', title: 'Bad items', items: null },
+          { id: 'notes', kind: 'notes', title: ' Notes ', text: ' Real text ', expanded: true },
+          { id: 'facts', kind: 'facts', title: 'Facts', items: [null, false, {},
+            { label: ' Region ', value: ' Public ' }, { label: 'bad', value: 42 }] },
+          { id: 'links', kind: 'links', title: 'Links', items: [{ title: 'Bad', href: 'javascript:alert(1)' }] },
+          { id: 'gallery', kind: 'gallery', title: 'Gallery', items: [{ title: 'Bad', src: 'https://example.com/tracker.png' }] },
+        ] }],
+  }
+  const profiles = getSocialLinks(configured)
+  assert.deepEqual(profiles.map(profile => profile.id), ['github', 'email', 'good'])
+  assert.equal(profiles[2].platform, 'other')
+  assert.equal(profiles[2].handle, 'public-name')
+  assert.equal(profiles[2].description, undefined)
+  assert.equal(profiles[2].href, undefined)
+  assert.equal(profiles[2].qrCode, undefined)
+  const interests = getInterests(configured)
+  assert.equal(interests.length, 1)
+  assert.equal(interests[0].category, 'other')
+  assert.deepEqual(interests[0].tags, ['a', 'b'])
+  assert.deepEqual(interests[0].favorites, ['f'])
+  for (const field of ['description', 'note', 'href', 'cover']) assert.equal(interests[0][field], undefined)
+  const games = getGameProfiles(configured)
+  assert.equal(games.length, 1)
+  assert.equal(games[0].game, 'other')
+  assert.deepEqual(games[0].tags, ['team'])
+  for (const field of ['description', 'playerName', 'playerId', 'region']) assert.equal(games[0][field], undefined)
+  assert.deepEqual(games[0].blocks.map(block => block.id), ['notes', 'facts'])
+  assert.equal(games[0].blocks[0].text, 'Real text')
+  assert.equal(games[0].blocks[0].expanded, true)
+  assert.deepEqual(games[0].blocks[1].items, [{ label: 'Region', value: 'Public' }])
+  const html = renderStaticSite(configured)
+  assert.ok(!html.includes('javascript:') && !html.includes('tracker.png') && !html.includes('[object Object]'))
+  assert.ok(searchSite(getSiteSearchEntries(configured), 'Real text').some(entry => entry.href === '#game-good'))
+})
+
+test('top-level GitHub URLs are validated before every static link is derived', () => {
+  const invalid = [undefined, null, 42, {}, '', 'javascript:alert(1)', 'data:text/html,bad',
+    'http://github.com/owner', 'https://evil.example/owner', 'https://github.com.evil.example/owner',
+    'https://name:secret@github.com/owner', 'https://github.com:444/owner',
+    'https://github.com/', 'https://github.com/owner/repository']
+  for (const github of invalid) {
+    const configured = { ...site, github }
+    assert.equal(getSiteGithub(configured), undefined, String(github))
+    assert.equal(getSiteRepository(configured), undefined, String(github))
+    assert.ok(!getSocialLinks(configured).some(profile => profile.id === 'github'))
+    const html = renderStaticSite(configured)
+    const links = [...html.matchAll(/href="([^"]*)"/g)].map(match => match[1])
+    assert.ok(links.every(href => href.startsWith('#') || href.startsWith('https://') || href.startsWith('mailto:')), String(github))
+    assert.ok(!links.some(href => href.includes('evil.example') || href.includes('name:secret') ||
+      href.includes('[object Object]') || href === 'undefined/website' || href === '/website'), String(github))
+    assert.ok(!html.includes('class="repository-link"') && !html.includes('class="site-toc__source"'), String(github))
+  }
+  const canonical = { ...site, github: ' https://github.com/Valid-Owner/?tab=repositories#profile ' }
+  assert.equal(getSiteGithub(canonical), 'https://github.com/Valid-Owner')
+  assert.equal(getSiteRepository(canonical), 'https://github.com/Valid-Owner/website')
+  assert.equal(getSocialLinks(canonical).find(profile => profile.id === 'github').href, 'https://github.com/Valid-Owner')
+  assert.ok(renderStaticSite(canonical).includes('href="https://github.com/Valid-Owner/website"'))
+})
+
+test('navigation only exposes unique actual local section targets', () => {
+  const configured = { ...site, interests: [], gameProfiles: [], navigation: [
+    null, false, [], { label: 'Unsafe', href: 'javascript:alert(1)' },
+    { label: 'External', href: 'https://example.com/' }, { label: 'Missing', href: '#missing' },
+    { label: 'Not configured', href: '#games' }, { label: 'Not configured', href: '#interests' },
+    { label: ' Home ', href: '#home' }, { label: 'Duplicate', href: '#home' },
+    { label: ' ', href: '#about' }, { label: ' Works ', href: '#work' }, { label: 42, href: '#contact' },
+  ] }
+  assert.deepEqual(getSiteNavigation(configured), [{ label: 'Home', href: '#home' }, { label: 'Works', href: '#work' }])
+  const html = renderStaticSite(configured)
+  assert.ok(!html.includes('javascript:') && !html.includes('href="#missing"') && !html.includes('href="https://example.com/"'))
+  for (const navigation of [null, false, 42, 'navigation', {}]) {
+    assert.deepEqual(getSiteNavigation({ ...configured, navigation }), [])
+  }
+  const defaults = getSiteNavigation(site)
+  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#interests', '#games', '#contact'])
+})
+
+test('React shell and project components omit unsafe configuration just like static HTML', async () => {
+  const { createServer } = await import('vite')
+  const { createElement } = await import('react')
+  const { renderToStaticMarkup } = await import('react-dom/server')
+  const server = await createServer({ root: process.cwd(), logLevel: 'silent', appType: 'custom',
+    server: { middlewareMode: true, hmr: false, watch: null } })
+  let configuredSite
+  let saved
+  try {
+    const content = await server.ssrLoadModule('/src/features/profile/content/site.ts')
+    const { default: SiteShell } = await server.ssrLoadModule('/src/features/profile/components/SiteShell.tsx')
+    const { default: PersonalSections } = await server.ssrLoadModule('/src/features/profile/components/PersonalSections.tsx')
+    configuredSite = content.site
+    saved = { github: configuredSite.github, navigation: configuredSite.navigation }
+    configuredSite.github = 'javascript:alert(1)'
+    configuredSite.navigation = [{ label: 'Unsafe', href: 'javascript:alert(1)' },
+      { label: 'Missing', href: '#missing' }, { label: 'Home', href: '#home' }]
+    const html = renderToStaticMarkup(createElement(SiteShell, null, createElement(PersonalSections)))
+    const links = [...html.matchAll(/href="([^"]*)"/g)].map(match => match[1])
+    assert.ok(!links.some(href => href.startsWith('javascript:') || href.includes('#missing')))
+    assert.ok(!html.includes('class="repository-link"') && !html.includes('class="site-toc__source"'))
+    assert.ok(!html.includes('href="undefined') && !html.includes('href="/website"'))
+    assert.ok(html.includes('id="project-living-portrait"') && html.includes('id="project-xiangqi-review"'))
+    assert.ok(html.includes('href="https://github.com/fknejdcwnfi/website"') &&
+      html.includes('href="https://github.com/fknejdcwnfi/xiangqi-review"'))
+  } finally {
+    if (configuredSite && saved) Object.assign(configuredSite, saved)
+    await server.close()
+  }
+  assert.equal(site.github, 'https://github.com/fknejdcwnfi')
 })
 
 test('static HTML contains the complete personal site when JavaScript is unavailable', () => {

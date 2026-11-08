@@ -1,0 +1,7 @@
+
+> vermouth-character-stage@0.1.0 assets:verify
+> python3 scripts/assets/verify_assets.py && python3 scripts/assets/optimize_pixel_ui.py --verify && python3 scripts/qa/verify_repository_structure.py
+
+asset verification OK: legacy frames, portrait grids, provenance, public files
+Decoration provenance OK: six PNG/WebP pairs; hashes, image headers, dimensions and sizes verified (standard library)
+{"status": "passed", "markdownFiles": 78, "relativePathLinksTested": 572, "knownFrozenMissingLinks": [{"file": "docs/reference/README.md", "line": 20, "target": "../01-project-charter.md"}, {"file": "docs/reference/README.md", "line": 21, "target": "../03-animation-spec.md"}, {"file": "docs/reference/README.md", "line": 22, "target": "../04-architecture.md"}, {"file": "docs/reference/README.md", "line": 23, "target": "../05-development.md"}, {"file": "docs/reference/README.md", "line": 24, "target": "../06-codex-handoff.md"}, {"file": "docs/reference/README.md", "line": 33, "target": "../04-architecture.md"}, {"file": "docs/reference/README.md", "line": 39, "target": "../08-decisions.md"}], "unexpectedMissingLinks": [], "trackedTemporaryOutputs": [], "scope": "Relative Markdown target existence and tracked output boundaries; no external URL, fragment, security or browser assertions.", "frozenReferenceUnchanged": true}

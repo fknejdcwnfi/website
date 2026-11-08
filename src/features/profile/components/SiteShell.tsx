@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import PixelIcon from './PixelIcon'
-import { getSiteNavigation, getSiteSearchEntries, getTableOfContents, searchSite, site } from '../content/site'
+import { getSiteGithub, getSiteRepository, getSiteNavigation, getSiteSearchEntries, getTableOfContents, searchSite, site } from '../content/site'
 import { getNavigationIconPath } from '../content/navigationIcons'
 
 function NavigationIcon({ href }: { href: string }) {
@@ -119,6 +119,8 @@ function SiteSearch() {
 
 /** Shared document layout; profile content and the portrait rig evolve independently. */
 export default function SiteShell({ children }: { children: ReactNode }) {
+  const github = getSiteGithub(site)
+  const repository = getSiteRepository(site)
   const navigation = getSiteNavigation(site)
   const contents = getTableOfContents(site)
   const [activeSection, setActiveSection] = useState('home')
@@ -195,7 +197,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           </a>
           <div className="site-header__tools">
             <SiteSearch />
-            <a className="repository-link" href={`${site.github}/website`} target="_blank" rel="noopener noreferrer"><PixelIcon name="github" /><span>GitHub 仓库</span></a>
+            {repository ? <a className="repository-link" href={repository} target="_blank" rel="noopener noreferrer"><PixelIcon name="github" /><span>GitHub 仓库</span></a> : null}
           </div>
         </div>
         <nav className="site-header__nav site-container" aria-label="主要导航">
@@ -216,13 +218,13 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <span className="pixel-lantern pixel-lantern--toc" aria-hidden="true" />
           <h2 id="toc-title"><NavigationIcon href="#work" /><span>目录</span></h2>
           <nav aria-label="本页目录">{contents.map((link) => <a key={link.href} href={link.href} className={activeLink(link.href) ? 'is-active' : undefined} aria-current={activeLink(link.href) ? 'location' : undefined}><NavigationIcon href={link.href} /><span>{link.label}</span></a>)}</nav>
-          <a className="site-toc__source" href={`${site.github}/website`} target="_blank" rel="noopener noreferrer">查看本站源码 <PixelIcon name="arrow-up-right" /></a>
+          {repository ? <a className="site-toc__source" href={repository} target="_blank" rel="noopener noreferrer">查看本站源码 <PixelIcon name="arrow-up-right" /></a> : null}
         </aside>
       </div>
       <footer className="site-footer site-container">
         <p>© {new Date().getFullYear()} {site.fullName}<span className="site-footer__note">一格一格，慢慢建造。</span></p>
         <a href="#top">回到顶部 ↑</a>
-        <a href={site.github} target="_blank" rel="noopener noreferrer">GitHub <PixelIcon name="arrow-up-right" /></a>
+        {github ? <a href={github} target="_blank" rel="noopener noreferrer">GitHub <PixelIcon name="arrow-up-right" /></a> : null}
       </footer>
     </div>
   )

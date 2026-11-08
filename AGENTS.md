@@ -4,6 +4,43 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
+## Current audit and repository maintenance — 2026-11-08
+
+- Keep the current design and exact artwork. Security/robustness changes belong
+  at configuration, browser-signal and resource-lifetime boundaries; do not
+  rework the renderer, source clock or original assets without measured evidence.
+- Content URLs and optional records go through shared selectors in both React
+  and static HTML. Invalid configuration is omitted, never rendered as an
+  executable link. This is trusted-configuration hardening, not proof of a
+  visitor-triggerable vulnerability in the previously published content.
+- Production CSP is generated after HTML transforms: hash only the two owned
+  startup scripts, keep inline event handlers out of markup, and test actual
+  enforcement in both hosting bases. Style custom properties and the fixed
+  historical image data URI are intentional allowances. Meta CSP cannot enforce
+  frame-ancestors or replace host-controlled security/cache response headers.
+  Browser QA polling uses explicit function predicates; do not loosen CSP to
+  accommodate a harness that attempts string eval.
+- Optional observers and media-query APIs must not abort effect cleanup.
+  Support legacy listeners, disconnect failed setup, ignore queued callbacks
+  after disposal, and release retained preview media on boundary fallback.
+  Unreadable motion preference defaults to static with explicit local opt-in.
+- Decorative WebPs are lossless derivatives with a tracked provenance manifest;
+  retain the PNGs. `assets:verify` includes a standard-library integrity check;
+  `assets:ui:check` additionally compares decoded pixels using Pillow.
+- Keep one permanent local/remote branch, `main`, per the owner's latest request.
+  A temporary review branch may exist during a change; after checked PR merge
+  and verified publication, switch the checkout to main and remove merged task
+  branches. Verify reachability before deletion; archive unique work rather than
+  discarding it. Never force-push or bypass CI to simplify the branch list.
+- Keep temporary builds under ignored `/work/` or outside the checkout. Use
+  [repository maintenance](docs/guides/repository-maintenance.md) for current
+  entrypoints; retain immutable reference documents and unique historical evidence.
+  `repo:verify` checks relative document paths and tracked temporary outputs;
+  the existing `assets:verify` CI command includes this offline guard.
+- Audit conclusions must name evidence, conditions and gaps. Querying known
+  advisory records, synthetic fault tests and local cadence do not establish
+  absolute security, real visitor CWV or physical-display FPS.
+
 ## Current UI consistency and fuller works — 2026-11-07
 
 - Keep the current cream scenic page, blue header, pixel font and original

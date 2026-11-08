@@ -1,0 +1,306 @@
+[
+  {
+    "width": 390,
+    "height": 320,
+    "panel": {
+      "top": 101,
+      "bottom": 351.375,
+      "left": 12,
+      "right": 378,
+      "height": 250.375
+    },
+    "list": {
+      "top": 146.59375,
+      "bottom": 312.984375,
+      "left": 13,
+      "right": 377,
+      "height": 166.390625
+    },
+    "help": {
+      "top": 312.984375,
+      "bottom": 350.375,
+      "left": 13,
+      "right": 377,
+      "height": 37.390625
+    },
+    "keyboardResults": [
+      {
+        "href": "#home",
+        "top": 185.78125,
+        "bottom": 245.96875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#about",
+        "top": 247.96875,
+        "bottom": 308.15625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#contact",
+        "top": 253.15625,
+        "bottom": 313.34375,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-living-portrait",
+        "top": 199.53125,
+        "bottom": 259.71875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-xiangqi-review",
+        "top": 252.71875,
+        "bottom": 312.90625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-naruto",
+        "top": 200.09375,
+        "bottom": 260.28125,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-detective-conan",
+        "top": 253.28125,
+        "bottom": 313.46875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#game-honor-of-kings",
+        "top": 242.65625,
+        "bottom": 302.84375,
+        "fullyVisible": true
+      }
+    ],
+    "overflow": true
+  },
+  {
+    "width": 320,
+    "height": 320,
+    "panel": {
+      "top": 101,
+      "bottom": 351.375,
+      "left": 12,
+      "right": 308,
+      "height": 250.375
+    },
+    "list": {
+      "top": 146.59375,
+      "bottom": 312.984375,
+      "left": 13,
+      "right": 307,
+      "height": 166.390625
+    },
+    "help": {
+      "top": 312.984375,
+      "bottom": 350.375,
+      "left": 13,
+      "right": 307,
+      "height": 37.390625
+    },
+    "keyboardResults": [
+      {
+        "href": "#home",
+        "top": 185.78125,
+        "bottom": 245.96875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#about",
+        "top": 247.96875,
+        "bottom": 308.15625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#contact",
+        "top": 253.15625,
+        "bottom": 313.34375,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-living-portrait",
+        "top": 199.53125,
+        "bottom": 259.71875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-xiangqi-review",
+        "top": 252.71875,
+        "bottom": 312.90625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-naruto",
+        "top": 200.09375,
+        "bottom": 260.28125,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-detective-conan",
+        "top": 253.28125,
+        "bottom": 313.46875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#game-honor-of-kings",
+        "top": 242.65625,
+        "bottom": 302.84375,
+        "fullyVisible": true
+      }
+    ],
+    "overflow": true
+  },
+  {
+    "width": 667,
+    "height": 320,
+    "panel": {
+      "top": 59.5,
+      "bottom": 309.875,
+      "left": 192,
+      "right": 600,
+      "height": 250.375
+    },
+    "list": {
+      "top": 105.09375,
+      "bottom": 271.484375,
+      "left": 193,
+      "right": 599,
+      "height": 166.390625
+    },
+    "help": {
+      "top": 271.484375,
+      "bottom": 308.875,
+      "left": 193,
+      "right": 599,
+      "height": 37.390625
+    },
+    "keyboardResults": [
+      {
+        "href": "#home",
+        "top": 144.28125,
+        "bottom": 204.46875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#about",
+        "top": 206.46875,
+        "bottom": 266.65625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#contact",
+        "top": 211.65625,
+        "bottom": 271.84375,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-living-portrait",
+        "top": 158.03125,
+        "bottom": 218.21875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-xiangqi-review",
+        "top": 211.21875,
+        "bottom": 271.40625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-naruto",
+        "top": 158.59375,
+        "bottom": 218.78125,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-detective-conan",
+        "top": 211.78125,
+        "bottom": 271.96875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#game-honor-of-kings",
+        "top": 201.15625,
+        "bottom": 261.34375,
+        "fullyVisible": true
+      }
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1280,
+    "height": 320,
+    "panel": {
+      "top": 58,
+      "bottom": 308.375,
+      "left": 698,
+      "right": 1106,
+      "height": 250.375
+    },
+    "list": {
+      "top": 103.59375,
+      "bottom": 269.984375,
+      "left": 699,
+      "right": 1105,
+      "height": 166.390625
+    },
+    "help": {
+      "top": 269.984375,
+      "bottom": 307.375,
+      "left": 699,
+      "right": 1105,
+      "height": 37.390625
+    },
+    "keyboardResults": [
+      {
+        "href": "#home",
+        "top": 142.78125,
+        "bottom": 202.96875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#about",
+        "top": 204.96875,
+        "bottom": 265.15625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#contact",
+        "top": 210.15625,
+        "bottom": 270.34375,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-living-portrait",
+        "top": 156.53125,
+        "bottom": 216.71875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#project-xiangqi-review",
+        "top": 209.71875,
+        "bottom": 269.90625,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-naruto",
+        "top": 157.09375,
+        "bottom": 217.28125,
+        "fullyVisible": true
+      },
+      {
+        "href": "#interest-detective-conan",
+        "top": 210.28125,
+        "bottom": 270.46875,
+        "fullyVisible": true
+      },
+      {
+        "href": "#game-honor-of-kings",
+        "top": 199.65625,
+        "bottom": 259.84375,
+        "fullyVisible": true
+      }
+    ],
+    "overflow": false
+  }
+]

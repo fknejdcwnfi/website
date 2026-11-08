@@ -1,0 +1,44 @@
+{
+  "markdownFiles": 76,
+  "relativePathLinksTested": 540,
+  "missingRelativePathLinks": [
+    {
+      "file": "docs/reference/README.md",
+      "line": 20,
+      "target": "../01-project-charter.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 21,
+      "target": "../03-animation-spec.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 22,
+      "target": "../04-architecture.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 23,
+      "target": "../05-development.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 24,
+      "target": "../06-codex-handoff.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 33,
+      "target": "../04-architecture.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 39,
+      "target": "../08-decisions.md"
+    }
+  ],
+  "allMissingConfinedToImmutableHistoricalReference": true,
+  "frozenReferenceSha256": "e85ed36faed65ae3ef88c25d9963a214791539f399d7464c5f5213cefc03094a",
+  "scope": "Relative Markdown link target existence only; excludes external URLs and fragments. Includes newly added repository-maintenance guide."
+}

@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { site } from './src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from './src/features/profile/content/staticMarkup.ts'
+import { protectStaticHtml } from './scripts/build/securityPolicy.ts'
 
 /**
  * GitHub Pages serves this repository from https://fknejdcwnfi.github.io/website/,
@@ -22,6 +23,10 @@ export default defineConfig(({ mode }) => ({
         .replaceAll('__SITE_DESCRIPTION__', escapeHtml(`${site.intro}｜${site.name} 的个人网站，记录作品、动漫兴趣、游戏内容与新的想法。`))
         .replaceAll('__SITE_HANDLE__', escapeHtml(site.handle)),
     },
+  }, {
+    name: 'static-security-policy',
+    apply: 'build',
+    transformIndexHtml: { order: 'post', handler: protectStaticHtml },
   }],
   build: {
     target: 'es2020',

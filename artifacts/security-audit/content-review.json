@@ -1,0 +1,135 @@
+{
+  "verifiedAt": "2026-11-08T01:02:46.032259+00:00",
+  "baselineCommit": "7258c937",
+  "scope": "Profile selectors, static/React rendering, search, clipboard, SVG and HTML injection sinks; root agent separately owns production CSP integration and deployment.",
+  "threatBoundary": "Published content is trusted TypeScript in the repository. Visitor input consists of local search, hash and bounded display query options; no remote CMS, form submission, account session or server-side content processor was found.",
+  "findings": [
+    {
+      "id": "trusted-config-url-boundary",
+      "priority": "low",
+      "classification": "Trusted-configuration hardening; no current visitor-controlled XSS path identified",
+      "status": "fixed in working tree",
+      "baselineEvidence": [
+        "src/features/profile/content/selectors.ts:113",
+        "src/features/profile/content/staticMarkup.ts:107",
+        "src/features/profile/content/staticMarkup.ts:109"
+      ],
+      "problem": "Top-level GitHub/navigation configuration could bypass optional-profile URL validation and leave executable-scheme links in static HTML.",
+      "actualProof": {
+        "method": "Load baseline selectors/static modules from Git into memory, render a deliberately malicious trusted navigation fixture, inspect/click in local Chromium; no production content or files altered by proof.",
+        "baselineExecutableSchemeAnchors": 2,
+        "baselineWindowMarkerAfterClick": 7,
+        "patchedExecutableSchemeAnchors": 0,
+        "patchedWindowMarkerAfterClick": null
+      },
+      "fixEvidence": [
+        "src/features/profile/content/selectors.ts:21",
+        "src/features/profile/content/selectors.ts:28",
+        "src/features/profile/content/selectors.ts:131",
+        "src/features/profile/components/SiteShell.tsx:122",
+        "src/features/profile/components/PersonalSections.tsx:10",
+        "src/features/profile/content/staticMarkup.ts:94"
+      ],
+      "fix": "Canonical HTTPS github.com owner profile and repository helpers are shared by all callers. Invalid top-level links disappear. Navigation admits only real fixed sections plus present optional modules, with duplicate targets removed."
+    },
+    {
+      "id": "malformed-optional-config",
+      "priority": "low",
+      "classification": "Configuration reliability / defense in depth",
+      "status": "fixed in working tree",
+      "problem": "Null records, non-array collections, non-string members and malformed nested game items could throw before normal fallback handling.",
+      "fixEvidence": [
+        "src/features/profile/content/selectors.ts:3",
+        "src/features/profile/content/selectors.ts:6",
+        "src/features/profile/content/selectors.ts:35",
+        "src/features/profile/content/selectors.ts:81"
+      ],
+      "fix": "Shared primitive/array/record guards discard unusable optional members while preserving valid mixed content; enum fallbacks remain bounded."
+    },
+    {
+      "id": "production-csp",
+      "priority": "informational",
+      "classification": "Defense in depth / hosting boundary",
+      "status": "root agent implementing and validating separately",
+      "baselineEvidence": [
+        "index.html:44",
+        "index.html:99",
+        "index.html:102"
+      ],
+      "problem": "Baseline has two fixed inline scripts and one inline reload event handler, and no repository-declared CSP. A naive script-src self policy would break startup behavior.",
+      "limits": "Meta CSP cannot enforce frame-ancestors. Host HTTP response headers and third-party platform behavior must be assessed separately. Existing inline scene styles require compatibility treatment; no unsafe-eval need was found."
+    }
+  ],
+  "verifiedControls": [
+    {
+      "control": "Optional text is escaped and does not become HTML",
+      "evidence": [
+        "src/features/profile/content/staticMarkup.ts:7",
+        "src/features/profile/components/ProfileModules.tsx:32"
+      ],
+      "actualLocalChromiumProof": {
+        "maliciousTextRenderedAsText": true,
+        "scriptNodes": 0,
+        "inlineEventAttributes": 0,
+        "unsafeSchemeAnchors": 0,
+        "executedMarker": null
+      }
+    },
+    {
+      "control": "External optional links reject javascript/data/http and embedded credentials; HTTPS localhost is permitted as an outgoing link, not fetched by any server.",
+      "evidence": [
+        "src/features/profile/content/selectors.ts:11"
+      ],
+      "note": "An SSRF claim would be a false positive for this static link-only site."
+    },
+    {
+      "control": "Optional media rejects traversal (including percent-encoded), remote/scheme-relative URLs, SVG, queries, hashes and backslashes; accepted assets stay relative to the trusted deployment base.",
+      "evidence": [
+        "src/features/profile/content/selectors.ts:47"
+      ]
+    },
+    {
+      "control": "Local search uses literal includes checks, maxLength 120, at most eight results and validated anchor IDs; test regex/script probes have zero matches.",
+      "evidence": [
+        "src/features/profile/content/selectors.ts:175",
+        "src/features/profile/components/SiteShell.tsx:84"
+      ]
+    },
+    {
+      "control": "Clipboard is write-only, user-click initiated; account success is announced only after resolved write; failure selects existing visible text. No clipboard read API found.",
+      "evidence": [
+        "src/features/profile/components/ProfileModules.tsx:83",
+        "src/features/profile/components/ProfileModules.tsx:90"
+      ]
+    },
+    {
+      "control": "All seven current public SVGs parse without script, foreignObject, event handlers, href or src references; UI SVG path strings are repository constants.",
+      "evidence": [
+        "src/features/profile/components/PixelIcon.tsx:5",
+        "src/features/profile/content/navigationIcons.ts:13"
+      ],
+      "svgCount": 7
+    },
+    {
+      "control": "The remaining HTML sinks consume build-generated escaped document fallback or deterministic fixed-number particle markup, not query text.",
+      "evidence": [
+        "src/main.tsx:9",
+        "src/app/SiteBoundary.tsx:12",
+        "src/features/poeticPixel/bootstrap.ts:22"
+      ],
+      "note": "Treating dangerouslySetInnerHTML alone as proof of exploitable XSS would be a false positive."
+    }
+  ],
+  "validation": {
+    "contentNodeTestsPassed": 24,
+    "contentNodeTestsFailed": 0,
+    "strictTypeScriptPassed": true,
+    "gitDiffCheckPassed": true,
+    "dependencyAdvisories": "dependency-advisories.json"
+  },
+  "limits": [
+    "Mandatory SiteContent fields and VITE_BASE remain trusted build configuration, not a schema for arbitrary remote JSON.",
+    "No penetration test of the hosting infrastructure or authenticated third-party platform was performed.",
+    "No claim of absence of all vulnerabilities is made."
+  ]
+}

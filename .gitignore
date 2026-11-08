@@ -22,3 +22,6 @@ playwright-report/
 test-results/
 coverage/
 __pycache__/
+
+# Isolated QA fixture builds and temporary local evidence
+/work/

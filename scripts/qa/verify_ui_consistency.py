@@ -221,8 +221,8 @@ def keyboard_search(page, label):
     arrow_to(page, 'ArrowDown', '#project-xiangqi-review')
     check(label + '_new_project_capability_is_searchable', focused_href(page) == '#project-xiangqi-review')
     page.keyboard.press('Enter')
-    page.wait_for_function('document.activeElement.id==="project-xiangqi-review"')
-    page.wait_for_function('document.querySelector(".personal-site").dataset.activeSection==="work"')
+    page.wait_for_function('() => (document.activeElement.id==="project-xiangqi-review")')
+    page.wait_for_function('() => (document.querySelector(".personal-site").dataset.activeSection==="work")')
     check(label + '_enter_navigates_focused_result', page.url.endswith('#project-xiangqi-review') and
           page.locator(RESULTS).count() == 0)
     same_scene(page, label + '_search_enter')
