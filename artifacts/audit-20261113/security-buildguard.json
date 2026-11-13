@@ -1,0 +1,84 @@
+{
+  "verifiedAt": "2026-11-13T00:59:48.429138+00:00",
+  "baselineCommit": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "classification": "Trusted production-build guard hardening and startup robustness; no new visitor-controlled XSS path is claimed.",
+  "status": "implemented; independently cross-reviewed; browser enforcement verification belongs to the separately coordinated audit suite",
+  "changes": [
+    "Restricted quote/comment/raw-text-aware token inventory; exact case-folded attribute names and duplicate rejection.",
+    "Reject inert template contexts, unsupported/malformed forms, actual inline event attributes and unexpected external scripts.",
+    "Require literal first html/head/UTF-8 meta envelope with whitespace-only boundaries; do not infer HTML error recovery.",
+    "Accept only the two owned classic startup IDs exactly once; external scripts must be normalized same-site .js/.mjs module paths.",
+    "Preserve all original output/script bytes; normalize CRLF/CR to LF only when calculating the browser-processed CSP source hash.",
+    "Keep existing policy allowances and rendering/app/artwork sources unchanged."
+  ],
+  "validation": {
+    "contentAndCspNodeTestsPassed": 36,
+    "cspNodeTestsPassed": 12,
+    "failedTests": 0,
+    "strictTypeScriptPassed": true,
+    "gitDiffCheckPassed": true,
+    "independentCrossReview": "source_audit independently exercised template/head/data-id/data-src/quoted-gt and CRLF cases and found no further concrete blocker within the documented restricted format.",
+    "browserLaunchedByThisAgent": false,
+    "isolatedProductionBuilds": {
+      "root": "/workspace/work/audit-20261113/security-csp-dist",
+      "pages": "/workspace/work/audit-20261113/security-csp-pages-dist",
+      "note": "Vite-only builds in isolated work paths passed; final production/browser verification is coordinated by the root agent."
+    }
+  },
+  "reproductionsAfterFix": {
+    "negativeProbes": [
+      {
+        "name": "data_src",
+        "rejected": true
+      },
+      {
+        "name": "data_id",
+        "rejected": true
+      },
+      {
+        "name": "handler",
+        "rejected": true
+      },
+      {
+        "name": "commented_owned",
+        "rejected": true
+      },
+      {
+        "name": "external",
+        "rejected": true
+      },
+      {
+        "name": "template_owned",
+        "rejected": true
+      },
+      {
+        "name": "body_charset",
+        "rejected": true
+      }
+    ],
+    "quotedGt": {
+      "accepted": true,
+      "originalBodyPreserved": true,
+      "exactBodyHashMatches": true
+    }
+  },
+  "limits": [
+    "This reader is for the owned generated document, not a general-purpose HTML parser or sanitizer.",
+    "Remote content remains escaped by the profile rendering boundary; repository HTML/build code is trusted configuration.",
+    "Meta CSP does not control frame-ancestors or replace host response headers."
+  ],
+  "files": [
+    {
+      "path": "scripts/build/securityPolicy.ts",
+      "sha256": "8314611299653e85df326aa41f1ccc241551ce1fab6ec8553ebc794852a7724a"
+    },
+    {
+      "path": "scripts/build/htmlInventory.ts",
+      "sha256": "c7348e248d0439a6bc367e6c89e56be8a04a278a180d480815c35b0e56286215"
+    },
+    {
+      "path": "scripts/tests/test_security_policy.mjs",
+      "sha256": "604ab6db9d9495f708be66b6f262c6a7e835491ad1cd2c1cbb4a61114630286c"
+    }
+  ]
+}

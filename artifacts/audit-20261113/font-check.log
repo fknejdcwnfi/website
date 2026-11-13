@@ -1,0 +1,5 @@
+
+> vermouth-character-stage@0.1.0 assets:font:check
+> python3 scripts/assets/prepare_pixel_font.py --check
+
+{"status": "passed", "mode": "check", "sourceBytes": 701520, "subsetBytes": 18868, "mappedCodepoints": 566, "outputGlyphs": 567, "fontBytesSaved": 682652, "fullFontPreserved": true}

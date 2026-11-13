@@ -1,0 +1,60 @@
+{
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "scope": "Pinned original sources, exact pixel/clock/weather algorithms and original complete font; lifecycle/UI/build infrastructure changes are intentionally outside this equality check.",
+  "groups": [
+    {
+      "path": "assets/source",
+      "files": 13,
+      "changed": []
+    },
+    {
+      "path": "docs/reference",
+      "files": 3,
+      "changed": []
+    },
+    {
+      "path": "reference-projects/fuji-wind",
+      "files": 25,
+      "changed": []
+    },
+    {
+      "path": "public/assets/poetic-pixel",
+      "files": 6,
+      "changed": []
+    },
+    {
+      "path": "src/features/poeticPixel/renderer.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "src/features/poeticPixel/atmosphere",
+      "files": 6,
+      "changed": []
+    },
+    {
+      "path": "src/features/poeticPixel/presentation/frameReconstruction.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "src/features/referenceScene/sceneTimeline.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "src/features/referenceScene/sourceTiming.ts",
+      "files": 1,
+      "changed": []
+    },
+    {
+      "path": "public/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+      "files": 1,
+      "changed": []
+    }
+  ],
+  "publicToDist": {
+    "files": 99,
+    "mismatches": []
+  }
+}

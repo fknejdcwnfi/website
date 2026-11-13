@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "markdownFiles": 80,
+  "relativePathLinksTested": 615,
+  "knownFrozenMissingLinks": [
+    {
+      "file": "docs/reference/README.md",
+      "line": 20,
+      "target": "../01-project-charter.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 21,
+      "target": "../03-animation-spec.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 22,
+      "target": "../04-architecture.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 23,
+      "target": "../05-development.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 24,
+      "target": "../06-codex-handoff.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 33,
+      "target": "../04-architecture.md"
+    },
+    {
+      "file": "docs/reference/README.md",
+      "line": 39,
+      "target": "../08-decisions.md"
+    }
+  ],
+  "unexpectedMissingLinks": [],
+  "invalidLinkTargets": [],
+  "trackedTemporaryOutputs": [],
+  "scope": "Supported inline/reference Markdown target existence outside fenced/inline code and tracked output boundaries; limited parser, no CommonMark conformance, external URL, fragment, security or browser assertions.",
+  "frozenReferenceUnchanged": true
+}

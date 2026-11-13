@@ -1,0 +1,102 @@
+{
+  "review_date": "2026-11-13",
+  "baseline_commit": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "runtime": "Node v24.19.0",
+  "scope": "ScenePlayer asynchronous lifetime, ReferenceScene retry accounting, parser callback cleanup and navigation ownership. No browser was launched for this review while the root agent reserved its performance window.",
+  "finding": {
+    "id": "automatic-retry-budget-reset-by-first-successful-frame",
+    "priority": "P2",
+    "baseline_source": [
+      { "file": "src/features/referenceScene/ReferenceScene.tsx", "line": 113, "role": "Schedule two nominally bounded automatic retries" },
+      { "file": "src/features/referenceScene/ReferenceScene.tsx", "line": 115, "role": "Treat any looping/static notification as success" },
+      { "file": "src/features/referenceScene/ReferenceScene.tsx", "line": 118, "role": "Immediately reset the retry budget" },
+      { "file": "src/features/referenceScene/ScenePlayer.ts", "line": 158, "role": "Publish looping after the first successful dynamic paint" },
+      { "file": "src/features/referenceScene/ScenePlayer.ts", "line": 168, "role": "A later paint can still fail" }
+    ],
+    "conditions": "A renderer prepares successfully and paints its first visible frame, then throws on its next paint every time a new instance is created. This is a synthetic persistent runtime fault, not a claim that the shipped renderer normally throws.",
+    "actual_module_method": "Node stripTypeScriptTypes(mode=transform) executed the actual ScenePlayer class and ReferenceScene hook/effect body. Only JSX output was removed; imports were injected with actual loadSceneAssets, sampleScene and browserSignals modules. React hooks, image/canvas objects and timers/rAF were deterministic fixtures. The injected renderer contained the fault; retry and cleanup algorithms were not reimplemented.",
+    "baseline_result": {
+      "observed_consecutive_failures": 6,
+      "retry_delays_ms": [2000, 2000, 2000, 2000, 2000, 2000],
+      "budget_after_each_failure": [1, 1, 1, 1, 1, 1],
+      "renderer_instances_created": 7,
+      "renderer_instances_destroyed_at_harness_cleanup": 7,
+      "timers_remaining_at_cleanup": 0,
+      "rafs_remaining_at_cleanup": 0,
+      "limit": "The harness stopped after six fault cycles. Continued retry follows from the unconditional budget reset on every first looping frame; an infinite-duration browser run was not performed."
+    },
+    "authorized_fix": "Remove the automatic budget reset from looping/static notifications. Keep a total of two automatic retries for the mounted scene; explicit manual retry and the existing online recovery event reset that budget.",
+    "post_fix_result": {
+      "status": "passed",
+      "retry_delays_ms": [2000, 5000, null],
+      "budget_after_each_failure": [1, 2, 2],
+      "renderer_instances_created": 3,
+      "renderer_instances_destroyed": 3,
+      "dynamic_paint_attempts": 6,
+      "timers_remaining_at_cleanup": 0,
+      "rafs_remaining_at_cleanup": 0,
+      "typecheck": "passed"
+    },
+    "persistent_regression": "scripts/tests/test_scene_lifecycle.mjs is owned by the independent source audit agent; its recorded run supplies the permanent regression result."
+  },
+  "additional_actual_module_probes": [
+    {
+      "case": "Motion preference cancels preparation A, starts B, then A resolves late",
+      "result": "passed",
+      "observed": "A's signal is aborted, late A renderer is destroyed once without painting or interrupting B, B reaches looping and is destroyed once on player cleanup.",
+      "timers_remaining": 0,
+      "rafs_remaining": 0,
+      "media_listeners_remaining": 0,
+      "visibility_listeners_remaining": 0
+    },
+    {
+      "case": "Destroy while canonical image is pending, then invoke its saved late onload callback",
+      "result": "passed",
+      "renderer_factory_calls": 0,
+      "pending_image_sources_removed": 1,
+      "image_handlers_cleared": true,
+      "timers_remaining": 0,
+      "rafs_remaining": 0,
+      "media_listeners_remaining": 0,
+      "visibility_listeners_remaining": 0
+    },
+    {
+      "case": "Preparation timeout fires, then renderer factory resolves late",
+      "result": "passed",
+      "observed": "Player publishes failed and aborts preparation; late renderer is destroyed once without painting or changing the failed state.",
+      "timers_remaining": 0,
+      "rafs_remaining": 0,
+      "media_listeners_remaining": 0,
+      "visibility_listeners_remaining": 0
+    },
+    {
+      "case": "Canonical image loading error",
+      "result": "passed",
+      "renderer_factory_calls": 0,
+      "timers_remaining": 0,
+      "rafs_remaining": 0,
+      "media_listeners_remaining": 0,
+      "visibility_listeners_remaining": 0
+    },
+    {
+      "case": "Actual index.html parser script callbacks after parser cleanup",
+      "method": "Executed the owned inline parser script through Node vm with captured observer/media/visibility/loadeddata callbacks, called its registered cleanup and then invoked each saved callback.",
+      "result": "passed",
+      "initial_video_play_calls": 1,
+      "additional_video_play_calls_after_cleanup": 0,
+      "post_cleanup_state_mutations": 0,
+      "observer_disconnections": 1,
+      "listeners_removed": 3
+    }
+  ],
+  "navigation_review": {
+    "method": "Read-only ownership/dependency inspection, not a new browser observation.",
+    "result": "SiteShell active-section state is local to the shell and does not key the scene. ReferenceScene player effect depends on definition, renderer factory, retry attempt and inspection time; navigation state is absent from those dependencies.",
+    "gap": "Final browser navigation identity/phase assertions belong to the separately coordinated browser QA run."
+  },
+  "change_boundary": {
+    "changed": ["src/features/referenceScene/ReferenceScene.tsx retry accounting and one policy comment"],
+    "not_changed_by_this_fix": ["ScenePlayer", "bootstrap parser", "renderer", "original source assets", "source clock algorithm", "snow/petal algorithms"],
+    "limits": "These targeted fault tests do not prove every browser API or allocation failure is handled, do not measure physical-display FPS, and do not establish absolute security."
+  }
+}

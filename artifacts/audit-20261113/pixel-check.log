@@ -1,0 +1,5 @@
+
+> vermouth-character-stage@0.1.0 assets:ui:check
+> python3 scripts/assets/optimize_pixel_ui.py --check
+
+Decoration verification OK: 6 exact RGBA matches; all source/output hashes and dimensions match

@@ -1,0 +1,66 @@
+{
+  "reviewedAt": "2026-11-13T01:03:50.891355+00:00",
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "status": "targeted fixes independently verified on combined local production build",
+  "scope": "Independent source review, actual React callback probes, original production browser IME probes, baseline/current actual lifecycle regression, and CSP tokenizer cross-review. No historical pass count is used as current proof.",
+  "findings": [
+    {
+      "priority": "P2",
+      "area": "IME search",
+      "source": "src/features/profile/components/SiteShell.tsx:86",
+      "baselineReproduction": "Composing ArrowDown/Up and keyCode229 ArrowDown prevented native keys and focused a result; composing Escape closed results. requestSubmit while composing or immediately after compositionend+229 Enter navigated away.",
+      "evidence": "ime-baseline.json",
+      "fix": "Composition/native isComposing/keyCode229 guards preserve keys; committing form submissions suppressed while the next ordinary Enter remains usable.",
+      "currentNodeRegression": "scripts/tests/test_search_ime.mjs passed; actual React component callbacks, no copied handler implementation.",
+      "limitation": "Synthetic browser CompositionEvent/KeyboardEvent/requestSubmit; physical OS IME behavior unverified.",
+      "combinedBrowserStatus": "passed; see browser/checks.json"
+    },
+    {
+      "priority": "P2",
+      "area": "Retry lifetime",
+      "source": "src/features/referenceScene/ReferenceScene.tsx:115",
+      "baselineReproduction": "An actual renderer failing after one successful frame produced automatic retry delays [2000,2000,2000], replenishing the budget on every looping state.",
+      "evidence": "retry-baseline-node.log",
+      "fix": "Automatic retry budget survives momentary looping/static; manual retry or a new online event resets it.",
+      "currentNodeRegression": "scripts/tests/test_scene_lifecycle.mjs passed: [2000,5000,null], three created/destroyed instances; online resets a fresh budget; final timers/rAF/listeners zero.",
+      "combinedBrowserStatus": "passed; see browser/checks.json"
+    },
+    {
+      "priority": "P2",
+      "area": "Production build CSP inventory",
+      "source": "scripts/build/securityPolicy.ts",
+      "baselineReproduction": "Original regex inventory used word-boundary id/src and global charset replacement; security agent independently fixed ownership/HTML-state ambiguity. Cross-review also confirmed template-counted scripts and body charset acceptance in the first tokenizer draft, plus raw CRLF hashes mismatching normalized HTML text.",
+      "fix": "Restricted tokenizer handles exact attributes/quoted >, comments/raw text, rejects inert templates and unsupported/malformed states, requires literal html/head/UTF8 envelope, and normalizes only hash-input line endings.",
+      "currentIndependentEvidence": "12 current CSP tests passed; separate Node probes reject template/body/fakehead/data-id/data-src, allow quoted >, and verify normalized CRLF hash.",
+      "limitation": "Trusted production format guard, not a general HTML sanitizer. Current shipped baseline content was trusted; no visitor-triggerable exploit is claimed.",
+      "combinedBrowserStatus": "passed; see browser/checks.json"
+    }
+  ],
+  "testBlindspotsAddressed": [
+    "Composition/candidate-selection keys were absent from ordinary keyboard QA.",
+    "Permanent atlas/setup failures did not test repeated post-success paint failures.",
+    "CSP tests previously missed parser state, exact-attribute identity and HTML line-ending normalization."
+  ],
+  "remainingChecks": [
+    "Root-coordinated broader active UI/profile/scene regressions, both hosting bases, clean performance observations and publication checks."
+  ],
+  "unchangedScope": [
+    "Source pixels, source timing, renderer algorithm and independent weather are outside these fixes.",
+    "Mandatory top-level typed SiteContent remains trusted configuration, not a complete runtime JSON schema."
+  ],
+  "verification": {
+    "targetedBrowser": {
+      "status": "passed",
+      "checks": 45,
+      "evidence": "browser/checks.json",
+      "url": "http://127.0.0.1:5180/"
+    },
+    "independentNode": [
+      "test_search_ime.mjs:1 passed, actual React callbacks",
+      "test_scene_lifecycle.mjs:1 passed, actual effect/player modules",
+      "test_security_policy.mjs:12 passed, cross-review plus independent malformed/CRLF probes"
+    ],
+    "baselineCounterexample": "retry-baseline-node.log fails new bounded-retry regression against original012181f ReferenceScene, while current implementation passes",
+    "browserProcess": "closed after verification"
+  }
+}

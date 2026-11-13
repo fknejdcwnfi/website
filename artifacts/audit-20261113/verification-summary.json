@@ -1,0 +1,18 @@
+{
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "nodeTests": 137,
+  "pythonCliTests": 18,
+  "browserChecks": {
+    "ui": 199,
+    "profile": 269,
+    "cream": 150,
+    "scene": 134,
+    "hardening": 109,
+    "pages-base.json": 84,
+    "browser/checks.json": 45,
+    "font-browser/root/checks.json": 74,
+    "font-browser/pages/checks.json": 74
+  },
+  "browserCheckTotal": 1138,
+  "allBrowserChecksPassed": true
+}

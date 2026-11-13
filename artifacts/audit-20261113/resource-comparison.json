@@ -1,0 +1,46 @@
+{
+  "baseline-resources": {
+    "resourceBytes": 12295753,
+    "decorationBytes": 8456376,
+    "fontBytes": 701520,
+    "decorationNames": [
+      "twilight-world.webp",
+      "naruto.webp",
+      "conan.webp",
+      "game-realm.webp",
+      "social-github.webp",
+      "social-mail.webp"
+    ],
+    "fontNames": [
+      "fusion-pixel-12px-proportional-zh_hans.woff2"
+    ]
+  },
+  "final-resources": {
+    "resourceBytes": 8567795,
+    "decorationBytes": 5406232,
+    "fontBytes": 18868,
+    "decorationNames": [
+      "twilight-world.webp",
+      "naruto.webp",
+      "conan.webp"
+    ],
+    "fontNames": [
+      "fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+    ]
+  },
+  "small-viewport-resources": {
+    "resourceBytes": 4802023,
+    "decorationBytes": 1641538,
+    "fontBytes": 18868,
+    "decorationNames": [
+      "twilight-world.webp"
+    ],
+    "fontNames": [
+      "fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+    ]
+  },
+  "desktopDifference": {
+    "savedBytes": 3727958,
+    "savedPercent": 30.32
+  }
+}

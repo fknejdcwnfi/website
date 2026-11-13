@@ -1,0 +1,826 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5182/website/",
+  "timestamp": "2026-11-13T01:07:57.397538+00:00",
+  "build": {
+    "command": "node_modules/.bin/vite build --base /website/ --outDir /workspace/work/audit-20261113/pages-dist",
+    "output": "/workspace/work/audit-20261113/pages-dist",
+    "status": "passed",
+    "root_dist_overwritten": false,
+    "indexSha256": "1fcdf8ba15eec9ae07b64af889547ebefdb26fbcbaf381bcb7c692de8b27f6a3"
+  },
+  "scope": "Independent local production Pages-base functional smoke; no deployment or CPU/performance claims.",
+  "checks": [
+    {
+      "name": "desktop_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_strict_csp_present",
+      "passed": true,
+      "detail": "default-src 'none'; script-src 'self' 'sha256-3oai00CzAb6mhzesEtgIZ40FJSLTJ9cBmcHWxwTouqA=' 'sha256-0VLc15PmnVmaP7jNdK9sKsLR3oWQ6Ulgot5pJsH+R1g='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    },
+    {
+      "name": "desktop_initial_font_subset_only",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+      ]
+    },
+    {
+      "name": "desktop_one_canvas_one_video",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_five_lazy_decorations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_decoded_0",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+        "width": 1774,
+        "height": 887,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "desktop_decoded_1",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "desktop_decoded_2",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "desktop_decoded_3",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "desktop_decoded_4",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "desktop_two_native_details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_detail_0_opens",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_detail_1_opens",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_project_highlight_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_arrow_escape_focus",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_ime_nav_retest_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_ime_keys_preserved_and_submit_blocked",
+      "passed": true,
+      "detail": {
+        "arrowPrevented": false,
+        "enterPrevented": false,
+        "hash": "",
+        "focused": true,
+        "open": true
+      }
+    },
+    {
+      "name": "desktop_normal_enter_after_ime",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_nav_interests_same_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_nav_games_same_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_nav_contact_same_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_nav_home_same_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_ime_nav_retest_no_js_http_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "responses": []
+      }
+    },
+    {
+      "name": "desktop_ime_nav_retest_no_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_ime_nav_retest_all_local_resources_pages_based",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320x568_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320x568_no_horizontal_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320x568_six_nav_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320x568_search_fits",
+      "passed": true,
+      "detail": {
+        "top": 101,
+        "bottom": 294.359375,
+        "left": 12,
+        "right": 308,
+        "helpBottom": 293.359375
+      }
+    },
+    {
+      "name": "mobile_320x568_search_real_target",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320x568_single_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_320x568_no_js_http_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "responses": []
+      }
+    },
+    {
+      "name": "mobile_320x568_no_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_320x568_all_local_resources_pages_based",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x844_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x844_no_horizontal_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x844_six_nav_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x844_search_fits",
+      "passed": true,
+      "detail": {
+        "top": 101,
+        "bottom": 294.359375,
+        "left": 12,
+        "right": 378,
+        "helpBottom": 293.359375
+      }
+    },
+    {
+      "name": "mobile_390x844_search_real_target",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x844_single_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x844_no_js_http_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "responses": []
+      }
+    },
+    {
+      "name": "mobile_390x844_no_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_390x844_all_local_resources_pages_based",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x320_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x320_no_horizontal_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x320_six_nav_targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x320_search_fits",
+      "passed": true,
+      "detail": {
+        "top": 101,
+        "bottom": 294.359375,
+        "left": 12,
+        "right": 378,
+        "helpBottom": 293.359375
+      }
+    },
+    {
+      "name": "mobile_390x320_search_real_target",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x320_single_scene",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_390x320_no_js_http_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "responses": []
+      }
+    },
+    {
+      "name": "mobile_390x320_no_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_390x320_all_local_resources_pages_based",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_complete_six_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_no_search_or_canvas",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_static_preview",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_five_lazy_decorations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_decoded_0",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+        "width": 1774,
+        "height": 887,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_320_decoded_1",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_320_decoded_2",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_320_decoded_3",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_320_decoded_4",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_320_two_native_details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_native_detail_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_native_detail_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_no_horizontal_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_320_no_js_http_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "responses": []
+      }
+    },
+    {
+      "name": "nojs_320_all_local_resources_pages_based",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_document_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_complete_six_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_no_search_or_canvas",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_static_preview",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_five_lazy_decorations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_decoded_0",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+        "width": 1774,
+        "height": 887,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_390_decoded_1",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_390_decoded_2",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_390_decoded_3",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_390_decoded_4",
+      "passed": true,
+      "detail": {
+        "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+        "width": 2172,
+        "height": 724,
+        "complete": true,
+        "loading": "lazy"
+      }
+    },
+    {
+      "name": "nojs_390_two_native_details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_native_detail_0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_native_detail_1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_no_horizontal_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_390_no_js_http_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "responses": []
+      }
+    },
+    {
+      "name": "nojs_390_all_local_resources_pages_based",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "contexts": [
+    {
+      "label": "desktop",
+      "javascript": true,
+      "viewport": [
+        1440,
+        1100
+      ],
+      "errors": [],
+      "badResponses": [],
+      "decodedDecorations": [
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+          "width": 1774,
+          "height": 887,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        }
+      ],
+      "resources": {
+        "count": 18,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    },
+    {
+      "label": "desktop_ime_nav_retest",
+      "javascript": true,
+      "viewport": [
+        1440,
+        1100
+      ],
+      "errors": [],
+      "badResponses": [],
+      "resources": {
+        "count": 22,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    },
+    {
+      "label": "mobile_320x568",
+      "javascript": true,
+      "viewport": [
+        320,
+        568
+      ],
+      "errors": [],
+      "badResponses": [],
+      "resources": {
+        "count": 14,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    },
+    {
+      "label": "mobile_390x844",
+      "javascript": true,
+      "viewport": [
+        390,
+        844
+      ],
+      "errors": [],
+      "badResponses": [],
+      "resources": {
+        "count": 16,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    },
+    {
+      "label": "mobile_390x320",
+      "javascript": true,
+      "viewport": [
+        390,
+        320
+      ],
+      "errors": [],
+      "badResponses": [],
+      "resources": {
+        "count": 14,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    },
+    {
+      "label": "nojs_320",
+      "javascript": false,
+      "viewport": [
+        320,
+        640
+      ],
+      "errors": [],
+      "badResponses": [],
+      "decodedDecorations": [
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+          "width": 1774,
+          "height": 887,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        }
+      ],
+      "resources": {
+        "count": 13,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    },
+    {
+      "label": "nojs_390",
+      "javascript": false,
+      "viewport": [
+        390,
+        640
+      ],
+      "errors": [],
+      "badResponses": [],
+      "decodedDecorations": [
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/naruto.webp",
+          "width": 1774,
+          "height": 887,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/conan.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/game-realm.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-github.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:5182/website/assets/pixel-ui/social-mail.webp",
+          "width": 2172,
+          "height": 724,
+          "complete": true,
+          "loading": "lazy"
+        }
+      ],
+      "resources": {
+        "count": 13,
+        "fontUrls": [
+          "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+        ],
+        "unexpectedLocalUrls": []
+      }
+    }
+  ],
+  "harnessCorrection": "Initial CSP assertion expected default-src self; actual policy intentionally uses stricter default-src none plus explicit resource directives. Corrected assertion to match the real policy; no application change.",
+  "limitations": [
+    "Synthetic composition/keyCode229 probes; physical OS IMEs untested.",
+    "Local Chromium functional and native no-JS checks; no real-host or performance assertion."
+  ],
+  "invalidProbe": {
+    "result": {
+      "name": "desktop_ime_native_keys_and_no_submit",
+      "passed": false,
+      "detail": {
+        "arrowPrevented": false,
+        "enterPrevented": false,
+        "hash": "#work",
+        "focused": true,
+        "open": false
+      }
+    },
+    "reason": "The IME setup filled the unchanged query after Escape; that does not reopen the popup. Retested after explicitly opening and waiting for results, without app changes."
+  },
+  "fontQA": {
+    "status": "passed",
+    "checks": 74,
+    "path": "artifacts/audit-20261113/font-browser/pages/checks.json",
+    "browserClosed": true
+  }
+}

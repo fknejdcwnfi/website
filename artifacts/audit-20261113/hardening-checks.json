@@ -1,0 +1,1874 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5180/",
+  "checks": [
+    {
+      "name": "production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "csp_hashes_trusted_startup_without_unsafe_script",
+      "passed": true,
+      "detail": "default-src 'none'; script-src 'self' 'sha256-3oai00CzAb6mhzesEtgIZ40FJSLTJ9cBmcHWxwTouqA=' 'sha256-0VLc15PmnVmaP7jNdK9sKsLR3oWQ6Ulgot5pJsH+R1g='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    },
+    {
+      "name": "csp_restricts_objects_base_and_form",
+      "passed": true,
+      "detail": {
+        "default-src": [
+          "'none'"
+        ],
+        "script-src": [
+          "'self'",
+          "'sha256-3oai00CzAb6mhzesEtgIZ40FJSLTJ9cBmcHWxwTouqA='",
+          "'sha256-0VLc15PmnVmaP7jNdK9sKsLR3oWQ6Ulgot5pJsH+R1g='"
+        ],
+        "style-src": [
+          "'self'",
+          "'unsafe-inline'"
+        ],
+        "img-src": [
+          "'self'",
+          "data:"
+        ],
+        "font-src": [
+          "'self'"
+        ],
+        "media-src": [
+          "'self'"
+        ],
+        "connect-src": [
+          "'self'"
+        ],
+        "worker-src": [
+          "'self'"
+        ],
+        "object-src": [
+          "'none'"
+        ],
+        "base-uri": [
+          "'none'"
+        ],
+        "form-action": [
+          "'none'"
+        ]
+      }
+    },
+    {
+      "name": "no_inline_handler_attributes_in_actual_dom",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_pixel_font_loads_with_policy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_reload_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "normal_reload_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "normal_reload_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "actual_injected_inline_script_and_handler_blocked",
+      "passed": true,
+      "detail": {
+        "inline": false,
+        "handler": false,
+        "violations": [
+          {
+            "directive": "script-src-elem",
+            "blocked": "inline",
+            "disposition": "enforce"
+          },
+          {
+            "directive": "script-src-attr",
+            "blocked": "inline",
+            "disposition": "enforce"
+          }
+        ]
+      }
+    },
+    {
+      "name": "legacy_media_listener_real_preference_changes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_media_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "legacy_media_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "legacy_media_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "missing_media_query_unknown_preference_conservatively_static",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "missing_media_query_explicit_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_media_query_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_media_query_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_media_query_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "missing_media_query_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "missing_media_query_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "throwing_media_query_unknown_preference_conservatively_static",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "throwing_media_query_explicit_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "throwing_media_query_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "throwing_media_query_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "throwing_media_query_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "throwing_media_query_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "throwing_media_query_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "IntersectionObserver_constructor_failure_fallback_resize_measurement_works",
+      "passed": true,
+      "detail": {
+        "desktop": 448,
+        "mobile": 336
+      }
+    },
+    {
+      "name": "IntersectionObserver_constructor_failure_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "IntersectionObserver_constructor_failure_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "IntersectionObserver_constructor_failure_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "IntersectionObserver_constructor_failure_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "IntersectionObserver_constructor_failure_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_fallback_resize_measurement_works",
+      "passed": true,
+      "detail": {
+        "desktop": 448,
+        "mobile": 336
+      }
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_partial_observers_disconnected_and_queued_callbacks_ignored",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "IntersectionObserver_observe_failure_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ResizeObserver_constructor_failure_fallback_resize_measurement_works",
+      "passed": true,
+      "detail": {
+        "desktop": 448,
+        "mobile": 336
+      }
+    },
+    {
+      "name": "ResizeObserver_constructor_failure_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ResizeObserver_constructor_failure_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ResizeObserver_constructor_failure_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ResizeObserver_constructor_failure_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ResizeObserver_constructor_failure_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ResizeObserver_observe_failure_fallback_resize_measurement_works",
+      "passed": true,
+      "detail": {
+        "desktop": 448,
+        "mobile": 336
+      }
+    },
+    {
+      "name": "ResizeObserver_observe_failure_partial_observers_disconnected_and_queued_callbacks_ignored",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ResizeObserver_observe_failure_complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ResizeObserver_observe_failure_legitimate_search_functions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ResizeObserver_observe_failure_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ResizeObserver_observe_failure_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ResizeObserver_observe_failure_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "boundary_original_video_not_orphan_playing",
+      "passed": true,
+      "detail": {
+        "paused": true,
+        "src": null,
+        "connected": false,
+        "globalsCleared": true,
+        "sameAsFallback": false
+      }
+    },
+    {
+      "name": "boundary_new_fallback_video_cannot_autoplay",
+      "passed": true,
+      "detail": {
+        "video": true,
+        "src": null,
+        "autoplay": false,
+        "preload": "none",
+        "paused": true,
+        "nestedSources": 0,
+        "weather": "hidden",
+        "motion": "paused",
+        "preview": "false"
+      }
+    },
+    {
+      "name": "boundary_new_fallback_entry_is_static",
+      "passed": true,
+      "detail": {
+        "video": true,
+        "src": null,
+        "autoplay": false,
+        "preload": "none",
+        "paused": true,
+        "nestedSources": 0,
+        "weather": "hidden",
+        "motion": "paused",
+        "preview": "false"
+      }
+    },
+    {
+      "name": "boundary_keeps_complete_static_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "boundary_error_is_only_injected_failure",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "boundary_no_csp_violations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual_snapshot_preserves_original_dom_and_disables_copy",
+      "passed": true,
+      "detail": {
+        "originalUnchanged": true,
+        "sourceRemoved": true,
+        "autoplayRemoved": true,
+        "preload": "none",
+        "readyRemoved": true,
+        "nestedRemoved": true,
+        "weather": "hidden",
+        "motion": "paused",
+        "preview": "false"
+      }
+    },
+    {
+      "name": "snapshot_actual_dom_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "snapshot_actual_dom_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "snapshot_actual_dom_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_view_portrait_actual_canvas_painted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_view_portrait_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_view_portrait_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_view_portrait_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_style_legacy_actual_canvas_painted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_style_legacy_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_style_legacy_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_style_legacy_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_style_voxel_actual_canvas_painted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_style_voxel_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_style_voxel_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive_style_voxel_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_390x320_panel_summary_and_help_fit",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "height": 320,
+        "panel": {
+          "top": 101,
+          "bottom": 308,
+          "left": 12,
+          "right": 378,
+          "height": 207
+        },
+        "summary": {
+          "top": 102,
+          "bottom": 146.59375,
+          "left": 13,
+          "right": 377,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 146.59375,
+          "bottom": 269.609375,
+          "left": 13,
+          "right": 377,
+          "height": 123.015625
+        },
+        "help": {
+          "top": 269.609375,
+          "bottom": 307,
+          "left": 13,
+          "right": 377,
+          "height": 37.390625
+        },
+        "listClient": 123,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_390x320_only_results_scroll_within_available_space",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "height": 320,
+        "panel": {
+          "top": 101,
+          "bottom": 308,
+          "left": 12,
+          "right": 378,
+          "height": 207
+        },
+        "summary": {
+          "top": 102,
+          "bottom": 146.59375,
+          "left": 13,
+          "right": 377,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 146.59375,
+          "bottom": 269.609375,
+          "left": 13,
+          "right": 377,
+          "height": 123.015625
+        },
+        "help": {
+          "top": 269.609375,
+          "bottom": 307,
+          "left": 13,
+          "right": 377,
+          "height": 37.390625
+        },
+        "listClient": 123,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_390x320_all_results_keyboard_reachable_and_visible",
+      "passed": true,
+      "detail": [
+        {
+          "href": "#home",
+          "top": 185.78125,
+          "bottom": 245.96875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 208.96875,
+          "bottom": 269.15625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 178.15625,
+          "bottom": 238.34375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 177.53125,
+          "bottom": 237.71875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 209.71875,
+          "bottom": 269.90625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 178.09375,
+          "bottom": 238.28125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 209.28125,
+          "bottom": 269.46875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 199.65625,
+          "bottom": 259.84375,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "short_search_390x320_escape_returns_input",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_390x320_same_focused_input_can_reopen",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_390x320_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_390x320_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_390x320_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_320x320_panel_summary_and_help_fit",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "height": 320,
+        "panel": {
+          "top": 101,
+          "bottom": 308,
+          "left": 12,
+          "right": 308,
+          "height": 207
+        },
+        "summary": {
+          "top": 102,
+          "bottom": 146.59375,
+          "left": 13,
+          "right": 307,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 146.59375,
+          "bottom": 269.609375,
+          "left": 13,
+          "right": 307,
+          "height": 123.015625
+        },
+        "help": {
+          "top": 269.609375,
+          "bottom": 307,
+          "left": 13,
+          "right": 307,
+          "height": 37.390625
+        },
+        "listClient": 123,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_320x320_only_results_scroll_within_available_space",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "height": 320,
+        "panel": {
+          "top": 101,
+          "bottom": 308,
+          "left": 12,
+          "right": 308,
+          "height": 207
+        },
+        "summary": {
+          "top": 102,
+          "bottom": 146.59375,
+          "left": 13,
+          "right": 307,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 146.59375,
+          "bottom": 269.609375,
+          "left": 13,
+          "right": 307,
+          "height": 123.015625
+        },
+        "help": {
+          "top": 269.609375,
+          "bottom": 307,
+          "left": 13,
+          "right": 307,
+          "height": 37.390625
+        },
+        "listClient": 123,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_320x320_all_results_keyboard_reachable_and_visible",
+      "passed": true,
+      "detail": [
+        {
+          "href": "#home",
+          "top": 185.78125,
+          "bottom": 245.96875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 208.96875,
+          "bottom": 269.15625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 178.15625,
+          "bottom": 238.34375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 177.53125,
+          "bottom": 237.71875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 209.71875,
+          "bottom": 269.90625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 178.09375,
+          "bottom": 238.28125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 209.28125,
+          "bottom": 269.46875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 199.65625,
+          "bottom": 259.84375,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "short_search_320x320_escape_returns_input",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_320x320_same_focused_input_can_reopen",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_320x320_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_320x320_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_320x320_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_667x320_panel_summary_and_help_fit",
+      "passed": true,
+      "detail": {
+        "width": 667,
+        "height": 320,
+        "panel": {
+          "top": 59.5,
+          "bottom": 303.5,
+          "left": 192,
+          "right": 600,
+          "height": 244
+        },
+        "summary": {
+          "top": 60.5,
+          "bottom": 105.09375,
+          "left": 193,
+          "right": 599,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 105.09375,
+          "bottom": 265.109375,
+          "left": 193,
+          "right": 599,
+          "height": 160.015625
+        },
+        "help": {
+          "top": 265.109375,
+          "bottom": 302.5,
+          "left": 193,
+          "right": 599,
+          "height": 37.390625
+        },
+        "listClient": 160,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_667x320_only_results_scroll_within_available_space",
+      "passed": true,
+      "detail": {
+        "width": 667,
+        "height": 320,
+        "panel": {
+          "top": 59.5,
+          "bottom": 303.5,
+          "left": 192,
+          "right": 600,
+          "height": 244
+        },
+        "summary": {
+          "top": 60.5,
+          "bottom": 105.09375,
+          "left": 193,
+          "right": 599,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 105.09375,
+          "bottom": 265.109375,
+          "left": 193,
+          "right": 599,
+          "height": 160.015625
+        },
+        "help": {
+          "top": 265.109375,
+          "bottom": 302.5,
+          "left": 193,
+          "right": 599,
+          "height": 37.390625
+        },
+        "listClient": 160,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_667x320_all_results_keyboard_reachable_and_visible",
+      "passed": true,
+      "detail": [
+        {
+          "href": "#home",
+          "top": 144.28125,
+          "bottom": 204.46875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 204.46875,
+          "bottom": 264.65625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 154.65625,
+          "bottom": 214.84375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 205.03125,
+          "bottom": 265.21875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 155.21875,
+          "bottom": 215.40625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 204.59375,
+          "bottom": 264.78125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 154.78125,
+          "bottom": 214.96875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 205.15625,
+          "bottom": 265.34375,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "short_search_667x320_escape_returns_input",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_667x320_same_focused_input_can_reopen",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_667x320_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_667x320_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_667x320_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_1280x320_panel_summary_and_help_fit",
+      "passed": true,
+      "detail": {
+        "width": 1280,
+        "height": 320,
+        "panel": {
+          "top": 58,
+          "bottom": 302,
+          "left": 698,
+          "right": 1106,
+          "height": 244
+        },
+        "summary": {
+          "top": 59,
+          "bottom": 103.59375,
+          "left": 699,
+          "right": 1105,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 103.59375,
+          "bottom": 263.609375,
+          "left": 699,
+          "right": 1105,
+          "height": 160.015625
+        },
+        "help": {
+          "top": 263.609375,
+          "bottom": 301,
+          "left": 699,
+          "right": 1105,
+          "height": 37.390625
+        },
+        "listClient": 160,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_1280x320_only_results_scroll_within_available_space",
+      "passed": true,
+      "detail": {
+        "width": 1280,
+        "height": 320,
+        "panel": {
+          "top": 58,
+          "bottom": 302,
+          "left": 698,
+          "right": 1106,
+          "height": 244
+        },
+        "summary": {
+          "top": 59,
+          "bottom": 103.59375,
+          "left": 699,
+          "right": 1105,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 103.59375,
+          "bottom": 263.609375,
+          "left": 699,
+          "right": 1105,
+          "height": 160.015625
+        },
+        "help": {
+          "top": 263.609375,
+          "bottom": 301,
+          "left": 699,
+          "right": 1105,
+          "height": 37.390625
+        },
+        "listClient": 160,
+        "listScroll": 662
+      }
+    },
+    {
+      "name": "short_search_1280x320_all_results_keyboard_reachable_and_visible",
+      "passed": true,
+      "detail": [
+        {
+          "href": "#home",
+          "top": 142.78125,
+          "bottom": 202.96875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 202.96875,
+          "bottom": 263.15625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 153.15625,
+          "bottom": 213.34375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 203.53125,
+          "bottom": 263.71875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 153.71875,
+          "bottom": 213.90625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 203.09375,
+          "bottom": 263.28125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 153.28125,
+          "bottom": 213.46875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 203.65625,
+          "bottom": 263.84375,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "short_search_1280x320_escape_returns_input",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_1280x320_same_focused_input_can_reopen",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "short_search_1280x320_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_1280x320_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "short_search_1280x320_no_failed_responses",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "contexts": [
+    {
+      "label": "normal_csp",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "legacy_media_listeners",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "missing_media_query",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "throwing_media_query",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "IntersectionObserver_constructor_failure",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "IntersectionObserver_observe_failure",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "ResizeObserver_constructor_failure",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "ResizeObserver_observe_failure",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "boundary_retained_video_cleanup",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "inert_snapshot_actual_dom",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "violations": []
+    },
+    {
+      "label": "archive_view_portrait",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/?view=portrait",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/ArchivedPortrait-BrJcPeNy.js",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/portrait-natural/base.png",
+        "http://127.0.0.1:5180/assets/portrait-rig/rig-256.json",
+        "http://127.0.0.1:5180/assets/portrait-rig/rig-256.png?v=b65a05288592e8fa0f5c6c4abb99810ab2e958398e0920db660bc50f3eb13f20",
+        "http://127.0.0.1:5180/assets/portrait-rig/wind-default-ef4aaf78bc5aeca9.bin"
+      ],
+      "violations": []
+    },
+    {
+      "label": "archive_style_legacy",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/?style=legacy",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/ArchivedPortrait-BrJcPeNy.js",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/frames/frame_01.webp",
+        "http://127.0.0.1:5180/assets/player-DxkJlg1P.js",
+        "http://127.0.0.1:5180/assets/frames/frame_02.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_03.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_04.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_05.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_06.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_07.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_08.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_09.webp",
+        "http://127.0.0.1:5180/assets/frames/frame_10.webp"
+      ],
+      "violations": []
+    },
+    {
+      "label": "archive_style_voxel",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/?style=voxel",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/ArchivedPortrait-BrJcPeNy.js",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/voxelPlayer-DSpElTlQ.js"
+      ],
+      "violations": []
+    },
+    {
+      "label": "short_search_390x320",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "shortSearch": {
+        "width": 390,
+        "height": 320,
+        "panel": {
+          "top": 101,
+          "bottom": 308,
+          "left": 12,
+          "right": 378,
+          "height": 207
+        },
+        "summary": {
+          "top": 102,
+          "bottom": 146.59375,
+          "left": 13,
+          "right": 377,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 146.59375,
+          "bottom": 269.609375,
+          "left": 13,
+          "right": 377,
+          "height": 123.015625
+        },
+        "help": {
+          "top": 269.609375,
+          "bottom": 307,
+          "left": 13,
+          "right": 377,
+          "height": 37.390625
+        },
+        "listClient": 123,
+        "listScroll": 662
+      },
+      "shortSearchKeyboardResults": [
+        {
+          "href": "#home",
+          "top": 185.78125,
+          "bottom": 245.96875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 208.96875,
+          "bottom": 269.15625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 178.15625,
+          "bottom": 238.34375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 177.53125,
+          "bottom": 237.71875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 209.71875,
+          "bottom": 269.90625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 178.09375,
+          "bottom": 238.28125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 209.28125,
+          "bottom": 269.46875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 199.65625,
+          "bottom": 259.84375,
+          "visible": true
+        }
+      ],
+      "violations": []
+    },
+    {
+      "label": "short_search_320x320",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "shortSearch": {
+        "width": 320,
+        "height": 320,
+        "panel": {
+          "top": 101,
+          "bottom": 308,
+          "left": 12,
+          "right": 308,
+          "height": 207
+        },
+        "summary": {
+          "top": 102,
+          "bottom": 146.59375,
+          "left": 13,
+          "right": 307,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 146.59375,
+          "bottom": 269.609375,
+          "left": 13,
+          "right": 307,
+          "height": 123.015625
+        },
+        "help": {
+          "top": 269.609375,
+          "bottom": 307,
+          "left": 13,
+          "right": 307,
+          "height": 37.390625
+        },
+        "listClient": 123,
+        "listScroll": 662
+      },
+      "shortSearchKeyboardResults": [
+        {
+          "href": "#home",
+          "top": 185.78125,
+          "bottom": 245.96875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 208.96875,
+          "bottom": 269.15625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 178.15625,
+          "bottom": 238.34375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 177.53125,
+          "bottom": 237.71875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 209.71875,
+          "bottom": 269.90625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 178.09375,
+          "bottom": 238.28125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 209.28125,
+          "bottom": 269.46875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 199.65625,
+          "bottom": 259.84375,
+          "visible": true
+        }
+      ],
+      "violations": []
+    },
+    {
+      "label": "short_search_667x320",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "shortSearch": {
+        "width": 667,
+        "height": 320,
+        "panel": {
+          "top": 59.5,
+          "bottom": 303.5,
+          "left": 192,
+          "right": 600,
+          "height": 244
+        },
+        "summary": {
+          "top": 60.5,
+          "bottom": 105.09375,
+          "left": 193,
+          "right": 599,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 105.09375,
+          "bottom": 265.109375,
+          "left": 193,
+          "right": 599,
+          "height": 160.015625
+        },
+        "help": {
+          "top": 265.109375,
+          "bottom": 302.5,
+          "left": 193,
+          "right": 599,
+          "height": 37.390625
+        },
+        "listClient": 160,
+        "listScroll": 662
+      },
+      "shortSearchKeyboardResults": [
+        {
+          "href": "#home",
+          "top": 144.28125,
+          "bottom": 204.46875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 204.46875,
+          "bottom": 264.65625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 154.65625,
+          "bottom": 214.84375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 205.03125,
+          "bottom": 265.21875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 155.21875,
+          "bottom": 215.40625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 204.59375,
+          "bottom": 264.78125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 154.78125,
+          "bottom": 214.96875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 205.15625,
+          "bottom": 265.34375,
+          "visible": true
+        }
+      ],
+      "violations": []
+    },
+    {
+      "label": "short_search_1280x320",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+        "http://127.0.0.1:5180/assets/index-B993mzml.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ],
+      "shortSearch": {
+        "width": 1280,
+        "height": 320,
+        "panel": {
+          "top": 58,
+          "bottom": 302,
+          "left": 698,
+          "right": 1106,
+          "height": 244
+        },
+        "summary": {
+          "top": 59,
+          "bottom": 103.59375,
+          "left": 699,
+          "right": 1105,
+          "height": 44.59375
+        },
+        "list": {
+          "top": 103.59375,
+          "bottom": 263.609375,
+          "left": 699,
+          "right": 1105,
+          "height": 160.015625
+        },
+        "help": {
+          "top": 263.609375,
+          "bottom": 301,
+          "left": 699,
+          "right": 1105,
+          "height": 37.390625
+        },
+        "listClient": 160,
+        "listScroll": 662
+      },
+      "shortSearchKeyboardResults": [
+        {
+          "href": "#home",
+          "top": 142.78125,
+          "bottom": 202.96875,
+          "visible": true
+        },
+        {
+          "href": "#about",
+          "top": 202.96875,
+          "bottom": 263.15625,
+          "visible": true
+        },
+        {
+          "href": "#contact",
+          "top": 153.15625,
+          "bottom": 213.34375,
+          "visible": true
+        },
+        {
+          "href": "#project-living-portrait",
+          "top": 203.53125,
+          "bottom": 263.71875,
+          "visible": true
+        },
+        {
+          "href": "#project-xiangqi-review",
+          "top": 153.71875,
+          "bottom": 213.90625,
+          "visible": true
+        },
+        {
+          "href": "#interest-naruto",
+          "top": 203.09375,
+          "bottom": 263.28125,
+          "visible": true
+        },
+        {
+          "href": "#interest-detective-conan",
+          "top": 153.28125,
+          "bottom": 213.46875,
+          "visible": true
+        },
+        {
+          "href": "#game-honor-of-kings",
+          "top": 203.65625,
+          "bottom": 263.84375,
+          "visible": true
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "scope": "Local final production build; isolated test injections, no deployment assertions."
+}

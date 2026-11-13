@@ -1,0 +1,26 @@
+{
+  "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+  "canvasDimensions": [
+    1432,
+    1068
+  ],
+  "entryAnimationReadyMsLocal": 448.4000000022352,
+  "firstDecodedPreviewMsLocal": 976.7000000029802,
+  "hdReadyMsLocal": 1550.300000000745,
+  "callbacks": 720,
+  "seconds": 12.00020000000298,
+  "callbacksPerSecond": 59.999000016651486,
+  "estimatedSourceFrameChanges": 599,
+  "estimatedSourceChangesPerSecond": 49.91583473607533,
+  "originalSourceFps": 12.5,
+  "estimatedPlaybackFps": 50,
+  "snowParticles": 448,
+  "petalParticles": 60,
+  "callbackMs": {
+    "median": 4.100000001490116,
+    "p95": 4.600000001490116,
+    "max": 12.300000000745058
+  },
+  "browserErrors": [],
+  "physicalDisplayVerified": false
+}

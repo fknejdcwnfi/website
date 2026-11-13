@@ -1,0 +1,227 @@
+{
+  "protocol": "Fixed three paired repetitions, order before/after, after/before, before/after; each fresh single Chromium1440x1100 DPR1, 2s settle+12s sampling; no screenshot, concurrent browser, encoder or throttling. Baseline exported from 012181f; exact original JS/CSS filenames and byte hashes verified. All runs retained; medians are local observations, not visitor/device guarantees.",
+  "runs": [
+    {
+      "pair": 1,
+      "label": "before",
+      "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+      "canvasDimensions": [
+        1432,
+        1068
+      ],
+      "entryAnimationReadyMsLocal": 518.6000000014901,
+      "firstDecodedPreviewMsLocal": 516.7000000029802,
+      "hdReadyMsLocal": 1032,
+      "callbacks": 719,
+      "seconds": 12.00579999999702,
+      "callbacksPerSecond": 59.887720934896336,
+      "estimatedSourceFrameChanges": 599,
+      "estimatedSourceChangesPerSecond": 49.892551933244654,
+      "originalSourceFps": 12.5,
+      "estimatedPlaybackFps": 50,
+      "snowParticles": 448,
+      "petalParticles": 60,
+      "callbackMs": {
+        "median": 4.099999997764826,
+        "p95": 4.600000001490116,
+        "max": 8.699999999254942
+      },
+      "browserErrors": [],
+      "physicalDisplayVerified": false
+    },
+    {
+      "pair": 1,
+      "label": "after",
+      "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+      "canvasDimensions": [
+        1432,
+        1068
+      ],
+      "entryAnimationReadyMsLocal": 152.10000000149012,
+      "firstDecodedPreviewMsLocal": 456.69999999925494,
+      "hdReadyMsLocal": 691.6999999992549,
+      "callbacks": 717,
+      "seconds": 12.000199999999255,
+      "callbacksPerSecond": 59.74900418326732,
+      "estimatedSourceFrameChanges": 597,
+      "estimatedSourceChangesPerSecond": 49.74917084715563,
+      "originalSourceFps": 12.5,
+      "estimatedPlaybackFps": 50,
+      "snowParticles": 448,
+      "petalParticles": 60,
+      "callbackMs": {
+        "median": 4.099999997764826,
+        "p95": 4.599999997764826,
+        "max": 8.100000001490116
+      },
+      "browserErrors": [],
+      "physicalDisplayVerified": false
+    },
+    {
+      "pair": 2,
+      "label": "after",
+      "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+      "canvasDimensions": [
+        1432,
+        1068
+      ],
+      "entryAnimationReadyMsLocal": 185.80000000074506,
+      "firstDecodedPreviewMsLocal": 399.30000000074506,
+      "hdReadyMsLocal": 648.1000000014901,
+      "callbacks": 720,
+      "seconds": 12.002300000000744,
+      "callbacksPerSecond": 59.98850220374056,
+      "estimatedSourceFrameChanges": 599,
+      "estimatedSourceChangesPerSecond": 49.90710113894527,
+      "originalSourceFps": 12.5,
+      "estimatedPlaybackFps": 50,
+      "snowParticles": 448,
+      "petalParticles": 60,
+      "callbackMs": {
+        "median": 4.100000001490116,
+        "p95": 4.600000001490116,
+        "max": 6.699999999254942
+      },
+      "browserErrors": [],
+      "physicalDisplayVerified": false
+    },
+    {
+      "pair": 2,
+      "label": "before",
+      "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+      "canvasDimensions": [
+        1432,
+        1068
+      ],
+      "entryAnimationReadyMsLocal": 322,
+      "firstDecodedPreviewMsLocal": 645.1000000014901,
+      "hdReadyMsLocal": 881.8000000007451,
+      "callbacks": 720,
+      "seconds": 12.000199999999255,
+      "callbacksPerSecond": 59.99900001667011,
+      "estimatedSourceFrameChanges": 599,
+      "estimatedSourceChangesPerSecond": 49.91583473609083,
+      "originalSourceFps": 12.5,
+      "estimatedPlaybackFps": 50,
+      "snowParticles": 448,
+      "petalParticles": 60,
+      "callbackMs": {
+        "median": 4.100000001490116,
+        "p95": 4.699999999254942,
+        "max": 8.099999997764826
+      },
+      "browserErrors": [],
+      "physicalDisplayVerified": false
+    },
+    {
+      "pair": 3,
+      "label": "before",
+      "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+      "canvasDimensions": [
+        1432,
+        1068
+      ],
+      "entryAnimationReadyMsLocal": 318.4000000022352,
+      "firstDecodedPreviewMsLocal": 316.30000000074506,
+      "hdReadyMsLocal": 735.8000000007451,
+      "callbacks": 721,
+      "seconds": 12.005100000001491,
+      "callbacksPerSecond": 60.057808764600914,
+      "estimatedSourceFrameChanges": 600,
+      "estimatedSourceChangesPerSecond": 49.97875902740714,
+      "originalSourceFps": 12.5,
+      "estimatedPlaybackFps": 50,
+      "snowParticles": 448,
+      "petalParticles": 60,
+      "callbackMs": {
+        "median": 4.199999999254942,
+        "p95": 4.699999999254942,
+        "max": 10.400000002235174
+      },
+      "browserErrors": [],
+      "physicalDisplayVerified": false
+    },
+    {
+      "pair": 3,
+      "label": "after",
+      "conditions": "Fresh single production Chromium1440x1100/DPR1;2s settle;12s native rAF; no screenshots or concurrent browsers",
+      "canvasDimensions": [
+        1432,
+        1068
+      ],
+      "entryAnimationReadyMsLocal": 131.5,
+      "firstDecodedPreviewMsLocal": 608.1999999992549,
+      "hdReadyMsLocal": 717.6999999992549,
+      "callbacks": 715,
+      "seconds": 12.000300000000745,
+      "callbacksPerSecond": 59.58184378723495,
+      "estimatedSourceFrameChanges": 595,
+      "estimatedSourceChangesPerSecond": 49.58209378098573,
+      "originalSourceFps": 12.5,
+      "estimatedPlaybackFps": 50,
+      "snowParticles": 448,
+      "petalParticles": 60,
+      "callbackMs": {
+        "median": 4.100000001490116,
+        "p95": 4.800000000745058,
+        "max": 106.70000000298023
+      },
+      "browserErrors": [],
+      "physicalDisplayVerified": false
+    }
+  ],
+  "before": {
+    "entryAnimationReadyMsLocal": {
+      "median": 322,
+      "min": 318.4000000022352,
+      "max": 518.6000000014901
+    },
+    "firstDecodedPreviewMsLocal": {
+      "median": 516.7000000029802,
+      "min": 316.30000000074506,
+      "max": 645.1000000014901
+    },
+    "hdReadyMsLocal": {
+      "median": 881.8000000007451,
+      "min": 735.8000000007451,
+      "max": 1032
+    },
+    "callbacksPerSecond": {
+      "median": 59.99900001667011,
+      "min": 59.887720934896336,
+      "max": 60.057808764600914
+    },
+    "estimatedSourceChangesPerSecond": {
+      "median": 49.91583473609083,
+      "min": 49.892551933244654,
+      "max": 49.97875902740714
+    }
+  },
+  "after": {
+    "entryAnimationReadyMsLocal": {
+      "median": 152.10000000149012,
+      "min": 131.5,
+      "max": 185.80000000074506
+    },
+    "firstDecodedPreviewMsLocal": {
+      "median": 456.69999999925494,
+      "min": 399.30000000074506,
+      "max": 608.1999999992549
+    },
+    "hdReadyMsLocal": {
+      "median": 691.6999999992549,
+      "min": 648.1000000014901,
+      "max": 717.6999999992549
+    },
+    "callbacksPerSecond": {
+      "median": 59.74900418326732,
+      "min": 59.58184378723495,
+      "max": 59.98850220374056
+    },
+    "estimatedSourceChangesPerSecond": {
+      "median": 49.74917084715563,
+      "min": 49.58209378098573,
+      "max": 49.90710113894527
+    }
+  }
+}
