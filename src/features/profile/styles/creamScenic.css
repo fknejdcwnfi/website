@@ -183,9 +183,10 @@ html, body { background: #354c88; }
 .interest-grid, .social-cards { gap: 20px; padding: 0; }
 .interest-card, .game-showcase, .social-card { position: relative; min-width: 0; padding: 0 18px 18px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-card); background: #fff2e4f5; box-shadow: 0 0 0 2px #fff0d84d, 0 4px 18px #ffdc9e40; overflow: hidden; }
 .interest-card::before, .game-showcase::before, .social-card::before { display: none; }
-.interest-card__scene { display: block; height: 183px; margin: 0 -18px 15px; border-bottom: 1px solid #edccaa; background-size: cover; background-position: center; }
-.interest-card__scene[data-interest='naruto'] { background-image: url('/assets/pixel-ui/naruto.webp'); background-position: left 40%; }
-.interest-card__scene[data-interest='detective-conan'] { background-image: url('/assets/pixel-ui/conan.webp'); background-position: left center; }
+.interest-card__scene { display: block; height: 183px; margin: 0 -18px 15px; border-bottom: 1px solid #edccaa; overflow: hidden; }
+.interest-card__image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.interest-card__scene[data-interest='naruto'] .interest-card__image { object-position: left 40%; }
+.interest-card__scene[data-interest='detective-conan'] .interest-card__image { object-position: left center; }
 .interest-card__cover { width: calc(100% + 36px); height: 183px; object-fit: cover; margin: 0 -18px 15px; border-color: #edccaa; }
 .interest-card__heading { gap: 11px; margin-bottom: 8px; }
 .interest-card__icon, .game-showcase__icon, .social-card__icon { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid #e0c3a1; border-radius: var(--ui-radius-control); background: #f5e4ca; color: #8a603b; box-shadow: inset 0 1px #fffbeb; }
@@ -197,16 +198,16 @@ html, body { background: #354c88; }
 .interest-card__tags li, .game-showcase__tags li { padding: 1px 9px; border: 1px solid #d6bb91; border-radius: var(--ui-radius-control); background: #f6e5ca; color: #775634; font-size: 12px; }
 .personal-site .interest-card a, .personal-site .game-showcase a { color: #94502c; }
 .game-showcase { isolation: isolate; min-height: 190px; margin-bottom: 20px; padding: 22px 24px; }
-.game-showcase__scene { display: block; position: absolute; z-index: -1; inset: 0; background: url('/assets/pixel-ui/game-realm.webp') center right / cover no-repeat; }
+.game-showcase__scene { display: block; position: absolute; z-index: -1; inset: 0; }
+.game-showcase__image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center right; }
 .game-showcase__scene::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #fff0e0, #fff0e0d9 35%, #fff0e033 72%, transparent); }
 .game-showcase__header { margin-bottom: 8px; }
 .game-showcase h3 { font-size: 26px; }
 .game-showcase > p { margin: 6px 0 14px; color: #63472e; font-size: 14px; }
 .game-showcase__tags li { background: #f9e1cb; }
 .game-showcase__tagline { color: #785638; font-size: 12px; }
-.social-card { padding: 20px 20px 17px; background-position: right center; background-size: cover; border-color: #ffe3c8; }
-.social-card[data-platform='github'] { background-image: url('/assets/pixel-ui/social-github.webp'); }
-.social-card[data-platform='email'] { background-image: url('/assets/pixel-ui/social-mail.webp'); }
+.social-card { isolation: isolate; padding: 20px 20px 17px; border-color: #ffe3c8; }
+.social-card__scene { display: block; position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; pointer-events: none; }
 .social-card__heading { margin-bottom: 9px; gap: 11px; }
 .social-card__icon { width: 36px; height: 36px; background: #f4e4d8; color: #654536; border-color: #d6b7a1; }
 .social-card__handle { color: #624734; font-size: 12px; margin-bottom: 18px; }

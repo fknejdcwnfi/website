@@ -15,7 +15,7 @@
 
 [当前界面与作品证据](artifacts/ui-consistency/README.md) · [个人模块证据](artifacts/profile-modules/README.md) · [证据索引与适用范围](artifacts/README.md)
 
-[2026-11-08安全、健壮性与性能审计](docs/reports/2026-11-08-audit.md)记录独立复核、已修复问题及验证限制；[本轮原始证据](artifacts/security-audit/README.md)与旧主题证据分别保存。
+[2026-11-13最新复审](docs/reports/2026-11-13-audit.md)记录重试、输入法、CSP、首屏资源与仓库检查修复；[本轮证据](artifacts/audit-20261113/README.md)单独保存。[上轮审计](docs/reports/2026-11-08-audit.md)及[上轮证据](artifacts/security-audit/README.md)保留原条件和范围。
 
 个人内容从 [site.ts](src/features/profile/content/site.ts)修改。[类型](src/features/profile/content/types.ts)、[配置工厂](src/features/profile/content/site.example.ts)和[个性化模块指南](docs/guides/profile-modules.md)提供完整扩展入口；无需改动画、接数据库或填写游戏密码。
 

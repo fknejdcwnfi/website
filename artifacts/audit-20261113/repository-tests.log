@@ -1,0 +1,23 @@
+test_angle_destinations_with_spaces_and_first_definition_win (__main__.RepositoryStructureTests.test_angle_destinations_with_spaces_and_first_definition_win) ... ok
+test_backtick_and_tilde_fences_hide_links_and_definitions (__main__.RepositoryStructureTests.test_backtick_and_tilde_fences_hide_links_and_definitions) ... ok
+test_collapsed_and_shortcut_references_are_checked (__main__.RepositoryStructureTests.test_collapsed_and_shortcut_references_are_checked) ... ok
+test_escaped_bracket_is_not_a_link (__main__.RepositoryStructureTests.test_escaped_bracket_is_not_a_link) ... ok
+test_frozen_content_change_fails_even_with_optimization (__main__.RepositoryStructureTests.test_frozen_content_change_fails_even_with_optimization) ... ok
+test_frozen_seven_exceptions_remain_hash_pinned (__main__.RepositoryStructureTests.test_frozen_seven_exceptions_remain_hash_pinned) ... ok
+test_full_reference_checks_destination_and_usage_line (__main__.RepositoryStructureTests.test_full_reference_checks_destination_and_usage_line) ... ok
+test_historical_audit_logs_are_not_temporary_cache (__main__.RepositoryStructureTests.test_historical_audit_logs_are_not_temporary_cache) ... ok
+test_inline_code_is_not_a_link (__main__.RepositoryStructureTests.test_inline_code_is_not_a_link) ... ok
+test_loose_bytecode_and_known_temporary_directories_fail (__main__.RepositoryStructureTests.test_loose_bytecode_and_known_temporary_directories_fail) ... ok
+test_malformed_url_fails_with_machine_readable_report (__main__.RepositoryStructureTests.test_malformed_url_fails_with_machine_readable_report) ... ok
+test_missing_target_exits_nonzero_with_or_without_optimization (__main__.RepositoryStructureTests.test_missing_target_exits_nonzero_with_or_without_optimization) ... ok
+test_multiline_code_span_is_not_a_link (__main__.RepositoryStructureTests.test_multiline_code_span_is_not_a_link) ... ok
+test_real_link_after_code_still_fails (__main__.RepositoryStructureTests.test_real_link_after_code_still_fails) ... ok
+test_reference_images_check_target (__main__.RepositoryStructureTests.test_reference_images_check_target) ... ok
+test_reference_labels_normalize_case_and_whitespace (__main__.RepositoryStructureTests.test_reference_labels_normalize_case_and_whitespace) ... ok
+test_unclosed_fence_is_code_until_end (__main__.RepositoryStructureTests.test_unclosed_fence_is_code_until_end) ... ok
+test_unused_or_undefined_reference_text_is_not_a_link (__main__.RepositoryStructureTests.test_unused_or_undefined_reference_text_is_not_a_link) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.165s
+
+OK

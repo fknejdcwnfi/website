@@ -1,0 +1,217 @@
+{
+  "verifiedAt": "2026-11-13T00:48:45.017917+00:00",
+  "commit": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "mode": "Read-only security audit; no application, workflow, lockfile or dependency edits and no browsers launched.",
+  "findingSummary": {
+    "visitorExploitableFindingsConfirmed": 0,
+    "trustedBuildGuardFindings": 1,
+    "supplyChainDefenseNotes": 1
+  },
+  "findings": [
+    {
+      "id": "csp-script-inventory-parser",
+      "priority": "low",
+      "classification": "Trusted build-template hardening and startup robustness, not current visitor-triggerable XSS",
+      "status": "Resolved in subsequent authorized build-only patch; see security-buildguard.json.",
+      "evidence": [
+        "scripts/build/securityPolicy.ts:9",
+        "scripts/build/securityPolicy.ts:11",
+        "scripts/build/securityPolicy.ts:12",
+        "scripts/build/securityPolicy.ts:17"
+      ],
+      "description": "Regex parsing confuses data-src/data-id with actual attributes, treats comments as executable scripts and hashes the wrong body boundary when an attribute contains >. The claimed fixed startup-script inventory can therefore accept unexpected markup or miss startup failures.",
+      "reproduction": [
+        {
+          "name": "data_src_bypasses_inline_inventory",
+          "accepted": true,
+          "scriptHashes": 2
+        },
+        {
+          "name": "data_id_spoofs_owned_script",
+          "accepted": true,
+          "scriptHashes": 2
+        },
+        {
+          "name": "on_handler_not_rejected",
+          "accepted": true,
+          "scriptHashes": 2
+        },
+        {
+          "name": "commented_script_is_hashed",
+          "accepted": true,
+          "scriptHashes": 2
+        },
+        {
+          "name": "quoted_gt_breaks_hash_boundary",
+          "accepted": true,
+          "scriptHashes": 2
+        },
+        {
+          "name": "external_source_inventory_unchecked",
+          "accepted": true,
+          "scriptHashes": 2
+        }
+      ],
+      "impactLimits": [
+        "Published content is escaped before insertion; neither query parameters nor local search can inject these raw tags.",
+        "Injected unowned scripts without a matching CSP hash remain blocked by the runtime policy.",
+        "Changing repository HTML or build code already requires trusted source access; do not report this as an unauthenticated visitor exploit."
+      ],
+      "necessaryFix": "Tokenize actual HTML tags/attributes while respecting comments, raw text and quoted attribute values. Match real id/src keys, enforce the owned inline-script inventory, and reject actual inline handlers without rejecting escaped plain-text examples. Validate unexpected external scripts according to the intended build inventory."
+    },
+    {
+      "id": "workflow-action-immutability",
+      "priority": "informational",
+      "classification": "Supply-chain defense in depth",
+      "status": "not changed; existing workflow permission boundary retained",
+      "evidence": [
+        ".github/workflows/ci.yml:12",
+        ".github/workflows/ci.yml:15",
+        ".github/workflows/deploy.yml:22",
+        ".github/workflows/deploy.yml:25",
+        ".github/workflows/deploy.yml:40",
+        ".github/workflows/deploy.yml:47",
+        ".github/workflows/deploy.yml:60"
+      ],
+      "description": "Official GitHub Actions are referenced by mutable major-version tags rather than immutable commit SHAs. npm ci and lockfile integrity protect a different boundary; they do not pin action source. No compromised action was identified.",
+      "recommendation": "Consider a separately authorized workflow-maintenance change to pin reviewed action commits and configure automated update review."
+    }
+  ],
+  "freshValidation": {
+    "nodeContentAndCspTests": {
+      "passed": 27,
+      "failed": 0,
+      "command": "node --test scripts/tests/test_security_policy.mjs scripts/tests/test_site_content.mjs"
+    },
+    "publicSvgScan": [
+      {
+        "path": "public/assets/pixel-ui/frame-gold.svg",
+        "activeElementsEventHandlersOrReferences": []
+      },
+      {
+        "path": "public/assets/pixel-ui/frame-violet.svg",
+        "activeElementsEventHandlersOrReferences": []
+      },
+      {
+        "path": "public/assets/pixel-ui/grass-block.svg",
+        "activeElementsEventHandlersOrReferences": []
+      },
+      {
+        "path": "public/assets/pixel-ui/grass-edge.svg",
+        "activeElementsEventHandlersOrReferences": []
+      },
+      {
+        "path": "public/assets/pixel-ui/lantern.svg",
+        "activeElementsEventHandlersOrReferences": []
+      },
+      {
+        "path": "public/assets/pixel-ui/wood-sign.svg",
+        "activeElementsEventHandlersOrReferences": []
+      },
+      {
+        "path": "public/favicon.svg",
+        "activeElementsEventHandlersOrReferences": []
+      }
+    ],
+    "dependencyAdvisoryEvidence": "security-dependencies.json",
+    "declaredLockSupplyChain": {
+      "packages": 70,
+      "allHaveIntegrity": true,
+      "allResolvedToHttpsNpmRegistry": true,
+      "installScriptPackages": [
+        "node_modules/fsevents"
+      ],
+      "note": "Checks lock declarations only; does not assert fresh npm tarball/signature or installed-file verification."
+    }
+  },
+  "reviewedSafeBoundaries": [
+    {
+      "name": "Content links and assets",
+      "evidence": [
+        "src/features/profile/content/selectors.ts:11",
+        "src/features/profile/content/selectors.ts:21",
+        "src/features/profile/content/selectors.ts:47",
+        "src/features/profile/content/selectors.ts:131"
+      ],
+      "result": "HTTPS/no-credentials URLs, strict GitHub profile normalization, relative raster media validation and actual section-fragment navigation remain shared by React/static rendering."
+    },
+    {
+      "name": "HTML/text sinks",
+      "evidence": [
+        "src/features/profile/content/staticMarkup.ts:7",
+        "src/app/staticFallback.ts:4",
+        "src/app/SiteBoundary.tsx:12",
+        "src/features/poeticPixel/bootstrap.ts:22"
+      ],
+      "result": "Escaped source content, inert fallback snapshot and deterministic fixed particle markup are the sources of HTML sinks; no query-to-innerHTML path was found."
+    },
+    {
+      "name": "Query/search",
+      "evidence": [
+        "src/app/App.tsx:12",
+        "src/app/App.tsx:15",
+        "src/features/portrait/animation/stageOptions.ts:6",
+        "src/features/profile/content/selectors.ts:175",
+        "src/features/profile/components/SiteShell.tsx:84"
+      ],
+      "result": "Route switches are explicit, numeric options bounded, search is literal and limited to eight results, input maxLength120; no requests or regex evaluation use query text."
+    },
+    {
+      "name": "Clipboard",
+      "evidence": [
+        "src/features/profile/components/ProfileModules.tsx:83",
+        "src/features/profile/components/ProfileModules.tsx:90"
+      ],
+      "result": "User-triggered plain-text write only; no read API or automatic background clipboard operation found."
+    }
+  ],
+  "hostingLimits": [
+    "Meta CSP cannot enforce frame-ancestors or host-controlled response headers.",
+    "style-src unsafe-inline and img-src data are existing compatibility allowances; no script unsafe-inline/unsafe-eval allowance is present.",
+    "No browser enforcement or hosted-header check was performed during this phase because root reserved browser performance measurements.",
+    "No complete npm audit was possible under current network policy; fresh official GitHub exact-version lookups have their own stated limits."
+  ],
+  "sourceHashes": [
+    {
+      "path": "scripts/build/securityPolicy.ts",
+      "sha256": "423edc6513029af38b1a2e6a2b6aa0a36304b869b8852aaf81dec27f97b04957"
+    },
+    {
+      "path": "src/features/profile/content/selectors.ts",
+      "sha256": "ee318cf553f9e027c038f622651d0a1d9b0d6455b71b17fa932988b8bcd27a19"
+    },
+    {
+      "path": "src/features/profile/content/staticMarkup.ts",
+      "sha256": "ddbc62802e665eea7b906f19c9194a79cf748268caa9aecac062405c21b90ad0"
+    },
+    {
+      "path": "src/features/profile/components/SiteShell.tsx",
+      "sha256": "de239a1d264587524a7dbc3bba2ae9f31abe4b0c24f715332b1b196e65e91f97"
+    },
+    {
+      "path": "src/features/profile/components/ProfileModules.tsx",
+      "sha256": "edb8da1f5a072ff5de926470fadd351ebc1bf15e4bea53f29c86ceb8f169492b"
+    },
+    {
+      "path": "src/app/staticFallback.ts",
+      "sha256": "52a257e63c725aad4c831ba8c7fe3b503544198da94b97b4e85136609c6f177b"
+    },
+    {
+      "path": "index.html",
+      "sha256": "19cceac98b8b0fb4d4eae9fb41e970b9c4427f1c8fd43d2da1b795eb4b8d29cc"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "30cae0c57e282692ca157c79e136daeb6d0a143ebf7ac835ccc47ff242919e4e"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "5cdc08ccd04d181f1630a3b5f7a5d7e22ab4324d3813e2bca46ff9a643282716"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "sha256": "924066ceaa900149447a207c8a0c95eef9d1998c14c44551b5ebbc94e345438c"
+    }
+  ],
+  "subsequentAuthorizedResolution": "security-buildguard.json"
+}

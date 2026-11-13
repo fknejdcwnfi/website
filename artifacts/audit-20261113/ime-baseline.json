@@ -1,0 +1,99 @@
+{
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "url": "http://127.0.0.1:5180/",
+  "method": "Synthetic CompositionEvent/KeyboardEvent dispatch to actual production React input; requestSubmit probes guarded form path. Physical OS IME not tested.",
+  "results": [
+    {
+      "case": {
+        "name": "composing_arrow_down",
+        "key": "ArrowDown",
+        "code": 40,
+        "composing": true,
+        "start": true
+      },
+      "defaultPrevented": true,
+      "hash": "",
+      "inputFocused": false,
+      "focusedId": "",
+      "focusedHref": "#interest-detective-conan",
+      "resultsOpen": true
+    },
+    {
+      "case": {
+        "name": "composing_arrow_up",
+        "key": "ArrowUp",
+        "code": 38,
+        "composing": true,
+        "start": true
+      },
+      "defaultPrevented": true,
+      "hash": "",
+      "inputFocused": false,
+      "focusedId": "",
+      "focusedHref": "#interest-detective-conan",
+      "resultsOpen": true
+    },
+    {
+      "case": {
+        "name": "composing_escape",
+        "key": "Escape",
+        "code": 27,
+        "composing": true,
+        "start": true
+      },
+      "defaultPrevented": true,
+      "hash": "",
+      "inputFocused": true,
+      "focusedId": "site-search",
+      "focusedHref": null,
+      "resultsOpen": false
+    },
+    {
+      "case": {
+        "name": "keycode229_arrow_down",
+        "key": "ArrowDown",
+        "code": 229,
+        "composing": false
+      },
+      "defaultPrevented": true,
+      "hash": "",
+      "inputFocused": false,
+      "focusedId": "",
+      "focusedHref": "#interest-detective-conan",
+      "resultsOpen": true
+    },
+    {
+      "case": {
+        "name": "composing_submit",
+        "key": "Enter",
+        "code": 13,
+        "composing": true,
+        "start": true,
+        "submit": true
+      },
+      "defaultPrevented": false,
+      "hash": "#interest-detective-conan",
+      "inputFocused": false,
+      "focusedId": "interest-detective-conan",
+      "focusedHref": null,
+      "resultsOpen": false
+    },
+    {
+      "case": {
+        "name": "compositionend_keycode229_submit",
+        "key": "Enter",
+        "code": 229,
+        "composing": false,
+        "start": true,
+        "end": true,
+        "submit": true
+      },
+      "defaultPrevented": false,
+      "hash": "#interest-detective-conan",
+      "inputFocused": false,
+      "focusedId": "interest-detective-conan",
+      "focusedHref": null,
+      "resultsOpen": false
+    }
+  ]
+}

@@ -27,7 +27,7 @@
 
 `src/app/App.tsx`组合`SiteShell`、个人模块和唯一`poeticPixel`场景。`?view=portrait`或明确的`voxel`／`legacy`样式才进入懒加载的`ArchivedPortrait`；旧源码存在不等于正常首页下载对应人物素材。
 
-文档样式入口`src/app/styles/app.css`加载基础样式、共享网站／内容样式、共用圆形样式及最后的`creamScenic.css`。`pixelMinimal.css`和`pixelWorld.css`保留历史，但不在当前样式导入链。当前字体是自托管Fusion Pixel，来源和OFL见[字体登记](../../public/fonts/FusionPixel-SOURCE.txt)；不回退到“中文由系统字体呈现”的旧说明。
+文档样式入口`src/app/styles/app.css`加载基础样式、共享网站／内容样式、共用圆形样式、`creamScenic.css`，最后导入生成的`fonts.css`使当前字符子集优先于完整fallback。`pixelMinimal.css`和`pixelWorld.css`保留历史，不在当前链。字体仍为自托管Fusion Pixel，完整字体／许可证保留；新增源码字符需通过字体覆盖检查和作者工具更新，动态未包含字符仍可调用完整字体。来源和OFL见[字体登记](../../public/fonts/FusionPixel-SOURCE.txt)。
 
 圆形场景的来源、像素、天气和播放器与外围网页装饰分开。修改内容或主题时不重生成人物，不重置来源时钟，也不为了旧截图断言修改renderer。
 

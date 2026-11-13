@@ -6,6 +6,7 @@
 
 | 目录 | 实际记录的范围 |
 | --- | --- |
+| [audit-20261113](audit-20261113/README.md) | 最新复审：CSP／重试／IME、lazy图片、忠实字体子集、结构CLI、独立及配对资源／时序采样 |
 | [security-audit](security-audit/README.md) | 2026-11-08安全／健壮性／性能与结构审计；固定依赖公告查询、故障与CSP探针、无损体积比较、独立性能采样与本轮回归 |
 | [ui-consistency](ui-consistency/README.md) | 最近一轮边框、搜索、真实作品、奶油色UI、个人模块与场景回归；含Pages子路径检查，具体结果以该轮README与JSON为准 |
 | [scenic-refinement](scenic-refinement/README.md) | 当前96色圆形场景的来源、锚点、雪樱、入口、重建与独立性能观察；早于后续页面UI修改 |

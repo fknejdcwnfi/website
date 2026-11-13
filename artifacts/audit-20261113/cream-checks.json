@@ -1,0 +1,5662 @@
+{
+  "status": "passed",
+  "productionUrl": "http://127.0.0.1:5180/",
+  "fontFamily": "Fusion Pixel",
+  "checks": [
+    {
+      "name": "production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ]
+    },
+    {
+      "name": "desktop_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": {
+        "loadedRangeMissingCharacters": {
+          "latin": [],
+          "chinese": []
+        },
+        "rawFontFaceSetCheck": {
+          "latin": false,
+          "chinese": false
+        }
+      }
+    },
+    {
+      "name": "desktop_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_twilight_background_declared",
+      "passed": true,
+      "detail": "none url(\"http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
+    },
+    {
+      "name": "desktop_blue_header",
+      "passed": true,
+      "detail": [
+        53,
+        71,
+        125
+      ]
+    },
+    {
+      "name": "desktop_image_cards_visible",
+      "passed": true,
+      "detail": [
+        {
+          "name": "naruto",
+          "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
+          "file": "naruto.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "1774",
+          "height": "887"
+        },
+        {
+          "name": "conan",
+          "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
+          "file": "conan.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "game",
+          "selector": ".game-showcase__image",
+          "file": "game-realm.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "github",
+          "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
+          "file": "social-github.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "email",
+          "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
+          "file": "social-mail.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        }
+      ]
+    },
+    {
+      "name": "desktop_native_lazy_decorative_images",
+      "passed": true,
+      "detail": [
+        {
+          "name": "naruto",
+          "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
+          "file": "naruto.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "1774",
+          "height": "887"
+        },
+        {
+          "name": "conan",
+          "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
+          "file": "conan.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "game",
+          "selector": ".game-showcase__image",
+          "file": "game-realm.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "github",
+          "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
+          "file": "social-github.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "email",
+          "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
+          "file": "social-mail.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        }
+      ]
+    },
+    {
+      "name": "desktop_reference_rounded_panels",
+      "passed": true,
+      "detail": [
+        {
+          "class": "site-sidebar",
+          "id": "",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "about",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "work",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "interest-card",
+          "id": "interest-naruto",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "interest-card",
+          "id": "interest-detective-conan",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "game-showcase",
+          "id": "game-honor-of-kings",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "social-card",
+          "id": "contact-github",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "social-card",
+          "id": "contact-email",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "site-toc",
+          "id": "",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        }
+      ]
+    },
+    {
+      "name": "desktop_cream_reading_panels",
+      "passed": true,
+      "detail": [
+        {
+          "class": "site-sidebar",
+          "id": "",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "about",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "work",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "site-toc",
+          "id": "",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        }
+      ]
+    },
+    {
+      "name": "desktop_svg_chrome_without_emoji_fallback",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "desktop_warm_active_sidebar",
+      "passed": true,
+      "detail": [
+        245,
+        193,
+        161
+      ]
+    },
+    {
+      "name": "desktop_actual_lazy_card_images_decoded",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "name": "desktop_world_background_decoded",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "name": "desktop_six_targets_.site-header__nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "desktop_six_targets_.site-sidebar nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "desktop_unique_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_sidebar_navigation_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_header_navigation_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_right_toc_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_pixel_portrait_and_weather",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "borderless_original_circle",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dual_sidebar_active_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dual_sidebar_active_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dual_sidebar_active_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dual_sidebar_active_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dual_sidebar_active_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_active_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_dual_sidebar_active_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_scene_nodes_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_manual_scroll_releases_anchor_choice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_hash_can_navigate_again",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "desktop_same_nodes_after_same_hash_and_manual_scroll",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "keyboard_search_shortcut",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_preserves_target_focus",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_empty_feedback",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "escape_closes_search",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "width_320_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "main": [
+          12,
+          308
+        ],
+        "table": [
+          266,
+          266
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_320_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "main": [
+          12,
+          308
+        ],
+        "table": [
+          266,
+          266
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_320_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "main": [
+          12,
+          308
+        ],
+        "table": [
+          266,
+          266
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_320_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "main": [
+          12,
+          308
+        ],
+        "table": [
+          266,
+          266
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_320_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "main": [
+          12,
+          308
+        ],
+        "table": [
+          266,
+          266
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_320_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320,
+        "main": [
+          12,
+          308
+        ],
+        "table": [
+          266,
+          266
+        ],
+        "headerVisible": true,
+        "header": [
+          296,
+          296
+        ],
+        "cards": [
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ],
+          [
+            12,
+            308
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_390_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "main": [
+          12,
+          378
+        ],
+        "table": [
+          336,
+          336
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_390_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "main": [
+          12,
+          378
+        ],
+        "table": [
+          336,
+          336
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_390_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "main": [
+          12,
+          378
+        ],
+        "table": [
+          336,
+          336
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_390_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "main": [
+          12,
+          378
+        ],
+        "table": [
+          336,
+          336
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_390_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "main": [
+          12,
+          378
+        ],
+        "table": [
+          336,
+          336
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_390_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scroll": 390,
+        "main": [
+          12,
+          378
+        ],
+        "table": [
+          336,
+          336
+        ],
+        "headerVisible": true,
+        "header": [
+          366,
+          366
+        ],
+        "cards": [
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ],
+          [
+            12,
+            378
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "mobile_header_navigation_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_sidebar_hidden",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_right_toc_hidden",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_about",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_interests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_games",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_contact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_active_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_scene_nodes_home",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_manual_scroll_releases_anchor_choice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_hash_can_navigate_again",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_same_nodes_after_same_hash_and_manual_scroll",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_native_contents_navigate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mobile_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ]
+    },
+    {
+      "name": "mobile_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": {
+        "loadedRangeMissingCharacters": {
+          "latin": [],
+          "chinese": []
+        },
+        "rawFontFaceSetCheck": {
+          "latin": false,
+          "chinese": false
+        }
+      }
+    },
+    {
+      "name": "mobile_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_twilight_background_declared",
+      "passed": true,
+      "detail": "none url(\"http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
+    },
+    {
+      "name": "mobile_blue_header",
+      "passed": true,
+      "detail": [
+        53,
+        71,
+        125
+      ]
+    },
+    {
+      "name": "mobile_image_cards_visible",
+      "passed": true,
+      "detail": [
+        {
+          "name": "naruto",
+          "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
+          "file": "naruto.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "1774",
+          "height": "887"
+        },
+        {
+          "name": "conan",
+          "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
+          "file": "conan.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "game",
+          "selector": ".game-showcase__image",
+          "file": "game-realm.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "github",
+          "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
+          "file": "social-github.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "email",
+          "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
+          "file": "social-mail.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        }
+      ]
+    },
+    {
+      "name": "mobile_native_lazy_decorative_images",
+      "passed": true,
+      "detail": [
+        {
+          "name": "naruto",
+          "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
+          "file": "naruto.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "1774",
+          "height": "887"
+        },
+        {
+          "name": "conan",
+          "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
+          "file": "conan.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "game",
+          "selector": ".game-showcase__image",
+          "file": "game-realm.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "github",
+          "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
+          "file": "social-github.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "email",
+          "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
+          "file": "social-mail.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        }
+      ]
+    },
+    {
+      "name": "mobile_reference_rounded_panels",
+      "passed": true,
+      "detail": [
+        {
+          "class": "personal-section",
+          "id": "about",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "work",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "interest-card",
+          "id": "interest-naruto",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "interest-card",
+          "id": "interest-detective-conan",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "game-showcase",
+          "id": "game-honor-of-kings",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "social-card",
+          "id": "contact-github",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "social-card",
+          "id": "contact-email",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        }
+      ]
+    },
+    {
+      "name": "mobile_cream_reading_panels",
+      "passed": true,
+      "detail": [
+        {
+          "class": "personal-section",
+          "id": "about",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "work",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        }
+      ]
+    },
+    {
+      "name": "mobile_svg_chrome_without_emoji_fallback",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "mobile_actual_lazy_card_images_decoded",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "name": "mobile_world_background_decoded",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "name": "width_768_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "main": [
+          16,
+          752
+        ],
+        "table": [
+          686,
+          686
+        ],
+        "headerVisible": true,
+        "header": [
+          736,
+          736
+        ],
+        "cards": [
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ],
+          [
+            16,
+            752
+          ],
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_768_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "main": [
+          16,
+          752
+        ],
+        "table": [
+          686,
+          686
+        ],
+        "headerVisible": true,
+        "header": [
+          736,
+          736
+        ],
+        "cards": [
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ],
+          [
+            16,
+            752
+          ],
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_768_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "main": [
+          16,
+          752
+        ],
+        "table": [
+          686,
+          686
+        ],
+        "headerVisible": true,
+        "header": [
+          736,
+          736
+        ],
+        "cards": [
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ],
+          [
+            16,
+            752
+          ],
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_768_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "main": [
+          16,
+          752
+        ],
+        "table": [
+          686,
+          686
+        ],
+        "headerVisible": true,
+        "header": [
+          736,
+          736
+        ],
+        "cards": [
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ],
+          [
+            16,
+            752
+          ],
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_768_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "main": [
+          16,
+          752
+        ],
+        "table": [
+          686,
+          686
+        ],
+        "headerVisible": true,
+        "header": [
+          736,
+          736
+        ],
+        "cards": [
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ],
+          [
+            16,
+            752
+          ],
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_768_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768,
+        "main": [
+          16,
+          752
+        ],
+        "table": [
+          686,
+          686
+        ],
+        "headerVisible": true,
+        "header": [
+          736,
+          736
+        ],
+        "cards": [
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ],
+          [
+            16,
+            752
+          ],
+          [
+            16,
+            374
+          ],
+          [
+            394,
+            752
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1100_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "main": [
+          110,
+          990
+        ],
+        "table": [
+          830,
+          830
+        ],
+        "headerVisible": true,
+        "header": [
+          1052,
+          1052
+        ],
+        "cards": [
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ],
+          [
+            110,
+            990
+          ],
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1100_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "main": [
+          110,
+          990
+        ],
+        "table": [
+          830,
+          830
+        ],
+        "headerVisible": true,
+        "header": [
+          1052,
+          1052
+        ],
+        "cards": [
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ],
+          [
+            110,
+            990
+          ],
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1100_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "main": [
+          110,
+          990
+        ],
+        "table": [
+          830,
+          830
+        ],
+        "headerVisible": true,
+        "header": [
+          1052,
+          1052
+        ],
+        "cards": [
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ],
+          [
+            110,
+            990
+          ],
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1100_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "main": [
+          110,
+          990
+        ],
+        "table": [
+          830,
+          830
+        ],
+        "headerVisible": true,
+        "header": [
+          1052,
+          1052
+        ],
+        "cards": [
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ],
+          [
+            110,
+            990
+          ],
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1100_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "main": [
+          110,
+          990
+        ],
+        "table": [
+          830,
+          830
+        ],
+        "headerVisible": true,
+        "header": [
+          1052,
+          1052
+        ],
+        "cards": [
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ],
+          [
+            110,
+            990
+          ],
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1100_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 1100,
+        "scroll": 1100,
+        "main": [
+          110,
+          990
+        ],
+        "table": [
+          830,
+          830
+        ],
+        "headerVisible": true,
+        "header": [
+          1052,
+          1052
+        ],
+        "cards": [
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ],
+          [
+            110,
+            990
+          ],
+          [
+            110,
+            540
+          ],
+          [
+            560,
+            990
+          ]
+        ],
+        "sidebars": []
+      }
+    },
+    {
+      "name": "width_1200_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "main": [
+          202,
+          933
+        ],
+        "table": [
+          691,
+          691
+        ],
+        "headerVisible": true,
+        "header": [
+          1142,
+          1142
+        ],
+        "cards": [
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ],
+          [
+            202,
+            933
+          ],
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 29,
+            "right": 174,
+            "scroll": 143,
+            "client": 143
+          },
+          {
+            "class": "site-toc",
+            "x": 961,
+            "right": 1171,
+            "scroll": 208,
+            "client": 208
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1200_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "main": [
+          202,
+          933
+        ],
+        "table": [
+          691,
+          691
+        ],
+        "headerVisible": true,
+        "header": [
+          1142,
+          1142
+        ],
+        "cards": [
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ],
+          [
+            202,
+            933
+          ],
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 29,
+            "right": 174,
+            "scroll": 143,
+            "client": 143
+          },
+          {
+            "class": "site-toc",
+            "x": 961,
+            "right": 1171,
+            "scroll": 208,
+            "client": 208
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1200_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "main": [
+          202,
+          933
+        ],
+        "table": [
+          691,
+          691
+        ],
+        "headerVisible": true,
+        "header": [
+          1142,
+          1142
+        ],
+        "cards": [
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ],
+          [
+            202,
+            933
+          ],
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 29,
+            "right": 174,
+            "scroll": 143,
+            "client": 143
+          },
+          {
+            "class": "site-toc",
+            "x": 961,
+            "right": 1171,
+            "scroll": 208,
+            "client": 208
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1200_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "main": [
+          202,
+          933
+        ],
+        "table": [
+          691,
+          691
+        ],
+        "headerVisible": true,
+        "header": [
+          1142,
+          1142
+        ],
+        "cards": [
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ],
+          [
+            202,
+            933
+          ],
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 29,
+            "right": 174,
+            "scroll": 143,
+            "client": 143
+          },
+          {
+            "class": "site-toc",
+            "x": 961,
+            "right": 1171,
+            "scroll": 208,
+            "client": 208
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1200_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "main": [
+          202,
+          933
+        ],
+        "table": [
+          691,
+          691
+        ],
+        "headerVisible": true,
+        "header": [
+          1142,
+          1142
+        ],
+        "cards": [
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ],
+          [
+            202,
+            933
+          ],
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 29,
+            "right": 174,
+            "scroll": 143,
+            "client": 143
+          },
+          {
+            "class": "site-toc",
+            "x": 961,
+            "right": 1171,
+            "scroll": 208,
+            "client": 208
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1200_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 1200,
+        "scroll": 1200,
+        "main": [
+          202,
+          933
+        ],
+        "table": [
+          691,
+          691
+        ],
+        "headerVisible": true,
+        "header": [
+          1142,
+          1142
+        ],
+        "cards": [
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ],
+          [
+            202,
+            933
+          ],
+          [
+            202,
+            557.5
+          ],
+          [
+            577.5,
+            933
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 29,
+            "right": 174,
+            "scroll": 143,
+            "client": 143
+          },
+          {
+            "class": "site-toc",
+            "x": 961,
+            "right": 1171,
+            "scroll": 208,
+            "client": 208
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1440_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "main": [
+          260,
+          1100
+        ],
+        "table": [
+          790,
+          790
+        ],
+        "headerVisible": true,
+        "header": [
+          1352,
+          1352
+        ],
+        "cards": [
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ],
+          [
+            260,
+            1100
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 44,
+            "right": 212,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1148,
+            "right": 1396,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1440_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "main": [
+          260,
+          1100
+        ],
+        "table": [
+          790,
+          790
+        ],
+        "headerVisible": true,
+        "header": [
+          1352,
+          1352
+        ],
+        "cards": [
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ],
+          [
+            260,
+            1100
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 44,
+            "right": 212,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1148,
+            "right": 1396,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1440_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "main": [
+          260,
+          1100
+        ],
+        "table": [
+          790,
+          790
+        ],
+        "headerVisible": true,
+        "header": [
+          1352,
+          1352
+        ],
+        "cards": [
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ],
+          [
+            260,
+            1100
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 44,
+            "right": 212,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1148,
+            "right": 1396,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1440_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "main": [
+          260,
+          1100
+        ],
+        "table": [
+          790,
+          790
+        ],
+        "headerVisible": true,
+        "header": [
+          1352,
+          1352
+        ],
+        "cards": [
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ],
+          [
+            260,
+            1100
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 44,
+            "right": 212,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1148,
+            "right": 1396,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1440_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "main": [
+          260,
+          1100
+        ],
+        "table": [
+          790,
+          790
+        ],
+        "headerVisible": true,
+        "header": [
+          1352,
+          1352
+        ],
+        "cards": [
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ],
+          [
+            260,
+            1100
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 44,
+            "right": 212,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1148,
+            "right": 1396,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1440_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440,
+        "main": [
+          260,
+          1100
+        ],
+        "table": [
+          790,
+          790
+        ],
+        "headerVisible": true,
+        "header": [
+          1352,
+          1352
+        ],
+        "cards": [
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ],
+          [
+            260,
+            1100
+          ],
+          [
+            260,
+            670
+          ],
+          [
+            690,
+            1100
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 44,
+            "right": 212,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1148,
+            "right": 1396,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1672_no_page_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "main": [
+          316,
+          1276
+        ],
+        "table": [
+          910,
+          910
+        ],
+        "headerVisible": true,
+        "header": [
+          1544,
+          1544
+        ],
+        "cards": [
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ],
+          [
+            316,
+            1276
+          ],
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 64,
+            "right": 232,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1360,
+            "right": 1608,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1672_table_not_clipped",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "main": [
+          316,
+          1276
+        ],
+        "table": [
+          910,
+          910
+        ],
+        "headerVisible": true,
+        "header": [
+          1544,
+          1544
+        ],
+        "cards": [
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ],
+          [
+            316,
+            1276
+          ],
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 64,
+            "right": 232,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1360,
+            "right": 1608,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1672_visible_navigation_fits",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "main": [
+          316,
+          1276
+        ],
+        "table": [
+          910,
+          910
+        ],
+        "headerVisible": true,
+        "header": [
+          1544,
+          1544
+        ],
+        "cards": [
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ],
+          [
+            316,
+            1276
+          ],
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 64,
+            "right": 232,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1360,
+            "right": 1608,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1672_cards_fit",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "main": [
+          316,
+          1276
+        ],
+        "table": [
+          910,
+          910
+        ],
+        "headerVisible": true,
+        "header": [
+          1544,
+          1544
+        ],
+        "cards": [
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ],
+          [
+            316,
+            1276
+          ],
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 64,
+            "right": 232,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1360,
+            "right": 1608,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1672_sidebars_fit_without_internal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "main": [
+          316,
+          1276
+        ],
+        "table": [
+          910,
+          910
+        ],
+        "headerVisible": true,
+        "header": [
+          1544,
+          1544
+        ],
+        "cards": [
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ],
+          [
+            316,
+            1276
+          ],
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 64,
+            "right": 232,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1360,
+            "right": 1608,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "width_1672_sidebars_do_not_overlap_main",
+      "passed": true,
+      "detail": {
+        "width": 1672,
+        "scroll": 1672,
+        "main": [
+          316,
+          1276
+        ],
+        "table": [
+          910,
+          910
+        ],
+        "headerVisible": true,
+        "header": [
+          1544,
+          1544
+        ],
+        "cards": [
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ],
+          [
+            316,
+            1276
+          ],
+          [
+            316,
+            786
+          ],
+          [
+            806,
+            1276
+          ]
+        ],
+        "sidebars": [
+          {
+            "class": "site-sidebar",
+            "x": 64,
+            "right": 232,
+            "scroll": 166,
+            "client": 166
+          },
+          {
+            "class": "site-toc",
+            "x": 1360,
+            "right": 1608,
+            "scroll": 246,
+            "client": 246
+          }
+        ]
+      }
+    },
+    {
+      "name": "short_desktop_last_nav_item_visible",
+      "passed": true,
+      "detail": {
+        "top": 239.984375,
+        "bottom": 284.78125,
+        "railTop": 137,
+        "railBottom": 387,
+        "height": 400,
+        "current": "location"
+      }
+    },
+    {
+      "name": "short_desktop_contact_active",
+      "passed": true,
+      "detail": {
+        "top": 239.984375,
+        "bottom": 284.78125,
+        "railTop": 137,
+        "railBottom": 387,
+        "height": 400,
+        "current": "location"
+      }
+    },
+    {
+      "name": "reduced_motion_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ]
+    },
+    {
+      "name": "reduced_motion_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": {
+        "loadedRangeMissingCharacters": {
+          "latin": [],
+          "chinese": []
+        },
+        "rawFontFaceSetCheck": {
+          "latin": false,
+          "chinese": false
+        }
+      }
+    },
+    {
+      "name": "reduced_motion_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "reduced_motion_control_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reduced_motion_choice_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_registered_pixel_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ]
+    },
+    {
+      "name": "nojs_latin_and_chinese_face_ready",
+      "passed": true,
+      "detail": {
+        "loadedRangeMissingCharacters": {
+          "latin": [],
+          "chinese": []
+        },
+        "rawFontFaceSetCheck": {
+          "latin": false,
+          "chinese": false
+        }
+      }
+    },
+    {
+      "name": "nojs_pixel_type_on_all_ui_and_status",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "nojs_twilight_background_declared",
+      "passed": true,
+      "detail": "none url(\"http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
+    },
+    {
+      "name": "nojs_blue_header",
+      "passed": true,
+      "detail": [
+        53,
+        71,
+        125
+      ]
+    },
+    {
+      "name": "nojs_image_cards_visible",
+      "passed": true,
+      "detail": [
+        {
+          "name": "naruto",
+          "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
+          "file": "naruto.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "1774",
+          "height": "887"
+        },
+        {
+          "name": "conan",
+          "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
+          "file": "conan.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "game",
+          "selector": ".game-showcase__image",
+          "file": "game-realm.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "github",
+          "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
+          "file": "social-github.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "email",
+          "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
+          "file": "social-mail.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        }
+      ]
+    },
+    {
+      "name": "nojs_native_lazy_decorative_images",
+      "passed": true,
+      "detail": [
+        {
+          "name": "naruto",
+          "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
+          "file": "naruto.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "1774",
+          "height": "887"
+        },
+        {
+          "name": "conan",
+          "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
+          "file": "conan.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "game",
+          "selector": ".game-showcase__image",
+          "file": "game-realm.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "github",
+          "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
+          "file": "social-github.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        },
+        {
+          "name": "email",
+          "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
+          "file": "social-mail.webp",
+          "visible": true,
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loading": "lazy",
+          "alt": "",
+          "hidden": "true",
+          "width": "2172",
+          "height": "724"
+        }
+      ]
+    },
+    {
+      "name": "nojs_reference_rounded_panels",
+      "passed": true,
+      "detail": [
+        {
+          "class": "personal-section",
+          "id": "about",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "work",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "interest-card",
+          "id": "interest-naruto",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "interest-card",
+          "id": "interest-detective-conan",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "game-showcase",
+          "id": "game-honor-of-kings",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "social-card",
+          "id": "contact-github",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        },
+        {
+          "class": "social-card",
+          "id": "contact-email",
+          "radius": 14,
+          "background": "rgba(255, 242, 228, 0.96)"
+        }
+      ]
+    },
+    {
+      "name": "nojs_cream_reading_panels",
+      "passed": true,
+      "detail": [
+        {
+          "class": "personal-section",
+          "id": "about",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        },
+        {
+          "class": "personal-section",
+          "id": "work",
+          "radius": 16,
+          "background": "rgb(255, 241, 229)"
+        }
+      ]
+    },
+    {
+      "name": "nojs_svg_chrome_without_emoji_fallback",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "nojs_actual_nojs_card_images_decoded",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "loaded": true
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "name": "nojs_scenic_asset_urls_are_localhost",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
+      ]
+    },
+    {
+      "name": "nojs_background_and_card_assets_verified",
+      "passed": true,
+      "detail": [
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+          "verified": true,
+          "status": 200,
+          "format": "WEBP",
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "verified": true,
+          "status": 200,
+          "format": "WEBP",
+          "width": 1774,
+          "height": 887
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "verified": true,
+          "status": 200,
+          "format": "WEBP",
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "verified": true,
+          "status": 200,
+          "format": "WEBP",
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "verified": true,
+          "status": 200,
+          "format": "WEBP",
+          "width": 2172,
+          "height": 724
+        },
+        {
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "verified": true,
+          "status": 200,
+          "format": "WEBP",
+          "width": 2172,
+          "height": 724
+        }
+      ]
+    },
+    {
+      "name": "nojs_six_targets_.site-header__nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "nojs_six_targets_.site-sidebar nav",
+      "passed": true,
+      "detail": [
+        "#home",
+        "#about",
+        "#work",
+        "#interests",
+        "#games",
+        "#contact"
+      ]
+    },
+    {
+      "name": "nojs_unique_sections",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_complete_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_original_poster_loaded",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_dead_search_or_copy_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_anchor_navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "scenic_assets_served_locally",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg"
+      ]
+    },
+    {
+      "name": "no_browser_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "no_failed_assets",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "browserErrors": [],
+  "badResponses": [],
+  "requests": [
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+    "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+    "http://127.0.0.1:5180/assets/index-B993mzml.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+    "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+    "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+    "http://127.0.0.1:5180/assets/index-B993mzml.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+    "http://127.0.0.1:5180/assets/index-B993mzml.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "main": [
+        12,
+        308
+      ],
+      "table": [
+        266,
+        266
+      ],
+      "headerVisible": true,
+      "header": [
+        296,
+        296
+      ],
+      "cards": [
+        [
+          12,
+          308
+        ],
+        [
+          12,
+          308
+        ],
+        [
+          12,
+          308
+        ],
+        [
+          12,
+          308
+        ],
+        [
+          12,
+          308
+        ]
+      ],
+      "sidebars": []
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "main": [
+        12,
+        378
+      ],
+      "table": [
+        336,
+        336
+      ],
+      "headerVisible": true,
+      "header": [
+        366,
+        366
+      ],
+      "cards": [
+        [
+          12,
+          378
+        ],
+        [
+          12,
+          378
+        ],
+        [
+          12,
+          378
+        ],
+        [
+          12,
+          378
+        ],
+        [
+          12,
+          378
+        ]
+      ],
+      "sidebars": []
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "main": [
+        16,
+        752
+      ],
+      "table": [
+        686,
+        686
+      ],
+      "headerVisible": true,
+      "header": [
+        736,
+        736
+      ],
+      "cards": [
+        [
+          16,
+          374
+        ],
+        [
+          394,
+          752
+        ],
+        [
+          16,
+          752
+        ],
+        [
+          16,
+          374
+        ],
+        [
+          394,
+          752
+        ]
+      ],
+      "sidebars": []
+    },
+    {
+      "width": 1100,
+      "scroll": 1100,
+      "main": [
+        110,
+        990
+      ],
+      "table": [
+        830,
+        830
+      ],
+      "headerVisible": true,
+      "header": [
+        1052,
+        1052
+      ],
+      "cards": [
+        [
+          110,
+          540
+        ],
+        [
+          560,
+          990
+        ],
+        [
+          110,
+          990
+        ],
+        [
+          110,
+          540
+        ],
+        [
+          560,
+          990
+        ]
+      ],
+      "sidebars": []
+    },
+    {
+      "width": 1200,
+      "scroll": 1200,
+      "main": [
+        202,
+        933
+      ],
+      "table": [
+        691,
+        691
+      ],
+      "headerVisible": true,
+      "header": [
+        1142,
+        1142
+      ],
+      "cards": [
+        [
+          202,
+          557.5
+        ],
+        [
+          577.5,
+          933
+        ],
+        [
+          202,
+          933
+        ],
+        [
+          202,
+          557.5
+        ],
+        [
+          577.5,
+          933
+        ]
+      ],
+      "sidebars": [
+        {
+          "class": "site-sidebar",
+          "x": 29,
+          "right": 174,
+          "scroll": 143,
+          "client": 143
+        },
+        {
+          "class": "site-toc",
+          "x": 961,
+          "right": 1171,
+          "scroll": 208,
+          "client": 208
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "main": [
+        260,
+        1100
+      ],
+      "table": [
+        790,
+        790
+      ],
+      "headerVisible": true,
+      "header": [
+        1352,
+        1352
+      ],
+      "cards": [
+        [
+          260,
+          670
+        ],
+        [
+          690,
+          1100
+        ],
+        [
+          260,
+          1100
+        ],
+        [
+          260,
+          670
+        ],
+        [
+          690,
+          1100
+        ]
+      ],
+      "sidebars": [
+        {
+          "class": "site-sidebar",
+          "x": 44,
+          "right": 212,
+          "scroll": 166,
+          "client": 166
+        },
+        {
+          "class": "site-toc",
+          "x": 1148,
+          "right": 1396,
+          "scroll": 246,
+          "client": 246
+        }
+      ]
+    },
+    {
+      "width": 1672,
+      "scroll": 1672,
+      "main": [
+        316,
+        1276
+      ],
+      "table": [
+        910,
+        910
+      ],
+      "headerVisible": true,
+      "header": [
+        1544,
+        1544
+      ],
+      "cards": [
+        [
+          316,
+          786
+        ],
+        [
+          806,
+          1276
+        ],
+        [
+          316,
+          1276
+        ],
+        [
+          316,
+          786
+        ],
+        [
+          806,
+          1276
+        ]
+      ],
+      "sidebars": [
+        {
+          "class": "site-sidebar",
+          "x": 64,
+          "right": 232,
+          "scroll": 166,
+          "client": 166
+        },
+        {
+          "class": "site-toc",
+          "x": 1360,
+          "right": 1608,
+          "scroll": 246,
+          "client": 246
+        }
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "label": "desktop",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ],
+      "latin": false,
+      "chinese": false,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "INPUT",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "KBD",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "reference-scene__status",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ],
+      "loadedRangeMissingCharacters": {
+        "latin": [],
+        "chinese": []
+      }
+    },
+    {
+      "label": "mobile",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ],
+      "latin": false,
+      "chinese": false,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "INPUT",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "KBD",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "reference-scene__status",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ],
+      "loadedRangeMissingCharacters": {
+        "latin": [],
+        "chinese": []
+      }
+    },
+    {
+      "label": "reduced_motion",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ],
+      "latin": false,
+      "chinese": false,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "INPUT",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "KBD",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "reference-scene__status",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "BUTTON",
+          "class": "social-copy",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ],
+      "loadedRangeMissingCharacters": {
+        "latin": [],
+        "chinese": []
+      }
+    },
+    {
+      "label": "nojs",
+      "registered": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "weight": "400",
+          "unicodeRange": "U+0-10FFFF"
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "weight": "400",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B"
+        }
+      ],
+      "latin": false,
+      "chinese": false,
+      "elements": [
+        {
+          "tag": "BODY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "DIV",
+          "class": "personal-site static-site",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "skip-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "wordmark",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "repository-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-sidebar__home is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "eyebrow",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H1",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "hero__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-about__lead",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-project__link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__meta",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "SUMMARY",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace, monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-project__note",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "interest-card__category",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "profile-section__intro",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "personal-contact__description",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H3",
+          "class": "social-card__label",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "social-card__handle",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "personal-text-link",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "H2",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "is-active",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "site-toc__source",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "font": "\"Fusion Pixel\", \"Press Start 2P\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        },
+        {
+          "tag": "P",
+          "class": "site-startup-status",
+          "font": "\"Fusion Pixel\", monospace"
+        }
+      ],
+      "loadedRangeMissingCharacters": {
+        "latin": [],
+        "chinese": []
+      }
+    }
+  ]
+}

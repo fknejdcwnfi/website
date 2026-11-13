@@ -4,6 +4,38 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
+## Current follow-up audit — 2026-11-13
+
+- Preserve the current cream scenic UI, original character and all source pixels.
+  New performance work uses native lazy decorative IMG elements and a faithful
+  startup font subset; it does not change the renderer, source clock or weather.
+- Five below-fold decorations share `profile/content/decorativeAssets.ts` in
+  React/static markup. Keep their sizes/crops and empty alt/aria-hidden semantics;
+  twilight stays immediate. Native lazy thresholds are browser decisions: measure
+  actual requests rather than claiming every lazy image stays unfetched.
+- `app/styles/fonts.css` follows the original full Fusion Pixel face. Its explicit
+  unicode-range subset and matching SHA preload serve current text; retain the
+  full font, fallback and licenses. Regenerate with `prepare_pixel_font.py` when
+  new source glyphs require it; `--verify` is standard-library CI, `--check` checks
+  exact outlines/metrics with the authoring tools. Do not silently drop characters.
+- Automatic scene retries remain bounded across first-frame successes. Only an
+  explicit manual retry or online recovery resets the budget; repeated renderer
+  faults cannot replenish it merely by reaching looping/static once.
+- Search must leave composing IME keys native, including legacy keyCode229,
+  and avoid navigation on a composition-commit form submission. Preserve ordinary
+  Enter/arrows/Escape and the same scene instance; synthetic events are not proof
+  that a physical OS input method was tested.
+- CSP inventory is a deliberately restricted reader of our owned HTML, not a
+  general parser/sanitizer. Use exact attributes and a real document/head/charset
+  envelope, reject unsupported templates/ambiguous markup, normalize CRLF/CR only
+  for script hashing, and keep emitted bytes unchanged. Do not relax script policy.
+- Repository checks use explicit exit status even with optimized Python, inspect
+  supported Markdown reference links outside code, and reject tracked loose
+  `.pyc/.pyo`. The limited parser does not promise full CommonMark conformance.
+- Keep this revision's measurements and audit evidence in `artifacts/audit-20261113/`.
+  Earlier counts/results remain historical. Follow the single permanent `main`
+  branch and reviewed publication workflow below.
+
 ## Current audit and repository maintenance — 2026-11-08
 
 - Keep the current design and exact artwork. Security/robustness changes belong

@@ -10,12 +10,17 @@ from playwright.sync_api import sync_playwright
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--url', required=True)
 parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--width', type=int, default=1440)
+parser.add_argument('--height', type=int, default=1100)
+parser.add_argument('--dpr', type=float, default=1)
 args = parser.parse_args()
+if not (240 <= args.width <= 3840 and 240 <= args.height <= 2160 and 1 <= args.dpr <= 4):
+    parser.error('Use a bounded test viewport and DPR between 1 and 4.')
 args.output.parent.mkdir(parents=True, exist_ok=True)
-report = {'conditions': 'Fresh single Chromium 1440x1100 DPR1, local production preview, unthrottled; no screenshot or concurrent browser. Decoded resource body sizes are not compressed internet transfer or visitor CWV.', 'url': args.url, 'browserErrors': [], 'badResponses': []}
+report = {'conditions': f'Fresh single desktop Chromium with {args.width}x{args.height} CSS viewport/DPR{args.dpr:g}, local production preview, unthrottled; no screenshot or concurrent browser. This is a synthetic viewport, not a physical mobile device. Decoded resource body sizes are not compressed internet transfer or visitor CWV.', 'url': args.url, 'browserErrors': [], 'badResponses': []}
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path='/usr/bin/chromium', args=['--no-sandbox'])
-    page = browser.new_page(viewport={'width': 1440, 'height': 1100}, device_scale_factor=1)
+    page = browser.new_page(viewport={'width': args.width, 'height': args.height}, device_scale_factor=args.dpr)
     page.on('pageerror', lambda e: report['browserErrors'].append(str(e)))
     page.on('response', lambda r: report['badResponses'].append({'url': r.url, 'status': r.status}) if r.status >= 400 else None)
     page.goto(args.url)

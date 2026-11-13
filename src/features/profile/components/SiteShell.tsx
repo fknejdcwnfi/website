@@ -12,6 +12,10 @@ function SiteSearch() {
   const [expanded, setExpanded] = useState(false)
   const input = useRef<HTMLInputElement>(null)
   const wrapper = useRef<HTMLDivElement>(null)
+  const composing = useRef(false)
+  const imeSubmit = useRef(false)
+  const imeTimer = useRef<number | undefined>(undefined)
+  const isImeKey = (event: KeyboardEvent): boolean => composing.current || event.isComposing || event.keyCode === 229
   const matches = searchSite(getSiteSearchEntries(site), query)
   const describeGroup = (href: string) => {
     if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }
@@ -37,6 +41,7 @@ function SiteSearch() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent): void => {
+      if (isImeKey(event)) return
       if (event.key === 'Escape') {
         if (event.target instanceof Node && wrapper.current?.contains(event.target)) {
           event.preventDefault()
@@ -56,6 +61,7 @@ function SiteSearch() {
     document.addEventListener('keydown', onKey)
     document.addEventListener('pointerdown', onPointer)
     return () => {
+      window.clearTimeout(imeTimer.current)
       document.removeEventListener('keydown', onKey)
       document.removeEventListener('pointerdown', onPointer)
     }
@@ -63,6 +69,7 @@ function SiteSearch() {
 
   const jump = (event: FormEvent): void => {
     event.preventDefault()
+    if (composing.current || imeSubmit.current) return
     const first = results[0]
     if (!first) return
     const target = document.getElementById(first.href.slice(1))
@@ -83,7 +90,17 @@ function SiteSearch() {
         <svg className="site-search__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" shapeRendering="crispEdges"><path fillRule="evenodd" d="M3 1h6v1h2v2h1v5h-1v2h-1v1h2v1h1v1h2v2h-3v-1h-1v-1h-1v-2H4v-1H2V9H1V4h1V2h1V1zm1 2v1H3v5h1v1h5V9h1V4H9V3H4z" /></svg>
         <input ref={input} id="site-search" type="search" placeholder="搜索此网站" autoComplete="off" maxLength={120} value={query} aria-expanded={expanded} aria-controls="site-search-results"
           onChange={(event) => { setQuery(event.target.value); setExpanded(true) }} onFocus={() => setExpanded(true)} onClick={() => setExpanded(true)}
+          onCompositionStart={() => { composing.current = true }} onCompositionEnd={() => { composing.current = false }}
           onKeyDown={(event) => {
+            if (isImeKey(event.nativeEvent)) {
+              // Let the IME consume its own keys. A composition-commit Enter
+              // may still submit the form after compositionend (notably 229).
+              imeSubmit.current = true
+              window.clearTimeout(imeTimer.current)
+              imeTimer.current = window.setTimeout(() => { imeSubmit.current = false; imeTimer.current = undefined }, 0)
+              return
+            }
+            imeSubmit.current = false
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
               event.preventDefault()
               setExpanded(true)

@@ -1,0 +1,262 @@
+{
+  "conditions": "Fresh single desktop Chromium with 1440x1100 CSS viewport/DPR1, local production preview, unthrottled; no screenshot or concurrent browser. This is a synthetic viewport, not a physical mobile device. Decoded resource body sizes are not compressed internet transfer or visitor CWV.",
+  "url": "http://127.0.0.1:5180/",
+  "browserErrors": [],
+  "badResponses": [],
+  "initialResources": [
+    {
+      "name": "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+      "initiator": "link",
+      "decodedBodySize": 18868,
+      "transferSize": 19168,
+      "duration": 16.700000002980232
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+      "initiator": "script",
+      "decodedBodySize": 297508,
+      "transferSize": 93529,
+      "duration": 66.30000000074506
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-B993mzml.css",
+      "initiator": "link",
+      "decodedBodySize": 72369,
+      "transferSize": 16913,
+      "duration": 24
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 17
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 27.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 7.899999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 4.700000002980232
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 11.099999997764826
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+      "initiator": "img",
+      "decodedBodySize": 2041608,
+      "transferSize": 2041908,
+      "duration": 55.69999999925494
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+      "initiator": "img",
+      "decodedBodySize": 1723086,
+      "transferSize": 1723386,
+      "duration": 54.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 14.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 7.100000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5180/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 756,
+      "duration": 42.600000001490116
+    }
+  ],
+  "allResources": [
+    {
+      "name": "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+      "initiator": "link",
+      "decodedBodySize": 18868,
+      "transferSize": 19168,
+      "duration": 16.700000002980232
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-CrkCg0R1.js",
+      "initiator": "script",
+      "decodedBodySize": 297508,
+      "transferSize": 93529,
+      "duration": 66.30000000074506
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-B993mzml.css",
+      "initiator": "link",
+      "decodedBodySize": 72369,
+      "transferSize": 16913,
+      "duration": 24
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 17
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 27.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 7.899999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 4.700000002980232
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 11.099999997764826
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+      "initiator": "img",
+      "decodedBodySize": 2041608,
+      "transferSize": 2041908,
+      "duration": 55.69999999925494
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+      "initiator": "img",
+      "decodedBodySize": 1723086,
+      "transferSize": 1723386,
+      "duration": 54.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 14.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 7.100000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5180/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 756,
+      "duration": 42.600000001490116
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+      "initiator": "img",
+      "decodedBodySize": 1282202,
+      "transferSize": 1282502,
+      "duration": 31.399999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+      "initiator": "img",
+      "decodedBodySize": 911076,
+      "transferSize": 911376,
+      "duration": 31
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+      "initiator": "img",
+      "decodedBodySize": 856866,
+      "transferSize": 857166,
+      "duration": 30.699999999254942
+    }
+  ],
+  "documentBytes": 47082,
+  "decorativeResources": [
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 27.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+      "initiator": "img",
+      "decodedBodySize": 2041608,
+      "transferSize": 2041908,
+      "duration": 55.69999999925494
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+      "initiator": "img",
+      "decodedBodySize": 1723086,
+      "transferSize": 1723386,
+      "duration": 54.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+      "initiator": "img",
+      "decodedBodySize": 1282202,
+      "transferSize": 1282502,
+      "duration": 31.399999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+      "initiator": "img",
+      "decodedBodySize": 911076,
+      "transferSize": 911376,
+      "duration": 31
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+      "initiator": "img",
+      "decodedBodySize": 856866,
+      "transferSize": 857166,
+      "duration": 30.699999999254942
+    }
+  ],
+  "decorativeDecodedBytes": 8456376,
+  "sameOriginOnly": true,
+  "archiveRuntimeRequested": false,
+  "status": "passed"
+}

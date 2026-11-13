@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { getGameProfiles, getInterests, getSocialLinks, resolveProfileAsset } from '../content/site'
 import type { ContactLink, GameShowcaseBlock, SiteContent } from '../content/types'
+import { GAME_DECORATION, getInterestDecoration, getSocialDecoration } from '../content/decorativeAssets'
 import PixelIcon from './PixelIcon'
 
 type ModuleProps = { content: SiteContent; base?: string }
@@ -16,8 +17,9 @@ export function InterestSection({ content, base = import.meta.env.BASE_URL }: Mo
     <p className="profile-section__intro">喜欢的故事，值得留一格。</p>
     <div className="interest-grid">{interests.map(interest => {
       const cover = resolveProfileAsset(interest.cover, base)
+      const decoration = getInterestDecoration(interest.id)
       return <article className="interest-card" data-category={interest.category} id={`interest-${interest.id}`} tabIndex={-1} key={interest.id}>
-        {cover ? <img className="interest-card__cover" src={cover} width="640" height="360" loading="lazy" decoding="async" alt={`${interest.title}封面`} /> : <div className="interest-card__scene" data-interest={interest.id} aria-hidden="true" />}
+        {cover ? <img className="interest-card__cover" src={cover} width="640" height="360" loading="lazy" decoding="async" alt={`${interest.title}封面`} /> : <div className="interest-card__scene" data-interest={interest.id} aria-hidden="true">{decoration ? <img className="interest-card__image" src={`${base}assets/pixel-ui/${decoration.file}`} width={decoration.width} height={decoration.height} loading="lazy" decoding="async" alt="" aria-hidden="true" /> : null}</div>}
         <div className="interest-card__heading"><span className="interest-card__icon"><PixelIcon name="heart" /></span><div><p className="interest-card__category">{categoryNames[interest.category]}</p><h3>{interest.title}</h3></div></div>
         {interest.description ? <p>{interest.description}</p> : null}
         {interest.tags?.length ? <ul className="interest-card__tags" aria-label={`${interest.title}标签`}>{interest.tags.map(tag => <li key={tag}>{tag}</li>)}</ul> : null}
@@ -54,7 +56,7 @@ export function GameSection({ content, base = import.meta.env.BASE_URL }: Module
       const cover = resolveProfileAsset(profile.cover, base)
       const hasDetails = profile.playerName || profile.playerId || profile.region
       return <article className="game-showcase" data-game={profile.game} id={`game-${profile.id}`} tabIndex={-1} key={profile.id}>
-        {cover ? <img className="game-showcase__cover" src={cover} alt={`${profile.label}封面`} width="640" height="360" loading="lazy" decoding="async" /> : <div className="game-showcase__scene" aria-hidden="true" />}
+        {cover ? <img className="game-showcase__cover" src={cover} alt={`${profile.label}封面`} width="640" height="360" loading="lazy" decoding="async" /> : <div className="game-showcase__scene" aria-hidden="true"><img className="game-showcase__image" src={`${base}assets/pixel-ui/${GAME_DECORATION.file}`} width={GAME_DECORATION.width} height={GAME_DECORATION.height} loading="lazy" decoding="async" alt="" aria-hidden="true" /></div>}
         <div className="game-showcase__header"><span className="game-showcase__icon"><PixelIcon name="gamepad" /></span><div>{profile.tagline ? <p className="game-showcase__tagline">{profile.tagline}</p> : null}<h3>{profile.label}</h3></div></div>
         {profile.description ? <p>{profile.description}</p> : null}
         {profile.tags?.length ? <ul className="game-showcase__tags" aria-label={`${profile.label}标签`}>{profile.tags.map(tag => <li key={tag}>{tag}</li>)}</ul> : null}
@@ -122,7 +124,9 @@ export function SocialSection({ content, base = import.meta.env.BASE_URL }: Modu
       <p className="personal-contact__description">关于作品、兴趣，或者只是说声你好，都欢迎来打个招呼。</p>
       <div className="social-cards">{profiles.map(profile => {
         const qrCode = resolveProfileAsset(profile.qrCode, base)
+        const decoration = getSocialDecoration(profile.platform)
         return <article className="social-card" data-platform={profile.platform} id={`contact-${profile.id}`} tabIndex={-1} key={profile.id}>
+          {decoration ? <img className="social-card__scene" src={`${base}assets/pixel-ui/${decoration.file}`} width={decoration.width} height={decoration.height} loading="lazy" decoding="async" alt="" aria-hidden="true" /> : null}
           <div className="social-card__heading"><span className="social-card__icon"><PixelIcon name={profile.platform} /></span><h3 className="social-card__label">{profile.label}</h3></div>
           {profile.handle ? <p className="social-card__handle" id={`account-${profile.id}`}>{profile.handle}</p> : null}
           {profile.description ? <p className="social-card__description">{profile.description}</p> : null}

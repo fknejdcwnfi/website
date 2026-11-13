@@ -38,6 +38,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
   const motionChoice = useRef(motionEnabled)
   motionChoice.current = motionEnabled
   const [attempt, setAttempt] = useState(0)
+  // Two automatic retries per mounted scene; only manual retry or online resets it.
   const attempts = useRef(0)
   const [slowLoad, setSlowLoad] = useState(false)
   const showPreview = Boolean(preview && timeMs === null && (!systemReduced || motionEnabled) && !handoffDone.current)
@@ -115,7 +116,6 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
       if (next.playback === 'looping' || next.playback === 'static') {
         window.clearTimeout(slowTimer)
         setSlowLoad(false)
-        attempts.current = 0
       }
     }
     let instance: ScenePlayer

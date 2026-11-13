@@ -1,0 +1,484 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5180/",
+  "timestamp": "2026-11-13T01:02:30.940686+00:00",
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "checks": [
+    {
+      "name": "composing_arrow_down_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "composing_arrow_down",
+          "key": "ArrowDown",
+          "code": 40,
+          "composing": true,
+          "start": true
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "composing_arrow_up_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "composing_arrow_up",
+          "key": "ArrowUp",
+          "code": 38,
+          "composing": true,
+          "start": true
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "composition_state_arrow_down_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "composition_state_arrow_down",
+          "key": "ArrowDown",
+          "code": 40,
+          "composing": false,
+          "start": true
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "composing_escape_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "composing_escape",
+          "key": "Escape",
+          "code": 27,
+          "composing": true,
+          "start": true
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "keycode229_arrow_down_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "keycode229_arrow_down",
+          "key": "ArrowDown",
+          "code": 229,
+          "composing": false
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "composing_submit_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "composing_submit",
+          "key": "Enter",
+          "code": 13,
+          "composing": true,
+          "start": true,
+          "submit": true
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "compositionend_keycode229_submit_native_keys_and_focus_preserved",
+      "passed": true,
+      "detail": {
+        "case": {
+          "name": "compositionend_keycode229_submit",
+          "key": "Enter",
+          "code": 229,
+          "composing": false,
+          "start": true,
+          "end": true,
+          "submit": true
+        },
+        "defaultPrevented": false,
+        "hash": "",
+        "inputFocused": true,
+        "resultsOpen": true
+      }
+    },
+    {
+      "name": "normal_enter_after_composition_still_navigates",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_arrows_and_escape_still_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ime_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ime_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "ime_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "post_success_failures_stop_after_two_automatic_retries",
+      "passed": true,
+      "detail": {
+        "faults": 3,
+        "playback": "failed"
+      }
+    },
+    {
+      "name": "manual_retry_recovers_same_scene_after_budget_exhausted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_runtime_retry_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "bounded_runtime_retry_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "bounded_runtime_retry_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "open_search_resize_390x320_panel_and_help_fit",
+      "passed": true,
+      "detail": {
+        "top": 101,
+        "bottom": 308,
+        "left": 12,
+        "right": 378,
+        "helpBottom": 307
+      }
+    },
+    {
+      "name": "open_search_resize_390x320_keyboard_reaches_last",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "open_search_resize_320x320_panel_and_help_fit",
+      "passed": true,
+      "detail": {
+        "top": 101,
+        "bottom": 308,
+        "left": 12,
+        "right": 308,
+        "helpBottom": 307
+      }
+    },
+    {
+      "name": "open_search_resize_320x320_keyboard_reaches_last",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "open_search_resize_667x320_panel_and_help_fit",
+      "passed": true,
+      "detail": {
+        "top": 59.5,
+        "bottom": 303.5,
+        "left": 192,
+        "right": 600,
+        "helpBottom": 302.5
+      }
+    },
+    {
+      "name": "open_search_resize_667x320_keyboard_reaches_last",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "open_search_resize_1280x320_panel_and_help_fit",
+      "passed": true,
+      "detail": {
+        "top": 58,
+        "bottom": 302,
+        "left": 698,
+        "right": 1106,
+        "helpBottom": 301
+      }
+    },
+    {
+      "name": "open_search_resize_1280x320_keyboard_reaches_last",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "open_search_resize_1440x1100_panel_and_help_fit",
+      "passed": true,
+      "detail": {
+        "top": 58,
+        "bottom": 501.984375,
+        "left": 843,
+        "right": 1251,
+        "helpBottom": 500.984375
+      }
+    },
+    {
+      "name": "open_search_resize_1440x1100_keyboard_reaches_last",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "search_live_resize_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "search_live_resize_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "search_live_resize_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "crlf_trusted_startup_scripts_execute_under_actual_csp",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "csp_line_endings_no_js_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "csp_line_endings_no_failed_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "csp_line_endings_no_unexpected_csp_violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "crlf_policy_still_blocks_unowned_inline_script",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_search_absent_and_six_sections_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_native_image_loaded_naruto.webp",
+      "passed": true,
+      "detail": "/assets/pixel-ui/naruto.webp"
+    },
+    {
+      "name": "nojs_native_image_loaded_conan.webp",
+      "passed": true,
+      "detail": "/assets/pixel-ui/conan.webp"
+    },
+    {
+      "name": "nojs_native_image_loaded_game-realm.webp",
+      "passed": true,
+      "detail": "/assets/pixel-ui/game-realm.webp"
+    },
+    {
+      "name": "nojs_native_image_loaded_social-github.webp",
+      "passed": true,
+      "detail": "/assets/pixel-ui/social-github.webp"
+    },
+    {
+      "name": "nojs_native_image_loaded_social-mail.webp",
+      "passed": true,
+      "detail": "/assets/pixel-ui/social-mail.webp"
+    },
+    {
+      "name": "nojs_native_project_detail_project-living-portrait",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_native_project_detail_project-xiangqi-review",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_mobile_has_no_horizontal_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_no_failed_responses",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "contexts": [
+    {
+      "label": "ime",
+      "errors": [],
+      "failedResponses": [],
+      "syntheticComposition": [
+        {
+          "case": {
+            "name": "composing_arrow_down",
+            "key": "ArrowDown",
+            "code": 40,
+            "composing": true,
+            "start": true
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        },
+        {
+          "case": {
+            "name": "composing_arrow_up",
+            "key": "ArrowUp",
+            "code": 38,
+            "composing": true,
+            "start": true
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        },
+        {
+          "case": {
+            "name": "composition_state_arrow_down",
+            "key": "ArrowDown",
+            "code": 40,
+            "composing": false,
+            "start": true
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        },
+        {
+          "case": {
+            "name": "composing_escape",
+            "key": "Escape",
+            "code": 27,
+            "composing": true,
+            "start": true
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        },
+        {
+          "case": {
+            "name": "keycode229_arrow_down",
+            "key": "ArrowDown",
+            "code": 229,
+            "composing": false
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        },
+        {
+          "case": {
+            "name": "composing_submit",
+            "key": "Enter",
+            "code": 13,
+            "composing": true,
+            "start": true,
+            "submit": true
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        },
+        {
+          "case": {
+            "name": "compositionend_keycode229_submit",
+            "key": "Enter",
+            "code": 229,
+            "composing": false,
+            "start": true,
+            "end": true,
+            "submit": true
+          },
+          "defaultPrevented": false,
+          "hash": "",
+          "inputFocused": true,
+          "resultsOpen": true
+        }
+      ]
+    },
+    {
+      "label": "bounded_runtime_retry",
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "label": "search_live_resize",
+      "errors": [],
+      "failedResponses": []
+    },
+    {
+      "label": "csp_line_endings",
+      "errors": [],
+      "failedResponses": [],
+      "expectedProbeViolations": [
+        {
+          "directive": "script-src-elem",
+          "blocked": "inline"
+        }
+      ]
+    },
+    {
+      "label": "nojs_decor_and_details",
+      "errors": [],
+      "failedResponses": []
+    }
+  ],
+  "limitations": [
+    "Synthetic composition/keyCode229 and requestSubmit probes; physical OS IMEs unverified.",
+    "Local Chromium functional checks; no performance, visitor CWV or deployment assertion."
+  ]
+}

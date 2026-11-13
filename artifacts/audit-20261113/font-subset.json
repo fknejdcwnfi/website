@@ -1,0 +1,87 @@
+{
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "sourceFontSha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+  "sourceBytes": 701520,
+  "subsetBytes": 18868,
+  "bytesSaved": 682652,
+  "fontBytesSavedPercent": 97.3104,
+  "mappedCodepoints": 566,
+  "outputGlyphs": 567,
+  "exactGlyphOutlinesAndMetrics": {
+    "outputGlyphsCompared": 567,
+    "exactOutlinesAndMetrics": true,
+    "globalMetrics": {
+      "head": {
+        "unitsPerEm": 1200
+      },
+      "hhea": {
+        "ascent": 1300,
+        "descent": -300,
+        "lineGap": 0
+      },
+      "vhea": {
+        "ascent": 800,
+        "descent": -800,
+        "lineGap": 0
+      },
+      "OS/2": {
+        "sTypoAscender": 1300,
+        "sTypoDescender": -300,
+        "sTypoLineGap": 0,
+        "usWinAscent": 1300,
+        "usWinDescent": 300,
+        "sxHeight": 600,
+        "sCapHeight": 900,
+        "fsSelection": 0
+      },
+      "post": {
+        "italicAngle": 0.0,
+        "underlinePosition": -100,
+        "underlineThickness": 100
+      }
+    },
+    "outlineMetricDigest": "f39c007b53100c8a4d100a240e89febf4f659f6f536a71d545b46a8513822f67"
+  },
+  "determinism": {
+    "independentRegenerationByteIdentical": true,
+    "sha256": {
+      "public/fonts/fusion-pixel-startup-subset.woff2": "e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+      "public/fonts/fusion-pixel-startup-subset.json": "60b8cafa921b955dc179e07a093ec7a9d8fda7dad7f8f75436377ae545442c1e",
+      "src/app/styles/fonts.css": "bfd243e4634956e2f86c91bc9a53df542d7c0b7b0c291419955f4e793f6e8ef2"
+    }
+  },
+  "sourceCoverage": "Printable characters in current src TS/TSX/JSON/CSS and index.html, excluding generated fonts.css; ASCII source/comments plus NBSP, bullet and ellipsis are included. New glyphs fail the standard-library coverage guard. Removed glyphs do not require regeneration.",
+  "unmappedSourceCodepoints": [
+    "U+2212",
+    "U+2726",
+    "U+1F3AE",
+    "U+1F44B",
+    "U+1F4D6",
+    "U+1F9E9"
+  ],
+  "preservedOriginalFullFont": true,
+  "originalLicenseNoticesPreserved": true,
+  "verification": {
+    "stdlibWithSitePackagesDisabled": "passed",
+    "authoringGlyphComparison": "passed",
+    "browserSubsetOnlyDefault": "passed: default initial18,868B subset request only; full face unloaded; preload reused",
+    "browserFullFallbackForUncommonCharacter": "passed: separate localbrowser context 丁U+4E01 loads the original701,520B full font",
+    "browserCanvasOutlineAndMetricParity": "passed:20 text/size combinations; every RGBA pixel and measureText metric equal to original full font",
+    "browserNoJavaScript": "passed: subset loading, all static sections and native details",
+    "browserBothHostingBases": "passed: root74 and Pages74 independent checks"
+  },
+  "fallbackProbe": {
+    "text": "丁",
+    "codepoint": "U+4E01",
+    "includedInSubset": false
+  },
+  "limits": [
+    "Subsetting reduces startup font bytes, not original font glyph quality or physical display FPS.",
+    "Characters outside this subset use the original full face if that face contains them; absent original glyphs still use the existing fallback family.",
+    "CI standard-library verification checks source coverage and committed byte hashes; exact outline/metric comparison additionally requires authoring tools."
+  ],
+  "browserReport": "font-browser/root/checks.json",
+  "browserChecksRoot": 74,
+  "browserChecksPages": 74,
+  "browserReportPages": "font-browser/pages/checks.json"
+}

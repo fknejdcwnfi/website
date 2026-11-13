@@ -1,0 +1,2542 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5182/website/",
+  "checks": [
+    {
+      "name": "original_font_bytes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "subset_bytes_match_manifest",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_comparison_characters_have_subset_glyphs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "license_preserved_FusionPixel-OFL.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "license_preserved_FusionPixel-ArkPixel-OFL.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "license_preserved_FusionPixel-Cubic11-OFL.txt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "default_subset_face_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ]
+    },
+    {
+      "name": "default_full_face_remains_unloaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ]
+    },
+    {
+      "name": "default_font_requests_subset_only",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ]
+    },
+    {
+      "name": "default_preload_is_reused_same_url",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ]
+    },
+    {
+      "name": "default_subset_body_size",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ]
+    },
+    {
+      "name": "default_subset_font_response_received",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+      ]
+    },
+    {
+      "name": "default_subset_font_response_0_bytes_match",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "status": 200,
+        "bytes": 18868,
+        "sha256": "e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+      }
+    },
+    {
+      "name": "default_ui_keeps_pixel_family",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "browser_glyph_pixels_12px_0",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 781,
+        "subsetMetrics": {
+          "width": 131.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 130.99984741210938,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 131.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 130.99984741210938,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_12px_0",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 781,
+        "subsetMetrics": {
+          "width": 131.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 130.99984741210938,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 131.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 130.99984741210938,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_12px_1",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 498,
+        "subsetMetrics": {
+          "width": 139.99998474121094,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 138.99998474121094,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 139.99998474121094,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 138.99998474121094,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_12px_1",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 498,
+        "subsetMetrics": {
+          "width": 139.99998474121094,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 138.99998474121094,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 139.99998474121094,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 138.99998474121094,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_12px_2",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 578,
+        "subsetMetrics": {
+          "width": 125.99992370605469,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 124.99992370605469,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 125.99992370605469,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 124.99992370605469,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_12px_2",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 578,
+        "subsetMetrics": {
+          "width": 125.99992370605469,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 124.99992370605469,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 125.99992370605469,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 124.99992370605469,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_12px_3",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 457,
+        "subsetMetrics": {
+          "width": 142,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 141,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 142,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 141,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_12px_3",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 457,
+        "subsetMetrics": {
+          "width": 142,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 141,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 142,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 141,
+          "actualBoundingBoxAscent": 9,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_12px_4",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 120,
+        "subsetMetrics": {
+          "width": 65.99993896484375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 63.99995422363281,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 65.99993896484375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 63.99995422363281,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_12px_4",
+      "passed": true,
+      "detail": {
+        "size": 12,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 120,
+        "subsetMetrics": {
+          "width": 65.99993896484375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 63.99995422363281,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        },
+        "originalMetrics": {
+          "width": 65.99993896484375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 63.99995422363281,
+          "actualBoundingBoxAscent": 10,
+          "actualBoundingBoxDescent": 1,
+          "fontBoundingBoxAscent": 13,
+          "fontBoundingBoxDescent": 3
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_16px_0",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 1450,
+        "subsetMetrics": {
+          "width": 175.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 174.99984741210938,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 175.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 174.99984741210938,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_16px_0",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 1450,
+        "subsetMetrics": {
+          "width": 175.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 174.99984741210938,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 175.9998321533203,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 174.99984741210938,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_16px_1",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 1117,
+        "subsetMetrics": {
+          "width": 186.6665802001953,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 185.333251953125,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 186.6665802001953,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 185.333251953125,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_16px_1",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 1117,
+        "subsetMetrics": {
+          "width": 186.6665802001953,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 185.333251953125,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 186.6665802001953,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 185.333251953125,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_16px_2",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 1142,
+        "subsetMetrics": {
+          "width": 167.9999237060547,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 166.9999237060547,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 167.9999237060547,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 166.9999237060547,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_16px_2",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 1142,
+        "subsetMetrics": {
+          "width": 167.9999237060547,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 166.9999237060547,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 167.9999237060547,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 166.9999237060547,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_16px_3",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 954,
+        "subsetMetrics": {
+          "width": 189.33326721191406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 188.33326721191406,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 189.33326721191406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 188.33326721191406,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_16px_3",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 954,
+        "subsetMetrics": {
+          "width": 189.33326721191406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 188.33326721191406,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 189.33326721191406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 188.33326721191406,
+          "actualBoundingBoxAscent": 12,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_16px_4",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 212,
+        "subsetMetrics": {
+          "width": 87.99993896484375,
+          "actualBoundingBoxLeft": -1,
+          "actualBoundingBoxRight": 85.99995422363281,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 87.99993896484375,
+          "actualBoundingBoxLeft": -1,
+          "actualBoundingBoxRight": 85.99995422363281,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_16px_4",
+      "passed": true,
+      "detail": {
+        "size": 16,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 212,
+        "subsetMetrics": {
+          "width": 87.99993896484375,
+          "actualBoundingBoxLeft": -1,
+          "actualBoundingBoxRight": 85.99995422363281,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        },
+        "originalMetrics": {
+          "width": 87.99993896484375,
+          "actualBoundingBoxLeft": -1,
+          "actualBoundingBoxRight": 85.99995422363281,
+          "actualBoundingBoxAscent": 14,
+          "actualBoundingBoxDescent": 2,
+          "fontBoundingBoxAscent": 17,
+          "fontBoundingBoxDescent": 4
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_24px_0",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 2064,
+        "subsetMetrics": {
+          "width": 263.99981689453125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 261.9998474121094,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 263.99981689453125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 261.9998474121094,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_24px_0",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 2064,
+        "subsetMetrics": {
+          "width": 263.99981689453125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 261.9998474121094,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 263.99981689453125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 261.9998474121094,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_24px_1",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 1416,
+        "subsetMetrics": {
+          "width": 279.99969482421875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 277.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 279.99969482421875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 277.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_24px_1",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 1416,
+        "subsetMetrics": {
+          "width": 279.99969482421875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 277.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 279.99969482421875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 277.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_24px_2",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 1604,
+        "subsetMetrics": {
+          "width": 251.999755859375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 249.99977111816406,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 251.999755859375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 249.99977111816406,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_24px_2",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 1604,
+        "subsetMetrics": {
+          "width": 251.999755859375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 249.99977111816406,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 251.999755859375,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 249.99977111816406,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_24px_3",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 1296,
+        "subsetMetrics": {
+          "width": 283.9996643066406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 281.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 283.9996643066406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 281.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_24px_3",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 1296,
+        "subsetMetrics": {
+          "width": 283.9996643066406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 281.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 283.9996643066406,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 281.99969482421875,
+          "actualBoundingBoxAscent": 18,
+          "actualBoundingBoxDescent": 5,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_24px_4",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 296,
+        "subsetMetrics": {
+          "width": 131.99989318847656,
+          "actualBoundingBoxLeft": -2,
+          "actualBoundingBoxRight": 127.99990844726562,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 131.99989318847656,
+          "actualBoundingBoxLeft": -2,
+          "actualBoundingBoxRight": 127.99990844726562,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_24px_4",
+      "passed": true,
+      "detail": {
+        "size": 24,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 296,
+        "subsetMetrics": {
+          "width": 131.99989318847656,
+          "actualBoundingBoxLeft": -2,
+          "actualBoundingBoxRight": 127.99990844726562,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        },
+        "originalMetrics": {
+          "width": 131.99989318847656,
+          "actualBoundingBoxLeft": -2,
+          "actualBoundingBoxRight": 127.99990844726562,
+          "actualBoundingBoxAscent": 20,
+          "actualBoundingBoxDescent": 3,
+          "fontBoundingBoxAscent": 26,
+          "fontBoundingBoxDescent": 6
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_42px_0",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 7376,
+        "subsetMetrics": {
+          "width": 462.001220703125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 459.0010986328125,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 462.001220703125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 459.0010986328125,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_42px_0",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "欢迎来到我的像素小世界",
+        "changedPixels": 0,
+        "paintedPixels": 7376,
+        "subsetMetrics": {
+          "width": 462.001220703125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 459.0010986328125,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 462.001220703125,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 459.0010986328125,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_42px_1",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 5091,
+        "subsetMetrics": {
+          "width": 490.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 487.00115966796875,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 490.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 487.00115966796875,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_42px_1",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "HELLOWORLD fknejdcwnfi",
+        "changedPixels": 0,
+        "paintedPixels": 5091,
+        "subsetMetrics": {
+          "width": 490.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 487.00115966796875,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 490.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 487.00115966796875,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_42px_2",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 5744,
+        "subsetMetrics": {
+          "width": 441.00103759765625,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 438.0009765625,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 441.00103759765625,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 438.0009765625,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_42px_2",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "作品与实验 0123456789",
+        "changedPixels": 0,
+        "paintedPixels": 5744,
+        "subsetMetrics": {
+          "width": 441.00103759765625,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 438.0009765625,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 441.00103759765625,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 438.0009765625,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_42px_3",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 4670,
+        "subsetMetrics": {
+          "width": 497.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 494.0010986328125,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 497.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 494.0010986328125,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_42px_3",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "GitHub TypeScript Canvas",
+        "changedPixels": 0,
+        "paintedPixels": 4670,
+        "subsetMetrics": {
+          "width": 497.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 494.0010986328125,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 497.00115966796875,
+          "actualBoundingBoxLeft": 0,
+          "actualBoundingBoxRight": 494.0010986328125,
+          "actualBoundingBoxAscent": 32,
+          "actualBoundingBoxDescent": 8,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_pixels_42px_4",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 1083,
+        "subsetMetrics": {
+          "width": 231.0005645751953,
+          "actualBoundingBoxLeft": -3,
+          "actualBoundingBoxRight": 224.00045776367188,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 231.0005645751953,
+          "actualBoundingBoxLeft": -3,
+          "actualBoundingBoxRight": 224.00045776367188,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "browser_glyph_metrics_42px_4",
+      "passed": true,
+      "detail": {
+        "size": 42,
+        "text": "… • ↑ ©",
+        "changedPixels": 0,
+        "paintedPixels": 1083,
+        "subsetMetrics": {
+          "width": 231.0005645751953,
+          "actualBoundingBoxLeft": -3,
+          "actualBoundingBoxRight": 224.00045776367188,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        },
+        "originalMetrics": {
+          "width": 231.0005645751953,
+          "actualBoundingBoxLeft": -3,
+          "actualBoundingBoxRight": 224.00045776367188,
+          "actualBoundingBoxAscent": 35,
+          "actualBoundingBoxDescent": 4,
+          "fontBoundingBoxAscent": 46,
+          "fontBoundingBoxDescent": 11
+        }
+      }
+    },
+    {
+      "name": "deliberate_original_alias_font_response_received",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2"
+      ]
+    },
+    {
+      "name": "deliberate_original_alias_font_response_0_bytes_match",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "status": 200,
+        "bytes": 701520,
+        "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
+      }
+    },
+    {
+      "name": "deliberate_original_alias_font_response_1_bytes_match",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "status": 200,
+        "bytes": 701520,
+        "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
+      }
+    },
+    {
+      "name": "normal_context_no_csp_violations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_context_no_js_or_http_failures",
+      "passed": true,
+      "detail": {
+        "label": "normal_initial_then_deliberate_full_comparison",
+        "errors": [],
+        "badResponses": [],
+        "initialRequestsBeforeAnyComparison": [
+          {
+            "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+            "initiator": "link",
+            "decodedBodySize": 18868
+          }
+        ],
+        "initialFaces": [
+          {
+            "family": "Fusion Pixel",
+            "status": "unloaded",
+            "unicodeRange": "U+0-10FFFF",
+            "full": true
+          },
+          {
+            "family": "Fusion Pixel",
+            "status": "loaded",
+            "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+            "full": false
+          }
+        ],
+        "deliberateOriginalComparison": [
+          {
+            "size": 12,
+            "text": "欢迎来到我的像素小世界",
+            "changedPixels": 0,
+            "paintedPixels": 781,
+            "subsetMetrics": {
+              "width": 131.9998321533203,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 130.99984741210938,
+              "actualBoundingBoxAscent": 10,
+              "actualBoundingBoxDescent": 1,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            },
+            "originalMetrics": {
+              "width": 131.9998321533203,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 130.99984741210938,
+              "actualBoundingBoxAscent": 10,
+              "actualBoundingBoxDescent": 1,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            }
+          },
+          {
+            "size": 12,
+            "text": "HELLOWORLD fknejdcwnfi",
+            "changedPixels": 0,
+            "paintedPixels": 498,
+            "subsetMetrics": {
+              "width": 139.99998474121094,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 138.99998474121094,
+              "actualBoundingBoxAscent": 9,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            },
+            "originalMetrics": {
+              "width": 139.99998474121094,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 138.99998474121094,
+              "actualBoundingBoxAscent": 9,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            }
+          },
+          {
+            "size": 12,
+            "text": "作品与实验 0123456789",
+            "changedPixels": 0,
+            "paintedPixels": 578,
+            "subsetMetrics": {
+              "width": 125.99992370605469,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 124.99992370605469,
+              "actualBoundingBoxAscent": 10,
+              "actualBoundingBoxDescent": 1,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            },
+            "originalMetrics": {
+              "width": 125.99992370605469,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 124.99992370605469,
+              "actualBoundingBoxAscent": 10,
+              "actualBoundingBoxDescent": 1,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            }
+          },
+          {
+            "size": 12,
+            "text": "GitHub TypeScript Canvas",
+            "changedPixels": 0,
+            "paintedPixels": 457,
+            "subsetMetrics": {
+              "width": 142,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 141,
+              "actualBoundingBoxAscent": 9,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            },
+            "originalMetrics": {
+              "width": 142,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 141,
+              "actualBoundingBoxAscent": 9,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            }
+          },
+          {
+            "size": 12,
+            "text": "… • ↑ ©",
+            "changedPixels": 0,
+            "paintedPixels": 120,
+            "subsetMetrics": {
+              "width": 65.99993896484375,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 63.99995422363281,
+              "actualBoundingBoxAscent": 10,
+              "actualBoundingBoxDescent": 1,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            },
+            "originalMetrics": {
+              "width": 65.99993896484375,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 63.99995422363281,
+              "actualBoundingBoxAscent": 10,
+              "actualBoundingBoxDescent": 1,
+              "fontBoundingBoxAscent": 13,
+              "fontBoundingBoxDescent": 3
+            }
+          },
+          {
+            "size": 16,
+            "text": "欢迎来到我的像素小世界",
+            "changedPixels": 0,
+            "paintedPixels": 1450,
+            "subsetMetrics": {
+              "width": 175.9998321533203,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 174.99984741210938,
+              "actualBoundingBoxAscent": 14,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            },
+            "originalMetrics": {
+              "width": 175.9998321533203,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 174.99984741210938,
+              "actualBoundingBoxAscent": 14,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            }
+          },
+          {
+            "size": 16,
+            "text": "HELLOWORLD fknejdcwnfi",
+            "changedPixels": 0,
+            "paintedPixels": 1117,
+            "subsetMetrics": {
+              "width": 186.6665802001953,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 185.333251953125,
+              "actualBoundingBoxAscent": 12,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            },
+            "originalMetrics": {
+              "width": 186.6665802001953,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 185.333251953125,
+              "actualBoundingBoxAscent": 12,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            }
+          },
+          {
+            "size": 16,
+            "text": "作品与实验 0123456789",
+            "changedPixels": 0,
+            "paintedPixels": 1142,
+            "subsetMetrics": {
+              "width": 167.9999237060547,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 166.9999237060547,
+              "actualBoundingBoxAscent": 14,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            },
+            "originalMetrics": {
+              "width": 167.9999237060547,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 166.9999237060547,
+              "actualBoundingBoxAscent": 14,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            }
+          },
+          {
+            "size": 16,
+            "text": "GitHub TypeScript Canvas",
+            "changedPixels": 0,
+            "paintedPixels": 954,
+            "subsetMetrics": {
+              "width": 189.33326721191406,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 188.33326721191406,
+              "actualBoundingBoxAscent": 12,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            },
+            "originalMetrics": {
+              "width": 189.33326721191406,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 188.33326721191406,
+              "actualBoundingBoxAscent": 12,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            }
+          },
+          {
+            "size": 16,
+            "text": "… • ↑ ©",
+            "changedPixels": 0,
+            "paintedPixels": 212,
+            "subsetMetrics": {
+              "width": 87.99993896484375,
+              "actualBoundingBoxLeft": -1,
+              "actualBoundingBoxRight": 85.99995422363281,
+              "actualBoundingBoxAscent": 14,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            },
+            "originalMetrics": {
+              "width": 87.99993896484375,
+              "actualBoundingBoxLeft": -1,
+              "actualBoundingBoxRight": 85.99995422363281,
+              "actualBoundingBoxAscent": 14,
+              "actualBoundingBoxDescent": 2,
+              "fontBoundingBoxAscent": 17,
+              "fontBoundingBoxDescent": 4
+            }
+          },
+          {
+            "size": 24,
+            "text": "欢迎来到我的像素小世界",
+            "changedPixels": 0,
+            "paintedPixels": 2064,
+            "subsetMetrics": {
+              "width": 263.99981689453125,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 261.9998474121094,
+              "actualBoundingBoxAscent": 20,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            },
+            "originalMetrics": {
+              "width": 263.99981689453125,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 261.9998474121094,
+              "actualBoundingBoxAscent": 20,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            }
+          },
+          {
+            "size": 24,
+            "text": "HELLOWORLD fknejdcwnfi",
+            "changedPixels": 0,
+            "paintedPixels": 1416,
+            "subsetMetrics": {
+              "width": 279.99969482421875,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 277.99969482421875,
+              "actualBoundingBoxAscent": 18,
+              "actualBoundingBoxDescent": 5,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            },
+            "originalMetrics": {
+              "width": 279.99969482421875,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 277.99969482421875,
+              "actualBoundingBoxAscent": 18,
+              "actualBoundingBoxDescent": 5,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            }
+          },
+          {
+            "size": 24,
+            "text": "作品与实验 0123456789",
+            "changedPixels": 0,
+            "paintedPixels": 1604,
+            "subsetMetrics": {
+              "width": 251.999755859375,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 249.99977111816406,
+              "actualBoundingBoxAscent": 20,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            },
+            "originalMetrics": {
+              "width": 251.999755859375,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 249.99977111816406,
+              "actualBoundingBoxAscent": 20,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            }
+          },
+          {
+            "size": 24,
+            "text": "GitHub TypeScript Canvas",
+            "changedPixels": 0,
+            "paintedPixels": 1296,
+            "subsetMetrics": {
+              "width": 283.9996643066406,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 281.99969482421875,
+              "actualBoundingBoxAscent": 18,
+              "actualBoundingBoxDescent": 5,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            },
+            "originalMetrics": {
+              "width": 283.9996643066406,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 281.99969482421875,
+              "actualBoundingBoxAscent": 18,
+              "actualBoundingBoxDescent": 5,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            }
+          },
+          {
+            "size": 24,
+            "text": "… • ↑ ©",
+            "changedPixels": 0,
+            "paintedPixels": 296,
+            "subsetMetrics": {
+              "width": 131.99989318847656,
+              "actualBoundingBoxLeft": -2,
+              "actualBoundingBoxRight": 127.99990844726562,
+              "actualBoundingBoxAscent": 20,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            },
+            "originalMetrics": {
+              "width": 131.99989318847656,
+              "actualBoundingBoxLeft": -2,
+              "actualBoundingBoxRight": 127.99990844726562,
+              "actualBoundingBoxAscent": 20,
+              "actualBoundingBoxDescent": 3,
+              "fontBoundingBoxAscent": 26,
+              "fontBoundingBoxDescent": 6
+            }
+          },
+          {
+            "size": 42,
+            "text": "欢迎来到我的像素小世界",
+            "changedPixels": 0,
+            "paintedPixels": 7376,
+            "subsetMetrics": {
+              "width": 462.001220703125,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 459.0010986328125,
+              "actualBoundingBoxAscent": 35,
+              "actualBoundingBoxDescent": 4,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            },
+            "originalMetrics": {
+              "width": 462.001220703125,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 459.0010986328125,
+              "actualBoundingBoxAscent": 35,
+              "actualBoundingBoxDescent": 4,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            }
+          },
+          {
+            "size": 42,
+            "text": "HELLOWORLD fknejdcwnfi",
+            "changedPixels": 0,
+            "paintedPixels": 5091,
+            "subsetMetrics": {
+              "width": 490.00115966796875,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 487.00115966796875,
+              "actualBoundingBoxAscent": 32,
+              "actualBoundingBoxDescent": 8,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            },
+            "originalMetrics": {
+              "width": 490.00115966796875,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 487.00115966796875,
+              "actualBoundingBoxAscent": 32,
+              "actualBoundingBoxDescent": 8,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            }
+          },
+          {
+            "size": 42,
+            "text": "作品与实验 0123456789",
+            "changedPixels": 0,
+            "paintedPixels": 5744,
+            "subsetMetrics": {
+              "width": 441.00103759765625,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 438.0009765625,
+              "actualBoundingBoxAscent": 35,
+              "actualBoundingBoxDescent": 4,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            },
+            "originalMetrics": {
+              "width": 441.00103759765625,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 438.0009765625,
+              "actualBoundingBoxAscent": 35,
+              "actualBoundingBoxDescent": 4,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            }
+          },
+          {
+            "size": 42,
+            "text": "GitHub TypeScript Canvas",
+            "changedPixels": 0,
+            "paintedPixels": 4670,
+            "subsetMetrics": {
+              "width": 497.00115966796875,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 494.0010986328125,
+              "actualBoundingBoxAscent": 32,
+              "actualBoundingBoxDescent": 8,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            },
+            "originalMetrics": {
+              "width": 497.00115966796875,
+              "actualBoundingBoxLeft": 0,
+              "actualBoundingBoxRight": 494.0010986328125,
+              "actualBoundingBoxAscent": 32,
+              "actualBoundingBoxDescent": 8,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            }
+          },
+          {
+            "size": 42,
+            "text": "… • ↑ ©",
+            "changedPixels": 0,
+            "paintedPixels": 1083,
+            "subsetMetrics": {
+              "width": 231.0005645751953,
+              "actualBoundingBoxLeft": -3,
+              "actualBoundingBoxRight": 224.00045776367188,
+              "actualBoundingBoxAscent": 35,
+              "actualBoundingBoxDescent": 4,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            },
+            "originalMetrics": {
+              "width": 231.0005645751953,
+              "actualBoundingBoxLeft": -3,
+              "actualBoundingBoxRight": 224.00045776367188,
+              "actualBoundingBoxAscent": 35,
+              "actualBoundingBoxDescent": 4,
+              "fontBoundingBoxAscent": 46,
+              "fontBoundingBoxDescent": 11
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "fallback_fixture_starts_without_full_request",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ]
+    },
+    {
+      "name": "fallback_probe_is_outside_subset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "uncommon_text_keeps_pixel_family",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "uncommon_character_loads_full_face",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ]
+    },
+    {
+      "name": "uncommon_original_fallback_font_response_received",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2"
+      ]
+    },
+    {
+      "name": "uncommon_original_fallback_font_response_0_bytes_match",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+        "status": 200,
+        "bytes": 701520,
+        "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
+      }
+    },
+    {
+      "name": "fallback_context_no_csp_violations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fallback_context_no_js_or_http_failures",
+      "passed": true,
+      "detail": {
+        "label": "uncommon_character_uses_original_full_face",
+        "errors": [],
+        "badResponses": [],
+        "fontFacesAfterUncommonCharacter": [
+          {
+            "family": "Fusion Pixel",
+            "status": "loaded",
+            "unicodeRange": "U+0-10FFFF",
+            "full": true
+          },
+          {
+            "family": "Fusion Pixel",
+            "status": "loaded",
+            "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+            "full": false
+          }
+        ],
+        "fontRequestsAfterUncommonCharacter": [
+          {
+            "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+            "initiator": "link",
+            "decodedBodySize": 18868
+          },
+          {
+            "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+            "initiator": "css",
+            "decodedBodySize": 701520
+          }
+        ]
+      }
+    },
+    {
+      "name": "nojs_static_sections_remain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_subset_loaded",
+      "passed": true,
+      "detail": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ]
+    },
+    {
+      "name": "nojs_default_does_not_request_full_font",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ]
+    },
+    {
+      "name": "nojs_native_details_work",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "nojs_subset_font_response_received",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+      ]
+    },
+    {
+      "name": "nojs_subset_font_response_0_bytes_match",
+      "passed": true,
+      "detail": {
+        "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+        "status": 200,
+        "bytes": 18868,
+        "sha256": "e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d"
+      }
+    },
+    {
+      "name": "nojs_context_no_js_or_http_failures",
+      "passed": true,
+      "detail": {
+        "label": "no_javascript_static_subset",
+        "errors": [],
+        "badResponses": [],
+        "faces": [
+          {
+            "family": "Fusion Pixel",
+            "status": "unloaded",
+            "unicodeRange": "U+0-10FFFF",
+            "full": true
+          },
+          {
+            "family": "Fusion Pixel",
+            "status": "loaded",
+            "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+            "full": false
+          }
+        ],
+        "requests": [
+          {
+            "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+            "initiator": "link",
+            "decodedBodySize": 18868
+          }
+        ]
+      }
+    }
+  ],
+  "contexts": [
+    {
+      "label": "normal_initial_then_deliberate_full_comparison",
+      "errors": [],
+      "badResponses": [],
+      "initialRequestsBeforeAnyComparison": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ],
+      "initialFaces": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ],
+      "deliberateOriginalComparison": [
+        {
+          "size": 12,
+          "text": "欢迎来到我的像素小世界",
+          "changedPixels": 0,
+          "paintedPixels": 781,
+          "subsetMetrics": {
+            "width": 131.9998321533203,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 130.99984741210938,
+            "actualBoundingBoxAscent": 10,
+            "actualBoundingBoxDescent": 1,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          },
+          "originalMetrics": {
+            "width": 131.9998321533203,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 130.99984741210938,
+            "actualBoundingBoxAscent": 10,
+            "actualBoundingBoxDescent": 1,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          }
+        },
+        {
+          "size": 12,
+          "text": "HELLOWORLD fknejdcwnfi",
+          "changedPixels": 0,
+          "paintedPixels": 498,
+          "subsetMetrics": {
+            "width": 139.99998474121094,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 138.99998474121094,
+            "actualBoundingBoxAscent": 9,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          },
+          "originalMetrics": {
+            "width": 139.99998474121094,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 138.99998474121094,
+            "actualBoundingBoxAscent": 9,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          }
+        },
+        {
+          "size": 12,
+          "text": "作品与实验 0123456789",
+          "changedPixels": 0,
+          "paintedPixels": 578,
+          "subsetMetrics": {
+            "width": 125.99992370605469,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 124.99992370605469,
+            "actualBoundingBoxAscent": 10,
+            "actualBoundingBoxDescent": 1,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          },
+          "originalMetrics": {
+            "width": 125.99992370605469,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 124.99992370605469,
+            "actualBoundingBoxAscent": 10,
+            "actualBoundingBoxDescent": 1,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          }
+        },
+        {
+          "size": 12,
+          "text": "GitHub TypeScript Canvas",
+          "changedPixels": 0,
+          "paintedPixels": 457,
+          "subsetMetrics": {
+            "width": 142,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 141,
+            "actualBoundingBoxAscent": 9,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          },
+          "originalMetrics": {
+            "width": 142,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 141,
+            "actualBoundingBoxAscent": 9,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          }
+        },
+        {
+          "size": 12,
+          "text": "… • ↑ ©",
+          "changedPixels": 0,
+          "paintedPixels": 120,
+          "subsetMetrics": {
+            "width": 65.99993896484375,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 63.99995422363281,
+            "actualBoundingBoxAscent": 10,
+            "actualBoundingBoxDescent": 1,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          },
+          "originalMetrics": {
+            "width": 65.99993896484375,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 63.99995422363281,
+            "actualBoundingBoxAscent": 10,
+            "actualBoundingBoxDescent": 1,
+            "fontBoundingBoxAscent": 13,
+            "fontBoundingBoxDescent": 3
+          }
+        },
+        {
+          "size": 16,
+          "text": "欢迎来到我的像素小世界",
+          "changedPixels": 0,
+          "paintedPixels": 1450,
+          "subsetMetrics": {
+            "width": 175.9998321533203,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 174.99984741210938,
+            "actualBoundingBoxAscent": 14,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          },
+          "originalMetrics": {
+            "width": 175.9998321533203,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 174.99984741210938,
+            "actualBoundingBoxAscent": 14,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          }
+        },
+        {
+          "size": 16,
+          "text": "HELLOWORLD fknejdcwnfi",
+          "changedPixels": 0,
+          "paintedPixels": 1117,
+          "subsetMetrics": {
+            "width": 186.6665802001953,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 185.333251953125,
+            "actualBoundingBoxAscent": 12,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          },
+          "originalMetrics": {
+            "width": 186.6665802001953,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 185.333251953125,
+            "actualBoundingBoxAscent": 12,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          }
+        },
+        {
+          "size": 16,
+          "text": "作品与实验 0123456789",
+          "changedPixels": 0,
+          "paintedPixels": 1142,
+          "subsetMetrics": {
+            "width": 167.9999237060547,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 166.9999237060547,
+            "actualBoundingBoxAscent": 14,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          },
+          "originalMetrics": {
+            "width": 167.9999237060547,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 166.9999237060547,
+            "actualBoundingBoxAscent": 14,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          }
+        },
+        {
+          "size": 16,
+          "text": "GitHub TypeScript Canvas",
+          "changedPixels": 0,
+          "paintedPixels": 954,
+          "subsetMetrics": {
+            "width": 189.33326721191406,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 188.33326721191406,
+            "actualBoundingBoxAscent": 12,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          },
+          "originalMetrics": {
+            "width": 189.33326721191406,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 188.33326721191406,
+            "actualBoundingBoxAscent": 12,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          }
+        },
+        {
+          "size": 16,
+          "text": "… • ↑ ©",
+          "changedPixels": 0,
+          "paintedPixels": 212,
+          "subsetMetrics": {
+            "width": 87.99993896484375,
+            "actualBoundingBoxLeft": -1,
+            "actualBoundingBoxRight": 85.99995422363281,
+            "actualBoundingBoxAscent": 14,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          },
+          "originalMetrics": {
+            "width": 87.99993896484375,
+            "actualBoundingBoxLeft": -1,
+            "actualBoundingBoxRight": 85.99995422363281,
+            "actualBoundingBoxAscent": 14,
+            "actualBoundingBoxDescent": 2,
+            "fontBoundingBoxAscent": 17,
+            "fontBoundingBoxDescent": 4
+          }
+        },
+        {
+          "size": 24,
+          "text": "欢迎来到我的像素小世界",
+          "changedPixels": 0,
+          "paintedPixels": 2064,
+          "subsetMetrics": {
+            "width": 263.99981689453125,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 261.9998474121094,
+            "actualBoundingBoxAscent": 20,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          },
+          "originalMetrics": {
+            "width": 263.99981689453125,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 261.9998474121094,
+            "actualBoundingBoxAscent": 20,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          }
+        },
+        {
+          "size": 24,
+          "text": "HELLOWORLD fknejdcwnfi",
+          "changedPixels": 0,
+          "paintedPixels": 1416,
+          "subsetMetrics": {
+            "width": 279.99969482421875,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 277.99969482421875,
+            "actualBoundingBoxAscent": 18,
+            "actualBoundingBoxDescent": 5,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          },
+          "originalMetrics": {
+            "width": 279.99969482421875,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 277.99969482421875,
+            "actualBoundingBoxAscent": 18,
+            "actualBoundingBoxDescent": 5,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          }
+        },
+        {
+          "size": 24,
+          "text": "作品与实验 0123456789",
+          "changedPixels": 0,
+          "paintedPixels": 1604,
+          "subsetMetrics": {
+            "width": 251.999755859375,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 249.99977111816406,
+            "actualBoundingBoxAscent": 20,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          },
+          "originalMetrics": {
+            "width": 251.999755859375,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 249.99977111816406,
+            "actualBoundingBoxAscent": 20,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          }
+        },
+        {
+          "size": 24,
+          "text": "GitHub TypeScript Canvas",
+          "changedPixels": 0,
+          "paintedPixels": 1296,
+          "subsetMetrics": {
+            "width": 283.9996643066406,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 281.99969482421875,
+            "actualBoundingBoxAscent": 18,
+            "actualBoundingBoxDescent": 5,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          },
+          "originalMetrics": {
+            "width": 283.9996643066406,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 281.99969482421875,
+            "actualBoundingBoxAscent": 18,
+            "actualBoundingBoxDescent": 5,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          }
+        },
+        {
+          "size": 24,
+          "text": "… • ↑ ©",
+          "changedPixels": 0,
+          "paintedPixels": 296,
+          "subsetMetrics": {
+            "width": 131.99989318847656,
+            "actualBoundingBoxLeft": -2,
+            "actualBoundingBoxRight": 127.99990844726562,
+            "actualBoundingBoxAscent": 20,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          },
+          "originalMetrics": {
+            "width": 131.99989318847656,
+            "actualBoundingBoxLeft": -2,
+            "actualBoundingBoxRight": 127.99990844726562,
+            "actualBoundingBoxAscent": 20,
+            "actualBoundingBoxDescent": 3,
+            "fontBoundingBoxAscent": 26,
+            "fontBoundingBoxDescent": 6
+          }
+        },
+        {
+          "size": 42,
+          "text": "欢迎来到我的像素小世界",
+          "changedPixels": 0,
+          "paintedPixels": 7376,
+          "subsetMetrics": {
+            "width": 462.001220703125,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 459.0010986328125,
+            "actualBoundingBoxAscent": 35,
+            "actualBoundingBoxDescent": 4,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          },
+          "originalMetrics": {
+            "width": 462.001220703125,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 459.0010986328125,
+            "actualBoundingBoxAscent": 35,
+            "actualBoundingBoxDescent": 4,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          }
+        },
+        {
+          "size": 42,
+          "text": "HELLOWORLD fknejdcwnfi",
+          "changedPixels": 0,
+          "paintedPixels": 5091,
+          "subsetMetrics": {
+            "width": 490.00115966796875,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 487.00115966796875,
+            "actualBoundingBoxAscent": 32,
+            "actualBoundingBoxDescent": 8,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          },
+          "originalMetrics": {
+            "width": 490.00115966796875,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 487.00115966796875,
+            "actualBoundingBoxAscent": 32,
+            "actualBoundingBoxDescent": 8,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          }
+        },
+        {
+          "size": 42,
+          "text": "作品与实验 0123456789",
+          "changedPixels": 0,
+          "paintedPixels": 5744,
+          "subsetMetrics": {
+            "width": 441.00103759765625,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 438.0009765625,
+            "actualBoundingBoxAscent": 35,
+            "actualBoundingBoxDescent": 4,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          },
+          "originalMetrics": {
+            "width": 441.00103759765625,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 438.0009765625,
+            "actualBoundingBoxAscent": 35,
+            "actualBoundingBoxDescent": 4,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          }
+        },
+        {
+          "size": 42,
+          "text": "GitHub TypeScript Canvas",
+          "changedPixels": 0,
+          "paintedPixels": 4670,
+          "subsetMetrics": {
+            "width": 497.00115966796875,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 494.0010986328125,
+            "actualBoundingBoxAscent": 32,
+            "actualBoundingBoxDescent": 8,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          },
+          "originalMetrics": {
+            "width": 497.00115966796875,
+            "actualBoundingBoxLeft": 0,
+            "actualBoundingBoxRight": 494.0010986328125,
+            "actualBoundingBoxAscent": 32,
+            "actualBoundingBoxDescent": 8,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          }
+        },
+        {
+          "size": 42,
+          "text": "… • ↑ ©",
+          "changedPixels": 0,
+          "paintedPixels": 1083,
+          "subsetMetrics": {
+            "width": 231.0005645751953,
+            "actualBoundingBoxLeft": -3,
+            "actualBoundingBoxRight": 224.00045776367188,
+            "actualBoundingBoxAscent": 35,
+            "actualBoundingBoxDescent": 4,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          },
+          "originalMetrics": {
+            "width": 231.0005645751953,
+            "actualBoundingBoxLeft": -3,
+            "actualBoundingBoxRight": 224.00045776367188,
+            "actualBoundingBoxAscent": 35,
+            "actualBoundingBoxDescent": 4,
+            "fontBoundingBoxAscent": 46,
+            "fontBoundingBoxDescent": 11
+          }
+        }
+      ]
+    },
+    {
+      "label": "uncommon_character_uses_original_full_face",
+      "errors": [],
+      "badResponses": [],
+      "fontFacesAfterUncommonCharacter": [
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ],
+      "fontRequestsAfterUncommonCharacter": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        },
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-12px-proportional-zh_hans.woff2",
+          "initiator": "css",
+          "decodedBodySize": 701520
+        }
+      ]
+    },
+    {
+      "label": "no_javascript_static_subset",
+      "errors": [],
+      "badResponses": [],
+      "faces": [
+        {
+          "family": "Fusion Pixel",
+          "status": "unloaded",
+          "unicodeRange": "U+0-10FFFF",
+          "full": true
+        },
+        {
+          "family": "Fusion Pixel",
+          "status": "loaded",
+          "unicodeRange": "U+20-7E, U+A0, U+A9, U+B2, U+B7, U+D7, U+2014, U+2022, U+2026, U+2191-2193, U+25C6, U+2709, U+3001-3002, U+300C-300D, U+4E00, U+4E0B, U+4E0E, U+4E16, U+4E1C, U+4E26, U+4E2A, U+4E2D, U+4E3A-4E3B, U+4E4B, U+4E50, U+4E5F, U+4E86, U+4E8B-4E8C, U+4E8E, U+4E92, U+4E9B, U+4EA4, U+4EAE, U+4EBA, U+4ECD-4ECE, U+4ED3, U+4EE5, U+4EF6, U+4F4D, U+4F53, U+4F5C, U+4F60, U+4F7F, U+4F9D, U+4FA6, U+4FDD, U+4FE1, U+500B, U+503C, U+504F, U+505A, U+505C, U+5099, U+50CF, U+5148, U+5165, U+5168, U+516C, U+5173-5175, U+5185, U+51B0, U+51CF, U+51FB, U+5206-5207, U+5219, U+522B, U+5230, U+5236, U+524D, U+525B, U+529B, U+52A0, U+52A8, U+52D5, U+5305, U+5339-533A, U+5352, U+5357, U+539F, U+53C9, U+53D1, U+53EA, U+53EF, U+53F7, U+5408, U+540D-540E, U+5411, U+542B, U+542F, U+5439, U+5448, U+547C, U+548C, U+54C1, U+54CD, U+54D4, U+54E9, U+555F, U+5584, U+559C, U+5668, U+56DE, U+56E2, U+56FA, U+56FE, U+5706, U+5713, U+5728, U+5730, U+573A, U+5750, U+578B, U+57FA, U+584A, U+58EB, U+58F0, U+590D, U+5915, U+591A, U+5947, U+597D, U+59CB, U+59FF, U+5B50, U+5B58, U+5B8C, U+5B9A, U+5B9E, U+5BB6, U+5BB9, U+5BCC, U+5BF6, U+5BF9, U+5BFC, U+5C01, U+5C06, U+5C0A, U+5C0F, U+5C11, U+5C16, U+5C1D, U+5C3C, U+5C40, U+5C42, U+5C64, U+5C71, U+5CE1, U+5DF1-5DF2, U+5DF4, U+5E03, U+5E05, U+5E38, U+5E40, U+5E76, U+5E93-5E94, U+5EA6, U+5EFA, U+5F00, U+5F0F, U+5F52-5F53, U+5F55, U+5F62, U+5F69, U+5F71, U+5F80, U+5F85, U+5F97, U+5FAE, U+5FB7, U+5FC3, U+5FCD, U+5FEB, U+5FF5, U+6001, U+60AC, U+60F3, U+610F, U+611F, U+614B, U+6162, U+620F-6211, U+6216, U+6240, U+624B, U+6253, U+627E, U+6280, U+628A, U+6296, U+62DB, U+62E9, U+6301, U+6362, U+6372, U+63A2, U+63A5, U+63A8, U+63F4, U+641C, U+6469, U+64AD, U+64FA, U+6536, U+653E, U+6545, U+65B0, U+65B9, U+65E0, U+65E5, U+65F6, U+660E, U+662F, U+663E, U+6642, U+666F, U+6682, U+66AB, U+66F4, U+6709, U+670D, U+672A, U+672C, U+672F, U+673A, U+675F, U+6765, U+677F, U+679C, U+67E5, U+67EF, U+6807, U+683C, U+684C, U+6863, U+68CB, U+695A, U+6982, U+6A21, U+6A31, U+6AFB, U+6B21-6B22, U+6B62-6B65, U+6BB5, U+6BCF, U+6C49, U+6CA1, U+6CB3, U+6CD5, U+6D41, U+6D4F, U+6DE1, U+6E05, U+6E1B, U+6E38, U+6E90, U+6F2B, U+706B, U+7075, U+70B9-70BA, U+70ED, U+7121, U+7136, U+723E, U+7248, U+7269, U+7279, U+72B6, U+72EC, U+738B, U+73A9, U+73B0, U+73FE, U+7406, U+74E3, U+7528, U+7535, U+753B, U+754C, U+7559, U+756B, U+767C-767D, U+7684, U+76D8, U+76EE, U+770B, U+771F, U+7728, U+773C, U+775B, U+77AC, U+77F3, U+7801, U+7840, U+793A, U+793E, U+795E, U+79D8, U+79FB, U+7A69, U+7ACB, U+7AD9, U+7ADE, U+7AE0, U+7AEF, U+7B11, U+7B49, U+7B7E, U+7BC4, U+7C89, U+7CBE, U+7CFB, U+7D20, U+7D22, U+7D71-7D72, U+7DAD, U+7E7C, U+7E8C, U+7EA2, U+7EC6, U+7ECA, U+7ED3, U+7ED8, U+7EDF, U+7EED, U+7EF4, U+7F51, U+7F6E, U+7F81, U+7F8E, U+8000, U+8005, U+8033, U+8054, U+8096, U+80FD, U+81EA, U+81F3, U+8207, U+821E, U+822A, U+8272, U+8282, U+82B1, U+82F1, U+8363, U+85CD, U+85CF, U+8840, U+8865, U+8868, U+897F, U+8981, U+89BD, U+89C1, U+89C4, U+89C8, U+89D2, U+89E3, U+8A66, U+8ABF, U+8BA9, U+8BB0, U+8BD5, U+8BF4, U+8BF7, U+8BFB, U+8C37, U+8C61, U+8C9D, U+8D26, U+8D2F, U+8D77, U+8DA3, U+8DB3, U+8DDF, U+8DF3, U+8F09, U+8F15, U+8F6C, U+8F7D, U+8F83, U+8FB9, U+8FC7, U+8FCE, U+8FD9, U+8FDE, U+8FF9, U+9001, U+9009, U+9010, U+9019-901B, U+901F-9020, U+90AE, U+90E8, U+90FD, U+914D, U+91CC-91CD, U+91D1, U+9274, U+9375, U+94FE, U+9519, U+9577, U+957F, U+958B, U+9593, U+95DC, U+95F4, U+9605, U+961F, U+9633, U+9636, U+963B, U+968F, U+96A8, U+96C4, U+96EA, U+9759, U+975C, U+9762, U+97F3, U+9810, U+986F, U+9875-9876, U+9879, U+9884, U+98A8, U+98C4, U+98CE, U+98D8, U+98DE, U+98FE, U+9996, U+9A8C, U+9AD8, U+9AEE, U+9ED1, U+9F20, U+FF08-FF09, U+FF0C, U+FF1A-FF1B",
+          "full": false
+        }
+      ],
+      "requests": [
+        {
+          "url": "http://127.0.0.1:5182/website/fonts/fusion-pixel-startup-subset.woff2?v=e2fafda2872ada00d4536c253e0ff69f84c6fa9cfb0e17b4b31089a15b790f4d",
+          "initiator": "link",
+          "decodedBodySize": 18868
+        }
+      ]
+    }
+  ],
+  "scope": "Local production font selection, decoded glyph pixels and metrics; no deployment, physical-device or CWV assertions."
+}

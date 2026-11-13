@@ -19,6 +19,7 @@ npm run build
 npm run assets:check
 npm run assets:verify
 npm run assets:ui:check
+npm run assets:font:check
 npm run repo:verify
 npm run preview -- --host 127.0.0.1 --port 5180
 ```
@@ -30,6 +31,8 @@ npm run preview -- --host 127.0.0.1 --port 5180
 六张页面装饰由`assets/optimize_pixel_ui.py`生成lossless WebP并保留PNG。`--verify`只用Python标准库核对清单／哈希／图片头／尺寸，已纳入`assets:verify`，不增加CI依赖；`assets:ui:check`需要Pillow，并额外逐字节比较解码RGBA。正常Node构建不需要Pillow。
 
 `repo:verify`离线检查相对Markdown路径、冻结参考文件哈希及误跟踪的work／dist／依赖／缓存输出；已接入既有`assets:verify`，不改workflow。它单列7处冻结历史旧路径，不检查外部URL或片段，也不在PR检查阶段禁止临时分支。
+
+结构检查先运行18项隔离CLI回归，再检查当前仓库；显式退出码在Python优化模式仍生效。它支持有限的参考式链接并跳过代码，不宣称完整CommonMark解析。字体`prepare_pixel_font.py --verify`是标准库CI检查；`assets:font:check`另需fontTools及Brotli作者工具，比较原字体／子集全部输出轮廓和度量。新增源码字符缺少覆盖时应重新生成子集，保留完整字体和许可证。
 
 ## 当前浏览器检查
 
@@ -47,6 +50,8 @@ python3 scripts/qa/verify_audit_hardening.py --url http://127.0.0.1:5180/website
 根路径构建时将URL改为`http://127.0.0.1:5180/`。个人模块检查还使用独立的`5181/website/`合成夹具；测试账号不会进入正式配置。浏览器工具需要Playwright、Chromium；像素检查还需要Pillow／NumPy，导出或影片编码另需FFmpeg。以各脚本的导入和`--help`为准；普通构建和CI资源核对不需要浏览器。
 
 `qa/verify_audit_hardening.py`只允许本地preview，分别记录正常CSP与故意注入的阻挡探针，并测试可选API故障、静态回退及历史入口。`qa/measure_site_resources.py --url <本地preview> --output <新JSON路径>`记录真实请求与资源体积；与场景`--measure`一样，应独占浏览器测量，不把本地时间换成访客网络或设备保证。
+
+`qa/verify_audit_20261113.py`补充合成IME、重复绘制故障、CRLF策略及无JS检查；`qa/verify_font_subset.py`检查实际默认请求、未包含字符fallback和Canvas对照，两个host分别指定URL和输出。资源工具支持`--width/--height/--dpr`合成视口，需区分同条件前后对照与单独视口观察。新结果存入独立任务目录，旧报告不覆盖。
 
 当前验证范围：
 

@@ -1,0 +1,400 @@
+{
+  "baseline": "012181f4cb983e0ac58ab727e6b50152162dc019",
+  "observedAtUtc": "2026-11-13T00:50:00.453090+00:00",
+  "scope": "Initial read-only maintenance/workflow review followed by explicitly authorized structure-guard and focused standard-library regression fixes. No browser, branch, workflow, immutable-source or historical-evidence changes by this agent.",
+  "reviewed": [
+    "AGENTS.md",
+    "README.md",
+    "docs/README.md",
+    "docs/guides/repository-maintenance.md",
+    "scripts/README.md",
+    "scripts/qa/verify_repository_structure.py",
+    "package.json",
+    "tsconfig.json",
+    "vite.config.ts",
+    ".github/workflows/ci.yml",
+    ".github/workflows/deploy.yml",
+    ".gitignore",
+    "docs/reports/2026-11-08-audit.md"
+  ],
+  "baselineStructureGuardSha256": "c21b53da90fb3e26020a8223b7a8d26840c20ebd2154d2fb8be931119c92c5ea",
+  "ciIntegration": {
+    "nodeTests": "npm run build invokes prebuild npm test, strict TypeScript and Vite",
+    "assetAndStructureChecks": "Both CI and Pages build jobs invoke npm run assets:verify, which includes the current standard-library structure guard and decoration integrity verifier",
+    "browserChecks": "Explicit manual/local workflows in scripts/README.md; no CI browser guarantee found",
+    "workflowFilesEdited": false
+  },
+  "branchObservationAtStart": {
+    "local": [
+      "main @ 012181f"
+    ],
+    "localRemoteTrackingRefs": [
+      "origin/main @ 012181f",
+      "sites/main @ 012181f"
+    ],
+    "limitation": "Read-only local-ref observation only; no fetch, deletion, live remote-branch guarantee or publication assertion. Root handles remote checks and cleanup."
+  },
+  "findings": [
+    {
+      "id": "STR-01",
+      "severity": "low, conditional maintenance reliability",
+      "file": "scripts/qa/verify_repository_structure.py",
+      "line": 59,
+      "title": "Optimized Python turns a failed structure report into successful process exit",
+      "reproduction": "Synthetic README contains [missing](missing.md). Normal Python exits 1/status failed; python -O exits 0/status failed because the final assert is removed.",
+      "presentImpact": "Current workflows do not explicitly enable optimized Python, so no current CI bypass is asserted.",
+      "minimalFix": "Replace the final assert with explicit nonzero SystemExit on failure; add a small standard-library subprocess regression for normal and -O execution.",
+      "remediationStatus": "fixed and covered by isolated CLI regressions"
+    },
+    {
+      "id": "STR-02",
+      "severity": "low, maintenance coverage",
+      "file": "scripts/qa/verify_repository_structure.py",
+      "line": 18,
+      "title": "Regex misses reference-style links and treats code examples as real links",
+      "reproduction": "[missing][target] plus [target]: missing.md returns passed; an inline-code example `[missing](missing.md)` returns failed.",
+      "presentImpact": "No reference-style definitions were found in current repository Markdown during this review; no current broken live documentation link is asserted.",
+      "minimalFix": "Either explicitly narrow the documented guard to inline-link syntax, or add limited reference-definition handling and skip inline/fenced code with targeted parser fixture regressions. Preserve frozen-reference hash and exceptions.",
+      "remediationStatus": "fixed and covered by isolated CLI regressions"
+    },
+    {
+      "id": "STR-03",
+      "severity": "low, maintenance boundary",
+      "file": "scripts/qa/verify_repository_structure.py",
+      "line": 35,
+      "title": "Stray tracked bytecode outside __pycache__ is not covered by the temporary-output boundary",
+      "reproduction": "A staged root stray-cache.pyc in the disposable fixture returns passed with no trackedTemporaryOutputs.",
+      "presentImpact": "No such file is currently tracked in the website checkout.",
+      "minimalFix": "Include .pyc/.pyo suffixes in the boundary (and ignore patterns if desired), retaining deliberately tracked audit logs/images and immutable originals.",
+      "remediationStatus": "fixed and covered by isolated CLI regressions"
+    },
+    {
+      "id": "ACT-01",
+      "severity": "maintenance/deprecation; currently successful",
+      "files": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy.yml"
+      ],
+      "title": "Configured Actions target deprecated Node20 and are forced onto Node24 by GitHub",
+      "evidence": "Official successful baseline check annotations explicitly name checkout@v4, setup-node@v4, configure-pages@v5, nested upload-artifact@v4, and deploy-pages@v4. Application node-version:24 does not change action runtime.",
+      "minimalFix": "When workflow permission is confirmed, review and update official Actions to compatible supported releases, retaining current PR checks, Pages permissions, base paths and deploy behavior; verify required runner versions and migration notes. Do not change workflows without AGENTS-required permission.",
+      "noFailureClaim": "Observed baseline build/deploy checks concluded success; latest releases alone are not vulnerability evidence.",
+      "remediationStatus": "open; workflow permission not confirmed, no workflow change attempted"
+    }
+  ],
+  "guardSyntheticProbes": [
+    {
+      "case": "missing_inline_target",
+      "pythonOptimized": false,
+      "returncode": 1,
+      "reportStatus": "failed",
+      "unexpectedMissingLinks": [
+        {
+          "file": "README.md",
+          "line": 1,
+          "target": "missing.md"
+        }
+      ],
+      "trackedTemporaryOutputs": [],
+      "stderrTail": [
+        "AssertionError: Repository structure check failed."
+      ]
+    },
+    {
+      "case": "missing_inline_target_optimized_python",
+      "pythonOptimized": true,
+      "returncode": 0,
+      "reportStatus": "failed",
+      "unexpectedMissingLinks": [
+        {
+          "file": "README.md",
+          "line": 1,
+          "target": "missing.md"
+        }
+      ],
+      "trackedTemporaryOutputs": [],
+      "stderrTail": []
+    },
+    {
+      "case": "missing_reference_style_target",
+      "pythonOptimized": false,
+      "returncode": 0,
+      "reportStatus": "passed",
+      "unexpectedMissingLinks": [],
+      "trackedTemporaryOutputs": [],
+      "stderrTail": []
+    },
+    {
+      "case": "inline_code_is_not_a_markdown_link",
+      "pythonOptimized": false,
+      "returncode": 1,
+      "reportStatus": "failed",
+      "unexpectedMissingLinks": [
+        {
+          "file": "README.md",
+          "line": 1,
+          "target": "missing.md"
+        }
+      ],
+      "trackedTemporaryOutputs": [],
+      "stderrTail": [
+        "AssertionError: Repository structure check failed."
+      ]
+    },
+    {
+      "case": "stray_tracked_bytecode",
+      "pythonOptimized": false,
+      "returncode": 0,
+      "reportStatus": "passed",
+      "unexpectedMissingLinks": [],
+      "trackedTemporaryOutputs": [],
+      "stderrTail": []
+    }
+  ],
+  "officialActions": [
+    {
+      "repository": "actions/checkout",
+      "configuredRef": "v4",
+      "latestOfficialRelease": "v7.0.1",
+      "releasePublishedAt": "2026-07-20T15:10:05Z",
+      "releaseUrl": "https://github.com/actions/checkout/releases/tag/v7.0.1",
+      "configuredActionBlobSha": "24e73e5a12126edc2adb9e5cd1bf245ce85bde56",
+      "configuredRuntimesOrNestedActions": [
+        "node20"
+      ],
+      "latestActionBlobSha": "5b0524f730db83f9513c18ab31a6c086c7239076",
+      "latestRuntimesOrNestedActions": [
+        "node24"
+      ]
+    },
+    {
+      "repository": "actions/setup-node",
+      "configuredRef": "v4",
+      "latestOfficialRelease": "v7.1.0",
+      "releasePublishedAt": "2026-10-08T02:52:34Z",
+      "releaseUrl": "https://github.com/actions/setup-node/releases/tag/v7.1.0",
+      "configuredActionBlobSha": "ef58e69919a94e6a823d333159fad95e2720c896",
+      "configuredRuntimesOrNestedActions": [
+        "'node20'"
+      ],
+      "latestActionBlobSha": "31057efa69b67281683c7b601a1d202329eaa3c1",
+      "latestRuntimesOrNestedActions": [
+        "'node24'"
+      ]
+    },
+    {
+      "repository": "actions/configure-pages",
+      "configuredRef": "v5",
+      "latestOfficialRelease": "v6.0.0",
+      "releasePublishedAt": "2026-03-25T17:00:49Z",
+      "releaseUrl": "https://github.com/actions/configure-pages/releases/tag/v6.0.0",
+      "configuredActionBlobSha": "80230b7081f7006631e319d74bdaad566c4f5868",
+      "configuredRuntimesOrNestedActions": [
+        "'node20'"
+      ],
+      "latestActionBlobSha": "7ea02ee862bd1315b0be31625082750aa52ff896",
+      "latestRuntimesOrNestedActions": [
+        "'node24'"
+      ]
+    },
+    {
+      "repository": "actions/upload-pages-artifact",
+      "configuredRef": "v3",
+      "latestOfficialRelease": "v5.0.0",
+      "releasePublishedAt": "2026-04-10T18:22:59Z",
+      "releaseUrl": "https://github.com/actions/upload-pages-artifact/releases/tag/v5.0.0",
+      "configuredActionBlobSha": "a19976e1021e49d3007b6e341d70b1048b602205",
+      "configuredRuntimesOrNestedActions": [
+        "composite",
+        "actions/upload-artifact@v4"
+      ],
+      "latestActionBlobSha": "82713b4cbb35ccf98dfa8f2e0deedc5e83b6d845",
+      "latestRuntimesOrNestedActions": [
+        "composite",
+        "actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0"
+      ]
+    },
+    {
+      "repository": "actions/deploy-pages",
+      "configuredRef": "v4",
+      "latestOfficialRelease": "v5.0.1",
+      "releasePublishedAt": "2026-09-01T21:31:19Z",
+      "releaseUrl": "https://github.com/actions/deploy-pages/releases/tag/v5.0.1",
+      "configuredActionBlobSha": "1f8076690a58e91fe5aa3ba4b4f89f968c09aea9",
+      "configuredRuntimesOrNestedActions": [
+        "'node20'"
+      ],
+      "latestActionBlobSha": "9640517bb026e0790a53bd6d35fd13a94617c48e",
+      "latestRuntimesOrNestedActions": [
+        "'node24'"
+      ]
+    }
+  ],
+  "officialBaselineCheckAnnotations": [
+    {
+      "name": "build",
+      "checkRunId": 128589473397,
+      "apiUrl": "https://api.github.com/repos/fknejdcwnfi/website/check-runs/128589473397/annotations",
+      "annotations": [
+        {
+          "level": "warning",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/configure-pages@v5, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "level": "notice",
+          "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        }
+      ]
+    },
+    {
+      "name": "deploy",
+      "checkRunId": 128589628379,
+      "apiUrl": "https://api.github.com/repos/fknejdcwnfi/website/check-runs/128589628379/annotations",
+      "annotations": [
+        {
+          "level": "warning",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/deploy-pages@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+        },
+        {
+          "level": "notice",
+          "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        }
+      ]
+    }
+  ],
+  "retainedBoundaries": [
+    "No original source or historical evidence moved, overwritten or deleted",
+    "Seven known frozen-reference link exceptions remain explicit and hash-pinned",
+    "External URLs, Markdown fragments, security properties, complete CommonMark parsing and live hosting behavior are outside the structure guard",
+    "No assertion that a newer Action release by itself is necessary for correctness or proof of current compromise"
+  ],
+  "initialStructureGuardResult": {
+    "status": "passed",
+    "markdownFiles": 78,
+    "relativePathLinksTested": 572,
+    "knownFrozenMissingLinks": [
+      {
+        "file": "docs/reference/README.md",
+        "line": 20,
+        "target": "../01-project-charter.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 21,
+        "target": "../03-animation-spec.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 22,
+        "target": "../04-architecture.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 23,
+        "target": "../05-development.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 24,
+        "target": "../06-codex-handoff.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 33,
+        "target": "../04-architecture.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 39,
+        "target": "../08-decisions.md"
+      }
+    ],
+    "unexpectedMissingLinks": [],
+    "trackedTemporaryOutputs": [],
+    "scope": "Relative Markdown target existence and tracked output boundaries; no external URL, fragment, security or browser assertions.",
+    "frozenReferenceUnchanged": true
+  },
+  "currentStructureGuardResult": {
+    "status": "passed",
+    "markdownFiles": 78,
+    "relativePathLinksTested": 572,
+    "knownFrozenMissingLinks": [
+      {
+        "file": "docs/reference/README.md",
+        "line": 20,
+        "target": "../01-project-charter.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 21,
+        "target": "../03-animation-spec.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 22,
+        "target": "../04-architecture.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 23,
+        "target": "../05-development.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 24,
+        "target": "../06-codex-handoff.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 33,
+        "target": "../04-architecture.md"
+      },
+      {
+        "file": "docs/reference/README.md",
+        "line": 39,
+        "target": "../08-decisions.md"
+      }
+    ],
+    "unexpectedMissingLinks": [],
+    "invalidLinkTargets": [],
+    "trackedTemporaryOutputs": [],
+    "scope": "Supported inline/reference Markdown target existence outside fenced/inline code and tracked output boundaries; limited parser, no CommonMark conformance, external URL, fragment, security or browser assertions.",
+    "frozenReferenceUnchanged": true
+  },
+  "authorizedRemediation": {
+    "files": [
+      "scripts/qa/verify_repository_structure.py",
+      "scripts/tests/test_repository_structure.py"
+    ],
+    "fileSha256": {
+      "scripts/qa/verify_repository_structure.py": "d6b79ccb8a4503016d60b70d1215cf0b8834efad2b855088c7bc80a7ada81977",
+      "scripts/tests/test_repository_structure.py": "5fe691a9d4c71817ebe7efa9351ca8992ee4e17078d1d6acd8c6385222cfada6"
+    },
+    "changes": [
+      "Explicit process return code is preserved under Python -O/PYTHONOPTIMIZE",
+      "Limited inline/full/collapsed/shortcut reference target parsing, outside fenced blocks and inline code spans",
+      "Tracked .pyc/.pyo suffixes are rejected outside __pycache__ too; historical audit logs remain allowed",
+      "Malformed URL-shaped destinations produce a failed JSON report rather than an unstructured parser crash"
+    ],
+    "regressionRuns": [
+      {
+        "command": "python3 scripts/tests/test_repository_structure.py",
+        "tests": 18,
+        "passed": 18,
+        "failed": 0,
+        "result": "OK"
+      },
+      {
+        "command": "python3 -O scripts/tests/test_repository_structure.py",
+        "tests": 18,
+        "passed": 18,
+        "failed": 0,
+        "result": "OK"
+      }
+    ],
+    "fixtureIsolation": "Each regression runs the actual copied guard CLI in a disposable local Git repository; original frozen README bytes copied unchanged. No network, browser or real repository index/branch changes.",
+    "diffCheck": "git diff --check on the two implementation files passed",
+    "parserScope": "Inline destinations and same-line reference definitions with full/collapsed/shortcut usage, case/whitespace labels, fenced and inline code. Does not claim full CommonMark semantics; indented code, raw HTML, complex nested labels/destinations and external/fragment validation remain outside scope."
+  },
+  "workflowPermissionState": "Not confirmed by this child. AGENTS requires workflow permission; no workflow edits attempted. Root handles any permission verification and publication."
+}

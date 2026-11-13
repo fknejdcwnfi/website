@@ -45,9 +45,12 @@ def check(name, passed, detail=None):
 
 
 def fonts_work(page, label):
-    page.evaluate('document.fonts.ready')
-    # FontFaceSet.check alone can succeed when the named face is absent. Require
-    # a registered, loaded face too, then check representative Latin and Chinese.
+    page.evaluate('() => document.fonts.ready')
+    # FontFaceSet.check can return false for an unloaded overlapping full-font
+    # fallback even when the later subset renders these characters correctly.
+    # Keep its raw booleans as diagnostics; require actual registered loaded
+    # faces to cover every probe codepoint, plus inherited pixel typography.
+    # verify_font_subset.py separately compares real canvas pixels and metrics.
     fonts = page.evaluate('''family => ({
       registered: [...document.fonts].filter(f => f.family.replaceAll('"', '').toLowerCase() === family.toLowerCase())
         .map(f => ({family:f.family,status:f.status,weight:f.weight,unicodeRange:f.unicodeRange})),
@@ -56,10 +59,32 @@ def fonts_work(page, label):
       elements: [...document.querySelectorAll('body,.personal-site,.personal-site h1,.personal-site h2,.personal-site h3,.personal-site p,.personal-site a,.personal-site input,.personal-site button,.personal-site kbd,.personal-site summary,.reference-scene__status,.site-startup-status')]
         .map(e => ({tag:e.tagName,class:e.className,font:getComputedStyle(e).fontFamily}))
     })''', FONT_FAMILY)
+
+    def loaded_face_covers(point):
+        for face in fonts['registered']:
+            if face['status'] != 'loaded':
+                continue
+            for interval in face['unicodeRange'].split(','):
+                match = re.fullmatch(r'U\+([0-9A-F?]+)(?:-([0-9A-F]+))?', interval.strip(), re.I)
+                if match:
+                    first, last = match.groups()
+                    low = int(first.replace('?', '0'), 16)
+                    high = int(last or first.replace('?', 'F'), 16)
+                    if low <= point <= high:
+                        return True
+        return False
+
+    fonts['loadedRangeMissingCharacters'] = {
+        'latin': sorted({char for char in 'HELLOWORLD fknejdcwnfi' if not loaded_face_covers(ord(char))}),
+        'chinese': sorted({char for char in '欢迎像素世界作品兴趣游戏社交' if not loaded_face_covers(ord(char))}),
+    }
     report['fonts'].append({'label': label, **fonts})
     check(label + '_registered_pixel_face_loaded',
           any(face['status'] == 'loaded' for face in fonts['registered']), fonts['registered'])
-    check(label + '_latin_and_chinese_face_ready', fonts['latin'] and fonts['chinese'])
+    check(label + '_latin_and_chinese_face_ready',
+          not any(fonts['loadedRangeMissingCharacters'].values()),
+          {'loadedRangeMissingCharacters': fonts['loadedRangeMissingCharacters'],
+           'rawFontFaceSetCheck': {'latin': fonts['latin'], 'chinese': fonts['chinese']}})
     wrong = [e for e in fonts['elements'] if FONT_FAMILY.lower() not in e['font'].lower()]
     check(label + '_pixel_type_on_all_ui_and_status', not wrong, wrong)
 
@@ -72,12 +97,16 @@ def scenic_chrome(page, label, *, browser_images=True):
       const world=document.querySelector('.personal-site'),header=getComputedStyle(document.querySelector('.site-header'));
       const rgb=s=>(s.match(/[\d.]+/g)||[]).slice(0,3).map(Number);
       const tiles=[
-        ['naruto','.interest-card__scene[data-interest="naruto"]','naruto.webp'],
-        ['conan','.interest-card__scene[data-interest="detective-conan"]','conan.webp'],
-        ['game','.game-showcase__scene','game-realm.webp'],
-        ['github','.social-card[data-platform="github"]','social-github.webp'],
-        ['email','.social-card[data-platform="email"]','social-mail.webp']
-      ].map(([name,selector,file])=>{const e=document.querySelector(selector);return {name,file,visible:!!e&&visible(e),image:e?images(e):''}});
+        ['naruto','.interest-card__scene[data-interest="naruto"] .interest-card__image','naruto.webp'],
+        ['conan','.interest-card__scene[data-interest="detective-conan"] .interest-card__image','conan.webp'],
+        ['game','.game-showcase__image','game-realm.webp'],
+        ['github','.social-card[data-platform="github"] .social-card__scene','social-github.webp'],
+        ['email','.social-card[data-platform="email"] .social-card__scene','social-mail.webp']
+      ].map(([name,selector,file])=>{const e=document.querySelector(selector);return {
+        name,selector,file,visible:!!e&&visible(e),image:e?.currentSrc||e?.src||'',
+        loading:e?.getAttribute('loading'),alt:e?.getAttribute('alt'),hidden:e?.getAttribute('aria-hidden'),
+        width:e?.getAttribute('width'),height:e?.getAttribute('height')
+      }});
       const panels=[...document.querySelectorAll('#about,#work,.site-sidebar,.site-toc,.interest-card,.game-showcase,.social-card')]
         .filter(visible).map(e=>({class:e.className,id:e.id,radius:parseFloat(getComputedStyle(e).borderTopLeftRadius),background:getComputedStyle(e).backgroundColor}));
       const chrome=[...document.querySelectorAll('.site-header,.site-sidebar,.site-toc,.mobile-contents,.personal-section__label,.hero__copy h1,.welcome-note__title,figcaption,.site-footer')]
@@ -87,11 +116,14 @@ def scenic_chrome(page, label, *, browser_images=True):
       return {worldImage:images(world),header:rgb(header.backgroundColor),tiles,panels,
         emoji:chrome.filter(t=>emoji.test(t)),active:active?rgb(getComputedStyle(active).backgroundColor):[],
         urls:[...images(world).matchAll(/url\(["']?(.*?)["']?\)/g)].map(m=>m[1])
-          .concat(tiles.flatMap(t=>[...t.image.matchAll(/url\(["']?(.*?)["']?\)/g)].map(m=>m[1])))};
+          .concat(tiles.map(t=>t.image).filter(Boolean))};
     }''')
     check(label + '_twilight_background_declared', 'twilight-world.webp' in info['worldImage'], info['worldImage'])
     check(label + '_blue_header', len(info['header']) == 3 and info['header'][2] > info['header'][0], info['header'])
     check(label + '_image_cards_visible', all(t['visible'] and t['file'] in t['image'] for t in info['tiles']), info['tiles'])
+    check(label + '_native_lazy_decorative_images', all(
+        t['loading'] == 'lazy' and t['alt'] == '' and t['hidden'] == 'true' and
+        int(t['width'] or 0) > 0 and int(t['height'] or 0) > 0 for t in info['tiles']), info['tiles'])
     check(label + '_reference_rounded_panels', bool(info['panels']) and all(p['radius'] > 0 for p in info['panels']), info['panels'])
     cream = [p for p in info['panels'] if p['id'] in ['about', 'work'] or p['class'] in ['site-sidebar', 'site-toc']]
     check(label + '_cream_reading_panels', all(
@@ -103,18 +135,40 @@ def scenic_chrome(page, label, *, browser_images=True):
         color = info['active']
         check(label + '_warm_active_sidebar', len(color) == 3 and color[0] > color[1] >= color[2], color)
     if browser_images:
+        # Exercise the real lazy IMG nodes near their viewport, without creating
+        # eager copies of each decorative resource and hiding a loading defect.
+        saved_scroll = page.evaluate('[scrollX,scrollY]')
+        decoded_tiles = []
+        try:
+            for tile in info['tiles']:
+                image = page.locator(tile['selector'])
+                image.scroll_into_view_if_needed()
+                decoded_tiles.append(image.evaluate('''async image=>{
+                  try { await image.decode(); return {src:image.currentSrc,loaded:image.complete&&image.naturalWidth===Number(image.getAttribute('width'))&&image.naturalHeight===Number(image.getAttribute('height'))}; }
+                  catch { return {src:image.currentSrc||image.src,loaded:false}; }
+                }'''))
+        finally:
+            page.evaluate('([x,y])=>window.scrollTo({left:x,top:y,behavior:"instant"})', saved_scroll)
+        check(label + '_actual_lazy_card_images_decoded', len(decoded_tiles) == 5 and all(
+            image['loaded'] for image in decoded_tiles), decoded_tiles)
+        background_urls = [src for src in info['urls'] if 'twilight-world.webp' in src]
         decoded = page.evaluate('''async urls => Promise.all([...new Set(urls)].map(src => new Promise(resolve => {
           const image=new Image();let settled=false;
           const finish=loaded=>{if(settled)return;settled=true;clearTimeout(timer);resolve({src,loaded})};
           const timer=setTimeout(()=>finish(false),10000);
           image.onload=()=>finish(image.naturalWidth>0&&image.naturalHeight>0);
           image.onerror=()=>finish(false);image.src=src;
-        })))''', info['urls'])
-        check(label + '_background_and_card_images_decoded', len(decoded) >= 6 and all(i['loaded'] for i in decoded), decoded)
+        })))''', background_urls)
+        check(label + '_world_background_decoded', len(decoded) == 1 and all(i['loaded'] for i in decoded), decoded)
     else:
         # With scripts disabled Chromium does not dispatch an injected Image's
-        # event callbacks. Verify the observed CSS assets through the local
-        # context request API instead; the no-JS screenshot still checks display.
+        # event callbacks. The actual document IMG nodes still load normally.
+        actual = [page.locator(tile['selector']).evaluate('''image=>({src:image.currentSrc,
+          loaded:image.complete&&image.naturalWidth===Number(image.getAttribute('width'))&&image.naturalHeight===Number(image.getAttribute('height'))})''')
+                  for tile in info['tiles']]
+        check(label + '_actual_nojs_card_images_decoded', len(actual) == 5 and all(
+            image['loaded'] for image in actual), actual)
+        # Also inspect these local responses and the CSS world background.
         urls = list(dict.fromkeys(urljoin(page.url, src) for src in info['urls']))
         local = all(urlsplit(src).scheme in ('http', 'https') and
                     urlsplit(src).hostname in ('localhost', '127.0.0.1', '::1')
