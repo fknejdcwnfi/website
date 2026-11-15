@@ -18,6 +18,7 @@ function SiteSearch() {
   const isImeKey = (event: KeyboardEvent): boolean => composing.current || event.isComposing || event.keyCode === 229
   const matches = searchSite(getSiteSearchEntries(site), query)
   const describeGroup = (href: string) => {
+    if (href.startsWith('#note-')) return { id: 'journal', label: '手记', icon: '#journal' }
     if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }
     if (href.startsWith('#interest-')) return { id: 'interests', label: '兴趣', icon: '#interests' }
     if (href.startsWith('#game-')) return { id: 'games', label: '游戏', icon: '#games' }

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { site, getProjects, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
+import { site, getProjects, getJournalEntries, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
 import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
@@ -176,7 +176,7 @@ test('top-level GitHub URLs are validated before every static link is derived', 
 })
 
 test('navigation only exposes unique actual local section targets', () => {
-  const configured = { ...site, interests: [], gameProfiles: [], navigation: [
+  const configured = { ...site, interests: [], gameProfiles: [], journals: [], navigation: [
     null, false, [], { label: 'Unsafe', href: 'javascript:alert(1)' },
     { label: 'External', href: 'https://example.com/' }, { label: 'Missing', href: '#missing' },
     { label: 'Not configured', href: '#games' }, { label: 'Not configured', href: '#interests' },
@@ -190,7 +190,7 @@ test('navigation only exposes unique actual local section targets', () => {
     assert.deepEqual(getSiteNavigation({ ...configured, navigation }), [])
   }
   const defaults = getSiteNavigation(site)
-  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#interests', '#games', '#contact'])
+  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#journal', '#interests', '#games', '#contact'])
 })
 
 test('React shell and project components omit unsafe configuration just like static HTML', async () => {
@@ -227,7 +227,7 @@ test('React shell and project components omit unsafe configuration just like sta
 
 test('static HTML contains the complete personal site when JavaScript is unavailable', () => {
   const html = renderStaticSite(site, '/website/')
-  for (const id of ['about', 'work', 'contact']) assert.ok(html.includes(`id="${id}"`))
+  for (const id of ['about', 'work', 'journal', 'contact']) assert.ok(html.includes(`id="${id}"`))
   for (const project of site.projects) assert.ok(html.includes(project.title) && html.includes(project.href))
   assert.ok(html.includes('/website/assets/poetic-pixel/canonical.png'))
   assert.ok(html.includes('width="2864" height="2136"'))
@@ -246,12 +246,12 @@ test('editable content is escaped in initial HTML and empty email is omitted', (
 })
 
 test('empty optional modules create no placeholder accounts or navigation', () => {
-  const empty = { ...site, interests: [], gameProfiles: [], socials: [] }
+  const empty = { ...site, interests: [], gameProfiles: [], journals: [], socials: [] }
   assert.deepEqual(getGameProfiles(empty), [])
   assert.deepEqual(getSocialLinks(site).map(profile => profile.platform), ['github', 'email'])
-  assert.ok(!getSiteNavigation(empty).some(link => ['#games', '#interests'].includes(link.href)))
+  assert.ok(!getSiteNavigation(empty).some(link => ['#games', '#interests', '#journal'].includes(link.href)))
   const html = renderStaticSite(empty)
-  assert.ok(!html.includes('id="games"'))
+  assert.ok(!html.includes('id="games"') && !html.includes('id="journal"'))
   assert.ok(!html.includes('Bilibili') && !html.includes('Douyin'))
 })
 
@@ -302,6 +302,96 @@ test('search results and table of contents point to real static sections', () =>
   }
   assert.ok(getSiteSearchEntries(site).some(entry => entry.href === '#game-honor-of-kings'))
   assert.ok(getTableOfContents(site).some(entry => entry.href === '#games'))
+})
+
+test('journal records reject invalid identities, impossible dates and empty reading content', () => {
+  const original = site.journals[0]
+  for (const journals of [undefined, null, false, 42, 'records', {}]) {
+    const configured = { ...site, journals }
+    assert.deepEqual(getJournalEntries(configured), [])
+    assert.ok(!getSiteNavigation(configured).some(link => link.href === '#journal'))
+    assert.ok(!getTableOfContents(configured).some(link => link.href === '#journal'))
+    assert.ok(!getSiteSearchEntries(configured).some(entry => entry.href.startsWith('#note-')))
+    assert.ok(!renderStaticSite(configured).includes('id="journal"'))
+  }
+  const configured = { ...site, journals: [null, false, [], 42,
+    { ...original, id: 'invalid id' }, { ...original, title: 42 },
+    { ...original, id: 'impossible-date', eventDate: '2026-02-30' },
+    { ...original, id: 'invalid-date', writtenDate: 'javascript:alert(1)' },
+    { ...original, id: 'timestamp-date', eventDate: '2026-11-14T00:00:00Z' },
+    { ...original, id: 'empty-body', sections: [] },
+    { ...original, id: 'malformed-body', sections: { title: 'not an array' } },
+    { ...original, title: ' First title ', subtitle: 42, excerpt: null, closing: {},
+      tags: [' 学习 ', null, false, '学习', '探索'], sections: [null, false, [],
+        { title: 42, paragraphs: ['hidden'] }, { title: 'empty', paragraphs: [] },
+        { title: ' Valid chapter ', paragraphs: [' Text only ', null, {}, 'Text only', 'Next paragraph'] }] },
+    { ...original, title: 'Duplicate title' },
+  ] }
+  const selected = getJournalEntries(configured)
+  assert.equal(selected.length, 1)
+  assert.equal(selected[0].id, original.id)
+  assert.equal(selected[0].title, 'First title')
+  assert.deepEqual(selected[0].tags, ['学习', '探索'])
+  assert.deepEqual(selected[0].sections, [{ title: 'Valid chapter', paragraphs: ['Text only', 'Next paragraph'] }])
+  for (const field of ['subtitle', 'excerpt', 'closing']) assert.equal(selected[0][field], '')
+  const html = renderStaticSite(configured)
+  assert.ok(!html.includes('Duplicate title') && !html.includes('impossible-date') && !html.includes('[object Object]'))
+  assert.equal(getSiteSearchEntries(configured).filter(entry => entry.href.startsWith('#note-')).length, 1)
+  assert.equal(getJournalEntries({ ...site, journals: [{ ...original, eventDate: '2028-02-29' }] }).length, 1)
+})
+
+test('journal search indexes the actual body and keeps experience and writing dates distinct', () => {
+  const entry = getJournalEntries(site)[0]
+  assert.equal(entry.eventDate, '2026-11-14')
+  assert.equal(entry.writtenDate, '2026-11-15')
+  for (const query of ['转型日', 'DSAA', '概率论', 'Verilog', '学术导师', '2026-11-15']) {
+    assert.ok(searchSite(getSiteSearchEntries(site), query).some(result => result.href === '#note-transition-day'), query)
+  }
+  const html = renderStaticSite(site)
+  assert.ok(html.includes('<time datetime="2026-11-14">2026.11.14</time>'))
+  assert.ok(html.includes('<time datetime="2026-11-15">2026.11.15</time>'))
+  assert.ok(html.includes('原稿整理'))
+})
+
+test('React and no-JS journal expose the same complete writing through native details and escape text', async () => {
+  const { createServer } = await import('vite')
+  const { createElement } = await import('react')
+  const { renderToStaticMarkup } = await import('react-dom/server')
+  const server = await createServer({ root: process.cwd(), logLevel: 'silent', appType: 'custom',
+    server: { middlewareMode: true, hmr: false, watch: null } })
+  const normalizeEntities = html => html.replaceAll('&#x27;', '&#39;')
+  try {
+    const { default: JournalSection } = await server.ssrLoadModule('/src/features/profile/components/JournalSection.tsx')
+    const original = getJournalEntries(site)[0]
+    const hostile = { ...original, id: 'escaped-note', title: 'javascript:alert(1)',
+      subtitle: '<script>subtitle</script>', excerpt: '<img src=x onerror=alert(1)>',
+      tags: ['<b>tag</b>'], closing: 'Closing <>&"\'',
+      sections: [{ title: '<script>chapter</script>', paragraphs: ['<img src=x onerror=alert(1)>', 'Plain text & "quotes"'] }] }
+    for (const entry of [original, hostile]) {
+      const configured = { ...site, journals: [entry] }
+      const initial = renderStaticSite(configured, '/website/')
+      const react = renderToStaticMarkup(createElement(JournalSection, { content: configured }))
+      const selectArticle = html => html.match(new RegExp(`<article class="journal-entry"[^>]*id="note-${entry.id}"[\\s\\S]*?</article>`))?.[0]
+      const staticArticle = selectArticle(initial)
+      const reactArticle = selectArticle(react)
+      assert.ok(staticArticle && reactArticle)
+      for (const article of [staticArticle, reactArticle].map(normalizeEntities)) {
+        assert.ok(article.includes('tabindex="-1"'))
+        assert.ok(article.includes('<details class="journal-entry__reading">') && article.includes('<summary>'))
+        for (const value of [entry.title, entry.subtitle, entry.excerpt, ...entry.tags, entry.closing,
+          ...entry.sections.flatMap(section => [section.title, ...section.paragraphs])]) {
+          assert.ok(article.includes(escapeHtml(value)), value)
+        }
+        assert.equal((article.match(/class="journal-entry__chapter"/g) ?? []).length, entry.sections.length)
+        assert.ok(!article.includes('<script>') && !article.includes('<img src=x') && !article.includes('href="javascript:'))
+      }
+      assert.equal((staticArticle.match(/<p>/g) ?? []).length, (reactArticle.match(/<p>/g) ?? []).length)
+    }
+    const empty = { ...site, journals: [] }
+    assert.equal(renderToStaticMarkup(createElement(JournalSection, { content: empty })), '')
+  } finally {
+    await server.close()
+  }
 })
 
 test('configured games become searchable without exposing invalid account links', () => {

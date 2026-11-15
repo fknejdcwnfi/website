@@ -32,11 +32,17 @@ export type GameProfile = {
   playerName?: string; playerId?: string; region?: string; description?: string; href?: string
   tagline?: string; tags?: string[]; cover?: string; blocks?: GameShowcaseBlock[]
 }
+/** Publicly edited writing; experience and writing dates remain separate. */
+export type JournalEntry = {
+  id: string; title: string; eventDate: string; writtenDate: string
+  subtitle: string; excerpt: string; tags: string[]
+  sections: { title: string; paragraphs: string[] }[]; closing: string
+}
 export type SiteContent = {
   name: string; fullName: string; handle: string; intro: string; tagline: string
   about: string[]; github: string; email?: string; projects: Project[]
   navigation: { label: string; href: string }[]
-  socials?: SocialProfile[]; interests?: Interest[]; gameProfiles?: GameProfile[]
+  socials?: SocialProfile[]; interests?: Interest[]; gameProfiles?: GameProfile[]; journals?: JournalEntry[]
 }
 export type ContentsEntry = { label: string; href: string; symbol: string }
 export type SiteSearchEntry = { id: string; title: string; href: string; excerpt: string; text: string }
