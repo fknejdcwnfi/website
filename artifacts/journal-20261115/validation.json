@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "baselineCommit": "66917f1ed249be2941bf1632f2d0283699419dd8",
+  "nodeTests": 140,
+  "browserChecks": {
+    "journal-root.json": 30,
+    "journal-pages.json": 30,
+    "cream.json": 155,
+    "ui.json": 199,
+    "profile.json": 276,
+    "scene.json": 134
+  },
+  "publicFilesMatchBuild": 99,
+  "protectedPathsUnchanged": [
+    "assets/source",
+    "docs/reference",
+    "reference-projects/fuji-wind",
+    "src/features/poeticPixel",
+    "src/features/referenceScene",
+    "public/assets/poetic-pixel"
+  ],
+  "startupSubsetBytes": 25680,
+  "fullFontPreserved": true,
+  "productionIndexSha256": "c2368dd759c60f4a9f324030c991f0ec5c6e1653e5ea2604a48e57eb83f8eb6e",
+  "limits": [
+    "Local Chromium functional checks; no real visitor performance or physical OS IME assertion.",
+    "Earlier full audit remains historical; this change is content and reading UI, not a new whole-site security guarantee."
+  ]
+}

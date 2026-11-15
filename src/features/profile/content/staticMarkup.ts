@@ -1,4 +1,4 @@
-import { getGameProfiles, getInterests, getProjects, getSiteGithub, getSiteRepository, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
+import { getGameProfiles, getInterests, getJournalEntries, getProjects, getSiteGithub, getSiteRepository, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
@@ -16,6 +16,33 @@ const sectionHeading = (id: string, icon: PixelIconName, title: string): string 
 const tags = (items: string[] | undefined, className: string, label: string): string => items?.length
   ? `<ul class="${className}" aria-label="${escape(label)}">${items.map(item => `<li>${escape(item)}</li>`).join('')}</ul>` : ''
 const categoryNames = { anime: '动漫', manga: '漫画', music: '音乐', other: '兴趣' } as const
+
+const renderJournal = (site: SiteContent): string => {
+  const entries = getJournalEntries(site)
+  if (!entries.length) return ''
+  return `<section class="personal-section" id="journal" aria-labelledby="journal-title" tabindex="-1">
+    ${heading('journal-title', '#journal', '成长手记')}
+    <p class="profile-section__intro">写下困惑，也记录想出发的时刻。</p>
+    <div class="journal-entries">${entries.map(entry => `<article class="journal-entry" id="note-${escape(entry.id)}" aria-labelledby="note-${escape(entry.id)}-title" tabindex="-1">
+      <header class="journal-entry__header">
+        <p class="journal-entry__dates"><span>记录 <time datetime="${entry.eventDate}">${entry.eventDate.replaceAll('-', '.')}</time></span><span>落笔 <time datetime="${entry.writtenDate}">${entry.writtenDate.replaceAll('-', '.')}</time></span></p>
+        <h3 id="note-${escape(entry.id)}-title">${escape(entry.title)}</h3>
+        <p class="journal-entry__subtitle">${escape(entry.subtitle)}</p>
+        ${tags(entry.tags, 'journal-entry__tags', '手记主题')}
+      </header>
+      <p class="journal-entry__excerpt">${escape(entry.excerpt)}</p>
+      <details class="journal-entry__reading">
+        <summary><span>阅读全文</span>${pixelIcon('arrow-down')}</summary>
+        <div class="journal-entry__body">
+          <p class="journal-entry__edition">原稿整理 · 保留当时的感受与打算</p>
+          ${entry.sections.map((section, index) => `<section class="journal-entry__chapter" aria-labelledby="note-${escape(entry.id)}-chapter-${index}"><h4 id="note-${escape(entry.id)}-chapter-${index}"><span aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${escape(section.title)}</h4>${section.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}</section>`).join('')}
+          <blockquote class="journal-entry__closing">${escape(entry.closing)}</blockquote>
+          <p class="journal-entry__end">旅程还在继续。</p>
+        </div>
+      </details>
+    </article>`).join('')}</div>
+  </section>`
+}
 
 const renderInterests = (site: SiteContent, base: string): string => {
   const interests = getInterests(site)
@@ -145,6 +172,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
           <blockquote class="document-note">每个作品都链接到真实的公开源码；已归档的项目保留当时的探索。</blockquote>
         </div>
       </section>
+      ${renderJournal(site)}
       ${renderInterests(site, base)}
       ${renderGames(site, base)}
       ${renderSocials(site, base)}

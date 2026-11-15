@@ -385,7 +385,7 @@ html, body { background: #354c88; }
   .repository-link { padding-left: 14px; }
   .repository-link span { display: none; }
   .site-header__nav { justify-content: space-between; gap: 4px; }
-  .site-header__nav a { padding-inline: 9px; gap: 7px; font-size: 16px; }
+  .site-header__nav a { padding-inline: 6px; gap: 5px; font-size: 16px; }
   .hero h1 { font-size: 32px; }
   .hero__intro { font-size: 14px; }
   .personal-section__label h2 { font-size: 26px; }
@@ -402,7 +402,7 @@ html, body { background: #354c88; }
   .site-search__results { width: calc(100vw - 24px); }
   .repository-link { padding-left: 10px; }
   .site-header__nav { gap: 0; min-height: 44px; overflow: visible; }
-  .site-header__nav a { min-height: 36px; padding: 4px 2px; font-size: 12px; gap: 4px; border-radius: var(--ui-radius-control); }
+  .site-header__nav a { min-width: 0; min-height: 44px; padding: 4px 1px; font-size: 12px; gap: 2px; border-radius: var(--ui-radius-control); }
   .site-header__nav a svg { width: 12px; height: 12px; flex-basis: 12px; }
   .document-layout { padding-top: 20px; padding-bottom: 34px; }
   .hero h1 { font-size: 24px; line-height: 1.7; }

@@ -4,6 +4,18 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
+## Current journal — 2026-11-15
+
+- Keep the existing scene and UI. `content/journal.ts` holds publicly edited
+  writing through `site.journals`; never copy the private DOCX into the repo.
+- The owner chose a version close to the original while removing identifying
+  details. Preserve the distinction between experience and writing dates, plans
+  and completed achievements, and edited prose and verbatim quotations.
+- Keep the same seven section targets in React/static/navigation/contents. Native
+  journal details work without JS; search targets the visible focusable article.
+  Regenerate the pixel font subset for new writing. See
+  [journal guide](docs/guides/journal.md) and run its dedicated browser checks.
+
 ## Current follow-up audit — 2026-11-13
 
 - Preserve the current cream scenic UI, original character and all source pixels.

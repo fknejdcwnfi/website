@@ -1,6 +1,7 @@
 import { getProjects, getSiteGithub, site } from '../content/site'
 import { GameSection, InterestSection, SocialSection } from './ProfileModules'
 import PixelIcon from './PixelIcon'
+import JournalSection from './JournalSection'
 import { poeticPixelAssets } from '../../poeticPixel/assets'
 import { getNavigationIconPath } from '../content/navigationIcons'
 
@@ -45,6 +46,7 @@ export default function PersonalSections() {
         </div>
       </section>
 
+      <JournalSection content={site} />
       <InterestSection content={site} />
       <GameSection content={site} />
       <SocialSection content={site} />

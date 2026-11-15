@@ -1,6 +1,6 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。我的个人网站，以 Minecraft 风格的高清2D像素圆形呈现 Vermouth，记录作品、兴趣、游戏和社交坐标。
+**HELLOWORLD**。我的个人网站，以 Minecraft 风格的高清2D像素圆形呈现 Vermouth，记录作品、成长手记、兴趣、游戏和社交坐标。
 
 [正式网站](https://fknejdcwnfi.github.io/website/) · [文件入口](docs/README.md) · [日常维护](docs/guides/repository-maintenance.md)
 
@@ -10,6 +10,7 @@
 
 - 社交：微信、QQ、哔哩哔哩、抖音等；可展示账号、复制、主页和可选二维码。
 - 兴趣：分类、标签、喜欢的角色、个人感想与本地封面。
+- [成长手记](docs/guides/journal.md)：公开整理的个人记录，区分经历与落笔日期，可展开全文并在本站搜索。
 - 游戏：自主组合和排序数据、角色收藏、文字、截图及视频链接，选择每块初始展开状态。
 - 同一配置生成导航、目录、本地搜索与无JS页面，未填项目自动隐藏。
 

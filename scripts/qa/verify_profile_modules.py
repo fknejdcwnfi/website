@@ -49,14 +49,14 @@ def no_overflow(page, label):
 
 def anchors_work(page, label):
     targets = page.locator('.site-header__nav a').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))')
-    check(label+'_six_module_navigation', targets==['#home','#about','#work','#interests','#games','#contact'], targets)
+    check(label+'_seven_module_navigation', targets==['#home','#about','#work','#journal','#interests','#games','#contact'], targets)
     unique = page.evaluate('''targets=>targets.every(h=>document.querySelectorAll('[id="'+h.slice(1)+'"]').length===1)''', targets)
     check(label+'_unique_working_targets', unique)
 
 def expect_content(page, label, *, fixture=False):
     check(label+'_simplified_language', page.locator('html').get_attribute('lang')=='zh-CN')
     check(label+'_simplified_locale', page.locator('meta[property="og:locale"]').get_attribute('content')=='zh_CN')
-    for selector in ('#about','#work','#interests','#games','#contact','footer'):
+    for selector in ('#about','#work','#journal','#interests','#games','#contact','footer'):
         check(label+'_section_'+selector.removeprefix('#'), page.locator(selector).count()==1)
     for title in ('兴趣图鉴','火影忍者','名侦探柯南','游戏基地','王者荣耀','社交坐标'):
         check(label+'_title_'+title, title in page.locator('main').inner_text())
