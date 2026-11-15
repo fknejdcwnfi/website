@@ -4,7 +4,7 @@
 
 ## 内容与阅读
 
-公开整理稿在[journal.ts](../../src/features/profile/content/journal.ts)，经[site.ts](../../src/features/profile/content/site.ts)的`journals`配置进入页面。`JournalEntry`定义标题、两个日期、引言、主题和分节正文。新增文章继续编辑纯数据，不添加可执行HTML。共享selector去掉无效ID、无效日历日期和空章节；React与静态HTML使用相同有效数据并转义文字。
+公开整理稿在[journals目录](../../src/features/profile/content/journals/)，由[journal.ts](../../src/features/profile/content/journal.ts)聚合，经[site.ts](../../src/features/profile/content/site.ts)的`journals`配置进入页面。`JournalEntry`定义标题、可选的经历／落笔日期、引言、主题和分节正文。没有日期的原稿显示“原稿未注明日期”，不能将上传日期或文档元数据当成写作日期。新增文章继续编辑纯数据，不添加可执行HTML。共享selector去掉无效ID、显式无效日历日期和空章节；React与静态HTML使用相同有效数据并转义文字。
 
 卡片常态展示标题、日期与摘要；原生`details/summary`展开全文，键盘及无JavaScript均可使用。正文标记为“原稿整理”，不冒充逐字照录。导航新增“手记”，目录为“成长手记”，全文进入本地搜索。搜索结果指向始终可见且可聚焦的文章卡片；正文展开由读者控制。
 

@@ -6,6 +6,7 @@
 
 | 目录 | 实际记录的范围 |
 | --- | --- |
+| [reading-motion-20261115](reading-motion-20261115/README.md) | 第二篇手记、未知日期、搜索计算、默认动态与本地暂停的独立验证 |
 | [journal-20261115](journal-20261115/README.md) | 《转型日》公开整理、原生阅读、日期、全文搜索、7章节及两种托管路径验证 |
 | [audit-20261113](audit-20261113/README.md) | 最新复审：CSP／重试／IME、lazy图片、忠实字体子集、结构CLI、独立及配对资源／时序采样 |
 | [security-audit](security-audit/README.md) | 2026-11-08安全／健壮性／性能与结构审计；固定依赖公告查询、故障与CSP探针、无损体积比较、独立性能采样与本轮回归 |

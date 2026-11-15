@@ -149,7 +149,9 @@ def main():
             page.goto(url());page.wait_for_selector(CANVAS+'[data-ready=true][data-playback=looping]')
             presentation(page,'desktop_dpr1',(1432,1068))
             check('complete_site',all(page.locator(s).count() for s in ('#about','#work','#contact','footer')))
-            check('no_normal_controls',page.locator('.reference-scene button').count()==0)
+            check('only_reader_motion_control',page.locator('.reference-scene button').count()==1 and
+                  page.get_by_role('button',name='暂停动态',exact=True).count()==1 and
+                  page.locator('.reference-scene input,.reference-scene select').count()==0)
             check('snow_and_petals_selected',page.locator(CANVAS).get_attribute('data-snow-particles')=='448' and
                   page.locator(CANVAS).get_attribute('data-petal-particles')=='60')
             readbacks=page.evaluate('window.__pixelReadbacks')
@@ -275,15 +277,16 @@ def main():
             legacy.close()
 
             reduced=new_context(reduced_motion='reduce')
+            reduced.add_init_script("try{if(localStorage.getItem('vermouth-scene-motion')===null)localStorage.setItem('vermouth-scene-motion','static')}catch(_){}")
             r=reduced.new_page();reduced_requests=[];r.on('request',lambda request:reduced_requests.append(request.url))
             r.goto(url());r.wait_for_selector(CANVAS+'[data-playback=static]')
             actual=pixels(r)
-            check('reduced_exact_canonical',actual.tobytes()==canonical.resize(actual.size,Image.Resampling.NEAREST).tobytes())
-            check('reduced_no_video_atlas',not any('/boot.mp4' in s or '/atlas.png' in s for s in reduced_requests))
-            check('reduced_entry_not_running',r.locator(ENTRY).get_attribute('data-motion')!='running')
-            r.get_by_role('button',name='开启动态',exact=True).click();r.wait_for_selector(CANVAS+'[data-playback=looping]')
+            check('explicit_pause_exact_canonical',actual.tobytes()==canonical.resize(actual.size,Image.Resampling.NEAREST).tobytes())
+            check('explicit_pause_no_video_atlas',not any('/boot.mp4' in s or '/atlas.png' in s for s in reduced_requests))
+            check('explicit_pause_entry_not_running',r.locator(ENTRY).get_attribute('data-motion')!='running')
+            r.get_by_role('button',name='开启动画',exact=True).click();r.wait_for_selector(CANVAS+'[data-playback=looping]')
             check('explicit_motion_choice');r.reload();r.wait_for_selector(CANVAS+'[data-playback=looping]')
-            check('motion_choice_persists');r.get_by_role('button',name='跟随系统',exact=True).click()
+            check('motion_choice_persists');r.get_by_role('button',name='暂停动态',exact=True).click()
             r.wait_for_selector(CANVAS+'[data-playback=static]');check('motion_choice_reversible');reduced.close()
 
             page.goto(url());page.wait_for_selector(CANVAS+'[data-playback=looping]')

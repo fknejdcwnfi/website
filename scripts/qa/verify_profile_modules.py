@@ -149,12 +149,13 @@ try:
             ctx.close()
 
         ctx=context(reduced_motion='reduce',viewport={'width':1440,'height':1100})
+        ctx.add_init_script("try{localStorage.setItem('vermouth-scene-motion','static')}catch(_){}")
         requests=[];page=ctx.new_page();page.on('request',lambda request:requests.append(request.url))
         page.goto(args.url);page.wait_for_selector(CANVAS+'[data-playback=static]')
-        check('reduced_motion_avoids_animation_downloads',not any('/boot.mp4' in url or '/atlas.png' in url for url in requests))
-        page.get_by_role('button',name='开启动态',exact=True).click()
+        check('explicit_pause_avoids_animation_downloads',not any('/boot.mp4' in url or '/atlas.png' in url for url in requests))
+        page.get_by_role('button',name='开启动画',exact=True).click()
         page.wait_for_selector(CANVAS+'[data-playback=looping]');check('simplified_motion_opt_in')
-        page.get_by_role('button',name='跟随系统',exact=True).click()
+        page.get_by_role('button',name='暂停动态',exact=True).click()
         page.wait_for_selector(CANVAS+'[data-playback=static]');check('simplified_motion_choice_reversible')
         ctx.close()
 

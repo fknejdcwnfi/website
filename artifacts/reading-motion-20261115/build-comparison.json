@@ -1,0 +1,29 @@
+{
+  "commit": "2a3c3b006ea8b14be84f66b225e3dae37f4e021b",
+  "condition": "Previous production root build; gzip level 9 for every compared file",
+  "files": {
+    "index.html": {
+      "bytes": 56103,
+      "gzip9Bytes": 12404,
+      "sha256": "c2368dd759c60f4a9f324030c991f0ec5c6e1653e5ea2604a48e57eb83f8eb6e"
+    },
+    "index-BOmohKlx.js": {
+      "bytes": 306514,
+      "gzip9Bytes": 96379,
+      "sha256": "1bf1ede0609cbde18196f2e3bddf2209763dabf74e02d071fe4920d17e15eff9"
+    }
+  },
+  "current": {
+    "index.html": {
+      "bytes": 61171,
+      "gzip9Bytes": 14316,
+      "sha256": "be9d69a9d7f87d0fa6edcadd28592a808e3b07356dd8bd334d494bd53eefc933"
+    },
+    "index-BczcISDU.js": {
+      "bytes": 310621,
+      "gzip9Bytes": 98311,
+      "sha256": "668b9518cf641eed063218c023f7d447144d1f8f2c35026bd28afb92ead34e19"
+    }
+  },
+  "limits": "New article and controls add content bytes; search optimization reduces repeated CPU work, not network payload."
+}

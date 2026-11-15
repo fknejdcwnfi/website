@@ -4,6 +4,26 @@ This is fknejdcwnfi's complete personal website. Vermouth is its hero artwork,
 not the entire site. Read this file and [the current scene guide](docs/guides/poetic-pixel.md)
 before changing the site. The owner's latest instructions override older guides.
 
+## Current reading and motion — 2026-11-15
+
+- The owner now explicitly requests default animated playback. New visitors play
+  by default regardless of OS motion preference or unreadable matchMedia; the
+  visible pause/start control records a reversible local dynamic/static choice.
+  Fixed-time inspection, hidden/offscreen suspension and source pixels remain.
+  This supersedes earlier system-reduced default-static guidance below.
+- Parser entry, React and ScenePlayer share the same motion choice. Do not weaken
+  CSP or add another renderer. A prepared player's pause retains its current
+  frame and phase; initially paused visits do not download animated media.
+  Failed moving previews must still expose the reader's pause/start choice.
+- Journal originals may be undated. Do not fabricate dates: use the optional
+  validated date fields and shared presentation. Articles live separately under
+  `content/journals/`, aggregated by `content/journal.ts`.
+- Search prepares normalized text per mounted content snapshot. Preserve literal
+  matching, eight results, IME behavior and no global cache of mutable fixtures.
+- Keep original attachments and identifying source markers out of public files,
+  including QA, reports and commit messages. See
+  [reading and motion](docs/guides/reading-motion.md).
+
 ## Current journal — 2026-11-15
 
 - Keep the existing scene and UI. `content/journal.ts` holds publicly edited
@@ -67,7 +87,7 @@ before changing the site. The owner's latest instructions override older guides.
 - Optional observers and media-query APIs must not abort effect cleanup.
   Support legacy listeners, disconnect failed setup, ignore queued callbacks
   after disposal, and release retained preview media on boundary fallback.
-  Unreadable motion preference defaults to static with explicit local opt-in.
+  Motion defaults now follow the newer explicit playback policy above.
 - Decorative WebPs are lossless derivatives with a tracked provenance manifest;
   retain the PNGs. `assets:verify` includes a standard-library integrity check;
   `assets:ui:check` additionally compares decoded pixels using Pillow.

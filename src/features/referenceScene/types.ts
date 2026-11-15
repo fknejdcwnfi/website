@@ -37,6 +37,7 @@ export type SceneRendererFactory = (assets: SceneAssets, signal: AbortSignal) =>
 export type ScenePlayback = 'loading' | 'preparing' | 'looping' | 'static' | 'suspended' | 'failed' | 'stopped'
 export type ScenePlayerState = { playback: ScenePlayback; painted: boolean; reduced: boolean }
 export type ScenePlayerOptions = {
+  /** Actual playback choice; absent means the shared default/persisted choice. */
   motionEnabled?: boolean
   /** Read once when the first visible dynamic frame replaces a progressive preview. */
   initialElapsedMs?: () => number

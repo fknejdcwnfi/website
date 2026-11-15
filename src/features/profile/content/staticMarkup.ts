@@ -4,6 +4,7 @@ import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
 import { renderNavigationIcon } from './navigationIcons.ts'
 import { GAME_DECORATION, getInterestDecoration, getSocialDecoration } from './decorativeAssets.ts'
+import { getJournalDates } from './journalPresentation.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!)
@@ -25,7 +26,7 @@ const renderJournal = (site: SiteContent): string => {
     <p class="profile-section__intro">写下困惑，也记录想出发的时刻。</p>
     <div class="journal-entries">${entries.map(entry => `<article class="journal-entry" id="note-${escape(entry.id)}" aria-labelledby="note-${escape(entry.id)}-title" tabindex="-1">
       <header class="journal-entry__header">
-        <p class="journal-entry__dates"><span>记录 <time datetime="${entry.eventDate}">${entry.eventDate.replaceAll('-', '.')}</time></span><span>落笔 <time datetime="${entry.writtenDate}">${entry.writtenDate.replaceAll('-', '.')}</time></span></p>
+        <p class="journal-entry__dates">${getJournalDates(entry).map(item => `<span>${escape(item.label)}${item.date ? ` <time datetime="${escape(item.date)}">${escape(item.display!)}</time>` : ''}</span>`).join('')}</p>
         <h3 id="note-${escape(entry.id)}-title">${escape(entry.title)}</h3>
         <p class="journal-entry__subtitle">${escape(entry.subtitle)}</p>
         ${tags(entry.tags, 'journal-entry__tags', '手记主题')}

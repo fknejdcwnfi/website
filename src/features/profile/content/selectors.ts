@@ -1,4 +1,5 @@
 import type { ContactLink, ContentsEntry, GameProfile, GameShowcaseBlock, Interest, JournalEntry, Project, SiteContent, SiteSearchEntry, SocialPlatform } from './types.ts'
+import { createSearchIndex, searchIndex } from './searchIndex.ts'
 
 const text = (value: unknown): string => typeof value === 'string' ? value.trim() : ''
 const validId = (value: unknown): value is string => typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)
@@ -134,7 +135,8 @@ const calendarDate = (value: unknown): value is string => typeof value === 'stri
 
 export const getJournalEntries = (content: SiteContent): JournalEntry[] => unique(records<JournalEntry>(content.journals)
   .filter(entry => validId(entry.id) && entry.id.length <= 80 && text(entry.title) &&
-    calendarDate(entry.eventDate) && calendarDate(entry.writtenDate))
+    (entry.eventDate === undefined || calendarDate(entry.eventDate)) &&
+    (entry.writtenDate === undefined || calendarDate(entry.writtenDate)))
   .map(entry => ({ id: entry.id, title: text(entry.title), eventDate: entry.eventDate, writtenDate: entry.writtenDate,
     subtitle: text(entry.subtitle), excerpt: text(entry.excerpt), tags: strings(entry.tags), closing: text(entry.closing),
     sections: records<JournalEntry['sections'][number]>(entry.sections)
@@ -180,7 +182,7 @@ export const getSiteSearchEntries = (content: SiteContent): SiteSearchEntry[] =>
   ...getProjects(content).map(project => ({ id: project.id, title: project.title, href: `#project-${project.id}`, excerpt: project.subtitle,
     text: `${project.title} ${project.subtitle} ${project.description} ${project.tags.join(' ')} ${project.kind ?? ''} ${project.year ?? ''} ${(project.highlights ?? []).join(' ')} ${project.note ?? ''} ${project.status === 'active' ? '持续制作中' : '已归档'}` })),
   ...getJournalEntries(content).map(entry => ({ id: `note-${entry.id}`, title: entry.title, href: `#note-${entry.id}`,
-    excerpt: entry.excerpt, text: `${entry.title} 成长手记 ${entry.subtitle} ${entry.eventDate} ${entry.writtenDate} ${entry.tags.join(' ')} ${entry.sections.map(section => `${section.title} ${section.paragraphs.join(' ')}`).join(' ')} ${entry.closing}` })),
+    excerpt: entry.excerpt, text: `${entry.title} 成长手记 ${entry.subtitle} ${entry.eventDate ?? ''} ${entry.writtenDate ?? ''} ${entry.tags.join(' ')} ${entry.sections.map(section => `${section.title} ${section.paragraphs.join(' ')}`).join(' ')} ${entry.closing}` })),
   ...getInterests(content).map(interest => ({ id: `interest-${interest.id}`, title: interest.title, href: `#interest-${interest.id}`,
     excerpt: interest.description ?? '兴趣图鉴', text: `${interest.title} ${interest.description ?? ''} ${(interest.tags ?? []).join(' ')} ${(interest.favorites ?? []).join(' ')} ${interest.note ?? ''}` })),
   ...getGameProfiles(content).map(profile => ({ id: `game-${profile.id}`, title: profile.label, href: `#game-${profile.id}`,
@@ -191,6 +193,5 @@ export const getSiteSearchEntries = (content: SiteContent): SiteSearchEntry[] =>
 
 /** Literal tokens only: queries never become regular expressions, HTML or requests. */
 export const searchSite = (entries: SiteSearchEntry[], query: string): SiteSearchEntry[] => {
-  const tokens = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean)
-  return entries.filter(entry => tokens.every(token => `${entry.title} ${entry.text}`.toLocaleLowerCase().includes(token))).slice(0, 8)
+  return searchIndex(createSearchIndex(entries), query)
 }

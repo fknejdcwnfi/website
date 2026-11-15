@@ -341,7 +341,7 @@ test('journal records reject invalid identities, impossible dates and empty read
 })
 
 test('journal search indexes the actual body and keeps experience and writing dates distinct', () => {
-  const entry = getJournalEntries(site)[0]
+  const entry = getJournalEntries(site).find(entry => entry.id === 'transition-day')
   assert.equal(entry.eventDate, '2026-11-14')
   assert.equal(entry.writtenDate, '2026-11-15')
   for (const query of ['转型日', 'DSAA', '概率论', 'Verilog', '学术导师', '2026-11-15']) {
@@ -351,6 +351,22 @@ test('journal search indexes the actual body and keeps experience and writing da
   assert.ok(html.includes('<time datetime="2026-11-14">2026.11.14</time>'))
   assert.ok(html.includes('<time datetime="2026-11-15">2026.11.15</time>'))
   assert.ok(html.includes('原稿整理'))
+})
+
+test('undated writing remains undated in display and search instead of inventing dates', () => {
+  const entry = getJournalEntries(site).find(entry => entry.id === 'keeping-pace')
+  assert.ok(entry)
+  assert.equal(entry.eventDate, undefined)
+  assert.equal(entry.writtenDate, undefined)
+  const html = renderStaticSite(site)
+  const article = html.match(/<article class="journal-entry"[^>]*id="note-keeping-pace"[\s\S]*?<\/article>/)?.[0]
+  assert.ok(article.includes('原稿未注明日期'))
+  assert.ok(!article.includes('<time'))
+  const result = getSiteSearchEntries(site).find(entry => entry.id === 'note-keeping-pace')
+  assert.ok(!result.text.includes('undefined'))
+  for (const query of ['与时俱进', 'AI', '十年']) {
+    assert.ok(searchSite(getSiteSearchEntries(site), query).some(entry => entry.id === 'note-keeping-pace'))
+  }
 })
 
 test('React and no-JS journal expose the same complete writing through native details and escape text', async () => {
@@ -367,7 +383,7 @@ test('React and no-JS journal expose the same complete writing through native de
       subtitle: '<script>subtitle</script>', excerpt: '<img src=x onerror=alert(1)>',
       tags: ['<b>tag</b>'], closing: 'Closing <>&"\'',
       sections: [{ title: '<script>chapter</script>', paragraphs: ['<img src=x onerror=alert(1)>', 'Plain text & "quotes"'] }] }
-    for (const entry of [original, hostile]) {
+    for (const entry of [...getJournalEntries(site), hostile]) {
       const configured = { ...site, journals: [entry] }
       const initial = renderStaticSite(configured, '/website/')
       const react = renderToStaticMarkup(createElement(JournalSection, { content: configured }))

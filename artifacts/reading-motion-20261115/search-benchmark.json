@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "environment": {
+    "runtime": "v24.19.0",
+    "implementation": "Node perf_hooks synchronous local loop"
+  },
+  "conditions": {
+    "entries": 10,
+    "indexedCharacters": 3867,
+    "queries": 8,
+    "samples": 7,
+    "queriesPerSample": 2000,
+    "warmupQueriesPerAlgorithm": 500,
+    "alternatingAlgorithmOrder": true,
+    "sameInputDataAndQueries": true,
+    "exactResultParity": true
+  },
+  "before": {
+    "algorithm": "Rebuild selected content and full-text strings for each query, then lowercase candidate text per token",
+    "microsecondsPerQuery": {
+      "median": 36.02118900000005,
+      "minimum": 30.732646500000044,
+      "maximum": 46.22039699999999,
+      "samples": [
+        43.94135399999999,
+        35.685552,
+        46.22039699999999,
+        43.14450149999999,
+        36.02118900000005,
+        33.63590099999999,
+        30.732646500000044
+      ]
+    }
+  },
+  "after": {
+    "algorithm": "Prepare selected content and lowercase full-text strings once per mount, then search literal tokens and stop after eight matches",
+    "microsecondsPerQuery": {
+      "median": 1.0967139999999915,
+      "minimum": 0.9123214999999618,
+      "maximum": 1.5829694999999901,
+      "samples": [
+        1.5829694999999901,
+        1.5025804999999934,
+        1.0967139999999915,
+        0.9854095000000029,
+        0.9261619999999766,
+        1.1331185000000232,
+        0.9123214999999618
+      ]
+    }
+  },
+  "limits": [
+    "Local CPU microbenchmark, not browser typing latency, network performance, CWV or real visitor timing.",
+    "Prepared index construction is an up-front mount cost and is excluded from repeated-query samples.",
+    "The baseline algorithm is evaluated against the same current content as the optimized algorithm, rather than comparing different article sizes."
+  ]
+}
