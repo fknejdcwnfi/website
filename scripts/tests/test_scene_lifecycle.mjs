@@ -5,6 +5,7 @@ import { stripTypeScriptTypes } from 'node:module'
 import { loadSceneAssets } from '../../src/features/referenceScene/loadScene.ts'
 import { sampleScene } from '../../src/features/referenceScene/sceneTimeline.ts'
 import { getMediaQuery, listenMediaQuery, observeIntersection } from '../../src/features/referenceScene/browserSignals.ts'
+import { readSceneMotion, writeSceneMotion } from '../../src/features/referenceScene/motionPreference.ts'
 
 const root = new URL('../../', import.meta.url)
 const executable = source => stripTypeScriptTypes(source, { mode: 'transform' })
@@ -72,14 +73,14 @@ test('real scene effect bounds retries even when every renderer fails after its 
     for (const [key, value] of Object.entries(mocks)) Object.defineProperty(globalThis, key, { configurable: true, writable: true, value })
     const playerSource = executable(readFileSync(new URL('src/features/referenceScene/ScenePlayer.ts', root), 'utf8'))
       .replace('export class ScenePlayer', 'class ScenePlayer')
-    const ScenePlayer = new Function('loadSceneAssets', 'sampleScene', 'getMediaQuery', 'listenMediaQuery',
-      playerSource + '\nreturn ScenePlayer')(loadSceneAssets, sampleScene, getMediaQuery, listenMediaQuery)
+    const ScenePlayer = new Function('loadSceneAssets', 'sampleScene', 'readSceneMotion',
+      playerSource + '\nreturn ScenePlayer')(loadSceneAssets, sampleScene, readSceneMotion)
     // Execute the actual hook/effect body, omitting only its JSX presentation.
     const sceneSource = executable(readFileSync(new URL('src/features/referenceScene/ReferenceScene.tsx', root), 'utf8')
       .split('  const failed = state.playback')[0] + '  return null\n}\n')
       .replace('export default function ReferenceScene', 'function ReferenceScene')
     const dependencies = { ...hooks, ScenePlayer, useSceneViewport: () => ({}),
-      useSceneResolution: () => ({ width: 1432, height: 1068 }), getMediaQuery, listenMediaQuery, observeIntersection,
+      useSceneResolution: () => ({ width: 1432, height: 1068 }), getMediaQuery, listenMediaQuery, observeIntersection, readSceneMotion, writeSceneMotion,
       attachPoeticBootstrap() {}, detachPoeticBootstrap() {}, pausePoeticBootstrap() {}, playPoeticBootstrap() {}, releasePoeticBootstrap() {} }
     ReferenceScene = new Function(...Object.keys(dependencies), sceneSource + '\nreturn ReferenceScene')(...Object.values(dependencies))
     render(); await settle()

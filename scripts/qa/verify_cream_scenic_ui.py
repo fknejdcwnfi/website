@@ -355,19 +355,20 @@ try:
         page.screenshot(path=str(args.output / 'short-desktop-navigation.png'))
         ctx.close()
 
-        # Reduced-motion controls expose live status/button typography and retain
-        # the existing reversible user choice without changing renderer behavior.
+        # Default motion also applies with OS reduce; the reader can pause it.
         ctx = context(reduced_motion='reduce', viewport={'width': 390, 'height': 844})
         page = ctx.new_page()
         page.goto(args.url)
-        page.wait_for_selector(CANVAS + '[data-playback=static]')
-        fonts_work(page, 'reduced_motion')
-        check('reduced_motion_control_visible', page.get_by_role('button', name='开启动态', exact=True).is_visible())
-        page.get_by_role('button', name='开启动态', exact=True).click()
         page.wait_for_selector(CANVAS + '[data-playback=looping]')
-        page.get_by_role('button', name='跟随系统', exact=True).click()
+        fonts_work(page, 'reduced_motion')
+        check('default_motion_pause_control_visible', page.get_by_role('button', name='暂停动态', exact=True).is_visible())
+        page.get_by_role('button', name='暂停动态', exact=True).click()
         page.wait_for_selector(CANVAS + '[data-playback=static]')
-        check('reduced_motion_choice_reversible', True)
+        page.get_by_role('button', name='开启动画', exact=True).click()
+        page.wait_for_selector(CANVAS + '[data-playback=looping]')
+        page.get_by_role('button', name='暂停动态', exact=True).click()
+        page.wait_for_selector(CANVAS + '[data-playback=static]')
+        check('explicit_motion_choice_reversible', True)
         ctx.close()
 
         ctx = context(java_script_enabled=False, viewport={'width': 390, 'height': 844})

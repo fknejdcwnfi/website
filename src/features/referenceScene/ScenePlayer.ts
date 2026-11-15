@@ -1,13 +1,11 @@
 import { loadSceneAssets } from './loadScene'
 import { sampleScene } from './sceneTimeline'
-import { getMediaQuery, listenMediaQuery } from './browserSignals'
+import { readSceneMotion } from './motionPreference'
 import type { SceneAssets, SceneDefinition, ScenePlayback, ScenePlayerOptions, SceneRenderer, SceneRendererFactory } from './types'
 
-/** A new full-frame player's only shared state is the browser motion preference. */
+/** The local motion choice and visibility gate the unchanged source clock. */
 export class ScenePlayer {
   private readonly context: CanvasRenderingContext2D
-  private readonly motion = getMediaQuery('(prefers-reduced-motion: reduce)')
-  private stopMotion = (): void => {}
   private readonly lifetime = new AbortController()
   private assets: SceneAssets | null = null
   private renderer: SceneRenderer | null = null
@@ -25,7 +23,6 @@ export class ScenePlayer {
   private published = ''
   private motionEnabled: boolean
   private readonly inspectionTime: number | null
-  private readonly preference = (): void => this.sync()
   private readonly visibility = (): void => this.sync()
 
   constructor(
@@ -40,14 +37,13 @@ export class ScenePlayer {
     this.canvas.width = definition.width
     this.canvas.height = definition.height
     this.context.imageSmoothingEnabled = false
-    this.motionEnabled = options.motionEnabled === true
+    this.motionEnabled = options.motionEnabled ?? readSceneMotion()
     this.inspectionTime = typeof options.timeMs === 'number' && Number.isFinite(options.timeMs)
       ? Math.max(-120_000, Math.min(120_000, options.timeMs)) : null
     canvas.dataset.scene = 'reference-landscape'
     canvas.dataset.ready = 'false'
     canvas.dataset.painted = 'false'
     canvas.dataset.renderer = 'reference-scene'
-    this.stopMotion = listenMediaQuery(this.motion, this.preference)
     document.addEventListener('visibilitychange', this.visibility)
     this.publish('loading')
     this.loadingTimer = window.setTimeout(() => this.fail(), 12_000)
@@ -59,7 +55,7 @@ export class ScenePlayer {
     }).catch(() => this.fail())
   }
 
-  private reducesMotion(): boolean { return (this.motion?.matches ?? true) && !this.motionEnabled }
+  private reducesMotion(): boolean { return !this.motionEnabled }
 
   private publish(playback: ScenePlayback): void {
     const reduced = this.reducesMotion()
@@ -112,7 +108,7 @@ export class ScenePlayer {
 
   private paint(): boolean {
     try {
-      if (this.reducesMotion() || !this.renderer) this.canonical()
+      if (!this.renderer) this.canonical()
       else {
         if (this.handoffPending && this.inspectionTime === null) {
           // The preview and final renderer share one source phase. Read this only
@@ -142,7 +138,9 @@ export class ScenePlayer {
     if (document.hidden || !this.visible) { this.publish('suspended'); return }
     if (this.reducesMotion()) {
       this.canvas.dataset.ready = 'true'
-      if (this.paint()) this.publish('static')
+      // Keep the last displayed frame when pausing. If resizing cleared it, paint
+      // the same source time once; a fresh paused visit still uses only canonical.
+      if ((this.painted && this.renderer) || this.paint()) this.publish('static')
       return
     }
     if (!this.renderer) {
@@ -204,7 +202,6 @@ export class ScenePlayer {
     this.cancelPreparation()
     window.clearTimeout(this.loadingTimer)
     window.clearTimeout(this.preparationTimer)
-    this.stopMotion()
     document.removeEventListener('visibilitychange', this.visibility)
     const renderer = this.renderer
     this.renderer = null

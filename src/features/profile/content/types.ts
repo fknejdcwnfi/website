@@ -34,7 +34,7 @@ export type GameProfile = {
 }
 /** Publicly edited writing; experience and writing dates remain separate. */
 export type JournalEntry = {
-  id: string; title: string; eventDate: string; writtenDate: string
+  id: string; title: string; eventDate?: string; writtenDate?: string
   subtitle: string; excerpt: string; tags: string[]
   sections: { title: string; paragraphs: string[] }[]; closing: string
 }

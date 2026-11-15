@@ -1,5 +1,5 @@
 import type { SiteContent } from './types.ts'
-import { transitionDay } from './journal.ts'
+import { journalEntries } from './journal.ts'
 export type { Project, SocialPlatform, SocialProfile, ContactLink, Interest, GameProfile, GameShowcaseBlock, SiteContent, ContentsEntry, SiteSearchEntry } from './types.ts'
 export { getSiteGithub, getSiteRepository, getProjects, getJournalEntries, getSocialLinks, getInterests, getGameProfiles, getSiteNavigation, getTableOfContents, getSiteSearchEntries, searchSite, resolveProfileAsset } from './selectors.ts'
 
@@ -15,7 +15,7 @@ export const site: SiteContent = {
   github: 'https://github.com/fknejdcwnfi', email: 'fknejdcwnfi@gmail.com',
   // The owner will supply WeChat, QQ and other public accounts later. Never invent them.
   socials: [],
-  journals: [transitionDay],
+  journals: journalEntries,
   interests: [
     { id: 'naruto', title: '火影忍者', category: 'anime', description: '忍者世界里的羁绊与成长。', tags: ['动漫', '热血', '羁绊'] },
     { id: 'detective-conan', title: '名侦探柯南', category: 'anime', description: '推理、悬念与角色故事。', tags: ['动漫', '推理', '悬念'] },

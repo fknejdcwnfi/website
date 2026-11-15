@@ -41,6 +41,7 @@ npm run preview -- --host 127.0.0.1 --port 5180
 ```bash
 REVIEW_OUTPUT=/workspace/work/website-review-YYYYMMDD
 python3 scripts/qa/verify_journal.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/journal"
+python3 scripts/qa/verify_default_motion.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/motion"
 python3 scripts/qa/verify_ui_consistency.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/ui"
 python3 scripts/qa/verify_cream_scenic_ui.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/cream"
 python3 scripts/qa/verify_profile_modules.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/profile"

@@ -4,7 +4,8 @@ import { useSceneViewport } from './useSceneViewport'
 import type { SceneDefinition, ScenePlayerState, SceneRendererFactory } from './types'
 import { attachPoeticBootstrap, detachPoeticBootstrap, pausePoeticBootstrap, playPoeticBootstrap, releasePoeticBootstrap, type ScenePreview } from '../poeticPixel/bootstrap'
 import { useSceneResolution } from '../poeticPixel/presentation/useSceneResolution'
-import { getMediaQuery, listenMediaQuery, observeIntersection } from './browserSignals'
+import { observeIntersection } from './browserSignals'
+import { readSceneMotion, writeSceneMotion } from './motionPreference'
 
 type Props = {
   definition: SceneDefinition
@@ -13,11 +14,6 @@ type Props = {
   timeMs?: number | null
   preview?: ScenePreview
   adaptiveResolution?: boolean
-}
-
-const MOTION_CHOICE = 'vermouth-motion-enabled'
-const readMotionChoice = (): boolean => {
-  try { return localStorage.getItem(MOTION_CHOICE) === 'true' } catch { return false }
 }
 
 /** A borderless circular viewport; the selected renderer owns source pixels and motion. */
@@ -33,15 +29,14 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
   const previewVideo = useRef<HTMLVideoElement | null>(null)
   const handoffDone = useRef(false)
   const [state, setState] = useState<ScenePlayerState>({ playback: 'loading', painted: false, reduced: false })
-  const [systemReduced, setSystemReduced] = useState(() => getMediaQuery('(prefers-reduced-motion: reduce)')?.matches ?? true)
-  const [motionEnabled, setMotionEnabled] = useState(readMotionChoice)
+  const [motionEnabled, setMotionEnabled] = useState(readSceneMotion)
   const motionChoice = useRef(motionEnabled)
   motionChoice.current = motionEnabled
   const [attempt, setAttempt] = useState(0)
   // Two automatic retries per mounted scene; only manual retry or online resets it.
   const attempts = useRef(0)
   const [slowLoad, setSlowLoad] = useState(false)
-  const showPreview = Boolean(preview && timeMs === null && (!systemReduced || motionEnabled) && !handoffDone.current)
+  const showPreview = Boolean(preview && timeMs === null && motionEnabled && !handoffDone.current)
 
   useLayoutEffect(() => {
     const host = previewHost.current
@@ -63,7 +58,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
       if (showPreview && !document.hidden && inViewport) playPoeticBootstrap(video, preview.src)
       else {
         pausePoeticBootstrap(video)
-        if (!showPreview) releasePoeticBootstrap(video, handoffDone.current && timeMs === null && (!systemReduced || motionEnabled))
+        if (!showPreview) releasePoeticBootstrap(video, handoffDone.current && timeMs === null && motionEnabled)
       }
     }
     const stopObserving = observeIntersection(host, ([entry]) => {
@@ -77,13 +72,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
       document.removeEventListener('visibilitychange', sync)
       pausePoeticBootstrap(video)
     }
-  }, [preview, showPreview, timeMs, systemReduced, motionEnabled])
-
-  useEffect(() => {
-    const query = getMediaQuery('(prefers-reduced-motion: reduce)')
-    const change = (): void => setSystemReduced(query?.matches ?? true)
-    return listenMediaQuery(query, change)
-  }, [])
+  }, [preview, showPreview, timeMs, motionEnabled])
 
   useEffect(() => {
     if (!canvas.current) return
@@ -130,7 +119,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
         onState,
       })
     } catch {
-      onState({ playback: 'failed', painted: false, reduced: systemReduced && !motionChoice.current })
+      onState({ playback: 'failed', painted: false, reduced: !motionChoice.current })
       window.addEventListener('online', online)
       return () => {
         disposed = true
@@ -162,7 +151,7 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
 
   const chooseMotion = (): void => {
     const next = !motionEnabled
-    try { localStorage.setItem(MOTION_CHOICE, String(next)) } catch { /* A local choice does not require storage. */ }
+    writeSceneMotion(next)
     setMotionEnabled(next)
   }
   const failed = state.playback === 'failed'
@@ -186,8 +175,8 @@ export default function ReferenceScene({ definition, createRenderer, fallbackSrc
         {failed ? <p>动态场景暂时无法加载，先保留预览画面。{' '}
           <button type="button" onClick={() => { attempts.current = 0; setAttempt(value => value + 1) }}>重试加载</button>
         </p> : slowLoad && (state.playback === 'loading' || state.playback === 'preparing') ? <p>正在加载动态场景…</p> : null}
-        {systemReduced && !failed ? <p>{motionEnabled ? '已为这个场景开启动态。' : '系统已启用「减少动态」，场景目前静止。'}{' '}
-          <button type="button" onClick={chooseMotion}>{motionEnabled ? '跟随系统' : '开启动态'}</button>
+        {timeMs === null ? <p>
+          <button type="button" onClick={chooseMotion}>{motionEnabled ? '暂停动态' : '开启动画'}</button>
         </p> : null}
       </div>
     </div>

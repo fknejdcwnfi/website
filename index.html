@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://fknejdcwnfi.github.io/website/" />
     <link rel="sitemap" type="application/xml" href="%BASE_URL%sitemap.xml" />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
-    <link rel="preload" href="%BASE_URL%fonts/fusion-pixel-startup-subset.woff2?v=72354592532f67054bfa6739c53d9c152d0616972dd8aeb4d2880c2fdea7e20c" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="%BASE_URL%fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5" as="font" type="font/woff2" crossorigin />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
@@ -46,8 +46,6 @@
         var video = document.getElementById('vermouth-poetic-bootstrap');
         if (!video) return;
         var group = document.getElementById('vermouth-poetic-entry');
-        var preference = { matches: true };
-        try { preference = window.matchMedia('(prefers-reduced-motion: reduce)') || preference; } catch (_) {}
         var params = new URLSearchParams(window.location.search);
         var fixed = params.get('t');
         var inspect = fixed !== null && fixed.trim() !== '' && Number.isFinite(Number(fixed));
@@ -57,9 +55,8 @@
         function ready() { if (!disposed) video.dataset.ready = 'true'; }
         function sync() {
           if (disposed) return;
-          var enabled = false;
-          try { enabled = localStorage.getItem('vermouth-motion-enabled') === 'true'; } catch (_) {}
-          var allowed = !inspect && !archived && params.get('motion') !== 'original' && (!preference.matches || enabled);
+          var enabled = __SCENE_MOTION_ENABLED__;
+          var allowed = !inspect && !archived && params.get('motion') !== 'original' && enabled;
           if (!allowed) {
             video.pause();
             if (video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
@@ -94,21 +91,6 @@
           try { if (observer) observer.disconnect(); } catch (_) {}
           observer = null;
         }
-        var unlistenPreference = function () {};
-        var preferenceListening = false;
-        try {
-          if (typeof preference.addEventListener === 'function') {
-            preference.addEventListener('change', sync);
-            preferenceListening = true;
-            unlistenPreference = function () { try { preference.removeEventListener('change', sync); } catch (_) {} };
-          }
-        } catch (_) { try { preference.removeEventListener('change', sync); } catch (_) {} }
-        try {
-          if (!preferenceListening && typeof preference.addListener === 'function') {
-            preference.addListener(sync);
-            unlistenPreference = function () { try { preference.removeListener(sync); } catch (_) {} };
-          }
-        } catch (_) { try { preference.removeListener(sync); } catch (_) {} }
         video.addEventListener('loadeddata', ready);
         document.addEventListener('visibilitychange', sync);
         window.__vermouthPoeticVideo = video;
@@ -117,7 +99,6 @@
           disposed = true;
           try { if (observer) observer.disconnect(); } catch (_) {}
           video.removeEventListener('loadeddata', ready);
-          unlistenPreference();
           document.removeEventListener('visibilitychange', sync);
         };
         sync();

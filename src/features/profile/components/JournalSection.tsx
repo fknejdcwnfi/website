@@ -2,6 +2,7 @@ import { getJournalEntries } from '../content/selectors'
 import type { SiteContent } from '../content/types'
 import { getNavigationIconPath } from '../content/navigationIcons'
 import PixelIcon from './PixelIcon'
+import { getJournalDates } from '../content/journalPresentation'
 
 export default function JournalSection({ content }: { content: SiteContent }) {
   const entries = getJournalEntries(content)
@@ -11,7 +12,7 @@ export default function JournalSection({ content }: { content: SiteContent }) {
     <p className="profile-section__intro">写下困惑，也记录想出发的时刻。</p>
     <div className="journal-entries">{entries.map(entry => <article className="journal-entry" id={`note-${entry.id}`} aria-labelledby={`note-${entry.id}-title`} tabIndex={-1} key={entry.id}>
       <header className="journal-entry__header">
-        <p className="journal-entry__dates"><span>记录 <time dateTime={entry.eventDate}>{entry.eventDate.replaceAll('-', '.')}</time></span><span>落笔 <time dateTime={entry.writtenDate}>{entry.writtenDate.replaceAll('-', '.')}</time></span></p>
+        <p className="journal-entry__dates">{getJournalDates(entry).map(item => <span key={item.label}>{item.label}{item.date ? <> <time dateTime={item.date}>{item.display}</time></> : null}</span>)}</p>
         <h3 id={`note-${entry.id}-title`}>{entry.title}</h3>
         <p className="journal-entry__subtitle">{entry.subtitle}</p>
         {entry.tags.length ? <ul className="journal-entry__tags" aria-label="手记主题">{entry.tags.map(tag => <li key={tag}>{tag}</li>)}</ul> : null}

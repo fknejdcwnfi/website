@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import PixelIcon from './PixelIcon'
-import { getSiteGithub, getSiteRepository, getSiteNavigation, getSiteSearchEntries, getTableOfContents, searchSite, site } from '../content/site'
+import { getSiteGithub, getSiteRepository, getSiteNavigation, getSiteSearchEntries, getTableOfContents, site } from '../content/site'
 import { getNavigationIconPath } from '../content/navigationIcons'
+import { createSearchIndex, searchIndex } from '../content/searchIndex'
 
 function NavigationIcon({ href }: { href: string }) {
   return <svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath(href)} /></svg>
@@ -16,7 +17,8 @@ function SiteSearch() {
   const imeSubmit = useRef(false)
   const imeTimer = useRef<number | undefined>(undefined)
   const isImeKey = (event: KeyboardEvent): boolean => composing.current || event.isComposing || event.keyCode === 229
-  const matches = searchSite(getSiteSearchEntries(site), query)
+  const index = useMemo(() => createSearchIndex(getSiteSearchEntries(site)), [])
+  const matches = searchIndex(index, query)
   const describeGroup = (href: string) => {
     if (href.startsWith('#note-')) return { id: 'journal', label: '手记', icon: '#journal' }
     if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }

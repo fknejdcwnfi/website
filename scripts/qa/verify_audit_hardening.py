@@ -132,7 +132,8 @@ try:
 
         legacy = r'''(() => {
           const native=window.matchMedia.bind(window);
-          window.matchMedia=query=>{const media=native(query);return {media:media.media,get matches(){return media.matches},
+          window.__audit.legacyQueries=[];
+          window.matchMedia=query=>{const media=native(query);window.__audit.legacyQueries.push(media);return {media:media.media,get matches(){return media.matches},
             addListener(fn){window.__audit.legacyAdds++;media.addEventListener('change',fn)},
             removeListener(fn){window.__audit.legacyRemoves++;media.removeEventListener('change',fn)}}};
         })();'''
@@ -140,10 +141,28 @@ try:
         page.goto(args.url)
         wait_scene(page)
         page.emulate_media(reduced_motion='reduce')
-        wait_scene(page, 'static')
+        wait_scene(page)
         page.emulate_media(reduced_motion='no-preference')
         wait_scene(page)
-        check('legacy_media_listener_real_preference_changes', page.evaluate('window.__audit.legacyAdds>0'))
+        added = page.evaluate('window.__audit.legacyAdds')
+        original_queries = page.evaluate('window.__audit.legacyQueries.map(q=>({media:q.media,matches:q.matches}))')
+        ctx.new_cdp_session(page).send('Emulation.setDeviceMetricsOverride',
+              {'width': 1440, 'height': 1100, 'deviceScaleFactor': 4, 'mobile': False})
+        # This CDP transition updates DPR/MQL.matches without always dispatching a
+        # native change event. Exercise the supported resize fallback explicitly,
+        # then restore the Playwright viewport, which emits the native MQL change.
+        page.evaluate('window.dispatchEvent(new Event("resize"))')
+        page.wait_for_function('''() => devicePixelRatio===4 &&
+          document.querySelector('.reference-scene__canvas').width===2864''')
+        check('legacy_media_actual_dpr_resize_fallback_updates_canvas', True)
+        changed_queries = page.evaluate('window.__audit.legacyQueries.map(q=>({media:q.media,matches:q.matches}))')
+        check('legacy_media_actual_query_state_changes', original_queries and
+              all(query['matches'] for query in original_queries) and
+              all(not query['matches'] for query in changed_queries),
+              {'before': original_queries, 'dpr4': changed_queries})
+        page.set_viewport_size({'width': 1400, 'height': 1050})
+        page.wait_for_function('before => devicePixelRatio===1 && window.__audit.legacyAdds>before', arg=added)
+        check('legacy_media_listener_real_resolution_changes', page.evaluate('window.__audit.legacyAdds>0'))
         no_unexpected_events(page, entry, 'legacy_media')
         ctx.close()
 
@@ -151,14 +170,12 @@ try:
                                  ('throwing_media_query', 'window.matchMedia=()=>{throw new Error("injected matchMedia failure")};')]:
             ctx, page, entry = context(label, injection)
             page.goto(args.url)
-            wait_scene(page, 'static')
-            early = [url for url in entry['requests'] if '/poetic-pixel/' in url and
-                     any(asset in url for asset in ('/atlas.png', '/boot.mp4'))]
-            check(label + '_unknown_preference_conservatively_static', not early, early)
-            page.get_by_role('button', name='开启动态', exact=True).click()
             wait_scene(page)
-            page.get_by_role('button', name='跟随系统', exact=True).click()
+            check(label + '_default_motion_survives_missing_optional_media_api', True)
+            page.get_by_role('button', name='暂停动态', exact=True).click()
             wait_scene(page, 'static')
+            page.get_by_role('button', name='开启动画', exact=True).click()
+            wait_scene(page)
             check(label + '_explicit_choice_reversible', True)
             local_content(page, label)
             no_unexpected_events(page, entry, label)
@@ -194,14 +211,15 @@ try:
                 no_unexpected_events(page, entry, label)
                 ctx.close()
 
-        # Parser gets a real query and starts the original media. A later query
-        # throws during React render before it can reattach the retained node.
+        # Parser reads parameters and starts original media. App's later parameter
+        # read throws during React render before it can reattach the retained node.
         boundary = r'''(() => {
-          const native=window.matchMedia.bind(window);let preferences=0;
-          window.matchMedia=query=>{
-            if(query==='(prefers-reduced-motion: reduce)'&&++preferences>1)
-              return {get matches(){throw new Error('injected React render failure')}};
-            return native(query);
+          const Native=window.URLSearchParams;let reads=0;
+          window.URLSearchParams=class extends Native {
+            constructor(...args) {
+              if(args[0]===location.search&&++reads>1)throw new Error('injected React render failure');
+              super(...args);
+            }
           };
         })();'''
         ctx, page, entry = context('boundary_retained_video_cleanup', boundary)

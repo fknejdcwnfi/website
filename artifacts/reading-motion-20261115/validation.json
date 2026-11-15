@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "baselineCommit": "2a3c3b006ea8b14be84f66b225e3dae37f4e021b",
+  "nodeTests": 148,
+  "browserChecks": {
+    "journal-root.json": 34,
+    "journal-pages.json": 34,
+    "motion-root.json": 44,
+    "motion-pages.json": 44,
+    "cream.json": 155,
+    "ui.json": 199,
+    "profile.json": 276,
+    "scene.json": 134,
+    "hardening.json": 111
+  },
+  "browserTotal": 1031,
+  "publicFilesMatchBuild": 99,
+  "identifyingSourceMarkersAbsent": true,
+  "rawDocumentNotPublic": true,
+  "startupSubsetBytes": 28280,
+  "fullFontPreserved": true,
+  "productionIndexSha256": "be9d69a9d7f87d0fa6edcadd28592a808e3b07356dd8bd334d494bd53eefc933",
+  "limits": [
+    "Microbenchmark measures repeated local CPU work, excludes index preparation, and does not prove visitor input latency.",
+    "A fresh single Chromium cadence sample does not establish physical display FPS or all-device performance.",
+    "CDP DPR event dispatch is not a physical-display test; actual DPR/canvas and read-query viewport restoration were observed separately."
+  ]
+}
