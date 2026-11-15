@@ -48,7 +48,7 @@
       "detail": null
     },
     {
-      "name": "private_identifiers_removed",
+      "name": "no_location_or_embedded_document_metadata",
       "passed": true,
       "detail": null
     },

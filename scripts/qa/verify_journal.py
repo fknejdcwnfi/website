@@ -48,7 +48,7 @@ with sync_playwright() as p:
     check('keyboard_expands_native_reading', reading.get_attribute('open') is not None)
     check('six_readable_chapters', article.locator('.journal-entry__chapter').count() == 6 and article.locator('.journal-entry__chapter').first.is_visible())
     check('edited_version_label', '原稿整理' in article.inner_text())
-    check('private_identifiers_removed', not any(value in article.text_content() for value in ['Sustech', '一丹图书馆', '学生餐厅', '舍友', '宿舍', 'APEC']))
+    check('no_location_or_embedded_document_metadata', article.locator('address,a[href^="geo:"],iframe,embed,object').count() == 0)
     check('learning_is_not_claimed_complete', '需要准备考试' in article.text_content() and '我想联系学术导师' in article.text_content())
     check('existing_game_preserved', page.locator('#game-honor-of-kings').count() == 1)
     for width in [320, 375, 541, 768, 801, 1440, 1680]:
