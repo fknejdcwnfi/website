@@ -1,0 +1,97 @@
+{
+  "baselineCommit": "1aee28a9dbc798d052ca33d2ccd742a23ea162a9",
+  "queriedAtUtc": "2026-11-15T15:49:33.550911+00:00",
+  "lockSha256": "30cae0c57e282692ca157c79e136daeb6d0a143ebf7ac835ccc47ff242919e4e",
+  "lockPackages": 70,
+  "allResolvedUrlsUseHttps": true,
+  "allResolvedPackagesHaveIntegrity": true,
+  "declaredInstallScripts": [
+    {
+      "path": "node_modules/fsevents",
+      "version": "2.3.3",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "package": "react",
+      "version": "19.3.1",
+      "matchedAdvisories": 0,
+      "queryStatus": "succeeded",
+      "source": "GitHub global security advisories API",
+      "query": {
+        "ecosystem": "npm",
+        "affects": "react@19.3.1",
+        "per_page": 100
+      }
+    },
+    {
+      "package": "react-dom",
+      "version": "19.3.1",
+      "matchedAdvisories": 0,
+      "queryStatus": "succeeded",
+      "source": "GitHub global security advisories API",
+      "query": {
+        "ecosystem": "npm",
+        "affects": "react-dom@19.3.1",
+        "per_page": 100
+      }
+    },
+    {
+      "package": "vite",
+      "version": "8.3.5",
+      "matchedAdvisories": 0,
+      "queryStatus": "succeeded",
+      "source": "GitHub global security advisories API",
+      "query": {
+        "ecosystem": "npm",
+        "affects": "vite@8.3.5",
+        "per_page": 100
+      }
+    },
+    {
+      "package": "rolldown",
+      "version": "1.2.15",
+      "matchedAdvisories": 0,
+      "queryStatus": "succeeded",
+      "source": "GitHub global security advisories API",
+      "query": {
+        "ecosystem": "npm",
+        "affects": "rolldown@1.2.15",
+        "per_page": 100
+      }
+    },
+    {
+      "package": "@vitejs/plugin-react",
+      "version": "6.1.2",
+      "matchedAdvisories": 0,
+      "queryStatus": "succeeded",
+      "source": "GitHub global security advisories API",
+      "query": {
+        "ecosystem": "npm",
+        "affects": "@vitejs/plugin-react@6.1.2",
+        "per_page": 100
+      }
+    },
+    {
+      "package": "fsevents",
+      "version": "2.3.3",
+      "matchedAdvisories": 0,
+      "queryStatus": "succeeded",
+      "source": "GitHub global security advisories API",
+      "query": {
+        "ecosystem": "npm",
+        "affects": "fsevents@2.3.3",
+        "per_page": 100
+      }
+    }
+  ],
+  "limits": [
+    "These six exact-version advisory lookups returned no matching records; unqueried transitive dependencies were not declared safe.",
+    "No npm registry audit was run because this environment limits egress to configured hosts.",
+    "Lock integrity and absent matching advisories do not establish absolute security or audit future package releases."
+  ]
+}

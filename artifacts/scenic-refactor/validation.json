@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "baselineCommit": "1aee28a9dbc798d052ca33d2ccd742a23ea162a9",
+  "nodeTests": 159,
+  "browserChecks": {
+    "motion": 35,
+    "pages-motion": 35,
+    "default-motion": 44,
+    "pages-default-motion": 44,
+    "cream": 155,
+    "pages-cream": 155,
+    "ui": 199,
+    "profile": 276,
+    "journal": 34,
+    "pages-journal": 34,
+    "scene": 134,
+    "hardening": 111
+  },
+  "publicFilesMatchBuild": 104,
+  "protectedPathsUnchanged": [
+    "assets/source",
+    "docs/reference",
+    "reference-projects/fuji-wind",
+    "src/features/poeticPixel",
+    "public/assets/poetic-pixel"
+  ],
+  "sixSourcePngAndFullWebpBytesUnchanged": true,
+  "productionIndexSha256": "12976b8e98826da3f2971f19df00158d8d94aca058ef8f4493ec7b08e23770af",
+  "limits": [
+    "Responsive variants retain nearest-sampled source colors, not every full-size source pixel.",
+    "Actual encoded bytes measured in local fresh contexts; not visitor transfer latency or CWV.",
+    "A single local cadence sample and CDP signal injection do not establish physical display FPS or all-device behavior.",
+    "Six exact dependency advisory queries are not a guarantee for all transitive dependencies."
+  ],
+  "browserTotal": 1256
+}

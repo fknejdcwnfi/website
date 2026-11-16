@@ -1,3 +1,4 @@
+import '../archive/styles/portrait.css'
 import CharacterStage from '../features/portrait/components/CharacterStage'
 import { readStageOptions } from '../features/portrait/animation/stageOptions'
 import PortraitBoundary from '../features/portrait/components/PortraitBoundary'

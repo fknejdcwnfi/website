@@ -4,6 +4,7 @@ import { site } from './src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from './src/features/profile/content/staticMarkup.ts'
 import { protectStaticHtml } from './scripts/build/securityPolicy.ts'
 import { parserMotionExpression } from './src/features/referenceScene/motionPreference.ts'
+import { publicAssetsGuard } from './scripts/build/publicAssets.ts'
 
 /**
  * GitHub Pages serves this repository from https://fknejdcwnfi.github.io/website/,
@@ -15,7 +16,7 @@ import { parserMotionExpression } from './src/features/referenceScene/motionPref
  */
 export default defineConfig(({ mode }) => ({
   base: process.env.VITE_BASE ?? (mode === 'production' ? '/website/' : '/'),
-  plugins: [react(), {
+  plugins: [publicAssetsGuard(), react(), {
     name: 'personal-site-static-content',
     transformIndexHtml: {
       order: 'pre',

@@ -156,9 +156,12 @@ try:
           document.querySelector('.reference-scene__canvas').width===2864''')
         check('legacy_media_actual_dpr_resize_fallback_updates_canvas', True)
         changed_queries = page.evaluate('window.__audit.legacyQueries.map(q=>({media:q.media,matches:q.matches}))')
-        check('legacy_media_actual_query_state_changes', original_queries and
-              all(query['matches'] for query in original_queries) and
-              all(not query['matches'] for query in changed_queries),
+        resolution_queries = [query for query in original_queries if query['media'].startswith('(resolution:')]
+        original_media = {query['media'] for query in resolution_queries}
+        changed_resolution = [query for query in changed_queries if query['media'] in original_media]
+        check('legacy_media_actual_query_state_changes', resolution_queries and changed_resolution and
+              all(query['matches'] for query in resolution_queries) and
+              all(not query['matches'] for query in changed_resolution),
               {'before': original_queries, 'dpr4': changed_queries})
         page.set_viewport_size({'width': 1400, 'height': 1050})
         page.wait_for_function('before => devicePixelRatio===1 && window.__audit.legacyAdds>before', arg=added)

@@ -104,6 +104,7 @@ def scenic_chrome(page, label, *, browser_images=True):
         ['email','.social-card[data-platform="email"] .social-card__scene','social-mail.webp']
       ].map(([name,selector,file])=>{const e=document.querySelector(selector);return {
         name,selector,file,visible:!!e&&visible(e),image:e?.currentSrc||e?.src||'',
+        fallback:e?.src||'',candidates:(e?.srcset||'').split(',').map(s=>s.trim().split(/\s+/)[0]).filter(Boolean).map(src=>new URL(src,location.href).href),
         loading:e?.getAttribute('loading'),alt:e?.getAttribute('alt'),hidden:e?.getAttribute('aria-hidden'),
         width:e?.getAttribute('width'),height:e?.getAttribute('height')
       }});
@@ -120,7 +121,7 @@ def scenic_chrome(page, label, *, browser_images=True):
     }''')
     check(label + '_twilight_background_declared', 'twilight-world.webp' in info['worldImage'], info['worldImage'])
     check(label + '_blue_header', len(info['header']) == 3 and info['header'][2] > info['header'][0], info['header'])
-    check(label + '_image_cards_visible', all(t['visible'] and t['file'] in t['image'] for t in info['tiles']), info['tiles'])
+    check(label + '_image_cards_visible', all(t['visible'] and t['file'] in t['fallback'] and t['image'] in t['candidates'] for t in info['tiles']), info['tiles'])
     check(label + '_native_lazy_decorative_images', all(
         t['loading'] == 'lazy' and t['alt'] == '' and t['hidden'] == 'true' and
         int(t['width'] or 0) > 0 and int(t['height'] or 0) > 0 for t in info['tiles']), info['tiles'])
@@ -144,7 +145,7 @@ def scenic_chrome(page, label, *, browser_images=True):
                 image = page.locator(tile['selector'])
                 image.scroll_into_view_if_needed()
                 decoded_tiles.append(image.evaluate('''async image=>{
-                  try { await image.decode(); return {src:image.currentSrc,loaded:image.complete&&image.naturalWidth===Number(image.getAttribute('width'))&&image.naturalHeight===Number(image.getAttribute('height'))}; }
+                  try { await image.decode(); return {src:image.currentSrc,loaded:image.complete&&image.naturalWidth>0&&image.naturalHeight>0&&Math.abs(image.naturalWidth/image.naturalHeight-Number(image.getAttribute('width'))/Number(image.getAttribute('height')))<.03}; }
                   catch { return {src:image.currentSrc||image.src,loaded:false}; }
                 }'''))
         finally:
@@ -164,7 +165,7 @@ def scenic_chrome(page, label, *, browser_images=True):
         # With scripts disabled Chromium does not dispatch an injected Image's
         # event callbacks. The actual document IMG nodes still load normally.
         actual = [page.locator(tile['selector']).evaluate('''image=>({src:image.currentSrc,
-          loaded:image.complete&&image.naturalWidth===Number(image.getAttribute('width'))&&image.naturalHeight===Number(image.getAttribute('height'))})''')
+          loaded:image.complete&&image.naturalWidth>0&&image.naturalHeight>0&&Math.abs(image.naturalWidth/image.naturalHeight-Number(image.getAttribute('width'))/Number(image.getAttribute('height')))<.03})''')
                   for tile in info['tiles']]
         check(label + '_actual_nojs_card_images_decoded', len(actual) == 5 and all(
             image['loaded'] for image in actual), actual)

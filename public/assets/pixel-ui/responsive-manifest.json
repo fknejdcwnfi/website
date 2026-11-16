@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "generatedBy": "scripts/assets/prepare_responsive_decor.py",
+  "resample": "nearest-neighbor",
+  "dimensionsRounding": "integer-half-up",
+  "fullSourcesPreserved": true,
+  "allOriginalPixelsRetainedInVariants": false,
+  "encoder": {
+    "pillow": "12.3.0",
+    "libwebp": "1.6.0",
+    "options": {
+      "lossless": true,
+      "quality": 100,
+      "method": 6,
+      "exact": true
+    }
+  },
+  "images": [
+    {
+      "source": "conan.webp",
+      "sourceSha256": "522389f76ba761bf9a72dbc9f85f402ab45613043cdb06afbebf5f99f5606c43",
+      "sourceBytes": 1723086,
+      "width": 2172,
+      "height": 724,
+      "variants": [
+        {
+          "file": "responsive/conan-768.webp",
+          "width": 768,
+          "height": 256,
+          "bytes": 297080,
+          "sha256": "636954517d5a2c3438cf49a22fe5a6aec39c97afc02cd47eaa76ed64e1af98f5",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "929f227e936efb934d8dacd23c1a69bc17fea5b413f53f2d358c38e1ef9c9f54"
+        },
+        {
+          "file": "responsive/conan-1536.webp",
+          "width": 1536,
+          "height": 512,
+          "bytes": 970892,
+          "sha256": "7b19d5ac5acae71cdbad23b6e89051c9168b1a8a25026792f4dd14257137d415",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "4c46b2c7498ea75abbca499ee84b9c9398c17117efbe313022ecfc371e89bea7"
+        }
+      ]
+    },
+    {
+      "source": "game-realm.webp",
+      "sourceSha256": "9be5ea16a36db677c6b0c866c874c9e1d228b90d26a7ad57c648f1d8afa8eff3",
+      "sourceBytes": 1282202,
+      "width": 2172,
+      "height": 724,
+      "variants": [
+        {
+          "file": "responsive/game-realm-768.webp",
+          "width": 768,
+          "height": 256,
+          "bytes": 214276,
+          "sha256": "58fbae5ccf176707fa2ced445dd07052312e2bdd4b02ec6a7bc7c108b89da0bd",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "f7a766f483e5bdcad177f9d23b43a7ebcb02584c089f0fd1f037376551202df0"
+        },
+        {
+          "file": "responsive/game-realm-1536.webp",
+          "width": 1536,
+          "height": 512,
+          "bytes": 711896,
+          "sha256": "843860f7667e87f7f904a747fda8d4aa367d0340f8282078bf718f99f5352f1f",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "95a2aac92ec15ae75ea017f5233502632dcd36d492af2c1914399d39c49bf56a"
+        }
+      ]
+    },
+    {
+      "source": "naruto.webp",
+      "sourceSha256": "07cfbe280ec48a0c992c716cf9a82cd89f2a48467284dfd67bf0272a11013b40",
+      "sourceBytes": 2041608,
+      "width": 1774,
+      "height": 887,
+      "variants": [
+        {
+          "file": "responsive/naruto-768.webp",
+          "width": 768,
+          "height": 384,
+          "bytes": 494642,
+          "sha256": "80f68c842c827500624486a5b797a8f1fbfa74de978d9e9d7b93f1df9454603d",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "8fa8904d9ae810260ff4008981fcc691cf74b3625aa6e275b13693782fe1c9d1"
+        },
+        {
+          "file": "responsive/naruto-1536.webp",
+          "width": 1536,
+          "height": 768,
+          "bytes": 1611180,
+          "sha256": "90f1c878c096aed028fe0b0d6ea637d37431515f1a498b1b896e3a37ce7dfc3a",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "75e792628defdbc249b143442e4f57d0ab0fa0ecef5ddd09bb5f1d16dcdc4b73"
+        }
+      ]
+    },
+    {
+      "source": "social-github.webp",
+      "sourceSha256": "45ccdba3ce071d7e815f4cb3114a8dec470afa28dd8181ad52ed80318bc971ba",
+      "sourceBytes": 911076,
+      "width": 2172,
+      "height": 724,
+      "variants": [
+        {
+          "file": "responsive/social-github-768.webp",
+          "width": 768,
+          "height": 256,
+          "bytes": 152142,
+          "sha256": "c8e3a1d02ae19b87356775202e5e9d42edd9710f8e21a62cb649c7e2e70eb40f",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "a438598b7b8266d1c2cfa8c55e6c8078d0253a76f87339fe687a66ba6beb3e80"
+        },
+        {
+          "file": "responsive/social-github-1536.webp",
+          "width": 1536,
+          "height": 512,
+          "bytes": 507018,
+          "sha256": "7557a53dadc5106f710759d0c8d253e5f9fbcb9bdacd23e5b64d25fb0a087bcb",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "7d0c8d45b7e1970363cef2d767d290e3877c7969ed3390d782a1056361619359"
+        }
+      ]
+    },
+    {
+      "source": "social-mail.webp",
+      "sourceSha256": "9537c9a8f6e5c1d947daad81b906d7ff4f94a9bcc444afcb73412c11db052d51",
+      "sourceBytes": 856866,
+      "width": 2172,
+      "height": 724,
+      "variants": [
+        {
+          "file": "responsive/social-mail-768.webp",
+          "width": 768,
+          "height": 256,
+          "bytes": 148198,
+          "sha256": "3b1a201de671a7418ec6aa632b74410cfdcc7a4c1296a579d428c137027e8da1",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "9a5014b54c4e9106a90302dfff78363a56d5f8637ea2525d1fe48dacbabf9fc2"
+        },
+        {
+          "file": "responsive/social-mail-1536.webp",
+          "width": 1536,
+          "height": 512,
+          "bytes": 482308,
+          "sha256": "1612e2926f6ce6d292270c0aad32010e757563f2f5afbbe4bb9e81f266c8b18d",
+          "decodedFormat": "RGBA",
+          "decodedSha256": "494e7a9bde609eb53743a66e00b989c85d115110cdb0b57afb314b996ece476e"
+        }
+      ]
+    }
+  ],
+  "fullSourceBytes": 6814838,
+  "variantBytes": 5589632
+}

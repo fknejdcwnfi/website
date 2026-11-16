@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "generatedBy": "scripts/assets/optimize_pixel_ui.py",
   "encoder": {
     "pillow": "12.3.0",
@@ -16,7 +16,7 @@
   "bytesSaved": 2909114,
   "images": [
     {
-      "source": "conan.png",
+      "source": "assets/generated/pixel-ui/conan.png",
       "sourceSha256": "e58cccc62da07e969ead31b528be711c5bffd1682c09dbcaea401ade85d269a0",
       "sourceBytes": 2172862,
       "file": "conan.webp",
@@ -29,7 +29,7 @@
       "decodedPixelsIdentical": true
     },
     {
-      "source": "game-realm.png",
+      "source": "assets/generated/pixel-ui/game-realm.png",
       "sourceSha256": "fd635623913f51c08ab37b56a5e6c1d5b2684b6a70bcba3ba5b91b66ac34c8c7",
       "sourceBytes": 1785554,
       "file": "game-realm.webp",
@@ -42,7 +42,7 @@
       "decodedPixelsIdentical": true
     },
     {
-      "source": "naruto.png",
+      "source": "assets/generated/pixel-ui/naruto.png",
       "sourceSha256": "f6a95353999299b190d03ac6b66916022477700f45001bfa5c55f71654588c0f",
       "sourceBytes": 2502462,
       "file": "naruto.webp",
@@ -55,7 +55,7 @@
       "decodedPixelsIdentical": true
     },
     {
-      "source": "social-github.png",
+      "source": "assets/generated/pixel-ui/social-github.png",
       "sourceSha256": "bca4c39aae007d4681ea5b7b2088f371365bf888429e0f38fa024147ee3486af",
       "sourceBytes": 1442214,
       "file": "social-github.webp",
@@ -68,7 +68,7 @@
       "decodedPixelsIdentical": true
     },
     {
-      "source": "social-mail.png",
+      "source": "assets/generated/pixel-ui/social-mail.png",
       "sourceSha256": "f106d60426ee90ea711028920795064c84ef4115aa55790cd5087f3e0673453e",
       "sourceBytes": 1376087,
       "file": "social-mail.webp",
@@ -81,7 +81,7 @@
       "decodedPixelsIdentical": true
     },
     {
-      "source": "twilight-world.png",
+      "source": "assets/generated/pixel-ui/twilight-world.png",
       "sourceSha256": "a9f6ef8866538d2235ed40de3d279f6d3241d41dd4cfc64e27e69ba15f98f1ff",
       "sourceBytes": 2086311,
       "file": "twilight-world.webp",

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "pngSourceBytesMoved": 11365490,
+  "allSixOriginalPngHashesUnchanged": true,
+  "allSixWebpHashesUnchanged": true,
+  "invalidManifestCasesRejected": 6,
+  "baseCssBytes": 1144,
+  "lazyLegacyCssBytes": 7241
+}
