@@ -4,17 +4,14 @@ import PixelIcon from './PixelIcon'
 import JournalSection from './JournalSection'
 import { poeticPixelAssets } from '../../poeticPixel/assets'
 import { getNavigationIconPath } from '../content/navigationIcons'
+import { getProjectOverview } from '../content/projectPresentation'
 
 const Arrow = () => <PixelIcon name="arrow-up-right" />
 
 export default function PersonalSections() {
   const github = getSiteGithub(site)
   const projects = getProjects(site)
-  const projectOverview = [
-    { label: '公开项目', count: projects.length },
-    { label: '持续制作', count: projects.filter(project => project.status === 'active').length },
-    { label: '已归档', count: projects.filter(project => project.status === 'archived').length },
-  ]
+  const projectOverview = getProjectOverview(projects)
   return (
     <>
       <section className="personal-section" id="about" aria-labelledby="about-title" tabIndex={-1}>

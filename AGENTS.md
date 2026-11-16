@@ -6,10 +6,11 @@ instructions. Current guides are indexed in [docs](docs/README.md).
 
 ## Current design and behavior
 
-- Preserve the Minecraft-inspired twilight scenery, blue header, cream reading
+- Preserve the Minecraft-inspired twilight scenery, blue header, warm-white reading
   panels, pixel typography and SVG icons. Keep real content, both journals,
   seven section targets, keyboard navigation, local search and no-JS reading.
-- Reuse the shared 1px border and 16/14/10px panel/card/control tokens. Keep focus
+- Reuse themeTokens.css for typography, surfaces, spacing and the shared 1px
+  border and 16/14/10px panel/card/control tokens. Keep focus
   visible; search focus belongs to its single rounded form container.
 - The owner explicitly requests default animated playback, including OS reduced
   motion. The reader's reversible local dynamic/static choice wins after that.
@@ -102,7 +103,7 @@ instructions. Current guides are indexed in [docs](docs/README.md).
 
 Current contracts: [scene](docs/guides/poetic-pixel.md),
 [reading/motion](docs/guides/reading-motion.md),
-[UI](docs/guides/ui-consistency.md),
+[reading theme](docs/guides/calm-pixel.md), [UI](docs/guides/ui-consistency.md),
 [repository maintenance](docs/guides/repository-maintenance.md).
 Earlier instruction history remains in Git and the historical guides; it must
 not override the current owner request or these current contracts.

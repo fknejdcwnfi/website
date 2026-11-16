@@ -1,0 +1,164 @@
+{
+  "status": "failed",
+  "scope": "complete",
+  "checks": [
+    {
+      "name": "desktop_dpr1_circle",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_crisp",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_capped",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_resolution",
+      "passed": true,
+      "detail": {
+        "width": 448,
+        "height": 448,
+        "radius": "50%",
+        "border": "0px",
+        "shadow": "none",
+        "overflow": false,
+        "canvas": [
+          1432,
+          1068
+        ],
+        "smoothing": false,
+        "filter": "none",
+        "transform": "none",
+        "imageRendering": "pixelated",
+        "dpr": 1
+      }
+    },
+    {
+      "name": "desktop_dpr1_no_overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "complete_site",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "only_reader_motion_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "snow_and_petals_selected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "one_bounded_native_atlas_readback",
+      "passed": true,
+      "detail": [
+        {
+          "canvas": [
+            2864,
+            2136
+          ],
+          "region": [
+            0,
+            0,
+            2864,
+            2136
+          ]
+        }
+      ]
+    },
+    {
+      "name": "source_frames_without_pixel_readback",
+      "passed": false,
+      "detail": {
+        "additionalReadbacks": 0,
+        "sourceFramesObserved": 4
+      }
+    }
+  ],
+  "browserErrors": [],
+  "sourceSamples": [],
+  "weatherSamples": [],
+  "presentation": [
+    {
+      "label": "desktop_dpr1",
+      "width": 448,
+      "height": 448,
+      "radius": "50%",
+      "border": "0px",
+      "shadow": "none",
+      "overflow": false,
+      "canvas": [
+        1432,
+        1068
+      ],
+      "smoothing": false,
+      "filter": "none",
+      "transform": "none",
+      "imageRendering": "pixelated",
+      "dpr": 1
+    }
+  ],
+  "sourceFrames": 16,
+  "estimatedInterframes": 48,
+  "playbackFps": 50,
+  "snowParticles": 448,
+  "petalParticles": 60
+}

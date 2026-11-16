@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "baselineCommit": "64a3282da47053607cff600bbe57bcc27d692da7",
+  "scope": "Optional MediaQueryList API failure handling in an injected local object; not evidence of a current visitor-facing vulnerability.",
+  "finding": {
+    "file": "src/features/referenceScene/browserSignals.ts",
+    "trigger": "The addEventListener property getter throws before registration.",
+    "before": {
+      "escapedOptionalBoundary": true,
+      "legacyFallbackRegistered": false
+    },
+    "fix": "Move the modern-method existence check inside the existing setup try/catch; preserve partial-registration cleanup and legacy fallback."
+  },
+  "regression": {
+    "newCase": "Modern method getter and optional modern cleanup getter throw; legacy listener registers, dispatches, removes exactly once, and ignores a retained callback after disposal.",
+    "existingPartialModernRegistrationTestRetained": true,
+    "nodeTests": 7,
+    "passed": 7,
+    "failed": 0,
+    "typecheck": "passed",
+    "diffCheck": "passed"
+  },
+  "filesChanged": [
+    "src/features/referenceScene/browserSignals.ts",
+    "scripts/tests/test_browser_signals.mjs"
+  ],
+  "notChanged": [
+    "renderer",
+    "source pixels",
+    "artwork assets",
+    "CSP",
+    "publication inventory policy"
+  ]
+}

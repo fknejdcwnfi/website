@@ -6,6 +6,7 @@
 
 | 目录 | 实际记录的范围 |
 | --- | --- |
+| [calm-pixel](calm-pixel/README.md) | 暖白阅读、主题整理、可选媒体API修复与两种托管路径的独立回归 |
 | [scenic-refactor](scenic-refactor/README.md) | 仓库职责、公开目录保护、响应式资源与可暂停微动的独立证据 |
 | [reading-motion-20261115](reading-motion-20261115/README.md) | 第二篇手记、未知日期、搜索计算、默认动态与本地暂停的独立验证 |
 | [journal-20261115](journal-20261115/README.md) | 《转型日》公开整理、原生阅读、日期、全文搜索、7章节及两种托管路径验证 |

@@ -56,6 +56,30 @@ test('partially registered modern media listeners are removed before legacy fall
   assert.equal(modern.size + legacy.size, 0)
 })
 
+test('unreadable modern media methods fall back to legacy and gate detached callbacks', () => {
+  const listeners = new Set()
+  let modernReads = 0, added = 0, removed = 0, changes = 0
+  const query = {
+    get addEventListener() { modernReads++; throw new Error('Unreadable optional modern API') },
+    get removeEventListener() { throw new Error('Unreadable optional cleanup API') },
+    addListener(callback) { added++; listeners.add(callback) },
+    removeListener(callback) { removed++; listeners.delete(callback) },
+  }
+  let stop
+  assert.doesNotThrow(() => { stop = listenMediaQuery(query, () => { changes++ }) })
+  assert.equal(modernReads, 1)
+  assert.equal(added, 1)
+  assert.equal(listeners.size, 1)
+  const queued = [...listeners][0]
+  queued()
+  assert.equal(changes, 1)
+  assert.doesNotThrow(() => { stop(); stop() })
+  assert.equal(removed, 1)
+  assert.equal(listeners.size, 0)
+  queued()
+  assert.equal(changes, 1, 'a callback retained before cleanup cannot run after disposal')
+})
+
 test('observer constructor and partial observe failures preserve cleanup and gate queued callbacks', () => {
   for (const [name, observe] of [['IntersectionObserver', observeIntersection], ['ResizeObserver', observeResize]]) {
     withGlobals({ [name]: class { constructor() { throw new Error('Constructor unavailable') } } }, () => {

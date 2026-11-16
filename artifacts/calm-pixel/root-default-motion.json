@@ -1,0 +1,835 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5180/",
+  "checks": [
+    {
+      "name": "ordinary_first_visit_production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary_first_visit_reader_pause_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary_first_visit_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 1221142447,
+          "elapsed": 1963.25,
+          "frame": 34,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 2149433380,
+          "elapsed": 2179.9500000000007,
+          "frame": 44,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 373560785,
+          "elapsed": 2363.3500000000004,
+          "frame": 54,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3828823579,
+          "elapsed": 2629.9500000000007,
+          "frame": 3,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3774281669,
+          "elapsed": 2796.6500000000005,
+          "frame": 11,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "ordinary_first_visit_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "system_reduce_first_visit_production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_reduce_first_visit_reader_pause_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_reduce_first_visit_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 101709129,
+          "elapsed": 926.7749999999999,
+          "frame": 46,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3015124405,
+          "elapsed": 1143.3749999999998,
+          "frame": 57,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3685506678,
+          "elapsed": 1343.3749999999998,
+          "frame": 3,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 2173214586,
+          "elapsed": 1493.3749999999998,
+          "frame": 10,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3413521553,
+          "elapsed": 1709.9750000000001,
+          "frame": 21,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "system_reduce_first_visit_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "missing_media_api_production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_media_api_reader_pause_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_media_api_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 1030458092,
+          "elapsed": 1073.708,
+          "frame": 53,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 710025302,
+          "elapsed": 1323.708,
+          "frame": 2,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 2801622508,
+          "elapsed": 1557.0080000000003,
+          "frame": 13,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 1483409639,
+          "elapsed": 1723.6080000000002,
+          "frame": 22,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 4251757290,
+          "elapsed": 1790.208,
+          "frame": 25,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "missing_media_api_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "throwing_media_api_production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "throwing_media_api_reader_pause_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "throwing_media_api_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 3254177189,
+          "elapsed": 941.0270000000003,
+          "frame": 47,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 4262448815,
+          "elapsed": 1124.327,
+          "frame": 56,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 1317384215,
+          "elapsed": 1324.327,
+          "frame": 2,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3231864383,
+          "elapsed": 1541.0270000000003,
+          "frame": 13,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 860871551,
+          "elapsed": 1740.927,
+          "frame": 23,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "throwing_media_api_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "storage_unavailable_production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "storage_unavailable_reader_pause_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "storage_unavailable_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 2692269492,
+          "elapsed": 1841.6619999999998,
+          "frame": 28,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3383252629,
+          "elapsed": 2041.562,
+          "frame": 38,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 294210287,
+          "elapsed": 2241.562,
+          "frame": 48,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 492107112,
+          "elapsed": 2424.8619999999996,
+          "frame": 57,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 95313210,
+          "elapsed": 2624.962,
+          "frame": 3,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "storage_failure_keeps_reversible_memory_choice",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "storage_unavailable_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "legacy_follow_system_is_not_pause_production_http_200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_follow_system_is_not_pause_reader_pause_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "legacy_follow_system_is_not_pause_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 990016574,
+          "elapsed": 1072.089,
+          "frame": 53,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 999372816,
+          "elapsed": 1238.6889999999999,
+          "frame": 61,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3308995366,
+          "elapsed": 1421.989,
+          "frame": 7,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 1107981282,
+          "elapsed": 1572.089,
+          "frame": 14,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 1403364565,
+          "elapsed": 1771.989,
+          "frame": 24,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "legacy_follow_system_is_not_pause_no_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "weather_is_really_disabled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "character_without_weather_actual_pixels_and_source_clock_advance",
+      "passed": true,
+      "detail": [
+        {
+          "hash": 351787617,
+          "elapsed": 695.4060000000002,
+          "frame": 34,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 285425441,
+          "elapsed": 862.106,
+          "frame": 43,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3692173370,
+          "elapsed": 1012.0060000000001,
+          "frame": 50,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3869638298,
+          "elapsed": 1195.4060000000002,
+          "frame": 59,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        {
+          "hash": 3915475259,
+          "elapsed": 1328.7060000000004,
+          "frame": 2,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      ]
+    },
+    {
+      "name": "pause_freezes_displayed_frame_without_canonical_snap",
+      "passed": true,
+      "detail": {
+        "lastDynamic": {
+          "hash": 1175454066,
+          "elapsed": 2112.0060000000003,
+          "frame": 41,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        },
+        "paused": {
+          "hash": 1175454066,
+          "elapsed": 2112.0060000000003,
+          "frame": 41,
+          "width": 1432,
+          "height": 1068,
+          "playback": "static"
+        }
+      }
+    },
+    {
+      "name": "paused_pixels_and_phase_stay_still",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "resume_retains_canvas_and_phase",
+      "passed": true,
+      "detail": {
+        "paused": {
+          "hash": 1175454066,
+          "elapsed": 2112.0060000000003,
+          "frame": 41,
+          "width": 1432,
+          "height": 1068,
+          "playback": "static"
+        },
+        "resumed": {
+          "hash": 869838553,
+          "elapsed": 2578.6400000000003,
+          "frame": 0,
+          "width": 1432,
+          "height": 1068,
+          "playback": "looping"
+        }
+      }
+    },
+    {
+      "name": "explicit_pause_persists_without_motion_media_download",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5180/?atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "name": "paused_parser_matches_player",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "explicit_resume_persists",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "motion_control_context_has_no_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "parser_movie_really_advances_before_atlas",
+      "passed": true,
+      "detail": {
+        "beforeSeconds": 0.253603,
+        "afterSeconds": 0.419998
+      }
+    },
+    {
+      "name": "preview_handoff_retains_node_and_nonzero_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "preview_context_has_no_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "fixed_inspection_stays_fixed_without_normal_control",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fixed_context_has_no_errors",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "atlas_retries_remain_bounded_before_fallback_control",
+      "passed": true,
+      "detail": 3
+    },
+    {
+      "name": "failed_preview_keeps_retry_and_motion_controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "failed_preview_reader_can_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "failed_preview_reader_can_resume",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "failed_preview_only_has_expected_injected_failures",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": [
+          {
+            "url": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+            "status": 503
+          },
+          {
+            "url": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+            "status": 503
+          },
+          {
+            "url": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+            "status": 503
+          }
+        ]
+      }
+    }
+  ],
+  "contexts": [
+    {
+      "label": "ordinary_first_visit",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "system_reduce_first_visit",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "missing_media_api",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "throwing_media_api",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "storage_unavailable",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "legacy_follow_system_is_not_pause",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "character_without_weather",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/?atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/?atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/?atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "reduced_parser_preview_handoff",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "explicit_fixed_inspection",
+      "errors": [],
+      "badResponses": [],
+      "requests": [
+        "http://127.0.0.1:5180/?t=320&atmosphere=0",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg"
+      ]
+    },
+    {
+      "label": "failed_atlas_reader_control",
+      "errors": [],
+      "badResponses": [
+        {
+          "url": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+          "status": 503
+        },
+        {
+          "url": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+          "status": 503
+        },
+        {
+          "url": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+          "status": 503
+        }
+      ],
+      "requests": [
+        "http://127.0.0.1:5180/",
+        "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+        "http://127.0.0.1:5180/assets/index-sRExi3N4.js",
+        "http://127.0.0.1:5180/assets/index-UvJbUNvm.css",
+        "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/favicon.svg",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+        "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5"
+      ]
+    }
+  ],
+  "scope": "Local Chromium functionality and real pixel samples; not a performance benchmark."
+}

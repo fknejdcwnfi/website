@@ -1,0 +1,222 @@
+{
+  "verifiedAtUtc": "2026-11-16T12:51:06.229601+00:00",
+  "baselineCommit": "64a3282da47053607cff600bbe57bcc27d692da7",
+  "nodeTests": {
+    "tests": 160,
+    "passed": 160,
+    "failed": 0
+  },
+  "strictTypeScript": "passed",
+  "builds": {
+    "rootBase": "/",
+    "pagesBase": "/website/"
+  },
+  "assetCheck": "passed",
+  "assetVerify": "passed",
+  "fontCoverageAndResponsiveCheck": "passed",
+  "repositoryGuardUnitTests": 18,
+  "browserSuites": {
+    "root": {
+      "url": "http://127.0.0.1:5180/",
+      "suites": {
+        "reading": {
+          "report": "root-reading.json",
+          "checks": 24,
+          "status": "passed"
+        },
+        "cream": {
+          "report": "root-cream.json",
+          "checks": 155,
+          "status": "passed"
+        },
+        "ui": {
+          "report": "root-ui.json",
+          "checks": 199,
+          "status": "passed"
+        },
+        "profile": {
+          "report": "root-profile.json",
+          "checks": 276,
+          "status": "passed"
+        },
+        "hardening": {
+          "report": "root-hardening.json",
+          "checks": 111,
+          "status": "passed"
+        },
+        "default-motion": {
+          "report": "root-default-motion.json",
+          "checks": 44,
+          "status": "passed"
+        },
+        "motion": {
+          "report": "root-motion.json",
+          "checks": 35,
+          "status": "passed"
+        },
+        "journal": {
+          "report": "root-journal.json",
+          "checks": 34,
+          "status": "passed"
+        },
+        "scene": {
+          "report": "root-scene.json",
+          "checks": 134,
+          "status": "passed"
+        }
+      },
+      "checks": 1012
+    },
+    "pages": {
+      "url": "http://127.0.0.1:5182/website/",
+      "suites": {
+        "reading": {
+          "report": "pages-reading.json",
+          "checks": 24,
+          "status": "passed"
+        },
+        "cream": {
+          "report": "pages-cream.json",
+          "checks": 155,
+          "status": "passed"
+        },
+        "default-motion": {
+          "report": "pages-default-motion.json",
+          "checks": 44,
+          "status": "passed"
+        },
+        "motion": {
+          "report": "pages-motion.json",
+          "checks": 35,
+          "status": "passed"
+        },
+        "journal": {
+          "report": "pages-journal.json",
+          "checks": 34,
+          "status": "passed"
+        }
+      },
+      "checks": 292
+    }
+  },
+  "limits": [
+    "Local Chromium checks, not real-device or visitor CWV proof.",
+    "npm audit endpoint blocked403; exact-version GitHub advisory lookup is partial.",
+    "One concurrent scene attempt failed its existing frame-count threshold; isolated full rerun passed without changing threshold or renderer."
+  ],
+  "browserChecksPassed": 1304,
+  "productionRootFiles": {
+    "favicon.svg": "8a4cbf200b686f03d87ba0f658a888bc30001d3adc8bcc88dfe1f08f813adcfd",
+    "index.html": "d7c19b1c119b540cd7d05a17ee3f7e9a38b249fec8d586003512b7ca97f9d73c",
+    "og-image.webp": "63a633f90772ffc99fe2c6595b5a732cd7ee3ba7da6fa1914dde2da5851591ad",
+    "og-pixel.png": "2fc981d5769000e50709c5432c944a45ea7c77a6f812093027f05070ccee8958",
+    "og-portrait.png": "48a53e8cbeb5382ed03bc35d16c9c685e50331ed36dcb04c967edfe067d7a0d0",
+    "portrait-rest.png": "ee64e8324581e5fe144c5911ac0a0f2f67671a5425bd447b2df638336efb4eb2",
+    "robots.txt": "a5c08bfb680eeeb76529c3962b2cf4a4aee8b2cbc056e5d54e99bea815bd8421",
+    "sitemap.xml": "b2aadde73cd3d5df6c10ec5bcb8ebfadaa14c6fe030fa4606f1b9cb0b69f93e0",
+    "assets/voxelPlayer-Dzc3LFmd.js": "d45059651e363069285c5b1807cd653daf588931e3fd8279b713046afea1e0de",
+    "assets/index-DjgW0559.css": "ec3ba82f54c2e132190b2f5c836abc73bdf79de22a5d23a7281c8142f9c3517c",
+    "assets/ArchivedPortrait-DNvozQad.js": "3fb14b7d015dae472b299c8dd3324e16744f348ecde89bd686d9d2edf37b75ea",
+    "assets/index-auuCGPaJ.js": "e07a293eb498a18291aec2fb4e61d8ad9c034fd11dd0ceaf71d0cba5ad8f6074",
+    "assets/hairPhysics.worker-BTlrfoNr.js": "5e5bbf1f1b20e773d6efa31bfe8609ad0686d9ee59d7b7a84658fd63c0089158",
+    "assets/manifest.json": "4f64013cfab23026c59d383b5adae49a9fd9521da48b5a227ced0bb56bc59470",
+    "assets/player-DIWUr6jt.js": "4d75276409238ae87d27faa84655d7fb8e540cdf433ced529ee1cd0e800a2f9c",
+    "assets/ArchivedPortrait-BPlJbUOm.css": "b2068c699981a6c8083f56b8c880e2482ecdcc0242a0f8992a752e1fb509c4a2",
+    "fonts/OFL.txt": "172c7cfc7e60165cab231417c0bbd73809b72a8e8e1e89ac9538607c5293a780",
+    "fonts/fusion-pixel-12px-proportional-zh_hans.woff2": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+    "fonts/FusionPixel-OFL.txt": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63",
+    "fonts/FusionPixel-SOURCE.txt": "6e2f35d478e395b9bede4cffc6074f0bed19af0ffc42c734cc60d6ab4da4e63f",
+    "fonts/PressStart2P-Regular.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+    "fonts/fusion-pixel-startup-subset.woff2": "6e91d3056321958af5ceb221cc0f7a010104815d5235eda97409dc4e4f3b2af5",
+    "fonts/FusionPixel-Cubic11-OFL.txt": "bdd640c94530f5845de621089875aefcaec17585dbd4dab191c97118539bf92f",
+    "fonts/FusionPixel-ArkPixel-OFL.txt": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee",
+    "fonts/fusion-pixel-startup-subset.json": "e20177a7351ffc08f542f971eced9059f4c49effd8928af1d29dd853fd60ceb5",
+    "assets/frames/frame_07.webp": "875e91bf593cfafb7a8f591352d1734e2888b61a988f077dbc75b77f844e3be6",
+    "assets/frames/frame_10.webp": "034d902b017c53e16395fd357de81d43b57dde71e4209c2ec226d9dd5fddac73",
+    "assets/frames/frame_02.webp": "e3e24d9ab48c16dea6d30ac161821c6b40b5e60d8058426d4945bca7e7e312c7",
+    "assets/frames/frame_08.webp": "abf9b3064ecce2dcc68b11896fd7d0ade4261d3a1a69c89130137d5b5568f4e7",
+    "assets/frames/frame_03.webp": "94476f164386ada7307110c4e5370a41c622297732c985fda50e97a4a8dadd35",
+    "assets/frames/frame_09.webp": "b0f40b5e8006cd7c2e8d302229e9c0b69fde8d3a66bc54b78b6a6ee56393d28c",
+    "assets/frames/frame_01.webp": "034d902b017c53e16395fd357de81d43b57dde71e4209c2ec226d9dd5fddac73",
+    "assets/frames/frame_05.webp": "f4acf6edb18ffb69a0c17cd78202f2456f8296bc1aef62999af4d2efbebba4ab",
+    "assets/frames/frame_06.webp": "315968735e871d088778982e2919b0881e089f20dff1216a8d45f3b401a4a5f4",
+    "assets/frames/frame_04.webp": "cd28062855d5c26350eb09472303b1106981785573abca4c4d5cdd88b90cad7f",
+    "assets/pixel-ui/social-mail.webp": "9537c9a8f6e5c1d947daad81b906d7ff4f94a9bcc444afcb73412c11db052d51",
+    "assets/pixel-ui/lantern.svg": "1504de8d14ddc367db0d72a9c88140f7e3b0f3dc99663078c826746032b02914",
+    "assets/pixel-ui/social-github.webp": "45ccdba3ce071d7e815f4cb3114a8dec470afa28dd8181ad52ed80318bc971ba",
+    "assets/pixel-ui/game-realm.webp": "9be5ea16a36db677c6b0c866c874c9e1d228b90d26a7ad57c648f1d8afa8eff3",
+    "assets/pixel-ui/frame-gold.svg": "1f532ccb9f3676214fe02416adb6d75d98fec188b60cd1377479211a8e0aef1b",
+    "assets/pixel-ui/twilight-world.webp": "9e310936a32d3efa463bf4f979c67c799dfa2dfde2c04f14c090d36df8ba2f17",
+    "assets/pixel-ui/naruto.webp": "07cfbe280ec48a0c992c716cf9a82cd89f2a48467284dfd67bf0272a11013b40",
+    "assets/pixel-ui/optimization-manifest.json": "2a93c984d0f5c7fb8c8c4e9f37384a096ff87dcb09ab2eeff788d31ddbf4fba2",
+    "assets/pixel-ui/grass-edge.svg": "66107cc11f33d0bf226212d6ae7d6d35cf60b345afe4599f418f59c876531421",
+    "assets/pixel-ui/frame-violet.svg": "2771e85bd0af067547cee31d5022074463923f0a6cd467b45e47f10498b19fe6",
+    "assets/pixel-ui/grass-block.svg": "cab928cbedcc82ec2299cbfdd71d776c733c37202eb326cfeb976a0a853a0bf5",
+    "assets/pixel-ui/responsive-manifest.json": "9d003fe192f33cbf2ea0d966317c0d9d549b7b1c6a541131fd06ae03cf654554",
+    "assets/pixel-ui/conan.webp": "522389f76ba761bf9a72dbc9f85f402ab45613043cdb06afbebf5f99f5606c43",
+    "assets/pixel-ui/wood-sign.svg": "deb871cee5b50bb7da70e86b658179274574753ec36d81c65e4ea843bc05af50",
+    "assets/portrait-natural/eyelids-192.png": "04b54c596a73f7e85276699c80c44c0e80da41d2bb06dd3e40088c248b50cbba",
+    "assets/portrait-natural/underpaint-192.png": "284409631874c42569c50d35d1aa467a192efff6ea0de6ceefdca2fbae652f70",
+    "assets/portrait-natural/eyelids.png": "1fb65892ef16471c20b085f809b1afbf8219e86edd108c393cf1e0dca9d0b6b4",
+    "assets/portrait-natural/underpaint.png": "06468f9beefc11847e4a6fb11143853b67e865230ea2553ad82f846a32be54a1",
+    "assets/portrait-natural/base.png": "fc23d3a277957ec7413bfea79ad8b04083aee04e1529747058869d8f15ee7b07",
+    "assets/portrait-natural/base-320.png": "d603b7073c6b6cd05c5a5574911a1ea7e9c6db6c570e2fc1c04bed7ca8d56f6d",
+    "assets/portrait-natural/eyelids-320.png": "9a589411df177e0e3f5ccf341889dece263046482419bf68fcfd19025c843f92",
+    "assets/portrait-natural/manifest.json": "5ec59317326496adc92a64e6144c35abfbd5e398936c411f344f16d42a9c8451",
+    "assets/portrait-natural/base-192.png": "cc26b3565eb96d6f65d38f73a10bfe67e54954e27461b03142eade2231850a9d",
+    "assets/portrait-natural/underpaint-320.png": "93e9b6c793ffe85b2c99edfbf3981d9f1d409dac2d323cef004523586304ac0b",
+    "assets/portrait-rig/rig-192.png": "738bbf297f787bf81e85bb7fbbd49a97a8521b8cf4a019edcc8323b760e62363",
+    "assets/portrait-rig/hair-matte-192.png": "76b5bbc65078d479763f24d9f2bc3e379afced09d1f69a110a5ed917bb44c820",
+    "assets/portrait-rig/rig-320.json": "44af8929aa8d8f48d970c266e39c494dd6b3bb484a36598d08046daa513685e4",
+    "assets/portrait-rig/physics-manifest.json": "c4197272b3665d13fab9521392b09db78e9139c971a1add246fbb1ee4091593e",
+    "assets/portrait-rig/wind-default-00b40de9dee99ba5.bin": "00b40de9dee99ba5d67212430db2c33e707bfb908d2e2342d4c4255e49f794e6",
+    "assets/portrait-rig/manifest.json": "640ccef87d4f24825ccfe868175734fa31e2126549574e02d5e3d001a2335759",
+    "assets/portrait-rig/rig-192.json": "62e72de78d127fc350f0a109e205ebaf8def1144c8d6331a341d0e64ef0607e6",
+    "assets/portrait-rig/baked-manifest.json": "2a8a0a2918c342a1dccc052570c47f644f9a36f8e4ada900f08eb921a2221e88",
+    "assets/portrait-rig/wind-default-603c3aa881386fd1.bin": "603c3aa881386fd1219dc89aa660667cfcffd6446a49b085f4f5e447ed51217a",
+    "assets/portrait-rig/hair-matte-320.png": "13e4627961691f1319dbb6d4a61f1c1e0f61da6f2e03aed54091e667f4b7b901",
+    "assets/portrait-rig/wind-default-ef4aaf78bc5aeca9.bin": "ef4aaf78bc5aeca9166e41b1e819706ea721fffb35ae5926d52818da776c1bf2",
+    "assets/portrait-rig/rig-256.png": "b65a05288592e8fa0f5c6c4abb99810ab2e958398e0920db660bc50f3eb13f20",
+    "assets/portrait-rig/rig-320.png": "354afcc2e3bc81b9ad5d8795ce685d4c4ac61e8fd36a2bf430758b114f1ccbb9",
+    "assets/portrait-rig/hair-matte.png": "4763e5bac4e47b1ef6cff2dc8ddc3be2c356a870516d98d32c13d3d37d5d0eb8",
+    "assets/portrait-rig/rig-256.json": "43276f0e231cc847b9abdac9fa4a6be68fd1c375eb3d4172d2ea79cb95c2b72f",
+    "assets/faithful-pixel/canonical.png": "672fa42434e58016f78452e9b80ad2b400f527933dc67ad4eca306944feb8680",
+    "assets/faithful-pixel/manifest.json": "3d18c735911211fee10124df7d276eff5fb9b4be45c9e042627fdce15c235e2f",
+    "assets/faithful-pixel/atlas.png": "ee385d459ed226292699f5dbc40691039729b4e2827c0d2f3d39b24b6df99bae",
+    "assets/poetic-pixel/canonical.png": "8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "assets/poetic-pixel/boot.mp4": "e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "assets/poetic-pixel/source-atlas.png": "830b706ebdfd5afbad070ce6f67ee4cd443247434b982d3c3e5628251ba4bd95",
+    "assets/poetic-pixel/manifest.json": "1c3b247224762b7f749dbfc8f9d79062520f4d3bab6828762bc8576434e6a228",
+    "assets/poetic-pixel/motion-provenance.json": "eee19b48bc87393eca167307cecf91216438a5a878fbdbe9db93c112bedb345a",
+    "assets/poetic-pixel/atlas.png": "ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "assets/reference-scene/canonical.png": "664d10182237385d680ba79c085c38928a2822b4bfe29959e72cc696cb634b68",
+    "assets/reference-scene/smooth-atlas.png": "1b5a88cbe35471a0502c1d015f516a3546a1a543d3ee8f923f972a1902e4ed93",
+    "assets/reference-scene/boot.mp4": "34299d0041147db19bb6ca9c1df75547a9fad862ab110166e6878bb1940791fb",
+    "assets/reference-scene/smooth-manifest.json": "1d19e1ad9ec5d7a4c61325378748a3c5d91c4ff12f986ef17bf6b46470432e0e",
+    "assets/reference-scene/source-atlas.png": "c476181c606f678350c120fd01bf78b5b370cd71f5ba0140a4db3697df876f1f",
+    "assets/reference-scene/source-manifest.json": "056c6dec5b280e98d5ec04609ea93f707c2332c5212fcd56449efa4e7250de35",
+    "assets/reference-scene/pixel-smooth-manifest.json": "0d485d780561b920914d46d56a9cd3779ac7f5a7e7d990b407084783c0f336b5",
+    "assets/reference-scene/pixel-source-atlas.png": "50d90d12a6a7b20a7ecf2af6e77bfb11cc9c52c20bc97b0c0bcf50920337f438",
+    "assets/reference-scene/canonical-hd.png": "67bbaedd5d6cdb2157090b4ffbf61c2618c0a12d5956237ed2cdd5eeb97a92c7",
+    "assets/reference-scene/pixel-smooth-atlas.png": "94fd647870e443400a430843a1e1f7d99708f2801d0fbd44576127595ac8ec47",
+    "assets/reference-scene/scenery.webp": "6ab241e2266ceb16a04a8af64ec4fb20f3797fa526a672e6686bf3260e55bd77",
+    "assets/reference-scene/presentation-manifest.json": "ed62603cd6524b43f9cb1c247a7380fb853e868bd78c1edd0d21b606c87a832b",
+    "assets/reference-scene/pixel-source-manifest.json": "1121856deeb835b42001c952d3c1d0ae34bb8792487694b962d46778e30078b6",
+    "assets/calm-circle/canonical.png": "07bdd7eeb3c7a928cc8e69ebc319191a620c4fcb2bcf072474e83362547be176",
+    "assets/calm-circle/eyes.png": "c2fdbc684df2d9a83787ce984176ae4a37492f8a2fc50c8776d02b01be42b829",
+    "assets/calm-circle/right-hair.png": "159c70813d2b739dc279b8342f22dae2c521e9e09f8e6f1ef594f023f889c5a4",
+    "assets/calm-circle/left-hair.png": "11a108d3409d3a3a3935490632dd3853171b39ec8a9efae2277aa9b9fb1bed9b",
+    "assets/calm-circle/manifest.json": "2d410a337b060813b4f1bcfc10a947a50638a6a5de17fb26570eff7c6b69caa7",
+    "assets/calm-circle/plate.png": "a248dfb37fcdd40c7e42aae7ef913db024ade643ac3ca6f52da700309519b82f",
+    "assets/pixel-ui/responsive/social-github-1536.webp": "7557a53dadc5106f710759d0c8d253e5f9fbcb9bdacd23e5b64d25fb0a087bcb",
+    "assets/pixel-ui/responsive/naruto-768.webp": "80f68c842c827500624486a5b797a8f1fbfa74de978d9e9d7b93f1df9454603d",
+    "assets/pixel-ui/responsive/conan-768.webp": "636954517d5a2c3438cf49a22fe5a6aec39c97afc02cd47eaa76ed64e1af98f5",
+    "assets/pixel-ui/responsive/conan-1536.webp": "7b19d5ac5acae71cdbad23b6e89051c9168b1a8a25026792f4dd14257137d415",
+    "assets/pixel-ui/responsive/social-mail-1536.webp": "1612e2926f6ce6d292270c0aad32010e757563f2f5afbbe4bb9e81f266c8b18d",
+    "assets/pixel-ui/responsive/social-mail-768.webp": "3b1a201de671a7418ec6aa632b74410cfdcc7a4c1296a579d428c137027e8da1",
+    "assets/pixel-ui/responsive/social-github-768.webp": "c8e3a1d02ae19b87356775202e5e9d42edd9710f8e21a62cb649c7e2e70eb40f",
+    "assets/pixel-ui/responsive/game-realm-768.webp": "58fbae5ccf176707fa2ced445dd07052312e2bdd4b02ec6a7bc7c108b89da0bd",
+    "assets/pixel-ui/responsive/game-realm-1536.webp": "843860f7667e87f7f904a747fda8d4aa367d0340f8282078bf718f99f5352f1f",
+    "assets/pixel-ui/responsive/naruto-1536.webp": "90f1c878c096aed028fe0b0d6ea637d37431515f1a498b1b896e3a37ce7dfc3a"
+  }
+}

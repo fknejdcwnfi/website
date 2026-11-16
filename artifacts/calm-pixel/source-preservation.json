@@ -1,0 +1,16 @@
+{
+  "baselineCommit": "64a3282da47053607cff600bbe57bcc27d692da7",
+  "immutableAndSceneScope": [
+    "assets/source",
+    "docs/reference",
+    "reference-projects",
+    "public",
+    "src/features/poeticPixel"
+  ],
+  "filesChecked": 160,
+  "changedFromBaseline": [],
+  "sha256OfSortedPathHashManifest": "f2c940632a6a599e8a182875fb26a5b73565c7740178108f106d823c916467c4",
+  "publicFiles": 104,
+  "publicBuildMismatches": [],
+  "status": "passed"
+}

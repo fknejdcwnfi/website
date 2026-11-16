@@ -1,0 +1,33 @@
+{
+  "baselineCommit": "64a3282da47053607cff600bbe57bcc27d692da7",
+  "method": "Production root-path bundles; gzip.compress at level9, mtime0 for both files. Local byte comparison is not a visitor speed benchmark.",
+  "baseline": {
+    "mainCss": {
+      "file": "index-B24B1aHW.css",
+      "bytes": 75084,
+      "gzipBytes": 16771,
+      "sha256": "9dbe64da10da3dc3daf3ea52ba0ca8288060e3ab0f0a6d20d6be60c81a108e3d"
+    },
+    "mainJs": {
+      "file": "index-CQCSJKxU.js",
+      "bytes": 312701,
+      "gzipBytes": 99093,
+      "sha256": "9d04e9209f1d239723e0d7e3c3f3de49f9b9965bc8777dfc01c376b50a5c6e38"
+    }
+  },
+  "current": {
+    "mainCss": {
+      "file": "index-DjgW0559.css",
+      "bytes": 76321,
+      "gzipBytes": 16541,
+      "sha256": "ec3ba82f54c2e132190b2f5c836abc73bdf79de22a5d23a7281c8142f9c3517c"
+    },
+    "mainJs": {
+      "file": "index-auuCGPaJ.js",
+      "bytes": 312727,
+      "gzipBytes": 99103,
+      "sha256": "e07a293eb498a18291aec2fb4e61d8ad9c034fd11dd0ceaf71d0cba5ad8f6074"
+    }
+  },
+  "cssGzipDeltaBytes": -230
+}
