@@ -5,6 +5,7 @@ import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
 import { renderNavigationIcon } from './navigationIcons.ts'
 import { CARD_DECORATION_SIZES, GAME_DECORATION, WIDE_DECORATION_SIZES, getDecorationSrcSet, getInterestDecoration, getSocialDecoration } from './decorativeAssets.ts'
 import { getJournalDates } from './journalPresentation.ts'
+import { getProjectOverview } from './projectPresentation.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!)
@@ -128,11 +129,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
   const navigation = getSiteNavigation(site)
   const contents = getTableOfContents(site)
   const projects = getProjects(site)
-  const projectOverview = [
-    { label: '公开项目', count: projects.length },
-    { label: '持续制作', count: projects.filter(project => project.status === 'active').length },
-    { label: '已归档', count: projects.filter(project => project.status === 'archived').length },
-  ]
+  const projectOverview = getProjectOverview(projects)
   return `<div class="personal-site static-site" id="top" data-active-section="home" data-page-motion="paused">
   <a class="skip-link" href="#main-content">跳至主要内容</a>
   <header class="site-header">

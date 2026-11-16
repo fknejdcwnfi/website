@@ -1,0 +1,49 @@
+/* Shared calm pixel theme: typography and surfaces, before component rules. */
+@font-face {
+  font-family: 'Fusion Pixel';
+  src: url('/fonts/fusion-pixel-12px-proportional-zh_hans.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body, .personal-site, .reference-scene-page, .site-startup-status,
+.hud, .portrait-motion-notice, .reference-scene__status, .reference-scene__status button {
+  font-family: 'Fusion Pixel', 'Press Start 2P', monospace;
+  font-synthesis: none;
+  -webkit-font-smoothing: none;
+  text-rendering: auto;
+}
+.personal-site {
+  --ui-border-width: 1px;
+  --ui-border: #ded4c7;
+  --ui-border-strong: #b39378;
+  --ui-border-on-dark: #bcb9cf;
+  --ui-radius-panel: 16px;
+  --ui-radius-card: 14px;
+  --ui-radius-control: 10px;
+  --ui-radius-pill: 999px;
+  --ui-shadow: 0 4px 16px #24304d14;
+  --ui-focus-light: #f5d9b9;
+  --ui-focus-dark: #8b5138;
+  --surface-panel: #fff9f2;
+  --surface-card: #fffaf5;
+  --surface-subtle: #f6efe6;
+  --surface-active: #eddfcf;
+  --paper: var(--surface-panel);
+  --text: #3e3832;
+  --muted: #71675c;
+  --line: var(--ui-border);
+  --accent: #955d40;
+  --pixel-font: 'Fusion Pixel', 'Press Start 2P', monospace;
+  --site-accent: var(--accent);
+  --site-ink: var(--text);
+  --site-muted: var(--muted);
+  --site-line: var(--line);
+  --reading-space: 32px;
+}
+.personal-site *, .personal-site *::before, .personal-site *::after { font-synthesis: none; }
+.personal-site input, .personal-site button, .personal-site kbd, .personal-site summary,
+.site-startup-status, .site-startup-status button, .personal-site .reference-scene__status {
+  font-family: var(--pixel-font, 'Fusion Pixel'), monospace;
+}
+@media (max-width: 540px) { .personal-site { --reading-space: 18px; } }

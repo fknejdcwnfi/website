@@ -4,7 +4,7 @@
 
 [正式网站](https://fknejdcwnfi.github.io/website/) · [文件入口](docs/README.md) · [日常维护](docs/guides/repository-maintenance.md)
 
-网站使用简体中文和自托管的中英像素字体；当前界面是暮色风景、蓝色页首与圆角奶油色阅读面板。桌面保留章节导航和双侧栏，窄屏使用顶部导航与原生目录。人物仍是原有圆形场景，页面装饰与人物渲染分开。外观与搜索约定见[奶油色界面](docs/guides/cream-scenic-ui.md)和[边框、搜索与作品](docs/guides/ui-consistency.md)。
+网站使用简体中文和自托管的中英像素字体；当前界面以暮色风景、蓝色页首配合暖白实色阅读面板、细边框与克制留白。桌面保留章节导航和双侧栏，窄屏使用顶部导航与原生目录。人物仍是原有圆形场景，页面装饰与人物渲染分开。当前主题入口见[暖白阅读与像素场景](docs/guides/calm-pixel.md)，搜索约定见[边框、搜索与作品](docs/guides/ui-consistency.md)。
 
 人物默认自动播放，可随时暂停或恢复，选择保存在当前浏览器；离屏或切到后台时暂停。成长手记收录《转型日》和《学会与时俱进》，原稿未注明的日期保持空缺。当前策略和搜索优化见[阅读与默认动态](docs/guides/reading-motion.md)。
 
@@ -49,7 +49,7 @@ src/features/
     content/selectors.ts     验证、导航和搜索索引
     content/staticMarkup.ts  同一份内容的无JS页面
     components/              布局、作品及个性化模块
-    styles/                  当前creamScenic主题、共享布局与历史主题
+    styles/                  共享themeTokens、creamScenic主题、布局与历史主题
   poeticPixel/               唯一默认形象、来源播放与同节点入口
     presentation/            一次原生读回、两帧像素重建与尺寸事件
     atmosphere/              雪、樱花、精灵图集与组合绘制

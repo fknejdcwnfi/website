@@ -12,14 +12,14 @@ export const listenMediaQuery = (query: MediaQueryList | null, change: () => voi
   const listener = (): void => { if (active) change() }
   let remove = noop
   const modern = (): void => { try { query.removeEventListener?.('change', listener) } catch { /* Optional signal. */ } }
-  if (typeof query.addEventListener === 'function') {
-    try {
+  try {
+    if (typeof query.addEventListener === 'function') {
       query.addEventListener('change', listener)
       remove = modern
-    } catch {
-      // A partially successful registration must not survive a failed setup.
-      modern()
     }
+  } catch {
+    // Accessors can fail too. Remove any partial registration before fallback.
+    modern()
   }
   if (remove === noop) {
     try {
