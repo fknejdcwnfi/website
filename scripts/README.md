@@ -20,9 +20,12 @@ npm run assets:check
 npm run assets:verify
 npm run assets:ui:check
 npm run assets:font:check
+npm run assets:responsive:check
 npm run repo:verify
 npm run preview -- --host 127.0.0.1 --port 5180
 ```
+
+`npm test`通过`run.mjs`自动发现`test_*.mjs`，包含当前与保留的历史行为检查。
 
 `build`经`prebuild`运行Node测试，再做strict TypeScript和Vite生产打包。默认预览为`http://127.0.0.1:5180/website/`；Sites根路径构建使用`VITE_BASE=/ npm run build`。两种基础路径需分别验证，不靠全局修改默认base切换。
 
@@ -42,6 +45,7 @@ npm run preview -- --host 127.0.0.1 --port 5180
 REVIEW_OUTPUT=/workspace/work/website-review-YYYYMMDD
 python3 scripts/qa/verify_journal.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/journal"
 python3 scripts/qa/verify_default_motion.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/motion"
+python3 scripts/qa/verify_scenic_motion.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/scenic-motion"
 python3 scripts/qa/verify_ui_consistency.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/ui"
 python3 scripts/qa/verify_cream_scenic_ui.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/cream"
 python3 scripts/qa/verify_profile_modules.py --url http://127.0.0.1:5180/website/ --output "$REVIEW_OUTPUT/profile"

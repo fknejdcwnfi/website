@@ -4,7 +4,7 @@ import { runInNewContext } from 'node:vm'
 import { readFileSync } from 'node:fs'
 import { stripTypeScriptTypes } from 'node:module'
 import { sampleScene } from '../../src/features/referenceScene/sceneTimeline.ts'
-import { SCENE_MOTION_KEY, readSceneMotion, writeSceneMotion, parserMotionExpression } from '../../src/features/referenceScene/motionPreference.ts'
+import { SCENE_MOTION_EVENT, SCENE_MOTION_KEY, readSceneMotion, writeSceneMotion, parserMotionExpression } from '../../src/features/referenceScene/motionPreference.ts'
 
 const withStorage = (storage, run) => {
   const saved = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')
@@ -37,6 +37,24 @@ test('storage failures cannot stop the default scene or the in-memory control', 
     assert.doesNotThrow(() => writeSceneMotion(true))
   })
   withStorage(undefined, () => assert.equal(readSceneMotion(), true))
+})
+
+test('the local page receives the same choice even when persistent storage is blocked', () => {
+  const previousWindow = Object.getOwnPropertyDescriptor(globalThis, 'window')
+  const choices = []
+  try {
+    Object.defineProperty(globalThis, 'window', { configurable: true, value: {
+      dispatchEvent(event) { assert.equal(event.type, SCENE_MOTION_EVENT); choices.push(event.detail.enabled) },
+    } })
+    withStorage({ setItem() { throw Error('Blocked storage') } }, () => {
+      writeSceneMotion(false)
+      writeSceneMotion(true)
+    })
+    assert.deepEqual(choices, [false, true])
+  } finally {
+    if (previousWindow) Object.defineProperty(globalThis, 'window', previousWindow)
+    else delete globalThis.window
+  }
 })
 
 test('the parser executes the same self-contained reader without module closures', () => {

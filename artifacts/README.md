@@ -6,6 +6,7 @@
 
 | 目录 | 实际记录的范围 |
 | --- | --- |
+| [scenic-refactor](scenic-refactor/README.md) | 仓库职责、公开目录保护、响应式资源与可暂停微动的独立证据 |
 | [reading-motion-20261115](reading-motion-20261115/README.md) | 第二篇手记、未知日期、搜索计算、默认动态与本地暂停的独立验证 |
 | [journal-20261115](journal-20261115/README.md) | 《转型日》公开整理、原生阅读、日期、全文搜索、7章节及两种托管路径验证 |
 | [audit-20261113](audit-20261113/README.md) | 最新复审：CSP／重试／IME、lazy图片、忠实字体子集、结构CLI、独立及配对资源／时序采样 |

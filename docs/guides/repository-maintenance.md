@@ -11,7 +11,8 @@
 | `src/features/poeticPixel/` | 唯一默认人物、来源时钟、像素重建、雪樱及入口接手 | 保留同一场景实例、来源和播放器相位 |
 | `src/features/referenceScene/` | 共用圆形UI、播放器及加载生命周期，也保留旧实现文件 | 目录名不代表其中所有旧renderer都在默认链中 |
 | `src/features/portrait/`、`src/features/calmPortrait/`、`src/features/faithfulPixel/`、`src/archive/` | 历史人物／场景实现 | 其中部分保留显式历史入口，其余保留源码与验证；不新增另一套默认人物 |
-| `public/` | 可被静态托管访问的素材、字体与元数据 | Vite会原样复制整个目录到`dist/`，包括仍保留在这里的历史素材 |
+| `public/` | 可被静态托管访问的素材、字体与元数据 | 必须通过`config/public-assets.json`显式清单；构建前后拒绝未知文件、链接和非发布资料 |
+| `config/` | 经审阅的公开资源路径清单 | 更新资源时单独审阅；构建不会自动放行新路径 |
 | `assets/source/`、`docs/reference/` | 冻结的原始素材与委托文字 | 唯读；不移动、改名、裁切、重编码或修正文内旧链接 |
 | `reference-projects/fuji-wind/` | 原ZIP、原始文件与来源清单 | 原文件不可变，原脚本／安装文字作为资料保存，不直接执行 |
 | `assets/generated/` | 各阶段作者材料及其来源说明 | 区分生成母版与当前runtime；改当前衍生素材需走作者工具及验证 |
@@ -27,7 +28,7 @@
 
 `src/app/App.tsx`组合`SiteShell`、个人模块和唯一`poeticPixel`场景。`?view=portrait`或明确的`voxel`／`legacy`样式才进入懒加载的`ArchivedPortrait`；旧源码存在不等于正常首页下载对应人物素材。
 
-文档样式入口`src/app/styles/app.css`加载基础样式、共享网站／内容样式、共用圆形样式、`creamScenic.css`，最后导入生成的`fonts.css`使当前字符子集优先于完整fallback。`pixelMinimal.css`和`pixelWorld.css`保留历史，不在当前链。字体仍为自托管Fusion Pixel，完整字体／许可证保留；新增源码字符需通过字体覆盖检查和作者工具更新，动态未包含字符仍可调用完整字体。来源和OFL见[字体登记](../../public/fonts/FusionPixel-SOURCE.txt)。
+文档样式入口`src/app/styles/app.css`加载基础样式、共享网站／内容样式、共用圆形样式、`creamScenic.css`、阅读与微动样式，最后导入生成的`fonts.css`使当前字符子集优先于完整fallback。`pixelMinimal.css`和`pixelWorld.css`保留历史，不在当前链。字体仍为自托管Fusion Pixel，完整字体／许可证保留；新增源码字符需通过字体覆盖检查和作者工具更新，动态未包含字符仍可调用完整字体。来源和OFL见[字体登记](../../public/fonts/FusionPixel-SOURCE.txt)。
 
 圆形场景的来源、像素、天气和播放器与外围网页装饰分开。修改内容或主题时不重生成人物，不重置来源时钟，也不为了旧截图断言修改renderer。
 
@@ -43,6 +44,8 @@
 正常构建只需Node与已声明npm依赖；作者工具、浏览器、字体或像素审计需要的额外工具按各脚本说明准备，不能把本机偶然安装的包当作普通构建依赖。
 
 ## 历史公共资源与证据
+
+6张页面装饰PNG已原字节移至`assets/generated/pixel-ui/`，对应full WebP与来源清单仍保留。五张卡图的响应式采样另有清单；详情见[当前整理指南](scenic-refactor.md)。历史人物CSS只随`ArchivedPortrait`入口加载。页面骨架、搜索和导航hook各有独立职责；Node测试自动发现`test_*.mjs`，当前与历史行为检查都运行。
 
 `archive/`、`artifacts/`、`docs/`和原工程不属于`public/`。同时，`public/assets/`仍保存旧`portrait-*`、`reference-scene`、`faithful-pixel`、`calm-circle`及原关键姿态等衍生资源；它们会增加部署包体积并可通过已知URL访问，但不能因此断言首页已下载它们。
 

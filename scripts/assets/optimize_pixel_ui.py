@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Encode exact-pixel WebP copies of page decoration, preserving all source PNGs.
 
+Authoring PNGs live outside public/ in assets/generated/pixel-ui. Only their
+lossless WebP derivatives and the provenance manifest are served by the website.
+
 Run without arguments to regenerate the six lossless derivatives and their
 provenance manifest. Run --verify for a standard-library-only provenance, hash,
 size and image-header check. Run --check to additionally compare every decoded
@@ -21,6 +24,7 @@ import sys
 import zlib
 
 ROOT = Path(__file__).resolve().parents[2]
+SOURCE_DIRECTORY = ROOT / "assets/generated/pixel-ui"
 DIRECTORY = ROOT / "public/assets/pixel-ui"
 MANIFEST = DIRECTORY / "optimization-manifest.json"
 NAMES = ("conan", "game-realm", "naruto", "social-github", "social-mail", "twilight-world")
@@ -74,13 +78,13 @@ def decoded(path: Path) -> tuple[tuple[int, int], bytes]:
 
 
 def entry_for(name: str) -> dict[str, object]:
-    source, output = DIRECTORY / f"{name}.png", DIRECTORY / f"{name}.webp"
+    source, output = SOURCE_DIRECTORY / f"{name}.png", DIRECTORY / f"{name}.webp"
     source_size, source_pixels = decoded(source)
     output_size, output_pixels = decoded(output)
     if output_size != source_size or output_pixels != source_pixels:
         raise ValueError(f"{name}: lossless derivative does not match every source RGBA pixel")
     return {
-        "source": source.name,
+        "source": source.relative_to(ROOT).as_posix(),
         "sourceSha256": file_hash(source),
         "sourceBytes": source.stat().st_size,
         "file": output.name,
@@ -98,7 +102,7 @@ def build() -> None:
     Image, pillow_version, webp_version = pillow()
     entries = []
     for name in NAMES:
-        source, output = DIRECTORY / f"{name}.png", DIRECTORY / f"{name}.webp"
+        source, output = SOURCE_DIRECTORY / f"{name}.png", DIRECTORY / f"{name}.webp"
         source_hash = file_hash(source)
         temporary = output.with_suffix(".webp.tmp")
         try:
@@ -117,7 +121,7 @@ def build() -> None:
     original = sum(int(entry["sourceBytes"]) for entry in entries)
     optimized = sum(int(entry["bytes"]) for entry in entries)
     manifest = {
-        "version": 1,
+        "version": 2,
         "generatedBy": "scripts/assets/optimize_pixel_ui.py",
         "encoder": {"pillow": pillow_version, "libwebp": webp_version, "options": OPTIONS},
         "sourceBytes": original,
@@ -133,7 +137,7 @@ def build() -> None:
 
 def verify() -> dict[str, object]:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    if (manifest.get("version") != 1 or
+    if (manifest.get("version") != 2 or
             manifest.get("generatedBy") != "scripts/assets/optimize_pixel_ui.py" or
             manifest.get("encoder", {}).get("options") != OPTIONS):
         raise ValueError("Unsupported decoration provenance manifest")
@@ -141,9 +145,10 @@ def verify() -> dict[str, object]:
     if not isinstance(entries, list) or len(entries) != len(NAMES):
         raise ValueError("Decoration manifest must identify exactly six source/derivative pairs")
     for name, entry in zip(NAMES, entries):
-        if not isinstance(entry, dict) or entry.get("source") != f"{name}.png" or entry.get("file") != f"{name}.webp":
+        expected_source = (SOURCE_DIRECTORY / f"{name}.png").relative_to(ROOT).as_posix()
+        if not isinstance(entry, dict) or entry.get("source") != expected_source or entry.get("file") != f"{name}.webp":
             raise ValueError("Unexpected decoration path or manifest order")
-        source, output = DIRECTORY / f"{name}.png", DIRECTORY / f"{name}.webp"
+        source, output = SOURCE_DIRECTORY / f"{name}.png", DIRECTORY / f"{name}.webp"
         size = image_dimensions(source)
         digest = entry.get("decodedSha256")
         if (image_dimensions(output) != size or (entry.get("width"), entry.get("height")) != size or

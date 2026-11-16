@@ -1,0 +1,531 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:5182/website/",
+  "checks": [
+    {
+      "name": "production_response_looping",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "three_small_ambient_targets",
+      "passed": true,
+      "detail": {
+        "lanterns": [
+          {
+            "animation": "pixel-lantern-drift",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, 1)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "34px",
+            "height": "62px"
+          },
+          {
+            "animation": "pixel-lantern-drift",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "34px",
+            "height": "62px"
+          }
+        ],
+        "crystal": {
+          "animation": "pixel-crystal-glint",
+          "playState": "running",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "opacity": "0.78",
+          "iterations": "infinite",
+          "fontSize": "14px",
+          "width": "14.0156px",
+          "height": "23.7969px"
+        }
+      }
+    },
+    {
+      "name": "lantern_and_crystal_bounds_are_small",
+      "passed": true,
+      "detail": {
+        "lanterns": [
+          {
+            "animation": "pixel-lantern-drift",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, 1)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "34px",
+            "height": "62px"
+          },
+          {
+            "animation": "pixel-lantern-drift",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "34px",
+            "height": "62px"
+          }
+        ],
+        "crystal": {
+          "animation": "pixel-crystal-glint",
+          "playState": "running",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "opacity": "0.78",
+          "iterations": "infinite",
+          "fontSize": "14px",
+          "width": "14.0156px",
+          "height": "23.7969px"
+        }
+      }
+    },
+    {
+      "name": "small_decorations_really_change_transform_or_opacity",
+      "passed": true,
+      "detail": [
+        {
+          "lanterns": [
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 1)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            },
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            }
+          ],
+          "crystal": {
+            "animation": "pixel-crystal-glint",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "opacity": "0.78",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "14.0156px",
+            "height": "23.7969px"
+          }
+        },
+        {
+          "lanterns": [
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 2)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            },
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 0)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            }
+          ],
+          "crystal": {
+            "animation": "pixel-crystal-glint",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, -0.666667)",
+            "opacity": "0.853333",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "14.0156px",
+            "height": "23.7969px"
+          }
+        },
+        {
+          "lanterns": [
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 2)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            },
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 1)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            }
+          ],
+          "crystal": {
+            "animation": "pixel-crystal-glint",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, -1.33333)",
+            "opacity": "0.926667",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "14.0156px",
+            "height": "23.7969px"
+          }
+        },
+        {
+          "lanterns": [
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 1)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            },
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 1)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            }
+          ],
+          "crystal": {
+            "animation": "pixel-crystal-glint",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, -2)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "14.0156px",
+            "height": "23.7969px"
+          }
+        },
+        {
+          "lanterns": [
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 1)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            },
+            {
+              "animation": "pixel-lantern-drift",
+              "playState": "running",
+              "transform": "matrix(1, 0, 0, 1, 0, 2)",
+              "opacity": "1",
+              "iterations": "infinite",
+              "fontSize": "14px",
+              "width": "34px",
+              "height": "62px"
+            }
+          ],
+          "crystal": {
+            "animation": "pixel-crystal-glint",
+            "playState": "running",
+            "transform": "matrix(1, 0, 0, 1, 0, -1.33333)",
+            "opacity": "0.926667",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "14.0156px",
+            "height": "23.7969px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "background_and_character_viewport_have_no_new_animation",
+      "passed": true,
+      "detail": {
+        "animations": [
+          "none",
+          "none",
+          "none",
+          "none",
+          "none"
+        ],
+        "border": "0px",
+        "shadow": "none",
+        "radius": "50%"
+      }
+    },
+    {
+      "name": "character_viewport_keeps_borderless_circle",
+      "passed": true,
+      "detail": {
+        "animations": [
+          "none",
+          "none",
+          "none",
+          "none",
+          "none"
+        ],
+        "border": "0px",
+        "shadow": "none",
+        "radius": "50%"
+      }
+    },
+    {
+      "name": "local_pause_stops_small_decorations",
+      "passed": true,
+      "detail": {
+        "lanterns": [
+          {
+            "animation": "pixel-lantern-drift",
+            "playState": "paused",
+            "transform": "matrix(1, 0, 0, 1, 0, 1)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "34px",
+            "height": "62px"
+          },
+          {
+            "animation": "pixel-lantern-drift",
+            "playState": "paused",
+            "transform": "matrix(1, 0, 0, 1, 0, 2)",
+            "opacity": "1",
+            "iterations": "infinite",
+            "fontSize": "14px",
+            "width": "34px",
+            "height": "62px"
+          }
+        ],
+        "crystal": {
+          "animation": "pixel-crystal-glint",
+          "playState": "paused",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.33333)",
+          "opacity": "0.926667",
+          "iterations": "infinite",
+          "fontSize": "14px",
+          "width": "14.0156px",
+          "height": "23.7969px"
+        }
+      }
+    },
+    {
+      "name": "local_pause_retains_character_node_and_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "resume_reuses_character_canvas_and_phase",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_hidden_signal_pauses_peripheral_motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_visible_signal_resumes_same_character",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chapter_title_enters_only_once_and_stays_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "card_hover_has_small_transform_feedback",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "keyboard_focus_remains_visible",
+      "passed": true,
+      "detail": {
+        "style": "solid",
+        "width": "3px"
+      }
+    },
+    {
+      "name": "focused_card_has_small_transform_feedback",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "viewport_320_no_horizontal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scroll": 320
+      }
+    },
+    {
+      "name": "viewport_375_no_horizontal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 375,
+        "scroll": 375
+      }
+    },
+    {
+      "name": "viewport_768_no_horizontal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 768,
+        "scroll": 768
+      }
+    },
+    {
+      "name": "viewport_1440_no_horizontal_overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scroll": 1440
+      }
+    },
+    {
+      "name": "explicit_pause_keeps_decorations_still_after_reload",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary_no_unexpected_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "production_response_looping",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_reduce_stops_only_decorations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_reduce_no_unexpected_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "production_response_looping",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "storage_failure_still_synchronizes_same_page_pause",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "storage_failure_choice_is_reversible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "storage_unavailable_no_unexpected_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "production_response_looping",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_observer_never_hides_reading_content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "missing_observer_no_unexpected_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "no_js_response_and_complete_reading",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_js_decorations_are_static",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_js_sections_are_visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_js_no_unexpected_browser_errors_or_bad_responses",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "badResponses": []
+      }
+    }
+  ],
+  "contexts": [
+    {
+      "label": "ordinary",
+      "errors": [],
+      "badResponses": []
+    },
+    {
+      "label": "system_reduce",
+      "errors": [],
+      "badResponses": []
+    },
+    {
+      "label": "storage_unavailable",
+      "errors": [],
+      "badResponses": []
+    },
+    {
+      "label": "missing_observer",
+      "errors": [],
+      "badResponses": []
+    },
+    {
+      "label": "no_js",
+      "errors": [],
+      "badResponses": []
+    }
+  ],
+  "scope": "Local Chromium functional styles and motion signals; not a visitor-performance or physical-display benchmark."
+}

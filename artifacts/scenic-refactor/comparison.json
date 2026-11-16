@@ -1,0 +1,566 @@
+{
+  "baselineCommit": "1aee28a9dbc798d052ca33d2ccd742a23ea162a9",
+  "gzipLevel": 9,
+  "builds": {
+    "baseline": {
+      "totalFiles": 106,
+      "totalBytes": 47014966,
+      "entryFiles": {
+        "index.html": {
+          "bytes": 61171,
+          "gzip9Bytes": 14316,
+          "sha256": "be9d69a9d7f87d0fa6edcadd28592a808e3b07356dd8bd334d494bd53eefc933"
+        },
+        "index-CZ8BD_qQ.css": {
+          "bytes": 77880,
+          "gzip9Bytes": 17876,
+          "sha256": "7919c88967995072732ed7e89544ddbaa82fd25e762d072bfb3955ec307abd99"
+        },
+        "index-BczcISDU.js": {
+          "bytes": 310621,
+          "gzip9Bytes": 98311,
+          "sha256": "668b9518cf641eed063218c023f7d447144d1f8f2c35026bd28afb92ead34e19"
+        }
+      }
+    },
+    "current": {
+      "totalFiles": 112,
+      "totalBytes": 41250760,
+      "entryFiles": {
+        "index.html": {
+          "bytes": 62272,
+          "gzip9Bytes": 14485,
+          "sha256": "12976b8e98826da3f2971f19df00158d8d94aca058ef8f4493ec7b08e23770af"
+        },
+        "index-B24B1aHW.css": {
+          "bytes": 75084,
+          "gzip9Bytes": 16771,
+          "sha256": "9dbe64da10da3dc3daf3ea52ba0ca8288060e3ab0f0a6d20d6be60c81a108e3d"
+        },
+        "index-CQCSJKxU.js": {
+          "bytes": 312701,
+          "gzip9Bytes": 99093,
+          "sha256": "9d04e9209f1d239723e0d7e3c3f3de49f9b9965bc8777dfc01c376b50a5c6e38"
+        }
+      }
+    }
+  },
+  "images": {
+    "baseline": {
+      "url": "http://127.0.0.1:5184/",
+      "condition": "Fresh local Chromium contexts; explicit pause; all five decorations scrolled into view; encoded resource bytes, not visitor latency",
+      "layouts": [
+        {
+          "width": 375,
+          "dpr": 1,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/naruto.webp",
+              "width": 1774,
+              "height": 887,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 2041608
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/conan.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1723086
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/game-realm.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1282202
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-github.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 911076
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-mail.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 856866
+            }
+          ],
+          "totalEncodedBytes": 6814838,
+          "errors": []
+        },
+        {
+          "width": 375,
+          "dpr": 2,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/naruto.webp",
+              "width": 1774,
+              "height": 887,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 2041608
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/conan.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1723086
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/game-realm.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1282202
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-github.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 911076
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-mail.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 349,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 856866
+            }
+          ],
+          "totalEncodedBytes": 6814838,
+          "errors": []
+        },
+        {
+          "width": 1440,
+          "dpr": 1,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/naruto.webp",
+              "width": 1774,
+              "height": 887,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 2041608
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/conan.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1723086
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/game-realm.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 838,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1282202
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-github.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 911076
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-mail.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 856866
+            }
+          ],
+          "totalEncodedBytes": 6814838,
+          "errors": []
+        },
+        {
+          "width": 1440,
+          "dpr": 2,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/naruto.webp",
+              "width": 1774,
+              "height": 887,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 2041608
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/conan.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1723086
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/game-realm.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 838,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1282202
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-github.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 911076
+            },
+            {
+              "src": "http://127.0.0.1:5184/assets/pixel-ui/social-mail.webp",
+              "width": 2172,
+              "height": 724,
+              "displayWidth": 408,
+              "srcset": null,
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 856866
+            }
+          ],
+          "totalEncodedBytes": 6814838,
+          "errors": []
+        }
+      ]
+    },
+    "current": {
+      "url": "http://127.0.0.1:5180/",
+      "condition": "Fresh local Chromium contexts; explicit pause; all five decorations scrolled into view; encoded resource bytes, not visitor latency",
+      "layouts": [
+        {
+          "width": 375,
+          "dpr": 1,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+              "width": 374,
+              "height": 187,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/naruto-768.webp 768w, /assets/pixel-ui/responsive/naruto-1536.webp 1536w, /assets/pixel-ui/naruto.webp 1774w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 494642
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/conan-768.webp 768w, /assets/pixel-ui/responsive/conan-1536.webp 1536w, /assets/pixel-ui/conan.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 297080
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/game-realm-768.webp 768w, /assets/pixel-ui/responsive/game-realm-1536.webp 1536w, /assets/pixel-ui/game-realm.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 214276
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/social-github-768.webp 768w, /assets/pixel-ui/responsive/social-github-1536.webp 1536w, /assets/pixel-ui/social-github.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 152142
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/social-mail-768.webp 768w, /assets/pixel-ui/responsive/social-mail-1536.webp 1536w, /assets/pixel-ui/social-mail.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 148198
+            }
+          ],
+          "totalEncodedBytes": 1306338,
+          "errors": []
+        },
+        {
+          "width": 375,
+          "dpr": 2,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+              "width": 374,
+              "height": 187,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/naruto-768.webp 768w, /assets/pixel-ui/responsive/naruto-1536.webp 1536w, /assets/pixel-ui/naruto.webp 1774w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 494642
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/conan-768.webp 768w, /assets/pixel-ui/responsive/conan-1536.webp 1536w, /assets/pixel-ui/conan.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 297080
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/game-realm-768.webp 768w, /assets/pixel-ui/responsive/game-realm-1536.webp 1536w, /assets/pixel-ui/game-realm.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 214276
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/social-github-768.webp 768w, /assets/pixel-ui/responsive/social-github-1536.webp 1536w, /assets/pixel-ui/social-github.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 152142
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+              "width": 374,
+              "height": 124,
+              "displayWidth": 349,
+              "srcset": "/assets/pixel-ui/responsive/social-mail-768.webp 768w, /assets/pixel-ui/responsive/social-mail-1536.webp 1536w, /assets/pixel-ui/social-mail.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 148198
+            }
+          ],
+          "totalEncodedBytes": 1306338,
+          "errors": []
+        },
+        {
+          "width": 1440,
+          "dpr": 1,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+              "width": 432,
+              "height": 216,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/naruto-768.webp 768w, /assets/pixel-ui/responsive/naruto-1536.webp 1536w, /assets/pixel-ui/naruto.webp 1774w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 494642
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+              "width": 432,
+              "height": 144,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/conan-768.webp 768w, /assets/pixel-ui/responsive/conan-1536.webp 1536w, /assets/pixel-ui/conan.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 297080
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+              "width": 921,
+              "height": 307,
+              "displayWidth": 838,
+              "srcset": "/assets/pixel-ui/responsive/game-realm-768.webp 768w, /assets/pixel-ui/responsive/game-realm-1536.webp 1536w, /assets/pixel-ui/game-realm.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 711896
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+              "width": 432,
+              "height": 144,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/social-github-768.webp 768w, /assets/pixel-ui/responsive/social-github-1536.webp 1536w, /assets/pixel-ui/social-github.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 152142
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+              "width": 432,
+              "height": 144,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/social-mail-768.webp 768w, /assets/pixel-ui/responsive/social-mail-1536.webp 1536w, /assets/pixel-ui/social-mail.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 148198
+            }
+          ],
+          "totalEncodedBytes": 1803958,
+          "errors": []
+        },
+        {
+          "width": 1440,
+          "dpr": 2,
+          "decorations": [
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+              "width": 432,
+              "height": 216,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/naruto-768.webp 768w, /assets/pixel-ui/responsive/naruto-1536.webp 1536w, /assets/pixel-ui/naruto.webp 1774w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1611180
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+              "width": 432,
+              "height": 144,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/conan-768.webp 768w, /assets/pixel-ui/responsive/conan-1536.webp 1536w, /assets/pixel-ui/conan.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 970892
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+              "width": 921,
+              "height": 307,
+              "displayWidth": 838,
+              "srcset": "/assets/pixel-ui/responsive/game-realm-768.webp 768w, /assets/pixel-ui/responsive/game-realm-1536.webp 1536w, /assets/pixel-ui/game-realm.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 1282202
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+              "width": 432,
+              "height": 144,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/social-github-768.webp 768w, /assets/pixel-ui/responsive/social-github-1536.webp 1536w, /assets/pixel-ui/social-github.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 507018
+            },
+            {
+              "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+              "width": 432,
+              "height": 144,
+              "displayWidth": 408,
+              "srcset": "/assets/pixel-ui/responsive/social-mail-768.webp 768w, /assets/pixel-ui/responsive/social-mail-1536.webp 1536w, /assets/pixel-ui/social-mail.webp 2172w",
+              "loading": "lazy",
+              "alt": "",
+              "hidden": "true",
+              "encodedBytes": 482308
+            }
+          ],
+          "totalEncodedBytes": 4853600,
+          "errors": []
+        }
+      ]
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
 import { renderNavigationIcon } from './navigationIcons.ts'
-import { GAME_DECORATION, getInterestDecoration, getSocialDecoration } from './decorativeAssets.ts'
+import { CARD_DECORATION_SIZES, GAME_DECORATION, WIDE_DECORATION_SIZES, getDecorationSrcSet, getInterestDecoration, getSocialDecoration } from './decorativeAssets.ts'
 import { getJournalDates } from './journalPresentation.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
@@ -55,7 +55,7 @@ const renderInterests = (site: SiteContent, base: string): string => {
       const cover = resolveProfileAsset(interest.cover, base)
       const decoration = getInterestDecoration(interest.id)
       return `<article class="interest-card" data-category="${interest.category}" id="interest-${escape(interest.id)}" tabindex="-1">
-        ${cover ? `<img class="interest-card__cover" src="${escape(cover)}" width="640" height="360" loading="lazy" decoding="async" alt="${escape(interest.title)}封面">` : `<div class="interest-card__scene" data-interest="${escape(interest.id)}" aria-hidden="true">${decoration ? `<img class="interest-card__image" src="${escape(`${base}assets/pixel-ui/${decoration.file}`)}" width="${decoration.width}" height="${decoration.height}" loading="lazy" decoding="async" alt="" aria-hidden="true">` : ''}</div>`}
+        ${cover ? `<img class="interest-card__cover" src="${escape(cover)}" width="640" height="360" loading="lazy" decoding="async" alt="${escape(interest.title)}封面">` : `<div class="interest-card__scene" data-interest="${escape(interest.id)}" aria-hidden="true">${decoration ? `<img class="interest-card__image" src="${escape(`${base}assets/pixel-ui/${decoration.file}`)}" srcset="${escape(getDecorationSrcSet(decoration, base))}" sizes="${escape(CARD_DECORATION_SIZES)}" width="${decoration.width}" height="${decoration.height}" loading="lazy" decoding="async" alt="" aria-hidden="true">` : ''}</div>`}
         <div class="interest-card__heading"><span class="interest-card__icon">${pixelIcon('heart')}</span><div><p class="interest-card__category">${categoryNames[interest.category]}</p><h3>${escape(interest.title)}</h3></div></div>
         ${interest.description ? `<p>${escape(interest.description)}</p>` : ''}
         ${tags(interest.tags, 'interest-card__tags', `${interest.title}标签`)}
@@ -93,7 +93,7 @@ const renderGames = (site: SiteContent, base: string): string => {
     <div class="personal-games">${profiles.map(profile => {
       const cover = resolveProfileAsset(profile.cover, base)
       return `<article class="game-showcase" data-game="${escape(profile.game)}" id="game-${escape(profile.id)}" tabindex="-1">
-        ${cover ? `<img class="game-showcase__cover" src="${escape(cover)}" alt="${escape(profile.label)}封面" width="640" height="360" loading="lazy" decoding="async">` : `<div class="game-showcase__scene" aria-hidden="true"><img class="game-showcase__image" src="${escape(`${base}assets/pixel-ui/${GAME_DECORATION.file}`)}" width="${GAME_DECORATION.width}" height="${GAME_DECORATION.height}" loading="lazy" decoding="async" alt="" aria-hidden="true"></div>`}
+        ${cover ? `<img class="game-showcase__cover" src="${escape(cover)}" alt="${escape(profile.label)}封面" width="640" height="360" loading="lazy" decoding="async">` : `<div class="game-showcase__scene" aria-hidden="true"><img class="game-showcase__image" src="${escape(`${base}assets/pixel-ui/${GAME_DECORATION.file}`)}" srcset="${escape(getDecorationSrcSet(GAME_DECORATION, base))}" sizes="${escape(WIDE_DECORATION_SIZES)}" width="${GAME_DECORATION.width}" height="${GAME_DECORATION.height}" loading="lazy" decoding="async" alt="" aria-hidden="true"></div>`}
         <div class="game-showcase__header"><span class="game-showcase__icon">${pixelIcon('gamepad')}</span><div>${profile.tagline ? `<p class="game-showcase__tagline">${escape(profile.tagline)}</p>` : ''}<h3>${escape(profile.label)}</h3></div></div>
         ${profile.description ? `<p>${escape(profile.description)}</p>` : ''}
         ${tags(profile.tags, 'game-showcase__tags', `${profile.label}标签`)}
@@ -111,7 +111,7 @@ const renderSocials = (site: SiteContent, base: string): string => `<section cla
     const qrCode = resolveProfileAsset(profile.qrCode, base)
     const decoration = getSocialDecoration(profile.platform)
     return `<article class="social-card" data-platform="${profile.platform}" id="contact-${escape(profile.id)}" tabindex="-1">
-      ${decoration ? `<img class="social-card__scene" src="${escape(`${base}assets/pixel-ui/${decoration.file}`)}" width="${decoration.width}" height="${decoration.height}" loading="lazy" decoding="async" alt="" aria-hidden="true">` : ''}
+      ${decoration ? `<img class="social-card__scene" src="${escape(`${base}assets/pixel-ui/${decoration.file}`)}" srcset="${escape(getDecorationSrcSet(decoration, base))}" sizes="${escape(CARD_DECORATION_SIZES)}" width="${decoration.width}" height="${decoration.height}" loading="lazy" decoding="async" alt="" aria-hidden="true">` : ''}
       <div class="social-card__heading"><span class="social-card__icon">${pixelIcon(profile.platform)}</span><h3 class="social-card__label">${escape(profile.label)}</h3></div>
       ${profile.handle ? `<p class="social-card__handle" id="account-${escape(profile.id)}">${escape(profile.handle)}</p>` : ''}
       ${profile.description ? `<p class="social-card__description">${escape(profile.description)}</p>` : ''}
@@ -133,7 +133,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
     { label: '持续制作', count: projects.filter(project => project.status === 'active').length },
     { label: '已归档', count: projects.filter(project => project.status === 'archived').length },
   ]
-  return `<div class="personal-site static-site" id="top" data-active-section="home">
+  return `<div class="personal-site static-site" id="top" data-active-section="home" data-page-motion="paused">
   <a class="skip-link" href="#main-content">跳至主要内容</a>
   <header class="site-header">
     <div class="site-header__bar site-container">

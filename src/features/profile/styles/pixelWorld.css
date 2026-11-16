@@ -21,7 +21,7 @@
 }
 .personal-site::before {
   z-index: -2;
-  background: #304c98 url('/assets/pixel-ui/twilight-world.png') center center / cover no-repeat;
+  background: #304c98 url('/assets/pixel-ui/twilight-world.webp') center center / cover no-repeat;
 }
 .personal-site::after { z-index: -1; background: linear-gradient(#131e4d12, #1f24551a); }
 .personal-site a { color: #e2ccff; }
@@ -224,8 +224,8 @@
 .interest-card::before, .game-showcase::before, .social-card::before { display: none; }
 .interest-card { padding: 0 15px 15px; }
 .interest-card__scene { height: 185px; margin: 0 -15px 16px; background-color: #657ca5; background-size: cover; background-position: center; border-bottom: 2px solid #e3be88; }
-.interest-card__scene[data-interest='naruto'] { background-image: url('/assets/pixel-ui/naruto.png'); background-position: left 40%; }
-.interest-card__scene[data-interest='detective-conan'] { background-image: url('/assets/pixel-ui/conan.png'); background-position: left center; }
+.interest-card__scene[data-interest='naruto'] { background-image: url('/assets/pixel-ui/naruto.webp'); background-position: left 40%; }
+.interest-card__scene[data-interest='detective-conan'] { background-image: url('/assets/pixel-ui/conan.webp'); background-position: left center; }
 .interest-card__cover { margin: 0 -15px 16px; width: calc(100% + 30px); height: 185px; object-fit: cover; }
 .interest-card__heading { margin-bottom: 8px; gap: 13px; }
 .interest-card__category { color: #7a6c58; font-size: 10px; }
@@ -238,7 +238,7 @@
 .interest-card__tags li { padding: 2px 9px; border: 1px solid #c8c89d; color: #5e6241; background: #e7e8cb; font-size: 12px; }
 .game-showcase { position: relative; isolation: isolate; margin: 0; padding: 22px 24px 19px; min-height: 185px; overflow: hidden; background-color: #f4ecdc; }
 .game-showcase__scene { position: absolute; z-index: -1; inset: 0; background-position: center right; background-size: cover; opacity: .7; }
-.game-showcase__scene { background-image: url('/assets/pixel-ui/game-realm.png'); }
+.game-showcase__scene { background-image: url('/assets/pixel-ui/game-realm.webp'); }
 .game-showcase__scene::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #fbf2e4 0%, #fbf2e4ed 25%, #fbf2e488 50%, #fff1d300 80%); }
 .game-showcase__header { margin-bottom: 8px; }
 .game-showcase__icon { width: 49px; height: 49px; border-color: #c8ae79; color: #765f36; background: #efe0be; }
@@ -249,8 +249,8 @@
 .personal-contact__description { font-size: 15px; margin-top: 0; }
 .social-card { position: relative; isolation: isolate; padding: 20px 18px 19px; border-image-source: url('/assets/pixel-ui/frame-violet.svg'); background: linear-gradient(115deg, #faf9ff, #e1e1f6); background-clip: padding-box; overflow: hidden; }
 .social-card::after { content: ''; position: absolute; z-index: -1; right: -10px; bottom: -6px; width: 145px; height: 125px; opacity: .16; background: url('/assets/pixel-ui/grass-block.svg') center / contain no-repeat; pointer-events: none; }
-.social-card[data-platform='github'] { background-image: url('/assets/pixel-ui/social-github.png'); background-position: right center; background-size: cover; }
-.social-card[data-platform='email'] { background-image: url('/assets/pixel-ui/social-mail.png'); background-position: right center; background-size: cover; }
+.social-card[data-platform='github'] { background-image: url('/assets/pixel-ui/social-github.webp'); background-position: right center; background-size: cover; }
+.social-card[data-platform='email'] { background-image: url('/assets/pixel-ui/social-mail.webp'); background-position: right center; background-size: cover; }
 .social-card[data-platform='github']::after, .social-card[data-platform='email']::after { display: none; }
 .social-card__heading { gap: 13px; margin-bottom: 9px; }
 .social-card__icon { width: 46px; height: 46px; border-color: #bab6dc; background: #ebe9fa; color: #4c4b84; }

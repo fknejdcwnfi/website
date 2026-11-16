@@ -1,5 +1,18 @@
-/** Existing lossless page decoration; separate from the immutable portrait. */
-type Decoration = Readonly<{ file: string; width: number; height: number }>
+/** Full-size lossless decoration stays available; smaller variants are sampled. */
+export type Decoration = Readonly<{ file: string; width: number; height: number }>
+
+export const CARD_DECORATION_SIZES = '(max-width: 540px) 100vw, (max-width: 1100px) 50vw, 30vw'
+export const WIDE_DECORATION_SIZES = '(max-width: 1100px) 100vw, 64vw'
+
+/** Both markup paths use the same candidates and preserve the full fallback. */
+export const getDecorationSrcSet = (decoration: Decoration, base: string): string => {
+  const name = decoration.file.replace(/\.webp$/, '')
+  return [
+    `${base}assets/pixel-ui/responsive/${name}-768.webp 768w`,
+    `${base}assets/pixel-ui/responsive/${name}-1536.webp 1536w`,
+    `${base}assets/pixel-ui/${decoration.file} ${decoration.width}w`,
+  ].join(', ')
+}
 
 export const getInterestDecoration = (id: string): Decoration | undefined => {
   switch (id) {

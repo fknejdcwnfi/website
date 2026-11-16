@@ -1,0 +1,176 @@
+{
+  "checks": [
+    {
+      "name": "/_http200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "default_does_not_request_historical_css",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css"
+      ]
+    },
+    {
+      "name": "actual_character_viewport_unchanged",
+      "passed": true,
+      "detail": {
+        "border": "0px",
+        "radius": "50%",
+        "shadow": "none"
+      }
+    },
+    {
+      "name": "/_no_page_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/_no_bad_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?view=portrait_http200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "/?view=portrait_requests_historical_css",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css",
+        "http://127.0.0.1:5185/assets/ArchivedPortrait-BPlJbUOm.css"
+      ]
+    },
+    {
+      "name": "/?view=portrait_stage_styles_present",
+      "passed": true,
+      "detail": {
+        "position": "relative",
+        "width": 512,
+        "bg": "none"
+      }
+    },
+    {
+      "name": "/?view=portrait_legacy_late_css_keeps_pixel_font",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?view=portrait_no_page_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?view=portrait_no_bad_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?style=legacy_http200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "/?style=legacy_requests_historical_css",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css",
+        "http://127.0.0.1:5185/assets/ArchivedPortrait-BPlJbUOm.css"
+      ]
+    },
+    {
+      "name": "/?style=legacy_stage_styles_present",
+      "passed": true,
+      "detail": {
+        "position": "relative",
+        "width": 847.10009765625,
+        "bg": "url(\"http://127.0.0.1:5185/assets/frames/frame_01.webp\")"
+      }
+    },
+    {
+      "name": "/?style=legacy_legacy_late_css_keeps_pixel_font",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?style=legacy_no_page_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?style=legacy_no_bad_responses",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?style=voxel_http200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "/?style=voxel_requests_historical_css",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css",
+        "http://127.0.0.1:5185/assets/ArchivedPortrait-BPlJbUOm.css"
+      ]
+    },
+    {
+      "name": "/?style=voxel_stage_styles_present",
+      "passed": true,
+      "detail": {
+        "position": "relative",
+        "width": 768,
+        "bg": "none"
+      }
+    },
+    {
+      "name": "/?style=voxel_legacy_late_css_keeps_pixel_font",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?style=voxel_no_page_errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "/?style=voxel_no_bad_responses",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "cssRequests": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css"
+      ]
+    },
+    {
+      "route": "/?view=portrait",
+      "cssRequests": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css",
+        "http://127.0.0.1:5185/assets/ArchivedPortrait-BPlJbUOm.css"
+      ]
+    },
+    {
+      "route": "/?style=legacy",
+      "cssRequests": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css",
+        "http://127.0.0.1:5185/assets/ArchivedPortrait-BPlJbUOm.css"
+      ]
+    },
+    {
+      "route": "/?style=voxel",
+      "cssRequests": [
+        "http://127.0.0.1:5185/assets/index-VEp1S2Nz.css",
+        "http://127.0.0.1:5185/assets/ArchivedPortrait-BPlJbUOm.css"
+      ]
+    }
+  ],
+  "status": "passed"
+}
