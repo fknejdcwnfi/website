@@ -16,8 +16,7 @@ export default function SiteSearch() {
   const index = useMemo(() => createSearchIndex(getSiteSearchEntries(site)), [])
   const matches = searchIndex(index, query)
   const describeGroup = (href: string) => {
-    if (href.startsWith('#note-')) return { id: 'journal', label: '手记', icon: '#journal' }
-    if (href.startsWith('#thought-')) return { id: 'thoughts', label: '思绪', icon: '#thoughts' }
+    if (href.startsWith('#note-') || href.startsWith('#thought-')) return { id: 'writing', label: '思绪与日志', icon: '#writing' }
     if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }
     if (href.startsWith('#interest-')) return { id: 'interests', label: '兴趣', icon: '#interests' }
     if (href.startsWith('#game-')) return { id: 'games', label: '游戏', icon: '#games' }

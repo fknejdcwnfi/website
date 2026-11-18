@@ -30,7 +30,7 @@ export default function App() {
         </figure>
         <aside className="welcome-note" aria-labelledby="welcome-note-title">
           <div className="welcome-note__title" id="welcome-note-title"><span aria-hidden="true"><svg className="site-nav__icon" viewBox="0 0 16 16" fill="currentColor" shapeRendering="crispEdges"><path fillRule="evenodd" d={getNavigationIconPath('#interests')} /></svg></span> 欢迎，随意逛逛</div>
-          <p>这里记录我的作品、思绪、手记、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号打个招呼。</p>
+          <p>这里记录我的作品、思绪与日志、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号打个招呼。</p>
         </aside>
       </section>
       <PersonalSections />

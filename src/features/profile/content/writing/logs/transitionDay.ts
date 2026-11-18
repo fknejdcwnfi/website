@@ -1,7 +1,8 @@
-import type { JournalEntry } from '../types.ts'
+import type { WritingEntry } from '../../types.ts'
 
 /** Owner-supplied diary, edited for public reading with identifying details removed. */
-export const transitionDay: JournalEntry = {
+export const transitionDay: WritingEntry = {
+  kind: 'log',
   id: 'transition-day',
   title: '转型日',
   eventDate: '2026-11-14',

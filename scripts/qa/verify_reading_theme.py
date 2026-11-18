@@ -21,7 +21,7 @@ def check(name, condition, detail=None):
 
 
 def surfaces(page):
-    return page.evaluate('''() => [...document.querySelectorAll('#about,#work,.journal-entry,.interest-card,.social-card')].map(e=>{
+    return page.evaluate('''() => [...document.querySelectorAll('#about,#work,.writing-entry,.interest-card,.social-card')].map(e=>{
       const s=getComputedStyle(e);return {id:e.id,background:s.backgroundColor,image:s.backgroundImage,
         color:s.color,font:s.fontFamily,border:s.borderTopWidth,radius:s.borderTopLeftRadius,
         padding:parseFloat(s.paddingLeft)};
@@ -42,15 +42,15 @@ with sync_playwright() as p:
     check('shared_fine_border_and_pixel_typography', all(e['border'] == '1px' and 'Fusion Pixel' in e['font'] for e in info), info)
     check('desktop_reading_has_room_to_breathe', page.locator('#work').evaluate('e=>parseFloat(getComputedStyle(e).paddingLeft)') >= 28)
     check('body_reading_is_at_least_14px', page.locator('.personal-about__lead').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)') >= 14)
-    check('eight_navigation_targets_include_thoughts', page.locator('.site-header__nav a[href="#thoughts"]').count() == 1 and
-          page.locator('.site-header__nav a').count() == 8)
+    check('seven_navigation_targets_include_unified_writing', page.locator('.site-header__nav a[href="#writing"]').count() == 1 and
+          page.locator('.site-header__nav a').count() == 7)
     check('minecraft_world_and_icons_remain', page.locator('.grass-block,.pixel-lantern').count() >= 4 and 'twilight-world.webp' in page.locator('.personal-site').evaluate('e=>getComputedStyle(e,"::before").backgroundImage'))
     page.wait_for_selector('.reference-scene__canvas[data-playback=looping]')
     page.evaluate('window.__readingCanvas=document.querySelector(".reference-scene__canvas")')
     page.screenshot(path=str(args.output/'home.png'))
     page.locator('.site-header__nav a[href="#work"]').click()
     page.locator('#work').screenshot(path=str(args.output/'work.png'))
-    page.locator('#note-keeping-pace').screenshot(path=str(args.output/'journal.png'))
+    page.locator('#note-keeping-pace').screenshot(path=str(args.output/'writing.png'))
     page.locator('#note-keeping-pace summary').click()
     check('same_character_after_reading_navigation', page.evaluate('window.__readingCanvas===document.querySelector(".reference-scene__canvas")'))
     page.get_by_role('searchbox', name='搜索此网站').fill('与时俱进')
@@ -63,7 +63,7 @@ with sync_playwright() as p:
         page.set_viewport_size({'width': width, 'height': 1000})
         page.evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
         layout = page.evaluate('''() => ({width:innerWidth,scroll:document.documentElement.scrollWidth,
-          bounds:[...document.querySelectorAll('#work,.project-table td,.journal-entry,.interest-card,.social-card,.site-header__nav a')].map(e=>{const r=e.getBoundingClientRect();return {x:r.x,right:r.right}})})''')
+          bounds:[...document.querySelectorAll('#work,.project-table td,.writing-entry,.interest-card,.social-card,.site-header__nav a')].map(e=>{const r=e.getBoundingClientRect();return {x:r.x,right:r.right}})})''')
         report['layouts'].append(layout)
         check(f'{width}_content_and_navigation_fit', layout['scroll'] <= width and all(e['x'] >= -.5 and e['right'] <= width+.5 for e in layout['bounds']), layout)
     page.set_viewport_size({'width': 375, 'height': 1000})

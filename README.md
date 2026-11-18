@@ -1,12 +1,12 @@
 # fknejdcwnfi · 我的像素小世界
 
-**HELLOWORLD**。我的个人网站，以 Minecraft 风格的高清2D像素圆形呈现 Vermouth，记录作品、成长手记、兴趣、游戏和社交坐标。
+**HELLOWORLD**。我的个人网站，以 Minecraft 风格的高清2D像素圆形呈现 Vermouth，记录作品、思绪与日志、兴趣、游戏和社交坐标。
 
 [正式网站](https://fknejdcwnfi.github.io/website/) · [文件入口](docs/README.md) · [日常维护](docs/guides/repository-maintenance.md)
 
-网站使用简体中文和自托管的中英像素字体；当前界面以暮色风景、蓝色页首配合暖白实色阅读面板、细边框与克制留白。桌面保留章节导航和双侧栏，窄屏使用顶部导航与原生目录。现有“成长手记”旁新增独立“思绪”空间，可继续记录日常想法。人物仍是原有圆形场景，页面装饰与人物渲染分开。当前主题入口见[暖白阅读与像素场景](docs/guides/calm-pixel.md)，思绪内容维护见[思绪空间](docs/guides/thoughts.md)，搜索约定见[边框、搜索与作品](docs/guides/ui-consistency.md)。
+网站使用简体中文和自托管的中英像素字体；当前界面以暮色风景、蓝色页首配合暖白实色阅读面板、细边框与克制留白。桌面保留章节导航和双侧栏，窄屏使用顶部导航与原生目录。“思绪与日志”以一个入口展示日记与当下想法，并用类型标签区分。人物仍是原有圆形场景，页面装饰与人物渲染分开。当前主题入口见[暖白阅读与像素场景](docs/guides/calm-pixel.md)，写作内容维护见[思绪与日志](docs/guides/writing.md)，搜索约定见[边框、搜索与作品](docs/guides/ui-consistency.md)。
 
-人物默认自动播放，可随时暂停或恢复，选择保存在当前浏览器；离屏或切到后台时暂停。成长手记收录《转型日》和《学会与时俱进》，原稿未注明的日期保持空缺。当前策略和搜索优化见[阅读与默认动态](docs/guides/reading-motion.md)。
+人物默认自动播放，可随时暂停或恢复，选择保存在当前浏览器；离屏或切到后台时暂停。「思绪与日志」收录《转型日》《学会与时俱进》和《若环境未变，我便创造改变》，原稿未注明的日期保持空缺。当前策略和搜索优化见[阅读与默认动态](docs/guides/reading-motion.md)。
 
 页面保留Minecraft像素景观，增加可统一暂停的灯笼、晶体和卡片微动。手机卡图使用响应式派生，高分辨率原图保留；装饰PNG源文件移至作者目录，历史人物样式随历史入口加载。仓库结构与发布边界见[整理与像素微动](docs/guides/scenic-refactor.md)。
 
@@ -14,7 +14,7 @@
 
 - 社交：微信、QQ、哔哩哔哩、抖音等；可展示账号、复制、主页和可选二维码。
 - 兴趣：分类、标签、喜欢的角色、个人感想与本地封面。
-- [成长手记](docs/guides/journal.md)：公开整理的个人记录，区分经历与落笔日期，可展开全文并在本站搜索。
+- [思绪与日志](docs/guides/writing.md)：共享内容模型、分类入口、经历／落笔日期、可展开全文和本地搜索。
 - 游戏：自主组合和排序数据、角色收藏、文字、截图及视频链接，选择每块初始展开状态。
 - 同一配置生成导航、目录、本地搜索与无JS页面，未填项目自动隐藏。
 
@@ -45,10 +45,10 @@ npm run preview -- --host 127.0.0.1 --port 5180
 src/features/
   profile/
     content/site.ts          真实个人配置与导航入口
-    content/types.ts         社交、兴趣、游戏与内容区块类型
+    content/types.ts         WritingEntry、社交、兴趣、游戏与内容区块类型
     content/selectors.ts     验证、导航和搜索索引
     content/staticMarkup.ts  同一份内容的无JS页面
-    content/thoughts/        独立思绪条目，使用共享原生阅读卡片
+    content/writing/         日志与思绪条目，统一日期和稳定搜索锚点
     components/              布局、作品及个性化模块
     styles/                  共享themeTokens、creamScenic主题、布局与历史主题
   poeticPixel/               唯一默认形象、来源播放与同节点入口

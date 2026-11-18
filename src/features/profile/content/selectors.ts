@@ -1,4 +1,4 @@
-import type { ContactLink, ContentsEntry, GameProfile, GameShowcaseBlock, Interest, JournalEntry, Project, SiteContent, SiteSearchEntry, SocialPlatform } from './types.ts'
+import type { ContactLink, ContentsEntry, GameProfile, GameShowcaseBlock, Interest, Project, SiteContent, SiteSearchEntry, SocialPlatform, WritingEntry } from './types.ts'
 import { createSearchIndex, searchIndex } from './searchIndex.ts'
 
 const text = (value: unknown): string => typeof value === 'string' ? value.trim() : ''
@@ -8,6 +8,15 @@ const records = <T>(values: unknown): T[] => (Array.isArray(values) ? values : [
   .filter(value => value !== null && typeof value === 'object' && !Array.isArray(value)) as T[]
 const unique = <T extends { id: string }>(values: T[]): T[] => values.filter((value, index) =>
   values.findIndex(candidate => candidate.id === value.id) === index)
+const uniqueWriting = (values: WritingEntry[]): WritingEntry[] => {
+  const seen = new Set<string>()
+  return values.filter(value => {
+    const key = `${value.kind}\0${value.id}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
 
 export const isPublicLink = (href: unknown): boolean => {
   try {
@@ -133,19 +142,19 @@ const calendarDate = (value: unknown): value is string => typeof value === 'stri
   /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) &&
   new Date(value).toISOString().slice(0, 10) === value
 
-const getWritingEntries = (source: unknown): JournalEntry[] => unique(records<JournalEntry>(source)
-  .filter(entry => validId(entry.id) && entry.id.length <= 80 && text(entry.title) &&
+export const getWritingAnchor = (entry: Pick<WritingEntry, 'kind' | 'id'>): string =>
+  `${entry.kind === 'thought' ? 'thought' : 'note'}-${entry.id}`
+
+export const getWritingEntries = (content: SiteContent): WritingEntry[] => uniqueWriting(records<WritingEntry>(content.writing)
+  .filter(entry => ['log', 'thought'].includes(entry.kind) && validId(entry.id) && entry.id.length <= 80 && text(entry.title) &&
     (entry.eventDate === undefined || calendarDate(entry.eventDate)) &&
     (entry.writtenDate === undefined || calendarDate(entry.writtenDate)))
-  .map(entry => ({ id: entry.id, title: text(entry.title), eventDate: entry.eventDate, writtenDate: entry.writtenDate,
+  .map(entry => ({ kind: entry.kind, id: entry.id, title: text(entry.title), eventDate: entry.eventDate, writtenDate: entry.writtenDate,
     subtitle: text(entry.subtitle), excerpt: text(entry.excerpt), tags: strings(entry.tags), closing: text(entry.closing),
-    sections: records<JournalEntry['sections'][number]>(entry.sections)
+    sections: records<WritingEntry['sections'][number]>(entry.sections)
       .map(section => ({ title: text(section.title), paragraphs: strings(section.paragraphs) }))
       .filter(section => section.title && section.paragraphs.length) }))
   .filter(entry => entry.sections.length > 0))
-
-export const getJournalEntries = (content: SiteContent): JournalEntry[] => getWritingEntries(content.journals)
-export const getThoughtEntries = (content: SiteContent): JournalEntry[] => getWritingEntries(content.thoughts)
 
 export const getSiteNavigation = (content: SiteContent): SiteContent['navigation'] => {
   const knownSections = new Set(['#home', '#about', '#work', '#contact'])
@@ -154,8 +163,7 @@ export const getSiteNavigation = (content: SiteContent): SiteContent['navigation
     .filter((link, index, links) => links.findIndex(other => other.href === link.href) === index)
     .map(link => ({ label: text(link.label), href: link.href }))
   const modules = [
-    ...(getJournalEntries(content).length ? [{ label: '手记', href: '#journal' }] : []),
-    ...(getThoughtEntries(content).length ? [{ label: '思绪', href: '#thoughts' }] : []),
+    ...(getWritingEntries(content).length ? [{ label: '思绪与日志', href: '#writing' }] : []),
     ...(getInterests(content).length ? [{ label: '兴趣', href: '#interests' }] : []),
     ...(getGameProfiles(content).length ? [{ label: '游戏', href: '#games' }] : []),
   ]
@@ -167,8 +175,7 @@ export const getTableOfContents = (content: SiteContent): ContentsEntry[] => [
   { label: '欢迎来到我的网站', href: '#home', symbol: '👋' },
   { label: '关于我', href: '#about', symbol: '📖' },
   { label: '作品与实验', href: '#work', symbol: '🧩' },
-  ...(getJournalEntries(content).length ? [{ label: '成长手记', href: '#journal', symbol: '▤' }] : []),
-  ...(getThoughtEntries(content).length ? [{ label: '思绪记录', href: '#thoughts', symbol: '✦' }] : []),
+  ...(getWritingEntries(content).length ? [{ label: '思绪与日志', href: '#writing', symbol: '▤' }] : []),
   ...(getInterests(content).length ? [{ label: '兴趣图鉴', href: '#interests', symbol: '✦' }] : []),
   ...(getGameProfiles(content).length ? [{ label: '游戏基地', href: '#games', symbol: '🎮' }] : []),
   { label: '社交坐标', href: '#contact', symbol: '✉' },
@@ -186,10 +193,8 @@ export const getSiteSearchEntries = (content: SiteContent): SiteSearchEntry[] =>
   { id: 'about', title: '关于我', href: '#about', excerpt: strings(content.about)[0] ?? '', text: strings(content.about).join(' ') },
   ...getProjects(content).map(project => ({ id: project.id, title: project.title, href: `#project-${project.id}`, excerpt: project.subtitle,
     text: `${project.title} ${project.subtitle} ${project.description} ${project.tags.join(' ')} ${project.kind ?? ''} ${project.year ?? ''} ${(project.highlights ?? []).join(' ')} ${project.note ?? ''} ${project.status === 'active' ? '持续制作中' : '已归档'}` })),
-  ...getJournalEntries(content).map(entry => ({ id: `note-${entry.id}`, title: entry.title, href: `#note-${entry.id}`,
-    excerpt: entry.excerpt, text: `${entry.title} 成长手记 ${entry.subtitle} ${entry.eventDate ?? ''} ${entry.writtenDate ?? ''} ${entry.tags.join(' ')} ${entry.sections.map(section => `${section.title} ${section.paragraphs.join(' ')}`).join(' ')} ${entry.closing}` })),
-  ...getThoughtEntries(content).map(entry => ({ id: `thought-${entry.id}`, title: entry.title, href: `#thought-${entry.id}`,
-    excerpt: entry.excerpt, text: `${entry.title} 思绪 ${entry.subtitle} ${entry.eventDate ?? ''} ${entry.writtenDate ?? ''} ${entry.tags.join(' ')} ${entry.sections.map(section => `${section.title} ${section.paragraphs.join(' ')}`).join(' ')} ${entry.closing}` })),
+  ...getWritingEntries(content).map(entry => ({ id: getWritingAnchor(entry), title: entry.title, href: `#${getWritingAnchor(entry)}`,
+    excerpt: entry.excerpt, text: `${entry.title} 思绪与日志 ${entry.kind === 'thought' ? '思绪' : '日志'} ${entry.subtitle} ${entry.eventDate ?? ''} ${entry.writtenDate ?? ''} ${entry.tags.join(' ')} ${entry.sections.map(section => `${section.title} ${section.paragraphs.join(' ')}`).join(' ')} ${entry.closing}` })),
   ...getInterests(content).map(interest => ({ id: `interest-${interest.id}`, title: interest.title, href: `#interest-${interest.id}`,
     excerpt: interest.description ?? '兴趣图鉴', text: `${interest.title} ${interest.description ?? ''} ${(interest.tags ?? []).join(' ')} ${(interest.favorites ?? []).join(' ')} ${interest.note ?? ''}` })),
   ...getGameProfiles(content).map(profile => ({ id: `game-${profile.id}`, title: profile.label, href: `#game-${profile.id}`,

@@ -1,0 +1,248 @@
+{
+  "conditions": "Fresh single desktop Chromium with 1440x1000 CSS viewport/DPR1, local production preview, unthrottled; no screenshot or concurrent browser. This is a synthetic viewport, not a physical mobile device. Decoded resource body sizes are not compressed internet transfer or visitor CWV.",
+  "url": "http://127.0.0.1:5180/",
+  "browserErrors": [],
+  "badResponses": [],
+  "initialResources": [
+    {
+      "name": "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+      "initiator": "link",
+      "decodedBodySize": 30396,
+      "transferSize": 30696,
+      "duration": 14.600000000558794
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-BHXrO_ua.js",
+      "initiator": "script",
+      "decodedBodySize": 317733,
+      "transferSize": 318033,
+      "duration": 17.200000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-D-5yYvx6.css",
+      "initiator": "link",
+      "decodedBodySize": 77350,
+      "transferSize": 77650,
+      "duration": 15.799999999813735
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 40.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 14.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 1.8999999994412065
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 2.8999999994412065
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 6.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 6.300000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 19
+    },
+    {
+      "name": "http://127.0.0.1:5180/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 1411,
+      "duration": 4.2999999998137355
+    }
+  ],
+  "allResources": [
+    {
+      "name": "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+      "initiator": "link",
+      "decodedBodySize": 30396,
+      "transferSize": 30696,
+      "duration": 14.600000000558794
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-BHXrO_ua.js",
+      "initiator": "script",
+      "decodedBodySize": 317733,
+      "transferSize": 318033,
+      "duration": 17.200000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/index-D-5yYvx6.css",
+      "initiator": "link",
+      "decodedBodySize": 77350,
+      "transferSize": 77650,
+      "duration": 15.799999999813735
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 40.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 14.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 1.8999999994412065
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 2.8999999994412065
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 6.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 6.300000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 19
+    },
+    {
+      "name": "http://127.0.0.1:5180/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 1411,
+      "duration": 4.2999999998137355
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 494642,
+      "transferSize": 494942,
+      "duration": 18.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 297080,
+      "transferSize": 297380,
+      "duration": 15.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 711896,
+      "transferSize": 712196,
+      "duration": 19.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 148198,
+      "transferSize": 148498,
+      "duration": 12.099999999627471
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 152142,
+      "transferSize": 152442,
+      "duration": 12.200000000186265
+    }
+  ],
+  "documentBytes": 68621,
+  "decorativeResources": [
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 14.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 494642,
+      "transferSize": 494942,
+      "duration": 18.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 297080,
+      "transferSize": 297380,
+      "duration": 15.5
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 711896,
+      "transferSize": 712196,
+      "duration": 19.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 148198,
+      "transferSize": 148498,
+      "duration": 12.099999999627471
+    },
+    {
+      "name": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+      "initiator": "img",
+      "decodedBodySize": 152142,
+      "transferSize": 152442,
+      "duration": 12.200000000186265
+    }
+  ],
+  "decorativeDecodedBytes": 3445496,
+  "sameOriginOnly": true,
+  "archiveRuntimeRequested": false,
+  "status": "passed"
+}
