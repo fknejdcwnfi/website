@@ -56,13 +56,20 @@ def wait_scene(page, playback='looping'):
 
 def local_content(page, label):
     check(label + '_complete_site', all(page.locator('#' + section).count() == 1
-          for section in ('home', 'about', 'work', 'interests', 'games', 'contact')))
+          for section in ('home', 'about', 'work', 'journal', 'thoughts', 'interests', 'games', 'contact')))
     page.locator('#site-search').fill('过河')
     result = page.locator('#site-search-results a[href="#project-xiangqi-review"]')
     result.wait_for()
     result.click()
     page.wait_for_function('() => document.activeElement.id==="project-xiangqi-review"')
     check(label + '_legitimate_search_functions', page.url.endswith('#project-xiangqi-review'))
+    page.locator('#site-search').fill('三色')
+    thought = page.locator('#site-search-results a[href="#thought-rebuild-direction"]')
+    thought.wait_for()
+    thought.click()
+    page.wait_for_function('''() => document.activeElement.id==="thought-rebuild-direction" &&
+      document.querySelector(".personal-site").dataset.activeSection==="thoughts"''')
+    check(label + '_thoughts_search_reaches_own_section', page.url.endswith('#thought-rebuild-direction'))
     page.locator('.site-header__nav a[href="#home"]').click()
 
 

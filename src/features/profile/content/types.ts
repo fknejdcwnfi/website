@@ -42,7 +42,8 @@ export type SiteContent = {
   name: string; fullName: string; handle: string; intro: string; tagline: string
   about: string[]; github: string; email?: string; projects: Project[]
   navigation: { label: string; href: string }[]
-  socials?: SocialProfile[]; interests?: Interest[]; gameProfiles?: GameProfile[]; journals?: JournalEntry[]
+  socials?: SocialProfile[]; interests?: Interest[]; gameProfiles?: GameProfile[]
+  journals?: JournalEntry[]; thoughts?: JournalEntry[]
 }
 export type ContentsEntry = { label: string; href: string; symbol: string }
 export type SiteSearchEntry = { id: string; title: string; href: string; excerpt: string; text: string }

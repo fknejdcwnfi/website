@@ -42,7 +42,8 @@ with sync_playwright() as p:
     check('shared_fine_border_and_pixel_typography', all(e['border'] == '1px' and 'Fusion Pixel' in e['font'] for e in info), info)
     check('desktop_reading_has_room_to_breathe', page.locator('#work').evaluate('e=>parseFloat(getComputedStyle(e).paddingLeft)') >= 28)
     check('body_reading_is_at_least_14px', page.locator('.personal-about__lead').evaluate('e=>parseFloat(getComputedStyle(e).fontSize)') >= 14)
-    check('seven_navigation_targets_remain', page.locator('.site-header__nav a').count() == 7)
+    check('eight_navigation_targets_include_thoughts', page.locator('.site-header__nav a[href="#thoughts"]').count() == 1 and
+          page.locator('.site-header__nav a').count() == 8)
     check('minecraft_world_and_icons_remain', page.locator('.grass-block,.pixel-lantern').count() >= 4 and 'twilight-world.webp' in page.locator('.personal-site').evaluate('e=>getComputedStyle(e,"::before").backgroundImage'))
     page.wait_for_selector('.reference-scene__canvas[data-playback=looping]')
     page.evaluate('window.__readingCanvas=document.querySelector(".reference-scene__canvas")')

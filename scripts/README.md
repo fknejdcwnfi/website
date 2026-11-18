@@ -64,6 +64,7 @@ python3 scripts/qa/verify_audit_hardening.py --url http://127.0.0.1:5180/website
 | 工具 | 核对内容 |
 | --- | --- |
 | `qa/verify_reading_theme.py` | 暖白实色、阅读层级、320–1680px布局、人物节点、搜索、暂停与无JS |
+| `qa/verify_journal.py` | 两种独立写作空间、全文键盘／无JS阅读、正文搜索、八个导航目标和人物节点 |
 | `qa/verify_ui_consistency.py` | 统一边框、键盘搜索、真实作品详情、静态HTML与移动布局 |
 | `qa/verify_cream_scenic_ui.py` | 当前主题、字体／配图、导航、响应式侧栏和无JS |
 | `qa/verify_profile_modules.py` | 社交／兴趣／游戏配置、可选资料与独立夹具 |
