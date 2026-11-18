@@ -15,20 +15,20 @@
   .personal-site[data-page-motion="running"] .page-motion-enter {
     animation: pixel-chapter-enter 320ms steps(4, end);
   }
-  .personal-site[data-page-motion="running"] :is(.interest-card, .game-showcase, .social-card) {
+  .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card) {
     transition: transform 140ms steps(2, end), border-color 140ms ease;
   }
-  .personal-site[data-page-motion="running"] :is(.interest-card, .game-showcase, .social-card):focus-within {
+  .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card):focus-within {
     transform: translateY(-2px);
   }
-  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .journal-entry__reading > summary) {
+  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary) {
     transition: transform 100ms steps(1, end);
   }
-  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .journal-entry__reading > summary):active {
+  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary):active {
     transform: translateY(1px);
   }
   @media (hover: hover) and (pointer: fine) {
-    .personal-site[data-page-motion="running"] :is(.interest-card, .game-showcase, .social-card):hover {
+    .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card):hover {
       transform: translateY(-2px);
       border-color: var(--ui-border-strong);
     }
@@ -38,7 +38,8 @@
 /* Pause existing cosmetic transitions too, without touching the scene layers. */
 .personal-site[data-page-motion="paused"] :is(.site-header__nav a, .site-sidebar a, .site-toc a, .site-footer a,
   .site-search form, .interest-card, .game-showcase, .social-card, .personal-text-link, .personal-text-link svg,
-  .personal-project__heading svg, .project-table tbody tr, .social-copy, .social-qr > summary, .showcase-block > summary) {
+  .writing-entry, .writing-entry__reading > summary, .personal-project__heading svg, .project-table tbody tr,
+  .social-copy, .social-qr > summary, .showcase-block > summary) {
   transition: none;
 }
 .personal-site[data-page-motion="paused"] .personal-text-link:is(:hover, :focus-visible) svg,

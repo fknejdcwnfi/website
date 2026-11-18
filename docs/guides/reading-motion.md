@@ -1,10 +1,10 @@
-# 第二篇手记、搜索索引与默认动态
+# 思绪与日志、搜索索引与默认动态
 
 本轮按作者要求加入《学会与时俱进》，保留大学适应、持续学习、AI变化与责任的个人思考，移除姓名、编号和学校等识别信息。原稿未注明日期，页面不补造日期。私人DOCX不进入公开仓库、产物、测试或证据；隐私核对在公开目录外完成，不用真实标识当作公开测试字符串。
 
 ## 结构与搜索
 
-两篇手记分别在[内容目录](../../src/features/profile/content/journals/)，[聚合入口](../../src/features/profile/content/journal.ts)确定展示顺序。顺序不暗示未知的写作日期。[共享日期展示](../../src/features/profile/content/journalPresentation.ts)供React和静态HTML使用。日期缺省被保留，显式无效日期仍被selector拒绝。原生全文阅读、无JS正文及相同的导航／搜索锚点保持。
+当前日志和思绪统一存放在[`content/writing/`](../../src/features/profile/content/writing/)，[聚合入口](../../src/features/profile/content/writing/index.ts)显式确定展示顺序；缺少原稿日期的记录继续无日期。共享日期显示和内容选择分别位于[`writingPresentation.ts`](../../src/features/profile/content/writingPresentation.ts)和[`selectors.ts`](../../src/features/profile/content/selectors.ts)。原生全文阅读、无JS正文以及原文章锚点均保持。
 
 [搜索索引](../../src/features/profile/content/searchIndex.ts)在每个搜索组件挂载时准备一次规范化文本；每次输入只拆分查询并匹配，到8条结果即停止。保留literal tokens、原顺序、大小写行为和旧`searchSite`接口。没有跨配置的全局缓存，修改配置的测试夹具仍能得到新结果。全文仍在静态HTML和运行时内容中存在；本轮没有为减少这部分重复引入远程服务或移除无JS正文，也不宣称网络载荷因此缩小。
 
@@ -22,7 +22,7 @@
 npm run build
 npm run assets:verify
 npm run assets:font:check
-python3 scripts/qa/verify_journal.py --url http://127.0.0.1:5180/ --output work/reading-motion/journal
+python3 scripts/qa/verify_writing.py --url http://127.0.0.1:5180/ --output work/reading-motion/writing
 python3 scripts/qa/verify_default_motion.py --url http://127.0.0.1:5180/ --output work/reading-motion/motion
 ```
 

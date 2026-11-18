@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { site, getProjects, getJournalEntries, getThoughtEntries, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
+import { site, getProjects, getWritingEntries, getWritingAnchor, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
 import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
@@ -176,7 +176,7 @@ test('top-level GitHub URLs are validated before every static link is derived', 
 })
 
 test('navigation only exposes unique actual local section targets', () => {
-  const configured = { ...site, interests: [], gameProfiles: [], journals: [], thoughts: [], navigation: [
+  const configured = { ...site, interests: [], gameProfiles: [], writing: [], navigation: [
     null, false, [], { label: 'Unsafe', href: 'javascript:alert(1)' },
     { label: 'External', href: 'https://example.com/' }, { label: 'Missing', href: '#missing' },
     { label: 'Not configured', href: '#games' }, { label: 'Not configured', href: '#interests' },
@@ -190,7 +190,7 @@ test('navigation only exposes unique actual local section targets', () => {
     assert.deepEqual(getSiteNavigation({ ...configured, navigation }), [])
   }
   const defaults = getSiteNavigation(site)
-  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#journal', '#thoughts', '#interests', '#games', '#contact'])
+  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#writing', '#interests', '#games', '#contact'])
 })
 
 test('React shell and project components omit unsafe configuration just like static HTML', async () => {
@@ -246,12 +246,12 @@ test('editable content is escaped in initial HTML and empty email is omitted', (
 })
 
 test('empty optional modules create no placeholder accounts or navigation', () => {
-  const empty = { ...site, interests: [], gameProfiles: [], journals: [], thoughts: [], socials: [] }
+  const empty = { ...site, interests: [], gameProfiles: [], writing: [], socials: [] }
   assert.deepEqual(getGameProfiles(empty), [])
   assert.deepEqual(getSocialLinks(site).map(profile => profile.platform), ['github', 'email'])
-  assert.ok(!getSiteNavigation(empty).some(link => ['#games', '#interests', '#journal', '#thoughts'].includes(link.href)))
+  assert.ok(!getSiteNavigation(empty).some(link => ['#games', '#interests', '#writing'].includes(link.href)))
   const html = renderStaticSite(empty)
-  assert.ok(!html.includes('id="games"') && !html.includes('id="journal"') && !html.includes('id="thoughts"'))
+  assert.ok(!html.includes('id="games"') && !html.includes('id="writing"') && !html.includes('id="journal"') && !html.includes('id="thoughts"'))
   assert.ok(!html.includes('Bilibili') && !html.includes('Douyin'))
 })
 
@@ -304,18 +304,18 @@ test('search results and table of contents point to real static sections', () =>
   assert.ok(getTableOfContents(site).some(entry => entry.href === '#games'))
 })
 
-test('journal records reject invalid identities, impossible dates and empty reading content', () => {
-  const original = site.journals[0]
-  for (const journals of [undefined, null, false, 42, 'records', {}]) {
-    const configured = { ...site, journals }
-    assert.deepEqual(getJournalEntries(configured), [])
-    assert.ok(!getSiteNavigation(configured).some(link => link.href === '#journal'))
-    assert.ok(!getTableOfContents(configured).some(link => link.href === '#journal'))
-    assert.ok(!getSiteSearchEntries(configured).some(entry => entry.href.startsWith('#note-')))
-    assert.ok(!renderStaticSite(configured).includes('id="journal"'))
+test('unified writing rejects invalid identities, categories, impossible dates and empty reading content', () => {
+  const original = site.writing.find(entry => entry.id === 'transition-day')
+  for (const writing of [undefined, null, false, 42, 'records', {}]) {
+    const configured = { ...site, writing }
+    assert.deepEqual(getWritingEntries(configured), [])
+    assert.ok(!getSiteNavigation(configured).some(link => link.href === '#writing'))
+    assert.ok(!getTableOfContents(configured).some(link => link.href === '#writing'))
+    assert.ok(!getSiteSearchEntries(configured).some(entry => entry.href.startsWith('#note-') || entry.href.startsWith('#thought-')))
+    assert.ok(!renderStaticSite(configured).includes('id="writing"'))
   }
-  const configured = { ...site, journals: [null, false, [], 42,
-    { ...original, id: 'invalid id' }, { ...original, title: 42 },
+  const configured = { ...site, writing: [null, false, [], 42,
+    { ...original, id: 'invalid id' }, { ...original, title: 42 }, { ...original, kind: 'other' },
     { ...original, id: 'impossible-date', eventDate: '2026-02-30' },
     { ...original, id: 'invalid-date', writtenDate: 'javascript:alert(1)' },
     { ...original, id: 'timestamp-date', eventDate: '2026-11-14T00:00:00Z' },
@@ -327,9 +327,10 @@ test('journal records reject invalid identities, impossible dates and empty read
         { title: ' Valid chapter ', paragraphs: [' Text only ', null, {}, 'Text only', 'Next paragraph'] }] },
     { ...original, title: 'Duplicate title' },
   ] }
-  const selected = getJournalEntries(configured)
+  const selected = getWritingEntries(configured)
   assert.equal(selected.length, 1)
   assert.equal(selected[0].id, original.id)
+  assert.equal(selected[0].kind, 'log')
   assert.equal(selected[0].title, 'First title')
   assert.deepEqual(selected[0].tags, ['学习', '探索'])
   assert.deepEqual(selected[0].sections, [{ title: 'Valid chapter', paragraphs: ['Text only', 'Next paragraph'] }])
@@ -337,11 +338,11 @@ test('journal records reject invalid identities, impossible dates and empty read
   const html = renderStaticSite(configured)
   assert.ok(!html.includes('Duplicate title') && !html.includes('impossible-date') && !html.includes('[object Object]'))
   assert.equal(getSiteSearchEntries(configured).filter(entry => entry.href.startsWith('#note-')).length, 1)
-  assert.equal(getJournalEntries({ ...site, journals: [{ ...original, eventDate: '2028-02-29' }] }).length, 1)
+  assert.equal(getWritingEntries({ ...site, writing: [{ ...original, eventDate: '2028-02-29' }] }).length, 1)
 })
 
-test('journal search indexes the actual body and keeps experience and writing dates distinct', () => {
-  const entry = getJournalEntries(site).find(entry => entry.id === 'transition-day')
+test('writing search indexes both categories and keeps experience and writing dates distinct', () => {
+  const entry = getWritingEntries(site).find(entry => entry.id === 'transition-day')
   assert.equal(entry.eventDate, '2026-11-14')
   assert.equal(entry.writtenDate, '2026-11-15')
   for (const query of ['转型日', 'DSAA', '概率论', 'Verilog', '学术导师', '2026-11-15']) {
@@ -350,16 +351,16 @@ test('journal search indexes the actual body and keeps experience and writing da
   const html = renderStaticSite(site)
   assert.ok(html.includes('<time datetime="2026-11-14">2026.11.14</time>'))
   assert.ok(html.includes('<time datetime="2026-11-15">2026.11.15</time>'))
-  assert.ok(html.includes('原稿整理'))
+  assert.ok(html.includes('日志整理'))
 })
 
 test('undated writing remains undated in display and search instead of inventing dates', () => {
-  const entry = getJournalEntries(site).find(entry => entry.id === 'keeping-pace')
+  const entry = getWritingEntries(site).find(entry => entry.id === 'keeping-pace')
   assert.ok(entry)
   assert.equal(entry.eventDate, undefined)
   assert.equal(entry.writtenDate, undefined)
   const html = renderStaticSite(site)
-  const article = html.match(/<article class="journal-entry"[^>]*id="note-keeping-pace"[\s\S]*?<\/article>/)?.[0]
+  const article = html.match(/<article class="writing-entry"[^>]*id="note-keeping-pace"[\s\S]*?<\/article>/)?.[0]
   assert.ok(article.includes('原稿未注明日期'))
   assert.ok(!article.includes('<time'))
   const result = getSiteSearchEntries(site).find(entry => entry.id === 'note-keeping-pace')
@@ -369,22 +370,33 @@ test('undated writing remains undated in display and search instead of inventing
   }
 })
 
-test('thought entries occupy a separate navigable space and remain searchable as their own group', () => {
-  const entries = getThoughtEntries(site)
-  assert.equal(entries.length, 1)
-  assert.equal(entries[0].id, 'rebuild-direction')
+test('logs and thoughts share one navigable space while keeping stable article anchors', () => {
+  const entries = getWritingEntries(site)
+  assert.deepEqual(entries.map(entry => entry.id), ['rebuild-direction', 'transition-day', 'keeping-pace'])
+  assert.deepEqual(entries.map(entry => entry.kind), ['thought', 'log', 'log'])
   assert.deepEqual(getSiteNavigation(site).map(link => link.href),
-    ['#home', '#about', '#work', '#journal', '#thoughts', '#interests', '#games', '#contact'])
-  assert.ok(getTableOfContents(site).some(item => item.label === '思绪记录' && item.href === '#thoughts'))
+    ['#home', '#about', '#work', '#writing', '#interests', '#games', '#contact'])
+  assert.ok(getTableOfContents(site).some(item => item.label === '思绪与日志' && item.href === '#writing'))
   assert.ok(searchSite(getSiteSearchEntries(site), '勇气').some(item => item.href === '#thought-rebuild-direction'))
+  assert.ok(searchSite(getSiteSearchEntries(site), '成长手记').some(item => item.href === '#note-transition-day'))
   const html = renderStaticSite(site)
-  assert.ok(html.includes('id="thoughts"') && html.includes('id="thought-rebuild-direction"'))
+  assert.ok(html.includes('id="writing"') && html.includes('id="journal"') && html.includes('id="thoughts"') && html.includes('id="thought-rebuild-direction"'))
+  const thoughtArticle = html.match(/<article class="writing-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
+  const thoughtTags = thoughtArticle.match(/<ul class="writing-entry__tags"[\s\S]*?<\/ul>/)?.[0]
+  assert.ok(thoughtTags && !thoughtTags.includes('<li>思绪</li>'))
   assert.ok(html.includes('思绪整理') && html.includes('<time datetime="2026-11-18">2026.11.18</time>'))
-  assert.deepEqual(getThoughtEntries({ ...site, thoughts: [{ ...entries[0], id: 'bad id' }, { ...entries[0], writtenDate: '2026-02-30' }] }), [])
-  assert.ok(!renderStaticSite({ ...site, thoughts: [] }).includes('id="thoughts"'))
+  assert.equal(getWritingAnchor(entries[0]), 'thought-rebuild-direction')
+  assert.equal(getWritingAnchor(entries[1]), 'note-transition-day')
+  const sharedId = getWritingEntries({ ...site, writing: [
+    { ...entries[0], id: 'shared-entry' }, { ...entries[1], id: 'shared-entry' }, { ...entries[2], id: 'shared-entry' },
+  ] })
+  assert.deepEqual(sharedId.map(entry => getWritingAnchor(entry)), ['thought-shared-entry', 'note-shared-entry'])
+  assert.equal(new Set(sharedId.map(getWritingAnchor)).size, sharedId.length)
+  assert.deepEqual(getWritingEntries({ ...site, writing: [{ ...entries[0], id: 'bad id' }, { ...entries[0], writtenDate: '2026-02-30' }] }), [])
+  assert.ok(!renderStaticSite({ ...site, writing: [] }).includes('id="thoughts"'))
 })
 
-test('React and no-JS journal expose the same complete writing through native details and escape text', async () => {
+test('React and no-JS writing expose the same complete text through native details and escape text', async () => {
   const { createServer } = await import('vite')
   const { createElement } = await import('react')
   const { renderToStaticMarkup } = await import('react-dom/server')
@@ -393,41 +405,43 @@ test('React and no-JS journal expose the same complete writing through native de
   const normalizeEntities = html => html.replaceAll('&#x27;', '&#39;')
   try {
     const { default: WritingSection } = await server.ssrLoadModule('/src/features/profile/components/WritingSection.tsx')
-    const original = getJournalEntries(site)[0]
+    const original = getWritingEntries(site).find(entry => entry.kind === 'thought')
     const hostile = { ...original, id: 'escaped-note', title: 'javascript:alert(1)',
       subtitle: '<script>subtitle</script>', excerpt: '<img src=x onerror=alert(1)>',
       tags: ['<b>tag</b>'], closing: 'Closing <>&"\'',
       sections: [{ title: '<script>chapter</script>', paragraphs: ['<img src=x onerror=alert(1)>', 'Plain text & "quotes"'] }] }
-    for (const entry of [...getJournalEntries(site), hostile]) {
-      const configured = { ...site, journals: [entry] }
+    for (const entry of [...getWritingEntries(site), hostile]) {
+      const configured = { ...site, writing: [entry] }
       const initial = renderStaticSite(configured, '/website/')
       const react = renderToStaticMarkup(createElement(WritingSection, { content: configured }))
-      const selectArticle = html => html.match(new RegExp(`<article class="journal-entry"[^>]*id="note-${entry.id}"[\\s\\S]*?</article>`))?.[0]
+      const anchor = getWritingAnchor(entry)
+      const selectArticle = html => html.match(new RegExp(`<article class="writing-entry"[^>]*id="${anchor}"[\\s\\S]*?</article>`))?.[0]
       const staticArticle = selectArticle(initial)
       const reactArticle = selectArticle(react)
       assert.ok(staticArticle && reactArticle)
       for (const article of [staticArticle, reactArticle].map(normalizeEntities)) {
         assert.ok(article.includes('tabindex="-1"'))
-        assert.ok(article.includes('<details class="journal-entry__reading">') && article.includes('<summary>'))
-        for (const value of [entry.title, entry.subtitle, entry.excerpt, ...entry.tags, entry.closing,
+        assert.ok(article.includes('<details class="writing-entry__reading">') && article.includes('<summary>'))
+        const categoryTag = entry.kind === 'thought' ? '思绪' : '成长手记'
+        for (const value of [entry.title, entry.subtitle, entry.excerpt, ...entry.tags.filter(tag => tag !== categoryTag), entry.closing,
           ...entry.sections.flatMap(section => [section.title, ...section.paragraphs])]) {
           assert.ok(article.includes(escapeHtml(value)), value)
         }
-        assert.equal((article.match(/class="journal-entry__chapter"/g) ?? []).length, entry.sections.length)
+        assert.equal((article.match(/class="writing-entry__chapter"/g) ?? []).length, entry.sections.length)
         assert.ok(!article.includes('<script>') && !article.includes('<img src=x') && !article.includes('href="javascript:'))
       }
       assert.equal((staticArticle.match(/<p>/g) ?? []).length, (reactArticle.match(/<p>/g) ?? []).length)
     }
-    const thought = getThoughtEntries(site)[0]
-    const thoughtContent = { ...site, thoughts: [thought] }
-    const staticThought = renderStaticSite(thoughtContent).match(/<article class="journal-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
-    const reactThought = renderToStaticMarkup(createElement(WritingSection, { content: thoughtContent, kind: 'thoughts' }))
-      .match(/<article class="journal-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
+    const thought = getWritingEntries(site).find(entry => entry.kind === 'thought')
+    const thoughtContent = { ...site, writing: [thought] }
+    const staticThought = renderStaticSite(thoughtContent).match(/<article class="writing-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
+    const reactThought = renderToStaticMarkup(createElement(WritingSection, { content: thoughtContent }))
+      .match(/<article class="writing-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
     assert.ok(staticThought && reactThought)
     assert.equal((staticThought.match(/<p>/g) ?? []).length, (reactThought.match(/<p>/g) ?? []).length)
     assert.ok(staticThought.includes('思绪整理') && reactThought.includes('思绪整理'))
     assert.equal((staticThought.match(/<h4/g) ?? []).length, thought.sections.length)
-    const empty = { ...site, journals: [] }
+    const empty = { ...site, writing: [] }
     assert.equal(renderToStaticMarkup(createElement(WritingSection, { content: empty })), '')
   } finally {
     await server.close()

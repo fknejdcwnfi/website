@@ -18,7 +18,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[2]
 CANVAS = '.reference-scene__canvas'
-SECTIONS = ['home', 'about', 'work', 'journal', 'thoughts', 'interests', 'games', 'contact']
+SECTIONS = ['home', 'about', 'work', 'writing', 'interests', 'games', 'contact']
 FONT_FAMILY = 'Fusion Pixel'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--url', default='http://127.0.0.1:5180/website/')
@@ -198,12 +198,12 @@ def scenic_chrome(page, label, *, browser_images=True):
 def nav_targets(page, label):
     for selector in ['.site-header__nav', '.site-sidebar nav']:
         targets = page.locator(selector + ' a').evaluate_all('(as)=>as.map(a=>a.getAttribute("href"))')
-        check(label + '_eight_targets_' + selector, targets == ['#' + s for s in SECTIONS], targets)
+        check(label + '_seven_targets_' + selector, targets == ['#' + s for s in SECTIONS], targets)
     check(label + '_unique_sections', all(page.locator('#' + s).count() == 1 for s in SECTIONS))
 
 
 def active_navigation(page, prefix, label):
-    for section in ['about', 'work', 'journal', 'thoughts', 'interests', 'games', 'contact', 'home']:
+    for section in ['about', 'work', 'writing', 'interests', 'games', 'contact', 'home']:
         page.locator(f'{prefix} a[href="#{section}"]').click()
         # Wait beyond the queued scroll/highlight update: an immediate React
         # state change alone must not hide a later bottom-of-document race.

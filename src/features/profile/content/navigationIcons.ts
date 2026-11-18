@@ -1,5 +1,6 @@
 /** The same small decorative navigation glyphs are used in React and static HTML. */
 const navigationIconPaths: Record<string, string> = {
+  '#writing': 'M2 0h12v1h1v14H1V1h1V0zm1 2v11h10V2H3zm2 2h6v1H5V4zm0 3h6v1H5V7zm0 3h4v1H5v-1z',
   '#journal': 'M2 0h12v1h1v14H1V1h1V0zm1 2v11h10V2H3zm2 2h6v1H5V4zm0 3h6v1H5V7zm0 3h4v1H5v-1z',
   '#thoughts': 'M3 1h10v1h2v2h1v8h-2v2h-4v2H7v-2H5v-2H3v-2H1V4h2V2h2V1zm2 2v2H3v4h2v2h2v2h1v-2h3V9h2V5h-2V3H5zm1 2h1v2H6V5zm4 0h1v2h-1V5zM6 8h5v1H6V8z',
   '#home': 'M1 7h2V5h2V3h2V1h2v2h2v2h2v2h2v2h-2v6H9v-5H7v5H3V9H1V7z',

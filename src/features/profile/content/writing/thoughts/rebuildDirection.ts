@@ -1,7 +1,8 @@
-import type { JournalEntry } from '../types.ts'
+import type { WritingEntry } from '../../types.ts'
 
 /** Publicly edited from the owner's 2026-11-18 reflection. Names and third-party details are generalized. */
-export const rebuildDirection: JournalEntry = {
+export const rebuildDirection: WritingEntry = {
+  kind: 'thought',
   id: 'rebuild-direction',
   title: '若环境未变，我便创造改变',
   writtenDate: '2026-11-18',

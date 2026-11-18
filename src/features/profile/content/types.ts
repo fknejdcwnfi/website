@@ -33,7 +33,8 @@ export type GameProfile = {
   tagline?: string; tags?: string[]; cover?: string; blocks?: GameShowcaseBlock[]
 }
 /** Publicly edited writing; experience and writing dates remain separate. */
-export type JournalEntry = {
+export type WritingEntry = {
+  kind: 'log' | 'thought'
   id: string; title: string; eventDate?: string; writtenDate?: string
   subtitle: string; excerpt: string; tags: string[]
   sections: { title: string; paragraphs: string[] }[]; closing: string
@@ -43,7 +44,7 @@ export type SiteContent = {
   about: string[]; github: string; email?: string; projects: Project[]
   navigation: { label: string; href: string }[]
   socials?: SocialProfile[]; interests?: Interest[]; gameProfiles?: GameProfile[]
-  journals?: JournalEntry[]; thoughts?: JournalEntry[]
+  writing?: WritingEntry[]
 }
 export type ContentsEntry = { label: string; href: string; symbol: string }
 export type SiteSearchEntry = { id: string; title: string; href: string; excerpt: string; text: string }

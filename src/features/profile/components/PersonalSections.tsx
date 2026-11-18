@@ -44,7 +44,6 @@ export default function PersonalSections() {
       </section>
 
       <WritingSection content={site} />
-      <WritingSection content={site} kind="thoughts" />
       <InterestSection content={site} />
       <GameSection content={site} />
       <SocialSection content={site} />

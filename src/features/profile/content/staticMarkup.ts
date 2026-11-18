@@ -1,10 +1,10 @@
-import { getGameProfiles, getInterests, getJournalEntries, getThoughtEntries, getProjects, getSiteGithub, getSiteRepository, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
+import { getGameProfiles, getInterests, getWritingAnchor, getWritingEntries, getProjects, getSiteGithub, getSiteRepository, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
 import { renderNavigationIcon } from './navigationIcons.ts'
 import { CARD_DECORATION_SIZES, GAME_DECORATION, WIDE_DECORATION_SIZES, getDecorationSrcSet, getInterestDecoration, getSocialDecoration } from './decorativeAssets.ts'
-import { getJournalDates } from './journalPresentation.ts'
+import { getWritingDates, getWritingTags } from './writingPresentation.ts'
 import { getProjectOverview } from './projectPresentation.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
@@ -19,34 +19,39 @@ const tags = (items: string[] | undefined, className: string, label: string): st
   ? `<ul class="${className}" aria-label="${escape(label)}">${items.map(item => `<li>${escape(item)}</li>`).join('')}</ul>` : ''
 const categoryNames = { anime: '动漫', manga: '漫画', music: '音乐', other: '兴趣' } as const
 
-const renderWritingSpace = (site: SiteContent, kind: 'journal' | 'thoughts'): string => {
-  const isThoughts = kind === 'thoughts'
-  const sectionId = isThoughts ? 'thoughts' : 'journal'
-  const prefix = isThoughts ? 'thought' : 'note'
-  const title = isThoughts ? '思绪' : '成长手记'
-  const entries = isThoughts ? getThoughtEntries(site) : getJournalEntries(site)
+const renderWritingSpace = (site: SiteContent): string => {
+  const sectionId = 'writing'
+  const title = '思绪与日志'
+  const entries = getWritingEntries(site)
   if (!entries.length) return ''
-  return `<section class="personal-section${isThoughts ? ' thoughts-space' : ''}" id="${sectionId}" aria-labelledby="${sectionId}-title" tabindex="-1">
+  return `<section class="personal-section writing-space" id="${sectionId}" aria-labelledby="${sectionId}-title" tabindex="-1">
+    <span class="writing-space__legacy-anchor" id="journal" aria-hidden="true"></span><span class="writing-space__legacy-anchor" id="thoughts" aria-hidden="true"></span>
     ${heading(`${sectionId}-title`, `#${sectionId}`, title)}
-    <p class="profile-section__intro">${isThoughts ? '把未解的问题写下来，也把向前的念头留住。' : '写下困惑，也记录想出发的时刻。'}</p>
-    <div class="journal-entries">${entries.map(entry => `<article class="journal-entry" id="${prefix}-${escape(entry.id)}" aria-labelledby="${prefix}-${escape(entry.id)}-title" tabindex="-1">
-      <header class="journal-entry__header">
-        <p class="journal-entry__dates">${getJournalDates(entry).map(item => `<span>${escape(item.label)}${item.date ? ` <time datetime="${escape(item.date)}">${escape(item.display!)}</time>` : ''}</span>`).join('')}</p>
-        <h3 id="${prefix}-${escape(entry.id)}-title">${escape(entry.title)}</h3>
-        <p class="journal-entry__subtitle">${escape(entry.subtitle)}</p>
-        ${tags(entry.tags, 'journal-entry__tags', isThoughts ? '思绪主题' : '手记主题')}
+    <p class="profile-section__intro">把想法写下来，也把走过的日子留下来。</p>
+    <div class="writing-entries">${entries.map(entry => {
+      const anchor = getWritingAnchor(entry)
+      const kindLabel = entry.kind === 'thought' ? '思绪' : '日志'
+      const entryTags = getWritingTags(entry)
+      return `<article class="writing-entry" id="${anchor}" aria-labelledby="${anchor}-title" tabindex="-1">
+      <header class="writing-entry__header">
+        <p class="writing-entry__dates">${getWritingDates(entry).map(item => `<span>${escape(item.label)}${item.date ? ` <time datetime="${escape(item.date)}">${escape(item.display!)}</time>` : ''}</span>`).join('')}</p>
+        <p class="writing-entry__kind">${kindLabel}</p>
+        <h3 id="${anchor}-title">${escape(entry.title)}</h3>
+        <p class="writing-entry__subtitle">${escape(entry.subtitle)}</p>
+        ${tags(entryTags, 'writing-entry__tags', `${kindLabel}主题`)}
       </header>
-      <p class="journal-entry__excerpt">${escape(entry.excerpt)}</p>
-      <details class="journal-entry__reading">
+      <p class="writing-entry__excerpt">${escape(entry.excerpt)}</p>
+      <details class="writing-entry__reading">
         <summary><span>阅读全文</span>${pixelIcon('arrow-down')}</summary>
-        <div class="journal-entry__body">
-          <p class="journal-entry__edition">${isThoughts ? '思绪整理 · 保留当时的感受与打算' : '原稿整理 · 保留当时的感受与打算'}</p>
-          ${entry.sections.map((section, index) => `<section class="journal-entry__chapter" aria-labelledby="${prefix}-${escape(entry.id)}-chapter-${index}"><h4 id="${prefix}-${escape(entry.id)}-chapter-${index}"><span aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${escape(section.title)}</h4>${section.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}</section>`).join('')}
-          <blockquote class="journal-entry__closing">${escape(entry.closing)}</blockquote>
-          <p class="journal-entry__end">旅程还在继续。</p>
+        <div class="writing-entry__body">
+          <p class="writing-entry__edition">${kindLabel}整理 · 保留当时的感受与打算</p>
+          ${entry.sections.map((section, index) => `<section class="writing-entry__chapter" aria-labelledby="${anchor}-chapter-${index}"><h4 id="${anchor}-chapter-${index}"><span aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${escape(section.title)}</h4>${section.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}</section>`).join('')}
+          <blockquote class="writing-entry__closing">${escape(entry.closing)}</blockquote>
+          <p class="writing-entry__end">旅程还在继续。</p>
         </div>
       </details>
-    </article>`).join('')}</div>
+    </article>`
+    }).join('')}</div>
   </section>`
 }
 
@@ -156,7 +161,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
           </div></div></div>
           <figcaption><span>VERMOUTH</span><span>Minecraft · 像素肖像</span></figcaption>
         </figure>
-        <aside class="welcome-note" aria-labelledby="welcome-note-title"><div class="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">${renderNavigationIcon('#interests')}</span> 欢迎，随意逛逛</div><p>这里记录我的作品、思绪、手记、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号打个招呼。</p></aside>
+        <aside class="welcome-note" aria-labelledby="welcome-note-title"><div class="welcome-note__title" id="welcome-note-title"><span aria-hidden="true">${renderNavigationIcon('#interests')}</span> 欢迎，随意逛逛</div><p>这里记录我的作品、思绪与日志、兴趣和游戏内容。你可以从下方了解我，浏览公开项目，或通过社交账号打个招呼。</p></aside>
       </section>
       <section class="personal-section" id="about" aria-labelledby="about-title" tabindex="-1">
         ${heading('about-title', '#about', '关于我')}
@@ -174,8 +179,7 @@ export const renderStaticSite = (site: SiteContent, base = '/'): string => {
           <blockquote class="document-note">每个作品都链接到真实的公开源码；已归档的项目保留当时的探索。</blockquote>
         </div>
       </section>
-      ${renderWritingSpace(site, 'journal')}
-      ${renderWritingSpace(site, 'thoughts')}
+      ${renderWritingSpace(site)}
       ${renderInterests(site, base)}
       ${renderGames(site, base)}
       ${renderSocials(site, base)}

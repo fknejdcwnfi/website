@@ -1,7 +1,8 @@
-import type { JournalEntry } from '../types.ts'
+import type { WritingEntry } from '../../types.ts'
 
 /** Public edition of the owner's reflection. The original does not state a date. */
-export const keepingPace: JournalEntry = {
+export const keepingPace: WritingEntry = {
+  kind: 'log',
   id: 'keeping-pace',
   title: '学会与时俱进',
   subtitle: '关于大学、持续学习，以及如何面对一个不断变化的时代。',
