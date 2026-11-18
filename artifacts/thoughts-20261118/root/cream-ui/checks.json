@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "productionUrl": "http://127.0.0.1:5180/website/",
+  "productionUrl": "http://127.0.0.1:5180/",
   "fontFamily": "Fusion Pixel",
   "checks": [
     {
@@ -48,7 +48,7 @@
     {
       "name": "desktop_twilight_background_declared",
       "passed": true,
-      "detail": "none url(\"http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
+      "detail": "none url(\"http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
     },
     {
       "name": "desktop_blue_header",
@@ -68,12 +68,12 @@
           "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
           "file": "naruto.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -86,12 +86,12 @@
           "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
           "file": "conan.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/conan.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -104,12 +104,12 @@
           "selector": ".game-showcase__image",
           "file": "game-realm.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -122,12 +122,12 @@
           "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
           "file": "social-github.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -140,12 +140,12 @@
           "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
           "file": "social-mail.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -164,12 +164,12 @@
           "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
           "file": "naruto.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -182,12 +182,12 @@
           "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
           "file": "conan.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/conan.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -200,12 +200,12 @@
           "selector": ".game-showcase__image",
           "file": "game-realm.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -218,12 +218,12 @@
           "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
           "file": "social-github.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -236,12 +236,12 @@
           "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
           "file": "social-mail.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -360,23 +360,23 @@
       "passed": true,
       "detail": [
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
           "loaded": true
         }
       ]
@@ -386,7 +386,7 @@
       "passed": true,
       "detail": [
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
           "loaded": true
         }
       ]
@@ -1287,7 +1287,7 @@
     {
       "name": "mobile_twilight_background_declared",
       "passed": true,
-      "detail": "none url(\"http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
+      "detail": "none url(\"http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
     },
     {
       "name": "mobile_blue_header",
@@ -1307,12 +1307,12 @@
           "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
           "file": "naruto.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1325,12 +1325,12 @@
           "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
           "file": "conan.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/conan.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1343,12 +1343,12 @@
           "selector": ".game-showcase__image",
           "file": "game-realm.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1361,12 +1361,12 @@
           "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
           "file": "social-github.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1379,12 +1379,12 @@
           "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
           "file": "social-mail.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1403,12 +1403,12 @@
           "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
           "file": "naruto.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1421,12 +1421,12 @@
           "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
           "file": "conan.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/conan.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1439,12 +1439,12 @@
           "selector": ".game-showcase__image",
           "file": "game-realm.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1457,12 +1457,12 @@
           "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
           "file": "social-github.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1475,12 +1475,12 @@
           "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
           "file": "social-mail.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -1566,23 +1566,23 @@
       "passed": true,
       "detail": [
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
           "loaded": true
         }
       ]
@@ -1592,7 +1592,7 @@
       "passed": true,
       "detail": [
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
           "loaded": true
         }
       ]
@@ -3298,7 +3298,7 @@
     {
       "name": "nojs_twilight_background_declared",
       "passed": true,
-      "detail": "none url(\"http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
+      "detail": "none url(\"http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp\") linear-gradient(rgba(37, 52, 100, 0.15), rgba(51, 68, 115, 0.04) 65%, rgba(60, 73, 122, 0.125))"
     },
     {
       "name": "nojs_blue_header",
@@ -3318,12 +3318,12 @@
           "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
           "file": "naruto.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3336,12 +3336,12 @@
           "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
           "file": "conan.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/conan.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3354,12 +3354,12 @@
           "selector": ".game-showcase__image",
           "file": "game-realm.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3372,12 +3372,12 @@
           "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
           "file": "social-github.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3390,12 +3390,12 @@
           "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
           "file": "social-mail.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3414,12 +3414,12 @@
           "selector": ".interest-card__scene[data-interest=\"naruto\"] .interest-card__image",
           "file": "naruto.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/naruto.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/naruto.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3432,12 +3432,12 @@
           "selector": ".interest-card__scene[data-interest=\"detective-conan\"] .interest-card__image",
           "file": "conan.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/conan.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/conan.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/conan.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3450,12 +3450,12 @@
           "selector": ".game-showcase__image",
           "file": "game-realm.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/game-realm.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/game-realm.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3468,12 +3468,12 @@
           "selector": ".social-card[data-platform=\"github\"] .social-card__scene",
           "file": "social-github.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-github.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-github.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3486,12 +3486,12 @@
           "selector": ".social-card[data-platform=\"email\"] .social-card__scene",
           "file": "social-mail.webp",
           "visible": true,
-          "image": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-          "fallback": "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp",
+          "image": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+          "fallback": "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp",
           "candidates": [
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-1536.webp",
-            "http://127.0.0.1:5180/website/assets/pixel-ui/social-mail.webp"
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-1536.webp",
+            "http://127.0.0.1:5180/assets/pixel-ui/social-mail.webp"
           ],
           "loading": "lazy",
           "alt": "",
@@ -3577,23 +3577,23 @@
       "passed": true,
       "detail": [
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
           "loaded": true
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
           "loaded": true
         }
       ]
@@ -3602,12 +3602,12 @@
       "name": "nojs_scenic_asset_urls_are_localhost",
       "passed": true,
       "detail": [
-        "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp"
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp"
       ]
     },
     {
@@ -3615,7 +3615,7 @@
       "passed": true,
       "detail": [
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
           "verified": true,
           "status": 200,
           "format": "WEBP",
@@ -3623,7 +3623,7 @@
           "height": 941
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
           "verified": true,
           "status": 200,
           "format": "WEBP",
@@ -3631,7 +3631,7 @@
           "height": 384
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
           "verified": true,
           "status": 200,
           "format": "WEBP",
@@ -3639,7 +3639,7 @@
           "height": 256
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
           "verified": true,
           "status": 200,
           "format": "WEBP",
@@ -3647,7 +3647,7 @@
           "height": 256
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
           "verified": true,
           "status": 200,
           "format": "WEBP",
@@ -3655,7 +3655,7 @@
           "height": 256
         },
         {
-          "src": "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
+          "src": "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
           "verified": true,
           "status": 200,
           "format": "WEBP",
@@ -3721,24 +3721,24 @@
       "name": "scenic_assets_served_locally",
       "passed": true,
       "detail": [
-        "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/grass-block.svg",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/grass-edge.svg",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/lantern.svg",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/grass-block.svg",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-        "http://127.0.0.1:5180/website/assets/pixel-ui/grass-block.svg"
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+        "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg"
       ]
     },
     {
@@ -3755,72 +3755,72 @@
   "browserErrors": [],
   "badResponses": [],
   "requests": [
-    "http://127.0.0.1:5180/website/",
-    "http://127.0.0.1:5180/website/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
-    "http://127.0.0.1:5180/website/assets/index-CdJ9OCze.js",
-    "http://127.0.0.1:5180/website/assets/index-mTYSGWYc.css",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/grass-block.svg",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/grass-edge.svg",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/lantern.svg",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-1536.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/",
-    "http://127.0.0.1:5180/website/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
-    "http://127.0.0.1:5180/website/assets/index-CdJ9OCze.js",
-    "http://127.0.0.1:5180/website/assets/index-mTYSGWYc.css",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/grass-block.svg",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/",
-    "http://127.0.0.1:5180/website/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
-    "http://127.0.0.1:5180/website/assets/index-mTYSGWYc.css",
-    "http://127.0.0.1:5180/website/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/naruto-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/conan-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/game-realm-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-github-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/responsive/social-mail-768.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/twilight-world.webp",
-    "http://127.0.0.1:5180/website/assets/pixel-ui/grass-block.svg",
-    "http://127.0.0.1:5180/website/favicon.svg",
-    "http://127.0.0.1:5180/website/favicon.svg"
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+    "http://127.0.0.1:5180/assets/index-RVntnMx_.js",
+    "http://127.0.0.1:5180/assets/index-DVBET5np.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-edge.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/lantern.svg",
+    "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-1536.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+    "http://127.0.0.1:5180/assets/index-RVntnMx_.js",
+    "http://127.0.0.1:5180/assets/index-DVBET5np.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+    "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5180/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/",
+    "http://127.0.0.1:5180/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+    "http://127.0.0.1:5180/assets/index-DVBET5np.css",
+    "http://127.0.0.1:5180/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/naruto-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/conan-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/game-realm-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-github-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/responsive/social-mail-768.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/twilight-world.webp",
+    "http://127.0.0.1:5180/assets/pixel-ui/grass-block.svg",
+    "http://127.0.0.1:5180/favicon.svg",
+    "http://127.0.0.1:5180/favicon.svg"
   ],
   "layouts": [
     {

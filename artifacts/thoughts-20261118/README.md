@@ -14,21 +14,22 @@ private storage.
 
 ## Production-preview checks
 
-- `npm run build`: TypeScript check and 161 Node tests passed; root production
-  bundle built successfully.
-- GitHub Pages base build (`/website/`): built successfully from the same source.
-- [root journal report](root/journal/checks.json): 40 browser checks passed;
+- `VITE_BASE=/ npm run build`: Sites root-base production build passed, including
+  TypeScript and 161 Node tests. The GitHub Pages `/website/` build also passed
+  from the same source.
+- [Sites journal report](root/journal/checks.json): 40 browser checks passed at `/`;
   [Pages journal report](pages/journal/checks.json): the same 40 passed under `/website/`.
-- [root theme report](root/theme/checks.json) and
+- [Sites theme report](root/theme/checks.json) and
   [Pages theme report](pages/theme/checks.json): 24 reading-theme,
   mobile-width, no-JavaScript and character-retention checks passed per build.
-- [root UI report](root/cream-ui/checks.json) and
+- [Sites UI report](root/cream-ui/checks.json) and
   [Pages UI report](pages/cream-ui/checks.json): 160 visual,
   font, local-image, navigation, layout and stable-scene checks passed per build.
-- [profile module report](root/profile-modules/checks.json): 290 checks passed for the eight destinations,
+- [Sites profile module report](root/profile-modules/checks.json): 290 checks passed for the eight destinations,
   the preserved animated portrait and existing project modules.
-- [Pages security report](pages/security/checks.json): 118 local CSP and browser-failure checks
-  passed, including blocked inline script/handler attempts and Thoughts search.
+- [Sites security report](root/security/checks.json) and
+  [Pages security report](pages/security/checks.json): 118 local CSP and browser-failure checks
+  passed per base, including blocked inline script/handler attempts and Thoughts search.
 - Preview captures: [desktop card](root/journal/thought-card.png),
   [mobile card at 375px](root/journal/thought-card-mobile.png).
 - Font coverage passed with the preserved full font and a 30,396-byte startup
@@ -36,9 +37,10 @@ private storage.
 
 ## Scope and limits
 
-The static bundles include a 317.80 kB JavaScript bundle (103.27 kB gzip) and
-77.21 kB CSS (17.26 kB gzip). These are build measurements, not field Core Web
-Vitals or a claim about visitor hardware. No application dependencies changed.
+The Sites root bundle is 317.74 kB JavaScript (103.26 kB gzip) and 77.15 kB CSS
+(17.25 kB gzip); Pages is 317.80 kB JavaScript (103.27 kB gzip) and 77.21 kB
+CSS (17.26 kB gzip). These are build measurements, not field Core Web Vitals
+or a claim about visitor hardware. No application dependencies changed.
 `npm ls --omit=dev --depth=0` resolves the two runtime packages. `npm audit`
 could not reach the npm security advisory service: the registry returned HTTP
 403, so dependency-advisory status remains unverified.
