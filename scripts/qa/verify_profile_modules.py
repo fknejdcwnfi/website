@@ -49,16 +49,16 @@ def no_overflow(page, label):
 
 def anchors_work(page, label):
     targets = page.locator('.site-header__nav a').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))')
-    check(label+'_seven_module_navigation', targets==['#home','#about','#work','#journal','#interests','#games','#contact'], targets)
+    check(label+'_eight_module_navigation', targets==['#home','#about','#work','#journal','#thoughts','#interests','#games','#contact'], targets)
     unique = page.evaluate('''targets=>targets.every(h=>document.querySelectorAll('[id="'+h.slice(1)+'"]').length===1)''', targets)
     check(label+'_unique_working_targets', unique)
 
 def expect_content(page, label, *, fixture=False):
     check(label+'_simplified_language', page.locator('html').get_attribute('lang')=='zh-CN')
     check(label+'_simplified_locale', page.locator('meta[property="og:locale"]').get_attribute('content')=='zh_CN')
-    for selector in ('#about','#work','#journal','#interests','#games','#contact','footer'):
+    for selector in ('#about','#work','#journal','#thoughts','#interests','#games','#contact','footer'):
         check(label+'_section_'+selector.removeprefix('#'), page.locator(selector).count()==1)
-    for title in ('兴趣图鉴','火影忍者','名侦探柯南','游戏基地','王者荣耀','社交坐标'):
+    for title in ('思绪','兴趣图鉴','火影忍者','名侦探柯南','游戏基地','王者荣耀','社交坐标'):
         check(label+'_title_'+title, title in page.locator('main').inner_text())
     body = page.locator('body').inner_text()
     check(label+'_no_traditional_live_copy', not any(word in body for word in ('關於我','歡迎','遊戲','社群','公開專案','載入','製作','搜尋')), body[:200])

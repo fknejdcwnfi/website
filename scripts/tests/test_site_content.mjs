@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { site, getProjects, getJournalEntries, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
+import { site, getProjects, getJournalEntries, getThoughtEntries, getSiteGithub, getSiteRepository, getInterests, resolveProfileAsset, getGameProfiles, getSiteNavigation, getSocialLinks, getSiteSearchEntries, getTableOfContents, searchSite } from '../../src/features/profile/content/site.ts'
 import { escapeHtml, renderStaticSite } from '../../src/features/profile/content/staticMarkup.ts'
 import { fitPixelViewport } from '../../src/features/profile/presentation/pixelViewport.ts'
 
@@ -176,7 +176,7 @@ test('top-level GitHub URLs are validated before every static link is derived', 
 })
 
 test('navigation only exposes unique actual local section targets', () => {
-  const configured = { ...site, interests: [], gameProfiles: [], journals: [], navigation: [
+  const configured = { ...site, interests: [], gameProfiles: [], journals: [], thoughts: [], navigation: [
     null, false, [], { label: 'Unsafe', href: 'javascript:alert(1)' },
     { label: 'External', href: 'https://example.com/' }, { label: 'Missing', href: '#missing' },
     { label: 'Not configured', href: '#games' }, { label: 'Not configured', href: '#interests' },
@@ -190,7 +190,7 @@ test('navigation only exposes unique actual local section targets', () => {
     assert.deepEqual(getSiteNavigation({ ...configured, navigation }), [])
   }
   const defaults = getSiteNavigation(site)
-  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#journal', '#interests', '#games', '#contact'])
+  assert.deepEqual(defaults.map(link => link.href), ['#home', '#about', '#work', '#journal', '#thoughts', '#interests', '#games', '#contact'])
 })
 
 test('React shell and project components omit unsafe configuration just like static HTML', async () => {
@@ -246,12 +246,12 @@ test('editable content is escaped in initial HTML and empty email is omitted', (
 })
 
 test('empty optional modules create no placeholder accounts or navigation', () => {
-  const empty = { ...site, interests: [], gameProfiles: [], journals: [], socials: [] }
+  const empty = { ...site, interests: [], gameProfiles: [], journals: [], thoughts: [], socials: [] }
   assert.deepEqual(getGameProfiles(empty), [])
   assert.deepEqual(getSocialLinks(site).map(profile => profile.platform), ['github', 'email'])
-  assert.ok(!getSiteNavigation(empty).some(link => ['#games', '#interests', '#journal'].includes(link.href)))
+  assert.ok(!getSiteNavigation(empty).some(link => ['#games', '#interests', '#journal', '#thoughts'].includes(link.href)))
   const html = renderStaticSite(empty)
-  assert.ok(!html.includes('id="games"') && !html.includes('id="journal"'))
+  assert.ok(!html.includes('id="games"') && !html.includes('id="journal"') && !html.includes('id="thoughts"'))
   assert.ok(!html.includes('Bilibili') && !html.includes('Douyin'))
 })
 
@@ -369,6 +369,21 @@ test('undated writing remains undated in display and search instead of inventing
   }
 })
 
+test('thought entries occupy a separate navigable space and remain searchable as their own group', () => {
+  const entries = getThoughtEntries(site)
+  assert.equal(entries.length, 1)
+  assert.equal(entries[0].id, 'rebuild-direction')
+  assert.deepEqual(getSiteNavigation(site).map(link => link.href),
+    ['#home', '#about', '#work', '#journal', '#thoughts', '#interests', '#games', '#contact'])
+  assert.ok(getTableOfContents(site).some(item => item.label === '思绪记录' && item.href === '#thoughts'))
+  assert.ok(searchSite(getSiteSearchEntries(site), '勇气').some(item => item.href === '#thought-rebuild-direction'))
+  const html = renderStaticSite(site)
+  assert.ok(html.includes('id="thoughts"') && html.includes('id="thought-rebuild-direction"'))
+  assert.ok(html.includes('思绪整理') && html.includes('<time datetime="2026-11-18">2026.11.18</time>'))
+  assert.deepEqual(getThoughtEntries({ ...site, thoughts: [{ ...entries[0], id: 'bad id' }, { ...entries[0], writtenDate: '2026-02-30' }] }), [])
+  assert.ok(!renderStaticSite({ ...site, thoughts: [] }).includes('id="thoughts"'))
+})
+
 test('React and no-JS journal expose the same complete writing through native details and escape text', async () => {
   const { createServer } = await import('vite')
   const { createElement } = await import('react')
@@ -377,7 +392,7 @@ test('React and no-JS journal expose the same complete writing through native de
     server: { middlewareMode: true, hmr: false, watch: null } })
   const normalizeEntities = html => html.replaceAll('&#x27;', '&#39;')
   try {
-    const { default: JournalSection } = await server.ssrLoadModule('/src/features/profile/components/JournalSection.tsx')
+    const { default: WritingSection } = await server.ssrLoadModule('/src/features/profile/components/WritingSection.tsx')
     const original = getJournalEntries(site)[0]
     const hostile = { ...original, id: 'escaped-note', title: 'javascript:alert(1)',
       subtitle: '<script>subtitle</script>', excerpt: '<img src=x onerror=alert(1)>',
@@ -386,7 +401,7 @@ test('React and no-JS journal expose the same complete writing through native de
     for (const entry of [...getJournalEntries(site), hostile]) {
       const configured = { ...site, journals: [entry] }
       const initial = renderStaticSite(configured, '/website/')
-      const react = renderToStaticMarkup(createElement(JournalSection, { content: configured }))
+      const react = renderToStaticMarkup(createElement(WritingSection, { content: configured }))
       const selectArticle = html => html.match(new RegExp(`<article class="journal-entry"[^>]*id="note-${entry.id}"[\\s\\S]*?</article>`))?.[0]
       const staticArticle = selectArticle(initial)
       const reactArticle = selectArticle(react)
@@ -403,8 +418,17 @@ test('React and no-JS journal expose the same complete writing through native de
       }
       assert.equal((staticArticle.match(/<p>/g) ?? []).length, (reactArticle.match(/<p>/g) ?? []).length)
     }
+    const thought = getThoughtEntries(site)[0]
+    const thoughtContent = { ...site, thoughts: [thought] }
+    const staticThought = renderStaticSite(thoughtContent).match(/<article class="journal-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
+    const reactThought = renderToStaticMarkup(createElement(WritingSection, { content: thoughtContent, kind: 'thoughts' }))
+      .match(/<article class="journal-entry"[^>]*id="thought-rebuild-direction"[\s\S]*?<\/article>/)?.[0]
+    assert.ok(staticThought && reactThought)
+    assert.equal((staticThought.match(/<p>/g) ?? []).length, (reactThought.match(/<p>/g) ?? []).length)
+    assert.ok(staticThought.includes('思绪整理') && reactThought.includes('思绪整理'))
+    assert.equal((staticThought.match(/<h4/g) ?? []).length, thought.sections.length)
     const empty = { ...site, journals: [] }
-    assert.equal(renderToStaticMarkup(createElement(JournalSection, { content: empty })), '')
+    assert.equal(renderToStaticMarkup(createElement(WritingSection, { content: empty })), '')
   } finally {
     await server.close()
   }

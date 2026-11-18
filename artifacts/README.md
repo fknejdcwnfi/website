@@ -6,6 +6,7 @@
 
 | 目录 | 实际记录的范围 |
 | --- | --- |
+| [thoughts-20261118](thoughts-20261118/README.md) | 新思绪空间的匿名整理、八项导航、搜索／键盘／无JS与人物保留检查 |
 | [calm-pixel](calm-pixel/README.md) | 暖白阅读、主题整理、可选媒体API修复与两种托管路径的独立回归 |
 | [scenic-refactor](scenic-refactor/README.md) | 仓库职责、公开目录保护、响应式资源与可暂停微动的独立证据 |
 | [reading-motion-20261115](reading-motion-20261115/README.md) | 第二篇手记、未知日期、搜索计算、默认动态与本地暂停的独立验证 |

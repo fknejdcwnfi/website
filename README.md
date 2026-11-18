@@ -4,7 +4,7 @@
 
 [正式网站](https://fknejdcwnfi.github.io/website/) · [文件入口](docs/README.md) · [日常维护](docs/guides/repository-maintenance.md)
 
-网站使用简体中文和自托管的中英像素字体；当前界面以暮色风景、蓝色页首配合暖白实色阅读面板、细边框与克制留白。桌面保留章节导航和双侧栏，窄屏使用顶部导航与原生目录。人物仍是原有圆形场景，页面装饰与人物渲染分开。当前主题入口见[暖白阅读与像素场景](docs/guides/calm-pixel.md)，搜索约定见[边框、搜索与作品](docs/guides/ui-consistency.md)。
+网站使用简体中文和自托管的中英像素字体；当前界面以暮色风景、蓝色页首配合暖白实色阅读面板、细边框与克制留白。桌面保留章节导航和双侧栏，窄屏使用顶部导航与原生目录。现有“成长手记”旁新增独立“思绪”空间，可继续记录日常想法。人物仍是原有圆形场景，页面装饰与人物渲染分开。当前主题入口见[暖白阅读与像素场景](docs/guides/calm-pixel.md)，思绪内容维护见[思绪空间](docs/guides/thoughts.md)，搜索约定见[边框、搜索与作品](docs/guides/ui-consistency.md)。
 
 人物默认自动播放，可随时暂停或恢复，选择保存在当前浏览器；离屏或切到后台时暂停。成长手记收录《转型日》和《学会与时俱进》，原稿未注明的日期保持空缺。当前策略和搜索优化见[阅读与默认动态](docs/guides/reading-motion.md)。
 
@@ -44,10 +44,11 @@ npm run preview -- --host 127.0.0.1 --port 5180
 ```text
 src/features/
   profile/
-    content/site.ts          真实个人配置
+    content/site.ts          真实个人配置与导航入口
     content/types.ts         社交、兴趣、游戏与内容区块类型
     content/selectors.ts     验证、导航和搜索索引
     content/staticMarkup.ts  同一份内容的无JS页面
+    content/thoughts/        独立思绪条目，使用共享原生阅读卡片
     components/              布局、作品及个性化模块
     styles/                  共享themeTokens、creamScenic主题、布局与历史主题
   poeticPixel/               唯一默认形象、来源播放与同节点入口

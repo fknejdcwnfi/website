@@ -1,6 +1,6 @@
 # 暖白阅读与像素场景
 
-本轮借鉴简洁产品界面的留白、暖白纸面与克制层级，保留网站自己的Minecraft暮色风景、蓝色页首、中英像素字体、7章节、全部真实内容和Vermouth圆形动态人物。没有引入其他产品的品牌或聊天界面。
+本轮借鉴简洁产品界面的留白、暖白纸面与克制层级，保留网站自己的Minecraft暮色风景、蓝色页首、中英像素字体、八个章节目标、全部真实内容和Vermouth圆形动态人物。没有引入其他产品的品牌或聊天界面。新增独立思绪区见[思绪空间](thoughts.md)。
 
 ## 维护入口
 
@@ -23,6 +23,6 @@ npm run assets:verify
 python3 scripts/qa/verify_reading_theme.py --url http://127.0.0.1:5180/ --output /workspace/work/reading-check
 ```
 
-`verify_reading_theme.py`检查实色阅读层级、像素字体、7章节、320–1680px布局、原人物节点、搜索、暂停及无JS原生阅读；原有界面、模块、故障注入和来源像素检查继续保留。Pages须单独构建`/website/`并指定其URL。性能观察应独占浏览器，不能将本地rAF或CPU时间换算成真实设备FPS或访客体验保证。
+`verify_reading_theme.py`检查实色阅读层级、像素字体、八个章节目标、320–1680px布局、原人物节点、搜索、暂停及无JS原生阅读；原有界面、模块、故障注入和来源像素检查继续保留。Pages须单独构建`/website/`并指定其URL。性能观察应独占浏览器，不能将本地rAF或CPU时间换算成真实设备FPS或访客体验保证。
 
 本轮结果与截图见[独立证据](../../artifacts/calm-pixel/README.md)。历史报告不改写为本轮通过记录；原始工程、源素材和既有历史入口保持。

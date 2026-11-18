@@ -16,6 +16,7 @@
 .journal-entry__tags { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; margin: 20px 0 0; padding: 0; }
 .journal-entry__tags li { padding: 0 8px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-pill); color: var(--muted); background: var(--surface-subtle); font-size: 12px; }
 .journal-entry__excerpt { margin: 24px var(--reading-space); padding-left: 16px; border-left: 2px solid var(--ui-border-strong); color: var(--text); font-size: 16px; line-height: 2; }
+.thoughts-space .journal-entry__excerpt { padding: 12px 16px; border: var(--ui-border-width) solid var(--ui-border); border-left: 3px solid var(--ui-border-strong); border-radius: var(--ui-radius-control); background: var(--surface-subtle); }
 .journal-entry__reading { margin: 0 var(--reading-space) var(--reading-space); }
 .journal-entry__reading > summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: fit-content; min-height: 42px; padding: 7px 14px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); background: var(--surface-subtle); color: var(--accent); cursor: pointer; font-size: 14px; list-style: none; }
 .journal-entry__reading > summary::-webkit-details-marker { display: none; }
@@ -34,6 +35,7 @@
 @media (max-width: 540px) {
   .journal-entry h3 { font-size: 24px; }
   .journal-entry__excerpt { margin-block: 20px; font-size: 14px; }
+  .thoughts-space .journal-entry__excerpt { padding: 10px 12px; }
   .journal-entry__body { font-size: 14px; }
   .journal-entry__chapter h4 { font-size: 18px; gap: 9px; }
   .journal-entry__closing { padding: 16px; }

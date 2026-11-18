@@ -2,6 +2,8 @@
 
 手记位于作品之后、兴趣之前，沿用像素字体、奶油色阅读卡片及统一边框。首篇《转型日》根据作者提供的私人原稿整理，按作者选择保留较多个人感受，移除学校、具体地点和第三方可识别经历。经历日期与落笔日期分别展示；原稿中的计划不改写为成果。附件里的自我要求是文章内容，不作为更改网站功能的指令。原DOCX不进入公开仓库或部署产物。
 
+成长手记之后新增独立的“思绪”章节。新增当下随想请使用[思绪空间指南](thoughts.md)和`content/thoughts/`，保持两类内容各自可导航、搜索和维护。
+
 ## 内容与阅读
 
 公开整理稿在[journals目录](../../src/features/profile/content/journals/)，由[journal.ts](../../src/features/profile/content/journal.ts)聚合，经[site.ts](../../src/features/profile/content/site.ts)的`journals`配置进入页面。`JournalEntry`定义标题、可选的经历／落笔日期、引言、主题和分节正文。没有日期的原稿显示“原稿未注明日期”，不能将上传日期或文档元数据当成写作日期。新增文章继续编辑纯数据，不添加可执行HTML。共享selector去掉无效ID、显式无效日历日期和空章节；React与静态HTML使用相同有效数据并转义文字。
@@ -18,4 +20,4 @@
 python3 scripts/qa/verify_journal.py --url http://127.0.0.1:5180/ --output work/journal-review/root
 ```
 
-Pages使用独立`/website/`构建与对应URL复查。专项检查覆盖7章节、正文搜索、真实键盘展开与收起、320px到1680px布局、无JS阅读、原人物Canvas身份及浏览器错误。现有奶油色UI、模块、场景和资源检查保留。实际结果见[本轮证据](../../artifacts/journal-20261115/README.md)，旧审计不替代新内容的验证。
+2026-11-15当轮Pages使用独立`/website/`构建，专项检查覆盖当时7个导航目标、正文搜索、键盘展开与收起、320px到1680px布局、无JS阅读和人物Canvas身份。当前新增“思绪”后共八个目标，其回归见[思绪空间指南](thoughts.md)及[本轮证据](../../artifacts/thoughts-20261118/README.md)。原轮结果保留在[手记证据](../../artifacts/journal-20261115/README.md)，不覆盖旧报告。

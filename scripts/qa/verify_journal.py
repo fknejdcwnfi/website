@@ -40,10 +40,23 @@ with sync_playwright() as p:
     summary = reading.locator('summary')
     check('single_public_note', article.count() == 1)
     newer = page.locator('#note-keeping-pace')
-    check('two_public_notes', page.locator('.journal-entry').count() == 2 and newer.count() == 1)
+    check('two_public_notes', page.locator('#journal .journal-entry').count() == 2 and newer.count() == 1)
     check('undated_original_has_no_invented_time', newer.locator('time').count() == 0 and '原稿未注明日期' in newer.inner_text())
     check('no_raw_document_download', page.locator('a[href$=".docx"]').count() == 0)
-    check('seven_navigation_targets', page.locator('.site-header__nav a').evaluate_all('(links)=>links.map(a=>a.hash)') == ['#home', '#about', '#work', '#journal', '#interests', '#games', '#contact'])
+    check('eight_navigation_targets', page.locator('.site-header__nav a').evaluate_all('(links)=>links.map(a=>a.hash)') == ['#home', '#about', '#work', '#journal', '#thoughts', '#interests', '#games', '#contact'])
+    thoughts = page.locator('#thought-rebuild-direction')
+    check('thoughts_have_a_separate_space_and_date', page.locator('#thoughts').count() == 1 and
+          thoughts.count() == 1 and thoughts.locator('time').evaluate('(e)=>e.dateTime') == '2026-11-18')
+    thought_search = page.get_by_role('searchbox', name='搜索此网站')
+    thought_search.fill('三色')
+    page.wait_for_selector('#site-search-results .site-search__result[href="#thought-rebuild-direction"]')
+    check('thoughts_are_in_their_own_search_group', page.locator('#site-search-results .site-search__group-label').filter(has_text='思绪').count() == 1)
+    check('thoughts_privacy_edition_and_edited_copy', '思绪整理' in thoughts.locator('.journal-entry__body').text_content() and
+          '重新联系导师' in thoughts.locator('.journal-entry__body').text_content() and '名字和具体安排留给我自己' in thoughts.locator('.journal-entry__body').text_content())
+    page.keyboard.press('Enter')
+    check('thought_search_focuses_its_own_article', page.evaluate('document.activeElement.id') == 'thought-rebuild-direction' and
+          page.locator('.personal-site').get_attribute('data-active-section') == 'thoughts')
+    thoughts.screenshot(path=str(args.output / 'thought-card.png'))
     check('separate_dates', article.locator('time').evaluate_all('(nodes)=>nodes.map(e=>e.dateTime)') == ['2026-11-14', '2026-11-15'])
     check('collapsed_initial_reading', reading.get_attribute('open') is None)
     page.locator('.site-header__nav a[href="#journal"]').click()
@@ -59,6 +72,9 @@ with sync_playwright() as p:
     for width in [320, 375, 541, 768, 801, 1440, 1680]:
         page.set_viewport_size({'width': width, 'height': 1000})
         article.scroll_into_view_if_needed()
+        if width == 375:
+            thoughts.scroll_into_view_if_needed()
+            thoughts.screenshot(path=str(args.output / 'thought-card-mobile.png'))
         layout = page.evaluate('''() => ({width:innerWidth,scroll:document.documentElement.scrollWidth,
           bounds:[...document.querySelectorAll('.journal-entry,.journal-entry__reading,.journal-entry__body,.journal-entry__chapter')].map(e=>{const r=e.getBoundingClientRect();return {x:r.x,right:r.right}}),
           header:[...document.querySelectorAll('.site-header__nav a')].map(e=>{const r=e.getBoundingClientRect();return {x:r.x,right:r.right}})})''')
@@ -88,6 +104,9 @@ with sync_playwright() as p:
     page.locator('#note-transition-day .journal-entry__reading summary').click()
     page.locator('.site-header__nav a[href="#home"]').click()
     check('same_character_canvas', page.evaluate('window.__journalCanvas===document.querySelector(".reference-scene__canvas")'))
+    page.locator('.site-header__nav a[href="#thoughts"]').click()
+    page.locator('#thought-rebuild-direction .journal-entry__reading summary').click()
+    check('thoughts_navigation_keeps_same_character_canvas', page.evaluate('window.__journalCanvas===document.querySelector(".reference-scene__canvas")'))
     context.close()
     context = browser.new_context(java_script_enabled=False, viewport={'width': 375, 'height': 1000})
     page = context.new_page()
@@ -99,6 +118,9 @@ with sync_playwright() as p:
     newer = page.locator('#note-keeping-pace')
     newer.locator('summary').click()
     check('no_js_new_article_reading', newer.locator('details').get_attribute('open') is not None and newer.locator('.journal-entry__chapter').count() == 5 and newer.locator('time').count() == 0)
+    thoughts = page.locator('#thought-rebuild-direction')
+    thoughts.locator('.journal-entry__reading summary').click()
+    check('no_js_thoughts_full_reading', thoughts.locator('details').get_attribute('open') is not None and thoughts.locator('.journal-entry__chapter').count() == 5)
     check('no_js_no_dead_search', page.get_by_role('searchbox').count() == 0)
     check('no_js_pixel_font', 'Fusion Pixel' in reading.locator('.journal-entry__body').evaluate('e=>getComputedStyle(e).fontFamily'))
     check('no_js_local_resources', all(urlsplit(src).hostname == urlsplit(args.url).hostname for src in page.locator('img').evaluate_all('(imgs)=>imgs.map(e=>e.src)')))

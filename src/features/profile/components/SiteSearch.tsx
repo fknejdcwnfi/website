@@ -17,6 +17,7 @@ export default function SiteSearch() {
   const matches = searchIndex(index, query)
   const describeGroup = (href: string) => {
     if (href.startsWith('#note-')) return { id: 'journal', label: '手记', icon: '#journal' }
+    if (href.startsWith('#thought-')) return { id: 'thoughts', label: '思绪', icon: '#thoughts' }
     if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }
     if (href.startsWith('#interest-')) return { id: 'interests', label: '兴趣', icon: '#interests' }
     if (href.startsWith('#game-')) return { id: 'games', label: '游戏', icon: '#games' }
