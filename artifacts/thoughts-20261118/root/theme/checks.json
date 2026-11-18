@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "url": "http://127.0.0.1:5180/website/",
+  "url": "http://127.0.0.1:5180/",
   "checks": [
     {
       "name": "production_http_200",

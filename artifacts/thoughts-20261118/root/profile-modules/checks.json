@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "productionUrl": "http://127.0.0.1:5180/website/",
+  "productionUrl": "http://127.0.0.1:5180/",
   "fixtureUrl": "http://127.0.0.1:5181/website/",
   "fixtureIsSynthetic": true,
   "productionContentChangedByQA": false,
