@@ -1,4 +1,11 @@
 /* Shared reading cards keep logs and thoughts in one quiet visual system. */
+.writing-space__index { margin: 0 0 24px; padding: 10px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-card); background: var(--surface-panel); color: var(--text); }
+.writing-space__index ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 0; list-style: none; }
+.writing-space__index li { min-width: 0; }
+.writing-space__index a { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 8px 10px; border: var(--ui-border-width) solid transparent; border-radius: var(--ui-radius-control); color: var(--text); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+.writing-space__index a::before { content: ''; flex: 0 0 4px; width: 4px; height: 4px; background: var(--accent); }
+.writing-space__index a:hover { border-color: var(--ui-border); background: var(--surface-subtle); color: var(--accent); text-decoration: none; }
+.writing-space__index a:focus-visible { outline: 2px solid var(--ui-focus-dark); outline-offset: -2px; background: var(--surface-active); }
 .writing-entries { display: grid; gap: 24px; }
 .writing-space__legacy-anchor { display: block; height: 0; scroll-margin-top: 100px; }
 .writing-entry {
@@ -11,14 +18,15 @@
   overflow-wrap: anywhere;
 }
 .writing-entry__header { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px 16px; padding: var(--reading-space) var(--reading-space) 0; }
+.writing-entry__header > * { min-width: 0; }
 .writing-entry__dates { display: flex; flex-wrap: wrap; align-self: center; gap: 5px 22px; margin: 0; color: var(--muted); font-size: 12px; }
-.writing-entry__kind { display: inline-flex; grid-column: 2; grid-row: 1; margin: 0; padding: 1px 8px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); color: var(--muted); background: var(--surface-subtle); font-size: 12px; line-height: 1.7; }
-.writing-entry h3 { grid-column: 1 / -1; margin: 4px 0 0; color: var(--text); font-size: 28px; font-weight: 400; line-height: 1.5; }
+.writing-entry__kind { display: inline-flex; grid-column: 2; grid-row: 1; margin: 0; padding: 1px 8px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); color: var(--muted); background: var(--surface-subtle); font-size: 12px; line-height: 1.7; white-space: nowrap; }
+.writing-entry h3 { grid-column: 1 / -1; margin: 4px 0 0; color: var(--text); font-size: 28px; font-weight: 400; line-height: 1.5; text-wrap: pretty; }
 .writing-entry__subtitle { grid-column: 1 / -1; max-width: 64ch; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.9; }
 .writing-entry__tags { display: flex; grid-column: 1 / -1; flex-wrap: wrap; gap: 7px; list-style: none; margin: 4px 0 0; padding: 0; }
-.writing-entry__tags li { padding: 0 8px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-pill); color: var(--muted); background: var(--surface-subtle); font-size: 12px; }
+.writing-entry__tags li { max-width: 100%; padding: 0 8px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-pill); color: var(--muted); background: var(--surface-subtle); font-size: 12px; }
 .writing-entry__excerpt { margin: 24px var(--reading-space); padding: 16px 20px; border-left: 2px solid var(--ui-border-strong); border-radius: 0 var(--ui-radius-control) var(--ui-radius-control) 0; background: var(--surface-subtle); color: var(--text); font-size: 16px; line-height: 2; }
-.writing-entry__reading { margin: 0 var(--reading-space) var(--reading-space); }
+.writing-entry__reading { min-width: 0; margin: 0 var(--reading-space) var(--reading-space); }
 .writing-entry__reading > summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: fit-content; min-height: 44px; padding: 8px 14px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); background: var(--surface-subtle); color: var(--accent); cursor: pointer; font-size: 14px; list-style: none; }
 .writing-entry__reading > summary::-webkit-details-marker { display: none; }
 .writing-entry__reading > summary:hover { background: var(--surface-active); border-color: var(--ui-border-strong); }
@@ -26,25 +34,32 @@
 .writing-entry__reading > summary svg { width: 14px; height: 14px; }
 .writing-entry__reading[open] > summary svg { transform: rotate(180deg); }
 .writing-entry:focus-visible, .writing-entry :focus-visible { outline-color: var(--ui-focus-dark); }
+.writing-entry:focus-within { border-color: var(--ui-border-strong); }
 .writing-entry__body { max-width: 64ch; margin: 28px auto 0; padding-top: 24px; border-top: var(--ui-border-width) solid var(--ui-border); font-size: 16px; line-height: 2; }
 .writing-entry__edition { margin: 0 0 32px; color: var(--muted); font-size: 12px; }
+.writing-entry__chapter { min-width: 0; }
 .writing-entry__chapter + .writing-entry__chapter { margin-top: 36px; }
-.writing-entry__chapter h4 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 16px; color: var(--text); font-size: 20px; font-weight: 400; line-height: 1.7; }
-.writing-entry__chapter h4 span { flex: 0 0 auto; color: var(--accent); font-size: 12px; }
+.writing-entry__chapter h4 { margin: 0 0 16px; color: var(--text); font-size: 20px; font-weight: 400; line-height: 1.7; }
 .writing-entry__chapter p { margin: 0 0 20px; }
 .writing-entry__closing { margin: 32px 0 0; padding: 20px; border: var(--ui-border-width) solid var(--ui-border); border-radius: var(--ui-radius-control); background: var(--surface-subtle); color: var(--text); }
 .writing-entry__end { margin: 24px 0 0; color: var(--muted); text-align: right; font-size: 12px; }
 @media (max-width: 540px) {
+  .writing-space__index ul { grid-template-columns: minmax(0, 1fr); }
+  .writing-space__index a { min-height: 44px; }
   .writing-entry__header { gap: 10px 12px; }
   .writing-entry h3 { font-size: 24px; }
   .writing-entry__excerpt { margin-block: 20px; padding: 14px; font-size: 14px; }
   .writing-entry__reading > summary { width: 100%; }
   .writing-entry__body { font-size: 14px; }
-  .writing-entry__chapter h4 { font-size: 18px; gap: 9px; }
+  .writing-entry__chapter h4 { font-size: 18px; }
   .writing-entry__closing { padding: 16px; }
 }
 @media (forced-colors: active) {
+  .writing-space__index { border-color: CanvasText; background: Canvas; color: CanvasText; }
+  .writing-space__index a { color: LinkText; }
+  .writing-space__index a::before { background: LinkText; }
+  .writing-space__index a:focus-visible { outline-color: Highlight; }
   .writing-entry, .writing-entry__kind, .writing-entry__tags li, .writing-entry__reading > summary, .writing-entry__closing { background: Canvas; color: CanvasText; border-color: CanvasText; box-shadow: none; }
-  .writing-entry h3, .writing-entry__subtitle, .writing-entry__dates, .writing-entry__excerpt, .writing-entry__edition, .writing-entry__chapter h4, .writing-entry__chapter h4 span, .writing-entry__end { color: CanvasText; }
+  .writing-entry h3, .writing-entry__subtitle, .writing-entry__dates, .writing-entry__excerpt, .writing-entry__edition, .writing-entry__chapter h4, .writing-entry__end { color: CanvasText; }
   .writing-entry:focus-visible, .writing-entry :focus-visible { outline-color: Highlight; }
 }

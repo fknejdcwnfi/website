@@ -372,8 +372,8 @@ test('undated writing remains undated in display and search instead of inventing
 
 test('logs and thoughts share one navigable space while keeping stable article anchors', () => {
   const entries = getWritingEntries(site)
-  assert.deepEqual(entries.map(entry => entry.id), ['rebuild-direction', 'transition-day', 'keeping-pace'])
-  assert.deepEqual(entries.map(entry => entry.kind), ['thought', 'log', 'log'])
+  assert.deepEqual(entries.map(entry => entry.id), ['keep-time-moving', 'rebuild-direction', 'transition-day', 'keeping-pace'])
+  assert.deepEqual(entries.map(entry => entry.kind), ['log', 'thought', 'log', 'log'])
   assert.deepEqual(getSiteNavigation(site).map(link => link.href),
     ['#home', '#about', '#work', '#writing', '#interests', '#games', '#contact'])
   assert.ok(getTableOfContents(site).some(item => item.label === '思绪与日志' && item.href === '#writing'))
@@ -385,15 +385,23 @@ test('logs and thoughts share one navigable space while keeping stable article a
   const thoughtTags = thoughtArticle.match(/<ul class="writing-entry__tags"[\s\S]*?<\/ul>/)?.[0]
   assert.ok(thoughtTags && !thoughtTags.includes('<li>思绪</li>'))
   assert.ok(html.includes('思绪整理') && html.includes('<time datetime="2026-11-18">2026.11.18</time>'))
-  assert.equal(getWritingAnchor(entries[0]), 'thought-rebuild-direction')
-  assert.equal(getWritingAnchor(entries[1]), 'note-transition-day')
+  assert.equal(getWritingAnchor(entries[0]), 'note-keep-time-moving')
+  assert.equal(getWritingAnchor(entries[1]), 'thought-rebuild-direction')
+  assert.equal(getWritingAnchor(entries[2]), 'note-transition-day')
   const sharedId = getWritingEntries({ ...site, writing: [
-    { ...entries[0], id: 'shared-entry' }, { ...entries[1], id: 'shared-entry' }, { ...entries[2], id: 'shared-entry' },
+    { ...entries[1], id: 'shared-entry' }, { ...entries[2], id: 'shared-entry' }, { ...entries[3], id: 'shared-entry' },
   ] })
   assert.deepEqual(sharedId.map(entry => getWritingAnchor(entry)), ['thought-shared-entry', 'note-shared-entry'])
   assert.equal(new Set(sharedId.map(getWritingAnchor)).size, sharedId.length)
   assert.deepEqual(getWritingEntries({ ...site, writing: [{ ...entries[0], id: 'bad id' }, { ...entries[0], writtenDate: '2026-02-30' }] }), [])
   assert.ok(!renderStaticSite({ ...site, writing: [] }).includes('id="thoughts"'))
+})
+
+test('the latest log uses its stated writing date and is searchable by an in-body phrase', () => {
+  const [entry] = getWritingEntries(site)
+  assert.equal(entry.writtenDate, '2026-11-20')
+  assert.equal(entry.eventDate, undefined)
+  assert.equal(searchSite(getSiteSearchEntries(site), '时间的停滞和延迟')[0]?.href, '#note-keep-time-moving')
 })
 
 test('React and no-JS writing expose the same complete text through native details and escape text', async () => {
@@ -441,6 +449,19 @@ test('React and no-JS writing expose the same complete text through native detai
     assert.equal((staticThought.match(/<p>/g) ?? []).length, (reactThought.match(/<p>/g) ?? []).length)
     assert.ok(staticThought.includes('思绪整理') && reactThought.includes('思绪整理'))
     assert.equal((staticThought.match(/<h4/g) ?? []).length, thought.sections.length)
+    const log = getWritingEntries(site).find(entry => entry.kind === 'log')
+    // Legal authored IDs and repeated headings should keep unique article/heading targets.
+    const similar = { ...site, writing: [
+      { ...log, id: 'sample', sections: [...log.sections, log.sections[0]] },
+      { ...log, id: 'sample-title', title: 'Sample & title' },
+      { ...log, id: 'sample-chapter-0' },
+    ] }
+    for (const html of [renderStaticSite(similar), renderToStaticMarkup(createElement(WritingSection, { content: similar }))]) {
+      const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1])
+      assert.equal(ids.length, new Set(ids).size)
+      assert.match(html, /<a href="#note-sample-title">Sample &amp; title<\/a>/)
+      assert.match(html, /aria-labelledby="note-sample--chapter-0"/)
+    }
     const empty = { ...site, writing: [] }
     assert.equal(renderToStaticMarkup(createElement(WritingSection, { content: empty })), '')
   } finally {

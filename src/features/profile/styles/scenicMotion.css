@@ -15,17 +15,24 @@
   .personal-site[data-page-motion="running"] .page-motion-enter {
     animation: pixel-chapter-enter 320ms steps(4, end);
   }
-  .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card) {
+  .personal-site[data-page-motion="running"] :is(.interest-card, .game-showcase, .social-card) {
     transition: transform 140ms steps(2, end), border-color 140ms ease;
   }
-  .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card):focus-within {
+  .personal-site[data-page-motion="running"] :is(.interest-card, .game-showcase, .social-card):focus-within {
     transform: translateY(-2px);
   }
-  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary) {
+  /* Long open articles stay still while their controls keep restrained feedback. */
+  .personal-site[data-page-motion="running"] .writing-entry {
+    transition: border-color 140ms ease;
+  }
+  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary, .writing-space__index a) {
     transition: transform 100ms steps(1, end);
   }
-  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary):active {
+  .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary, .writing-space__index a):active {
     transform: translateY(1px);
+  }
+  .personal-site[data-page-motion="running"] .writing-space__index a {
+    transition: transform 100ms steps(1, end), border-color 140ms ease, background-color 140ms ease;
   }
   .personal-site[data-page-motion="running"] :is(.interest-card__image, .interest-card__cover) {
     transition: transform 180ms steps(3, end);
@@ -40,7 +47,7 @@
     transform: translateY(-1px);
   }
   @media (hover: hover) and (pointer: fine) {
-    .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card):hover {
+    .personal-site[data-page-motion="running"] :is(.interest-card, .game-showcase, .social-card):hover {
       transform: translateY(-2px);
       border-color: var(--ui-border-strong);
     }
@@ -56,7 +63,7 @@
 /* Pause existing cosmetic transitions too, without touching the scene layers. */
 .personal-site[data-page-motion="paused"] :is(.site-header__nav a, .site-sidebar a, .site-toc a, .site-footer a,
   .site-search form, .interest-card, .game-showcase, .social-card, .personal-text-link, .personal-text-link svg,
-  .writing-entry, .writing-entry__reading > summary, .personal-project__heading svg, .project-table tbody tr,
+  .writing-entry, .writing-space__index a, .writing-entry__reading > summary, .personal-project__heading svg, .project-table tbody tr,
   .social-copy, .social-qr > summary, .showcase-block > summary, .interest-card__image, .interest-card__cover,
   .personal-project__details > summary > svg, .writing-entry__reading > summary svg, .showcase-block > summary > svg,
   .site-header__nav a svg, .site-sidebar nav a svg, .site-toc nav a svg) {

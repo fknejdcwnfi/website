@@ -1,10 +1,10 @@
-import { getGameProfiles, getInterests, getWritingAnchor, getWritingEntries, getProjects, getSiteGithub, getSiteRepository, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
+import { getGameProfiles, getInterests, getProjects, getSiteGithub, getSiteRepository, getSiteNavigation, getSocialLinks, getTableOfContents, resolveProfileAsset, type GameShowcaseBlock, type SiteContent } from './site.ts'
 import { pixelIconPaths, type PixelIconName } from './pixelIcons.ts'
 import { poeticPixelAssets } from '../../poeticPixel/assets.ts'
 import { renderPoeticEntryAtmosphere } from '../../poeticPixel/bootstrap.ts'
 import { renderNavigationIcon } from './navigationIcons.ts'
 import { CARD_DECORATION_SIZES, GAME_DECORATION, WIDE_DECORATION_SIZES, getDecorationSrcSet, getInterestDecoration, getSocialDecoration } from './decorativeAssets.ts'
-import { getWritingDates, getWritingTags } from './writingPresentation.ts'
+import { getWritingCards, WRITING_INDEX_LABEL, WRITING_INTRO } from './writingPresentation.ts'
 import { getProjectOverview } from './projectPresentation.ts'
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) =>
@@ -22,21 +22,21 @@ const categoryNames = { anime: '动漫', manga: '漫画', music: '音乐', other
 const renderWritingSpace = (site: SiteContent): string => {
   const sectionId = 'writing'
   const title = '思绪与日志'
-  const entries = getWritingEntries(site)
-  if (!entries.length) return ''
+  const cards = getWritingCards(site)
+  if (!cards.length) return ''
+  const index = cards.length > 1 ? `<nav class="writing-space__index" aria-label="${WRITING_INDEX_LABEL}"><ul>${cards.map(({ entry, href }) =>
+    `<li><a href="${href}">${escape(entry.title)}</a></li>`).join('')}</ul></nav>` : ''
   return `<section class="personal-section writing-space" id="${sectionId}" aria-labelledby="${sectionId}-title" tabindex="-1">
     <span class="writing-space__legacy-anchor" id="journal" aria-hidden="true"></span><span class="writing-space__legacy-anchor" id="thoughts" aria-hidden="true"></span>
     ${heading(`${sectionId}-title`, `#${sectionId}`, title)}
-    <p class="profile-section__intro">把想法写下来，也把走过的日子留下来。</p>
-    <div class="writing-entries">${entries.map(entry => {
-      const anchor = getWritingAnchor(entry)
-      const kindLabel = entry.kind === 'thought' ? '思绪' : '日志'
-      const entryTags = getWritingTags(entry)
-      return `<article class="writing-entry" id="${anchor}" aria-labelledby="${anchor}-title" tabindex="-1">
+    <p class="profile-section__intro">${WRITING_INTRO}</p>
+    ${index}
+    <div class="writing-entries">${cards.map(({ entry, anchor, titleId, kindLabel, dates, tags: entryTags, chapters }) =>
+      `<article class="writing-entry" id="${anchor}" aria-labelledby="${titleId}" tabindex="-1">
       <header class="writing-entry__header">
-        <p class="writing-entry__dates">${getWritingDates(entry).map(item => `<span>${escape(item.label)}${item.date ? ` <time datetime="${escape(item.date)}">${escape(item.display!)}</time>` : ''}</span>`).join('')}</p>
+        <p class="writing-entry__dates">${dates.map(item => `<span>${escape(item.label)}${item.date !== undefined ? ` <time datetime="${escape(item.date)}">${escape(item.display)}</time>` : ''}</span>`).join('')}</p>
         <p class="writing-entry__kind">${kindLabel}</p>
-        <h3 id="${anchor}-title">${escape(entry.title)}</h3>
+        <h3 id="${titleId}">${escape(entry.title)}</h3>
         <p class="writing-entry__subtitle">${escape(entry.subtitle)}</p>
         ${tags(entryTags, 'writing-entry__tags', `${kindLabel}主题`)}
       </header>
@@ -45,13 +45,12 @@ const renderWritingSpace = (site: SiteContent): string => {
         <summary><span>阅读全文</span>${pixelIcon('arrow-down')}</summary>
         <div class="writing-entry__body">
           <p class="writing-entry__edition">${kindLabel}整理 · 保留当时的感受与打算</p>
-          ${entry.sections.map((section, index) => `<section class="writing-entry__chapter" aria-labelledby="${anchor}-chapter-${index}"><h4 id="${anchor}-chapter-${index}"><span aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${escape(section.title)}</h4>${section.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}</section>`).join('')}
+          ${chapters.map(chapter => `<section class="writing-entry__chapter" aria-labelledby="${chapter.titleId}"><h4 id="${chapter.titleId}">${escape(chapter.title)}</h4>${chapter.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}</section>`).join('')}
           <blockquote class="writing-entry__closing">${escape(entry.closing)}</blockquote>
           <p class="writing-entry__end">旅程还在继续。</p>
         </div>
       </details>
-    </article>`
-    }).join('')}</div>
+    </article>`).join('')}</div>
   </section>`
 }
 

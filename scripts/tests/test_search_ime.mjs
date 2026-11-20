@@ -13,8 +13,8 @@ test('actual search callbacks preserve composing keys and suppress only their fo
   const keys = ['window', 'document', 'Node']
   const saved = new Map(keys.map(key => [key, Object.getOwnPropertyDescriptor(globalThis, key)]))
   const timers = new Map(), rafs = new Map(), listeners = new Map(), effects = []
-  const memoValues = []
-  let memoCursor = 0, memoPreparations = 0
+  const memoValues = [], states = [], refs = []
+  let memoCursor = 0, stateCursor = 0, refCursor = 0
   let nextId = 1, changes = 0, navigations = 0, targetFocus = 0
   const find = (node, predicate) => {
     if (!node || typeof node !== 'object') return null
@@ -25,15 +25,23 @@ test('actual search callbacks preserve composing keys and suppress only their fo
   }
   let cleanup
   try {
-    internals.H = { useState(value) { return [typeof value === 'function' ? value() : value, () => { changes++ }] },
-      useRef(value) { return { current: value } }, useEffect(effect) { effects.push(effect) },
+    internals.H = {
+      useState(value) {
+        const index = stateCursor++
+        if (!(index in states)) states[index] = typeof value === 'function' ? value() : value
+        return [states[index], update => {
+          changes++
+          states[index] = typeof update === 'function' ? update(states[index]) : update
+        }]
+      },
+      useRef(value) { return refs[refCursor++] ??= { current: value } },
+      useEffect(effect) { effects.push(effect) },
       useMemo(prepare, dependencies) {
         const index = memoCursor++
         const previous = memoValues[index]
         if (!previous || !dependencies || previous.dependencies?.length !== dependencies.length ||
           !dependencies.every((dependency, offset) => Object.is(dependency, previous.dependencies[offset]))) {
           memoValues[index] = { value: prepare(), dependencies: dependencies?.slice() }
-          memoPreparations++
         }
         return memoValues[index].value
       } }
@@ -48,10 +56,15 @@ test('actual search callbacks preserve composing keys and suppress only their fo
     const { default: SiteShell } = await server.ssrLoadModule('/src/features/profile/components/SiteShell.tsx')
     const shell = SiteShell({ children: null })
     const search = find(shell, node => typeof node.type === 'function' && node.type.name === 'SiteSearch')
+    states.length = refs.length = memoValues.length = 0
     const before = effects.length
-    const renderSearch = () => { memoCursor = 0; return search.type({}) }
+    const renderSearch = () => { memoCursor = stateCursor = refCursor = 0; return search.type({}) }
+    const closed = renderSearch()
+    assert.ok(!states.some(Array.isArray), 'the search index is deferred while closed')
+    find(closed, node => node.type === 'input').props.onFocus()
+    const prepared = states.find(Array.isArray)
+    assert.ok(prepared?.length, 'the first focus prepares search entries')
     const tree = renderSearch()
-    assert.equal(memoPreparations, 1, 'the actual component prepares its search index on mount')
     const input = find(tree, node => node.type === 'input' && node.props.id === 'site-search')
     const form = find(tree, node => node.type === 'form')
     cleanup = effects[before]()
@@ -89,7 +102,7 @@ test('actual search callbacks preserve composing keys and suppress only their fo
     assert.equal(timers.size, 0)
     assert.equal(listeners.size, 0)
     renderSearch()
-    assert.equal(memoPreparations, 1, 'subsequent search renders reuse the prepared index')
+    assert.strictEqual(states.find(Array.isArray), prepared, 'subsequent search renders reuse the prepared index')
   } finally {
     cleanup?.()
     internals.H = oldDispatcher
