@@ -54,8 +54,9 @@ export const protectStaticHtml = (html: string): string => {
   }
   const policy = [
     "default-src 'none'", `script-src 'self' ${hashes.join(' ')}`,
-    // Existing static/React scene sizing and particle positions use custom properties.
-    "style-src 'self' 'unsafe-inline'",
+    // Keep style attributes for scene geometry. Browsers with CSP3 support
+    // permit stylesheet elements only from this origin.
+    "style-src 'self' 'unsafe-inline'", "style-src-elem 'self'", "style-src-attr 'unsafe-inline'",
     // A fixed historical CSS grain is an image data URI, never an executable script.
     "img-src 'self' data:", "font-src 'self'",
     "media-src 'self'", "connect-src 'self'", "worker-src 'self'",

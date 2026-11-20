@@ -5,7 +5,7 @@
 | 目录 | 责任 |
 | --- | --- |
 | `assets/` | 衍生素材导出、来源与文件完整性验证 |
-| `build/` | 生产HTML安全策略及固定启动脚本哈希 |
+| `build/` | 生产资源清单、HTML 安全策略与固定启动脚本哈希 |
 | `tests/` | Node内建行为测试；`npm test`的列表以package.json为准 |
 | `qa/` | 实际浏览器、像素、导航、个人模块夹具、截图与独立性能观察 |
 | `deploy/` | 用户明确另行要求时使用的gh-pages手动备用流程 |
@@ -93,6 +93,7 @@ python3 scripts/qa/verify_audit_hardening.py --url http://127.0.0.1:5180/website
 | --- | --- |
 | 简约／木牌像素界面 | `verify_pixel_minimal_ui.py`、`verify_pixel_world_ui.py`；主题已被奶油色界面取代 |
 | 前版圆形场景与逐帧转制 | `verify_poetic_scene.py`、`verify_faithful_scene.py`、`verify_scenic_scene.py`、`verify_calm_circle.py`及对应capture／export工具 |
+| 旧参考场景 | `verify_source_scene_clock.py` 从 `npm run dev` 读取保留的旧模块和图集；`measure_reference_scene.py` 与 `capture_reference_scene.py` 对应旧版站点 |
 | 旧物理近景与发束 | `verify_layered_portrait.py`、`verify_portrait_browser.py`、`verify_raster_cache.py`、`capture_portrait*.py`、`measure_portrait*.py`及旧portrait作者工具 |
 | 原始阶段与voxel | 既有Node历史测试和原始来源验证继续保留；仅显式历史入口使用对应实现 |
 

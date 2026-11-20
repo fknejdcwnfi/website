@@ -1,4 +1,4 @@
-/* Three small ambient accents; no scene pixels or full-page backgrounds move. */
+/* Two sticky lanterns and one brief crystal accent; no scene or background pixels move. */
 @media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
   .personal-site:not(.static-site)[data-page-motion] .pixel-lantern {
     animation: pixel-lantern-drift 4.8s steps(2, end) infinite;
@@ -6,7 +6,7 @@
   }
   .personal-site:not(.static-site)[data-page-motion] .pixel-lantern--sidebar { animation-delay: -1.6s; }
   .personal-site:not(.static-site)[data-page-motion] .eyebrow::before {
-    animation: pixel-crystal-glint 4.2s steps(3, end) infinite;
+    animation: pixel-crystal-glint 840ms steps(3, end) 2;
     animation-play-state: paused;
   }
   .personal-site:not(.static-site)[data-page-motion="running"] .pixel-lantern,
@@ -27,10 +27,28 @@
   .personal-site[data-page-motion="running"] :is(button, .personal-text-link, .social-qr > summary, .writing-entry__reading > summary):active {
     transform: translateY(1px);
   }
+  .personal-site[data-page-motion="running"] :is(.interest-card__image, .interest-card__cover) {
+    transition: transform 180ms steps(3, end);
+  }
+  .personal-site[data-page-motion="running"] :is(.personal-project__details > summary > svg, .writing-entry__reading > summary svg, .showcase-block > summary > svg) {
+    transition: transform 160ms steps(2, end);
+  }
+  .personal-site[data-page-motion="running"] :is(.site-header__nav, .site-sidebar nav, .site-toc nav) a svg {
+    transition: transform 120ms steps(2, end);
+  }
+  .personal-site[data-page-motion="running"] :is(.site-header__nav, .site-sidebar nav, .site-toc nav) a:focus-visible svg {
+    transform: translateY(-1px);
+  }
   @media (hover: hover) and (pointer: fine) {
     .personal-site[data-page-motion="running"] :is(.writing-entry, .interest-card, .game-showcase, .social-card):hover {
       transform: translateY(-2px);
       border-color: var(--ui-border-strong);
+    }
+    .personal-site[data-page-motion="running"] .interest-card:hover :is(.interest-card__image, .interest-card__cover) {
+      transform: scale(1.015);
+    }
+    .personal-site[data-page-motion="running"] :is(.site-header__nav, .site-sidebar nav, .site-toc nav) a:hover svg {
+      transform: translateY(-1px);
     }
   }
 }
@@ -39,7 +57,9 @@
 .personal-site[data-page-motion="paused"] :is(.site-header__nav a, .site-sidebar a, .site-toc a, .site-footer a,
   .site-search form, .interest-card, .game-showcase, .social-card, .personal-text-link, .personal-text-link svg,
   .writing-entry, .writing-entry__reading > summary, .personal-project__heading svg, .project-table tbody tr,
-  .social-copy, .social-qr > summary, .showcase-block > summary) {
+  .social-copy, .social-qr > summary, .showcase-block > summary, .interest-card__image, .interest-card__cover,
+  .personal-project__details > summary > svg, .writing-entry__reading > summary svg, .showcase-block > summary > svg,
+  .site-header__nav a svg, .site-sidebar nav a svg, .site-toc nav a svg) {
   transition: none;
 }
 .personal-site[data-page-motion="paused"] .personal-text-link:is(:hover, :focus-visible) svg,

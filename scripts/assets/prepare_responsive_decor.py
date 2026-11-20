@@ -24,7 +24,7 @@ DIRECTORY = ROOT / 'public/assets/pixel-ui'
 OUTPUT = DIRECTORY / 'responsive'
 MANIFEST = DIRECTORY / 'responsive-manifest.json'
 NAMES = ('conan', 'game-realm', 'naruto', 'social-github', 'social-mail')
-WIDTHS = (768, 1536)
+WIDTHS = (768, 1024, 1536)
 OPTIONS = {'lossless': True, 'quality': 100, 'method': 6, 'exact': True}
 RESIZE = 'nearest-neighbor'
 
@@ -124,7 +124,7 @@ def verify() -> dict[str, object]:
             raise ValueError(f'{name}: full-source hash, size or dimensions changed')
         variants = entry.get('variants')
         if not isinstance(variants, list) or len(variants) != len(WIDTHS):
-            raise ValueError(f'{name}: expected two responsive variants')
+            raise ValueError(f'{name}: expected {len(WIDTHS)} responsive variants')
         for width, variant in zip(WIDTHS, variants):
             expected = f'responsive/{name}-{width}.webp'
             output = DIRECTORY / expected

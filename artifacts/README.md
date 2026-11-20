@@ -6,6 +6,7 @@
 
 | 目录 | 实际记录的范围 |
 | --- | --- |
+| [scenic-maintenance-20261120](scenic-maintenance-20261120/README.md) | 全仓清点、发布边界、两种基础路径资源对照、暖白阅读与微动 |
 | [unified-writing-20261118](unified-writing-20261118/README.md) | 思绪与日志合并、七项导航、根路径／Pages子路径、样式、安全边界、移动布局和资源观察 |
 | [thoughts-20261118](thoughts-20261118/README.md) | 历史独立思绪版本的匿名整理、八项导航、搜索／键盘／无JS与人物保留检查 |
 | [calm-pixel](calm-pixel/README.md) | 暖白阅读、主题整理、可选媒体API修复与两种托管路径的独立回归 |

@@ -62,8 +62,9 @@ instructions. Current guides are indexed in [docs](docs/README.md).
 - Self-host Fusion Pixel for all live Chinese/Latin copy. Retain the full font
   and licenses; regenerate its faithful subset for new source characters using
   `scripts/assets/prepare_pixel_font.py`, then verify coverage and exact metrics.
-- Public assets must pass the explicit publication inventory. Never auto-admit
-  unreviewed paths, symlinks, private documents or configuration into a build.
+- The publication inventory classifies every file in `public/`. `files` may
+  ship in production, and `developmentOnly` is available to historical local QA.
+  Reject unreviewed paths, symlinks, private documents and configuration.
 
 ## Security, repository and verification
 
@@ -109,7 +110,7 @@ instructions. Current guides are indexed in [docs](docs/README.md).
 Current contracts: [scene](docs/guides/poetic-pixel.md),
 [reading/motion](docs/guides/reading-motion.md),
 [reading theme](docs/guides/calm-pixel.md), [UI](docs/guides/ui-consistency.md),
-[thoughts](docs/guides/thoughts.md),
+[writing](docs/guides/writing.md),
 [repository maintenance](docs/guides/repository-maintenance.md).
 Earlier instruction history remains in Git and the historical guides; it must
 not override the current owner request or these current contracts.

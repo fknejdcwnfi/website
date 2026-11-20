@@ -33,19 +33,25 @@ const checkPath = (name: string, generated = false): void => {
   }
 }
 
-/** A reviewed path list, never a build-time discovery/authorization mechanism. */
-export const readPublicInventory = (manifestPath: string): string[] => {
+type PublicInventory = { files: string[]; developmentOnly: string[] }
+
+/** Every source asset is reviewed, and only entries in files are published. */
+export const readPublicInventory = (manifestPath: string): PublicInventory => {
   const inventory: unknown = JSON.parse(readFileSync(manifestPath, 'utf8'))
   if (!inventory || typeof inventory !== 'object' || Array.isArray(inventory)) {
     throw new Error('Invalid public asset inventory.')
   }
-  const { version, files } = inventory as { version?: unknown; files?: unknown }
-  if (version !== 1 || !Array.isArray(files) || !files.length || files.some(file => !canonicalPath(file))) {
+  const { version, files, developmentOnly } = inventory as { version?: unknown; files?: unknown; developmentOnly?: unknown }
+  if (version !== 2 || !Array.isArray(files) || !files.length || !Array.isArray(developmentOnly)) {
     throw new Error('Invalid public asset inventory.')
   }
-  for (const file of files) checkPath(file)
-  if (new Set(files).size !== files.length) throw new Error('Duplicate public asset inventory path.')
-  return [...files]
+  const paths = [...files, ...developmentOnly]
+  if (!paths.every(canonicalPath)) throw new Error('Invalid public asset inventory path.')
+  for (const file of paths) checkPath(file)
+  if (new Set(paths.map(file => file.toLowerCase())).size !== paths.length) {
+    throw new Error('Duplicate public asset inventory path.')
+  }
+  return { files: [...files], developmentOnly: [...developmentOnly] }
 }
 
 const directoriesFor = (files: readonly string[]): Set<string> => {
@@ -102,40 +108,72 @@ export const verifyPublicDirectory = (publicRoot: string, reviewed: readonly str
 
 /** Only Vite's declared outputs and the reviewed public files may be published. */
 export const verifyBuiltDirectory = (
-  outputRoot: string, publicRoot: string, reviewed: readonly string[], generated: readonly string[],
+  outputRoot: string, publicRoot: string, inventory: PublicInventory, generated: readonly string[],
 ): void => {
+  const { files, developmentOnly } = inventory
+  const reviewed = [...files, ...developmentOnly]
   verifyPublicDirectory(publicRoot, reviewed)
   for (const file of generated) checkPath(file, true)
   if (!generated.includes('index.html') || new Set(generated).size !== generated.length ||
     generated.some(file => reviewed.includes(file))) {
     throw new Error('Invalid or colliding generated publication inventory.')
   }
-  const expected = [...reviewed, ...generated]
+  const expected = [...files, ...generated]
   exactFiles(regularFiles(outputRoot, expected, 'build'), expected, 'Build')
-  for (const file of reviewed) {
+  for (const file of files) {
     if (!readFileSync(resolve(publicRoot, file)).equals(readFileSync(resolve(outputRoot, file)))) {
       throw new Error(`Published public asset differs from its reviewed source: ${file}`)
     }
   }
 }
 
+/** Detect literal paths and URL bases used to assemble historical asset URLs. */
+export const verifyPublishedReferences = (source: string, inventory: PublicInventory, outputName: string): void => {
+  const prefixes = new Set(inventory.developmentOnly.map(file => dirname(file).split(sep).join('/') + '/'))
+  const removedDirectories = [...prefixes].filter(prefix => prefix !== './' &&
+    !inventory.files.some(file => file.startsWith(prefix)))
+  const missing = [...removedDirectories, ...inventory.developmentOnly].find(path => source.includes(path))
+  if (missing) throw new Error(`Production output ${outputName} references an unpublished asset: ${missing}`)
+}
+
 /** Build-only guard; local development never authorizes new public files. */
 export const publicAssetsGuard = (): Plugin => {
   let config: ResolvedConfig
-  let reviewed: string[] = []
+  let inventory: PublicInventory
   return {
     name: 'reviewed-publication-assets',
     apply: 'build',
     configResolved(resolved) { config = resolved },
     buildStart() {
       if (!config.publicDir) throw new Error('The publication guard requires the configured public directory.')
-      reviewed = readPublicInventory(resolve(config.root, 'config/public-assets.json'))
-      verifyPublicDirectory(config.publicDir, reviewed)
+      if (config.build.copyPublicDir) throw new Error('Disable Vite public directory copying when using the publication guard.')
+      inventory = readPublicInventory(resolve(config.root, 'config/public-assets.json'))
+      verifyPublicDirectory(config.publicDir, [...inventory.files, ...inventory.developmentOnly])
+    },
+    generateBundle: {
+      order: 'post',
+      handler(_, bundle) {
+        const reserved = new Set([...inventory.files, ...inventory.developmentOnly].map(file => file.toLowerCase()))
+        for (const output of Object.values(bundle)) {
+          const name = output.fileName
+          if (reserved.has(name.toLowerCase())) throw new Error(`Generated output shadows a reviewed asset: ${name}`)
+          if (output.type === 'chunk') verifyPublishedReferences(output.code, inventory, name)
+          else if (/\.(?:html|css|m?js)$/i.test(name)) {
+            verifyPublishedReferences(Buffer.from(output.source).toString('utf8'), inventory, name)
+          }
+        }
+        verifyPublicDirectory(config.publicDir, [...inventory.files, ...inventory.developmentOnly])
+        for (const fileName of inventory.files) {
+          this.emitFile({ type: 'asset', fileName, source: readFileSync(resolve(config.publicDir, fileName)) })
+        }
+      },
     },
     writeBundle(options, bundle) {
       if (!options.dir || options.file) throw new Error('The publication guard requires directory output.')
       const output = isAbsolute(options.dir) ? options.dir : resolve(config.root, options.dir)
-      verifyBuiltDirectory(output, config.publicDir, reviewed, Object.values(bundle).map(file => file.fileName))
+      const published = new Set(inventory.files)
+      const generated = Object.values(bundle).map(file => file.fileName).filter(file => !published.has(file))
+      verifyBuiltDirectory(output, config.publicDir, inventory, generated)
     },
   }
 }

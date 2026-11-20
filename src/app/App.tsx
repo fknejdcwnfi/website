@@ -3,8 +3,8 @@ import { site } from '../features/profile/content/site'
 import PersonalSections from '../features/profile/components/PersonalSections'
 import SiteShell from '../features/profile/components/SiteShell'
 import ReferenceScene from '../features/referenceScene/ReferenceScene'
-import { poeticPixelDefinition as referenceSceneDefinition, poeticPreview } from '../features/poeticPixel/definition'
-import { createPoeticPixelRenderer as createSourceRenderer } from '../features/poeticPixel/renderer'
+import { poeticPixelDefinition, poeticPreview } from '../features/poeticPixel/definition'
+import { createPoeticPixelRenderer } from '../features/poeticPixel/renderer'
 import { getNavigationIconPath } from '../features/profile/content/navigationIcons'
 
 const ArchivedPortrait=lazy(()=>import('./ArchivedPortrait'))
@@ -13,7 +13,7 @@ export default function App() {
   if(params.get('view')==='portrait'||['voxel','legacy'].includes(params.get('style')??''))return <Suspense fallback={<p>正在加载肖像…</p>}><ArchivedPortrait /></Suspense>
   const time=params.get('t')
   const timeMs=time!==null&&time.trim()!==''&&Number.isFinite(Number(time))?Math.max(-120000,Math.min(120000,Number(time))):null
-  const scene=<ReferenceScene definition={referenceSceneDefinition} createRenderer={createSourceRenderer} timeMs={timeMs} adaptiveResolution
+  const scene=<ReferenceScene definition={poeticPixelDefinition} createRenderer={createPoeticPixelRenderer} timeMs={timeMs} adaptiveResolution
     preview={params.get('motion') === 'original' ? undefined : poeticPreview} />
   if(params.get('view')==='scene')return <main className="reference-scene-page">{scene}</main>
   return (

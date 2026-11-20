@@ -41,7 +41,7 @@ def decorative_styles(page):
     return page.evaluate('''() => {
       const style=(element,pseudo=null)=>{const s=getComputedStyle(element,pseudo);return {
         animation:s.animationName,playState:s.animationPlayState,transform:s.transform,
-        opacity:s.opacity,iterations:s.animationIterationCount,
+        opacity:s.opacity,iterations:s.animationIterationCount,duration:s.animationDuration,
         fontSize:s.fontSize,width:s.width,height:s.height}};
       return {lanterns:[...document.querySelectorAll('.pixel-lantern')].map(e=>style(e)),
         crystal:style(document.querySelector('.eyebrow'),'::before')};
@@ -99,6 +99,11 @@ with sync_playwright() as playwright:
         page.evaluate('window.__scenicCanvas=document.querySelector(".reference-scene__canvas")')
         initial = decorative_styles(page)
         check('three_small_ambient_targets', len(initial['lanterns']) == 2 and len(ambient_active(initial)) == 3, initial)
+        check('sticky_lanterns_keep_ambient_loops', all(
+            item['iterations'] == 'infinite' for item in initial['lanterns']), initial['lanterns'])
+        check('hero_crystal_has_only_two_brief_initial_iterations',
+              initial['crystal']['iterations'] == '2' and initial['crystal']['duration'] == '0.84s',
+              initial['crystal'])
         check('lantern_and_crystal_bounds_are_small',
               all(float(item['width'].removesuffix('px')) <= 64 and float(item['height'].removesuffix('px')) <= 96 for item in initial['lanterns']) and
               float(initial['crystal']['fontSize'].removesuffix('px')) <= 24, initial)
@@ -108,6 +113,16 @@ with sync_playwright() as playwright:
             samples.append(decorative_styles(page))
         signatures = {json.dumps([{'transform': item['transform'], 'opacity': item['opacity']} for item in [*sample['lanterns'], sample['crystal']]], sort_keys=True) for sample in samples}
         check('small_decorations_really_change_transform_or_opacity', len(signatures) > 1, samples)
+        # Computed animation-name/play-state remain declared after a finite
+        # animation finishes. Inspect real Animation objects to prove it stops.
+        crystal_completion = page.locator('.eyebrow').evaluate('''element => ({
+          animations: element.getAnimations().filter(animation => animation.animationName === 'pixel-crystal-glint')
+            .map(animation => ({state:animation.playState,time:animation.currentTime,
+              iterations:animation.effect?.getTiming().iterations}))
+        })''')
+        check('hero_crystal_finishes_without_a_perpetual_animation', not any(
+            animation['state'] in ['running', 'pending']
+            for animation in crystal_completion['animations']), crystal_completion)
         unchanged = page.evaluate('''() => {
           const root=document.querySelector('.personal-site');
           const styles=[getComputedStyle(root,'::before'),getComputedStyle(root,'::after'),

@@ -9,6 +9,7 @@ export const getDecorationSrcSet = (decoration: Decoration, base: string): strin
   const name = decoration.file.replace(/\.webp$/, '')
   return [
     `${base}assets/pixel-ui/responsive/${name}-768.webp 768w`,
+    `${base}assets/pixel-ui/responsive/${name}-1024.webp 1024w`,
     `${base}assets/pixel-ui/responsive/${name}-1536.webp 1536w`,
     `${base}assets/pixel-ui/${decoration.file} ${decoration.width}w`,
   ].join(', ')
