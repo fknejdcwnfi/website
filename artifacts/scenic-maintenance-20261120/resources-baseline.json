@@ -1,0 +1,248 @@
+{
+  "conditions": "Fresh single desktop Chromium with 1440x1100 CSS viewport/DPR2, local production preview, unthrottled; no screenshot or concurrent browser. This is a synthetic viewport, not a physical mobile device. Decoded resource body sizes are not compressed internet transfer or visitor CWV.",
+  "url": "http://127.0.0.1:5190/",
+  "browserErrors": [],
+  "badResponses": [],
+  "initialResources": [
+    {
+      "name": "http://127.0.0.1:5190/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+      "initiator": "link",
+      "decodedBodySize": 30396,
+      "transferSize": 30696,
+      "duration": 64.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/index-BHXrO_ua.js",
+      "initiator": "script",
+      "decodedBodySize": 317733,
+      "transferSize": 318033,
+      "duration": 74.80000000074506
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/index-D-5yYvx6.css",
+      "initiator": "link",
+      "decodedBodySize": 77350,
+      "transferSize": 77650,
+      "duration": 66.20000000018626
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 4.7999999998137355
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 22.399999999441206
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 9.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 12.200000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 12.099999999627471
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 16.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 15.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5190/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 1411,
+      "duration": 15.099999999627471
+    }
+  ],
+  "allResources": [
+    {
+      "name": "http://127.0.0.1:5190/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+      "initiator": "link",
+      "decodedBodySize": 30396,
+      "transferSize": 30696,
+      "duration": 64.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/index-BHXrO_ua.js",
+      "initiator": "script",
+      "decodedBodySize": 317733,
+      "transferSize": 318033,
+      "duration": 74.80000000074506
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/index-D-5yYvx6.css",
+      "initiator": "link",
+      "decodedBodySize": 77350,
+      "transferSize": 77650,
+      "duration": 66.20000000018626
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 4.7999999998137355
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 22.399999999441206
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 9.199999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 12.200000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 12.099999999627471
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 16.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 15.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5190/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 1411,
+      "duration": 15.099999999627471
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/naruto-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 1611180,
+      "transferSize": 1611480,
+      "duration": 28.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/conan-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 970892,
+      "transferSize": 971192,
+      "duration": 27.700000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/game-realm.webp",
+      "initiator": "img",
+      "decodedBodySize": 1282202,
+      "transferSize": 1282502,
+      "duration": 25.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/social-github-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 507018,
+      "transferSize": 507318,
+      "duration": 20.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/social-mail-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 482308,
+      "transferSize": 482608,
+      "duration": 18.5
+    }
+  ],
+  "documentBytes": 68621,
+  "decorativeResources": [
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 22.399999999441206
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/naruto-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 1611180,
+      "transferSize": 1611480,
+      "duration": 28.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/conan-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 970892,
+      "transferSize": 971192,
+      "duration": 27.700000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/game-realm.webp",
+      "initiator": "img",
+      "decodedBodySize": 1282202,
+      "transferSize": 1282502,
+      "duration": 25.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/social-github-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 507018,
+      "transferSize": 507318,
+      "duration": 20.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5190/assets/pixel-ui/responsive/social-mail-1536.webp",
+      "initiator": "img",
+      "decodedBodySize": 482308,
+      "transferSize": 482608,
+      "duration": 18.5
+    }
+  ],
+  "decorativeDecodedBytes": 6495138,
+  "sameOriginOnly": true,
+  "archiveRuntimeRequested": false,
+  "status": "passed"
+}

@@ -1,0 +1,19 @@
+{
+  "baseline": {
+    "bytes": 41267315,
+    "files": 112,
+    "retiredFiles": 13
+  },
+  "sites": {
+    "bytes": 29002269,
+    "files": 104,
+    "retiredFiles": 0,
+    "byteChange": -12265046,
+    "percentReduction": 29.72
+  },
+  "pages": {
+    "bytes": 29002717,
+    "files": 104,
+    "retiredFiles": 0
+  }
+}

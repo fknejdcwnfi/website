@@ -15,6 +15,7 @@ test('production CSP hashes exact owned startup scripts while keeping same-origi
   assert.ok(result.includes("script-src 'self'"))
   assert.ok(!result.includes("script-src 'self' 'unsafe-inline'"))
   assert.ok(!result.includes('unsafe-eval'))
+  assert.ok(result.includes("style-src-elem 'self'; style-src-attr 'unsafe-inline'"))
   assert.ok(result.includes("object-src 'none'; base-uri 'none'; form-action 'none'"))
   assert.ok(result.includes('name="referrer"'))
   assert.ok(result.indexOf('Content-Security-Policy') < result.indexOf('<script'))

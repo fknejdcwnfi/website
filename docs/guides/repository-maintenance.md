@@ -11,13 +11,13 @@
 | `src/features/poeticPixel/` | 唯一默认人物、来源时钟、像素重建、雪樱及入口接手 | 保留同一场景实例、来源和播放器相位 |
 | `src/features/referenceScene/` | 共用圆形UI、播放器及加载生命周期，也保留旧实现文件 | 目录名不代表其中所有旧renderer都在默认链中 |
 | `src/features/portrait/`、`src/features/calmPortrait/`、`src/features/faithfulPixel/`、`src/archive/` | 历史人物／场景实现 | 其中部分保留显式历史入口，其余保留源码与验证；不新增另一套默认人物 |
-| `public/` | 可被静态托管访问的素材、字体与元数据 | 必须通过`config/public-assets.json`显式清单；构建前后拒绝未知文件、链接和非发布资料 |
-| `config/` | 经审阅的公开资源路径清单 | 更新资源时单独审阅；构建不会自动放行新路径 |
+| `public/` | 站点资源与历史本地验证素材 | 源目录须匹配清单中 `files` 与 `developmentOnly` 的合计 |
+| `config/` | 经审阅的资源路径清单 | 正式构建只发布 `files`；新增路径需明确归类 |
 | `assets/source/`、`docs/reference/` | 冻结的原始素材与委托文字 | 唯读；不移动、改名、裁切、重编码或修正文内旧链接 |
 | `reference-projects/fuji-wind/` | 原ZIP、原始文件与来源清单 | 原文件不可变，原脚本／安装文字作为资料保存，不直接执行 |
 | `assets/generated/` | 各阶段作者材料及其来源说明 | 区分生成母版与当前runtime；改当前衍生素材需走作者工具及验证 |
 | `scripts/assets/`、`scripts/tests/`、`scripts/qa/`、`scripts/deploy/` | 资源作者／验证、Node测试、浏览器QA、手动部署备用 | 命令及当前／历史区别见[工具入口](../../scripts/README.md) |
-| `scripts/build/` | 生产HTML安全策略 | 在Vite最终HTML中校验固定启动脚本并生成CSP哈希；开发HMR不应用该生产策略 |
+| `scripts/build/` | 生产资源与 HTML 安全策略 | 由明确清单生成发布资源，核对输出路径和字节；校验启动脚本并生成 CSP 哈希 |
 | `artifacts/` | 每轮实际验证和截图 | 保留旧结果；新验证写独立目录，不覆盖既有证据 |
 | `archive/` | 已迁出的历史runtime与原始证据 | 不由Vite公共目录复制；参见[归档索引](../../archive/README.md) |
 | `docs/guides/`、`docs/archive/` | 当前及历史指南、早期归档 | 当前入口由[文档索引](../README.md)明确标识，旧文件不重新冒充现行规范 |
@@ -47,9 +47,9 @@
 
 6张页面装饰PNG已原字节移至`assets/generated/pixel-ui/`，对应full WebP与来源清单仍保留。五张卡图的响应式采样另有清单；详情见[当前整理指南](scenic-refactor.md)。历史人物CSS只随`ArchivedPortrait`入口加载。页面骨架、搜索和导航hook各有独立职责；Node测试自动发现`test_*.mjs`，当前与历史行为检查都运行。
 
-`archive/`、`artifacts/`、`docs/`和原工程不属于`public/`。同时，`public/assets/`仍保存旧`portrait-*`、`reference-scene`、`faithful-pixel`、`calm-circle`及原关键姿态等衍生资源；它们会增加部署包体积并可通过已知URL访问，但不能因此断言首页已下载它们。
+`archive/`、`artifacts/`、`docs/`和原工程不属于`public/`。旧 `assets/reference-scene/` 的 13 个文件由清单标记为 `developmentOnly`。历史验证用 `npm run dev` 读取它们，正式站点移除了对应直接 URL。现有 `?view=scene` 使用 `poeticPixel`，显式历史肖像仍使用各自登记的生产资源。
 
-历史公开资源可能仍被显式历史入口、来源清单或完整性验证引用。后续若缩减发布范围，应逐项核对引用、显式入口、清单和验证，再单独评审；不能用整目录删除或移出public的方式破坏来源追溯。本轮索引整理不移动或删除这些资源。
+Vite 生产构建关闭整目录复制，由 `publicAssetsGuard` 逐项发出 `files`。构建前检查完整源清单，构建时检查生成代码引用，构建后核对产物路径和原字节。调整分类前先核对源码依赖、显式入口和历史验证。源资源与历史证据继续保存在仓库。
 
 证据目录可能包含同名截图、日志和JSON；它们记录不同阶段，不因文件名相似而去重。原姿态`frame_01`与`frame_10`的相同内容也有闭环用途。新QA先写`/workspace/work/`下的独立任务目录，再选择需要长期保留的结果及说明；旧报告保持原条件和含义。
 

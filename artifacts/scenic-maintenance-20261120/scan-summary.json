@@ -1,0 +1,45 @@
+{
+  "base": "dc72db8b8091c2444a7336244e8b4e6cc1deb05f",
+  "trackedFiles": 1755,
+  "trackedBytes": 361808808,
+  "symlinks": 0,
+  "byTopLevel": {
+    ".editorconfig": 1,
+    ".github": 2,
+    ".gitignore": 1,
+    ".nvmrc": 1,
+    ".openai": 1,
+    "AGENTS.md": 1,
+    "CHANGELOG.md": 1,
+    "CONTRIBUTING.md": 1,
+    "README.md": 1,
+    "archive": 65,
+    "artifacts": 1218,
+    "assets": 68,
+    "config": 1,
+    "docs": 50,
+    "index.html": 1,
+    "package-lock.json": 1,
+    "package.json": 1,
+    "public": 104,
+    "reference-projects": 25,
+    "scripts": 94,
+    "src": 115,
+    "tsconfig.json": 1,
+    "vite.config.ts": 1
+  },
+  "lockedDependencyVersionsQueried": 70,
+  "advisoryQueryErrors": 0,
+  "activeAdvisoryMatches": 0,
+  "withdrawnAdvisories": [
+    "GHSA-fc5q-39xc-vjpf"
+  ],
+  "sourceScope": [
+    "assets/source",
+    "docs/reference",
+    "reference-projects/fuji-wind",
+    "src/features/poeticPixel",
+    "public/assets/poetic-pixel",
+    "public/assets/reference-scene"
+  ]
+}

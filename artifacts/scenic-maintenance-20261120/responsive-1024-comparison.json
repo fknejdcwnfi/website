@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "encoding": "Nearest-neighbor sample, lossless WebP quality100/method6/exact; all decoded sampled pixels verified",
+  "existingSourcesUnchanged": 5,
+  "existingVariantsUnchanged": 10,
+  "addedVariants": 5,
+  "addedPublishedAssetBytes": 2155614,
+  "candidateRows": [
+    {
+      "source": "conan.webp",
+      "width": 1024,
+      "height": 341,
+      "encodedBytes": 489046,
+      "previous1536EncodedBytes": 970892,
+      "bytesSavedWhenReplacing1536": 481846,
+      "fractionSavedWhenReplacing1536": 0.49629
+    },
+    {
+      "source": "game-realm.webp",
+      "width": 1024,
+      "height": 341,
+      "encodedBytes": 357356,
+      "previous1536EncodedBytes": 711896,
+      "bytesSavedWhenReplacing1536": 354540,
+      "fractionSavedWhenReplacing1536": 0.49802
+    },
+    {
+      "source": "naruto.webp",
+      "width": 1024,
+      "height": 512,
+      "encodedBytes": 811560,
+      "previous1536EncodedBytes": 1611180,
+      "bytesSavedWhenReplacing1536": 799620,
+      "fractionSavedWhenReplacing1536": 0.49629
+    },
+    {
+      "source": "social-github.webp",
+      "width": 1024,
+      "height": 341,
+      "encodedBytes": 253724,
+      "previous1536EncodedBytes": 507018,
+      "bytesSavedWhenReplacing1536": 253294,
+      "fractionSavedWhenReplacing1536": 0.49958
+    },
+    {
+      "source": "social-mail.webp",
+      "width": 1024,
+      "height": 341,
+      "encodedBytes": 243928,
+      "previous1536EncodedBytes": 482308,
+      "bytesSavedWhenReplacing1536": 238380,
+      "fractionSavedWhenReplacing1536": 0.49425
+    }
+  ],
+  "candidateTotalBytes": 2155614,
+  "previous1536TotalBytes": 4283294,
+  "limits": "File-encoding comparison only; savings apply when the browser replaces a 1536 candidate with 1024. Browser selection and transfer must be measured separately. Full sources remain fallback candidates; new variants do not retain every full-size source pixel."
+}

@@ -1,0 +1,248 @@
+{
+  "conditions": "Fresh single desktop Chromium with 1440x1100 CSS viewport/DPR2, local production preview, unthrottled; no screenshot or concurrent browser. This is a synthetic viewport, not a physical mobile device. Decoded resource body sizes are not compressed internet transfer or visitor CWV.",
+  "url": "http://127.0.0.1:5191/",
+  "browserErrors": [],
+  "badResponses": [],
+  "initialResources": [
+    {
+      "name": "http://127.0.0.1:5191/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+      "initiator": "link",
+      "decodedBodySize": 30396,
+      "transferSize": 30696,
+      "duration": 28.299999999813735
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/index-aZI5cJTg.js",
+      "initiator": "script",
+      "decodedBodySize": 317787,
+      "transferSize": 318087,
+      "duration": 30.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/index-DchbF35o.css",
+      "initiator": "link",
+      "decodedBodySize": 81236,
+      "transferSize": 81536,
+      "duration": 27.399999999441206
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 46.39999999944121
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 18.09999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 50.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 46.700000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 46.200000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 46.39999999944121
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 9.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 1411,
+      "duration": 3.5
+    }
+  ],
+  "allResources": [
+    {
+      "name": "http://127.0.0.1:5191/fonts/fusion-pixel-startup-subset.woff2?v=9c35959a78188a514b3dec68d3b84a04fcd982db29a1f080557f9054be06f175",
+      "initiator": "link",
+      "decodedBodySize": 30396,
+      "transferSize": 30696,
+      "duration": 28.299999999813735
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/index-aZI5cJTg.js",
+      "initiator": "script",
+      "decodedBodySize": 317787,
+      "transferSize": 318087,
+      "duration": 30.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/index-DchbF35o.css",
+      "initiator": "link",
+      "decodedBodySize": 81236,
+      "transferSize": 81536,
+      "duration": 27.399999999441206
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/poetic-pixel/canonical.png?v=8e87f65cc5455fac012b95dfbd8f5aaf1747b68164844efba115c4562f0013b7",
+      "initiator": "img",
+      "decodedBodySize": 160986,
+      "transferSize": 161286,
+      "duration": 46.39999999944121
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/poetic-pixel/boot.mp4?v=e713c83e7d9016b3e03dd9967b3bcf92324012f04cbec7b6479d633a062da4f5",
+      "initiator": "video",
+      "decodedBodySize": 967503,
+      "transferSize": 967803,
+      "duration": 18.09999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 50.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/grass-block.svg",
+      "initiator": "css",
+      "decodedBodySize": 601,
+      "transferSize": 901,
+      "duration": 46.700000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/lantern.svg",
+      "initiator": "css",
+      "decodedBodySize": 493,
+      "transferSize": 793,
+      "duration": 46.200000000186265
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/grass-edge.svg",
+      "initiator": "css",
+      "decodedBodySize": 585,
+      "transferSize": 885,
+      "duration": 46.39999999944121
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/poetic-pixel/atlas.png?v=ced7811e24b52c2d42b8151a2b605a54a5a6e7c60765b658738acede58b8d5c3",
+      "initiator": "img",
+      "decodedBodySize": 1641539,
+      "transferSize": 1641839,
+      "duration": 9.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/favicon.svg",
+      "initiator": "other",
+      "decodedBodySize": 1111,
+      "transferSize": 1411,
+      "duration": 3.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/naruto-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 811560,
+      "transferSize": 811860,
+      "duration": 32.799999999813735
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/conan-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 489046,
+      "transferSize": 489346,
+      "duration": 18.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/game-realm.webp",
+      "initiator": "img",
+      "decodedBodySize": 1282202,
+      "transferSize": 1282502,
+      "duration": 34.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/social-github-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 253724,
+      "transferSize": 254024,
+      "duration": 16.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/social-mail-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 243928,
+      "transferSize": 244228,
+      "duration": 17.899999999441206
+    }
+  ],
+  "documentBytes": 68951,
+  "decorativeResources": [
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/twilight-world.webp",
+      "initiator": "css",
+      "decodedBodySize": 1641538,
+      "transferSize": 1641838,
+      "duration": 50.59999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/naruto-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 811560,
+      "transferSize": 811860,
+      "duration": 32.799999999813735
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/conan-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 489046,
+      "transferSize": 489346,
+      "duration": 18.90000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/game-realm.webp",
+      "initiator": "img",
+      "decodedBodySize": 1282202,
+      "transferSize": 1282502,
+      "duration": 34.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/social-github-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 253724,
+      "transferSize": 254024,
+      "duration": 16.5
+    },
+    {
+      "name": "http://127.0.0.1:5191/assets/pixel-ui/responsive/social-mail-1024.webp",
+      "initiator": "img",
+      "decodedBodySize": 243928,
+      "transferSize": 244228,
+      "duration": 17.899999999441206
+    }
+  ],
+  "decorativeDecodedBytes": 4721998,
+  "sameOriginOnly": true,
+  "archiveRuntimeRequested": false,
+  "status": "passed"
+}

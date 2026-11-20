@@ -18,6 +18,8 @@ test('responsive candidates match the verified source/variant manifest in both h
     assert.ok(entry)
     assert.equal(entry.width, decoration.width)
     assert.equal(entry.height, decoration.height)
+    assert.deepEqual(entry.variants.map(variant => variant.width), [768, 1024, 1536])
+    assert.ok(entry.variants[1].bytes < entry.variants[2].bytes, 'the intermediate candidate must improve on the previous next-larger choice')
     for (const base of ['/', '/website/']) {
       const candidates = getDecorationSrcSet(decoration, base).split(', ')
       assert.deepEqual(candidates, [

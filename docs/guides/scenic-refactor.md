@@ -14,7 +14,7 @@
 
 6张原PNG逐字节移到[作者目录](../../assets/generated/pixel-ui/README.md)，不再由静态托管复制。对应完整lossless WebP原字节保留；来源工具与清单记录新位置，历史主题改用相同像素的WebP。
 
-五张下方卡图另有768／1536宽派生与`srcset/sizes`。派生采用nearest采样，再无损编码；它保留采样到的原色，不保留全部原尺寸像素。完整WebP继续作为高DPR候选和fallback，人物与暮色背景不参与这项缩采样。静态／React共享描述，保留固有尺寸、native lazy、空alt和aria-hidden。
+五张下方卡图另有768／1024／1536宽派生与`srcset/sizes`。1024档填补768与1536之间的常见卡片需求；编码体积比较不代替浏览器实际选图和请求测量。派生采用nearest采样，再无损编码；它保留采样到的原色，不保留全部原尺寸像素。完整WebP继续作为高DPR候选和fallback，人物与暮色背景不参与这项缩采样。静态／React共享描述，保留固有尺寸、native lazy、空alt和aria-hidden。
 
 ```bash
 python3 scripts/assets/optimize_pixel_ui.py --verify
@@ -25,7 +25,7 @@ python3 scripts/assets/prepare_responsive_decor.py --check
 
 ## 发布边界
 
-[公开资源清单](../../config/public-assets.json)显式记录经审阅的文件，构建前拒绝未登记路径、符号链接、特殊文件和非发布资料。构建后只接受Vite声明的产物及清单资源，并核对公开资源字节一致；陈旧dist文件也会失败。三个已有历史物理数据文件有精确路径例外，不放行任意binary文件。
+[公开资源清单](../../config/public-assets.json)的 `files` 分类允许正式发布，`developmentOnly` 分类用于历史本地验证。构建前拒绝未登记路径、符号链接和特殊文件。构建后核对批准路径与公开资源字节，陈旧 `dist` 文件也会失败。三个已有历史物理数据文件有精确路径例外。分类边界见[仓库维护](repository-maintenance.md)。
 
 新增素材先生成和核验来源，审阅文件名、用途与内容，再手动更新清单。构建不会扫描后自动授权，也不自动删未知文件。临时外部outDir若复用，须对自己拥有的路径显式使用`--emptyOutDir`。此检查防止误发布，并非通用恶意内容检测或绝对安全保证；CSP策略保持。
 

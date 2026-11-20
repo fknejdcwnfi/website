@@ -33,6 +33,7 @@ export default defineConfig(({ mode }) => ({
   }],
   build: {
     target: 'es2020',
+    copyPublicDir: false, // publicAssetsGuard emits the reviewed production assets.
     // Keep image URLs as files: they are preloaded and decoded individually.
     assetsInlineLimit: 0,
   },

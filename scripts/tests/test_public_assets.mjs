@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'node:net'
-import { readPublicInventory, verifyPublicDirectory, verifyBuiltDirectory } from '../build/publicAssets.ts'
+import { readPublicInventory, verifyPublicDirectory, verifyBuiltDirectory, verifyPublishedReferences } from '../build/publicAssets.ts'
 
 const fixture = async run => {
   const root = mkdtempSync(join(tmpdir(), 'public-assets-'))
@@ -20,23 +20,26 @@ const fixture = async run => {
   finally { rmSync(root, { recursive: true, force: true }) }
 }
 
-test('only explicit safe reviewed public paths are accepted', () => fixture(({ root }) => {
+test('the inventory classifies safe reviewed paths without overlap', () => fixture(({ root }) => {
   const manifest = join(root, 'inventory.json')
   const read = value => { writeFileSync(manifest, JSON.stringify(value)); return () => readPublicInventory(manifest) }
-  assert.deepEqual(read({ version: 1, files: ['media/tile.webp'] })(), ['media/tile.webp'])
-  for (const value of [null, [], {}, { version: 2, files: ['media/tile.webp'] }, { version: 1, files: [] },
-    { version: 1, files: ['media/tile.webp', 'media/tile.webp'] }]) assert.throws(read(value))
+  const inventory = { files: ['media/tile.webp'], developmentOnly: ['historical/atlas.png'] }
+  assert.deepEqual(read({ version: 2, ...inventory })(), inventory)
+  for (const value of [null, [], {}, { version: 1, ...inventory }, { version: 2, files: inventory.files },
+    { version: 2, ...inventory, files: [] }, { version: 2, ...inventory, files: ['media/tile.webp', 'media/tile.webp'] },
+    { version: 2, ...inventory, developmentOnly: ['Media/Tile.webp'] }]) assert.throws(read(value))
   for (const name of ['.env', 'media/.env.local', 'credentials.json', 'secrets.txt', 'id_rsa', 'media/original.docx',
     'assets/portrait-rig/unknown.bin',
     'media/archive.zip', 'media/notes.md', 'media/debug.js.map', '../outside.webp', 'media//tile.webp',
     '/media/tile.webp', 'media/./tile.webp', 'media/../tile.webp', 'media\\tile.webp', 'media/encoded%2fpath.webp']) {
-    assert.throws(read({ version: 1, files: [name] }), undefined, name)
+    assert.throws(read({ version: 2, files: [name], developmentOnly: [] }), undefined, name)
+    assert.throws(read({ version: 2, files: inventory.files, developmentOnly: [name] }), undefined, name)
   }
 }))
 
 test('the actual reviewed public inventory includes only existing safe resources', () => {
-  const reviewed = readPublicInventory(fileURLToPath(new URL('../../config/public-assets.json', import.meta.url)))
-  verifyPublicDirectory(fileURLToPath(new URL('../../public/', import.meta.url)), reviewed)
+  const inventory = readPublicInventory(fileURLToPath(new URL('../../config/public-assets.json', import.meta.url)))
+  verifyPublicDirectory(fileURLToPath(new URL('../../public/', import.meta.url)), [...inventory.files, ...inventory.developmentOnly])
 })
 
 test('unreviewed files and directories fail even with an otherwise safe extension', () => fixture(({ publicRoot, reviewed }) => {
@@ -64,25 +67,47 @@ test('symlinks cannot publish files or directories outside the reviewed tree', (
 }))
 
 test('the build contains exactly declared generated files and unchanged public bytes', () => fixture(({ publicRoot, outputRoot, reviewed, generated }) => {
-  verifyBuiltDirectory(outputRoot, publicRoot, reviewed, generated)
+  const inventory = { files: reviewed, developmentOnly: [] }
+  verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated)
   writeFileSync(join(outputRoot, 'assets', 'stale-old.js'), 'stale code')
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, generated), /inventory mismatch/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated), /inventory mismatch/)
   rmSync(join(outputRoot, 'assets', 'stale-old.js'))
   writeFileSync(join(outputRoot, 'media', 'tile.webp'), 'changed bytes')
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, generated), /differs/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated), /differs/)
   writeFileSync(join(outputRoot, 'media', 'tile.webp'), readFileSync(join(publicRoot, 'media', 'tile.webp')))
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, ['assets/app-test.js']), /inventory/)
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, [...generated, 'assets/original.docx']), /file type/)
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, [...generated, 'notes.html']), /publication path/)
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, [...generated, '../outside.js']), /publication path/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, ['assets/app-test.js']), /inventory/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, [...generated, 'assets/original.docx']), /file type/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, [...generated, 'notes.html']), /publication path/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, [...generated, '../outside.js']), /publication path/)
 }))
 
 test('a generated output cannot shadow a reviewed public asset or use a link', () => fixture(({ publicRoot, outputRoot, reviewed, generated }) => {
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, [...generated, 'assets/app-test.js']), /inventory/)
+  const inventory = { files: reviewed, developmentOnly: [] }
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, [...generated, 'assets/app-test.js']), /inventory/)
   rmSync(join(outputRoot, 'assets', 'app-test.js'))
   symlinkSync(join(publicRoot, 'media', 'tile.webp'), join(outputRoot, 'assets', 'app-test.js'))
-  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, reviewed, generated), /Unsafe build entry/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated), /Unsafe build entry/)
 }))
+
+test('historical source assets are required locally and forbidden in production', () => fixture(({ publicRoot, outputRoot, reviewed, generated }) => {
+  const inventory = { files: reviewed, developmentOnly: ['assets/old.webp'] }
+  const original = join(publicRoot, 'assets', 'old.webp')
+  mkdirSync(join(publicRoot, 'assets'))
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated), /missing/)
+  writeFileSync(original, 'historical fixture')
+  verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated)
+  writeFileSync(join(outputRoot, 'assets', 'old.webp'), 'historical fixture')
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, generated), /inventory mismatch/)
+  assert.throws(() => verifyBuiltDirectory(outputRoot, publicRoot, inventory, [...generated, 'assets/old.webp']), /colliding/)
+}))
+
+test('production code cannot point to a historical asset or its retired directory', () => {
+  const inventory = { files: ['assets/live.webp'], developmentOnly: ['assets/old.webp', 'assets/historical/atlas.png'] }
+  verifyPublishedReferences('const url = "/assets/live.webp"', inventory, 'app.js')
+  for (const source of ['url(/website/assets/old.webp)', 'const base = "/assets/historical/"']) {
+    assert.throws(() => verifyPublishedReferences(source, inventory, 'app.js'), /references an unpublished asset/)
+  }
+})
 
 test('special filesystem entries are rejected without reading their contents', { skip: process.platform === 'win32' }, () => fixture(async ({ publicRoot, reviewed }) => {
   const socketPath = join(publicRoot, 'media', 'socket.webp')
