@@ -225,7 +225,7 @@ with sync_playwright() as playwright:
 
         ctx, page, entry = context('no_js', java_script_enabled=False, reduced_motion='no-preference')
         response = page.goto(args.url)
-        check('no_js_response_and_complete_reading', response.status == 200 and page.locator('.static-site').count() == 1 and page.locator('.writing-entry').count() == 3)
+        check('no_js_response_and_complete_reading', response.status == 200 and page.locator('.static-site').count() == 1 and page.locator('.writing-entry').count() == 4)
         check('no_js_decorations_are_static', not ambient_active(decorative_styles(page)))
         check('no_js_sections_are_visible', page.locator('.personal-section').evaluate_all('(nodes)=>nodes.every(e=>getComputedStyle(e).opacity!=="0"&&getComputedStyle(e).visibility!=="hidden"&&e.getClientRects().length>0)'))
         no_events(entry)

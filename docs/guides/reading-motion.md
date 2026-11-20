@@ -6,7 +6,7 @@
 
 当前日志和思绪统一存放在[`content/writing/`](../../src/features/profile/content/writing/)，[聚合入口](../../src/features/profile/content/writing/index.ts)显式确定展示顺序；缺少原稿日期的记录继续无日期。共享日期显示和内容选择分别位于[`writingPresentation.ts`](../../src/features/profile/content/writingPresentation.ts)和[`selectors.ts`](../../src/features/profile/content/selectors.ts)。原生全文阅读、无JS正文以及原文章锚点均保持。
 
-[搜索索引](../../src/features/profile/content/searchIndex.ts)在每个搜索组件挂载时准备一次规范化文本；每次输入只拆分查询并匹配，到8条结果即停止。保留literal tokens、原顺序、大小写行为和旧`searchSite`接口。没有跨配置的全局缓存，修改配置的测试夹具仍能得到新结果。全文仍在静态HTML和运行时内容中存在；本轮没有为减少这部分重复引入远程服务或移除无JS正文，也不宣称网络载荷因此缩小。
+[搜索索引](../../src/features/profile/content/searchIndex.ts)在每次挂载中首次打开搜索时准备规范化文本。后续输入只拆分查询并匹配，到8条结果即停止。保留字面匹配、原顺序、大小写行为和旧 `searchSite` 接口。搜索在当前页面内复用索引。全文仍随静态HTML和运行时代码提供，关闭JavaScript后继续可以阅读。
 
 ## 默认人物动态
 

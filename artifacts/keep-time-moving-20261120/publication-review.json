@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "publishedSourceMarkersCompared": 3,
+  "filesCompared": 13,
+  "sitesBuildContainsRawAttachment": false,
+  "pagesBuildContainsRawAttachment": false,
+  "sourceAndPortraitTreesUnchanged": [
+    "assets/source",
+    "docs/reference",
+    "reference-projects/fuji-wind",
+    "src/features/poeticPixel",
+    "public/assets/poetic-pixel",
+    "public/assets/pixel-ui"
+  ]
+}

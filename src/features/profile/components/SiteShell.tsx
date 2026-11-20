@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useMemo, type ReactNode } from 'react'
 import PixelIcon from './PixelIcon'
 import NavigationIcon from './NavigationIcon'
 import SiteSearch from './SiteSearch'
@@ -10,8 +10,10 @@ import { getSiteGithub, getSiteRepository, getSiteNavigation, getTableOfContents
 export default function SiteShell({ children }: { children: ReactNode }) {
   const github = getSiteGithub(site)
   const repository = getSiteRepository(site)
-  const navigation = getSiteNavigation(site)
-  const contents = getTableOfContents(site)
+  const { navigation, contents } = useMemo(() => ({
+    navigation: getSiteNavigation(site),
+    contents: getTableOfContents(site),
+  }), [])
   const activeSection = useActiveSection(navigation)
   const { mode: pageMotion } = usePageMotion()
 

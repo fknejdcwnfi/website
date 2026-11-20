@@ -2,19 +2,19 @@ import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import PixelIcon from './PixelIcon'
 import NavigationIcon from './NavigationIcon'
 import { getSiteSearchEntries, site } from '../content/site'
-import { createSearchIndex, searchIndex } from '../content/searchIndex'
+import { createSearchIndex, searchIndex, type SiteSearchIndex } from '../content/searchIndex'
 
 export default function SiteSearch() {
   const [query, setQuery] = useState('')
   const [expanded, setExpanded] = useState(false)
+  const [index, setIndex] = useState<SiteSearchIndex | null>(null)
   const input = useRef<HTMLInputElement>(null)
   const wrapper = useRef<HTMLDivElement>(null)
   const composing = useRef(false)
   const imeSubmit = useRef(false)
   const imeTimer = useRef<number | undefined>(undefined)
   const isImeKey = (event: KeyboardEvent): boolean => composing.current || event.isComposing || event.keyCode === 229
-  const index = useMemo(() => createSearchIndex(getSiteSearchEntries(site)), [])
-  const matches = searchIndex(index, query)
+  const matches = useMemo(() => expanded && index ? searchIndex(index, query) : [], [expanded, index, query])
   const describeGroup = (href: string) => {
     if (href.startsWith('#note-') || href.startsWith('#thought-')) return { id: 'writing', label: '思绪与日志', icon: '#writing' }
     if (href.startsWith('#project-')) return { id: 'work', label: '作品', icon: '#work' }
@@ -31,6 +31,10 @@ export default function SiteSearch() {
     else groups.push({ ...category, items: [result] })
   }
   const results = groups.flatMap(group => group.items)
+  const open = (): void => {
+    setIndex(current => current ?? createSearchIndex(getSiteSearchEntries(site)))
+    setExpanded(true)
+  }
   const close = (): void => setExpanded(false)
   const focusResult = (index: number): void => {
     const links = wrapper.current?.querySelectorAll<HTMLAnchorElement>('.site-search__result')
@@ -88,7 +92,7 @@ export default function SiteSearch() {
         <label className="visually-hidden" htmlFor="site-search">搜索此网站</label>
         <svg className="site-search__icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" shapeRendering="crispEdges"><path fillRule="evenodd" d="M3 1h6v1h2v2h1v5h-1v2h-1v1h2v1h1v1h2v2h-3v-1h-1v-1h-1v-2H4v-1H2V9H1V4h1V2h1V1zm1 2v1H3v5h1v1h5V9h1V4H9V3H4z" /></svg>
         <input ref={input} id="site-search" type="search" placeholder="搜索此网站" autoComplete="off" maxLength={120} value={query} aria-expanded={expanded} aria-controls="site-search-results"
-          onChange={(event) => { setQuery(event.target.value); setExpanded(true) }} onFocus={() => setExpanded(true)} onClick={() => setExpanded(true)}
+          onChange={(event) => { setQuery(event.target.value); open() }} onFocus={open} onClick={open}
           onCompositionStart={() => { composing.current = true }} onCompositionEnd={() => { composing.current = false }}
           onKeyDown={(event) => {
             if (isImeKey(event.nativeEvent)) {
@@ -102,7 +106,7 @@ export default function SiteSearch() {
             imeSubmit.current = false
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
               event.preventDefault()
-              setExpanded(true)
+              open()
               const last = event.key === 'ArrowUp'
               window.requestAnimationFrame(() => focusResult(last ? -1 : 0))
             }

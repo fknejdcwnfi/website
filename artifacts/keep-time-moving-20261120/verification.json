@@ -1,0 +1,37 @@
+{
+  "base": "65ad20dc698d8eadde5dc06557552857f1214351",
+  "nodeTests": 164,
+  "repositoryTests": 18,
+  "fontMappedCodepoints": 989,
+  "fontSubsetBytes": 30584,
+  "chromiumLocal": {
+    "root-writing": {
+      "status": "passed",
+      "assertions": 50
+    },
+    "pages-writing": {
+      "status": "passed",
+      "assertions": 50
+    },
+    "root-audit_hardening": {
+      "status": "passed",
+      "assertions": 118
+    },
+    "pages-audit_hardening": {
+      "status": "passed",
+      "assertions": 118
+    },
+    "root-reading_theme": {
+      "status": "passed",
+      "assertions": 24
+    },
+    "root-scenic_motion": {
+      "status": "passed",
+      "assertions": 38
+    },
+    "root-default_motion": {
+      "status": "passed",
+      "assertions": 44
+    }
+  }
+}

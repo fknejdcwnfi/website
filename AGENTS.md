@@ -50,7 +50,7 @@ instructions. Current guides are indexed in [docs](docs/README.md).
   default artwork feature; `referenceScene/` owns its shared player/lifecycle.
 - Keep React and `content/staticMarkup.ts` consistent. Shared selectors validate
   public links and optional data; escape static text. Search uses literal tokens,
-  eight results and a per-mount index, without a global cache of mutable fixtures.
+  eight results and an index prepared on first open of each mount.
   Leave IME composition/legacy229 keys and commit submissions native.
 - Historical character routes stay lazy and functional. Their styling belongs
   with the lazy route. Retain unique historical source/evidence; do not move or
